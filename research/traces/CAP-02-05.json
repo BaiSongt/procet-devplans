@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-02-05",
+  "topic": "R-MS-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-02-05/README.md",
+    "ui": "docs/capabilities/CAP-02-05/UI.md",
+    "topic": "research/topics/R-MS-001.md"
+  },
+  "codeEvidence": [
+    {
+      "id": "E-MS-01",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/material.rs"
+    },
+    {
+      "id": "E-MS-02",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/types.rs"
+    },
+    {
+      "id": "E-MS-03",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/setup/manufacturing/types.rs"
+    }
+  ],
+  "rules": [
+    {
+      "id": "MS-R01",
+      "kind": "standard_abstract_and_design",
+      "sourceIds": [
+        "SRC-MS-001"
+      ],
+      "fields": [
+        "validConditions",
+        "uncertainty",
+        "methodRef"
+      ],
+      "capTests": [
+        "MS-T01",
+        "MS-T02",
+        "MS-T06"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MS-R02",
+      "kind": "scope_and_internal_ownership",
+      "sourceIds": [
+        "SRC-MS-002"
+      ],
+      "fields": [
+        "materialDefinition",
+        "supplierLotRef",
+        "stockInstance"
+      ],
+      "capTests": [
+        "MS-T04",
+        "MS-T18"
+      ],
+      "workPackages": [
+        "F1-01"
+      ]
+    },
+    {
+      "id": "MS-R03",
+      "kind": "units_and_test_scale",
+      "sourceIds": [
+        "SRC-MS-003",
+        "SRC-MS-005"
+      ],
+      "fields": [
+        "densityUnit",
+        "hardnessScale",
+        "methodRef"
+      ],
+      "capTests": [
+        "MS-T05",
+        "MS-T06"
+      ],
+      "workPackages": [
+        "F1-02"
+      ]
+    },
+    {
+      "id": "MS-R04",
+      "kind": "official_implementation_boundary",
+      "sourceIds": [
+        "SRC-MS-004"
+      ],
+      "fields": [
+        "bboxMethod",
+        "useTriangulation",
+        "shapeTolerance"
+      ],
+      "capTests": [
+        "MS-T08",
+        "MS-T10"
+      ],
+      "workPackages": [
+        "F1-02"
+      ]
+    },
+    {
+      "id": "MS-R05",
+      "kind": "internal_requirement",
+      "sourceIds": [],
+      "codeEvidenceIds": [
+        "E-MS-03"
+      ],
+      "fields": [
+        "previewOnly",
+        "explicitAdopt",
+        "stockDimensions"
+      ],
+      "capTests": [
+        "MS-T07",
+        "MS-T08",
+        "MS-T09",
+        "MS-T11"
+      ],
+      "workPackages": [
+        "F1-04"
+      ]
+    },
+    {
+      "id": "MS-R06",
+      "kind": "design_hypothesis_needs_real_occt",
+      "sourceIds": [
+        "SRC-MS-004"
+      ],
+      "fields": [
+        "solidValidity",
+        "frameRef",
+        "booleanResidual",
+        "tolerancePolicy"
+      ],
+      "capTests": [
+        "MS-T10",
+        "MS-T11",
+        "MS-T12",
+        "MS-T13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MS-R07",
+      "kind": "scope_correction",
+      "sourceIds": [
+        "SRC-MS-006"
+      ],
+      "codeEvidenceIds": [
+        "E-MS-01"
+      ],
+      "fields": [
+        "groupScheme",
+        "groupMappingSource"
+      ],
+      "capTests": [
+        "MS-T01",
+        "MS-T05"
+      ],
+      "workPackages": [
+        "F1-01"
+      ]
+    },
+    {
+      "id": "MS-R08",
+      "kind": "internal_versioned_dependency",
+      "sourceIds": [],
+      "codeEvidenceIds": [
+        "E-MS-01",
+        "E-MS-02",
+        "E-MS-03"
+      ],
+      "fields": [
+        "materialRevision",
+        "stockHash",
+        "staleSet"
+      ],
+      "capTests": [
+        "MS-T03",
+        "MS-T04",
+        "MS-T14",
+        "MS-T15",
+        "MS-T16",
+        "MS-T17",
+        "MS-T18"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    }
+  ],
+  "claimBoundary": "标准目录不等于标准正文；源码观察不等于产品验收。18项均为设计规格，未运行。",
+  "engineeringGates": [
+    "材料修订历史可唯一解析",
+    "实际供应商分组和材质证据",
+    "锁定OCCT版本及真实Solid对拍",
+    "F1-04机床Frame向工艺Frame迁移",
+    "完整离线资产闭包及回退"
+  ]
+}
