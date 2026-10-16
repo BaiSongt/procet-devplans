@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 11,
-    "detailPendingCount": 77,
+    "detailDraftedCount": 12,
+    "detailPendingCount": 76,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -30,26 +30,34 @@
       {"id":"CAP-01-08","path":"docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-08_扩展与集成入口.md","researchTrace":"backfill_pending"},
       {"id":"CAP-02-01","path":"docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-02-01_机床资源与构型.md","researchTrace":"backfill_pending"},
       {"id":"CAP-02-02","path":"docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-02-02_刀具与切削参数.md","researchTrace":"backfill_pending"},
-      {"id":"CAP-02-03","path":"docs/capabilities/CAP-02-03/README.md","researchTrace":"compiled_with_explicit_engineering_gates","researchTopic":"R-TA-001"}
+      {"id":"CAP-02-03","path":"docs/capabilities/CAP-02-03/README.md","researchTrace":"compiled_with_explicit_engineering_gates","researchTopic":"R-TA-001"},
+      {"id":"CAP-02-04","path":"docs/capabilities/CAP-02-04/README.md","uiPath":"docs/capabilities/CAP-02-04/UI.md","researchTrace":"compiled_with_explicit_engineering_gates","researchTopic":"R-WH-001","tracePath":"research/traces/CAP-02-04.json","subcapabilityCount":6,"acceptanceSpecifications":18}
     ]
   },
   "workPackages": {
-    "detailedDraftedCount": 1,
-    "detailPendingCount": 35,
+    "detailedDraftedCount": 2,
+    "detailPendingCount": 34,
     "defaultForUnlisted": "baseline_only_not_detailed",
-    "detailed": [{"id":"B0-03","path":"docs/work-packages/B0-03.md","status":"drafted_pending_review","implementation":"not_run","subtaskCount":8,"goldenScenarioSpecifications":12}]
+    "detailed": [
+      {"id":"B0-03","path":"docs/work-packages/B0-03.md","status":"drafted_pending_review","implementation":"not_run","subtaskCount":8,"goldenScenarioSpecifications":12},
+      {"id":"F1-02","path":"docs/work-packages/F1-02.md","status":"drafted_pending_review","implementation":"not_run","subtaskCount":8,"acceptanceSpecifications":10}
+    ]
   },
   "research": {
     "registryPath": "research/references.json",
-    "registeredSources": 8,
-    "capabilityTraceCompiledCount": 1,
-    "topics": [{"id":"R-TA-001","path":"research/topics/R-TA-001.md","status":"drafted_pending_review","primaryCapability":"CAP-02-03","relatedDomains":["02","04","08","09"],"necessaryEngineeringEvidence":"partial_with_explicit_gates"}],
-    "domainCoverage": "11域研究队列已建立，仅刀具总成、刚体安装和刀补相关内容有本轮专题；不声明任何域已全面完成"
+    "registeredSources": 15,
+    "capabilityTraceCompiledCount": 2,
+    "topics": [
+      {"id":"R-TA-001","path":"research/topics/R-TA-001.md","status":"drafted_pending_review","primaryCapability":"CAP-02-03","relatedDomains":["02","04","08","09"],"necessaryEngineeringEvidence":"partial_with_explicit_gates"},
+      {"id":"R-WH-001","path":"research/topics/R-WH-001.md","status":"drafted_pending_review","primaryCapability":"CAP-02-04","relatedDomains":["02","03","04","09"],"necessaryEngineeringEvidence":"partial_with_explicit_gates"}
+    ],
+    "domainCoverage": "11域研究队列已建立；总成和夹具专题局部覆盖，不声明任何域全面完成"
   },
-  "businessAssets": {"baselineCount":17,"detailedCrossDomainReview":"pending","currentPartialCoverage":["D03","D04","D10","D13","D14","D15"]},
+  "businessAssets": {"baselineCount":17,"detailedCrossDomainReview":"pending","currentPartialCoverage":["D03","D04","D10","D11","D13","D14","D15","D17"]},
   "migration": {"status":"core_restored_support_audit_pending","record":"tracking/migration-2026-10-16.md","confirmedRepairCommit":"2a88ea79855cea35564be4cdc5c5a553355719a2"},
-  "next": {"capabilityId":"CAP-02-04","name":"夹具与工装资源","parallelPlanningBacklog":["回补前10项研究追踪","按依赖细分F1-02等工作包","审计和迁入必要历史JSON/示例/检查脚本"]},
-  "checks": {"record":"tracking/verification-2026-10-16.md","mathematicalExamples":{"executed":true,"passed":6,"failed":0},"productTests":"not_run","fullRepositoryDocumentCheck":"not_run_this_iteration"},
+  "next": {"capabilityId":"CAP-02-05","name":"毛坯与材料目录","parallelPlanningBacklog":["回补前10项研究追踪","按依赖细分F1-01/F1-06等工作包","审计和迁入必要历史JSON/示例/检查脚本"]},
+  "checks": {"record":"tracking/verification-CAP-02-04-2026-10-16.md","mathematicalExamples":{"executed":true,"passed":22,"failed":0,"scope":"latest_iteration_only_not_cumulative","file":"checks/test_workholding_math_examples.py","gitBlobSha":"b66b7a4c47619842480943c3d11f7f487a07b6b2"},"productTests":"not_run","fullRepositoryDocumentCheck":"not_run_this_iteration"},
+  "lastPlanningItem": {"capabilityId":"CAP-02-04","workPackageId":"F1-02","sourceBaselineCommit":"4afe3d1a2b3f5d6eb96b959392c9aa16862ee814","sourceCodeBaseline":{"repository":"BaiSongt/procet-resources","commit":"b861efee9c84a99eba1fbee2c8749e60576fb93f"}},
   "stopConditionMet": false,
-  "notes": ["计数由实际文档决定，未列项依原基线继续处理，不新造完成项", "研究追踪编制不等于标准全文已经取得或具体设备已认证", "最终规划阶段结束条件见tracking/planning-automation.json"]
+  "notes": ["计数由实际文档决定，未列项依原基线继续处理，不新造完成项", "研究追踪编制不等于标准全文取得或具体设备认证", "F1-02文档细分不代表B0-03/F1-01依赖已实现", "最终规划阶段结束条件见tracking/planning-automation.json"]
 }

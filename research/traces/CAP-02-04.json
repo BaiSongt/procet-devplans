@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-02-04",
+  "topic": "R-WH-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-02-04/README.md",
+    "ui": "docs/capabilities/CAP-02-04/UI.md",
+    "topic": "research/topics/R-WH-001.md",
+    "workPackage": "docs/work-packages/F1-02.md",
+    "mathExamples": "checks/test_workholding_math_examples.py"
+  },
+  "codeEvidence": [
+    {"id":"E-WH-01","repository":"BaiSongt/procet-resources","commit":"b861efee9c84a99eba1fbee2c8749e60576fb93f","path":"src/cam/resources/workholding/types.rs","readLines":[1,360],"meaning":"已有资源基座、总成、接口、datum和能力结构；不证明产品集成通过"},
+    {"id":"E-WH-02","repository":"BaiSongt/procet-resources","commit":"b861efee9c84a99eba1fbee2c8749e60576fb93f","path":"src/cam/setup/manufacturing/types.rs","readLines":[1,240],"meaning":"已有exact引用、安装选址与计划状态；旧字段含Machine CSYS语义"}
+  ],
+  "rules": [
+    {"id":"WH-R01","kind":"source_and_design_derivation","sourceIds":["SRC-WH-001","SRC-WH-002","SRC-WH-003"],"fields":["contactModel","scaledRank","redundancyReason"],"capTests":["WH-T08"],"workPackageTests":["F1-02-T07"],"mathTests":["test_m14_bilateral_rank_six","test_m16_collinear_support_rank_loss","test_m17_redundant_row_no_extra_constraint","test_m18_scaled_units_same_rank_matrix"]},
+    {"id":"WH-R02","kind":"source_and_design_derivation","sourceIds":["SRC-TA-001","SRC-WH-007"],"fields":["parentFrameRef","parentInterfaceRef","childInterfaceRef","mateTransform"],"capTests":["WH-T03","WH-T04","WH-T05","WH-T17"],"workPackageTests":["F1-02-T01","F1-02-T02","F1-02-T03","F1-02-T04"],"mathTests":["test_m01_identity","test_m02_inverse_roundtrip","test_m03_noncommuting","test_m04_interface_closure","test_m05_absolute_target_repeat","test_m06_reflection_rejected","test_m07_scale_rejected","test_m08_nan_rejected","test_m09_last_row_rejected","test_m10_point_and_direction","test_m11_rotated_parent_normal","test_m12_rotary_pivot","test_m13_units_boundary"]},
+    {"id":"WH-R03","kind":"catalog_scope_and_design_decision","sourceIds":["SRC-WH-006"],"codeEvidenceIds":["E-WH-01"],"fields":["datumRef","workpieceDatumRef","processFrameRef","executionFrameRef"],"capTests":["WH-T11"],"workPackageTests":["F1-02-T05","F1-02-T08"],"mathTests":[]},
+    {"id":"WH-R04","kind":"source_and_design_derivation","sourceIds":["SRC-WH-002","SRC-WH-003"],"fields":["unilateralFirstOrderStatus","escapeWitness"],"capTests":["WH-T07"],"workPackageTests":["F1-02-T07"],"mathTests":["test_m15_rank_six_still_can_lift"]},
+    {"id":"WH-R05","kind":"source_and_design_derivation","sourceIds":["SRC-WH-004","SRC-WH-005"],"fields":["loadCaseRef","frictionEvidence","forceBounds"],"capTests":["WH-T09","WH-T10"],"workPackageTests":[],"mathTests":["test_m19_force_bound","test_m20_missing_mu_unknown","test_m21_tension_not_compressive_contact","test_m22_cone_not_independent_axes"]},
+    {"id":"WH-R06","kind":"internal_design_decision","sourceIds":[],"codeEvidenceIds":["E-WH-01"],"fields":["geometryPurpose","sourceGeometryHash","assessmentScope"],"capTests":["WH-T11","WH-T12"],"workPackageTests":["F1-02-T08"],"mathTests":[]},
+    {"id":"WH-R07","kind":"internal_design_decision","sourceIds":[],"codeEvidenceIds":["E-WH-01","E-WH-02"],"fields":["actuationCapability","plannedState","observedState"],"capTests":["WH-T13"],"workPackageTests":["F1-02-T09"],"mathTests":[]},
+    {"id":"WH-R08","kind":"internal_design_decision","sourceIds":[],"codeEvidenceIds":["E-WH-01","E-WH-02"],"fields":["inputFingerprint","requestId","expectedRevision","staleReason"],"capTests":["WH-T01","WH-T02","WH-T06","WH-T14","WH-T15","WH-T16","WH-T18"],"workPackageTests":["F1-02-T06","F1-02-T10"],"mathTests":[]}
+  ],
+  "claimBoundary": "mathTests仅证明合成示例，不把任何capTests或workPackageTests标为产品通过；内部设计决策无外部来源时不伪称标准要求",
+  "engineeringGates": ["真实夹具与机床接口资料", "GPS规范正文及适用条款", "摩擦/载荷/夹紧力来源", "实际OCCT版本行为", "GUI和跨域产品验收"]
+}
