@@ -15,7 +15,13 @@
 | [维护规则](AGENTS.md) | 并发提交、安全、版权和范围 |
 | [迁移记录](tracking/migration-2026-10-16.md) | 实际入库范围和仍待审计的历史支持附件 |
 
-## 最新交付｜CAP-02-07 资源几何与参数化
+## 最新交付｜CAP-02-08 资源能力与兼容性
+
+- [业务规格](docs/capabilities/CAP-02-08/README.md)与[GUI/字段](docs/capabilities/CAP-02-08/UI.md)：8项内部子能力、10条设计规则、20条正反产品验收，清晰区分结构Verified、任务候选和控制器/NC级实际执行资格。
+- [R-RC-001理论专题](research/topics/R-RC-001.md)、[逐项证据追踪](research/traces/CAP-02-08.json)及[合成反例](docs/capabilities/CAP-02-08/fixtures.json)：新增8项ISO/OPC/原始学术来源，复核ISO/TS 13399-60；不把轴数、通用接口key、OPC UA监控状态或包络交叠冒充上机能力。
+- 源码只读核对复用现有后端machine capability和GUI徽章；PostProcessor typed发布门尚未具备，必须标unknown而非直接赋值。**本轮没有更改产品代码。**
+
+## 前轮交付｜CAP-02-07 资源几何与参数化
 
 - [业务规格](docs/capabilities/CAP-02-07/README.md)与[GUI/3D设计](docs/capabilities/CAP-02-07/UI.md)：9项内部子能力、10条设计规则、20条产品正反验收；强调参数示意、精确B-Rep、mesh和工程来源资格必须独立。
 - [R-RG-001理论专题](research/topics/R-RG-001.md)和[可追溯规则](research/traces/CAP-02-07.json)：8项ISO/OCCT/Babylon官方来源，复用现有几何资产与参数化预览，明确BRep有效性≠碰撞/加工认证。
@@ -52,7 +58,7 @@
 - [R-WH-001 定位与受限载荷](research/topics/R-WH-001.md)：7项新增原始来源，明确定位满秩、一阶形封闭、有限载荷和实际夹紧的不同结论。
 - [F1-02 Frame与单位](docs/work-packages/F1-02.md)：8项实施子任务、10条产品验收规格、跨语言适配及迁移/回退。
 
-当前计数：详细功能规格15/88；工作包4/36；来源注册53项；CAP研究追踪5项及工作包追踪2项。前10项仍待补证。下一项：CAP-02-08「资源能力与兼容性」，工作包随后优先F1-03。全部设计待评审，产品未验收。
+当前计数：详细功能规格16/88；工作包4/36；来源注册61项；CAP研究追踪6项及工作包追踪2项。前10项仍待补证。下一项：F1-03「收敛CAM公共面与领域副本」，随后CAP-03-01「CAD导入与几何读取」。全部设计待评审，产品未验收。
 
 ## 前轮交付
 
