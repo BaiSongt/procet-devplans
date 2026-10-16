@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "procet-planning-automation-v1",
+  "automation_id": "6ad234af7e4c8191b73f0d0995af5e33",
+  "title": "Procet 规划与理论依据",
+  "enabled_at_creation": true,
+  "schedule": "FREQ=HOURLY;INTERVAL=1",
+  "timing_mode": "flexible_schedule",
+  "owner_repository": "BaiSongt/procet-devplans",
+  "delivery": "逐项文档提交，不默认打ZIP",
+  "source_of_truth": "每轮读取实时远端HEAD及tracking/progress.json；不得以本配置猜测任务实时状态",
+  "scope": {"capabilities": 88, "work_packages": 36, "business_assets": 17, "domains": 11},
+  "iteration": ["核对远端与意见", "选择未完成CAP/工作包/研究专题", "核对相关源码和原始来源", "同步业务、GUI、数据、端口、验收和研究映射", "执行可用的文档校验", "非强制提交并回读", "更新实际进度与阻断"],
+  "guardrails": ["仅写本仓", "不改产品数据库", "不启动付费CI", "不复制未经授权资料", "不代替人类审批", "不把文档通过写成产品通过"],
+  "completion_criteria": ["88项均有完整详细规格和逐项研究追踪", "36项均有实施级子任务及验收/回退", "17类数据和模块接口贯通并完成交叉核对", "11域研究目录与逐项适用证据完整", "必要规划文件迁移完成且引用完整", "必要规划待办清零，未决工程风险已显式登记", "最终规划导航、覆盖矩阵和交接文档已入库"],
+  "not_required_to_claim_planning_complete": ["人类已批准所有设计", "产品源码已实现", "真实机床或Windows EXE已通过"],
+  "on_complete": "生成最终交接并调用automations.update，将本automation_id设is_enabled=false；不得影响其他自动任务",
+  "on_blocked": "记录缺失资料或权限、保留未完成状态；不编造完成，不无限重复相同提交"
+}
