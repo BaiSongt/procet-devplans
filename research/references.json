@@ -723,6 +723,139 @@
         "MET-R03"
       ],
       "accessedOn": "2026-10-17"
+    },
+    {
+      "id": "SRC-SNAP-001",
+      "title": "RFC 8949: Concise Binary Object Representation (CBOR)",
+      "authors": [
+        "Carsten Bormann; Paul Hoffman"
+      ],
+      "publisher": "IETF / RFC Editor",
+      "edition": "RFC 8949",
+      "published": "2020-12",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8949",
+      "accessDepth": "section_text",
+      "locator": "§4.2.1 core deterministic encoding及§4.2.3 length-first alternative",
+      "supports": "不同确定性规则有不同地图键排序，整数与浮点序列化须受限",
+      "limits": "不能由实现注释推断当前CBOR编码已符合任何确定格式",
+      "rules": [
+        "SNAP-R06"
+      ],
+      "accessedOn": "2026-10-17"
+    },
+    {
+      "id": "SRC-SNAP-002",
+      "title": "OpenContainers Descriptor Spec",
+      "authors": [
+        "Open Container Initiative"
+      ],
+      "publisher": "OCI",
+      "edition": "Image Specification descriptor，官网发布页",
+      "published": "2025-11",
+      "url": "https://specs.opencontainers.org/image-spec/descriptor/",
+      "accessDepth": "section_text",
+      "locator": "OCI Content Descriptors及Properties",
+      "supports": "用mediaType、digest、size构成可验证内容引用；Merkle DAG用于文件型工件闭包建模参考",
+      "limits": "不证明.pct符合OCI镜像规范，也不替代领域必需性判定",
+      "rules": [
+        "SNAP-R02"
+      ],
+      "accessedOn": "2026-10-17"
+    },
+    {
+      "id": "SRC-SNAP-003",
+      "title": "SQLite Online Backup API",
+      "authors": [
+        "SQLite project"
+      ],
+      "publisher": "SQLite",
+      "edition": "官方网页，发布日未标注",
+      "published": "未标注",
+      "url": "https://www.sqlite.org/backup.html",
+      "accessDepth": "section_text",
+      "locator": "§1 Using the SQLite Online Backup API",
+      "supports": "在线数据库复制的一致读取点与正确备份方式",
+      "limits": "不涵盖多个独立领域DB/CAS之间的原子切面",
+      "rules": [
+        "SNAP-R04"
+      ],
+      "accessedOn": "2026-10-17"
+    },
+    {
+      "id": "SRC-SNAP-004",
+      "title": "Write-Ahead Logging",
+      "authors": [
+        "SQLite project"
+      ],
+      "publisher": "SQLite",
+      "edition": "官方网页，发布日未标注",
+      "published": "未标注",
+      "url": "https://www.sqlite.org/wal.html",
+      "accessDepth": "section_text",
+      "locator": "Overview；How WAL Works；Advantages and Disadvantages",
+      "supports": "WAL reader end mark与单DB一致性；多个ATTACHed WAL库事务不保证整体原子",
+      "limits": "不能以单库WAL证明分布式或跨数据库/外部文件的ACID",
+      "rules": [
+        "SNAP-R04"
+      ],
+      "accessedOn": "2026-10-17"
+    },
+    {
+      "id": "SRC-SNAP-005",
+      "title": "Atomic Commit In SQLite",
+      "authors": [
+        "SQLite project"
+      ],
+      "publisher": "SQLite",
+      "edition": "官方网页，发布日未标注",
+      "published": "未标注",
+      "url": "https://www.sqlite.org/atomiccommit.html",
+      "accessDepth": "section_text",
+      "locator": "§5 Multi-file Commit以及原子提交前提",
+      "supports": "SQLite特定日志/文件系统条件下的多库提交机制及限制",
+      "limits": "不能推广成任意目录rename或不同存储库跨进程原子",
+      "rules": [
+        "SNAP-R07"
+      ],
+      "accessedOn": "2026-10-17"
+    },
+    {
+      "id": "SRC-SNAP-006",
+      "title": "PROV-O: The PROV Ontology",
+      "authors": [
+        "Timothy Lebo; Satya Sahoo; Deborah McGuinness (editors)"
+      ],
+      "publisher": "W3C",
+      "edition": "W3C Recommendation 30 April 2013",
+      "published": "2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "accessDepth": "section_text",
+      "locator": "§2 Starting Point Terms；§3 Ontology Description",
+      "supports": "Entity/Activity/Agent和wasDerivedFrom、wasGeneratedBy等来源描述语义",
+      "limits": "没有要求Procet采用OWL/RDF，也不自动给出工艺闭包必需项",
+      "rules": [
+        "SNAP-R09"
+      ],
+      "accessedOn": "2026-10-17"
+    },
+    {
+      "id": "SRC-SNAP-007",
+      "title": "How To Corrupt An SQLite Database File",
+      "authors": [
+        "SQLite project"
+      ],
+      "publisher": "SQLite",
+      "edition": "官方网页，发布日未标注",
+      "published": "未标注",
+      "url": "https://www.sqlite.org/howtocorrupt.html",
+      "accessDepth": "section_text",
+      "locator": "§1.2 Backup or restore while transaction active；§1.3 hot journal；§1.4 mismatch journals",
+      "supports": "活动SQLite数据库应使用一致备份，不能随意丢WAL/journal",
+      "limits": "不能保证所有存储损坏能自动恢复或跨库恢复成功",
+      "rules": [
+        "SNAP-R07"
+      ],
+      "accessedOn": "2026-10-17"
     }
   ]
 }
