@@ -15,7 +15,13 @@
 | [维护规则](AGENTS.md) | 并发提交、安全、版权和范围 |
 | [迁移记录](tracking/migration-2026-10-16.md) | 实际入库范围和仍待审计的历史支持附件 |
 
-## 最新交付｜F1-06离线快照与资源闭包
+## 最新交付｜CAP-02-07 资源几何与参数化
+
+- [业务规格](docs/capabilities/CAP-02-07/README.md)与[GUI/3D设计](docs/capabilities/CAP-02-07/UI.md)：9项内部子能力、10条设计规则、20条产品正反验收；强调参数示意、精确B-Rep、mesh和工程来源资格必须独立。
+- [R-RG-001理论专题](research/topics/R-RG-001.md)和[可追溯规则](research/traces/CAP-02-07.json)：8项ISO/OCCT/Babylon官方来源，复用现有几何资产与参数化预览，明确BRep有效性≠碰撞/加工认证。
+- 源码只读核对发现独立资源交互Viewer创建第二Engine/Scene，须计划迁移至一套主交互世界；离屏缩略图可保留隔离、非交互渲染。**本轮不改产品仓库。**
+
+## 前轮交付｜F1-06离线快照与资源闭包
 
 - [F1-06实施总览](docs/work-packages/F1-06.md)、[闭包/恢复GUI](docs/work-packages/F1-06/01-closure-and-ui.md)、[10个开发切口](docs/work-packages/F1-06/02-implementation.md)、[20条正反验收](docs/work-packages/F1-06/03-acceptance.md)：严格按同一工程generation的exact资源与依赖恢复，缺必需工件不授予制造就绪。
 - [R-SNAP-001理论专题](research/topics/R-SNAP-001.md)与[证据追踪](research/traces/F1-06.json)：7项新注册权威来源；SQLite单库备份不等于跨库/CAS原子，资源定义、Schema和内容摘要必须与领域消费能力一致。
@@ -46,7 +52,7 @@
 - [R-WH-001 定位与受限载荷](research/topics/R-WH-001.md)：7项新增原始来源，明确定位满秩、一阶形封闭、有限载荷和实际夹紧的不同结论。
 - [F1-02 Frame与单位](docs/work-packages/F1-02.md)：8项实施子任务、10条产品验收规格、跨语言适配及迁移/回退。
 
-当前计数：详细功能规格14/88；工作包4/36；来源注册45项；CAP研究追踪4项及工作包追踪2项。前10项仍待补证。下一项：CAP-02-07「资源几何与参数化」，工作包随后优先F1-03。全部设计待评审，产品未验收。
+当前计数：详细功能规格15/88；工作包4/36；来源注册53项；CAP研究追踪5项及工作包追踪2项。前10项仍待补证。下一项：CAP-02-08「资源能力与兼容性」，工作包随后优先F1-03。全部设计待评审，产品未验收。
 
 ## 前轮交付
 

@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 14,
-    "detailPendingCount": 74,
+    "detailDraftedCount": 15,
+    "detailPendingCount": 73,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -105,6 +105,17 @@
         "tracePath": "research/traces/CAP-02-06.json",
         "subcapabilityCount": 7,
         "acceptanceSpecifications": 20
+      },
+      {
+        "id": "CAP-02-07",
+        "path": "docs/capabilities/CAP-02-07/README.md",
+        "uiPath": "docs/capabilities/CAP-02-07/UI.md",
+        "researchTrace": "compiled_with_explicit_engineering_gates",
+        "researchTopic": "R-RG-001",
+        "tracePath": "research/traces/CAP-02-07.json",
+        "subcapabilityCount": 9,
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20
       }
     ]
   },
@@ -151,8 +162,8 @@
   },
   "research": {
     "registryPath": "research/references.json",
-    "registeredSources": 45,
-    "capabilityTraceCompiledCount": 4,
+    "registeredSources": 53,
+    "capabilityTraceCompiledCount": 5,
     "topics": [
       {
         "id": "R-TA-001",
@@ -241,9 +252,22 @@
           "10"
         ],
         "necessaryEngineeringEvidence": "partial_with_explicit_gates"
+      },
+      {
+        "id": "R-RG-001",
+        "path": "research/topics/R-RG-001.md",
+        "status": "drafted_pending_review",
+        "primaryCapability": "CAP-02-07",
+        "relatedDomains": [
+          "02",
+          "03",
+          "04",
+          "09"
+        ],
+        "necessaryEngineeringEvidence": "partial_with_explicit_gates"
       }
     ],
-    "domainCoverage": "11域队列在册；离线快照一致性专题补充01/02/03/04/08/10域的局部规划依据，不宣称任何全域完成",
+    "domainCoverage": "11域研究队列继续，资源几何/参数化专题已新增；无任何域自动视为全面完成",
     "workPackageTraceCompiledCount": 2
   },
   "businessAssets": {
@@ -271,29 +295,41 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-02-07",
-    "name": "资源几何与参数化",
+    "capabilityId": "CAP-02-08",
+    "name": "资源能力与兼容性",
     "parallelPlanningBacklog": [
-      "按原编号继续CAP-02-07资源几何与参数化；下一个工作包优先F1-03与B0基线依赖核对",
-      "回补前10项CAP研究证据追踪",
-      "历史支持附件迁移与链接核对",
-      "测量资源需要真实设备/校准资料及D17 Owner评审"
+      "前10项逐项研究追踪回补",
+      "F1-03等依赖工作包实施级细分",
+      "审核历史支持附件与离线闭包交叉映射"
     ]
   },
   "checks": {
-    "record": "tracking/verification-F1-06-2026-10-17.md",
-    "documentTrace": "F1-06研究映射10规则/20产品用例已做代码内覆盖检查；本轮文件语义和计数检验，产品测试均未运行",
+    "record": "tracking/verification-CAP-02-07-2026-10-17.md",
+    "planningStructure": {
+      "status": "passed_selected_document_checks",
+      "fileCount": 10,
+      "relativeLinkErrors": 0,
+      "registrySources": 53,
+      "traceRules": 10,
+      "uniqueCapTestIds": 20,
+      "method": "GitHub staged tree readback; selected markdown link resolution and JSON trace checks"
+    },
     "productTests": "not_run",
-    "fullRepositoryDocumentCheck": "not_run"
+    "fullRepositoryDocumentCheck": "not_run_this_iteration"
   },
   "lastPlanningItem": {
-    "capabilityId": null,
-    "workPackageId": "F1-06",
-    "sourceBaselineCommit": "9f1426d535e52ee3d53be709711fc7221b7f7ea5",
-    "sourceCodeBaseline": {
-      "repository": "BaiSongt/procet-gui",
-      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb"
-    }
+    "capabilityId": "CAP-02-07",
+    "sourceBaselineCommit": "271f2ad017fd30ef01c13763c61046f888ea0d48",
+    "sourceCodeBaselines": [
+      {
+        "repository": "BaiSongt/procet-resources",
+        "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f"
+      },
+      {
+        "repository": "BaiSongt/procet-gui",
+        "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb"
+      }
+    ]
   },
   "stopConditionMet": false,
   "notes": [
