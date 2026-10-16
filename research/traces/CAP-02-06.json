@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-02-06",
+  "topic": "R-MET-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-02-06/README.md",
+    "ui": "docs/capabilities/CAP-02-06/UI.md",
+    "topic": "research/topics/R-MET-001.md"
+  },
+  "codeEvidence": [
+    {
+      "id": "E-MET-01",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/types.rs",
+      "meaning": "8 kinds，缺Measurement相关kind"
+    },
+    {
+      "id": "E-MET-02",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/dispatch.rs",
+      "meaning": "typed发布门与派生分发必须同步扩展，缺分支不得发布"
+    },
+    {
+      "id": "E-MET-03",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/mod.rs",
+      "meaning": "当前资源模块无measurement/gauge/probe子模块"
+    }
+  ],
+  "rules": [
+    {
+      "id": "MET-R01",
+      "kind": "standard_scope",
+      "sourceIds": [
+        "SRC-MET-001",
+        "SRC-MET-002",
+        "SRC-MET-003"
+      ],
+      "fields": [
+        "resourceKind",
+        "purpose",
+        "executionCategory"
+      ],
+      "capTests": [
+        "MET-T01",
+        "MET-T10",
+        "MET-T15"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MET-R02",
+      "kind": "manufacturer_data_limited",
+      "sourceIds": [
+        "SRC-MET-008"
+      ],
+      "fields": [
+        "statisticDefinition",
+        "validConditions",
+        "performanceSourceRef"
+      ],
+      "capTests": [
+        "MET-T05",
+        "MET-T06"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MET-R03",
+      "kind": "metrology_policy_and_implementation",
+      "sourceIds": [
+        "SRC-MET-007",
+        "SRC-MET-010"
+      ],
+      "fields": [
+        "calibrationChainRef",
+        "resultUncertainty",
+        "equipmentSerialRef"
+      ],
+      "capTests": [
+        "MET-T07",
+        "MET-T08",
+        "MET-T09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MET-R04",
+      "kind": "standard_abstract_boundary",
+      "sourceIds": [
+        "SRC-MET-004",
+        "SRC-MET-005"
+      ],
+      "fields": [
+        "uncertaintyStatement",
+        "decisionRuleRef",
+        "conformityResult"
+      ],
+      "capTests": [
+        "MET-T14"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MET-R05",
+      "kind": "information_model_scope",
+      "sourceIds": [
+        "SRC-MET-006"
+      ],
+      "fields": [
+        "resourceMetadata",
+        "measurementPlanRef",
+        "resultRef"
+      ],
+      "capTests": [
+        "MET-T16"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MET-R06",
+      "kind": "management_standard_plus_internal_decision",
+      "sourceIds": [
+        "SRC-MET-009"
+      ],
+      "fields": [
+        "releasedRevision",
+        "eligibilityAt",
+        "certificateState"
+      ],
+      "capTests": [
+        "MET-T03",
+        "MET-T17"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ]
+    },
+    {
+      "id": "MET-R07",
+      "kind": "engineering_math_design",
+      "sourceIds": [
+        "SRC-TA-001"
+      ],
+      "fields": [
+        "mountFrameRef",
+        "tipCenterFrame",
+        "calibratedRadius"
+      ],
+      "capTests": [
+        "MET-T04",
+        "MET-T11",
+        "MET-T12"
+      ],
+      "workPackages": [
+        "F1-02"
+      ]
+    },
+    {
+      "id": "MET-R08",
+      "kind": "internal_design_decision",
+      "sourceIds": [],
+      "fields": [
+        "controllerProbeSemantic",
+        "NCBlockRef",
+        "unsupported"
+      ],
+      "capTests": [
+        "MET-T10",
+        "MET-T19"
+      ],
+      "workPackages": [
+        "E3-03"
+      ],
+      "codeEvidenceIds": [
+        "E-MET-01",
+        "E-MET-02"
+      ]
+    },
+    {
+      "id": "MET-R09",
+      "kind": "code_observation_and_internal_decision",
+      "sourceIds": [],
+      "fields": [
+        "resourceExactRef",
+        "expectedLockVersion",
+        "requestId",
+        "scopeEpoch"
+      ],
+      "capTests": [
+        "MET-T03",
+        "MET-T13",
+        "MET-T17"
+      ],
+      "workPackages": [
+        "F1-01"
+      ],
+      "codeEvidenceIds": [
+        "E-MET-01",
+        "E-MET-02"
+      ]
+    },
+    {
+      "id": "MET-R10",
+      "kind": "evidence_fail_closed_design",
+      "sourceIds": [
+        "SRC-MET-007",
+        "SRC-MET-009"
+      ],
+      "fields": [
+        "missingEvidence",
+        "qualificationStatus",
+        "offlineClosure"
+      ],
+      "capTests": [
+        "MET-T02",
+        "MET-T18",
+        "MET-T20"
+      ],
+      "workPackages": [
+        "F1-06"
+      ]
+    }
+  ],
+  "engineeringGates": [
+    "标准适用正文与专用判定规则的合法取得",
+    "测头/接收器/控制器版本和证书真实样本",
+    "计量Owner授权及现场过程",
+    "D17结果与测量计划Owner划分",
+    "正式typed发布与离线闭包测试"
+  ],
+  "claimBoundary": "本轮仅编制规划，所引ISO多为catalog_abstract；无实际计量或产品验收。资源性能≠测量不确定度≠合格判定；在机探测≠CMM认证。"
+}
