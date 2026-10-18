@@ -1,0 +1,547 @@
+{
+  "schemaVersion": "procet-cap-fixtures-v1",
+  "capabilityId": "CAP-03-04",
+  "origin": "planning_synthetic_only",
+  "fixtures": [
+    {
+      "id": "CAP-03-04-T01",
+      "title": "semantic_gdt_bound",
+      "linkedRule": "PMI4-R01",
+      "input": {
+        "syntheticId": "semantic_gdt_bound",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "导入语义位置公差并指向确切面集",
+        "expected": "semantic_exact_bind",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "graphic_only_false_semantic",
+        "expectedErrorCode": "unsupported_semantic",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T02",
+      "title": "graphic_only_note",
+      "linkedRule": "PMI4-R01",
+      "input": {
+        "syntheticId": "graphic_only_note",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "只显示图形标注但未生成机器公差",
+        "expected": "presentation_only",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "graphic_marker_creates_approved_requirement",
+        "expectedErrorCode": "semantic_missing",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T03",
+      "title": "partial_import_report",
+      "linkedRule": "PMI4-R02",
+      "input": {
+        "syntheticId": "partial_import_report",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "报告已导入和跳过项及其类型",
+        "expected": "partial_report_with_counts",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "silently_skip_unknown_kind",
+        "expectedErrorCode": "loss_not_reported",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T04",
+      "title": "unrecognized_modifier",
+      "linkedRule": "PMI4-R02",
+      "input": {
+        "syntheticId": "unrecognized_modifier",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "原文保留、未支持修饰符标待审",
+        "expected": "unsupported_preserved",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "unknown_modifier_mapped_to_none",
+        "expectedErrorCode": "modifier_unsupported",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T05",
+      "title": "linear_size_mm",
+      "linkedRule": "PMI4-R03",
+      "input": {
+        "syntheticId": "linear_size_mm",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "孔径名义和上下偏差保持结构类型及mm",
+        "expected": "dimension_mm_valid",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "tolerance_as_feed_stock",
+        "expectedErrorCode": "dimension_semantics_invalid",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T06",
+      "title": "angle_vs_length",
+      "linkedRule": "PMI4-R03",
+      "input": {
+        "syntheticId": "angle_vs_length",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "角度度数不与长度mm直接比较",
+        "expected": "angle_unit_separate",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "implicit_deg_to_mm",
+        "expectedErrorCode": "unit_dimension_mismatch",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T07",
+      "title": "position_tolerance_zone",
+      "linkedRule": "PMI4-R04",
+      "input": {
+        "syntheticId": "position_tolerance_zone",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "位置度公差带/符号完整读取",
+        "expected": "gdt_profile_complete",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "zone_omitted_green_badge",
+        "expectedErrorCode": "zone_unknown",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T08",
+      "title": "unmapped_gdt_kind",
+      "linkedRule": "PMI4-R04",
+      "input": {
+        "syntheticId": "unmapped_gdt_kind",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "未支持GD&T kind保持unknown",
+        "expected": "gdt_unsupported_diagnostic",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "fallback_flatness",
+        "expectedErrorCode": "gdt_kind_unsupported",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T09",
+      "title": "datum_A_B_C",
+      "linkedRule": "PMI4-R05",
+      "input": {
+        "syntheticId": "datum_A_B_C",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "基准引用顺序A→B→C并绑定正确特征",
+        "expected": "ordered_datum_system",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "alphabetical_sort_datum",
+        "expectedErrorCode": "datum_order_conflict",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T10",
+      "title": "datum_setup_independence",
+      "linkedRule": "PMI4-R05",
+      "input": {
+        "syntheticId": "datum_setup_independence",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "设计基准与Setup Frame分开展示",
+        "expected": "separate_design_setup_frames",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "set_wcs_from_datum_without_approval",
+        "expectedErrorCode": "frame_ownership_mismatch",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T11",
+      "title": "two_occurrences",
+      "linkedRule": "PMI4-R06",
+      "input": {
+        "syntheticId": "two_occurrences",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "同零件两实例PMI锚点区分occurrencePath",
+        "expected": "occurrence_exact",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "merge_by_same_shape_hash",
+        "expectedErrorCode": "ambiguous_occurrence",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T12",
+      "title": "split_face_rebind",
+      "linkedRule": "PMI4-R06",
+      "input": {
+        "syntheticId": "split_face_rebind",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "face split后仅生成候选待人工确认",
+        "expected": "needs_rebind_review",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "auto_select_first_face",
+        "expectedErrorCode": "ambiguous_topology",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T13",
+      "title": "manual_annotation_revision",
+      "linkedRule": "PMI4-R07",
+      "input": {
+        "syntheticId": "manual_annotation_revision",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "人工补录创建新PMI修订但不改源CAD",
+        "expected": "new_pmi_revision",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "overwrite_source_bytes",
+        "expectedErrorCode": "source_immutable",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T14",
+      "title": "source_semantic_conflict",
+      "linkedRule": "PMI4-R07",
+      "input": {
+        "syntheticId": "source_semantic_conflict",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "人工修订与源语义冲突保留来源和审核",
+        "expected": "conflict_review",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "silent_latest_wins",
+        "expectedErrorCode": "source_conflict",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T15",
+      "title": "approve_exact_revision",
+      "linkedRule": "PMI4-R08",
+      "input": {
+        "syntheticId": "approve_exact_revision",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "提交点匹配expectedRevision与policy",
+        "expected": "frozen_exact_receipt",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "approve_stale_revision",
+        "expectedErrorCode": "revision_conflict",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T16",
+      "title": "late_receipt_cross_project",
+      "linkedRule": "PMI4-R08",
+      "input": {
+        "syntheticId": "late_receipt_cross_project",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "迟到回执仅更新原Project的请求状态",
+        "expected": "scoped_receipt",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "late_receipt_switches_project",
+        "expectedErrorCode": "scope_epoch_mismatch",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T17",
+      "title": "pmi_provider_missing",
+      "linkedRule": "PMI4-R09",
+      "input": {
+        "syntheticId": "pmi_provider_missing",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "未绑定PMI正式provider显示明确阻断",
+        "expected": "missing_provider_explicit",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "legacy_adapter_silent_success",
+        "expectedErrorCode": "missing_provider",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T18",
+      "title": "consumer_not_approver",
+      "linkedRule": "PMI4-R09",
+      "input": {
+        "syntheticId": "consumer_not_approver",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "工艺消费者只读冻结包不可改源公差",
+        "expected": "consumer_read_only",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "cam_writes_pmi_store",
+        "expectedErrorCode": "domain_write_forbidden",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T19",
+      "title": "upstream_revision_drift",
+      "linkedRule": "PMI4-R10",
+      "input": {
+        "syntheticId": "upstream_revision_drift",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "CAD变更使依赖项stale但旧批准包仍留",
+        "expected": "stale_report_preserve_history",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "rewrite_approved_plan",
+        "expectedErrorCode": "stale_source_revision",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-04-T20",
+      "title": "offline_snapshot_missing",
+      "linkedRule": "PMI4-R10",
+      "input": {
+        "syntheticId": "offline_snapshot_missing",
+        "modelRef": "cad:model-assembly@rev7",
+        "sourceHash": "sha256:synthetic-assembly-r7",
+        "pmiSchema": "proposal-v0.1",
+        "scopeEpoch": 11,
+        "standardSystem": "ISO GPS",
+        "sourceOfData": "synthetic"
+      },
+      "positive": {
+        "scenario": "离线缺PMI源或schema依赖时拒绝伪恢复",
+        "expected": "blocked_missing_closure",
+        "permission": "reviewer_or_owner_according_to_use_case",
+        "persistence": "TODO_TEST_ENTRY_not_executed"
+      },
+      "negative": {
+        "mutation": "mark_qualified_without_artifact",
+        "expectedErrorCode": "missing_required_artifact",
+        "mustNotProduceApprovedOrReleasedFact": true
+      },
+      "productTestStatus": "TODO_TEST_ENTRY_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    }
+  ]
+}

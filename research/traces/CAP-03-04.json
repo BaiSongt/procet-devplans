@@ -1,0 +1,433 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-03-04",
+  "topic": "R-PMI-001",
+  "status": "drafted_pending_human_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-03-04/README.md",
+    "ui": "docs/capabilities/CAP-03-04/UI.md",
+    "topic": "research/topics/R-PMI-001.md",
+    "fixtures": "docs/capabilities/CAP-03-04/fixtures.json",
+    "sources": "research/sources/CAP-03-04.json"
+  },
+  "registeredSources": [
+    "SRC-PMI4-001",
+    "SRC-PMI4-002",
+    "SRC-PMI4-003",
+    "SRC-PMI4-004",
+    "SRC-PMI4-005",
+    "SRC-PMI4-006",
+    "SRC-PMI4-007",
+    "SRC-CAD-002",
+    "SRC-CAD-005"
+  ],
+  "newSourceRecords": 7,
+  "reusedSourceRecords": 2,
+  "codeEvidence": [
+    {
+      "repository": "BaiSongt/procet-cam",
+      "commit": "fcec1c86047e6b11be35b8bb38971e3dfcffbd7b",
+      "paths": [
+        "src/pmi/ap242_import.rs",
+        "src/pmi/geometry_locator.rs",
+        "src/pmi/mod.rs",
+        "src/ports/pmi.rs"
+      ],
+      "limits": "仅对部分文件只读审查，未运行产品或证明完整消费者行为"
+    }
+  ],
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D04",
+    "D05",
+    "D08",
+    "D16",
+    "D17"
+  ],
+  "relatedWorkPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "PMI4-R01",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "区分语义PMI、图形PMI和无数据/解析损失；出现图形不得直接认定语义可消费",
+      "sourceIds": [
+        "SRC-CAD-002",
+        "SRC-PMI4-005"
+      ],
+      "fields": [
+        "representationKind",
+        "semanticCoverage",
+        "graphicCoverage",
+        "lossReport"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-01",
+        "P4-02"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T01",
+        "CAP-03-04-T02"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T01",
+        "CAP-03-04-T02"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R02",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "导入失败、未知修饰符或source entity未映射必须记录loss诊断，不能默默丢弃",
+      "sourceIds": [
+        "SRC-PMI4-005",
+        "SRC-PMI4-006"
+      ],
+      "fields": [
+        "sourceEntityRef",
+        "unsupportedType",
+        "skippedReason",
+        "readerVersion"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-01",
+        "P4-02"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T03",
+        "CAP-03-04-T04"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T03",
+        "CAP-03-04-T04"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R03",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "尺寸名义值、极限、公差种类、单位与解释profile分开；混合单位拒绝隐式转换",
+      "sourceIds": [
+        "SRC-PMI4-003",
+        "SRC-PMI4-004"
+      ],
+      "fields": [
+        "dimension.kind",
+        "nominal",
+        "lower",
+        "upper",
+        "unit",
+        "interpretationProfile"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-03"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T05",
+        "CAP-03-04-T06"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T05",
+        "CAP-03-04-T06"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R04",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "GD&T公差带/修饰符按已支持语义声明，不把unknown当普通距离公差",
+      "sourceIds": [
+        "SRC-PMI4-001",
+        "SRC-PMI4-006"
+      ],
+      "fields": [
+        "gdt.kind",
+        "zoneType",
+        "modifiers",
+        "toleranceValue",
+        "standardEdition"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-05"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T07",
+        "CAP-03-04-T08"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T07",
+        "CAP-03-04-T08"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R05",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "Datum Feature、Datum Reference Frame与Setup/机床WCS分开，保留基准顺序和适用标准",
+      "sourceIds": [
+        "SRC-PMI4-002",
+        "SRC-PMI4-005"
+      ],
+      "fields": [
+        "datumFeatureRef",
+        "datumSystem",
+        "precedence",
+        "standardSystem"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-04"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T09",
+        "CAP-03-04-T10"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T09",
+        "CAP-03-04-T10"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R06",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "锚点必须exact model revision+snapshot+occurrence+topology；重绑定冲突需要人工确认",
+      "sourceIds": [
+        "SRC-PMI4-005",
+        "SRC-CAD-005"
+      ],
+      "fields": [
+        "modelRevision",
+        "geometrySnapshotRef",
+        "occurrencePath",
+        "topologyEntityRefs",
+        "topologyMapEvidence"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-06"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T11",
+        "CAP-03-04-T12"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T11",
+        "CAP-03-04-T12"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R07",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "补录不改源STEP，保留人工与进口来源及作者、理由并产生新修订",
+      "sourceIds": [
+        "SRC-PMI4-004",
+        "SRC-PMI4-007"
+      ],
+      "fields": [
+        "pmiRevision",
+        "sourceAnnotationBytesHash",
+        "editProvenance",
+        "actor"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-01",
+        "P4-07"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T13",
+        "CAP-03-04-T14"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T13",
+        "CAP-03-04-T14"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R08",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "冻结批准必须绑定exact目标、策略、权限与CAS提交回执；图形或预览不得授权",
+      "sourceIds": [
+        "SRC-PMI4-004",
+        "SRC-PMI4-007"
+      ],
+      "fields": [
+        "approvalRef",
+        "policyRef",
+        "sourceHash",
+        "expectedRevision",
+        "receipt"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-07"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T15",
+        "CAP-03-04-T16"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T15",
+        "CAP-03-04-T16"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R09",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "CAM等消费者经PmiPort读取真正冻结包，未绑定provider或未经批准即fail-closed",
+      "sourceIds": [
+        "SRC-CAD-002",
+        "SRC-PMI4-005"
+      ],
+      "fields": [
+        "frozenPackageRevision",
+        "providerStatus",
+        "consumptionQualification",
+        "issueCodes"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-08"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T17",
+        "CAP-03-04-T18"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T17",
+        "CAP-03-04-T18"
+      ],
+      "implementation": "proposed_not_implemented"
+    },
+    {
+      "id": "PMI4-R10",
+      "type": "engineering_rule_based_on_sources_and_internal_design",
+      "statement": "设计拓扑或PMI变更按依赖失效，不静默覆盖批准工艺和发布NC；旧schema可受控只读回退",
+      "sourceIds": [
+        "SRC-PMI4-004",
+        "SRC-PMI4-007"
+      ],
+      "fields": [
+        "affectedDownstreamRefs",
+        "revision",
+        "staleStatus",
+        "rollbackRef"
+      ],
+      "capabilityId": "CAP-03-04",
+      "relatedWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "subcapabilityIds": [
+        "P4-07",
+        "P4-08"
+      ],
+      "positiveAcceptanceIds": [
+        "CAP-03-04-T19",
+        "CAP-03-04-T20"
+      ],
+      "negativeAcceptanceIds": [
+        "CAP-03-04-T19",
+        "CAP-03-04-T20"
+      ],
+      "implementation": "proposed_not_implemented"
+    }
+  ],
+  "testIds": [
+    "CAP-03-04-T01",
+    "CAP-03-04-T02",
+    "CAP-03-04-T03",
+    "CAP-03-04-T04",
+    "CAP-03-04-T05",
+    "CAP-03-04-T06",
+    "CAP-03-04-T07",
+    "CAP-03-04-T08",
+    "CAP-03-04-T09",
+    "CAP-03-04-T10",
+    "CAP-03-04-T11",
+    "CAP-03-04-T12",
+    "CAP-03-04-T13",
+    "CAP-03-04-T14",
+    "CAP-03-04-T15",
+    "CAP-03-04-T16",
+    "CAP-03-04-T17",
+    "CAP-03-04-T18",
+    "CAP-03-04-T19",
+    "CAP-03-04-T20"
+  ],
+  "checks": {
+    "planningOnly": true,
+    "testEntry": "TODO_TEST_ENTRY",
+    "scope": "json_trace_links_unit_validation"
+  }
+}

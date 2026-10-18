@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "F1-04",
+  "topic": "R-PS-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "not_run",
+  "sources": [
+    "SRC-F104-001",
+    "SRC-F104-002",
+    "SRC-F104-003"
+  ],
+  "reusedSources": [
+    "SRC-TA-001"
+  ],
+  "rules": [
+    {
+      "id": "F104-R01",
+      "description": "纯CAD浏览和几何探索可不绑定机床；D01仍必须exact",
+      "evidence": "内部业务决策",
+      "fields": "D01Ref; topologyRef",
+      "testIds": [
+        "F1-04-T01",
+        "F1-04-T02"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R02",
+      "description": "按阶段返回ready/blocked/unknown/not_applicable及原因，不用一个全局门",
+      "evidence": "SRC-F104-002+内部规则",
+      "fields": "stage; missingRequirements",
+      "testIds": [
+        "F1-04-T03",
+        "F1-04-T04"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R03",
+      "description": "真实材料去除搜索必须具有明确初始Stock与Frame；候选不得自动批准",
+      "evidence": "内部业务决策",
+      "fields": "stockRef; stockFrame",
+      "testIds": [
+        "F1-04-T03",
+        "F1-04-T04"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R04",
+      "description": "工艺Frame和机床MCS有不同Owner及显式变换方向",
+      "evidence": "SRC-F104-001; SRC-TA-001",
+      "fields": "processFrame; machineFrame",
+      "testIds": [
+        "F1-04-T07",
+        "F1-04-T11"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R05",
+      "description": "执行绑定引用exact机床、后处理、控制器和工程证据，不猜设备拓扑",
+      "evidence": "SRC-F104-001+内部规则",
+      "fields": "machineRef; postRef; controllerDialectRef",
+      "testIds": [
+        "F1-04-T09",
+        "F1-04-T10"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R06",
+      "description": "GUI/CLI/Agent使用同一领域命令门，已注册≠就绪≠获准≠提交",
+      "evidence": "源码观察+内部决策",
+      "fields": "handler; policyRef; receipt",
+      "testIds": [
+        "F1-04-T05",
+        "F1-04-T12"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R07",
+      "description": "A/B模式共享版本事实，采纳候选应派生而不覆盖冻结D08",
+      "evidence": "内部版本政策",
+      "fields": "freezeRef; sourceRefs",
+      "testIds": [
+        "F1-04-T06",
+        "F1-04-T07"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R08",
+      "description": "LinuxCNC G5x/G52/G92是控制器版本语义；CL不构成NC级执行真值",
+      "evidence": "SRC-F104-003",
+      "fields": "g5xMapping; controllerRevision",
+      "testIds": [
+        "F1-04-T17",
+        "F1-04-T18"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R09",
+      "description": "取消、晚响应、预览仅影响租约；提交以CAS/真实回执为准",
+      "evidence": "内部Host协议",
+      "fields": "requestId; sessionEpoch; receipt",
+      "testIds": [
+        "F1-04-T13",
+        "F1-04-T15",
+        "F1-04-T16"
+      ],
+      "implementation": "planned_only"
+    },
+    {
+      "id": "F104-R10",
+      "description": "旧ManufacturingSetupContext强制machineRef的生产兼容不可静默破坏",
+      "evidence": "源码观察+迁移政策",
+      "fields": "legacySchema; machineRef; readerVersion",
+      "testIds": [
+        "F1-04-T19",
+        "F1-04-T20"
+      ],
+      "implementation": "planned_only"
+    }
+  ],
+  "subtasks": [
+    "F1-04-S01",
+    "F1-04-S02",
+    "F1-04-S03",
+    "F1-04-S04",
+    "F1-04-S05",
+    "F1-04-S06",
+    "F1-04-S07",
+    "F1-04-S08",
+    "F1-04-S09",
+    "F1-04-S10"
+  ],
+  "acceptanceTests": [
+    {
+      "id": "F1-04-T01",
+      "positive": "无机床也能浏览确切CAD",
+      "negative": "缺machineRef全局挡住CAD浏览",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T02",
+      "positive": "没有Approved Setup可生成几何候选",
+      "negative": "候选变Accepted/Approved",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T03",
+      "positive": "有Stock与Frame执行受支持材料求解",
+      "negative": "缺Stock仍伪造D07",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T04",
+      "positive": "阶段报缺项与恢复路径",
+      "negative": "一律笼统报缺Setup",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T05",
+      "positive": "B直接用已有Approved Setup",
+      "negative": "强迫重新识别特征",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T06",
+      "positive": "A明确采纳生成新计划修订",
+      "negative": "切模式覆盖冻结D08",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T07",
+      "positive": "旧Approved Setup完整回放",
+      "negative": "删machineRef导致旧工程不能读",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T08",
+      "positive": "D04工艺Frame和D10 MCS分开",
+      "negative": "把G5x硬写为工艺默认",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T09",
+      "positive": "一个D04可配两个新D10候选",
+      "negative": "新绑定覆盖旧修订",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T10",
+      "positive": "执行绑定验证确切Machine/Post/Controller",
+      "negative": "依B5名称推定五轴可行",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T11",
+      "positive": "独立解析式验证变换方向",
+      "negative": "负scale镜像改符号",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T12",
+      "positive": "GUI/CLI/Agent相同授权门",
+      "negative": "Agent绕批准",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T13",
+      "positive": "3D预览零持久写",
+      "negative": "拖动改变Approved",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T14",
+      "positive": "切两个Setup各自读取Plan",
+      "negative": "必须重跑特征识别",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T15",
+      "positive": "取消和Commit竞态真实可查Receipt",
+      "negative": "提交后伪报没写入",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T16",
+      "positive": "晚回执绑定旧工程epoch",
+      "negative": "旧Run污染新Setup",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T17",
+      "positive": "CL不绑定控制器且显示预览资格",
+      "negative": "CL动画冒充NC运行验证",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T18",
+      "positive": "LinuxCNC2.9语义按版本解释",
+      "negative": "把G52/G92默认套其他厂商",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T19",
+      "positive": "D12–D15同版本验证后发布",
+      "negative": "未知宏/RTCP仍发布",
+      "status": "not_run"
+    },
+    {
+      "id": "F1-04-T20",
+      "positive": "版本兼容与数据快照回退",
+      "negative": "只回滚二进制旧数据不可读",
+      "status": "not_run"
+    }
+  ]
+}
