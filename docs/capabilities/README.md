@@ -32,3 +32,13 @@
 2026-10-18：[F1-03公共面工作包](../work-packages/F1-03.md)已完成实施级细分编制，仍待设计评审和产品实施。下一项详细CAP-03-02「零件/装配及版本」；后续相关F1-04按依赖推进。前10项研究追踪回补和必要历史附件迁移继续穿插；未列的72项仍只有基线描述，不计入详细设计完成。
 
 新项使用`docs/capabilities/CAP-xx-xx/`。历史批次保留，修改时记录原因。每项引用[研究目录](../../research/README.md)与对应[工作包](../work-packages/README.md)。分支是否进入main按GitHub实时状态判断，不根据文档数自动推定。
+
+## 2026-10-19新增完整CAP（规划分支已提交、待评审）
+
+- [CAP-03-02](./CAP-03-02/README.md) · [GUI](./CAP-03-02/UI.md) · [理论](../../research/topics/R-ASM-001.md) · [规则追踪](../../research/traces/CAP-03-02.json)
+- [CAP-03-03](./CAP-03-03/README.md) · [GUI](./CAP-03-03/UI.md) · [理论](../../research/topics/R-TOP-001.md) · [规则追踪](../../research/traces/CAP-03-03.json)
+- [CAP-03-04](./CAP-03-04/README.md) · [GUI](./CAP-03-04/UI.md) · [理论](../../research/topics/R-PMI-001.md) · [规则追踪](../../research/traces/CAP-03-04.json)
+- [CAP-03-05](./CAP-03-05/README.md) · [GUI](./CAP-03-05/UI.md) · [理论](../../research/topics/R-MFR-001.md) · [规则追踪](../../research/traces/CAP-03-05.json)
+- [CAP-03-07](./CAP-03-07/README.md) · [GUI](./CAP-03-07/UI.md) · [理论](../../research/topics/R-FREL-001.md) · [规则追踪](../../research/traces/CAP-03-07.json)
+
+目前**22/88**项详细规格具备完整本轮登记与追踪；其余已提交但来源/附件不齐的草案不列入完整计数，见[缺口登记](../../tracking/pending-source-gaps-2026-10-19.json)。历史上方“下一项”等数字保留作原快照，不再代表实时进度。
