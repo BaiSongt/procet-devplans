@@ -2,7 +2,11 @@
 
 本仓维护Procet-*的业务、界面、数据、模块接口、实施任务和研究依据。逐项Git交付，不打ZIP；文档编制、设计批准、产品实现和验收分别记录。
 
-## 最新交付：F1-03公共面与领域副本
+## 最新交付：CAP-03-01 CAD导入与几何读取
+
+2026-10-18新增[业务规格](docs/capabilities/CAP-03-01/README.md)、[GUI/3D任务与字段](docs/capabilities/CAP-03-01/UI.md)、[R-CAD-001理论专题](research/topics/R-CAD-001.md)、[正反例](docs/capabilities/CAP-03-01/fixtures.json)与[逐项规则追踪](research/traces/CAP-03-01.json)。**纠偏：AP242现行引用应以2025 Edition 4为准**，2022版已撤回；CAD导入不应自动等于CAM Job/Setup/制造资格。详细规格17/88、工作包5/36；产品尚未验收。
+
+## 前轮交付：F1-03公共面与领域副本
 
 2026-10-18完成原本地草案复核与入库整理：[F1-03实施规划](docs/work-packages/F1-03.md)、[接线与边界审计矩阵](docs/work-packages/F1-03/01-boundary-audit-and-contracts.md)、[R-BOUND-001研究](research/topics/R-BOUND-001.md)、[来源登记](research/sources/F1-03.json)、[规则追踪](research/traces/F1-03.json)。10项实施子任务、10条设计规则、20条产品验收规格，均待评审/产品执行。
 
