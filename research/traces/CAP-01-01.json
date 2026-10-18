@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-01-01",
+  "topic": "R-PROJ-001",
+  "status": "drafted_pending_human_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "originalSpec": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-01_项目与工程空间.md",
+    "backfill": "docs/capabilities/CAP-01-01/RESEARCH-BACKFILL.md",
+    "fixtures": "docs/capabilities/CAP-01-01/fixtures.json",
+    "research": "research/topics/R-PROJ-001.md",
+    "newSources": "research/sources/CAP-01-01.json",
+    "sourceIndex": "research/source-index.json"
+  },
+  "legacyRegisteredSourceIds": [
+    "SRC-SNAP-003",
+    "SRC-SNAP-004",
+    "SRC-SNAP-005",
+    "SRC-SNAP-006",
+    "SRC-SNAP-007",
+    "SRC-REF-001"
+  ],
+  "newRegisteredSourceIds": [
+    "SRC-PROJ-001",
+    "SRC-PROJ-002"
+  ],
+  "codeEvidence": {
+    "repository": "BaiSongt/procet-gui",
+    "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+    "files": [
+      "crates/procet-project-runtime/src/service.rs",
+      "crates/procet-project-contracts/src/manifest.rs"
+    ],
+    "evidenceKind": "source_code_observation_not_product_test",
+    "limitations": "只读指定旧版本与段落；未证明当前develop或具体部署已通过"
+  },
+  "rules": [
+    {
+      "id": "PROJ-R01",
+      "sourceIds": [
+        "SRC-PROJ-002",
+        "SRC-SNAP-006"
+      ],
+      "kind": "internal_policy_plus_external_provenance",
+      "fields": [
+        "projectId",
+        "displayName",
+        "locationHandle"
+      ],
+      "tests": [
+        "CAP-01-01-AT-05",
+        "CAP-01-01-AT-09"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "ProjectId独立于显示名称/存储路径，新fork保留来源",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R02",
+      "sourceIds": [
+        "SRC-SNAP-006",
+        "SRC-REF-001"
+      ],
+      "kind": "source_plus_derived_policy",
+      "fields": [
+        "currentHeads",
+        "artifactHash",
+        "sourceRefs"
+      ],
+      "tests": [
+        "CAP-01-01-AT-01",
+        "CAP-01-01-AT-10",
+        "CAP-01-01-AT-20"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "精确头的owner/id/revision/hash来源一致，不能把JCS/CBOR编码混同",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R03",
+      "sourceIds": [
+        "SRC-PROJ-001"
+      ],
+      "kind": "internal_CAS_policy_with_transaction_background",
+      "fields": [
+        "expectedGeneration",
+        "requestId",
+        "commitReceipt"
+      ],
+      "tests": [
+        "CAP-01-01-AT-03",
+        "CAP-01-01-AT-11"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "并发保存按精确generation重验并复用已知request receipt",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R04",
+      "sourceIds": [
+        "SRC-SNAP-003",
+        "SRC-SNAP-004"
+      ],
+      "kind": "source_plus_derived_policy",
+      "fields": [
+        "snapshotGeneration",
+        "snapshotRef",
+        "domainHeadSet"
+      ],
+      "tests": [
+        "CAP-01-01-AT-01",
+        "CAP-01-01-AT-12"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "单SQLite一致快照不能自动证明跨领域/外部CAS一致",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R05",
+      "sourceIds": [
+        "SRC-SNAP-005",
+        "SRC-SNAP-007"
+      ],
+      "kind": "source_plus_derived_policy",
+      "fields": [
+        "tmpRef",
+        "savedGeneration",
+        "lastGoodHead"
+      ],
+      "tests": [
+        "CAP-01-01-AT-04",
+        "CAP-01-01-AT-13"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "正式回读、失败回退与持久化世代分离；OS耐久性须实测",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R06",
+      "sourceIds": [
+        "SRC-SNAP-003",
+        "SRC-SNAP-007"
+      ],
+      "kind": "internal_activation_policy",
+      "fields": [
+        "stageToken",
+        "scopeEpoch",
+        "activeProjectRef"
+      ],
+      "tests": [
+        "CAP-01-01-AT-02",
+        "CAP-01-01-AT-14",
+        "CAP-01-01-AT-15"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "恢复先隔离验证后原子可见激活，失败不能污染原项目",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R07",
+      "sourceIds": [],
+      "kind": "internal_owner_dependency_policy",
+      "fields": [
+        "requiredModules",
+        "dependencyUse",
+        "policyRevision"
+      ],
+      "tests": [
+        "CAP-01-01-AT-08",
+        "CAP-01-01-AT-16",
+        "CAP-01-01-AT-17"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "资源必要性由领域Owner按用途判定，unknown不可默认为可选",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R08",
+      "sourceIds": [
+        "SRC-PROJ-002",
+        "SRC-SNAP-006"
+      ],
+      "kind": "source_plus_derived_policy",
+      "fields": [
+        "forkOf",
+        "projectId",
+        "approvalRefs"
+      ],
+      "tests": [
+        "CAP-01-01-AT-05",
+        "CAP-01-01-AT-18"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "显式fork产生新身份和来源，但批准资格必须逐项重审",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R09",
+      "sourceIds": [],
+      "kind": "internal_session_policy",
+      "fields": [
+        "activeContext",
+        "currentSetupRef",
+        "workingGeneration"
+      ],
+      "tests": [
+        "CAP-01-01-AT-07",
+        "CAP-01-01-AT-19"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "会话选择/3D投影不改变制造领域修订",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "PROJ-R10",
+      "sourceIds": [],
+      "kind": "internal_host_coordination_policy",
+      "fields": [
+        "requestId",
+        "scopeEpoch",
+        "projectId"
+      ],
+      "tests": [
+        "CAP-01-01-AT-06",
+        "CAP-01-01-AT-15",
+        "CAP-01-01-AT-19"
+      ],
+      "capabilityId": "CAP-01-01",
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "W2-04",
+        "U4-01"
+      ],
+      "description": "取消/关闭/迟到结果按项目及会话作用域隔离",
+      "implementationStatus": "planned_only"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-01-01-AT-01",
+    "CAP-01-01-AT-02",
+    "CAP-01-01-AT-03",
+    "CAP-01-01-AT-04",
+    "CAP-01-01-AT-05",
+    "CAP-01-01-AT-06",
+    "CAP-01-01-AT-07",
+    "CAP-01-01-AT-08",
+    "CAP-01-01-AT-09",
+    "CAP-01-01-AT-10",
+    "CAP-01-01-AT-11",
+    "CAP-01-01-AT-12",
+    "CAP-01-01-AT-13",
+    "CAP-01-01-AT-14",
+    "CAP-01-01-AT-15",
+    "CAP-01-01-AT-16",
+    "CAP-01-01-AT-17",
+    "CAP-01-01-AT-18",
+    "CAP-01-01-AT-19",
+    "CAP-01-01-AT-20"
+  ],
+  "relatedAssets": [
+    "D01",
+    "D03",
+    "D04",
+    "D05",
+    "D08"
+  ],
+  "workPackages": [
+    "B0-01",
+    "F1-01",
+    "F1-06",
+    "W2-04",
+    "U4-01"
+  ],
+  "remainingEngineeringGates": [
+    "Project与各领域Owner审查真实provider/required语义",
+    "保存与恢复在Win11/Ubuntu/离线介质的真实故障注入",
+    "跨领域generation/根闭包及hash的端到端产品测试",
+    "save_as与fork身份/批准差异的实际消费者回归",
+    "GUI/CLI/Agent与单一Babylon界面的集成验证"
+  ]
+}
