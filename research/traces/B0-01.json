@@ -1,0 +1,712 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "B0-01",
+  "topic": "R-BASE-001",
+  "updatedOn": "2026-10-19",
+  "status": "drafted_pending_human_review",
+  "productAcceptance": "not_run",
+  "baselineVersion": "V0.8",
+  "sourceIds": [
+    "SRC-B001-001",
+    "SRC-B001-002",
+    "SRC-B001-003",
+    "SRC-B001-004",
+    "SRC-B001-005"
+  ],
+  "paths": {
+    "plan": "docs/work-packages/B0-01.md",
+    "contracts": "docs/work-packages/B0-01/01-combination-lock-contract.md",
+    "implementation": "docs/work-packages/B0-01/02-implementation-and-acceptance.md",
+    "observation": "docs/work-packages/B0-01/combination-observation.json",
+    "research": "research/topics/R-BASE-001.md",
+    "sourceRegister": "research/sources/B0-01.json",
+    "sourceIndex": "research/source-index.json",
+    "acceptance": "docs/work-packages/B0-01/fixtures.json"
+  },
+  "rules": [
+    {
+      "id": "B001-R01",
+      "text": "必须分隔研发develop精确HEAD、GUI实际声明的集成引用、已测量运行二进制三层，不能互相冒充",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-001"
+      ],
+      "fields": [
+        "researchHead",
+        "integrationRevision",
+        "runtimeBinaryDigest"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S01",
+        "B0-01-S02"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT01",
+        "B0-01-AT02"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R02",
+      "text": "每条集成引用要精确SHA；path依赖需内容摘要并独立校验，当前声明摘要仅标未复核",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-001",
+        "SRC-B001-002"
+      ],
+      "fields": [
+        "manifestBlobSha",
+        "consumerRefs",
+        "workspaceDigestIndependentVerification"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S03"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT03",
+        "B0-01-AT04"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R03",
+      "text": "两个Cargo workspace、pnpm workspace与lockfile版本分别记录，禁止把一个workspace构建当全产品验收",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-003",
+        "SRC-B001-004"
+      ],
+      "fields": [
+        "cargoWorkspaceRoots",
+        "cargoLockDigests",
+        "pnpmLockDigest"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S04"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT05",
+        "B0-01-AT06"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R04",
+      "text": "native OCCT/toolchain/动态库/Worker每份按文件字节和目标平台记录，不能以Cargo feature代替安装证明",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-002",
+        "SRC-B001-003"
+      ],
+      "fields": [
+        "targetTriple",
+        "nativeLibraryDigest",
+        "workerBinaryDigests"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S05"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT07",
+        "B0-01-AT08"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R05",
+      "text": "运行文件缺失、摘要未知、签名不明均标unknown并禁止提升到runtime_verified",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-001",
+        "SRC-B001-002"
+      ],
+      "fields": [
+        "binarySha256",
+        "installerSha256",
+        "runtimeVerification"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S06"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT09",
+        "B0-01-AT10"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R06",
+      "text": "旧PR/研发HEAD/消费锁漂移只有比较结论；不能据分支更新断言桌面采用或旧PASS沿用",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-001"
+      ],
+      "fields": [
+        "consumerRevision",
+        "observedDevelopSha",
+        "evidenceHead"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S07"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT11",
+        "B0-01-AT12"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R07",
+      "text": "测试证据固定组合LockID、实际命令、退出码、平台、环境和未覆盖范围，NOT_RUN绝不能映射PASS",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-005",
+        "SRC-B001-001"
+      ],
+      "fields": [
+        "combinationLockId",
+        "testInvocation",
+        "executionStatus",
+        "coverageLimit"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S08"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT13",
+        "B0-01-AT14"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R08",
+      "text": "GUI/CLI/Agent只能查询受管组合状态；3D面板和文件预览不得直接批准集成/发布",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-001"
+      ],
+      "fields": [
+        "command",
+        "permissionDecision",
+        "uiLease",
+        "commitReceipt"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S09"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT15",
+        "B0-01-AT16"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R09",
+      "text": "组合更新需非覆盖新修订、原组合可回退；校验失败不改变已激活产品或用户项目",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-002",
+        "SRC-B001-005"
+      ],
+      "fields": [
+        "baseCombinationRevision",
+        "newCombinationRevision",
+        "activationReceipt",
+        "rollbackTarget"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S09"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT17",
+        "B0-01-AT18"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B001-R10",
+      "text": "证据结论限定支持的能力及语义：已核源码不等于实测，缺NC执行适配不能宣称程序级仿真PASS",
+      "kind": "external_guidance_plus_internal_design",
+      "sourceIds": [
+        "SRC-B001-005",
+        "SRC-B001-001"
+      ],
+      "fields": [
+        "readinessState",
+        "validationScope",
+        "ncSemanticCoverage"
+      ],
+      "workPackageId": "B0-01",
+      "subtaskIds": [
+        "B0-01-S10"
+      ],
+      "acceptanceIds": [
+        "B0-01-AT19",
+        "B0-01-AT20"
+      ],
+      "status": "proposal_pending_review"
+    }
+  ],
+  "acceptanceTests": [
+    {
+      "id": "B0-01-AT01",
+      "polarity": "positive",
+      "title": "正确分别登记三层SHA/二进制unknown",
+      "ruleIds": [
+        "B001-R01"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "TRIAD_SEPARATE",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT02",
+      "polarity": "negative",
+      "title": "以研发develop SHA填充runtimeBinaryDigest",
+      "ruleIds": [
+        "B001-R01"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_LAYER_CONFUSION",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT03",
+      "polarity": "positive",
+      "title": "正确集成锁ref与path声明摘要标待核",
+      "ruleIds": [
+        "B001-R02"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "DECLARE_UNVERIFIED",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT04",
+      "polarity": "negative",
+      "title": "以path字符串计算的伪摘要宣称验证通过",
+      "ruleIds": [
+        "B001-R02"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_FAKE_DIGEST",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT05",
+      "polarity": "positive",
+      "title": "列出两个Cargo+pnpm根且分别锁定",
+      "ruleIds": [
+        "B001-R03"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "MULTI_ROOTS",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT06",
+      "polarity": "negative",
+      "title": "把根Cargo测试PASS当Tauri桌面工作区PASS",
+      "ruleIds": [
+        "B001-R03"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_WORKSPACE_CONFLATION",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT07",
+      "polarity": "positive",
+      "title": "原生OCCT和Worker未获得时标未知",
+      "ruleIds": [
+        "B001-R04"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "NATIVE_UNKNOWN",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT08",
+      "polarity": "negative",
+      "title": "只因native-occt feature启用便宣称已打包",
+      "ruleIds": [
+        "B001-R04"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_FEATURE_AS_BINARY",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT09",
+      "polarity": "positive",
+      "title": "二进制缺失时阻断激活但保持草案",
+      "ruleIds": [
+        "B001-R05"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "FAIL_CLOSED",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT10",
+      "polarity": "negative",
+      "title": "用空字符串/0代替二进制SHA",
+      "ruleIds": [
+        "B001-R05"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_EMPTY_BINARY",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT11",
+      "polarity": "positive",
+      "title": "区分GUI solver pinned b7e8与develop 4417",
+      "ruleIds": [
+        "B001-R06"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "DIFF_WITH_EVIDENCE",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT12",
+      "polarity": "negative",
+      "title": "把develop HEAD变化自动升级桌面能力",
+      "ruleIds": [
+        "B001-R06"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_SILENT_UPGRADE",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT13",
+      "polarity": "positive",
+      "title": "真实测试报告含组合和环境、NOT_RUN",
+      "ruleIds": [
+        "B001-R07"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "TEST_SCOPED",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT14",
+      "polarity": "negative",
+      "title": "把旧工作流PASS套到新的未测组合",
+      "ruleIds": [
+        "B001-R07"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_STALE_PASS",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT15",
+      "polarity": "positive",
+      "title": "预览GUI仅显示锁差异与采纳命令",
+      "ruleIds": [
+        "B001-R08"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "UI_READONLY",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT16",
+      "polarity": "negative",
+      "title": "3D点选后直接将组合改为已批准",
+      "ruleIds": [
+        "B001-R08"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_UI_WRITES",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT17",
+      "polarity": "positive",
+      "title": "新组合验证失败维持旧active版本",
+      "ruleIds": [
+        "B001-R09"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "ROLLBACK_PRESERVES",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT18",
+      "polarity": "negative",
+      "title": "失败后把旧锁文件覆盖为新失败状态",
+      "ruleIds": [
+        "B001-R09"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_DESTRUCTIVE_ROLLBACK",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT19",
+      "polarity": "positive",
+      "title": "明确NC执行尚缺证据不可发布验证通过",
+      "ruleIds": [
+        "B001-R10"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "LIMITED_SCOPE",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    },
+    {
+      "id": "B0-01-AT20",
+      "polarity": "negative",
+      "title": "CL视图正常即标实际控制器NC验证通过",
+      "ruleIds": [
+        "B001-R10"
+      ],
+      "workPackageId": "B0-01",
+      "expectedDisposition": "REJECT_FALSE_NC_VALIDATION",
+      "executionStatus": "not_run",
+      "productEvidence": null,
+      "oracle": "synthetic_contract_assertions_pending_product_run"
+    }
+  ],
+  "subtasks": [
+    {
+      "id": "B0-01-S01",
+      "title": "登记三种产品基线身份",
+      "responsibleRole": "平台与集成",
+      "producer": "只读仓库ref元数据",
+      "consumer": [
+        "B0-02",
+        "B0-03",
+        "B0-04",
+        "B0-05",
+        "F1-01",
+        "F1-05"
+      ],
+      "artifact": "生产研发HEAD表与非唯一产品组合候选",
+      "dependsOn": [],
+      "exitGate": "真实develop SHA均从connector读取；不可调用历史SHA冒充现状",
+      "rollback": "禁止修改产品仓",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S02",
+      "title": "核对GUI集成锁与消费方",
+      "responsibleRole": "平台与集成",
+      "producer": "GUI integration-lock和manifest",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "消费关系表、未覆盖模块列表",
+      "dependsOn": [
+        "B0-01-S01"
+      ],
+      "exitGate": "不将solver HEAD与桌面solver pin混用",
+      "rollback": "保留旧manifest不自动更换版本",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S03",
+      "title": "校验path依赖与锁摘要来源",
+      "responsibleRole": "平台与集成",
+      "producer": "CAM workspace和锁摘要声明",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "独立摘要校验规程与失败报表",
+      "dependsOn": [
+        "B0-01-S02"
+      ],
+      "exitGate": "workspaceDigest declared与verified分离",
+      "rollback": "摘要验证失败不得更新active lock",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S04",
+      "title": "识别Cargo及前端多工作区",
+      "responsibleRole": "平台与集成",
+      "producer": "GUI双Cargo、pnpm工作区",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "多工作区构建/lockfile矩阵与离线依赖清单",
+      "dependsOn": [
+        "B0-01-S02"
+      ],
+      "exitGate": "必须分别查询每个manifest并检查锁文件",
+      "rollback": "仅编规划，产品仓不运行CI",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S05",
+      "title": "原生运行依赖与Worker闭包",
+      "responsibleRole": "平台与集成/质量验证",
+      "producer": "OCCT/Worker/安装产物",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "按目标架构字节描述符、许可与配置",
+      "dependsOn": [
+        "B0-01-S04"
+      ],
+      "exitGate": "锁不全则runtime状态unknown",
+      "rollback": "无需下载客户私有二进制到公开仓",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S06",
+      "title": "确认实机运行字节与安装来源",
+      "responsibleRole": "质量验证/现场集成",
+      "producer": "客户授权提供的包哈希与离线证据",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "独立hash与签名/运行平台证据",
+      "dependsOn": [
+        "B0-01-S05"
+      ],
+      "exitGate": "未拿到文件时维持UNKNOWN",
+      "rollback": "无字节不伪造哈希",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S07",
+      "title": "生成组合漂移与PR对照",
+      "responsibleRole": "平台与集成",
+      "producer": "精确HEAD与消费pin",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "差异报告与兼容风险分类",
+      "dependsOn": [
+        "B0-01-S01"
+      ],
+      "exitGate": "发现solver研发高于consumer只标版本偏移",
+      "rollback": "保留原组合快照",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S08",
+      "title": "规划分工作区/真实组合的验收门",
+      "responsibleRole": "质量验证",
+      "producer": "拟执行命令和独立oracle",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "运行结果元数据schema/覆盖矩阵",
+      "dependsOn": [
+        "B0-01-S04",
+        "B0-01-S06"
+      ],
+      "exitGate": "NOT_RUN/FAIL/BLOCKED明确区分",
+      "rollback": "不启动付费CI",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S09",
+      "title": "设计组合激活、查询与撤销",
+      "responsibleRole": "平台与集成/GUI",
+      "producer": "受管组合注册与审批接口",
+      "consumer": [
+        "B0-01-S10",
+        "质量验证"
+      ],
+      "artifact": "通用domain command/receipt和五任务UI",
+      "dependsOn": [
+        "B0-01-S03",
+        "B0-01-S07"
+      ],
+      "exitGate": "提交点CAS+权限重验",
+      "rollback": "取消预览不提交且旧组合保留",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    },
+    {
+      "id": "B0-01-S10",
+      "title": "交接首批治理和后续工作包",
+      "responsibleRole": "平台与集成/质量验证",
+      "producer": "签署材料与B0-02数据Owner草案",
+      "consumer": [
+        "B0-02",
+        "B0-03",
+        "B0-04",
+        "B0-05",
+        "F1-01",
+        "F1-05"
+      ],
+      "artifact": "基线审查包、阻断与ADR目录",
+      "dependsOn": [
+        "B0-01-S08",
+        "B0-01-S09"
+      ],
+      "exitGate": "有运行证据才申请批准，不等于已实现",
+      "rollback": "先前运行与冻结记录不被覆盖",
+      "status": "planned_not_implemented",
+      "testEntry": "待产品仓确认（规划脚本不代替）"
+    }
+  ]
+}

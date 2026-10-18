@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "procet-planning-frame-example-v1",
+  "kind": "synthetic_math_example_not_product_test",
+  "unit": "mm",
+  "convention": "T^S_P applied to column vector in P to get coordinates in S",
+  "examples": [
+    {
+      "id": "SYN-FRAME-01",
+      "partRectCornersP": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          2,
+          0
+        ]
+      ],
+      "rotationDegreesAboutPartZ": 90,
+      "translationS": [
+        10,
+        20,
+        0
+      ],
+      "expectedTransformedCornersS": [
+        [
+          10,
+          20,
+          0
+        ],
+        [
+          10,
+          24,
+          0
+        ],
+        [
+          8,
+          20,
+          0
+        ],
+        [
+          8,
+          24,
+          0
+        ]
+      ],
+      "expectedBBoxS": {
+        "min": [
+          8,
+          20,
+          0
+        ],
+        "max": [
+          10,
+          24,
+          0
+        ]
+      },
+      "note": "用于审查变换后局部包围，不代表真BRep精确包围"
+    },
+    {
+      "id": "SYN-ALIGN-02",
+      "inputHash": "same_snapshot_example",
+      "sourcePose": [
+        12,
+        7,
+        4
+      ],
+      "targetPose": [
+        0,
+        0,
+        0
+      ],
+      "repeatCount": 3,
+      "expectedEachAbsolutePose": [
+        0,
+        0,
+        0
+      ],
+      "note": "重复操作从同一锁定输入计算，不对显示Pose累积delta"
+    }
+  ]
+}

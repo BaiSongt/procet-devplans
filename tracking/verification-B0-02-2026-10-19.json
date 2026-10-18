@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "procet-planning-verification-v1",
+  "checkedOn": "2026-10-19",
+  "subject": "B0-02",
+  "command": "python tools/check_b0_02.py --self-test",
+  "exitCode": 0,
+  "status": "PASS_STATIC_PLANNING_ONLY",
+  "verifiedScope": {
+    "capabilityCount": 88,
+    "domainCount": 11,
+    "assetCount": 17,
+    "sourceCount": 4,
+    "rules": 10,
+    "acceptanceCount": 20,
+    "subtaskCount": 10,
+    "subtasksMappedToRules": 10
+  },
+  "relativeMarkdownLinksChecked": 9,
+  "checkerNegativeMutationsRejected": 15,
+  "mutationNames": [
+    "duplicate_cap",
+    "wrong_domain_size",
+    "injected_L3_frozen",
+    "duplicate_asset",
+    "missing_owner",
+    "horizontal_owner",
+    "missing_consumer_review",
+    "missing_C1_fields",
+    "bad_consumer_asset",
+    "unknown_source",
+    "missing_negative",
+    "negative_as_pass",
+    "fake_product_pass",
+    "missing_source_read_depth",
+    "solver_owns_D02"
+  ],
+  "additionalChecks": [
+    "python -m py_compile tools/build_b0_02.py tools/check_b0_02.py"
+  ],
+  "limitations": [
+    "未运行产品Rust/TypeScript/OCCT或数据库/NC/真实GUI",
+    "未对用户或现有产品任何业务对象写入",
+    "未建立B0-01产品组合锁",
+    "17个Owner/Consumer评审及L3冻结未批准",
+    "未运行全仓索引检查；本地仅定向链接/JSON/数量/映射检查",
+    "本地完成不等于GitHub提交或main合并"
+  ],
+  "productTests": "NOT_RUN",
+  "designApproval": "PENDING",
+  "githubPush": "NOT_ATTEMPTED_SECURITY_WRITE_RESTRICTION",
+  "mainSha256": "e97c28731770d5cb73085d545038f9853f17aa48c8c636c59a82d768c191d0a4",
+  "remoteHistoricalAttachmentAudit": {
+    "mainAndBranchChecked": [
+      "docs/architecture/v0.8/capability-map.json",
+      "docs/architecture/v0.8/work-packages.json",
+      "docs/architecture/v0.8/code-evidence.json"
+    ],
+    "notFoundInBoth": 3,
+    "evidence": "tracking/MIGRATION-GAPS-B0-02-2026-10-19.md"
+  }
+}
