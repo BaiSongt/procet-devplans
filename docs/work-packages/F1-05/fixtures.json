@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "procet-planning-fixture-backfill-v2",
+  "workPackageId": "F1-05",
+  "origin": "NEWLY_AUTHORED_FROM_SUBMITTED_RULES_NOT_HISTORICAL_BYTES",
+  "productExecution": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "F1-05-AT01",
+      "ruleId": "SOL-R01",
+      "polarity": "positive",
+      "title": "可审候选：profile与执行器选择",
+      "given": "精确profileRef与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R01后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT02",
+      "ruleId": "SOL-R01",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：profile与执行器选择",
+      "given": "profileRef缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R01不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT03",
+      "ruleId": "SOL-R02",
+      "polarity": "positive",
+      "title": "可审候选：部署动态库身份",
+      "given": "精确kernelManifestDigest与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R02后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT04",
+      "ruleId": "SOL-R02",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：部署动态库身份",
+      "given": "kernelManifestDigest缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R02不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT05",
+      "ruleId": "SOL-R03",
+      "polarity": "positive",
+      "title": "可审候选：冻结输入身份",
+      "given": "精确designRef、stockRef、frameRef、geometryArtifacts与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R03后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT06",
+      "ruleId": "SOL-R03",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：冻结输入身份",
+      "given": "designRef、stockRef、frameRef、geometryArtifacts缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R03不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT07",
+      "ruleId": "SOL-R04",
+      "polarity": "positive",
+      "title": "可审候选：运行包闭包校核",
+      "given": "精确manifestDigest、artifactRefs与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R04后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT08",
+      "ruleId": "SOL-R04",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：运行包闭包校核",
+      "given": "manifestDigest、artifactRefs缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R04不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT09",
+      "ruleId": "SOL-R05",
+      "polarity": "positive",
+      "title": "可审候选：有界能力",
+      "given": "精确algorithmId、budget、coverage与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R05后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT10",
+      "ruleId": "SOL-R05",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：有界能力",
+      "given": "algorithmId、budget、coverage缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R05不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT11",
+      "ruleId": "SOL-R06",
+      "polarity": "positive",
+      "title": "可审候选：取消超时与迟到回执",
+      "given": "精确runStatus、requestId与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R06后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT12",
+      "ruleId": "SOL-R06",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：取消超时与迟到回执",
+      "given": "runStatus、requestId缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R06不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT13",
+      "ruleId": "SOL-R07",
+      "polarity": "positive",
+      "title": "可审候选：资格隔离",
+      "given": "精确verificationLevel、qualification与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R07后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT14",
+      "ruleId": "SOL-R07",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：资格隔离",
+      "given": "verificationLevel、qualification缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R07不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT15",
+      "ruleId": "SOL-R08",
+      "polarity": "positive",
+      "title": "可审候选：typed多入口语义",
+      "given": "精确protocolVersion、schema、diagnostics与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R08后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT16",
+      "ruleId": "SOL-R08",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：typed多入口语义",
+      "given": "protocolVersion、schema、diagnostics缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R08不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT17",
+      "ruleId": "SOL-R09",
+      "polarity": "positive",
+      "title": "可审候选：领域Owner",
+      "given": "精确runRef、sourceRefs、acceptedPlanRevision与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R09后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT18",
+      "ruleId": "SOL-R09",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：领域Owner",
+      "given": "runRef、sourceRefs、acceptedPlanRevision缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R09不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT19",
+      "ruleId": "SOL-R10",
+      "polarity": "positive",
+      "title": "可审候选：幂等恢复",
+      "given": "精确requestId、jobId、runRef、receipt与内核/运行profile齐备",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "满足SOL-R10后仅产生待审核候选",
+      "expectedDisposition": "CANDIDATE_PENDING_REVIEW",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    },
+    {
+      "id": "F1-05-AT20",
+      "ruleId": "SOL-R10",
+      "polarity": "negative",
+      "title": "拒绝不可信候选：幂等恢复",
+      "given": "requestId、jobId、runRef、receipt缺失、失效或摘要错误",
+      "when": "通过受管Solver入口执行并核对runPackage独立证据；产品入口待实施",
+      "then": "拒绝SOL-R10不满足的运行，不得标已认证",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact HEAD/kernel profile",
+        "run manifest byte hashes",
+        "independent checker receipt"
+      ]
+    }
+  ]
+}
