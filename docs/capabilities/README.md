@@ -42,3 +42,10 @@
 - [CAP-03-07](./CAP-03-07/README.md) · [GUI](./CAP-03-07/UI.md) · [理论](../../research/topics/R-FREL-001.md) · [规则追踪](../../research/traces/CAP-03-07.json)
 
 目前**22/88**项详细规格具备完整本轮登记与追踪；其余已提交但来源/附件不齐的草案不列入完整计数，见[缺口登记](../../tracking/pending-source-gaps-2026-10-19.json)。历史上方“下一项”等数字保留作原快照，不再代表实时进度。
+
+## 2026-10-19 补证与新增完整项
+
+- [CAP-01-01研究回补](CAP-01-01/RESEARCH-BACKFILL.md)、[CAP-01-02独立新补证](CAP-01-02/RESEARCH-BACKFILL.md)、[CAP-01-03研究回补](CAP-01-03/RESEARCH-BACKFILL.md)：历史编号及原8项验收保留，新研究追踪逐项完成；不新计CAP。
+- [CAP-03-06人工特征编辑](CAP-03-06/README.md)、[CAP-03-08语义输出与溯源](CAP-03-08/README.md)、[CAP-04-01工艺Setup](CAP-04-01/README.md)：均有完整本轮来源/规则/验收，设计待评审、产品NOT_RUN。
+
+**当前完整详细 CAP 25/88**。仍缺63项完整规格；上文旧数字为历史快照。
