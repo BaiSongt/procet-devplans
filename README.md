@@ -1,3 +1,7 @@
+## 2026-10-19｜CAP-01-06统一任务与事件中心研究补证（新入库）
+
+[详细补证](docs/capabilities/CAP-01-06/RESEARCH-BACKFILL.md) · [研究专题](research/topics/R-TASK-001.md) · [8官方来源](research/sources/CAP-01-06.json) · [10规则/20正反验收](research/traces/CAP-01-06.json)。**详细CAP29/88、工作包11/36、CAP研究追踪28项、来源225条/30registry**。运行成功不等于成果采纳、D15工程验证或D16发布；Host取消/乱序/晚回执及统一左TaskPanel均已给出可机器验证的正反规格。L3待审、Python和产品/独立消费者NOT_RUN；后文进度为历史快照，实时以tracking/progress.json为准。PR#1仍Draft。
+
 ## 2026-10-19｜CAP-04-04工件坐标系与变换图已编制（以台账为准）
 
 [详细业务规格](docs/capabilities/CAP-04-04/README.md) · [GUI/3D任务](docs/capabilities/CAP-04-04/UI.md) · [来源/规则/20正反验收](research/traces/CAP-04-04.json) · [规划核验记录](tracking/verification-CAP-04-04-2026-10-19.json)。**正式CAP29/88、工作包11/36、来源登记217条/29 registry、CAP研究追踪27项**。L3与独立消费者/产品/机床测试NOT_RUN，PR#1仍Draft。旧段落作为历史快照保留。

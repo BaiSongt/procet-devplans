@@ -1,3 +1,7 @@
+## 2026-10-19｜R-TASK-001任务/事件/采纳追踪（最新）
+
+[专题](topics/R-TASK-001.md) · [8项来源](sources/CAP-01-06.json) · [10条规则](traces/CAP-01-06.json) · [20验收](../docs/capabilities/CAP-01-06/fixtures.json)。累计来源225条/30 registry，CAP追踪28项。NIST仅出版摘要，OTel为Development，Host Journal/CAS/NC验证分层是Procet设计决策而非外部标准要求；产品NOT_RUN。
+
 ## 2026-10-19｜R-FRAME-001坐标与变换图研究补证（最新）
 [专题](topics/R-FRAME-001.md) · [7来源](sources/CAP-04-04.json) · [10规则](traces/CAP-04-04.json) · [20正反验收](../docs/capabilities/CAP-04-04/fixtures.json)。总来源217条/29份registry，CAP追踪27项。ISO841仅官方摘要、OCCT8.0.1公开API、LinuxCNC稳定手册和NIST出版元数据；不声称已阅读付费正文，不将规划校验冒充产品验证。
 
