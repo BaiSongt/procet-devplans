@@ -1,0 +1,799 @@
+{
+  "schemaVersion": "procet-capability-acceptance-v1",
+  "capabilityId": "CAP-02-02",
+  "status": "planned_only",
+  "productAcceptance": "NOT_RUN",
+  "scenarioCount": 20,
+  "scenarios": [
+    {
+      "id": "CAP-02-02-T01",
+      "ruleIds": [
+        "CUT-R01"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-002"
+      ],
+      "fields": [
+        "cutterKind",
+        "geometryProperties"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "有效平底刀声明支持直径10mm与刃长，使用受控字典映射",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "支持刀具类型被识别并返回typed字段",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R01",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T02",
+      "ruleIds": [
+        "CUT-R01"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-002"
+      ],
+      "fields": [
+        "cutterKind",
+        "geometryProperties"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "未知厂商刀型与未声明对应的属性",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "CUTTER_KIND_UNSUPPORTED",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R01",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T03",
+      "ruleIds": [
+        "CUT-R02"
+      ],
+      "sourceIds": [
+        "SRC-CUT-002",
+        "SRC-CUT-003"
+      ],
+      "fields": [
+        "cuttingDiameter",
+        "cuttingLength",
+        "overallLength",
+        "gaugeLengthRef"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "几何长度带mm单位且gaugeLength另有所属",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "正确保存几何且TCP引用不变",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R02",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T04",
+      "ruleIds": [
+        "CUT-R02"
+      ],
+      "sourceIds": [
+        "SRC-CUT-002",
+        "SRC-CUT-003"
+      ],
+      "fields": [
+        "cuttingDiameter",
+        "cuttingLength",
+        "overallLength",
+        "gaugeLengthRef"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "将刀具总长输入为主轴安装规长覆盖旧TCP",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "GAUGE_LENGTH_OWNER_MISMATCH",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R02",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T05",
+      "ruleIds": [
+        "CUT-R03"
+      ],
+      "sourceIds": [
+        "SRC-CUT-004",
+        "SRC-CUT-007"
+      ],
+      "fields": [
+        "substrate",
+        "coating",
+        "workpieceMaterialRef",
+        "heatTreatmentCondition"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "基体材料与工作材料各自绑定确切修订",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "材质可追溯且适用性按工况单独计算",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R03",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T06",
+      "ruleIds": [
+        "CUT-R03"
+      ],
+      "sourceIds": [
+        "SRC-CUT-004",
+        "SRC-CUT-007"
+      ],
+      "fields": [
+        "substrate",
+        "coating",
+        "workpieceMaterialRef",
+        "heatTreatmentCondition"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "只给模糊'钢'标签并要求自动发布可信生产参数",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "MATERIAL_APPLICABILITY_UNKNOWN",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R03",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T07",
+      "ruleIds": [
+        "CUT-R04"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-007"
+      ],
+      "fields": [
+        "cuttingProfileRef",
+        "cutterExactRef",
+        "applicability",
+        "provenance"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "档案P1绑定刀具R1、材料M1、铣削策略与厂商适用条件",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "保持来源和有效条件可重现",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R04",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T08",
+      "ruleIds": [
+        "CUT-R04"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-007"
+      ],
+      "fields": [
+        "cuttingProfileRef",
+        "cutterExactRef",
+        "applicability",
+        "provenance"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "同一Profile缺刀具hash或无工件状态即自动推荐",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "PROFILE_CONTEXT_INCOMPLETE",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R04",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T09",
+      "ruleIds": [
+        "CUT-R05"
+      ],
+      "sourceIds": [
+        "SRC-CUT-005"
+      ],
+      "fields": [
+        "effectiveCuttingDiameterMm",
+        "effectiveTeeth",
+        "cuttingSpeedMPerMin",
+        "feedPerToothMm",
+        "spindleSpeedRpm",
+        "feedRateMmPerMin"
+      ],
+      "assets": [
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "周刃Dcap=10mm、vc=100m/min、fz=.05mm、z_eff=4",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "n≈3183.099rpm，vf≈636.620mm/min；仅公式用例",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R05",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T10",
+      "ruleIds": [
+        "CUT-R05"
+      ],
+      "sourceIds": [
+        "SRC-CUT-005"
+      ],
+      "fields": [
+        "effectiveCuttingDiameterMm",
+        "effectiveTeeth",
+        "cuttingSpeedMPerMin",
+        "feedPerToothMm",
+        "spindleSpeedRpm",
+        "feedRateMmPerMin"
+      ],
+      "assets": [
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "球头接触Dcap未知却用目录直径10mm自动套公式",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "EFFECTIVE_DIAMETER_UNKNOWN",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R05",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T11",
+      "ruleIds": [
+        "CUT-R06"
+      ],
+      "sourceIds": [
+        "SRC-CUT-005"
+      ],
+      "fields": [
+        "machineCapabilityExactRef",
+        "spindleSpeedLimitRpm",
+        "chosenGoverningInput",
+        "resolutionDecision"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "建议n≈3183.099rpm、设备上限3000rpm，选择保持fz=.05",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "显示超限，用户选择n=3000后vf重算为600mm/min",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R06",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T12",
+      "ruleIds": [
+        "CUT-R06"
+      ],
+      "sourceIds": [
+        "SRC-CUT-005"
+      ],
+      "fields": [
+        "machineCapabilityExactRef",
+        "spindleSpeedLimitRpm",
+        "chosenGoverningInput",
+        "resolutionDecision"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "偷偷截断n到3000但vf保留636.620",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "MACHINE_SPEED_CONSTRAINT_CONFLICT",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R06",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T13",
+      "ruleIds": [
+        "CUT-R07"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001"
+      ],
+      "fields": [
+        "resourceRevision",
+        "expectedOperationHead",
+        "operationRevision",
+        "actorScope"
+      ],
+      "assets": [
+        "D03",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "Operation O1头H1、Profile P1和Resources R1均有效，权限通过",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "CAS采纳生成O2并保留原O1来源",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R07",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T14",
+      "ruleIds": [
+        "CUT-R07"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001"
+      ],
+      "fields": [
+        "resourceRevision",
+        "expectedOperationHead",
+        "operationRevision",
+        "actorScope"
+      ],
+      "assets": [
+        "D03",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "Operation头改为H2后旧H1请求继续采纳",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "OPERATION_REVISION_CONFLICT",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R07",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T15",
+      "ruleIds": [
+        "CUT-R08"
+      ],
+      "sourceIds": [
+        "SRC-CUT-005",
+        "SRC-CUT-006"
+      ],
+      "fields": [
+        "clExactRef",
+        "ncExactHash",
+        "executionSemanticsRef",
+        "verificationRef"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "CL仅预览，NC执行适配D13在声明模态内可解释并有证据",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "分离CL预览标记与NC执行验证资格",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R08",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T16",
+      "ruleIds": [
+        "CUT-R08"
+      ],
+      "sourceIds": [
+        "SRC-CUT-005",
+        "SRC-CUT-006"
+      ],
+      "fields": [
+        "clExactRef",
+        "ncExactHash",
+        "executionSemanticsRef",
+        "verificationRef"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "未知宏指令按G1坐标动画直接标记D15 PASS",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "UNKNOWN_CONTROLLER_SEMANTICS",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R08",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T17",
+      "ruleIds": [
+        "CUT-R09"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001"
+      ],
+      "fields": [
+        "workContext",
+        "selectionIntent",
+        "previewLease",
+        "editSession",
+        "permissionDecision"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "同一工具资源通过GUI和CLI均调用DomainPort，仅意图选择",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "仅生成SelectionIntent/PreviewLease无领域写入",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R09",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T18",
+      "ruleIds": [
+        "CUT-R09"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001"
+      ],
+      "fields": [
+        "workContext",
+        "selectionIntent",
+        "previewLease",
+        "editSession",
+        "permissionDecision"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "Agent直接发领域写入绕过权限或3D单击修改Released",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "UNAUTHORIZED_DOMAIN_WRITE",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R09",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T19",
+      "ruleIds": [
+        "CUT-R10"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-006"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "commandId",
+        "expectedRevision",
+        "resultRevision",
+        "freezeSet"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "positive",
+      "given": "EditSession在Setup A scopeEpoch=4，回执与预期版本吻合",
+      "action": "调用同领域用例并验证exactRef、来源、权限与版本回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "提交生成新修订且不影响B冻结记录",
+      "expectedError": null,
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R10",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-02-02-T20",
+      "ruleIds": [
+        "CUT-R10"
+      ],
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-006"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "commandId",
+        "expectedRevision",
+        "resultRevision",
+        "freezeSet"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "polarity": "negative",
+      "given": "切到Setup B scopeEpoch=5后A任务晚回执覆盖B冻结结果",
+      "action": "调用同领域用例；验证不产生授权外持久副作用",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "旧业务资产、冻结成果与GUI范围保持不变；返回结构化拒绝",
+      "expectedError": "STALE_SCOPE_RECEIPT",
+      "testEntry": "TODO_INDEPENDENT_CONSUMER_CUT-R10",
+      "productStatus": "NOT_RUN"
+    }
+  ]
+}

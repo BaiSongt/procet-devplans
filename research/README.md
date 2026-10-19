@@ -1,3 +1,7 @@
+## 2026-10-19｜CAP-02-02刀具与切削参数补证（规划状态）
+
+[原业务规格](../docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-02-02_刀具与切削参数.md) · [研究补证](../docs/capabilities/CAP-02-02/RESEARCH-BACKFILL.md) · [7项官方来源](sources/CAP-02-02.json) · [10规则及20项正反验收](traces/CAP-02-02.json)。来源登记**195条/26 registry**，CAP研究追踪**25项**；详细CAP仍27/88、工作包10/36。ISO标准只读官方公开目录，Sandvik公式读取公开网页，NIST仅出版摘要。真实产品、独立消费者、L3均未通过，不作生产参数认证。
+
 ## 2026-10-19｜CAP-04-03夹具与工件约束（仅规划）
 
 [业务规格](../docs/capabilities/CAP-04-03/README.md) · [UI/3D](../docs/capabilities/CAP-04-03/UI.md) · [研究专题](topics/R-FIX-001.md) · [7来源](sources/CAP-04-03.json) · [10规则/20正反验收](traces/CAP-04-03.json)。来源登记更新为**188条/25 registry**，CAP研究追踪**24项**；详细CAP **27/88**、工作包**10/36**。3-2-1约束秩仅是局部线性定位证据，不代表夹紧力、结构变形或NC级安全验证。L3/独立消费者/产品测试未执行，旧快照数据以tracking/progress.json为准。
