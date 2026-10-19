@@ -1,3 +1,7 @@
+## 2026-10-20｜R-MACH-001机床构型证据闭环
+
+[专题](topics/R-MACH-001.md) · [来源](sources/CAP-02-01.json) · [规则](traces/CAP-02-01.json) · [20验收](../docs/capabilities/CAP-02-01/fixtures.json)。来源232条/31 registry；标准目录≠全文，规划≠产品PASS。以下为历史快照。
+
 ## 2026-10-19｜R-TASK-001任务/事件/采纳追踪（最新）
 
 [专题](topics/R-TASK-001.md) · [8项来源](sources/CAP-01-06.json) · [10条规则](traces/CAP-01-06.json) · [20验收](../docs/capabilities/CAP-01-06/fixtures.json)。累计来源225条/30 registry，CAP追踪28项。NIST仅出版摘要，OTel为Development，Host Journal/CAS/NC验证分层是Procet设计决策而非外部标准要求；产品NOT_RUN。

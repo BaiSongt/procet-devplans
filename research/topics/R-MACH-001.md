@@ -1,0 +1,2 @@
+# R-MACH-001 机床构型标准与理论证据
+2026-10-20公开核对：ISO 841:2001（目录/摘要）涉及机床坐标和运动命名，不提供真实B5轴树；ISO 230-1:2012目录说明空载/准静态几何检验，并非运行性能测试；ISO 10791-1:2015主要面向卧式主轴加工中心。LinuxCNC 2.9“Kinematics/Joints vs Axes”及INI章节可见物理关节与编程轴并非恒定一对一，此为LinuxCNC实现例。OCCT 8.0.1 gp_Trsf只说明坐标变换API，不能解释控制器语义。NIST Fesperman、Moylan和Donmez于2012-10-26发表的五轴虚拟机床论文仅读出版摘要，不能当实际B5精度认证。详细作者/版本/深度/限制见[来源](../sources/CAP-02-01.json)；[规则](../traces/CAP-02-01.json)与[正反验收](../../docs/capabilities/CAP-02-01/fixtures.json)均是待产品独立验证的规范。

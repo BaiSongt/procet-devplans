@@ -1,3 +1,7 @@
+## 2026-10-20｜CAP-02-01机床资源构型研究补证（规划非产品）
+
+[补证](docs/capabilities/CAP-02-01/RESEARCH-BACKFILL.md) · [UI](docs/capabilities/CAP-02-01/UI-DELTA.md) · [7来源](research/sources/CAP-02-01.json) · [10规则20验收](research/traces/CAP-02-01.json)。详细CAP29/88、实施包11/36、研究追踪29项、研究来源232条/31 registry。L3与产品/独立消费者NOT_RUN；下面为历史快照。
+
 ## 2026-10-19｜CAP-01-06统一任务与事件中心研究补证（新入库）
 
 [详细补证](docs/capabilities/CAP-01-06/RESEARCH-BACKFILL.md) · [研究专题](research/topics/R-TASK-001.md) · [8官方来源](research/sources/CAP-01-06.json) · [10规则/20正反验收](research/traces/CAP-01-06.json)。**详细CAP29/88、工作包11/36、CAP研究追踪28项、来源225条/30registry**。运行成功不等于成果采纳、D15工程验证或D16发布；Host取消/乱序/晚回执及统一左TaskPanel均已给出可机器验证的正反规格。L3待审、Python和产品/独立消费者NOT_RUN；后文进度为历史快照，实时以tracking/progress.json为准。PR#1仍Draft。
