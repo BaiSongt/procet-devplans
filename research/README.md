@@ -65,3 +65,7 @@
 ### 2026-10-19｜R-STOCKREG-001 毛坯/零件定位配准
 
 [理论与限制](topics/R-STOCKREG-001.md) → [7条来源](sources/CAP-04-02.json) → [10条规则追踪](traces/CAP-04-02.json) → [20条正反验收](../docs/capabilities/CAP-04-02/fixtures.json)。ISO标准仅读合法官方摘要，NIST报告仅出版元数据，OCCT按官网8.0.1 API，不冒称产品Native或真实控制器已验收。
+
+### 2026-10-19 R-EXT-001 扩展与集成入口研究补证
+
+[专题](topics/R-EXT-001.md) · [7项来源](sources/CAP-01-08.json) · [10规则及20正反验收](traces/CAP-01-08.json)。累计181条来源、24份registry、23项CAP追踪；产品NOT_RUN。

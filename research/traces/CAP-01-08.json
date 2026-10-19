@@ -1,0 +1,323 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-01-08",
+  "topic": "R-EXT-001",
+  "registeredSources": [
+    "SRC-EXT-001",
+    "SRC-EXT-002",
+    "SRC-EXT-003",
+    "SRC-EXT-004",
+    "SRC-EXT-005",
+    "SRC-EXT-006",
+    "SRC-EXT-007"
+  ],
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "original": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-08_扩展与集成入口.md",
+    "supplement": "docs/capabilities/CAP-01-08/RESEARCH-BACKFILL.md",
+    "sources": "research/sources/CAP-01-08.json",
+    "fixtures": "docs/capabilities/CAP-01-08/fixtures.json"
+  },
+  "rules": [
+    {
+      "id": "EXT-R01",
+      "capabilityId": "CAP-01-08",
+      "description": "检查模块manifest的ID、权限、Producer hash、命名空间并拒绝冲突",
+      "sourceIds": [
+        "SRC-EXT-003",
+        "SRC-EXT-004"
+      ],
+      "fields": [
+        "moduleId",
+        "producerHash",
+        "permissionScopes",
+        "manifestVersion"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "workPackages": [
+        "B0-04",
+        "U4-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-03",
+        "CAP-01-08-AT-09"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R02",
+      "capabilityId": "CAP-01-08",
+      "description": "UI激活与Host backendReady独立；无Worker握手禁止写操作",
+      "sourceIds": [
+        "SRC-EXT-001",
+        "SRC-EXT-002",
+        "SRC-EXT-003"
+      ],
+      "fields": [
+        "uiState",
+        "backendState",
+        "workerExactHash"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "workPackages": [
+        "U4-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-01",
+        "CAP-01-08-AT-10"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R03",
+      "capabilityId": "CAP-01-08",
+      "description": "GUI/CLI/Agent均经Host真实Actor、scope和权限重验",
+      "sourceIds": [
+        "SRC-EXT-001",
+        "SRC-EXT-002"
+      ],
+      "fields": [
+        "sessionActor",
+        "scope",
+        "operation"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "workPackages": [
+        "B0-01",
+        "U4-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-06",
+        "CAP-01-08-AT-11",
+        "CAP-01-08-AT-14"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R04",
+      "capabilityId": "CAP-01-08",
+      "description": "比较expectedRevision、确切hash和frame才CAS提交；成功依Owner回执",
+      "sourceIds": [
+        "SRC-EXT-002",
+        "SRC-EXT-005"
+      ],
+      "fields": [
+        "expectedRevision",
+        "sourceHash",
+        "frameRef",
+        "commitReceipt"
+      ],
+      "assets": [
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-01",
+        "U4-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-12",
+        "CAP-01-08-AT-13"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R05",
+      "capabilityId": "CAP-01-08",
+      "description": "注册single-flight及贡献唯一Owner；停用必须撤销3D/事件租约与迟到回调",
+      "sourceIds": [
+        "SRC-EXT-002",
+        "SRC-EXT-003"
+      ],
+      "fields": [
+        "leaseId",
+        "activationEpoch",
+        "disposeReceipt"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "workPackages": [
+        "U4-06",
+        "T5-03"
+      ],
+      "tests": [
+        "CAP-01-08-AT-02",
+        "CAP-01-08-AT-05"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R06",
+      "capabilityId": "CAP-01-08",
+      "description": "组合锁需记录源码SHA、二进制hash、schema、旧Reader和逆迁移",
+      "sourceIds": [
+        "SRC-EXT-004",
+        "SRC-EXT-006"
+      ],
+      "fields": [
+        "producerCommit",
+        "binaryHash",
+        "schemaVersion",
+        "rollbackRef"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "B0-04",
+        "T5-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-07",
+        "CAP-01-08-AT-16"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R07",
+      "capabilityId": "CAP-01-08",
+      "description": "结构化错误含字段和恢复动作，不外泄客户路径或凭据",
+      "sourceIds": [
+        "SRC-EXT-002",
+        "SRC-EXT-007"
+      ],
+      "fields": [
+        "errorCode",
+        "fieldPath",
+        "recoverAction"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "workPackages": [
+        "T5-03"
+      ],
+      "tests": [
+        "CAP-01-08-AT-04",
+        "CAP-01-08-AT-15"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R08",
+      "capabilityId": "CAP-01-08",
+      "description": "取消或跨工程后迟到回执只审计，不采用；按scopeEpoch隔离",
+      "sourceIds": [
+        "SRC-EXT-002",
+        "SRC-EXT-005"
+      ],
+      "fields": [
+        "projectId",
+        "scopeEpoch",
+        "adoptionState"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "W2-04",
+        "U4-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-13",
+        "CAP-01-08-AT-18"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R09",
+      "capabilityId": "CAP-01-08",
+      "description": "单Babylon世界及统一左TaskPanel；3D预览不提交；共享域端口",
+      "sourceIds": [
+        "SRC-EXT-001",
+        "SRC-EXT-003"
+      ],
+      "fields": [
+        "rendererHostId",
+        "taskPanelId",
+        "previewLease"
+      ],
+      "assets": [
+        "D04",
+        "D17"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-08",
+        "CAP-01-08-AT-17"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "EXT-R10",
+      "capabilityId": "CAP-01-08",
+      "description": "外部适配限制最小授权；D04/D10分离；CL→NC→D13→D14→D15→D16未知语义保留unknown",
+      "sourceIds": [
+        "SRC-EXT-001",
+        "SRC-EXT-006",
+        "SRC-EXT-007"
+      ],
+      "fields": [
+        "adapterTrust",
+        "dataScope",
+        "D04Ref",
+        "D10Ref",
+        "D13Status",
+        "D15Ref"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-06",
+        "U4-06"
+      ],
+      "tests": [
+        "CAP-01-08-AT-19",
+        "CAP-01-08-AT-20"
+      ],
+      "status": "planned_only"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-01-08-AT-01",
+    "CAP-01-08-AT-02",
+    "CAP-01-08-AT-03",
+    "CAP-01-08-AT-04",
+    "CAP-01-08-AT-05",
+    "CAP-01-08-AT-06",
+    "CAP-01-08-AT-07",
+    "CAP-01-08-AT-08",
+    "CAP-01-08-AT-09",
+    "CAP-01-08-AT-10",
+    "CAP-01-08-AT-11",
+    "CAP-01-08-AT-12",
+    "CAP-01-08-AT-13",
+    "CAP-01-08-AT-14",
+    "CAP-01-08-AT-15",
+    "CAP-01-08-AT-16",
+    "CAP-01-08-AT-17",
+    "CAP-01-08-AT-18",
+    "CAP-01-08-AT-19",
+    "CAP-01-08-AT-20"
+  ]
+}

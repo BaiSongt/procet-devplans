@@ -56,3 +56,7 @@
 
 
 - **2026-10-19 CAP-01-07补证**：[原业务规格与研究追踪](CAP-01-07/RESEARCH-BACKFILL.md)、[7项来源](../../research/sources/CAP-01-07.json)、[20正反验收](CAP-01-07/fixtures.json)。原CAP计数不增；研究/人类批准/产品测试分离。
+
+## 2026-10-19 CAP-01-08研究补证
+
+[原CAP补证](CAP-01-08/RESEARCH-BACKFILL.md) · [来源](../../research/sources/CAP-01-08.json) · [追踪](../../research/traces/CAP-01-08.json) · [20项正反场景](CAP-01-08/fixtures.json)。原CAP已计数，不增加26/88；产品NOT_RUN。
