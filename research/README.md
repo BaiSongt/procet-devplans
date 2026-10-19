@@ -1,3 +1,7 @@
+## 2026-10-20｜R-FIMP-001装夹影响与依赖传播
+
+[研究边界](topics/R-FIMP-001.md) · [七项公开来源](sources/CAP-04-08.json) · [十规则](traces/CAP-04-08.json) · [20项独立正反验收](../docs/capabilities/CAP-04-08/fixtures.json)。来源登记239条/32 registry，CAP研究追踪30项；标准全文未读、实际OCCT产品运行及NC验证均NOT_RUN。
+
 ## 2026-10-20｜R-MACH-001机床构型证据闭环
 
 [专题](topics/R-MACH-001.md) · [来源](sources/CAP-02-01.json) · [规则](traces/CAP-02-01.json) · [20验收](../docs/capabilities/CAP-02-01/fixtures.json)。来源232条/31 registry；标准目录≠全文，规划≠产品PASS。以下为历史快照。

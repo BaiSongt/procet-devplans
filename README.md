@@ -1,3 +1,7 @@
+## 2026-10-20｜CAP-04-08装夹影响检查正式规划（规划非产品）
+
+[业务规格](docs/capabilities/CAP-04-08/README.md) · [GUI/3D](docs/capabilities/CAP-04-08/UI.md) · [来源追踪](research/traces/CAP-04-08.json) · [影响矩阵](docs/capabilities/CAP-04-08/impact-matrix.json)。详细CAP30/88、原实施包11/36，研究CAP追踪30项、来源登记239条/32 registry。静态间隙/布尔候选不等于动态NC安全；L3与产品/独立消费者NOT_RUN。下方旧快照仅供历史追溯。
+
 ## 2026-10-20｜CAP-02-01机床资源构型研究补证（规划非产品）
 
 [补证](docs/capabilities/CAP-02-01/RESEARCH-BACKFILL.md) · [UI](docs/capabilities/CAP-02-01/UI-DELTA.md) · [7来源](research/sources/CAP-02-01.json) · [10规则20验收](research/traces/CAP-02-01.json)。详细CAP29/88、实施包11/36、研究追踪29项、研究来源232条/31 registry。L3与产品/独立消费者NOT_RUN；下面为历史快照。
