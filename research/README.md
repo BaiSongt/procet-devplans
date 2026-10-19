@@ -1,3 +1,7 @@
+## 2026-10-19｜R-MSET-001 多Setup与转序（最新入库）
+
+[专题](topics/R-MSET-001.md) · [8项公开来源](sources/CAP-04-05.json) · [10规则与20正反验收](traces/CAP-04-05.json)；CAP追踪26项，研究登记**210条/28 registry**。ISO 841/5459只读合法目录；OCCT公开8.0.1 API、LinuxCNC稳定版手册、NIST出版摘要、Springer2026开放章节分别注明范围，不构成通用控制器或五轴机床认证。CAP-04-04先期FrameGraph计划仍未正式入库；产品和独立消费者NOT_RUN。
+
 ## 2026-10-19｜B0-05逐SHA证据规划入库（最新）
 
 [研究专题](topics/R-PR-001.md) · [七项来源](sources/B0-05.json) · [十规则与二十正反验收](traces/B0-05.json)。来源**202条登记/27 registry**，工作包追踪**9项**、详细工作包**11/36**；标准正文未读不编造，产品与独立QA仍NOT_RUN。以下数字为历史快照。

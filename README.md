@@ -1,3 +1,7 @@
+## 2026-10-19｜CAP-04-05 多Setup与转序已编制（最新，以台账为准）
+
+新增[CAP-04-05详细规格](docs/capabilities/CAP-04-05/README.md)、[GUI/3D](docs/capabilities/CAP-04-05/UI.md)、[研究追踪](research/traces/CAP-04-05.json)和[独立验收规格](docs/capabilities/CAP-04-05/fixtures.json)。正式统计更新为**28/88 CAP、11/36实施级工作包、CAP研究追踪26项、210条来源登记/28个registry**。原编号不变，L3待人类评审；Python脚本/产品Rust/TS/OCCT、独立消费者、实际NC和机床测试NOT_RUN。CAP-04-04、CAP-01-06、CAP-02-01待入库，历史附件审计与17资产接口会签待办；PR#1保持Draft、main未合并。
+
 ## 2026-10-19｜规划最新入库状态（此前段落保留为历史快照）
 
 以[进度台账](tracking/progress.json)为准：**CAP 27/88，实施级工作包11/36，研究登记202条/27 registry，CAP追踪25项、工作包追踪9项**；PR#1仍Draft、main未合并。新增[B0-05原工作包规划](docs/work-packages/B0-05.md)，含逐SHA依赖、GUI/CLI/Agent统一入口、7来源10规则20正反验收及Solver PR#125已合并的最新元数据纠偏。L3待评审，规划结构检查不代表产品、实机或独立消费者通过。其余待入库CAP-04-04、CAP-01-06、CAP-02-01及历史原始附件仍为待办。

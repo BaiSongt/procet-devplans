@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 27,
-    "detailPendingCount": 61,
+    "detailDraftedCount": 28,
+    "detailPendingCount": 60,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -294,6 +294,18 @@
         "acceptanceSpecifications": 20,
         "designApproval": "pending_human_review",
         "productAcceptance": "not_run"
+      },
+      {
+        "id": "CAP-04-05",
+        "path": "docs/capabilities/CAP-04-05/README.md",
+        "uiPath": "docs/capabilities/CAP-04-05/UI.md",
+        "researchTrace": "compiled_pending_human_review_product_not_run",
+        "researchTopic": "R-MSET-001",
+        "tracePath": "research/traces/CAP-04-05.json",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run"
       }
     ]
   },
@@ -421,8 +433,8 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 202,
-    "registeredSourceCountMeaning": "202条登记记录/27个registry，非去重论文数",
+    "registeredSources": 210,
+    "registeredSourceCountMeaning": "210条登记记录/28个registry，非去重论文数",
     "legacyRegistryRecords": 61,
     "additionalRegistries": [
       "research/sources/F1-03.json",
@@ -450,9 +462,10 @@
       "research/sources/CAP-01-07.json",
       "research/sources/CAP-04-03.json",
       "research/sources/CAP-02-02.json",
-      "research/sources/B0-05.json"
+      "research/sources/B0-05.json",
+      "research/sources/CAP-04-05.json"
     ],
-    "capabilityTraceCompiledCount": 25,
+    "capabilityTraceCompiledCount": 26,
     "workPackageTraceCompiledCount": 9,
     "topics": [
       {
@@ -788,6 +801,23 @@
           "09"
         ],
         "necessaryEngineeringEvidence": "7_sources_10_rules_20_positive_negative_cases_product_NOT_RUN"
+      },
+      {
+        "id": "R-MSET-001",
+        "path": "research/topics/R-MSET-001.md",
+        "status": "drafted_pending_human_review",
+        "primaryCapability": "CAP-04-05",
+        "relatedDomains": [
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10"
+        ],
+        "necessaryEngineeringEvidence": "source_rule_field_acceptance_trace_compiled_product_NOT_RUN"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -820,7 +850,7 @@
   },
   "next": {
     "capabilityId": "CAP-04-04",
-    "name": "工件坐标系与变换图",
+    "name": "工件坐标系与变换图（先处理待入库前置规划）",
     "priorityWorkPackage": "B0-06",
     "parallelPlanningBacklog": [
       "继续88项CAP详细与36包交替细化",
@@ -830,15 +860,15 @@
     ]
   },
   "checks": {
-    "record": "tracking/verification-CAP-02-02-2026-10-19.json",
-    "status": "in_memory_trace_count_and_rule_case_links_checked;_product_NOT_RUN",
+    "record": "tracking/verification-CAP-04-05-2026-10-19.json",
+    "status": "IN_MEMORY_TRACE_CHECK_PASS; Python_NOT_RUN; Product_NOT_RUN",
     "productTests": "not_run",
     "fullRepositoryDocumentCheck": "not_run_this_iteration"
   },
   "lastPlanningItem": {
-    "id": "B0-05",
-    "kind": "original_work_package_detailed_with_current_pr_observation",
-    "planningValidation": "PASS_IN_MEMORY_SOURCE_RULE_FIELD_CASE_MAPPING",
+    "id": "CAP-04-05",
+    "kind": "new_detailed_capability",
+    "planningValidation": "PASS_IN_MEMORY_8_SOURCE_10_RULE_20_CASE_SYNTHETIC_FRAME",
     "productAcceptance": "NOT_RUN"
   },
   "deliveryState": {
@@ -858,6 +888,7 @@
     "2026-10-19：CAP-01-07原有详细规格研究补证入库，详细CAP数量不变，CAP追踪+1，来源记录+7；L3待审，产品NOT_RUN。",
     "2026-10-19 CAP-04-03夹具与工件约束正式规格补入候选：7来源、10规则、20正反场景；物理装夹安全及产品/实机均NOT_RUN。",
     "2026-10-19 CAP-02-02刀具切削参数研究补证：7来源、10规则、20正反验收；几何/总成/TCP、实际推荐/采纳、CL/NC执行分离。产品NOT_RUN。",
-    "2026-10-19 B0-05原编号工作包完整细化：10实施子任务、7来源、10规则、20正反规格；Solver#125只读元数据现已merged，旧Draft记录保持历史；产品与独立消费者NOT_RUN。"
+    "2026-10-19 B0-05原编号工作包完整细化：10实施子任务、7来源、10规则、20正反规格；Solver#125只读元数据现已merged，旧Draft记录保持历史；产品与独立消费者NOT_RUN。",
+    "2026-10-19新增CAP-04-05多Setup与转序：8官方/研究来源、10规则、20正反验收、3D及多入口契约；CAP-04-04先期规划仍待正式入库；独立消费者和产品NOT_RUN。"
   ]
 }
