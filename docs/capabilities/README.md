@@ -49,3 +49,7 @@
 - [CAP-03-06人工特征编辑](CAP-03-06/README.md)、[CAP-03-08语义输出与溯源](CAP-03-08/README.md)、[CAP-04-01工艺Setup](CAP-04-01/README.md)：均有完整本轮来源/规则/验收，设计待评审、产品NOT_RUN。
 
 **当前完整详细 CAP 25/88**。仍缺63项完整规格；上文旧数字为历史快照。
+
+## 2026-10-19 新编 CAP-04-02
+
+[业务规格](CAP-04-02/README.md) · [界面与3D](CAP-04-02/UI.md) · [研究专题](../../research/topics/R-STOCKREG-001.md) · [规则追踪](../../research/traces/CAP-04-02.json) · [20项正反场景](CAP-04-02/fixtures.json)。当前**26/88**项详细CAP，均待设计评审，产品NOT_RUN；旧历史快照保留。

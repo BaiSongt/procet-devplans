@@ -1,3 +1,7 @@
+## 2026-10-19｜CAP-04-02 毛坯/零件定位配准新编（规划分支）
+
+完成[CAP-04-02业务规格](docs/capabilities/CAP-04-02/README.md)、[五步GUI与单Babylon世界交互](docs/capabilities/CAP-04-02/UI.md)、[七项官方/研究来源及阅读深度](research/sources/CAP-04-02.json)、[十条规则及20项正反验收](research/traces/CAP-04-02.json)、[合成坐标数学样例](docs/capabilities/CAP-04-02/math-examples.json)。**详细CAP 26/88，工作包10/36，来源登记167条（22个registry）**。D04配准与D10执行绑定分开；bbox并非实体包含证明，CL预览不等于NC验证。所有L3审批和产品验收仍未执行；本分支PR#1保持Draft且main未合并。
+
 # Procet Studio｜开发规划与业务设计
 
 ## 2026-10-19｜十项规划证据缺口补齐（仅规划完成）

@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "procet-registration-math-examples-v1",
+  "capabilityId": "CAP-04-02",
+  "scope": "合成刚体算例；只验证代数与AABB必要筛查，不是OCCT/BRep/材料/NC产品测试",
+  "unit": "mm",
+  "frameConvention": "column_vectors_left_multiply,T^A_B_maps_B_to_A",
+  "examples": [
+    {
+      "id": "REG-MATH-01",
+      "type": "rotation_and_translation_bbox",
+      "partLocalBounds": {
+        "x": [
+          -10,
+          10
+        ],
+        "y": [
+          -5,
+          5
+        ],
+        "z": [
+          0,
+          12
+        ]
+      },
+      "T_S_P": {
+        "rotation": "Rz(90deg)",
+        "translation": [
+          50,
+          20,
+          4
+        ],
+        "matrix4x4": [
+          [
+            0,
+            -1,
+            0,
+            50
+          ],
+          [
+            1,
+            0,
+            0,
+            20
+          ],
+          [
+            0,
+            0,
+            1,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "expectedAabbInSetup": {
+        "x": [
+          45,
+          55
+        ],
+        "y": [
+          10,
+          30
+        ],
+        "z": [
+          4,
+          16
+        ]
+      },
+      "note": "合成棱柱八角变换可精确给出该棱柱旋转后AABB；复杂BRep不可一般化"
+    },
+    {
+      "id": "REG-MATH-02",
+      "type": "stock_frame_composition",
+      "T_S_K": {
+        "rotation": "I",
+        "translation": [
+          40,
+          20,
+          0
+        ],
+        "matrix4x4": [
+          [
+            1,
+            0,
+            0,
+            40
+          ],
+          [
+            0,
+            1,
+            0,
+            20
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "T_S_P": {
+        "rotation": "Rz(90deg)",
+        "translation": [
+          50,
+          20,
+          4
+        ]
+      },
+      "expectedT_K_P": {
+        "rotation": "Rz(90deg)",
+        "translation": [
+          10,
+          0,
+          4
+        ]
+      },
+      "expectedIdentityIfInverseComposed": true
+    },
+    {
+      "id": "REG-MATH-03",
+      "type": "aabb_screening_only",
+      "partAabb": {
+        "x": [
+          45,
+          55
+        ],
+        "y": [
+          10,
+          30
+        ],
+        "z": [
+          4,
+          16
+        ]
+      },
+      "stockAabbPositive": {
+        "x": [
+          43,
+          57
+        ],
+        "y": [
+          8,
+          32
+        ],
+        "z": [
+          0,
+          20
+        ]
+      },
+      "expectedPositiveScreen": "POSSIBLE_NOT_PROVEN",
+      "stockAabbNegative": {
+        "x": [
+          46,
+          57
+        ],
+        "y": [
+          8,
+          32
+        ],
+        "z": [
+          0,
+          20
+        ]
+      },
+      "expectedNegativeScreen": "REJECT_OUTSIDE_AABB",
+      "note": "即使AABB完全包含也未证明非凸stock体实体包含"
+    },
+    {
+      "id": "REG-MATH-04",
+      "type": "absolute_idempotent_alignment",
+      "lockedInputFingerprint": "synthetic-lock-001",
+      "candidatePose": {
+        "rotation": "Rz(90deg)",
+        "translation": [
+          50,
+          20,
+          4
+        ]
+      },
+      "repeats": 3,
+      "expected": "three_equal_candidates_zero_commits_until_review",
+      "note": "不可对当前ghost pose累加translation"
+    }
+  ]
+}

@@ -57,3 +57,7 @@
 目录不是完成声明。CAP研究追踪6项、工作包追踪3项；前10项CAP的新版映射仍待回补。专题编制可保留工程资料缺口，但必须写出补证责任、适用限制和阻断条件。
 
 - [R-CAD-001｜STEP/AP242/OCCT几何导入与来源资格](topics/R-CAD-001.md) → [CAP-03-01](../docs/capabilities/CAP-03-01/README.md) → [规则追踪](traces/CAP-03-01.json)。本专题只确认实际阅读范围，ISO 10303-242:2025取代2022版，产品SDK锁需独立补证。
+
+### 2026-10-19｜R-STOCKREG-001 毛坯/零件定位配准
+
+[理论与限制](topics/R-STOCKREG-001.md) → [7条来源](sources/CAP-04-02.json) → [10条规则追踪](traces/CAP-04-02.json) → [20条正反验收](../docs/capabilities/CAP-04-02/fixtures.json)。ISO标准仅读合法官方摘要，NIST报告仅出版元数据，OCCT按官网8.0.1 API，不冒称产品Native或真实控制器已验收。
