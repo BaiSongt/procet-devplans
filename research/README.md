@@ -1,3 +1,6 @@
+## 2026-10-19｜R-FRAME-001坐标与变换图研究补证（最新）
+[专题](topics/R-FRAME-001.md) · [7来源](sources/CAP-04-04.json) · [10规则](traces/CAP-04-04.json) · [20正反验收](../docs/capabilities/CAP-04-04/fixtures.json)。总来源217条/29份registry，CAP追踪27项。ISO841仅官方摘要、OCCT8.0.1公开API、LinuxCNC稳定手册和NIST出版元数据；不声称已阅读付费正文，不将规划校验冒充产品验证。
+
 ## 2026-10-19｜R-MSET-001 多Setup与转序（最新入库）
 
 [专题](topics/R-MSET-001.md) · [8项公开来源](sources/CAP-04-05.json) · [10规则与20正反验收](traces/CAP-04-05.json)；CAP追踪26项，研究登记**210条/28 registry**。ISO 841/5459只读合法目录；OCCT公开8.0.1 API、LinuxCNC稳定版手册、NIST出版摘要、Springer2026开放章节分别注明范围，不构成通用控制器或五轴机床认证。CAP-04-04先期FrameGraph计划仍未正式入库；产品和独立消费者NOT_RUN。

@@ -1,3 +1,7 @@
+## 2026-10-19｜CAP-04-04工件坐标系与变换图已编制（以台账为准）
+
+[详细业务规格](docs/capabilities/CAP-04-04/README.md) · [GUI/3D任务](docs/capabilities/CAP-04-04/UI.md) · [来源/规则/20正反验收](research/traces/CAP-04-04.json) · [规划核验记录](tracking/verification-CAP-04-04-2026-10-19.json)。**正式CAP29/88、工作包11/36、来源登记217条/29 registry、CAP研究追踪27项**。L3与独立消费者/产品/机床测试NOT_RUN，PR#1仍Draft。旧段落作为历史快照保留。
+
 ## 2026-10-19｜CAP-04-05 多Setup与转序已编制（最新，以台账为准）
 
 新增[CAP-04-05详细规格](docs/capabilities/CAP-04-05/README.md)、[GUI/3D](docs/capabilities/CAP-04-05/UI.md)、[研究追踪](research/traces/CAP-04-05.json)和[独立验收规格](docs/capabilities/CAP-04-05/fixtures.json)。正式统计更新为**28/88 CAP、11/36实施级工作包、CAP研究追踪26项、210条来源登记/28个registry**。原编号不变，L3待人类评审；Python脚本/产品Rust/TS/OCCT、独立消费者、实际NC和机床测试NOT_RUN。CAP-04-04、CAP-01-06、CAP-02-01待入库，历史附件审计与17资产接口会签待办；PR#1保持Draft、main未合并。
