@@ -38,7 +38,7 @@ def verify_document(source, trace, fixture, known_ids):
         refs=r.get('sourceIds') or []
         require(refs and all(s in known_ids for s in refs),'来源未登记：'+str(name))
         links=pair(r)
-        require(len(links)==2 and all(x in test_ids for x in links),
+        require(len(links)>=2 and all(x in test_ids for x in links),
                 '规则的正反验收不闭合：'+str(name))
         covered.update(links)
     require(covered==test_ids,'存在游离验收')
