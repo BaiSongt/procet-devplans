@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "procet-planning-fixture-v2",
+  "workPackageId": "B0-05",
+  "origin": "NEWLY_AUTHORED_FROM_PENDING_B005_REVIEW",
+  "productExecution": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "B005-AT01-POS",
+      "ruleId": "B005-R01",
+      "polarity": "positive",
+      "given": "head/base均完整且二次读取一致",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT01-NEG",
+      "ruleId": "B005-R01",
+      "polarity": "negative",
+      "given": "用短SHA或旧缓存头作为当前通过证据",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标IDENTITY_UNKNOWN",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT02-POS",
+      "ruleId": "B005-R02",
+      "polarity": "positive",
+      "given": "GUI#62基于GUI#60的完整commit且比较结果同源",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT02-NEG",
+      "ruleId": "B005-R02",
+      "polarity": "negative",
+      "given": "把PR文件数量当ahead/behind或忽视base变化",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标STALE_REQUIRES_REFRESH",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT03-POS",
+      "ruleId": "B005-R03",
+      "polarity": "positive",
+      "given": "匹配review的commitId及目标变更记录",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT03-NEG",
+      "ruleId": "B005-R03",
+      "polarity": "negative",
+      "given": "将旧SHA批准复制到新SHA",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标PENDING_REVIEW",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT04-POS",
+      "ruleId": "B005-R04",
+      "polarity": "positive",
+      "given": "真实状态与本地日志按来源分列，空检查为UNKNOWN",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT04-NEG",
+      "ruleId": "B005-R04",
+      "polarity": "negative",
+      "given": "以空checks或skip ci表述成CI PASS",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标UNKNOWN或NOT_RUN",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT05-POS",
+      "ruleId": "B005-R05",
+      "polarity": "positive",
+      "given": "HEAD一致且有完整独立日志及明确未测范围",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT05-NEG",
+      "ruleId": "B005-R05",
+      "polarity": "negative",
+      "given": "把#60 PASS继承给#62或忽略test merge差异",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标STALE或BLOCKED",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT06-POS",
+      "ruleId": "B005-R06",
+      "polarity": "positive",
+      "given": "#60依赖先核验、#62补跑后再审批建议",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT06-NEG",
+      "ruleId": "B005-R06",
+      "polarity": "negative",
+      "given": "把建议转换为自动merge或更改base",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "拒绝越权写操作",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT07-POS",
+      "ruleId": "B005-R07",
+      "polarity": "positive",
+      "given": "各来源明确标SELF_REPORT/THIRD_PARTY/INDEPENDENT",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT07-NEG",
+      "ruleId": "B005-R07",
+      "polarity": "negative",
+      "given": "作者自测被标为独立验收PASS",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标EVIDENCE_UNVERIFIED",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT08-POS",
+      "ruleId": "B005-R08",
+      "polarity": "positive",
+      "given": "跨域消费者读取owner/version/hash/frame而不改业务对象",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT08-NEG",
+      "ruleId": "B005-R08",
+      "polarity": "negative",
+      "given": "以PR合并建议直接覆盖D04或D10",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "拒绝DOMAIN_WRITE",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT09-POS",
+      "ruleId": "B005-R09",
+      "polarity": "positive",
+      "given": "同scope、expectedRevision且权限有效时提交审查草稿",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT09-NEG",
+      "ruleId": "B005-R09",
+      "polarity": "negative",
+      "given": "撤权或旧scopeEpoch晚回执被接受",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标PERMISSION_DENIED/CAS_CONFLICT并零写",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    },
+    {
+      "id": "B005-AT10-POS",
+      "ruleId": "B005-R10",
+      "polarity": "positive",
+      "given": "回退草稿索引且保留旧凭证、各层状态独立",
+      "when": "由独立消费者使用实际exact SHA及可取得的真实日志核对，本轮未执行",
+      "then": "仅在完整证据成立时得到该断言的有界候选结论",
+      "expectedDisposition": "CANDIDATE_AFTER_EXACT_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "complete_sha",
+        "source_url",
+        "independent_log",
+        "scope"
+      ]
+    },
+    {
+      "id": "B005-AT10-NEG",
+      "ruleId": "B005-R10",
+      "polarity": "negative",
+      "given": "仅凭规划PASS将GUI或Solver判产品PASS",
+      "when": "在隔离校验入口注入本项反例，本轮未执行",
+      "then": "标NOT_RUN并保留风险",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "negative_case",
+        "rejection_reason",
+        "zero_unapproved_write"
+      ]
+    }
+  ]
+}

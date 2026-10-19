@@ -1,3 +1,7 @@
+## 2026-10-19｜新增原B0-05实施级规划（最新进度）
+
+[B0-05｜整理PR与exact-HEAD验收](B0-05.md) · [来源](../../research/sources/B0-05.json) · [10规则/20正反验收](../../research/traces/B0-05.json) · [机器快照](B0-05/observed-pr-snapshot-2026-10-19.json)。原编号11/36项完整细化；L3及产品独立验收仍未执行，Solver#125现为已合并历史PR而非Draft。下面旧统计为历史快照，以tracking/progress.json为准。
+
 # 36项开发工作包｜实施级细分导航
 
 完整原计划：[V0.8工作包](../architecture/v0.8/04_开发工作包_36项.md)。B0、F1、W2、E3、U4、T5每阶段6项，编号保持不变。

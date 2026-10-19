@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "procet-b005-trace-v1",
+  "scope": "B0-05",
+  "rules": [
+    {
+      "ruleId": "B005-R01",
+      "rule": "PR候选固定完整repo/number/headSHA/baseSHA、采集时间与来源URL；标题与短SHA不得作为验收主键",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S01",
+        "B005-S04",
+        "B005-S06"
+      ],
+      "fieldRefs": [
+        "prIdentity"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S01",
+      "positiveAcceptance": "B005-AT01-POS",
+      "negativeAcceptance": "B005-AT01-NEG",
+      "oracle": "二次GitHub只读读取并比较exact commit",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R02",
+      "rule": "叠加PR按当前真实base提交计算DAG及ahead/behind；变更目标后全部重算",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S01"
+      ],
+      "fieldRefs": [
+        "stackTopology"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S02",
+      "positiveAcceptance": "B005-AT02-POS",
+      "negativeAcceptance": "B005-AT02-NEG",
+      "oracle": "第二消费者独立计算merge-base并核对图",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R03",
+      "rule": "Review只适用于审查的diff/SHA与当时策略；PR修订后不能把旧批准视为当前批准",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S02"
+      ],
+      "fieldRefs": [
+        "reviewApplicability"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S03",
+      "positiveAcceptance": "B005-AT03-POS",
+      "negativeAcceptance": "B005-AT03-NEG",
+      "oracle": "对照review与变更前后diff，授权流程复核",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R04",
+      "rule": "空checks、skip ci、作者评论、自测与本地/实机运行必须分开，缺日志不能授PASS",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S03",
+        "B005-S07"
+      ],
+      "fieldRefs": [
+        "checkEvidence"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S04",
+      "positiveAcceptance": "B005-AT04-POS",
+      "negativeAcceptance": "B005-AT04-NEG",
+      "oracle": "只读GitHub检查记录并复核日志",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R05",
+      "rule": "每项PASS绑定exact-HEAD、命令、退出码、工具环境、覆盖项、日志hash与执行者",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S01",
+        "B005-S03"
+      ],
+      "fieldRefs": [
+        "verificationReceipt"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S05",
+      "positiveAcceptance": "B005-AT05-POS",
+      "negativeAcceptance": "B005-AT05-NEG",
+      "oracle": "逐SHA证据manifest复算",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R06",
+      "rule": "合并顺序只生成建议；不执行PR合并、重定向、force或付费CI",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S02"
+      ],
+      "fieldRefs": [
+        "mergeProposal"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S06",
+      "positiveAcceptance": "B005-AT06-POS",
+      "negativeAcceptance": "B005-AT06-NEG",
+      "oracle": "产品Owner独立签审建议不授执行权限",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R07",
+      "rule": "评论作者、自测执行者、独立验证者、实机观察者与证据附件权限分别记录",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S04",
+        "B005-S05"
+      ],
+      "fieldRefs": [
+        "verifierIdentity"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S07",
+      "positiveAcceptance": "B005-AT07-POS",
+      "negativeAcceptance": "B005-AT07-NEG",
+      "oracle": "独立QA读取日志SHA与操作人",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R08",
+      "rule": "01域仅持PR审查派生索引；06域Solver和04域Setup等业务Owner维护各自确切资产真值",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S04"
+      ],
+      "fieldRefs": [
+        "ownerContract"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S08",
+      "positiveAcceptance": "B005-AT08-POS",
+      "negativeAcceptance": "B005-AT08-NEG",
+      "oracle": "领域Owner双读exact contract",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R09",
+      "rule": "GUI/CLI/Agent共用Host提交，CAS及授权在提交点再验；取消后的晚回执隔离",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S06"
+      ],
+      "fieldRefs": [
+        "commitRace"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S09",
+      "positiveAcceptance": "B005-AT09-POS",
+      "negativeAcceptance": "B005-AT09-NEG",
+      "oracle": "Host独立并发/取消测试",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B005-R10",
+      "rule": "产品与规划状态分开；审查建议回退保留不可变历史，缺资料显式UNKNOWN",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B005-S05",
+        "B005-S07"
+      ],
+      "fieldRefs": [
+        "disposition"
+      ],
+      "workPackage": "B0-05",
+      "workSubtask": "B0-05-S10",
+      "positiveAcceptance": "B005-AT10-POS",
+      "negativeAcceptance": "B005-AT10-NEG",
+      "oracle": "独立消费者交叉覆盖矩阵核对",
+      "productStatus": "NOT_RUN"
+    }
+  ],
+  "productTests": "NOT_RUN",
+  "reviewState": "PENDING_HUMAN_L3"
+}

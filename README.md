@@ -1,3 +1,7 @@
+## 2026-10-19｜规划最新入库状态（此前段落保留为历史快照）
+
+以[进度台账](tracking/progress.json)为准：**CAP 27/88，实施级工作包11/36，研究登记202条/27 registry，CAP追踪25项、工作包追踪9项**；PR#1仍Draft、main未合并。新增[B0-05原工作包规划](docs/work-packages/B0-05.md)，含逐SHA依赖、GUI/CLI/Agent统一入口、7来源10规则20正反验收及Solver PR#125已合并的最新元数据纠偏。L3待评审，规划结构检查不代表产品、实机或独立消费者通过。其余待入库CAP-04-04、CAP-01-06、CAP-02-01及历史原始附件仍为待办。
+
 ## 2026-10-19｜CAP-04-02 毛坯/零件定位配准新编（规划分支）
 
 完成[CAP-04-02业务规格](docs/capabilities/CAP-04-02/README.md)、[五步GUI与单Babylon世界交互](docs/capabilities/CAP-04-02/UI.md)、[七项官方/研究来源及阅读深度](research/sources/CAP-04-02.json)、[十条规则及20项正反验收](research/traces/CAP-04-02.json)、[合成坐标数学样例](docs/capabilities/CAP-04-02/math-examples.json)。**详细CAP 26/88，工作包10/36，来源登记167条（22个registry）**。D04配准与D10执行绑定分开；bbox并非实体包含证明，CL预览不等于NC验证。所有L3审批和产品验收仍未执行；本分支PR#1保持Draft且main未合并。
