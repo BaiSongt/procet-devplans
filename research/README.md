@@ -1,3 +1,7 @@
+## 2026-10-19｜CAP-01-07工作台与3D交互补证（仅规划）
+
+新增[研究专题](topics/R-UI3D-001.md)、[官方7来源](sources/CAP-01-07.json)、[10规则追踪](traces/CAP-01-07.json)和[20正反验收](../docs/capabilities/CAP-01-07/fixtures.json)，保留原8个验收业务语义。总来源登记**174条/23 registry**，CAP研究追踪**22项**。产品/Babylon运行/独立消费者测试NOT_RUN。单一世界为内部设计约束，不把Babylon多Scene能力误解为强制单Scene。
+
 # 研究工作台｜2026-10-19补证更新
 
 当前来源索引按21个registries登记**160条记录**（非160篇去重论文），兼容旧sources/records不同schema；CAP01-02为新补证，CAP03-06恢复原附件。已补CAP研究追踪20项、工作包追踪8项，未等于11域全部研究完成。产品NOT_RUN。详情见[来源索引](source-index.json)与[本轮交叉校验范围](../tracking/backfill-verification-2026-10-19.json)。

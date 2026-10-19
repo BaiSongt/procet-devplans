@@ -53,3 +53,6 @@
 ## 2026-10-19 新编 CAP-04-02
 
 [业务规格](CAP-04-02/README.md) · [界面与3D](CAP-04-02/UI.md) · [研究专题](../../research/topics/R-STOCKREG-001.md) · [规则追踪](../../research/traces/CAP-04-02.json) · [20项正反场景](CAP-04-02/fixtures.json)。当前**26/88**项详细CAP，均待设计评审，产品NOT_RUN；旧历史快照保留。
+
+
+- **2026-10-19 CAP-01-07补证**：[原业务规格与研究追踪](CAP-01-07/RESEARCH-BACKFILL.md)、[7项来源](../../research/sources/CAP-01-07.json)、[20正反验收](CAP-01-07/fixtures.json)。原CAP计数不增；研究/人类批准/产品测试分离。
