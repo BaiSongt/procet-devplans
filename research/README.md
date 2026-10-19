@@ -1,3 +1,7 @@
+## 2026-10-19｜CAP-04-03夹具与工件约束（仅规划）
+
+[业务规格](../docs/capabilities/CAP-04-03/README.md) · [UI/3D](../docs/capabilities/CAP-04-03/UI.md) · [研究专题](topics/R-FIX-001.md) · [7来源](sources/CAP-04-03.json) · [10规则/20正反验收](traces/CAP-04-03.json)。来源登记更新为**188条/25 registry**，CAP研究追踪**24项**；详细CAP **27/88**、工作包**10/36**。3-2-1约束秩仅是局部线性定位证据，不代表夹紧力、结构变形或NC级安全验证。L3/独立消费者/产品测试未执行，旧快照数据以tracking/progress.json为准。
+
 ## 2026-10-19｜CAP-01-07工作台与3D交互补证（仅规划）
 
 新增[研究专题](topics/R-UI3D-001.md)、[官方7来源](sources/CAP-01-07.json)、[10规则追踪](traces/CAP-01-07.json)和[20正反验收](../docs/capabilities/CAP-01-07/fixtures.json)，保留原8个验收业务语义。总来源登记**174条/23 registry**，CAP研究追踪**22项**。产品/Babylon运行/独立消费者测试NOT_RUN。单一世界为内部设计约束，不把Babylon多Scene能力误解为强制单Scene。
