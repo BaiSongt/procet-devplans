@@ -27,6 +27,6 @@
 | W2-02/W2-03/W2-05 | CAS/ACL/取消晚回执/回退/迁移 | 旧任务回执覆盖新修订 |
 
 ## 逐项证据与可独立执行入口
-[UI/3D](UI.md) · [合成领域DTO](contract.example.json) · [8项公开来源](../../../research/sources/CAP-05-07.json) · [10规则→字段→20正反](../../../research/traces/CAP-05-07.json) · [验收数据](fixtures.json) · [独立消费者交接](independent-consumer-handoff.md) · [失效矩阵](invalidation-matrix.json) · [研究边界](../../../research/topics/R-PLANDIFF-001.md)。
+[UI/3D](UI.md) · [合成领域DTO](contract.example.json) · [8项公开来源](../../../research/sources/CAP-05-07.json) · [10规则→字段→20正反](../../../research/traces/CAP-05-07.json) · [验收数据](fixtures.json) · [独立消费者交接](independent-consumer-handoff.md) · [失效矩阵](invalidation-matrix.json) · [17资产Owner候选接口](asset-owner-candidates.json) · [研究边界](../../../research/topics/R-PLANDIFF-001.md)。
 
 规划检查命令：`node tools/check_cap_05_07.mjs`（需开发机本地运行），合成测试不是产品通过。真实实施须分别给出：exact HEAD、D05领域提交、D08冻结审查、独立D09/D13/D15/D16消费验收、GUI/CLI/Agent一致性证据、人类L3与Owner签署。
