@@ -7,7 +7,7 @@
 
 **NIST Helu/Hedberg/Feeney (2017)**：出版页摘要说明异构制造数字线程数据集成与分层访问；**NIST Helu/Hedberg (2018)**：摘要描述计划态和实制态数据关联；两篇均未阅读出版社全文，不能把其原型或DTW方法当项目产品验收。**OCCT 8.0.1 BRepCheck_Analyzer**：公开API判断Shape缺陷，不代表刀具-机床连续运动或控制器语义安全。版本指官网文档，不宣称本地SDK已经升级。
 
-**自主工程推导**：ReadyForHandoff仅为D05前置条件的完整闭包，需要D09独立收据；无法提升为D15安全PASS。A可无人工计划直接进行有界求解，但不得假称D05已规划；B从人工规划起步。D04是名义Setup，D10是机床执行绑定。A/B不可覆写冻结，D08不可变；任务提交重验ACL/CAS、代次、scope，撤销晚回执不得提交。UNKNOWN阻断发布，禁止用CL动画冒充NC验证。
+**自主工程推导**：ReadyForHandoff仅为D05前置条件的完整闭包，需要D06独立求解输入收据；D09另需D07材料状态和D08冻结的精确闭包，不能凭计划就绪提升为D15安全PASS。A可无人工计划直接进行有界求解，但不得假称D05已规划；B从人工规划起步。D04是名义Setup，D10是机床执行绑定。A/B不可覆写冻结，D08不可变；任务提交重验ACL/CAS、代次、scope，撤销晚回执不得提交。UNKNOWN阻断发布，禁止用CL动画冒充NC验证。
 
 [来源元数据及阅读深度](../sources/CAP-05-08.json) → [10规则/字段/原编号工作包/20正反](../traces/CAP-05-08.json) → [CAP业务规格](../../docs/capabilities/CAP-05-08/README.md) → [独立消费者](../../docs/capabilities/CAP-05-08/independent-consumer-handoff.md)。
 

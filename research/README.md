@@ -1,4 +1,4 @@
-## 2026-10-25｜R-PLAN-GATE-001 规划校核与D09独立交接
+## 2026-10-25｜R-PLAN-GATE-001 规划校核与D06首消费者／D09前置闭包
 [研究边界](topics/R-PLAN-GATE-001.md) · [8来源](sources/CAP-05-08.json) · [10规则20正反](traces/CAP-05-08.json)。ISO仅读目录、NIST只读摘要；375登记/48 registry，不代表375篇独立文献。产品/消费者/Owner/L3 NOT_RUN/PENDING。
 
 ## 2026-10-25｜R-PLANDIFF-001 计划修订与三方语义差异

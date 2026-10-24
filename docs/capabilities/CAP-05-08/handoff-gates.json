@@ -24,6 +24,7 @@
     {
       "asset": "D05",
       "accept": "READY_FOR_HANDOFF",
+      "nextConsumer": "D06",
       "cannotClaim": [
         "D07_CALCULATED",
         "D09_GENERATED",
@@ -32,8 +33,26 @@
       ]
     },
     {
+      "asset": "D06",
+      "accept": "ACCEPTED_FOR_SOLVER_INPUT",
+      "cannotClaim": [
+        "D07_COMPLETED",
+        "D09_READY",
+        "NC_VERIFIED"
+      ]
+    },
+    {
       "asset": "D09",
-      "accept": "ACCEPTED_FOR_CL_PLANNING",
+      "requiredExactInputs": [
+        "D03",
+        "D04",
+        "D07",
+        "D08"
+      ],
+      "blockedUnless": [
+        "D07_COMPLETED",
+        "D08_FREEZE_VALID"
+      ],
       "cannotClaim": [
         "NC_PROGRAM_VERIFIED",
         "D16_RELEASED"

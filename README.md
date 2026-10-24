@@ -1,5 +1,5 @@
 ## 2026-10-25｜CAP-05-08 D05规划校核与交接（仅规划）
-[业务](docs/capabilities/CAP-05-08/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-05-08/UI.md) · [8合法来源](research/sources/CAP-05-08.json) · [10规则20正反](research/traces/CAP-05-08.json) · [D09独立交接](docs/capabilities/CAP-05-08/independent-consumer-handoff.md)。正式详编39/88 CAP、原包18/36、研究375登记/48 registry。合成10正10反V8 PASS；Node文件执行、产品/Owner会签/L3全NOT_RUN/PENDING，规划PASS≠产品PASS；以下历史进度快照以tracking/progress.json为准。
+[业务](docs/capabilities/CAP-05-08/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-05-08/UI.md) · [8合法来源](research/sources/CAP-05-08.json) · [10规则20正反](research/traces/CAP-05-08.json) · [D06首消费者、D09需D07/D08](docs/capabilities/CAP-05-08/independent-consumer-handoff.md)。正式详编39/88 CAP、原包18/36、研究375登记/48 registry。合成10正10反V8 PASS；Node文件执行、产品/Owner会签/L3全NOT_RUN/PENDING，规划PASS≠产品PASS；以下历史进度快照以tracking/progress.json为准。
 
 ## 2026-10-25｜CAP-05-07 D05计划修订与语义差异（仅规划）
 [业务](docs/capabilities/CAP-05-07/README.md) · [单世界GUI](docs/capabilities/CAP-05-07/UI.md) · [8来源](research/sources/CAP-05-07.json) · [10规则20正反](research/traces/CAP-05-07.json) · [独立消费者](docs/capabilities/CAP-05-07/independent-consumer-handoff.md)。详细CAP38/88、原包18/36，研究登记367条/47 registry。Node文件执行/产品/Owner/L3均NOT_RUN/PENDING；历史段落数字为快照，以tracking/progress.json为准。

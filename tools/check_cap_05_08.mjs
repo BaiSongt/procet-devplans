@@ -16,7 +16,7 @@ case 5:return validRef(x.setupRef)&&x.setupRef.id==="D04"&&validRef(x.executionR
 case 6:return ["A","B"].includes(x.mode)&&/^[a-f0-9]{64}$/.test(x.sharedSourceHash||"")&&x.heads?.A!==x.heads?.B&&x.decisionStatus==="HUMAN_CONFIRMED"&&x.overwriteFrozen===false&&!x.changedIds?.some(id=>x.frozenIds?.includes(id));
 case 7:return x.affectedIds?.length>0&&x.preservedIds?.length>0&&["D06","D07","D09","D12","D13","D14","D15","D16"].every(a=>x.staleAssets?.includes(a))&&x.d13==="UNKNOWN"&&x.d15==="BLOCKED"&&x.d16==="BLOCKED"&&x.clAnimationAsNcVerification===false;
 case 8:return x.authorized===true&&x.permissionRechecked===true&&x.expectedRevision===x.currentRevision&&x.taskGeneration===x.replyGeneration&&x.scopeEpoch===x.replyScopeEpoch&&x.cancelled===false;
-case 9:return x.consumer==="D09"&&x.ownerAcceptedHandoff===true&&x.refsExact===true&&x.planGate==="READY_FOR_HANDOFF"&&x.consumerStatus==="ACCEPTED_FOR_CL_PLANNING"&&x.d15Verified===false&&x.d16Released===false;
+case 9:return x.consumer==="D06"&&x.ownerAcceptedHandoff===true&&x.refsExact===true&&x.planGate==="READY_FOR_HANDOFF"&&x.consumerStatus==="ACCEPTED_FOR_SOLVER_INPUT"&&x.d09Gate==="BLOCKED_UNTIL_D07_D08"&&x.d15Verified===false&&x.d16Released===false;
 case 10:return ["GUI","CLI","Agent"].every(e=>x.entries?.includes(e))&&x.singleDomainPort===true&&x.babylonWorldCount===1&&x.taskPanel==="LEFT_UNIFIED"&&x.previewWrites===false&&x.rollback==="FORK_NEW_REVISION"&&x.migrationMissingEvidence==="UNKNOWN"&&x.lateReplyDropped===true;
 default:return false;
 }};
