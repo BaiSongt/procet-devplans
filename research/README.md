@@ -1,3 +1,7 @@
+## 2026-10-24｜R-ROUTE-001工艺路线与工序依赖
+
+[研究专题](topics/R-ROUTE-001.md) · [8来源](sources/CAP-05-01.json) · [10规则20正反验收](traces/CAP-05-01.json)。累计255登记/34registry；ISO目录≠正文，OR-Tools排程范例≠产品排程，D05计划≠D15验证；产品/消费者NOT_RUN。
+
 ## 2026-10-24｜R-POST-001后处理链研究
 
 [专题](topics/R-POST-001.md) · [8来源](sources/CAP-08-01.json) · [10规则](traces/CAP-08-01.json) · [20验收](../docs/capabilities/CAP-08-01/fixtures.json)。ISO仅官方目录，NIST仅出版记录；累计247登记记录/33registry。产品NOT_RUN。

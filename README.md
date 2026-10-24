@@ -1,3 +1,7 @@
+## 2026-10-24｜CAP-05-01 工艺路线与工序树（仅规划）
+
+[业务规格](docs/capabilities/CAP-05-01/README.md) · [GUI/3D](docs/capabilities/CAP-05-01/UI.md) · [离线概念原型](docs/capabilities/CAP-05-01/prototype.html) · [8来源](research/sources/CAP-05-01.json) · [10规则20验收](research/traces/CAP-05-01.json)。详细CAP32/88、原工作包11/36、研究来源255条/34registry；L3/产品/独立消费者NOT_RUN。下文旧数字属历史快照，以tracking/progress.json为准。
+
 ## 2026-10-24｜CAP-08-01后处理管线已编制（仅规划）
 
 [规格](docs/capabilities/CAP-08-01/README.md) · [界面](docs/capabilities/CAP-08-01/UI.md) · [8来源](research/sources/CAP-08-01.json) · [10规则20正反](research/traces/CAP-08-01.json)。详细CAP31/88、实施包11/36、来源247条/33registry；产品/D13/D15均NOT_RUN。后文数字是历史快照，以tracking/progress.json为准。
