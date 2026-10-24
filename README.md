@@ -1,3 +1,6 @@
+## 2026-10-24｜E3-04 两机型轴运动展开（仅规划）
+[原实施包](docs/work-packages/E3-04.md) · [界面/3D](docs/work-packages/E3-04/UI.md) · [三轴/AC合成样例](docs/work-packages/E3-04/machine-cases.json) · [9来源](research/sources/E3-04.json) · [10规则/20正反](research/traces/E3-04.json)。**详细CAP34/88、原工作包14/36、来源300条/39 registry、工作包研究追踪12项**；真实B5机床构型校准/产品D14/独立D15均NOT_RUN。以下历史统计仍是快照，以台账为准。
+
 ## 2026-10-24｜CAP-05-03人工编辑与重排（规划）
 [业务](docs/capabilities/CAP-05-03/README.md) · [GUI/3D](docs/capabilities/CAP-05-03/UI.md) · [9来源](research/sources/CAP-05-03.json) · [10规则20正反](research/traces/CAP-05-03.json)。详细CAP34/88、工作包13/36、来源291条/38 registry；L3与产品/独立消费者NOT_RUN。以下为历史快照。
 

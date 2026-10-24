@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "E3-04",
+  "researchTopic": "R-D14-KIN-001",
+  "status": "PLANNING_COMPILED_PENDING_HUMAN_REVIEW",
+  "baseline": {
+    "head": "d04310a4111de17c70656453bf18d5992c908a35",
+    "original36": "docs/architecture/v0.8/04_开发工作包_36项.md",
+    "businessAssets": "docs/architecture/v0.8/business-assets.json",
+    "businessAssetBlobSha": "dad461aec34aefa773a9a22b07b6b742be60e052"
+  },
+  "sourceRegistry": "research/sources/E3-04.json",
+  "implementation": "docs/work-packages/E3-04.md",
+  "fixtures": "docs/work-packages/E3-04/fixtures.json",
+  "validator": "tools/check_e304_planning_2026_10_24.mjs",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "E304-R01",
+      "workPackageId": "E3-04",
+      "summary": "严格绑定D13解释事件、D10执行配置与D03关节模型的exact revision/hash/frame，不取latest",
+      "fixtureGate": "exactInputs",
+      "sourceIds": [
+        "SRC-D14AX-007",
+        "SRC-D14AX-008",
+        "SRC-D14AX-009"
+      ],
+      "fields": [
+        "input.d13.revision",
+        "input.d13.sha256",
+        "input.d10.revision",
+        "input.d03.kinematicHash",
+        "input.frame"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "positiveTestId": "E3-04-T01",
+      "negativeTestId": "E3-04-T02",
+      "failureCode": "EXACT_INPUT_MISMATCH",
+      "negativeStatus": "REJECTED",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R02",
+      "workPackageId": "E3-04",
+      "summary": "D13未覆盖的控制器语义、未知偏置、失效/取消不得进入D14可用时序",
+      "fixtureGate": "d13Ready",
+      "sourceIds": [
+        "SRC-D14AX-002",
+        "SRC-D14AX-006"
+      ],
+      "fields": [
+        "input.d13.status",
+        "input.d13.unknownFeatures"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-04-T03",
+      "negativeTestId": "E3-04-T04",
+      "failureCode": "UPSTREAM_SEMANTICS_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R03",
+      "workPackageId": "E3-04",
+      "summary": "关节树、物理方向、同向/反向运动、旋转中心和单位须来自D03精确构型，不按机型名称猜测",
+      "fixtureGate": "jointTreeCalibrated",
+      "sourceIds": [
+        "SRC-D14AX-001",
+        "SRC-D14AX-002",
+        "SRC-D14AX-003"
+      ],
+      "fields": [
+        "model.joints",
+        "model.axisFrames",
+        "model.pivotCenters",
+        "model.unitSystem"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "positiveTestId": "E3-04-T05",
+      "negativeTestId": "E3-04-T06",
+      "failureCode": "KINEMATIC_TOPOLOGY_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R04",
+      "workPackageId": "E3-04",
+      "summary": "显式轴地址命令与TCP目标严格分流；显式轴目标不得再次IK",
+      "fixtureGate": "commandModeCorrect",
+      "sourceIds": [
+        "SRC-D14AX-002",
+        "SRC-D14AX-003"
+      ],
+      "fields": [
+        "events.motionCommandSpace",
+        "expander.dispatchMode",
+        "samples.axisTargets"
+      ],
+      "assets": [
+        "D13",
+        "D14"
+      ],
+      "positiveTestId": "E3-04-T07",
+      "negativeTestId": "E3-04-T08",
+      "failureCode": "DOUBLE_IK_OR_WRONG_DISPATCH",
+      "negativeStatus": "REJECTED",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R05",
+      "workPackageId": "E3-04",
+      "summary": "仅声明TCP模式且工具装配、补偿阶段和目标Frame闭合时允许逆运动学",
+      "fixtureGate": "tcpTransformClosed",
+      "sourceIds": [
+        "SRC-D14AX-003",
+        "SRC-D14AX-005",
+        "SRC-D14AX-006"
+      ],
+      "fields": [
+        "input.tcpFrame",
+        "d10.toolAssemblyRevision",
+        "d10.toolLengthApplicationStage"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "positiveTestId": "E3-04-T09",
+      "negativeTestId": "E3-04-T10",
+      "failureCode": "TOOL_TCP_FRAME_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R06",
+      "workPackageId": "E3-04",
+      "summary": "运动链变换方向/顺序和旋转中心须正向重建，并在数值公差内FK/IK往返",
+      "fixtureGate": "fkIkConsistent",
+      "sourceIds": [
+        "SRC-D14AX-003",
+        "SRC-D14AX-005"
+      ],
+      "fields": [
+        "model.transformOrder",
+        "solution.forwardResidualMm",
+        "solution.orientationResidualRad"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "positiveTestId": "E3-04-T11",
+      "negativeTestId": "E3-04-T12",
+      "failureCode": "FK_IK_RESIDUAL_EXCEEDED",
+      "negativeStatus": "REJECTED",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R07",
+      "workPackageId": "E3-04",
+      "summary": "逆解多分支按关节连续性与行程候选筛选；不可解/奇异/越界显式阻断",
+      "fixtureGate": "ikBranchResolved",
+      "sourceIds": [
+        "SRC-D14AX-002",
+        "SRC-D14AX-003",
+        "SRC-D14AX-004"
+      ],
+      "fields": [
+        "solution.branchId",
+        "solution.jointLimits",
+        "solution.singularityClass"
+      ],
+      "assets": [
+        "D03",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-04-T13",
+      "negativeTestId": "E3-04-T14",
+      "failureCode": "IK_BRANCH_OR_LIMIT_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R08",
+      "workPackageId": "E3-04",
+      "summary": "轴位姿与估算时间分开，速率/加速度模型必须精确引用且只能称估计",
+      "fixtureGate": "timeModelDeclared",
+      "sourceIds": [
+        "SRC-D14AX-004"
+      ],
+      "fields": [
+        "timeline.timeModel",
+        "timeline.estimatedOnly",
+        "timeline.motionLimitsRevision"
+      ],
+      "assets": [
+        "D03",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-04-T15",
+      "negativeTestId": "E3-04-T16",
+      "failureCode": "TIME_MODEL_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R09",
+      "workPackageId": "E3-04",
+      "summary": "每个轴时序段保留D13事件/NC行号/模态/构型指纹，顺序与时标单调",
+      "fixtureGate": "provenanceComplete",
+      "sourceIds": [
+        "SRC-D14AX-007",
+        "SRC-D14AX-008",
+        "SRC-D14AX-009"
+      ],
+      "fields": [
+        "samples.sourceEventId",
+        "samples.sourceLine",
+        "samples.modalHash",
+        "samples.timeOrder"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-04-T17",
+      "negativeTestId": "E3-04-T18",
+      "failureCode": "AXIS_TIMELINE_PROVENANCE_BROKEN",
+      "negativeStatus": "REJECTED",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E304-R10",
+      "workPackageId": "E3-04",
+      "summary": "GUI/CLI/Agent同一个受管端口，采纳前CAS权限/取消重验；旧版回退只读，D15独立消费不继承资格",
+      "fixtureGate": "commitGuardsValid",
+      "sourceIds": [
+        "SRC-D14AX-007",
+        "SRC-D14AX-008",
+        "SRC-D14AX-009"
+      ],
+      "fields": [
+        "commit.expectedRevision",
+        "commit.permissionAtCommit",
+        "commit.cancelled",
+        "output.qualification"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-04-T19",
+      "negativeTestId": "E3-04-T20",
+      "failureCode": "STALE_OR_UNAUTHORIZED_RECEIPT",
+      "negativeStatus": "STALE",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D15/QAVerifier (NOT_RUN)",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

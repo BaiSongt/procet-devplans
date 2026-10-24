@@ -1,3 +1,6 @@
+## 2026-10-24｜R-D14-KIN-001机床轴时序与运动学
+[专题](topics/R-D14-KIN-001.md) · [9来源](sources/E3-04.json) · [规则/20正反](traces/E3-04.json)。正式来源300条/39 registry；ISO841目录不等于正文；LinuxCNC不外推实际B5；产品/独立D15 NOT_RUN。以下为历史快照。
+
 ## 2026-10-24｜R-ROUTEEDIT-001人工编辑与工艺约束研究
 [专题](topics/R-ROUTEEDIT-001.md) · [9来源](sources/CAP-05-03.json) · [10规则20正反](traces/CAP-05-03.json)。来源291条/38 registry；ISO仅目录，产品NOT_RUN。
 

@@ -1,3 +1,6 @@
+## 2026-10-24｜E3-04 两机型轴运动展开（原编号）
+[E3-04主规格](E3-04.md) · [GUI/CLI/Agent](E3-04/UI.md) · [17资产Owner候选](E3-04/asset-owner-consumer-matrix.json) · [9来源/10规则/20正反](../../research/traces/E3-04.json)。正式原工作包14/36，真实B5构型和独立D15验收NOT_RUN；下方历史快照以tracking/progress.json为准。
+
 ## 2026-10-24｜E3-03 独立NC执行语义适配（原编号实施规划）
 
 [E3-03业务与实施子任务](E3-03.md) · [NC执行端口](E3-03/contract.example.json) · [17资产候选Owner](E3-03/asset-owner-consumer-matrix.json) · [10规则20正反](../../research/traces/E3-03.json)。工作包13/36、工作包研究追踪11项、产品NC/消费者 NOT_RUN；以下历史进度以tracking/progress.json为准。
