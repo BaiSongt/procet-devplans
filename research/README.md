@@ -1,3 +1,7 @@
+## 2026-10-24｜R-TEAM-GOV-001 团队治理与真实验收证据
+
+[专题](topics/R-TEAM-GOV-001.md) · [B0-06 9条官方/论文来源](sources/B0-06.json) · [10规则20正反追踪](traces/B0-06.json)。来源登记**273条/36 registry**；ISO仅目录、NIST仅出版摘要，arXiv仅读摘要；旧R-GOV-001属于B0-02，保持不变。产品与独立消费者均NOT_RUN。
+
 ## 2026-10-24｜R-STRAT-001策略与工艺参数
 
 [专题](topics/R-STRAT-001.md) · [9来源](sources/CAP-05-02.json) · [10规则20验收](traces/CAP-05-02.json)。累计264条/35registry；ISO目录、NIST摘要与Sandvik公式均注明适用限制，实际产品NOT_RUN。

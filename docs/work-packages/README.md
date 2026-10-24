@@ -1,3 +1,7 @@
+## 2026-10-24｜B0-06 原编号实施规划已编制
+
+[B0-06责任、ADR与本地验收](B0-06.md) · [GUI/CLI/Agent共域接口](B0-06/contracts-and-ui.md) · [ADR模板](B0-06/adr-template.md) · [本地manifest样例](B0-06/local-acceptance-manifest.example.json) · [来源/正反验收](../../research/traces/B0-06.json)。已正式入库原工作包**12/36**；其中10项有研究追踪；人类签署和产品测试NOT_RUN。旧导航数字视为历史快照。
+
 ## 2026-10-19｜新增原B0-05实施级规划（最新进度）
 
 [B0-05｜整理PR与exact-HEAD验收](B0-05.md) · [来源](../../research/sources/B0-05.json) · [10规则/20正反验收](../../research/traces/B0-05.json) · [机器快照](B0-05/observed-pr-snapshot-2026-10-19.json)。原编号11/36项完整细化；L3及产品独立验收仍未执行，Solver#125现为已合并历史PR而非Draft。下面旧统计为历史快照，以tracking/progress.json为准。

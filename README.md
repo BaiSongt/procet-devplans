@@ -1,3 +1,7 @@
+## 2026-10-24｜B0-06 团队责任、ADR与本地验收模板（仅规划）
+
+[原工作包](docs/work-packages/B0-06.md) · [受管接口及GUI](docs/work-packages/B0-06/contracts-and-ui.md) · [17资产Owner候选](docs/work-packages/B0-06/owner-candidates.json) · [9来源](research/sources/B0-06.json) · [10规则20正反](research/traces/B0-06.json)。正式CAP33/88、原编号工作包**12/36**、来源登记**273条/36 registry**、工作包研究追踪10项，L3、人类签署、产品测试与独立消费者NOT_RUN。已有B0-02的R-GOV-001不覆盖，新增R-TEAM-GOV-001。后文旧统计为历史快照，实时以tracking/progress.json为准。
+
 ## 2026-10-24｜CAP-05-02 策略与工艺参数（仅规划）
 
 [业务](docs/capabilities/CAP-05-02/README.md) · [GUI](docs/capabilities/CAP-05-02/UI.md) · [9来源](research/sources/CAP-05-02.json) · [10规则20正反](research/traces/CAP-05-02.json)。已入库详细CAP33/88、原工作包11/36、来源264条/35registry、CAP追踪33项；L3及产品/消费者NOT_RUN。下文旧快照以tracking/progress.json为准。
