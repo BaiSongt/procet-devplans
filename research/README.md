@@ -1,3 +1,6 @@
+## 2026-10-24｜R-SOLVER-ADOPT-001 多解求解候选与受控采纳
+[专题](topics/R-SOLVER-ADOPT-001.md) · [7合法公开来源](sources/CAP-05-05.json) · [10规则20正反](traces/CAP-05-05.json)。334登记/43 registry；ISO仅公开目录、CP-SAT状态不代表真实几何可行、OCCT Shape有效不代表NC安全。所有产品/独立消费者NOT_RUN，L3待审。
+
 ## 2026-10-24｜R-RELEASE-001 D16发布与离线信任链
 [专题](topics/R-RELEASE-001.md) · [10官方/开源规范来源](sources/E3-06.json) · [10规则20正反](traces/E3-06.json)。ISO公开目录≠付费正文，SLSA/in-toto的借鉴≠NC安全认证，离线验签/实机NOT_RUN。合计327登记/42 registry，以下均旧快照。
 

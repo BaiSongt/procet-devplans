@@ -1,3 +1,6 @@
+## 2026-10-24｜CAP-05-05 求解候选接管（仅规划，待L3）
+[业务规格](docs/capabilities/CAP-05-05/README.md) · [GUI/3D](docs/capabilities/CAP-05-05/UI.md) · [合成DTO](docs/capabilities/CAP-05-05/contract.example.json) · [7来源](research/sources/CAP-05-05.json) · [10规则20正反](research/traces/CAP-05-05.json) · [独立消费者](docs/capabilities/CAP-05-05/independent-consumer-handoff.md)。远端规划正式累计详细CAP36/88、原工作包16/36、研究334登记/43 registry；D06多解接管仅生成新D05修订，不覆盖D08冻结或伪授予NC验证。产品/Node文件/消费者NOT_RUN。以下旧数据均为历史快照。
+
 ## 2026-10-24｜E3-06 受控发布与离线交付（规划待L3评审）
 [实施原工作包](docs/work-packages/E3-06.md) · [GUI/3D](docs/work-packages/E3-06/UI.md) · [离线清单](docs/work-packages/E3-06/offline-manifest.example.json) · [10来源](research/sources/E3-06.json) · [10规则/20正反](research/traces/E3-06.json)。正式详细CAP35/88、原工作包16/36，研究登记327条/42 registry；所有真实NC/签名/独立D17 NOT_RUN。旧段数字仅历史快照。
 
