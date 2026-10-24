@@ -1,3 +1,7 @@
+## 2026-10-24｜CAP-05-02 策略与工艺参数（仅规划）
+
+[业务](docs/capabilities/CAP-05-02/README.md) · [GUI](docs/capabilities/CAP-05-02/UI.md) · [9来源](research/sources/CAP-05-02.json) · [10规则20正反](research/traces/CAP-05-02.json)。已入库详细CAP33/88、原工作包11/36、来源264条/35registry、CAP追踪33项；L3及产品/消费者NOT_RUN。下文旧快照以tracking/progress.json为准。
+
 ## 2026-10-24｜CAP-05-01 工艺路线与工序树（仅规划）
 
 [业务规格](docs/capabilities/CAP-05-01/README.md) · [GUI/3D](docs/capabilities/CAP-05-01/UI.md) · [离线概念原型](docs/capabilities/CAP-05-01/prototype.html) · [8来源](research/sources/CAP-05-01.json) · [10规则20验收](research/traces/CAP-05-01.json)。详细CAP32/88、原工作包11/36、研究来源255条/34registry；L3/产品/独立消费者NOT_RUN。下文旧数字属历史快照，以tracking/progress.json为准。

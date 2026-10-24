@@ -1,3 +1,7 @@
+## 2026-10-24｜R-STRAT-001策略与工艺参数
+
+[专题](topics/R-STRAT-001.md) · [9来源](sources/CAP-05-02.json) · [10规则20验收](traces/CAP-05-02.json)。累计264条/35registry；ISO目录、NIST摘要与Sandvik公式均注明适用限制，实际产品NOT_RUN。
+
 ## 2026-10-24｜R-ROUTE-001工艺路线与工序依赖
 
 [研究专题](topics/R-ROUTE-001.md) · [8来源](sources/CAP-05-01.json) · [10规则20正反验收](traces/CAP-05-01.json)。累计255登记/34registry；ISO目录≠正文，OR-Tools排程范例≠产品排程，D05计划≠D15验证；产品/消费者NOT_RUN。
