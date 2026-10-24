@@ -1,3 +1,6 @@
+## 2026-10-24｜R-TMPL-001 工艺模板精确绑定与版本复用
+[专题](topics/R-TMPL-001.md) · [8来源](sources/CAP-05-04.json) · [10规则/20正反](traces/CAP-05-04.json)。ISO仅合法官方目录；Autodesk Support仅检索摘要；模板参数/槽位跨项目需要显式重绑定。累计来源317条/41 registry（非去重）；产品/独立消费者NOT_RUN。
+
 ## 2026-10-24｜R-NCVERIFY-001 独立NC程序验证与离散干涉边界
 [研究专题](topics/R-NCVERIFY-001.md) · [9来源](sources/E3-05.json) · [10规则/20正反](traces/E3-05.json)。研究登记309条/40 registry；ISO目录和NIST出版页均非全文，OCCT静态几何非连续安全证明；产品/独立D16 NOT_RUN。
 

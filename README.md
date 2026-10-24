@@ -1,3 +1,6 @@
+## 2026-10-24｜CAP-05-04 工艺模板与复用（规划待L3评审）
+[业务规格](docs/capabilities/CAP-05-04/README.md) · [GUI/3D](docs/capabilities/CAP-05-04/UI.md) · [合成模板契约](docs/capabilities/CAP-05-04/contract.example.json) · [8来源](research/sources/CAP-05-04.json) · [10规则/20正反](research/traces/CAP-05-04.json)。正式详细CAP35/88、原编号工作包15/36，研究登记317条/41registry；Node文件/真实产品和独立消费者NOT_RUN。以下旧统计均为历史快照。
+
 ## 2026-10-24｜E3-05 独立NC程序级验证实施规划（仅规划）
 [原工作包](docs/work-packages/E3-05.md) · [GUI/3D](docs/work-packages/E3-05/UI.md) · [8维覆盖](docs/work-packages/E3-05/verification-matrix.json) · [9来源](research/sources/E3-05.json) · [10规则/20正反](research/traces/E3-05.json)。正式详细CAP34/88、工作包15/36、研究登记309条/40 registry、工作包追踪13项。离散干涉不能冒充连续证明；控制器未知必须UNKNOWN；产品/独立D16 NOT_RUN。以下旧数字为历史快照。
 

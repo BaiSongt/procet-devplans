@@ -1,3 +1,5 @@
+## 2026-10-24｜[CAP-05-04 工艺模板与复用](CAP-05-04/README.md) · [GUI/3D](CAP-05-04/UI.md) · [合成验收](CAP-05-04/fixtures.json)
+
 ## 2026-10-24｜[CAP-05-03人工编辑与重排](CAP-05-03/README.md) · [GUI](CAP-05-03/UI.md)
 
 ## 2026-10-24：[CAP-05-02策略与工艺参数](CAP-05-02/README.md) · [GUI](CAP-05-02/UI.md) · [研究](../../research/traces/CAP-05-02.json)
