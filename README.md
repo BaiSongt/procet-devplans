@@ -1,3 +1,6 @@
+## 2026-10-24｜E3-05 独立NC程序级验证实施规划（仅规划）
+[原工作包](docs/work-packages/E3-05.md) · [GUI/3D](docs/work-packages/E3-05/UI.md) · [8维覆盖](docs/work-packages/E3-05/verification-matrix.json) · [9来源](research/sources/E3-05.json) · [10规则/20正反](research/traces/E3-05.json)。正式详细CAP34/88、工作包15/36、研究登记309条/40 registry、工作包追踪13项。离散干涉不能冒充连续证明；控制器未知必须UNKNOWN；产品/独立D16 NOT_RUN。以下旧数字为历史快照。
+
 ## 2026-10-24｜E3-04 两机型轴运动展开（仅规划）
 [原实施包](docs/work-packages/E3-04.md) · [界面/3D](docs/work-packages/E3-04/UI.md) · [三轴/AC合成样例](docs/work-packages/E3-04/machine-cases.json) · [9来源](research/sources/E3-04.json) · [10规则/20正反](research/traces/E3-04.json)。**详细CAP34/88、原工作包14/36、来源300条/39 registry、工作包研究追踪12项**；真实B5机床构型校准/产品D14/独立D15均NOT_RUN。以下历史统计仍是快照，以台账为准。
 

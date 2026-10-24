@@ -1,3 +1,6 @@
+## 2026-10-24｜E3-05 独立NC程序级验证（原编号）
+[E3-05主规格](E3-05.md) · [GUI/3D](E3-05/UI.md) · [覆盖矩阵](E3-05/verification-matrix.json) · [独立交接](E3-05/independent-consumer-handoff.md) · [研究追踪](../../research/traces/E3-05.json)。工作包15/36，产品/独立D16 NOT_RUN。
+
 ## 2026-10-24｜E3-04 两机型轴运动展开（原编号）
 [E3-04主规格](E3-04.md) · [GUI/CLI/Agent](E3-04/UI.md) · [17资产Owner候选](E3-04/asset-owner-consumer-matrix.json) · [9来源/10规则/20正反](../../research/traces/E3-04.json)。正式原工作包14/36，真实B5构型和独立D15验收NOT_RUN；下方历史快照以tracking/progress.json为准。
 

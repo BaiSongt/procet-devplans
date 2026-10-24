@@ -1,3 +1,6 @@
+## 2026-10-24｜R-NCVERIFY-001 独立NC程序验证与离散干涉边界
+[研究专题](topics/R-NCVERIFY-001.md) · [9来源](sources/E3-05.json) · [10规则/20正反](traces/E3-05.json)。研究登记309条/40 registry；ISO目录和NIST出版页均非全文，OCCT静态几何非连续安全证明；产品/独立D16 NOT_RUN。
+
 ## 2026-10-24｜R-D14-KIN-001机床轴时序与运动学
 [专题](topics/R-D14-KIN-001.md) · [9来源](sources/E3-04.json) · [规则/20正反](traces/E3-04.json)。正式来源300条/39 registry；ISO841目录不等于正文；LinuxCNC不外推实际B5；产品/独立D15 NOT_RUN。以下为历史快照。
 
