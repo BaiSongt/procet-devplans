@@ -1,3 +1,6 @@
+## 2026-10-25｜[CAP-05-08 规划校核与交接](CAP-05-08/README.md) · [GUI/3D](CAP-05-08/UI.md) · [10规则20合成正反](CAP-05-08/fixtures.json)
+九维度交接门禁、D09独立消费者、17资产候选Owner；详细CAP39/88（仍待L3），真实产品NOT_RUN。下文历史快照以tracking/progress.json为准。
+
 ## 2026-10-25｜[CAP-05-07 计划修订与差异](CAP-05-07/README.md) · [GUI/3D](CAP-05-07/UI.md) · [20合成正反](CAP-05-07/fixtures.json)
 
 ## 2026-10-24｜[CAP-05-04 工艺模板与复用](CAP-05-04/README.md) · [GUI/3D](CAP-05-04/UI.md) · [合成验收](CAP-05-04/fixtures.json)

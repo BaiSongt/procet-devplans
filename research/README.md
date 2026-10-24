@@ -1,3 +1,6 @@
+## 2026-10-25｜R-PLAN-GATE-001 规划校核与D09独立交接
+[研究边界](topics/R-PLAN-GATE-001.md) · [8来源](sources/CAP-05-08.json) · [10规则20正反](traces/CAP-05-08.json)。ISO仅读目录、NIST只读摘要；375登记/48 registry，不代表375篇独立文献。产品/消费者/Owner/L3 NOT_RUN/PENDING。
+
 ## 2026-10-25｜R-PLANDIFF-001 计划修订与三方语义差异
 [专题](topics/R-PLANDIFF-001.md) · [8来源](sources/CAP-05-07.json) · [10规则20合成正反](traces/CAP-05-07.json)。当前来源登记367条/47 registry；NIST仅读官方Abstract、ISO目录未读付费正文；真实产品/独立消费者NOT_RUN，L3待审。
 

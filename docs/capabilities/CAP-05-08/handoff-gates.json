@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "procet-cap-05-08-handoff-gate-v1",
+  "syntheticOnly": true,
+  "states": [
+    "INCOMPLETE",
+    "UNKNOWN",
+    "BLOCKED",
+    "READY_FOR_HANDOFF",
+    "CONSUMER_ACCEPTED"
+  ],
+  "releaseStateOutsideScope": "D16_INDEPENDENT",
+  "checkDimensions": [
+    "exact_refs",
+    "plan_dag",
+    "feature_occurrence",
+    "resource_capability",
+    "nominal_setup",
+    "freeze_decision",
+    "selective_invalidation",
+    "commit_cas_acl",
+    "consumer_ack"
+  ],
+  "gates": [
+    {
+      "asset": "D05",
+      "accept": "READY_FOR_HANDOFF",
+      "cannotClaim": [
+        "D07_CALCULATED",
+        "D09_GENERATED",
+        "D15_PASS",
+        "D16_RELEASED"
+      ]
+    },
+    {
+      "asset": "D09",
+      "accept": "ACCEPTED_FOR_CL_PLANNING",
+      "cannotClaim": [
+        "NC_PROGRAM_VERIFIED",
+        "D16_RELEASED"
+      ]
+    },
+    {
+      "asset": "D13",
+      "unknown": "UNKNOWN",
+      "downstreamD15": "BLOCKED",
+      "downstreamD16": "BLOCKED"
+    }
+  ],
+  "failureBehavior": {
+    "staleRefs": "UNKNOWN_REBIND_REQUIRED",
+    "dagCycle": "BLOCKED",
+    "missingFeatureOccurrence": "UNKNOWN",
+    "unsupportedResources": "UNKNOWN",
+    "d04FrameMismatch": "BLOCKED",
+    "d08FrozenOverwrite": "BLOCKED",
+    "canceledOrLateReply": "IGNORE_AND_AUDIT",
+    "migrationMissingHashes": "READ_ONLY_UNKNOWN",
+    "revert": "FORK_NEW_REVISION"
+  },
+  "historicalImmutable": [
+    "D08",
+    "D16"
+  ],
+  "materialSweptSimulation": false
+}
