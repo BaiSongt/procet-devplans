@@ -1,3 +1,6 @@
+## 2026-10-25｜E3-01中立CL/链接实施级规划（原编号）
+[业务与10子任务](E3-01.md) · [统一TaskPanel/3D](E3-01/UI.md) · [17资产Owner](E3-01/asset-owner-consumer-matrix.json) · [8来源10规则20正反](../../research/traces/E3-01.json) · [D12独立消费](E3-01/independent-consumer-handoff.md)。正式原编号17/36，L3与产品NOT_RUN。以下为历史快照。
+
 ## 2026-10-24｜E3-06 D16受控发布与离线交付（原编号）
 [实施包](E3-06.md) · [GUI/3D](E3-06/UI.md) · [领域契约](E3-06/contract.example.json) · [离线包合成清单](E3-06/offline-manifest.example.json) · [D17独立交接](E3-06/independent-consumer-handoff.md) · [10规则/20正反](../../research/traces/E3-06.json)。正式原编号工作包16/36；真实签名、审批与独立接收NOT_RUN。
 

@@ -1,3 +1,6 @@
+## 2026-10-25｜E3-01中立CL与进退刀/弧段策略（待L3）
+[原工作包](docs/work-packages/E3-01.md) · [GUI/3D](docs/work-packages/E3-01/UI.md) · [8来源](research/sources/E3-01.json) · [10规则20正反](research/traces/E3-01.json) · [D12独立交接](docs/work-packages/E3-01/independent-consumer-handoff.md)。CAP 37/88，原包17/36，研究350登记/45 registry（非去重）；Node/Python独立文件测试、产品/Owner/L3均NOT_RUN/PENDING；main未合并。旧内容是历史快照。
+
 ## 2026-10-24｜CAP-05-06 局部冻结与冲突管理（规划待L3）
 [规格](docs/capabilities/CAP-05-06/README.md) · [GUI/3D](docs/capabilities/CAP-05-06/UI.md) · [8来源](research/sources/CAP-05-06.json) · [10规则/20正反](research/traces/CAP-05-06.json) · [独立消费者](docs/capabilities/CAP-05-06/independent-consumer-handoff.md)。详细CAP**37/88**、工作包**16/36**，342登记/44 registry；Node独立执行/真实产品/Owner/L3仍NOT_RUN/PENDING。下文数字为历史快照。
 

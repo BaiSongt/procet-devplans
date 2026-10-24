@@ -1,3 +1,6 @@
+## 2026-10-25｜R-CLLINK-001中立CL、圆弧/螺旋与端面连续链接
+[专题](topics/R-CLLINK-001.md) · [来源登记8条](sources/E3-01.json) · [10规则20正反](traces/E3-01.json) · [6几何4链接数学向量](../docs/work-packages/E3-01/geometry-vectors.json)。累计350来源登记/45 registry；ISO仅目录、NIST仅书目、真实NC/OCCT和独立消费者NOT_RUN。以下为历史快照。
+
 ## 2026-10-24｜R-FREEZE-001 局部冻结与冲突管理
 [专题](topics/R-FREEZE-001.md) · [8合法来源](sources/CAP-05-06.json) · [10规则与20正反](traces/CAP-05-06.json)。累计342条登记/44 registry；ISO仅目录、NIST论文仅摘要；RFC9110/8785/W3C与Git合并语义均明确适用界限，产品/独立消费者NOT_RUN。
 
