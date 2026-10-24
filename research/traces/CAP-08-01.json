@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-01",
+  "topic": "R-POST-001",
+  "assetOwner": "08 NC与后处理 / D12",
+  "relatedAssets": [
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "workPackages": [
+    "E3-02",
+    "E3-03",
+    "U4-04"
+  ],
+  "status": "compiled_pending_human_review_product_not_run",
+  "registeredSources": [
+    "POST-SRC-01",
+    "POST-SRC-02",
+    "POST-SRC-03",
+    "POST-SRC-04",
+    "POST-SRC-05",
+    "POST-SRC-06",
+    "POST-SRC-07",
+    "POST-SRC-08"
+  ],
+  "paths": {
+    "capability": "docs/capabilities/CAP-08-01/README.md",
+    "ui": "docs/capabilities/CAP-08-01/UI.md",
+    "source": "research/sources/CAP-08-01.json",
+    "trace": "research/traces/CAP-08-01.json",
+    "fixtures": "docs/capabilities/CAP-08-01/fixtures.json",
+    "topic": "research/topics/R-POST-001.md"
+  },
+  "rules": [
+    {
+      "id": "POST-R01",
+      "capabilityId": "CAP-08-01",
+      "description": "精确输入身份",
+      "sourceIds": [
+        "POST-SRC-01",
+        "POST-SRC-06"
+      ],
+      "fields": [
+        "cl.hash",
+        "cl.revision",
+        "cl.frame",
+        "d10.hash",
+        "profile.hash"
+      ],
+      "negativeRequirement": "缺失上游hash必须拒绝",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT01-P",
+        "POST-AT01-N"
+      ]
+    },
+    {
+      "id": "POST-R02",
+      "capabilityId": "CAP-08-01",
+      "description": "D04与D10分离",
+      "sourceIds": [
+        "POST-SRC-08"
+      ],
+      "fields": [
+        "cl.machineId",
+        "d10.machineId",
+        "transform.from",
+        "transform.to"
+      ],
+      "negativeRequirement": "CL不得提前绑定目标机床",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT02-P",
+        "POST-AT02-N"
+      ]
+    },
+    {
+      "id": "POST-R03",
+      "capabilityId": "CAP-08-01",
+      "description": "稳定分段与工序顺序",
+      "sourceIds": [
+        "POST-SRC-01",
+        "POST-SRC-02"
+      ],
+      "fields": [
+        "segmentIds",
+        "operationIds"
+      ],
+      "negativeRequirement": "无序运动段不得推后处理",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT03-P",
+        "POST-AT03-N"
+      ]
+    },
+    {
+      "id": "POST-R04",
+      "capabilityId": "CAP-08-01",
+      "description": "输出模态显式",
+      "sourceIds": [
+        "POST-SRC-02",
+        "POST-SRC-03"
+      ],
+      "fields": [
+        "modal.units",
+        "modal.plane",
+        "modal.distance",
+        "modal.feedMode",
+        "modal.wcs"
+      ],
+      "negativeRequirement": "缺模态不能猜默认值",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT04-P",
+        "POST-AT04-N"
+      ]
+    },
+    {
+      "id": "POST-R05",
+      "capabilityId": "CAP-08-01",
+      "description": "方言白名单",
+      "sourceIds": [
+        "POST-SRC-03",
+        "POST-SRC-05"
+      ],
+      "fields": [
+        "profile.supported",
+        "cl.required"
+      ],
+      "negativeRequirement": "未知宏/RTCP一律UNKNOWN",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT05-P",
+        "POST-AT05-N"
+      ]
+    },
+    {
+      "id": "POST-R06",
+      "capabilityId": "CAP-08-01",
+      "description": "圆弧数学合法",
+      "sourceIds": [
+        "POST-SRC-04",
+        "POST-SRC-08"
+      ],
+      "fields": [
+        "arc.start",
+        "arc.end",
+        "arc.center",
+        "arc.radius",
+        "arc.tol"
+      ],
+      "negativeRequirement": "半径不一致不得静默直线化",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT06-P",
+        "POST-AT06-N"
+      ]
+    },
+    {
+      "id": "POST-R07",
+      "capabilityId": "CAP-08-01",
+      "description": "原NC不可变",
+      "sourceIds": [
+        "POST-SRC-06"
+      ],
+      "fields": [
+        "d12.hash",
+        "d12.immutable",
+        "edit.fork",
+        "edit.overwrite"
+      ],
+      "negativeRequirement": "人工编辑只能fork新修订",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT07-P",
+        "POST-AT07-N"
+      ]
+    },
+    {
+      "id": "POST-R08",
+      "capabilityId": "CAP-08-01",
+      "description": "逐行来源覆盖",
+      "sourceIds": [
+        "POST-SRC-07"
+      ],
+      "fields": [
+        "lineCount",
+        "mappings.line",
+        "mappings.source"
+      ],
+      "negativeRequirement": "合成头部需有SYNTHETIC理由",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT08-P",
+        "POST-AT08-N"
+      ]
+    },
+    {
+      "id": "POST-R09",
+      "capabilityId": "CAP-08-01",
+      "description": "采纳CAS权限与代次",
+      "sourceIds": [
+        "POST-SRC-06",
+        "POST-SRC-07"
+      ],
+      "fields": [
+        "cas.expected",
+        "cas.current",
+        "actor.canCommit",
+        "task.cancelled",
+        "task.generation",
+        "task.returnGeneration"
+      ],
+      "negativeRequirement": "晚回执、取消或版本冲突不能写入",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT09-P",
+        "POST-AT09-N"
+      ]
+    },
+    {
+      "id": "POST-R10",
+      "capabilityId": "CAP-08-01",
+      "description": "后处理非工程验证",
+      "sourceIds": [
+        "POST-SRC-05",
+        "POST-SRC-07"
+      ],
+      "fields": [
+        "outcome.stage",
+        "outcome.certified",
+        "outcome.unknownPolicy",
+        "outcome.consumer"
+      ],
+      "negativeRequirement": "D12不等于D13/D14/D15/PASS",
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "POST-AT10-P",
+        "POST-AT10-N"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# CAP-08-01｜后处理GUI/3D实施规格
+**单Babylon世界**+统一左**UnifiedTaskPanel**；不重建第二场景或右侧第二面板。仅浅/深主题，最大字号12px。用户在NC工作台按5步操作：①选D09 CL exactRef与D08已采纳工序；②选择D10执行绑定与后处理Profile，列出版本/hash及支持白名单；③启动只读静态转换（细线流光按实际阶段切换，不伪造百分比）；④NC每行与CL段双向选择高亮，SYNTHETIC行显示来源规则和失败位置；⑤提交D12前提示CAS版本、权限、任务代次，撤销后晚回执丢弃。状态条分列D12生成/D13语义/D14轴时序/D15工程验证/D16发布：未执行独立验证一律NOT_RUN。3D叠加显示刀路仅为CL几何演示，不显示“机床安全通过”。GUI/CLI/Agent经同一Postprocess DomainPort，Agent只能申请、不能越权落库。
+
+**可检查字段**：`clExactRef,d08FrozenHash,setupFrame,d10BindingHash,controllerProfileHash,modalHeader,lineMap,unsupportedSemantics,taskGeneration,casExpected,actorScope`。静态错误应带源CL段和NC行号；上游版本变化将视图转为stale并禁用采纳。

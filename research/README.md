@@ -1,3 +1,7 @@
+## 2026-10-24｜R-POST-001后处理链研究
+
+[专题](topics/R-POST-001.md) · [8来源](sources/CAP-08-01.json) · [10规则](traces/CAP-08-01.json) · [20验收](../docs/capabilities/CAP-08-01/fixtures.json)。ISO仅官方目录，NIST仅出版记录；累计247登记记录/33registry。产品NOT_RUN。
+
 ## 2026-10-20｜R-FIMP-001装夹影响与依赖传播
 
 [研究边界](topics/R-FIMP-001.md) · [七项公开来源](sources/CAP-04-08.json) · [十规则](traces/CAP-04-08.json) · [20项独立正反验收](../docs/capabilities/CAP-04-08/fixtures.json)。来源登记239条/32 registry，CAP研究追踪30项；标准全文未读、实际OCCT产品运行及NC验证均NOT_RUN。

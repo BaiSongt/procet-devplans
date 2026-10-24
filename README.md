@@ -1,3 +1,7 @@
+## 2026-10-24｜CAP-08-01后处理管线已编制（仅规划）
+
+[规格](docs/capabilities/CAP-08-01/README.md) · [界面](docs/capabilities/CAP-08-01/UI.md) · [8来源](research/sources/CAP-08-01.json) · [10规则20正反](research/traces/CAP-08-01.json)。详细CAP31/88、实施包11/36、来源247条/33registry；产品/D13/D15均NOT_RUN。后文数字是历史快照，以tracking/progress.json为准。
+
 ## 2026-10-20｜CAP-04-08装夹影响检查正式规划（规划非产品）
 
 [业务规格](docs/capabilities/CAP-04-08/README.md) · [GUI/3D](docs/capabilities/CAP-04-08/UI.md) · [来源追踪](research/traces/CAP-04-08.json) · [影响矩阵](docs/capabilities/CAP-04-08/impact-matrix.json)。详细CAP30/88、原实施包11/36，研究CAP追踪30项、来源登记239条/32 registry。静态间隙/布尔候选不等于动态NC安全；L3与产品/独立消费者NOT_RUN。下方旧快照仅供历史追溯。
