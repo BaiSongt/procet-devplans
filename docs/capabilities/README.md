@@ -1,3 +1,5 @@
+## 2026-10-24｜[CAP-05-03人工编辑与重排](CAP-05-03/README.md) · [GUI](CAP-05-03/UI.md)
+
 ## 2026-10-24：[CAP-05-02策略与工艺参数](CAP-05-02/README.md) · [GUI](CAP-05-02/UI.md) · [研究](../../research/traces/CAP-05-02.json)
 
 ## 2026-10-24：[CAP-05-01 工艺路线与工序树](CAP-05-01/README.md) · [GUI/3D](CAP-05-01/UI.md) · [概念原型](CAP-05-01/prototype.html)

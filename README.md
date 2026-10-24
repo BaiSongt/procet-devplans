@@ -1,3 +1,6 @@
+## 2026-10-24｜CAP-05-03人工编辑与重排（规划）
+[业务](docs/capabilities/CAP-05-03/README.md) · [GUI/3D](docs/capabilities/CAP-05-03/UI.md) · [9来源](research/sources/CAP-05-03.json) · [10规则20正反](research/traces/CAP-05-03.json)。详细CAP34/88、工作包13/36、来源291条/38 registry；L3与产品/独立消费者NOT_RUN。以下为历史快照。
+
 ## 2026-10-24｜E3-03 NC控制器语义适配（原编号、仅规划）
 
 [原工作包](docs/work-packages/E3-03.md) · [接口](docs/work-packages/E3-03/contract.example.json) · [9来源](research/sources/E3-03.json) · [10规则20正反](research/traces/E3-03.json)。正式详细CAP33/88、工作包13/36、研究登记282条/37 registry；D13未知语义UNKNOWN、真实控制器与独立D14/D15 NOT_RUN。以下为历史快照，实时以tracking/progress.json为准。

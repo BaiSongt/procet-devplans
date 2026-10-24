@@ -1,3 +1,6 @@
+## 2026-10-24｜R-ROUTEEDIT-001人工编辑与工艺约束研究
+[专题](topics/R-ROUTEEDIT-001.md) · [9来源](sources/CAP-05-03.json) · [10规则20正反](traces/CAP-05-03.json)。来源291条/38 registry；ISO仅目录，产品NOT_RUN。
+
 ## 2026-10-24｜R-NCEXEC-001 D13执行语义研究
 
 [9项官方/研究来源](sources/E3-03.json) · [10规则20正反](traces/E3-03.json) · [原E3-03工作包](../docs/work-packages/E3-03.md)。来源282条/37 registry；NIST、ISO目录不作全文；LinuxCNC手册不外推实际控制器；产品/独立消费者NOT_RUN。
