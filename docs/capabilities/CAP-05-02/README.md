@@ -16,5 +16,5 @@
 `StageIntent={phase,regionExactRefs[],frame,allowances[{regionId,unit,value,evidenceKind}],materialStateRef?,parameterSetRef}`；`Parameter={kind,value,unit,sourceRef,materialApplicability,toolApplicability,derivation?,approvalState}`。
 `AdoptionReceipt={newD05Revision,contentHash,sourceHashes,actorAuditRef,taskGeneration,affectedIds,invalidationManifest,casReceipt}`。Hash仅采用显式声明的规范化协议（如JCS/I-JSON profile），不能把任意JS序列化当确定性协议。C0最小公用；领域参数不进入巨型common。
 ## 与GUI、3D及交接
-见[UI](UI.md)：单Babylon世界，左UnifiedTaskPanel，Ribbon状态联动，右Agent面板只能提议；预览选择不是commit。来源/规则/字段/独立正反验收见[追踪](../../research/traces/CAP-05-02.json)、[合成fixtures](fixtures.json)、[研究专题](../../research/topics/R-STRAT-001.md)。
+见[UI](UI.md)：单Babylon世界，左UnifiedTaskPanel，Ribbon状态联动，右Agent面板只能提议；预览选择不是commit。来源/规则/字段/独立正反验收见[追踪](../../../research/traces/CAP-05-02.json)、[合成fixtures](fixtures.json)、[研究专题](../../../research/topics/R-STRAT-001.md)。
 **机器入口：** `node tools/check_cap_05_02.mjs`，仅检查9来源、10规则、20合成正反用例、4个附加故障。实际Rust/TS/Worker消费者、物理切削参数校核、NC控制器与实机测试、L3批准全部NOT_RUN。
