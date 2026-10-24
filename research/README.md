@@ -1,3 +1,6 @@
+## 2026-10-25｜R-DEPENDENCY-INVALIDATION-001版本化资产图与最小失效
+[专题](topics/R-DEPENDENCY-INVALIDATION-001.md) · [9来源](sources/W2-03.json) · [10规则20正反](traces/W2-03.json)。版本实例DAG与可有反馈的业务类型图严格分离；NC编辑限定相关执行链、UI主题不污染制造资产、资源可用状态与内容完整性区分。NIST IR8536已采用2026-09最终版的官网摘要，正文未读；来源登记410/52，产品/消费者NOT_RUN。
+
 ## 2026-10-25｜R-ADOPT-FREEZE-001候选采纳与冻结研究
 [理论专题](topics/R-ADOPT-FREEZE-001.md) · [8登记来源及阅读边界](sources/W2-02.json) · [10规则/20正反](traces/W2-02.json)。当前登记401条/51 registry；ISO仅公开目录/摘要，Git文本冲突、RFC条件提交、W3C谱系均不可替代工艺几何/正式批准，产品与独立消费者NOT_RUN。
 
