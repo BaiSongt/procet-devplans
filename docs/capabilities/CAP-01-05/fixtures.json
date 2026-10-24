@@ -1,0 +1,297 @@
+{
+  "schemaVersion": "procet-capability-acceptance-fixture-v1",
+  "capabilityId": "CAP-01-05",
+  "status": "spec_only_product_not_run",
+  "preservedLegacyIds": [
+    "CAP-01-05-AT-01",
+    "CAP-01-05-AT-02",
+    "CAP-01-05-AT-03",
+    "CAP-01-05-AT-04",
+    "CAP-01-05-AT-05",
+    "CAP-01-05-AT-06",
+    "CAP-01-05-AT-07",
+    "CAP-01-05-AT-08"
+  ],
+  "tests": [
+    {
+      "id": "CAP-01-05-AT-01",
+      "title": "无Plan探索",
+      "polarity": "positive",
+      "given": "CAD exact topology就绪，没有人工Plan/已批准机床Setup",
+      "when": "请求纯设计特征探索",
+      "then": "按能力实际最低输入允许发起Job，候选未采纳",
+      "expectedCode": "job_accepted",
+      "ruleIds": [
+        "WFLOW-R01"
+      ],
+      "layer": "integration",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-02",
+      "title": "材料输入不足",
+      "polarity": "negative",
+      "given": "有CAD但初始Stock为空",
+      "when": "请求材料状态求解",
+      "then": "仅阻断需要Stock的求解，给出缺项，不自动扩毛坯",
+      "expectedCode": "missing_stock",
+      "ruleIds": [
+        "WFLOW-R02"
+      ],
+      "layer": "ui",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-03",
+      "title": "直接B创作",
+      "polarity": "positive",
+      "given": "工程有CAD但从未运行Solver",
+      "when": "创建生产工艺Draft",
+      "then": "生成未批准Draft，无虚构候选",
+      "expectedCode": "draft_created",
+      "ruleIds": [
+        "WFLOW-R03"
+      ],
+      "layer": "recovery",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-04",
+      "title": "部分接管",
+      "polarity": "positive",
+      "given": "A三候选，B一冻结工序",
+      "when": "只采纳一候选",
+      "then": "仅新建该候选到Plan的映射，冻结未变，记录来源",
+      "expectedCode": "handoff_committed",
+      "ruleIds": [
+        "WFLOW-R04"
+      ],
+      "layer": "contract",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-05",
+      "title": "局部返回保护",
+      "polarity": "positive",
+      "given": "B有冻结工序及相邻待改工序",
+      "when": "邻域返回A",
+      "then": "冻结工序保持，结果待采纳且原Plan不改",
+      "expectedCode": "explore_scope_created",
+      "ruleIds": [
+        "WFLOW-R05"
+      ],
+      "layer": "integration",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-06",
+      "title": "接管预览过期",
+      "polarity": "negative",
+      "given": "预览引用sourceRevision=4，源头已变5",
+      "when": "确认旧previewDigest",
+      "then": "拒绝且保留编辑器候选选择，不覆盖原计划",
+      "expectedCode": "revision_conflict",
+      "ruleIds": [
+        "WFLOW-R06"
+      ],
+      "layer": "ui",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-07",
+      "title": "多Setup现场",
+      "polarity": "positive",
+      "given": "S1与S2关联不同工序/目标",
+      "when": "S1切S2直开工艺页面",
+      "then": "显示S2上下文，无需重复特征识别，3D不残留S1选择",
+      "expectedCode": "setup_context_restored",
+      "ruleIds": [
+        "WFLOW-R07"
+      ],
+      "layer": "recovery",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-08",
+      "title": "切模式不授信",
+      "polarity": "negative",
+      "given": "未完成NC验证的候选由A转入B",
+      "when": "请求发布资格",
+      "then": "保持未验证，不能自动Approved/Released",
+      "expectedCode": "verification_required",
+      "ruleIds": [
+        "WFLOW-R08"
+      ],
+      "layer": "contract",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-09",
+      "title": "未知能力不可猜默认",
+      "polarity": "negative",
+      "given": "能力目录不包含目标capabilityId",
+      "when": "发起A探索",
+      "then": "明确unsupported且无持久Job记录",
+      "expectedCode": "unknown_capability",
+      "ruleIds": [
+        "WFLOW-R01"
+      ],
+      "layer": "integration",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-10",
+      "title": "合法材料求解",
+      "polarity": "positive",
+      "given": "初始Stock和frame均为一致exact引用",
+      "when": "请求材料求解",
+      "then": "返回合法JobRef，实际结果资格独立评估",
+      "expectedCode": "job_accepted",
+      "ruleIds": [
+        "WFLOW-R02"
+      ],
+      "layer": "ui",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-11",
+      "title": "B草稿不等于NC资格",
+      "polarity": "negative",
+      "given": "B草稿创建成功且无机床执行配置",
+      "when": "尝试NC正式发布",
+      "then": "禁止发布但允许编辑草稿",
+      "expectedCode": "execution_binding_missing",
+      "ruleIds": [
+        "WFLOW-R03"
+      ],
+      "layer": "recovery",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-12",
+      "title": "冻结写覆盖拒绝",
+      "polarity": "negative",
+      "given": "B Draft目标工序冻结在approved revision",
+      "when": "用A候选直接覆盖冻结工序",
+      "then": "拒绝，不改变D08工件且写冲突回执",
+      "expectedCode": "frozen_scope_conflict",
+      "ruleIds": [
+        "WFLOW-R04"
+      ],
+      "layer": "contract",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-13",
+      "title": "B回流不覆盖",
+      "polarity": "negative",
+      "given": "A返回任务完成产生新候选",
+      "when": "自动写原已批准Plan",
+      "then": "不得静默覆盖，要求显式采纳",
+      "expectedCode": "adoption_required",
+      "ruleIds": [
+        "WFLOW-R05"
+      ],
+      "layer": "integration",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-14",
+      "title": "预览与提交一致",
+      "polarity": "positive",
+      "given": "source及target各expectedRevision未变且权限有效",
+      "when": "确认最新previewDigest",
+      "then": "生成HandoffReceipt与新Draft exact ref",
+      "expectedCode": "handoff_committed",
+      "ruleIds": [
+        "WFLOW-R06"
+      ],
+      "layer": "ui",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-15",
+      "title": "迟到跨Setup回执",
+      "polarity": "negative",
+      "given": "S1预览pending，当前已切S2并提升scopeEpoch",
+      "when": "S1预览返回",
+      "then": "丢弃S1 UI效果，不改S2选中或模型高亮",
+      "expectedCode": "stale_scope_ignored",
+      "ruleIds": [
+        "WFLOW-R07"
+      ],
+      "layer": "recovery",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-16",
+      "title": "自动化控制模式正交",
+      "polarity": "positive",
+      "given": "workflowMode=explore，Host ControlMode=manual",
+      "when": "显示权限/开始只读探索",
+      "then": "保持Host PolicyGate原mode语义，UI仅显示A业务模式",
+      "expectedCode": "mode_separated",
+      "ruleIds": [
+        "WFLOW-R08"
+      ],
+      "layer": "contract",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-17",
+      "title": "相同键幂等重试",
+      "polarity": "positive",
+      "given": "相同idempotencyKey与输入Hash已提交",
+      "when": "网络丢响应后用原key重试",
+      "then": "复读同一HandoffReceipt，不重复创建Draft",
+      "expectedCode": "receipt_replayed",
+      "ruleIds": [
+        "WFLOW-R09"
+      ],
+      "layer": "integration",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-18",
+      "title": "取消晚到与幂等冲突",
+      "polarity": "negative",
+      "given": "提交已终态，且另一次重试复用key但变更payload",
+      "when": "取消请求晚到并重试",
+      "then": "不能翻转已提交；异payload返回冲突",
+      "expectedCode": "idempotency_payload_conflict",
+      "ruleIds": [
+        "WFLOW-R09"
+      ],
+      "layer": "ui",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-19",
+      "title": "重启恢复提交",
+      "polarity": "positive",
+      "given": "Host回执持久化，UI在提交后崩溃",
+      "when": "重启并按requestId查询",
+      "then": "恢复提交真值与准确Draft，不凭旧页面状态再写",
+      "expectedCode": "status_reconciled",
+      "ruleIds": [
+        "WFLOW-R10"
+      ],
+      "layer": "recovery",
+      "productResult": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-05-AT-20",
+      "title": "跨域部分成功不授信",
+      "polarity": "negative",
+      "given": "Solver候选存储成功但CAM Draft或Project接管回执缺失",
+      "when": "UI恢复展示结果",
+      "then": "展示部分完成/需对账，不显示整体Committed",
+      "expectedCode": "reconciliation_required",
+      "ruleIds": [
+        "WFLOW-R10"
+      ],
+      "layer": "contract",
+      "productResult": "NOT_RUN"
+    }
+  ]
+}

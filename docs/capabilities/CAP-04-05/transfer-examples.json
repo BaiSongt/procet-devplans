@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "procet-setup-transfer-math-example-v1",
+  "exampleType": "synthetic_not_production_tolerance",
+  "unit": "mm",
+  "angleUnit": "rad",
+  "vectorConvention": "column_left_multiply",
+  "stage1": {
+    "id": "Setup-A",
+    "T_S1_P": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "stage2": {
+    "id": "Setup-B",
+    "action": "reclamp_turn_about_part_Y_pi_and_translate",
+    "T_S2_P": [
+      [
+        -1,
+        0,
+        0,
+        100
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1,
+        20
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "rotationDeterminant": 1,
+    "doesNotImplyRealMeasuredPose": true
+  },
+  "sample": {
+    "partPoint": [
+      10,
+      20,
+      5,
+      1
+    ],
+    "stage1Point": [
+      10,
+      20,
+      5,
+      1
+    ],
+    "stage2Point": [
+      90,
+      20,
+      15,
+      1
+    ],
+    "inverseRoundTripPoint": [
+      10,
+      20,
+      5,
+      1
+    ]
+  },
+  "negativeExamples": [
+    {
+      "case": "mirror",
+      "rotation": [
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "expect": "REJECT_DETERMINANT_NEGATIVE"
+    },
+    {
+      "case": "stage2_material_without_D07",
+      "expect": "UNKNOWN_NOT_INHERITED"
+    }
+  ],
+  "note": "转序假想位姿用于检查乘序与单位；不是实际装夹测量、NC后处理或材料扫掠验证"
+}

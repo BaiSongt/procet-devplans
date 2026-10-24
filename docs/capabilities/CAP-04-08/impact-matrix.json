@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "procet-fixture-impact-matrix-v1",
+  "capabilityId": "CAP-04-08",
+  "status": "proposed_not_frozen",
+  "changeClasses": [
+    {
+      "field": "fixtureInstancePoseHash",
+      "owner": "D04",
+      "direct": [
+        "D04"
+      ],
+      "conditional": [
+        "D05",
+        "D06",
+        "D07",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "rule": "only_if_exact_dependency_edge_exists",
+      "guard": "冻结D08和发布D16仅标过时/需复核，不覆盖"
+    },
+    {
+      "field": "fixtureAssetRevision",
+      "owner": "D03",
+      "direct": [
+        "D03"
+      ],
+      "conditional": [
+        "D04",
+        "D06",
+        "D09",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "rule": "only_if_bound_snapshot_exactRef_matches",
+      "guard": "资源目录更新不自动使无关的旧工程失效"
+    },
+    {
+      "field": "clampProtectionZoneHash",
+      "owner": "D04",
+      "direct": [
+        "D04"
+      ],
+      "conditional": [
+        "D05",
+        "D06",
+        "D09",
+        "D11",
+        "D15"
+      ],
+      "rule": "per_consumer_coverage_and_exact_ref",
+      "guard": "静态保护区不代表运动全程覆盖"
+    },
+    {
+      "field": "machineExecutionBindingHash",
+      "owner": "D10",
+      "direct": [
+        "D10"
+      ],
+      "conditional": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "rule": "execution_pipeline_only",
+      "guard": "不得反向改写D04名义Setup"
+    }
+  ],
+  "evidenceGrade": {
+    "preview": "VISUAL_ONLY",
+    "bbox": "COARSE_FILTER",
+    "occt_static": "STATIC_GEOMETRY_ONLY",
+    "cl_precheck": "CL_MOTION_PRECHECK",
+    "nc_full": "D13_D14_D15_REQUIRED",
+    "unknown": "UNKNOWN_NEVER_PASS"
+  },
+  "sampleGraph": {
+    "oldRef": "D04:setup-X@rev5#hashA:FrameSetup",
+    "newRef": "D04:setup-X@rev6#hashB:FrameSetup",
+    "edges": [
+      {
+        "from": "D04:setup-X@rev5#hashA",
+        "to": "D09:cl-17@rev2#hashCL",
+        "usage": "fixture_avoidance"
+      },
+      {
+        "from": "D04:setup-Y@rev1#hashY",
+        "to": "D09:cl-18@rev1#hashCLY",
+        "usage": "different_setup"
+      }
+    ],
+    "expectedStale": [
+      "D09:cl-17@rev2#hashCL"
+    ],
+    "expectedUnaffected": [
+      "D09:cl-18@rev1#hashCLY"
+    ],
+    "sideEffectsOnFrozen": "NONE"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-03-07",
+  "status": "local_drafted_pending_remote_l3_review",
+  "owner": "03 CAD / PMI 与制造特征",
+  "assetIds": [
+    "D01",
+    "D02",
+    "D04",
+    "D05",
+    "D06",
+    "D08",
+    "D16"
+  ],
+  "ruleCount": 10,
+  "acceptanceCount": 20,
+  "workPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "sourceIds": [
+    "SRC-FREL-001",
+    "SRC-FREL-002",
+    "SRC-FREL-003",
+    "SRC-FREL-004",
+    "SRC-FREL-005",
+    "SRC-FREL-006",
+    "SRC-FREL-007",
+    "SRC-REF-005"
+  ],
+  "rules": [
+    {
+      "id": "FREL-R01",
+      "statement": "关系必须绑定Project/Occurrence/D01与D02 exact修订、Hash、Frame；异实例不可仅靠名称合并。",
+      "sourceIds": [
+        "SRC-FREL-006",
+        "SRC-REF-005"
+      ],
+      "fieldPaths": [
+        "projectId",
+        "occurrencePath",
+        "d01Revision",
+        "d01Hash",
+        "d02Revision",
+        "frameRef"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "B0-02",
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T01",
+      "negativeAcceptanceId": "CAP-03-07-T02",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R02",
+      "statement": "拓扑邻接是同版本真实共边证据；仅共顶点、mesh视觉靠近不能宣称有共享边。",
+      "sourceIds": [
+        "SRC-FREL-004"
+      ],
+      "fieldPaths": [
+        "topologyEdgeRefs",
+        "adjacencyEvidence",
+        "topologySnapshotRef"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T03",
+      "negativeAcceptanceId": "CAP-03-07-T04",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R03",
+      "statement": "几何相交、紧邻、包含分开；包围盒相交只是粗筛，实际材料关系需要独立几何证据与容差上下文。",
+      "sourceIds": [
+        "SRC-FREL-005",
+        "SRC-FREL-003"
+      ],
+      "fieldPaths": [
+        "intersectionEvidenceRef",
+        "distanceMm",
+        "toleranceProfileRef"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T05",
+      "negativeAcceptanceId": "CAP-03-07-T06",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R04",
+      "statement": "去料包含与保留结构包含绝对区分；boss/岛屿不能因视觉上被包围而变成去料子级。",
+      "sourceIds": [
+        "SRC-FREL-001",
+        "SRC-FREL-003"
+      ],
+      "fieldPaths": [
+        "semanticRelationKind",
+        "materialRole",
+        "protectedRegionRef"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T07",
+      "negativeAcceptanceId": "CAP-03-07-T08",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R05",
+      "statement": "被采纳的父子层级必须有向无环；非树交叉/分组辅助边不强制唯一树；发生环拒绝或转人工审查。",
+      "sourceIds": [
+        "SRC-FREL-001",
+        "SRC-FREL-002"
+      ],
+      "fieldPaths": [
+        "relationEdges",
+        "hierarchyCycleDiagnostic",
+        "membershipScope"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "B0-02",
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T09",
+      "negativeAcceptanceId": "CAP-03-07-T10",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R06",
+      "statement": "多父竞争、特征交叠或拓扑身份歧义必须保留候选与unknown，不凭ID排序默默批准单个父。",
+      "sourceIds": [
+        "SRC-FREL-002",
+        "SRC-FREL-007"
+      ],
+      "fieldPaths": [
+        "candidateParentRefs",
+        "ambiguityStatus",
+        "resolutionEvidenceRef"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T11",
+      "negativeAcceptanceId": "CAP-03-07-T12",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R07",
+      "statement": "03域材料/拓扑关系不是05域工艺优先序；DependsOn只能由规划/约束证据形成受控D05/D08结果。",
+      "sourceIds": [
+        "SRC-FREL-001",
+        "SRC-FREL-003"
+      ],
+      "fieldPaths": [
+        "graphLayer",
+        "precedenceEvidenceRef",
+        "d05Revision"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T13",
+      "negativeAcceptanceId": "CAP-03-07-T14",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R08",
+      "statement": "证据记录引擎配置/容差单位、来源面集与核验范围；OCCT API样例不能冒充生产Native7.9.3实测。",
+      "sourceIds": [
+        "SRC-FREL-004",
+        "SRC-FREL-005",
+        "SRC-FREL-006"
+      ],
+      "fieldPaths": [
+        "evidenceClass",
+        "kernelProfileRef",
+        "geometryHash",
+        "toleranceMm",
+        "coverageStatus"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T15",
+      "negativeAcceptanceId": "CAP-03-07-T16",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R09",
+      "statement": "3D候选/预览不持久化；GUI/CLI/Agent同端口提交时在03域Owner处重验权限、D02-CAS、幂等key。",
+      "sourceIds": [
+        "SRC-REF-005"
+      ],
+      "fieldPaths": [
+        "requestId",
+        "expectedD02Revision",
+        "actorRef",
+        "commandReceipt",
+        "scopeEpoch"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "B0-02",
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T17",
+      "negativeAcceptanceId": "CAP-03-07-T18",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    },
+    {
+      "id": "FREL-R10",
+      "statement": "关系修订只追加新D02并传播局部失效；保留冻结D08/D16，断线重试按requestId查询真实回执。",
+      "sourceIds": [
+        "SRC-FREL-006",
+        "SRC-REF-005"
+      ],
+      "fieldPaths": [
+        "relationRevision",
+        "invalidationManifest",
+        "frozenSnapshotRef",
+        "receiptStatus"
+      ],
+      "target": "CAP-03-07",
+      "workPackageIds": [
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-07-T19",
+      "negativeAcceptanceId": "CAP-03-07-T20",
+      "evidenceType": "external_theory_plus_internal_design_not_product_pass"
+    }
+  ],
+  "sourceEvidenceNote": "新源7条、复用已登记W3C 1条；NIST及论文目录摘要不能当全文"
+}

@@ -1,0 +1,600 @@
+{
+  "schemaVersion": "procet-planning-test-fixtures-v1",
+  "capabilityId": "CAP-02-01",
+  "scenarioCount": 20,
+  "legacyAcceptanceIdsPreserved": [
+    "CAP-02-01-AT-01",
+    "CAP-02-01-AT-02",
+    "CAP-02-01-AT-03",
+    "CAP-02-01-AT-04",
+    "CAP-02-01-AT-05",
+    "CAP-02-01-AT-06",
+    "CAP-02-01-AT-07",
+    "CAP-02-01-AT-08"
+  ],
+  "productAcceptance": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "CAP-02-01-T01",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R01"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "machineExactRef",
+        "contentHash",
+        "revision"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "R1冻结引用可解析",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T02",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R01"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "machineExactRef",
+        "contentHash",
+        "revision"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "发布R2覆盖或静默替换冻结R1",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R01_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T03",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R02"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "jointId",
+        "axisLetter",
+        "parentJointId"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "三轴关节树正确构造",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T04",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R02"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "jointId",
+        "axisLetter",
+        "parentJointId"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "出现父节点环或凭序号猜轴字母",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R02_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T05",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R03"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "jointLimits",
+        "pivotFrame",
+        "unitSystem"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "三轴资源仅发布XYZ能力",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T06",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R03"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "jointLimits",
+        "pivotFrame",
+        "unitSystem"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "三轴资源被默认升级五轴",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R03_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T07",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R04"
+      ],
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "homePose",
+        "softLimits",
+        "velocityLimits"
+      ],
+      "assets": [
+        "D03",
+        "D15"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "有限来源按草案等级保存",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T08",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R04"
+      ],
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "homePose",
+        "softLimits",
+        "velocityLimits"
+      ],
+      "assets": [
+        "D03",
+        "D15"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "把猜测值标记实机认证PASS",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R04_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T09",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R05"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "spindleFrame",
+        "spindleInterfaceRef",
+        "machineExactRef"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "R1 Frame可精确查找",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T10",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R05"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "spindleFrame",
+        "spindleInterfaceRef",
+        "machineExactRef"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "跨资源版本错绑Frame",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R05_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T11",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R06"
+      ],
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "visualGeometryRef",
+        "travelEnvelope",
+        "proxyKind"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "缺少实体仅渲染代理线框",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T12",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R06"
+      ],
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "visualGeometryRef",
+        "travelEnvelope",
+        "proxyKind"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "testEntry": "Resources/Setup契约独立消费者",
+      "given": "用行程线框宣称已验证实体",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R06_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T13",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R07"
+      ],
+      "sourceIds": [
+        "SRC-MACH-004",
+        "SRC-MACH-005",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "controllerRef",
+        "semanticStatus",
+        "motionTimeline"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testEntry": "Host/NC独立消费者",
+      "given": "支持的NC子集进入D13再独立交接",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T14",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R07"
+      ],
+      "sourceIds": [
+        "SRC-MACH-004",
+        "SRC-MACH-005",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "controllerRef",
+        "semanticStatus",
+        "motionTimeline"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testEntry": "Host/NC独立消费者",
+      "given": "未知宏未经解释却被判D15通过",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R07_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T15",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R08"
+      ],
+      "sourceIds": [
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "expectedRevision",
+        "actorAuthority"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "testEntry": "Host/NC独立消费者",
+      "given": "有效权限与epoch允许精确采纳",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T16",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R08"
+      ],
+      "sourceIds": [
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "expectedRevision",
+        "actorAuthority"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "testEntry": "Host/NC独立消费者",
+      "given": "取消后的跨工程晚回执仍写入Setup",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R08_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T17",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R09"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "setupExactRef",
+        "executionBindingRef",
+        "invalidatedConsumers"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "testEntry": "Host/NC独立消费者",
+      "given": "R2不改冻结R1",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T18",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R09"
+      ],
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "setupExactRef",
+        "executionBindingRef",
+        "invalidatedConsumers"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "testEntry": "Host/NC独立消费者",
+      "given": "R2静默覆盖Setup并继承旧D15通过",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R09_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T19",
+      "polarity": "positive",
+      "ruleIds": [
+        "MACH-R10"
+      ],
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-003",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "configurationHash",
+        "attestation",
+        "verificationScope"
+      ],
+      "assets": [
+        "D03",
+        "D14",
+        "D15"
+      ],
+      "testEntry": "机床工程独立消费者",
+      "given": "独立消费者保留未运行证据",
+      "when": "执行对应合法领域任务",
+      "then": "返回精确回执且不越权",
+      "expectedOutcome": "ACCEPT",
+      "expectedError": null,
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    },
+    {
+      "id": "CAP-02-01-T20",
+      "polarity": "negative",
+      "ruleIds": [
+        "MACH-R10"
+      ],
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-003",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "configurationHash",
+        "attestation",
+        "verificationScope"
+      ],
+      "assets": [
+        "D03",
+        "D14",
+        "D15"
+      ],
+      "testEntry": "机床工程独立消费者",
+      "given": "仅凭目录或论文摘要宣称B5机床认证",
+      "when": "尝试违反同一条设计规则",
+      "then": "拒绝并保留冻结版本",
+      "expectedOutcome": "REJECT",
+      "expectedError": "MACHINE_R10_REJECTED",
+      "productStatus": "NOT_RUN",
+      "independentConsumerEvidence": "PENDING"
+    }
+  ]
+}

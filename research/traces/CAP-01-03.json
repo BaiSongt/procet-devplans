@@ -1,0 +1,374 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-01-03",
+  "topic": "R-REV-001",
+  "status": "local_drafted_pending_remote_and_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "originalSpec": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-03_版本、变更与回退.md",
+    "backfill": "docs/capabilities/CAP-01-03/RESEARCH-BACKFILL.md",
+    "fixtures": "docs/capabilities/CAP-01-03/fixtures.json",
+    "research": "research/topics/R-REV-001.md",
+    "newSources": "research/sources/CAP-01-03.json",
+    "sourceIndex": "research/source-index.json"
+  },
+  "legacyRegisteredSourceIds": [
+    "SRC-REF-003",
+    "SRC-REF-005",
+    "SRC-SNAP-005",
+    "SRC-SNAP-003",
+    "SRC-BOUND-008"
+  ],
+  "newRegisteredSourceIds": [
+    "SRC-REV-001",
+    "SRC-REV-002"
+  ],
+  "codeEvidence": {
+    "repository": "BaiSongt/procet-gui",
+    "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+    "files": [
+      "crates/procet-project-runtime/src/service.rs",
+      "crates/procet-project-contracts/src/manifest.rs"
+    ],
+    "ids": [
+      "E-REV-01",
+      "E-REV-02",
+      "E-REV-03",
+      "E-REV-04",
+      "E-REV-05"
+    ],
+    "evidenceKind": "read_only_specified_source_ranges_not_product_test"
+  },
+  "rules": [
+    {
+      "id": "REV-R01",
+      "capabilityId": "CAP-01-03",
+      "description": "Project工作代数、保存代数和领域对象修订分别显示与比较",
+      "sourceIds": [
+        "SRC-SNAP-005"
+      ],
+      "kind": "internal_policy_and_code_observation",
+      "fields": [
+        "workingGeneration",
+        "savedGeneration",
+        "domainRevision",
+        "containerHeaderGeneration"
+      ],
+      "tests": [
+        "CAP-01-03-AT-09",
+        "CAP-01-03-AT-10"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "U4-04"
+      ],
+      "codeObservationIds": [
+        "E-REV-02",
+        "E-REV-05"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R02",
+      "capabilityId": "CAP-01-03",
+      "description": "恢复为新提交，不能倒拨generation或无条件继承批准",
+      "sourceIds": [
+        "SRC-REV-001",
+        "SRC-REF-005"
+      ],
+      "kind": "source_analogy_plus_internal_policy",
+      "fields": [
+        "restoredFrom",
+        "newHeadGeneration",
+        "approvalValidity"
+      ],
+      "tests": [
+        "CAP-01-03-AT-03",
+        "CAP-01-03-AT-11"
+      ],
+      "workPackages": [
+        "W2-04",
+        "F1-06"
+      ],
+      "codeObservationIds": [
+        "E-REV-01"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R03",
+      "capabilityId": "CAP-01-03",
+      "description": "影响预览与写入点双重核对exact head/revisions/rules并具备幂等回执",
+      "sourceIds": [
+        "SRC-REF-003",
+        "SRC-BOUND-008"
+      ],
+      "kind": "source_analogy_plus_internal_cas",
+      "fields": [
+        "expectedGeneration",
+        "expectedObjectRevision",
+        "evaluationHash",
+        "requestId",
+        "scopeEpoch"
+      ],
+      "tests": [
+        "CAP-01-03-AT-12",
+        "CAP-01-03-AT-06"
+      ],
+      "workPackages": [
+        "F1-01",
+        "W2-04"
+      ],
+      "codeObservationIds": [],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R04",
+      "capabilityId": "CAP-01-03",
+      "description": "恢复和变更保留来源实体/活动/操作者及理由，旧审计不可变",
+      "sourceIds": [
+        "SRC-REF-005",
+        "SRC-REV-001"
+      ],
+      "kind": "source_plus_internal_audit_policy",
+      "fields": [
+        "restoredFrom",
+        "actorId",
+        "changeReason",
+        "sourceArtifactHash"
+      ],
+      "tests": [
+        "CAP-01-03-AT-13",
+        "CAP-01-03-AT-08"
+      ],
+      "workPackages": [
+        "W2-03",
+        "T5-04"
+      ],
+      "codeObservationIds": [],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R05",
+      "capabilityId": "CAP-01-03",
+      "description": "语义Diff由领域Owner产生，未知不能由raw JSON或3D代理伪判无变化",
+      "sourceIds": [
+        "SRC-REF-005"
+      ],
+      "kind": "internal_design_with_provenance_background",
+      "fields": [
+        "semanticDiff.coverage",
+        "domainOwner",
+        "sourceRevision",
+        "diffSchemaVersion"
+      ],
+      "tests": [
+        "CAP-01-03-AT-01",
+        "CAP-01-03-AT-14"
+      ],
+      "workPackages": [
+        "U4-04",
+        "F1-01"
+      ],
+      "codeObservationIds": [],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R06",
+      "capabilityId": "CAP-01-03",
+      "description": "影响分析按版本化用途依赖传播，缺规则显式unknown",
+      "sourceIds": [
+        "SRC-REF-005"
+      ],
+      "kind": "internal_design_with_provenance_background",
+      "fields": [
+        "dependencyUse",
+        "ruleSetRevision",
+        "impactStatus",
+        "unknownEdges"
+      ],
+      "tests": [
+        "CAP-01-03-AT-15",
+        "CAP-01-03-AT-05"
+      ],
+      "workPackages": [
+        "W2-03",
+        "U4-04"
+      ],
+      "codeObservationIds": [],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R07",
+      "capabilityId": "CAP-01-03",
+      "description": "更改最终NC独立修订并重跑D13→D15验证，禁止直接借旧D15发布",
+      "sourceIds": [
+        "SRC-REF-005"
+      ],
+      "kind": "internal_manufacturing_policy_not_standard_assertion",
+      "fields": [
+        "ncArtifactHash",
+        "controllerSemanticRevision",
+        "axisTimelineRef",
+        "verificationSnapshotRef"
+      ],
+      "tests": [
+        "CAP-01-03-AT-02",
+        "CAP-01-03-AT-16"
+      ],
+      "workPackages": [
+        "W2-03",
+        "T5-04"
+      ],
+      "codeObservationIds": [],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R08",
+      "capabilityId": "CAP-01-03",
+      "description": "历史资源仅按exact ref/hash重放，退役或丢失不静默用latest替代",
+      "sourceIds": [
+        "SRC-SNAP-003",
+        "SRC-SNAP-005"
+      ],
+      "kind": "internal_exact_closure_policy",
+      "fields": [
+        "resourceExactRef",
+        "resourceArtifactHash",
+        "resourceAvailability",
+        "newReleaseEligibility"
+      ],
+      "tests": [
+        "CAP-01-03-AT-04",
+        "CAP-01-03-AT-17"
+      ],
+      "workPackages": [
+        "F1-06",
+        "W2-04"
+      ],
+      "codeObservationIds": [
+        "E-REV-04"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R09",
+      "capabilityId": "CAP-01-03",
+      "description": "分辨跨层保存中间态，正式容器替换后确认失败必须可诊断恢复",
+      "sourceIds": [
+        "SRC-SNAP-005",
+        "SRC-REV-002",
+        "SRC-BOUND-008"
+      ],
+      "kind": "code_observation_plus_storage_scope",
+      "fields": [
+        "workingGeneration",
+        "savedGeneration",
+        "containerHeaderGeneration",
+        "saveStage",
+        "requestId"
+      ],
+      "tests": [
+        "CAP-01-03-AT-18",
+        "CAP-01-03-AT-19"
+      ],
+      "workPackages": [
+        "F1-06",
+        "W2-04"
+      ],
+      "codeObservationIds": [
+        "E-REV-02",
+        "E-REV-03",
+        "E-REV-04"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "REV-R10",
+      "capabilityId": "CAP-01-03",
+      "description": "迁移预检隔离并为旧Reader与历史D16留回退入口，签发事实不可覆盖",
+      "sourceIds": [
+        "SRC-REV-001",
+        "SRC-REF-005"
+      ],
+      "kind": "internal_migration_and_release_policy",
+      "fields": [
+        "schemaVersion",
+        "migrationReportRef",
+        "publishedPackageRef",
+        "rollbackReader"
+      ],
+      "tests": [
+        "CAP-01-03-AT-20",
+        "CAP-01-03-AT-07"
+      ],
+      "workPackages": [
+        "F1-06",
+        "W2-04",
+        "T5-04"
+      ],
+      "codeObservationIds": [],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-01-03-AT-01",
+    "CAP-01-03-AT-02",
+    "CAP-01-03-AT-03",
+    "CAP-01-03-AT-04",
+    "CAP-01-03-AT-05",
+    "CAP-01-03-AT-06",
+    "CAP-01-03-AT-07",
+    "CAP-01-03-AT-08",
+    "CAP-01-03-AT-09",
+    "CAP-01-03-AT-10",
+    "CAP-01-03-AT-11",
+    "CAP-01-03-AT-12",
+    "CAP-01-03-AT-13",
+    "CAP-01-03-AT-14",
+    "CAP-01-03-AT-15",
+    "CAP-01-03-AT-16",
+    "CAP-01-03-AT-17",
+    "CAP-01-03-AT-18",
+    "CAP-01-03-AT-19",
+    "CAP-01-03-AT-20"
+  ],
+  "workPackages": [
+    "F1-01",
+    "F1-06",
+    "T5-04",
+    "U4-04",
+    "W2-03",
+    "W2-04"
+  ],
+  "relatedAssets": [
+    "D01",
+    "D03",
+    "D05",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "remainingEngineeringGates": [
+    "Owner-level DiffProvider & impact graph not proven end-to-end",
+    "BeforeConfirmSaved cross-layer failure verification not executed",
+    "Real schema migration and release eligibility review pending",
+    "No product or GUI test executed"
+  ]
+}

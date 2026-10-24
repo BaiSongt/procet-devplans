@@ -1,0 +1,263 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-03-01",
+  "topic": "R-CAD-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-03-01/README.md",
+    "ui": "docs/capabilities/CAP-03-01/UI.md",
+    "topic": "research/topics/R-CAD-001.md",
+    "fixtures": "docs/capabilities/CAP-03-01/fixtures.json"
+  },
+  "registeredSources": [
+    "SRC-CAD-001",
+    "SRC-CAD-002",
+    "SRC-CAD-003",
+    "SRC-CAD-004",
+    "SRC-CAD-005",
+    "SRC-CAD-006",
+    "SRC-CAD-007"
+  ],
+  "codeEvidence": [
+    {
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "paths": [
+        "apps/desktop/src-tauri/src/commands/cad_input.rs",
+        "apps/desktop/src/modules/cam/modelInput.ts",
+        "packages/renderer-port/src/cad-input.ts"
+      ],
+      "kind": "source_code_observation_not_test"
+    }
+  ],
+  "rules": [
+    {
+      "id": "CAD-R01",
+      "sourceIds": [
+        "SRC-CAD-001"
+      ],
+      "fields": [
+        "sourceArtifact.contentHash",
+        "sizeBytes",
+        "declaredSourcePath"
+      ],
+      "tests": [
+        "CAP-03-01-T01",
+        "CAP-03-01-T02"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "保留原始源文件CAS和确切哈希/媒体类型，外部引用缺失必须显示UNKNOWN，导入路径不是恢复依赖。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R02",
+      "sourceIds": [
+        "SRC-CAD-002",
+        "SRC-CAD-003",
+        "SRC-CAD-004"
+      ],
+      "fields": [
+        "applicationProtocol",
+        "readerVersion",
+        "parseCoverage"
+      ],
+      "tests": [
+        "CAP-03-01-T03",
+        "CAP-03-01-T04"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "STEP/AP版本与OCCT读取覆盖按实际文件与导入引擎声明，不因扩展名声称支持全部AP242 2025。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R03",
+      "sourceIds": [
+        "SRC-CAD-004"
+      ],
+      "fields": [
+        "units.source",
+        "units.canonical",
+        "frame.source"
+      ],
+      "tests": [
+        "CAP-03-01-T05",
+        "CAP-03-01-T06"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "单位由源实体和明确变换来源裁决；未知单位禁止暗默mm/英寸混淆，显示frame与几何frame不可混用。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R04",
+      "sourceIds": [
+        "SRC-CAD-004",
+        "SRC-CAD-005",
+        "SRC-CAD-007"
+      ],
+      "fields": [
+        "assemblyPath",
+        "instanceTransform",
+        "name/colourEvidence"
+      ],
+      "tests": [
+        "CAP-03-01-T07",
+        "CAP-03-01-T08"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "装配实例、零件定义和颜色/名称保持来源链，Reader/XDE与扁平化形状之间明确功能损失。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R05",
+      "sourceIds": [
+        "SRC-CAD-006"
+      ],
+      "fields": [
+        "shapeValidation",
+        "healingProvenance",
+        "geometryHash"
+      ],
+      "tests": [
+        "CAP-03-01-T09",
+        "CAP-03-01-T10"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "验证、修补、导入成功、制造可用是不同事实；修补必须生成新派生身份与日志，禁止原地替换源。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R06",
+      "sourceIds": [
+        "SRC-CAD-004",
+        "SRC-CAD-005"
+      ],
+      "fields": [
+        "importParameters",
+        "workerRevision",
+        "cancelEpoch"
+      ],
+      "tests": [
+        "CAP-03-01-T11",
+        "CAP-03-01-T12"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "导入Worker有资源上限/超时/取消和参数快照；进程级共享静态参数不能冒充按请求隔离。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R07",
+      "sourceIds": [
+        "SRC-CAD-005",
+        "SRC-CAD-007"
+      ],
+      "fields": [
+        "topologySnapshotRef",
+        "meshBundleRef",
+        "sourceGeometryHash"
+      ],
+      "tests": [
+        "CAP-03-01-T13",
+        "CAP-03-01-T14"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "B-Rep拓扑真值与渲染mesh派生区分，选择仅在exact拓扑映射有效时参与制造。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R08",
+      "sourceIds": [
+        "SRC-CAD-002",
+        "SRC-CAD-006"
+      ],
+      "fields": [
+        "geometryCapability",
+        "pmiAccess",
+        "manufacturingApproval"
+      ],
+      "tests": [
+        "CAP-03-01-T15",
+        "CAP-03-01-T16"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "网格可视性、BRep有效性、PMI可读取性与制造资格分别判断，部分能力不得自动提升为Approved。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R09",
+      "sourceIds": [
+        "SRC-CAD-001"
+      ],
+      "fields": [
+        "requestId",
+        "expectedRevision",
+        "commitReceipt",
+        "scopeEpoch"
+      ],
+      "tests": [
+        "CAP-03-01-T17",
+        "CAP-03-01-T18"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "GUI/CLI/Agent共用Owner提交口：注册/就绪/许可/真实提交四层独立；迟到回执不污染其他Project/Setup。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    },
+    {
+      "id": "CAD-R10",
+      "sourceIds": [
+        "SRC-CAD-003"
+      ],
+      "fields": [
+        "schemaVersion",
+        "migrationRecord",
+        "rollbackRef"
+      ],
+      "tests": [
+        "CAP-03-01-T19",
+        "CAP-03-01-T20"
+      ],
+      "kind": "source_plus_derived_policy",
+      "description": "旧工程精确输入引用与兼容读保持，不以最新解析或自动修补静默覆盖历史工程。",
+      "capabilityId": "CAP-03-01",
+      "implementationStatus": "planned_only"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-03-01-T01",
+    "CAP-03-01-T02",
+    "CAP-03-01-T03",
+    "CAP-03-01-T04",
+    "CAP-03-01-T05",
+    "CAP-03-01-T06",
+    "CAP-03-01-T07",
+    "CAP-03-01-T08",
+    "CAP-03-01-T09",
+    "CAP-03-01-T10",
+    "CAP-03-01-T11",
+    "CAP-03-01-T12",
+    "CAP-03-01-T13",
+    "CAP-03-01-T14",
+    "CAP-03-01-T15",
+    "CAP-03-01-T16",
+    "CAP-03-01-T17",
+    "CAP-03-01-T18",
+    "CAP-03-01-T19",
+    "CAP-03-01-T20"
+  ],
+  "relatedWorkPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "statusQualifier": "编制完成待评审，来源元数据/设计/代码观察/未执行产品测试四者严格区分"
+}

@@ -1,0 +1,317 @@
+{
+  "schemaVersion": "procet-capability-acceptance-fixture-v1",
+  "capabilityId": "CAP-01-07",
+  "status": "spec_only_product_NOT_RUN",
+  "preservedLegacyIds": [
+    "CAP-01-07-AT-01",
+    "CAP-01-07-AT-02",
+    "CAP-01-07-AT-03",
+    "CAP-01-07-AT-04",
+    "CAP-01-07-AT-05",
+    "CAP-01-07-AT-06",
+    "CAP-01-07-AT-07",
+    "CAP-01-07-AT-08"
+  ],
+  "cases": [
+    {
+      "id": "CAP-01-07-AT-01",
+      "title": "唯一场景",
+      "polarity": "positive",
+      "given": "项目与资源空间反复切换",
+      "when": "检查Engine/Scene/Canvas创建和可见根",
+      "then": "宿主对象各保持唯一，非活动根不可拾取",
+      "expectedCode": "single_world_preserved",
+      "ruleIds": [
+        "UI3D-R01"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-02",
+      "title": "双向选择",
+      "polarity": "positive",
+      "given": "机床轴树与显示代理精确关联",
+      "when": "先点击轴树再点3D对应对象",
+      "then": "树/3D指向同一语义引用与revision，焦点与选择区分",
+      "expectedCode": "exact_selection_synchronized",
+      "ruleIds": [
+        "UI3D-R02"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-03",
+      "title": "脏草稿关闭",
+      "polarity": "positive",
+      "given": "修改字段未保存",
+      "when": "关闭左TaskPanel",
+      "then": "出现按策略暂存/放弃/取消，无领域写入",
+      "expectedCode": "dirty_draft_preserved",
+      "ruleIds": [
+        "UI3D-R03"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-04",
+      "title": "选择返回",
+      "polarity": "positive",
+      "given": "Setup S1发起资源选择",
+      "when": "在资源空间确认Released资源",
+      "then": "经Host与D04 CAS回读后回S1、相机和草稿现场恢复",
+      "expectedCode": "resource_return_committed",
+      "ruleIds": [
+        "UI3D-R04"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-05",
+      "title": "发起方过期",
+      "polarity": "negative",
+      "given": "资源选择期间Setup S1 revision变化",
+      "when": "确认旧请求",
+      "then": "拒绝过期写入，不把结果写入S2",
+      "expectedCode": "scope_revision_conflict",
+      "ruleIds": [
+        "UI3D-R05"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-06",
+      "title": "过期拾取",
+      "polarity": "negative",
+      "given": "模型替换导致sceneRevision变化",
+      "when": "确认旧pick",
+      "then": "拒绝过期几何选择，不形成制造事实",
+      "expectedCode": "stale_pick_rejected",
+      "ruleIds": [
+        "UI3D-R06"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-07",
+      "title": "重复开合",
+      "polarity": "positive",
+      "given": "任务处于任意阶段",
+      "when": "打开任务、进入Focus3D并再次恢复",
+      "then": "只有唯一任务容器且可恢复，任务不被隐式取消",
+      "expectedCode": "focus3d_restored",
+      "ruleIds": [
+        "UI3D-R07"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-08",
+      "title": "键盘与缩放",
+      "polarity": "positive",
+      "given": "1366×768及125%缩放",
+      "when": "使用Tab与方向键完成树选择和提交",
+      "then": "焦点明确且关键动作可达，不被状态栏遮挡",
+      "expectedCode": "keyboard_path_accessible",
+      "ruleIds": [
+        "UI3D-R08"
+      ],
+      "layer": "accessibility",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-09",
+      "title": "隐藏空间不得被选中",
+      "polarity": "negative",
+      "given": "项目空间处于活动状态且资源根已隐藏",
+      "when": "命中不可见资源Mesh的拾取回调",
+      "then": "不返回可确认选择也不切换业务scope",
+      "expectedCode": "inactive_root_not_pickable",
+      "ruleIds": [
+        "UI3D-R01"
+      ],
+      "layer": "renderer",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-10",
+      "title": "Focus与Selection分离",
+      "polarity": "negative",
+      "given": "树键盘焦点移动到另一个节点但没有用户选择动作",
+      "when": "调用业务选择确认",
+      "then": "不会仅凭焦点变化而更换D03/制造选中引用",
+      "expectedCode": "focus_not_selection",
+      "ruleIds": [
+        "UI3D-R02"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-11",
+      "title": "关闭不等于批准",
+      "polarity": "negative",
+      "given": "有dirty预览与未批准的Setup Draft",
+      "when": "隐藏任务面板或切Focus3D",
+      "then": "后端D04 revision不变，审批状态也不变",
+      "expectedCode": "close_without_commit",
+      "ruleIds": [
+        "UI3D-R03"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-12",
+      "title": "资源返回CAS重验",
+      "polarity": "negative",
+      "given": "S1资源请求已准备好但当前Actor写许可撤销",
+      "when": "确认回填",
+      "then": "服务端拒绝写入，未采用资源保持待选择",
+      "expectedCode": "permission_recheck_failed",
+      "ruleIds": [
+        "UI3D-R04"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-13",
+      "title": "范围变更隔离",
+      "polarity": "positive",
+      "given": "资源选择请求S1生成后用户已切至S2",
+      "when": "S1旧异步回执晚到",
+      "then": "回执关联S1并标失效/待处理，S2不改变",
+      "expectedCode": "late_receipt_ignored",
+      "ruleIds": [
+        "UI3D-R05"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-14",
+      "title": "带帧拾取",
+      "polarity": "positive",
+      "given": "同一CAD实例可经glTF显示代理选择，存在显式Frame映射",
+      "when": "用当前sceneRevision确认pick",
+      "then": "使用D01 exact与frame映射形成候选，非glTF网格自成权威",
+      "expectedCode": "frame_mapped_pick",
+      "ruleIds": [
+        "UI3D-R06"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-15",
+      "title": "重复Panel资源泄漏",
+      "polarity": "negative",
+      "given": "同一贡献任务多次进入退出Focus3D",
+      "when": "重复创建/销毁观察计数",
+      "then": "不得额外创建Scene/Canvas或遗留PreviewLease",
+      "expectedCode": "ghost_panel_prevented",
+      "ruleIds": [
+        "UI3D-R07"
+      ],
+      "layer": "renderer",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-16",
+      "title": "键盘断路",
+      "polarity": "negative",
+      "given": "缩放125%、左面板较窄且开启错误提示",
+      "when": "尝试仅用键盘修复字段后提交",
+      "then": "被遮挡按钮或键盘陷阱必须判失败并定位控件",
+      "expectedCode": "a11y_blocked",
+      "ruleIds": [
+        "UI3D-R08"
+      ],
+      "layer": "accessibility",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-17",
+      "title": "预览租约回收",
+      "polarity": "positive",
+      "given": "仅改变颜色高亮和尺寸预览，未保存",
+      "when": "取消编辑并释放PreviewLease",
+      "then": "显示恢复且领域revision和数据hash不变",
+      "expectedCode": "preview_disposed",
+      "ruleIds": [
+        "UI3D-R09"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-18",
+      "title": "取消晚Pointer",
+      "polarity": "negative",
+      "given": "pointercancel或lostpointercapture时拖拽预览尚未确认",
+      "when": "随后接收旧pointerup和晚到Worker结果",
+      "then": "旧交互租约无效，不提交/不覆盖新scope",
+      "expectedCode": "cancelled_preview_ignored",
+      "ruleIds": [
+        "UI3D-R09"
+      ],
+      "layer": "ui_integration",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-19",
+      "title": "三入口一致",
+      "polarity": "positive",
+      "given": "GUI、CLI、Agent在同一工程与域权限下提交同一合法命令",
+      "when": "分别走Host及领域Owner，读取回执",
+      "then": "采用同样校验/修订/幂等结果；3D只呈现",
+      "expectedCode": "shared_owner_port",
+      "ruleIds": [
+        "UI3D-R10"
+      ],
+      "layer": "cross_domain",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-07-AT-20",
+      "title": "CL播放冒充NC验证",
+      "polarity": "negative",
+      "given": "仅有D09中立CL动画，没有D13/14/15证明",
+      "when": "Agent调用发布或GUI请求NC工程PASS",
+      "then": "状态仍unknown/NOT_RUN，D16不能获得发布资格",
+      "expectedCode": "nc_evidence_unknown",
+      "ruleIds": [
+        "UI3D-R10"
+      ],
+      "layer": "cross_domain",
+      "productStatus": "NOT_RUN",
+      "execution": "NOT_RUN"
+    }
+  ]
+}

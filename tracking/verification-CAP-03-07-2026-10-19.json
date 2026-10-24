@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "procet-planning-verification-v1",
+  "date": "2026-10-19",
+  "id": "CAP-03-07",
+  "status": "PASS_PLANNING_STATIC_ONLY",
+  "command": "python tools/check_cap_03_07.py --self-test",
+  "syntaxCheck": "python -m py_compile tools/check_cap_03_07.py",
+  "checkedScope": {
+    "status": "PASS_PLANNING_STATIC_ONLY",
+    "sourcesNew": 7,
+    "sourcesReused": 1,
+    "rules": 10,
+    "positiveNegativeFixtures": 20,
+    "traceBidirectional": 20,
+    "referencedAssets": 7,
+    "linkedMarkdownPaths": 12,
+    "rejectedMutationCases": 16,
+    "productTests": "NOT_RUN"
+  },
+  "firstAttempt": {
+    "status": "FAIL",
+    "reasons": [
+      "FREL-R08 额外链接F1-05未列入原V0.8工作包集合",
+      "研究文档缺少机器读取的NOT_RUN标识"
+    ],
+    "resolution": "已将关系追踪映射回原V0.8四包、明确记录产品NOT_RUN，重新运行PASS"
+  },
+  "observedRemote": {
+    "repo": "BaiSongt/procet-devplans",
+    "visibility": "public",
+    "mainHead": "271f2ad017fd30ef01c13763c61046f888ea0d48",
+    "planningBranch": "gpt-ai/plans/cap-02-07-20261017",
+    "planningHead": "1d8019c77b49d301e494cae0b38ca241e07c82c9",
+    "PR": "#1 Draft open, no comments/reviews/threads",
+    "remoteCapabilities": 17,
+    "remoteWorkPackages": 5,
+    "registeredSources": 76
+  },
+  "solverReadOnlyBaseline": {
+    "repo": "BaiSongt/procet-solver",
+    "ref": "44172bc046bfd65c2a4fe36212536c70226be48f",
+    "files": [
+      "crates/solver-feature/src/hierarchy/relation.rs",
+      "crates/solver-feature/src/hierarchy/projection.rs",
+      "crates/solver-feature/src/hierarchy/dag.rs",
+      "crates/solver-feature/src/hierarchy/mod.rs",
+      "crates/solver-feature/src/model.rs"
+    ]
+  },
+  "notRun": [
+    "procet-solver Rust tests",
+    "native OCCT 7.9.3",
+    "geometry Boolean benchmark",
+    "GUI interactive browser",
+    "Host database CAS/permission/fault-injection",
+    "CL/NC/controller/machine simulation"
+  ],
+  "decisionState": "drafted_pending_human_review",
+  "productImplementation": "not_verified",
+  "remoteCommit": null,
+  "filesIncludedBeforeVerification": [
+    "docs/capabilities/CAP-03-07/README.md",
+    "docs/capabilities/CAP-03-07/UI.md",
+    "docs/capabilities/CAP-03-07/fixtures.json",
+    "research/sources/CAP-03-07.json",
+    "research/topics/R-FREL-001.md",
+    "research/traces/CAP-03-07.json",
+    "tools/check_cap_03_07.py",
+    "tracking/INDEX-DELTA-CAP-03-07.md",
+    "tracking/pending-CAP-03-07.json"
+  ],
+  "cautions": [
+    "Synthetic acceptance predicate checks are not production algorithm tests.",
+    "Source APIs currently display OCCT8.0.1; production kernel 7.9.3 compatibility remains unknown.",
+    "Projection ambiguous parent doc/implementation discrepancy requires independent fixed-SHA product test."
+  ]
+}

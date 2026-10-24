@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "procet-b004-trace-v1",
+  "scope": "B0-04",
+  "rules": [
+    {
+      "ruleId": "B004-R01",
+      "rule": "正式发布消费CAM必须使用可核验精确revision的git/包/受控vendor，构建不得读取repo外兄弟目录",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S01"
+      ],
+      "fieldRefs": [
+        "dependencySource"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S01",
+      "positiveAcceptance": "B004-AT01-POS",
+      "negativeAcceptance": "B004-AT01-NEG",
+      "oracle": "同一Git组合在无相邻CAM目录仍可解析依赖",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R02",
+      "rule": "研发允许显式局部覆盖但须非发布profile、只读记录override identity与dirty状态；生产profile拒绝覆盖",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S01"
+      ],
+      "fieldRefs": [
+        "overrideProfile"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S02",
+      "positiveAcceptance": "B004-AT02-POS",
+      "negativeAcceptance": "B004-AT02-NEG",
+      "oracle": "本地覆盖不得偷偷改变正式消费组合",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R03",
+      "rule": "源代码、Cargo registry/git依赖、系统工具链与二进制Native/Worker分层记录闭包，不把cargo vendor当全部闭包",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S02"
+      ],
+      "fieldRefs": [
+        "dependencyClosure"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S03",
+      "positiveAcceptance": "B004-AT03-POS",
+      "negativeAcceptance": "B004-AT03-NEG",
+      "oracle": "非Cargo运行依赖缺失时阻断releaseReady",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R04",
+      "rule": "GUI根Cargo与Tauri桌面Cargo分别锁定并验证，拒绝单workspace测试冒充双workspace覆盖",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S02"
+      ],
+      "fieldRefs": [
+        "workspaceLockRefs"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S04",
+      "positiveAcceptance": "B004-AT04-POS",
+      "negativeAcceptance": "B004-AT04-NEG",
+      "oracle": "两个manifest和两个Cargo.lock独立审计",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R05",
+      "rule": "pnpm依赖使用版本化lock、预置store及frozen/offline独立检查；缓存缺失明确失败",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S03"
+      ],
+      "fieldRefs": [
+        "frontendClosure"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S05",
+      "positiveAcceptance": "B004-AT05-POS",
+      "negativeAcceptance": "B004-AT05-NEG",
+      "oracle": "不能用lock存在证明离线构建成功",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R06",
+      "rule": "Native OCCT资产必须绑定target ABI、来源、SHA256和部署位置；SDK目录存在不能代替运行期DLL核验",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S04"
+      ],
+      "fieldRefs": [
+        "nativeAssets"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S06",
+      "positiveAcceptance": "B004-AT06-POS",
+      "negativeAcceptance": "B004-AT06-NEG",
+      "oracle": "未知SDK与DLL不授可发布资格",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R07",
+      "rule": "Worker/sidecar必须声明协议与target-specific二进制，配置入口和实际installer字节双向审计",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S05"
+      ],
+      "fieldRefs": [
+        "workerAssets"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S07",
+      "positiveAcceptance": "B004-AT07-POS",
+      "negativeAcceptance": "B004-AT07-NEG",
+      "oracle": "仅manifest声明或仅externalBin字段不证明installer有效",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R08",
+      "rule": "源代码锁/发布清单/离线安装实物三层状态不得互相晋升；需要真实clean checkout及目标平台验收",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S06"
+      ],
+      "fieldRefs": [
+        "publicationEvidence"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S08",
+      "positiveAcceptance": "B004-AT08-POS",
+      "negativeAcceptance": "B004-AT08-NEG",
+      "oracle": "未知运行包保持NOT_RUN/UNKNOWN",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R09",
+      "rule": "正式发布回退必须同时回退manifest、原生资产与安装包，并留原方案不可变审计证据",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S06"
+      ],
+      "fieldRefs": [
+        "rollbackTarget"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S09",
+      "positiveAcceptance": "B004-AT09-POS",
+      "negativeAcceptance": "B004-AT09-NEG",
+      "oracle": "失败时保留上次已核验组合而非指向latest",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "ruleId": "B004-R10",
+      "rule": "GUI/CLI/Agent共用受管Host命令；CAS幂等权限与取消晚回执在提交点校验，3D只读投影",
+      "originType": "design_decision_informed_by_official_docs",
+      "sourceIds": [
+        "B004-S06"
+      ],
+      "fieldRefs": [
+        "commitReceipt"
+      ],
+      "workPackage": "B0-04",
+      "workSubtask": "B0-04-S10",
+      "positiveAcceptance": "B004-AT10-POS",
+      "negativeAcceptance": "B004-AT10-NEG",
+      "oracle": "事件Accepted不等于已验证与激活",
+      "productStatus": "NOT_RUN"
+    }
+  ],
+  "productTests": "NOT_RUN"
+}

@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-05-05",
+  "topic": "R-SOLVER-ADOPT-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "SOLV505-S01",
+    "SOLV505-S02",
+    "SOLV505-S03",
+    "SOLV505-S04",
+    "SOLV505-S05",
+    "SOLV505-S06",
+    "SOLV505-S07"
+  ],
+  "assetOwner": "05 工艺规划 / D05；D06和D07由06域独立生产",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "rules": [
+    {
+      "id": "SOLV505-R01",
+      "capabilityId": "CAP-05-05",
+      "description": "工程上下文与求解候选的精确修订/hash/frame/作用域，禁止同名匹配",
+      "sourceIds": [
+        "SOLV505-S05",
+        "SOLV505-S04",
+        "SOLV505-S07"
+      ],
+      "fields": [
+        "projectScope",
+        "sourceRefs[].id/revision/hash/frame/schemaVersion/scope"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT01-P",
+        "SOLV505-AT01-N"
+      ],
+      "failureCode": "EXACT_SOURCE_REF_REQUIRED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R02",
+      "capabilityId": "CAP-05-05",
+      "description": "求解状态必须有可选择候选，UNKNOWN/INFEASIBLE不得当作可采纳",
+      "sourceIds": [
+        "SOLV505-S03"
+      ],
+      "fields": [
+        "solverStatus",
+        "candidateIds[]",
+        "selectedCandidateId",
+        "statusEvidence"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT02-P",
+        "SOLV505-AT02-N"
+      ],
+      "failureCode": "SOLVER_RESULT_NOT_ADOPTABLE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R03",
+      "capabilityId": "CAP-05-05",
+      "description": "候选比较保留目标函数、量纲、权重与证据；可靠值仅供决策，不冒充认证",
+      "sourceIds": [
+        "SOLV505-S03",
+        "SOLV505-S05"
+      ],
+      "fields": [
+        "alternatives[].score/value/unit/provenance",
+        "hiddenGlobalRank",
+        "autoCertified"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT03-P",
+        "SOLV505-AT03-N"
+      ],
+      "failureCode": "UNTRACEABLE_CANDIDATE_RANKING",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R04",
+      "capabilityId": "CAP-05-05",
+      "description": "D06/D07几何证据需明确有界有效性与保护区结果，不能凭bbox或布尔一次成功认定合格",
+      "sourceIds": [
+        "SOLV505-S06",
+        "SOLV505-S05"
+      ],
+      "fields": [
+        "brepValidation",
+        "orderedBooleanEvidence",
+        "protectedRegionStatus",
+        "sweptMaterialClaim"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT04-P",
+        "SOLV505-AT04-N"
+      ],
+      "failureCode": "GEOMETRY_EVIDENCE_INSUFFICIENT",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R05",
+      "capabilityId": "CAP-05-05",
+      "description": "D04名义Setup变换必须可解并绑定精确Frame，不把D10执行绑定反填D04",
+      "sourceIds": [
+        "SOLV505-S05",
+        "SOLV505-S07"
+      ],
+      "fields": [
+        "setupRef",
+        "frameProofStatus",
+        "executionBindingReusedAsSetup"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT05-P",
+        "SOLV505-AT05-N"
+      ],
+      "failureCode": "SETUP_FRAME_UNVERIFIED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R06",
+      "capabilityId": "CAP-05-05",
+      "description": "只采纳明确勾选且依赖闭合的D05子图；工序DAG无环，未选分支不得被写入",
+      "sourceIds": [
+        "SOLV505-S01",
+        "SOLV505-S02"
+      ],
+      "fields": [
+        "selectedNodeIds[]",
+        "writeNodeIds[]",
+        "nodes[]",
+        "edges[]",
+        "dependencyClosed"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT06-P",
+        "SOLV505-AT06-N"
+      ],
+      "failureCode": "PARTIAL_ADOPTION_VIOLATION",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R07",
+      "capabilityId": "CAP-05-05",
+      "description": "A人工与B求解同事实共存；冻结D08不覆盖，采纳为fork新修订",
+      "sourceIds": [
+        "SOLV505-S04",
+        "SOLV505-S05"
+      ],
+      "fields": [
+        "branchA",
+        "branchB",
+        "adoptionMode",
+        "overwriteFrozen",
+        "overwriteHistory"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT07-P",
+        "SOLV505-AT07-N"
+      ],
+      "failureCode": "FROZEN_BRANCH_OVERWRITE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R08",
+      "capabilityId": "CAP-05-05",
+      "description": "Preview隔离、取消/切Setup/晚回执隔离；单Babylon世界和左TaskPanel保持",
+      "sourceIds": [
+        "SOLV505-S04"
+      ],
+      "fields": [
+        "mode",
+        "persistentWrites",
+        "taskGeneration",
+        "replyGeneration",
+        "cancelled",
+        "lateReceipt",
+        "worldCount",
+        "panel"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT08-P",
+        "SOLV505-AT08-N"
+      ],
+      "failureCode": "STALE_PREVIEW_OR_UI_LEAK",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R09",
+      "capabilityId": "CAP-05-05",
+      "description": "正式写入必须commit权限与CAS重验，输入hash再次校对，仅追加来源审计",
+      "sourceIds": [
+        "SOLV505-S04",
+        "SOLV505-S07"
+      ],
+      "fields": [
+        "permissionRechecked",
+        "actorAuthorized",
+        "expectedRevision",
+        "currentRevision",
+        "sourceHashesMatch",
+        "auditAppendOnly",
+        "frozenTargetMutation"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT09-P",
+        "SOLV505-AT09-N"
+      ],
+      "failureCode": "ADOPTION_COMMIT_GATE_REJECTED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "SOLV505-R10",
+      "capabilityId": "CAP-05-05",
+      "description": "D05采纳局部失效并重新计算D09/D12-D15；未知NC/CL动画不能授予D16资格",
+      "sourceIds": [
+        "SOLV505-S01",
+        "SOLV505-S05",
+        "SOLV505-S06"
+      ],
+      "fields": [
+        "affected[]",
+        "stale[]",
+        "unaffected[]",
+        "d09Status",
+        "d12Status",
+        "d13Status",
+        "d14Status",
+        "d15Status",
+        "d16Status",
+        "clAnimationCertified"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "SOLV505-AT10-P",
+        "SOLV505-AT10-N"
+      ],
+      "failureCode": "DOWNSTREAM_VALIDATION_LEAK",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

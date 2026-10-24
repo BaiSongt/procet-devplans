@@ -1,0 +1,703 @@
+{
+  "schemaVersion": "procet-capability-acceptance-v1",
+  "capabilityId": "CAP-04-03",
+  "status": "planning_specification_only",
+  "productAcceptance": "NOT_RUN",
+  "scenarioCount": 20,
+  "scenarios": [
+    {
+      "id": "CAP-04-03-T01",
+      "ruleIds": [
+        "FIX-R01"
+      ],
+      "sourceIds": [
+        "SRC-FIX-001",
+        "SRC-FIX-002"
+      ],
+      "fields": [
+        "targetCadExactRef",
+        "locatorContacts"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "polarity": "positive",
+      "given": "D01设计datum有明确exactRef且夹具定位点独立建模，允许创建候选",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r01",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T02",
+      "ruleIds": [
+        "FIX-R01"
+      ],
+      "sourceIds": [
+        "SRC-FIX-001",
+        "SRC-FIX-002"
+      ],
+      "fields": [
+        "targetCadExactRef",
+        "locatorContacts"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "polarity": "negative",
+      "given": "datum被直接当夹具接触点或未溯源，拒绝采纳",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "DATUM_NOT_LOCATOR",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r01",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T03",
+      "ruleIds": [
+        "FIX-R02"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "fixtureInstances",
+        "processSetupExactRef",
+        "T_S_F",
+        "T_S_P"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "polarity": "positive",
+      "given": "两个刚体变换均具名、右手、单位一致并锁定exact来源",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r02",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T04",
+      "ruleIds": [
+        "FIX-R02"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "fixtureInstances",
+        "processSetupExactRef",
+        "T_S_F",
+        "T_S_P"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "polarity": "negative",
+      "given": "Frame方向未知或将fixture变换直接当WCS，拒绝",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "INVALID_FRAME",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r02",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T05",
+      "ruleIds": [
+        "FIX-R03"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-003"
+      ],
+      "fields": [
+        "locatorContacts",
+        "constraintDiagnostics"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "polarity": "positive",
+      "given": "3-2-1合成约束rank为6、残差可评估但安全仍unknown",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r03",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T06",
+      "ruleIds": [
+        "FIX-R03"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-003"
+      ],
+      "fields": [
+        "locatorContacts",
+        "constraintDiagnostics"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "polarity": "negative",
+      "given": "五个独立约束rank不足或单侧约束矛盾，拒绝唯一配准",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "CONTACT_UNDERDETERMINED",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r03",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T07",
+      "ruleIds": [
+        "FIX-R04"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-004"
+      ],
+      "fields": [
+        "clampActions",
+        "contactEvidenceRefs"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "polarity": "positive",
+      "given": "明确夹紧方向、施力点和载荷证据状态，允许待审核候选",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r04",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T08",
+      "ruleIds": [
+        "FIX-R04"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-004"
+      ],
+      "fields": [
+        "clampActions",
+        "contactEvidenceRefs"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "polarity": "negative",
+      "given": "仅凭6DOF秩满就声称夹紧安全，拒绝PASS",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "FORCE_EVIDENCE_MISSING",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r04",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T09",
+      "ruleIds": [
+        "FIX-R05"
+      ],
+      "sourceIds": [
+        "SRC-FIX-005",
+        "SRC-FIX-006"
+      ],
+      "fields": [
+        "protectedRegions",
+        "clearanceCandidates"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D09",
+        "D15"
+      ],
+      "polarity": "positive",
+      "given": "保护区注明阶段和实体资格，bbox仅用于筛查",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r05",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T10",
+      "ruleIds": [
+        "FIX-R05"
+      ],
+      "sourceIds": [
+        "SRC-FIX-005",
+        "SRC-FIX-006"
+      ],
+      "fields": [
+        "protectedRegions",
+        "clearanceCandidates"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D09",
+        "D15"
+      ],
+      "polarity": "negative",
+      "given": "AABB不相交或最小距离非负就声明NC无碰撞，拒绝",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "STATIC_NOT_NC_VALIDATION",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r05",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T11",
+      "ruleIds": [
+        "FIX-R06"
+      ],
+      "sourceIds": [
+        "SRC-FIX-003",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "targetCadExactRef",
+        "fixtureDefinitionExactRef",
+        "locatorContacts"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "polarity": "positive",
+      "given": "接触面双方各存revision/hash/frame/topologySnapshotRef",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r06",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T12",
+      "ruleIds": [
+        "FIX-R06"
+      ],
+      "sourceIds": [
+        "SRC-FIX-003",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "targetCadExactRef",
+        "fixtureDefinitionExactRef",
+        "locatorContacts"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "polarity": "negative",
+      "given": "仅mesh faceIndex未有B-Rep映射却声明精确基准，拒绝",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "TOPOLOGY_SOURCE_UNKNOWN",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r06",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T13",
+      "ruleIds": [
+        "FIX-R07"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "scopeRef",
+        "requestId",
+        "fixtureInstances"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "polarity": "positive",
+      "given": "一个Babylon场景通过统一左TaskPanel选择夹具，仅产生ghost proposal",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r07",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T14",
+      "ruleIds": [
+        "FIX-R07"
+      ],
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "scopeRef",
+        "requestId",
+        "fixtureInstances"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "polarity": "negative",
+      "given": "GUI和Agent存在独立提交路径或预览即写库，拒绝",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "BYPASS_DOMAIN_PORT",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r07",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T15",
+      "ruleIds": [
+        "FIX-R08"
+      ],
+      "sourceIds": [
+        "SRC-FIX-003",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "expectedRevision",
+        "expectedDependencyHashes",
+        "scopeEpoch",
+        "receiptId"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "polarity": "positive",
+      "given": "Host重验授权和revision/hash成功后返回receipt；晚回执丢弃",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r08",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T16",
+      "ruleIds": [
+        "FIX-R08"
+      ],
+      "sourceIds": [
+        "SRC-FIX-003",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "expectedRevision",
+        "expectedDependencyHashes",
+        "scopeEpoch",
+        "receiptId"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "polarity": "negative",
+      "given": "切Setup或撤权后旧request仍修改当前D04，拒绝",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "SCOPE_REVOKED",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r08",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T17",
+      "ruleIds": [
+        "FIX-R09"
+      ],
+      "sourceIds": [
+        "SRC-FIX-006",
+        "SRC-FIX-007"
+      ],
+      "fields": [
+        "changeImpact",
+        "protectedRegions",
+        "processSetupExactRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D08",
+        "D09",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "polarity": "positive",
+      "given": "D05/D06/D09失效，D10重新绑定，D08/D16冻结结果保留",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r09",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T18",
+      "ruleIds": [
+        "FIX-R09"
+      ],
+      "sourceIds": [
+        "SRC-FIX-006",
+        "SRC-FIX-007"
+      ],
+      "fields": [
+        "changeImpact",
+        "protectedRegions",
+        "processSetupExactRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D08",
+        "D09",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "polarity": "negative",
+      "given": "自动覆盖已发布NC或改G54后宣称D15验证通过，拒绝",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "FROZEN_BASELINE_PROTECTED",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r09",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T19",
+      "ruleIds": [
+        "FIX-R10"
+      ],
+      "sourceIds": [
+        "SRC-FIX-001",
+        "SRC-FIX-007"
+      ],
+      "fields": [
+        "legacyRawRef",
+        "migrationProposalRef",
+        "rollbackRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "polarity": "positive",
+      "given": "保存原字节、迁移proposal/rollbackRef，L3与产品状态分别unknown/pending",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "exact_revision_hash_frame_and_receipt_or_explicit_candidate",
+      "expectedError": null,
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r10",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-03-T20",
+      "ruleIds": [
+        "FIX-R10"
+      ],
+      "sourceIds": [
+        "SRC-FIX-001",
+        "SRC-FIX-007"
+      ],
+      "fields": [
+        "legacyRawRef",
+        "migrationProposalRef",
+        "rollbackRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "polarity": "negative",
+      "given": "缺单位自动补零后覆盖旧工程并把规划PASS当产品PASS，拒绝",
+      "action": "通过统一D04业务端口执行校验并检查授权、来源、Frame与依赖回执",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "structured_rejection_without_mutation",
+      "expectedError": "LEGACY_FRAME_UNKNOWN",
+      "testEntry": "TODO_TEST_ENTRY: independent_consumer_fix-r10",
+      "productStatus": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,752 @@
+{
+  "schemaVersion": "procet-cap-acceptance-v1",
+  "capabilityId": "CAP-04-05",
+  "status": "planned_only",
+  "productAcceptance": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "CAP-04-05-T01",
+      "ruleIds": [
+        "MSET-R01"
+      ],
+      "polarity": "positive",
+      "given": "两个Setup独立命名且共享同一CAD实例的exact基线",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "setupId",
+        "stageId",
+        "documentInstanceId",
+        "setupSequenceRevision",
+        "cadExactRef"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T01",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T02",
+      "ruleIds": [
+        "MSET-R01"
+      ],
+      "polarity": "negative",
+      "given": "复用stageId或跨工程引用另一个文档实例却未报错",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "STAGE_IDENTITY_SCOPE_CONFLICT",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "setupId",
+        "stageId",
+        "documentInstanceId",
+        "setupSequenceRevision",
+        "cadExactRef"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T02",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T03",
+      "ruleIds": [
+        "MSET-R02"
+      ],
+      "polarity": "positive",
+      "given": "180度绕Y翻面并加平移，正反变换闭合且明确mm/rad",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D04"
+      ],
+      "fields": [
+        "T_S2_P",
+        "T_S1_P",
+        "frameGraphExactRef",
+        "transformPolicyRef"
+      ],
+      "sourceIds": [
+        "SRC-MSET-001",
+        "SRC-MSET-003"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T03",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T04",
+      "ruleIds": [
+        "MSET-R02"
+      ],
+      "polarity": "negative",
+      "given": "镜像矩阵或未声明单位进入第二Setup，仍声称右手刚体有效",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "NON_RIGID_OR_UNKNOWN_FRAME",
+      "assets": [
+        "D04"
+      ],
+      "fields": [
+        "T_S2_P",
+        "T_S1_P",
+        "frameGraphExactRef",
+        "transformPolicyRef"
+      ],
+      "sourceIds": [
+        "SRC-MSET-001",
+        "SRC-MSET-003"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T04",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T05",
+      "ruleIds": [
+        "MSET-R03"
+      ],
+      "polarity": "positive",
+      "given": "第二Setup引用上序D07确切revision和contentHash，材料状态标为已核实",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D04",
+        "D07"
+      ],
+      "fields": [
+        "previousMaterialStateExactRef",
+        "nextInputStockStateRef",
+        "materialEvidenceStatus"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T05",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T06",
+      "ruleIds": [
+        "MSET-R03"
+      ],
+      "polarity": "negative",
+      "given": "缺少上序D07或来源hash不匹配，却把目标CAD当已加工毛坯",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "MATERIAL_HANDOFF_UNKNOWN",
+      "assets": [
+        "D04",
+        "D07"
+      ],
+      "fields": [
+        "previousMaterialStateExactRef",
+        "nextInputStockStateRef",
+        "materialEvidenceStatus"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T06",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T07",
+      "ruleIds": [
+        "MSET-R04"
+      ],
+      "polarity": "positive",
+      "given": "第二Setup新建夹具实例并记录重新定位/夹紧依据",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "fixtureInstanceRef",
+        "datumExactRef",
+        "contactEvidenceRef",
+        "clampQualification"
+      ],
+      "sourceIds": [
+        "SRC-MSET-002",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T07",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T08",
+      "ruleIds": [
+        "MSET-R04"
+      ],
+      "polarity": "negative",
+      "given": "沿用上序夹具坐标和夹紧力结论作为翻面后的实测安全证明",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "REFIXTURE_EVIDENCE_MISSING",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "fixtureInstanceRef",
+        "datumExactRef",
+        "contactEvidenceRef",
+        "clampQualification"
+      ],
+      "sourceIds": [
+        "SRC-MSET-002",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T08",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T09",
+      "ruleIds": [
+        "MSET-R05"
+      ],
+      "polarity": "positive",
+      "given": "存在Setup-A→Setup-B有向顺序并记录公差约束来源",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D02",
+        "D04",
+        "D05"
+      ],
+      "fields": [
+        "stageEdges",
+        "featurePrecedenceRefs",
+        "datumContinuityEvidence"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T09",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T10",
+      "ruleIds": [
+        "MSET-R05"
+      ],
+      "polarity": "negative",
+      "given": "形成A→B→A依赖环仍允许运行自动排序",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "SETUP_PRECEDENCE_CYCLE",
+      "assets": [
+        "D02",
+        "D04",
+        "D05"
+      ],
+      "fields": [
+        "stageEdges",
+        "featurePrecedenceRefs",
+        "datumContinuityEvidence"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T10",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T11",
+      "ruleIds": [
+        "MSET-R06"
+      ],
+      "polarity": "positive",
+      "given": "D04仅保存名义Setup与待绑定候选，执行偏置由D10映射后经D13解释",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "fields": [
+        "processSetupExactRef",
+        "machineExecutionBindingExactRef",
+        "controllerDialectStatus"
+      ],
+      "sourceIds": [
+        "SRC-MSET-001",
+        "SRC-MSET-004",
+        "SRC-MSET-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T11",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T12",
+      "ruleIds": [
+        "MSET-R06"
+      ],
+      "polarity": "negative",
+      "given": "在D04提交时自动写入G54/G55并将CL预览标为D15验证通过",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "PROCESS_EXECUTION_BOUNDARY_BROKEN",
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "fields": [
+        "processSetupExactRef",
+        "machineExecutionBindingExactRef",
+        "controllerDialectStatus"
+      ],
+      "sourceIds": [
+        "SRC-MSET-001",
+        "SRC-MSET-004",
+        "SRC-MSET-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T12",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T13",
+      "ruleIds": [
+        "MSET-R07"
+      ],
+      "polarity": "positive",
+      "given": "三个入口复用propose/preview/commit，单Babylon世界、单左TaskPanel",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D04"
+      ],
+      "fields": [
+        "domainPortCommand",
+        "scopeEpoch",
+        "previewLeaseRef",
+        "taskPanelTarget"
+      ],
+      "sourceIds": [
+        "SRC-MSET-008",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T13",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T14",
+      "ruleIds": [
+        "MSET-R07"
+      ],
+      "polarity": "negative",
+      "given": "Agent直接写表或另起第二3D世界并跳过领域Port",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "DOMAIN_ENTRY_BYPASS",
+      "assets": [
+        "D04"
+      ],
+      "fields": [
+        "domainPortCommand",
+        "scopeEpoch",
+        "previewLeaseRef",
+        "taskPanelTarget"
+      ],
+      "sourceIds": [
+        "SRC-MSET-008",
+        "SRC-MSET-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T14",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T15",
+      "ruleIds": [
+        "MSET-R08"
+      ],
+      "polarity": "positive",
+      "given": "提交时授权仍有效且依赖哈希匹配，返回新revision/hash/receipt",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D04"
+      ],
+      "fields": [
+        "expectedRevision",
+        "dependencyHashes",
+        "scopeEpoch",
+        "requestId",
+        "commitReceipt"
+      ],
+      "sourceIds": [
+        "SRC-MSET-008",
+        "SRC-MSET-006"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T15",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T16",
+      "ruleIds": [
+        "MSET-R08"
+      ],
+      "polarity": "negative",
+      "given": "撤权或切换Setup后旧异步计算结果覆盖当前Setup",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "STALE_SCOPE_OR_CAS",
+      "assets": [
+        "D04"
+      ],
+      "fields": [
+        "expectedRevision",
+        "dependencyHashes",
+        "scopeEpoch",
+        "requestId",
+        "commitReceipt"
+      ],
+      "sourceIds": [
+        "SRC-MSET-008",
+        "SRC-MSET-006"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T16",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T17",
+      "ruleIds": [
+        "MSET-R09"
+      ],
+      "polarity": "positive",
+      "given": "变更第二序只标记相关消费者stale，冻结旧结论保持可回溯",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D16"
+      ],
+      "fields": [
+        "changeImpact",
+        "frozenProcessRefs",
+        "publishedReleaseRefs",
+        "rollbackRef"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-008"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T17",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T18",
+      "ruleIds": [
+        "MSET-R09"
+      ],
+      "polarity": "negative",
+      "given": "更改转序后静默改写已发布NC或把全部序首尾清零",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "FROZEN_OR_PUBLISHED_OVERWRITE",
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D16"
+      ],
+      "fields": [
+        "changeImpact",
+        "frozenProcessRefs",
+        "publishedReleaseRefs",
+        "rollbackRef"
+      ],
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-008"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T18",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T19",
+      "ruleIds": [
+        "MSET-R10"
+      ],
+      "polarity": "positive",
+      "given": "旧无Frame信息的记录只读保留，人工补证后通过CAS创建新revision",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "fields": [
+        "legacyRawRef",
+        "migrationProposalRef",
+        "unknownSemantics",
+        "independentConsumerEvidence"
+      ],
+      "sourceIds": [
+        "SRC-MSET-003",
+        "SRC-MSET-005",
+        "SRC-MSET-008"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T19",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-05-T20",
+      "ruleIds": [
+        "MSET-R10"
+      ],
+      "polarity": "negative",
+      "given": "缺失Frame默认identity、未知宏当已覆盖，或仅凭CL动画发布",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "LEGACY_OR_NC_SEMANTIC_UNKNOWN",
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "fields": [
+        "legacyRawRef",
+        "migrationProposalRef",
+        "unknownSemantics",
+        "independentConsumerEvidence"
+      ],
+      "sourceIds": [
+        "SRC-MSET-003",
+        "SRC-MSET-005",
+        "SRC-MSET-008"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-05/T20",
+      "acceptanceOwner": "04域业务Owner + 独立03/06/07/08/09/10域消费者 + QA负责人",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    }
+  ]
+}

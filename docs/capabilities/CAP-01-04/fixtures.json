@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-01-04",
+  "basedOnOriginalSpec": true,
+  "preservesOriginalScenarioIds": [
+    "CAP-01-04-AT-01",
+    "CAP-01-04-AT-02",
+    "CAP-01-04-AT-03",
+    "CAP-01-04-AT-04",
+    "CAP-01-04-AT-05",
+    "CAP-01-04-AT-06",
+    "CAP-01-04-AT-07",
+    "CAP-01-04-AT-08"
+  ],
+  "scenarioCount": 20,
+  "productExecution": "NOT_RUN_PRODUCT_TEST",
+  "scenarios": [
+    {
+      "id": "CAP-01-04-AT-01",
+      "title": "伪造审查人身份",
+      "given": "普通编辑者会话的可信actor=user-A",
+      "when": "请求body填写审查者user-B且decision=approve",
+      "then": "Host以当前可信actor计算，拒绝越权，旧审批不受影响",
+      "polarity": "negative",
+      "layer": "authn",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-02",
+      "title": "预检指纹过期",
+      "given": "targetRef=Plan@rev4预检且rev5已提交",
+      "when": "用rev4预检指纹批准rev5",
+      "then": "服务端stale_target拒绝，不写rev5批准",
+      "polarity": "negative",
+      "layer": "revision",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-03",
+      "title": "NC验证证据不完整",
+      "given": "D15只验证部分控制器模态",
+      "when": "申请完整D16上机发布批准",
+      "then": "未知语义明确阻断，不由可播放CL提升资格",
+      "polarity": "negative",
+      "layer": "manufacturing",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-04",
+      "title": "审计只读权限",
+      "given": "审计员有project-A审计读取授权无批准权",
+      "when": "查询project-A审批决定及摘要",
+      "then": "返回脱敏只读记录，无修改按钮和新批准事件",
+      "polarity": "positive",
+      "layer": "ui",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-05",
+      "title": "本机弱身份显示",
+      "given": "离线环境仅输入操作姓名",
+      "when": "打开审批证据面",
+      "then": "显示locally_asserted且不可冒充受管身份签发",
+      "polarity": "positive",
+      "layer": "identity",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-06",
+      "title": "禁止自审的部署策略",
+      "given": "policy.rev8声明author不得审自己",
+      "when": "作者对自身申请提交approve",
+      "then": "拒绝self_approval_forbidden并保留申请与审查记录",
+      "polarity": "negative",
+      "layer": "sod",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-07",
+      "title": "撤销不删除历史",
+      "given": "决议D16@rev3已批准",
+      "when": "具有撤销权的主体撤销该决定",
+      "then": "追加RevokeRef并使现时适用性失效，原Decision仍可审计",
+      "polarity": "positive",
+      "layer": "version",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-08",
+      "title": "Agent绕开领域审批",
+      "given": "Agent工具提示词携带approved=true",
+      "when": "调用普通对象update",
+      "then": "Host/领域拒绝改变批准位，不能由工具回调冒充生产签发",
+      "polarity": "negative",
+      "layer": "agent",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": true
+    },
+    {
+      "id": "CAP-01-04-AT-09",
+      "title": "策略撤销",
+      "given": "批准请求预检于policy.rev8，随后rev9禁用该授权",
+      "when": "提交旧policy.rev8决定",
+      "then": "提交点拒绝或适用性unknown，不自动沿用旧策略",
+      "polarity": "negative",
+      "layer": "policy",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-10",
+      "title": "目标内容摘要漂移",
+      "given": "targetRef ID和revision看似相同但工件hash变化",
+      "when": "提交旧预检与旧evidenceRefs",
+      "then": "校验exact revision+hash失败，拒绝并登记冲突",
+      "polarity": "negative",
+      "layer": "revision",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-11",
+      "title": "跨工程目标猜测",
+      "given": "主体合法读取project-A，但知道project-B对象ID",
+      "when": "发起audit.export或approval.decide指向B",
+      "then": "对象级project/scope校验拒绝且不得泄露B详情",
+      "polarity": "negative",
+      "layer": "scope",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-12",
+      "title": "日志脱敏与分页",
+      "given": "包含操作人、scope与可能的参数token",
+      "when": "审计员分页导出可读范围",
+      "then": "保留Actor/请求/来源摘要并去除密钥、私密字段，不跨scope",
+      "polarity": "positive",
+      "layer": "audit",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-13",
+      "title": "同意图幂等重放",
+      "given": "某请求已成功提交DecisionRef=Q1",
+      "when": "相同actor/scope/key/payload再提交",
+      "then": "只返回同一Q1回执，不产生第二批准事件",
+      "polarity": "positive",
+      "layer": "idempotency",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-14",
+      "title": "迟到响应跨会话",
+      "given": "审查工程A时发送预检随后切工程B",
+      "when": "工程A预检响应迟到",
+      "then": "仅记录A的回执，不渲染到B，不修改B状态",
+      "polarity": "negative",
+      "layer": "async",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-15",
+      "title": "决定与审计半成功",
+      "given": "审批领域已持久提交但Audit存储失败",
+      "when": "用户刷新或重试请求",
+      "then": "显示reconcile_required，按correlation检查，不宣称审计完备或双提交原子",
+      "polarity": "negative",
+      "layer": "recovery",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-16",
+      "title": "联网后受管身份再评审",
+      "given": "原作者曾以locally_asserted起草，后联网出现受管的不同审查者",
+      "when": "按policy指定主体在新revision重新预检与决定",
+      "then": "保留原本机声明事实，新签发单独登记trusted actor及policy，允许合法SoD",
+      "polarity": "positive",
+      "layer": "identity",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-17",
+      "title": "3D选择只预览",
+      "given": "主Babylon世界选中机床/NC引用对象",
+      "when": "拾取高亮并取消PreviewLease",
+      "then": "没有ApprovalRecord写入，刷新仍无批准事件",
+      "polarity": "positive",
+      "layer": "3d",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-18",
+      "title": "未知控制器执行语义",
+      "given": "NC包含未建模的专有模态指令",
+      "when": "尝试D16完整发布批准",
+      "then": "D15资格unknown，拒绝完整资格并给出所缺控制器版本和语义",
+      "polarity": "negative",
+      "layer": "nc",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-19",
+      "title": "工具确认与生产签发隔离",
+      "given": "Agent工具ApprovalCard上的工具调用通过Host批准",
+      "when": "查看正式D16发布状态",
+      "then": "仍需要D12/D15与领域正式审批，工具确认不变为发布approved",
+      "polarity": "positive",
+      "layer": "agent",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    },
+    {
+      "id": "CAP-01-04-AT-20",
+      "title": "旧仅姓名审批的迁移",
+      "given": "历史工程记录approved=true与姓名但缺targetHash/policy",
+      "when": "打开旧工程并选择迁移读取",
+      "then": "保持legacy_unverified只读，提供新审查操作，不自动继承原生产批准",
+      "polarity": "positive",
+      "layer": "migration",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "originalScenarioRetained": false
+    }
+  ]
+}

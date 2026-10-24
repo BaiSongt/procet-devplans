@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-04-03",
+  "topic": "R-FIX-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "capability": "docs/capabilities/CAP-04-03/README.md",
+    "ui": "docs/capabilities/CAP-04-03/UI.md",
+    "topic": "research/topics/R-FIX-001.md",
+    "fixtures": "docs/capabilities/CAP-04-03/fixtures.json",
+    "sources": "research/sources/CAP-04-03.json",
+    "numerics": "docs/capabilities/CAP-04-03/constraint-examples.json"
+  },
+  "registeredSources": [
+    "SRC-FIX-001",
+    "SRC-FIX-002",
+    "SRC-FIX-003",
+    "SRC-FIX-004",
+    "SRC-FIX-005",
+    "SRC-FIX-006",
+    "SRC-FIX-007"
+  ],
+  "workPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "assetOwner": "04 装夹与坐标系 / D04",
+  "relatedAssets": [
+    "D01",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "sourceEvidence": "public_catalog_abstract_or_official_section_text",
+  "codeEvidence": [],
+  "notes": "基于此前未入库草稿重新集成，非丢失历史附件原字节恢复；产品源码及实际机床验证NOT_RUN。",
+  "rules": [
+    {
+      "id": "FIX-R01",
+      "capabilityId": "CAP-04-03",
+      "description": "设计基准与物理定位分离",
+      "sourceIds": [
+        "SRC-FIX-001",
+        "SRC-FIX-002"
+      ],
+      "fields": [
+        "targetCadExactRef",
+        "locatorContacts"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T01",
+        "CAP-04-03-T02"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "DATUM_NOT_LOCATOR"
+    },
+    {
+      "id": "FIX-R02",
+      "capabilityId": "CAP-04-03",
+      "description": "夹具实例与工件独立Frame",
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "fixtureInstances",
+        "processSetupExactRef",
+        "T_S_F",
+        "T_S_P"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T03",
+        "CAP-04-03-T04"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "INVALID_FRAME"
+    },
+    {
+      "id": "FIX-R03",
+      "capabilityId": "CAP-04-03",
+      "description": "定位接触的rank与残差分开报告",
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-003"
+      ],
+      "fields": [
+        "locatorContacts",
+        "constraintDiagnostics"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T05",
+        "CAP-04-03-T06"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "CONTACT_UNDERDETERMINED"
+    },
+    {
+      "id": "FIX-R04",
+      "capabilityId": "CAP-04-03",
+      "description": "夹紧力、稳定与刚度须独立证据",
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-004"
+      ],
+      "fields": [
+        "clampActions",
+        "contactEvidenceRefs"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T07",
+        "CAP-04-03-T08"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "FORCE_EVIDENCE_MISSING"
+    },
+    {
+      "id": "FIX-R05",
+      "capabilityId": "CAP-04-03",
+      "description": "保护区按工序阶段生效，静态检测分级",
+      "sourceIds": [
+        "SRC-FIX-005",
+        "SRC-FIX-006"
+      ],
+      "fields": [
+        "protectedRegions",
+        "clearanceCandidates"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D09",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T09",
+        "CAP-04-03-T10"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "STATIC_NOT_NC_VALIDATION"
+    },
+    {
+      "id": "FIX-R06",
+      "capabilityId": "CAP-04-03",
+      "description": "CAD与夹具接触拓扑双侧exact身份",
+      "sourceIds": [
+        "SRC-FIX-003",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "targetCadExactRef",
+        "fixtureDefinitionExactRef",
+        "locatorContacts"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T11",
+        "CAP-04-03-T12"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "TOPOLOGY_SOURCE_UNKNOWN"
+    },
+    {
+      "id": "FIX-R07",
+      "capabilityId": "CAP-04-03",
+      "description": "GUI/CLI/Agent共用D04命令与单世界",
+      "sourceIds": [
+        "SRC-FIX-002",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "scopeRef",
+        "requestId",
+        "fixtureInstances"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T13",
+        "CAP-04-03-T14"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "BYPASS_DOMAIN_PORT"
+    },
+    {
+      "id": "FIX-R08",
+      "capabilityId": "CAP-04-03",
+      "description": "提交CAS与权限再验，丢弃晚回执",
+      "sourceIds": [
+        "SRC-FIX-003",
+        "SRC-FIX-005"
+      ],
+      "fields": [
+        "expectedRevision",
+        "expectedDependencyHashes",
+        "scopeEpoch",
+        "receiptId"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T15",
+        "CAP-04-03-T16"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "SCOPE_REVOKED"
+    },
+    {
+      "id": "FIX-R09",
+      "capabilityId": "CAP-04-03",
+      "description": "D04变更沿exact依赖失效，D10独立",
+      "sourceIds": [
+        "SRC-FIX-006",
+        "SRC-FIX-007"
+      ],
+      "fields": [
+        "changeImpact",
+        "protectedRegions",
+        "processSetupExactRef"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D08",
+        "D09",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T17",
+        "CAP-04-03-T18"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "FROZEN_BASELINE_PROTECTED"
+    },
+    {
+      "id": "FIX-R10",
+      "capabilityId": "CAP-04-03",
+      "description": "旧记录未知Frame只读迁移，L3/产品分级",
+      "sourceIds": [
+        "SRC-FIX-001",
+        "SRC-FIX-007"
+      ],
+      "fields": [
+        "legacyRawRef",
+        "migrationProposalRef",
+        "rollbackRef"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-03-T19",
+        "CAP-04-03-T20"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_and_explicit_project_design",
+      "failureCode": "LEGACY_FRAME_UNKNOWN"
+    }
+  ]
+}

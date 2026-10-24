@@ -1,0 +1,559 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-05-04",
+  "scope": "synthetic_not_product_test",
+  "cases": [
+    {
+      "id": "TMPL504-AT01-P",
+      "ruleId": "TMPL504-R01",
+      "expected": "PASS",
+      "input": {
+        "scope": "project-A",
+        "templateRef": {
+          "id": "tplA",
+          "revision": "rev-1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "PROCESS",
+          "schemaVersion": "v1",
+          "scope": "project-A"
+        },
+        "dependencyRefs": [
+          {
+            "id": "cad",
+            "revision": "rev-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          },
+          {
+            "id": "feature",
+            "revision": "rev-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          },
+          {
+            "id": "setup",
+            "revision": "rev-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT01-N",
+      "ruleId": "TMPL504-R01",
+      "expected": "REJECT",
+      "input": {
+        "scope": "project-A",
+        "templateRef": {
+          "id": "tplA",
+          "revision": "rev-1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "PROCESS",
+          "schemaVersion": "v1",
+          "scope": "project-A"
+        },
+        "dependencyRefs": [
+          {
+            "id": "cad",
+            "revision": "rev-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          },
+          {
+            "id": "feature",
+            "revision": "rev-1",
+            "hash": "no-hash",
+            "frame": "PART",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          },
+          {
+            "id": "setup",
+            "revision": "rev-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT02-P",
+      "ruleId": "TMPL504-R02",
+      "expected": "PASS",
+      "input": {
+        "applicability": {
+          "featureClasses": [
+            "PLANAR_POCKET"
+          ],
+          "materialFamilies": [
+            "ALUMINIUM"
+          ],
+          "processKinds": [
+            "MILLING_3AXIS"
+          ],
+          "machineCapabilities": [
+            "3_LINEAR_AXES"
+          ]
+        },
+        "context": {
+          "featureClass": "PLANAR_POCKET",
+          "materialFamily": "ALUMINIUM",
+          "processKind": "MILLING_3AXIS",
+          "machineCapabilities": [
+            "3_LINEAR_AXES"
+          ]
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT02-N",
+      "ruleId": "TMPL504-R02",
+      "expected": "REJECT",
+      "input": {
+        "applicability": {
+          "featureClasses": [
+            "PLANAR_POCKET"
+          ],
+          "materialFamilies": [
+            "ALUMINIUM"
+          ],
+          "processKinds": [
+            "MILLING_3AXIS"
+          ],
+          "machineCapabilities": [
+            "3_LINEAR_AXES"
+          ]
+        },
+        "context": {
+          "featureClass": "PLANAR_POCKET",
+          "materialFamily": "TITANIUM",
+          "processKind": "MILLING_3AXIS",
+          "machineCapabilities": [
+            "3_LINEAR_AXES"
+          ]
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT03-P",
+      "ruleId": "TMPL504-R03",
+      "expected": "PASS",
+      "input": {
+        "toolBinding": {
+          "status": "RESOLVED_EXACT",
+          "exactRef": {
+            "id": "tool-1",
+            "revision": "rev-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "TOOL",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          },
+          "require": {
+            "minDiameterMm": 5,
+            "maxDiameterMm": 10,
+            "interfaceCode": "HOLDER_A"
+          },
+          "match": {
+            "diameterMm": 8,
+            "interfaceCode": "HOLDER_A",
+            "approval": "CONFIRMED"
+          },
+          "implicitReplacement": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT03-N",
+      "ruleId": "TMPL504-R03",
+      "expected": "REJECT",
+      "input": {
+        "toolBinding": {
+          "status": "RESOLVED_EXACT",
+          "exactRef": {
+            "id": "tool-1",
+            "revision": "rev-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "TOOL",
+            "schemaVersion": "v1",
+            "scope": "project-A"
+          },
+          "require": {
+            "minDiameterMm": 5,
+            "maxDiameterMm": 10,
+            "interfaceCode": "HOLDER_A"
+          },
+          "match": {
+            "diameterMm": 8,
+            "interfaceCode": "HOLDER_A",
+            "approval": "AUTO"
+          },
+          "implicitReplacement": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT04-P",
+      "ruleId": "TMPL504-R04",
+      "expected": "PASS",
+      "input": {
+        "frameGraphStatus": "VERIFIED",
+        "slots": [
+          "main-pocket",
+          "finish-edge"
+        ],
+        "bindings": [
+          {
+            "slot": "main-pocket",
+            "occurrencePath": "part:0/face:1",
+            "exactRef": {
+              "id": "f1",
+              "revision": "rev-1",
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "frame": "PART",
+              "schemaVersion": "v1",
+              "scope": "project-A"
+            },
+            "frameStatus": "VERIFIED"
+          },
+          {
+            "slot": "finish-edge",
+            "occurrencePath": "part:0/edge:5",
+            "exactRef": {
+              "id": "f2",
+              "revision": "rev-1",
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "frame": "PART",
+              "schemaVersion": "v1",
+              "scope": "project-A"
+            },
+            "frameStatus": "VERIFIED"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT04-N",
+      "ruleId": "TMPL504-R04",
+      "expected": "REJECT",
+      "input": {
+        "frameGraphStatus": "VERIFIED",
+        "slots": [
+          "main-pocket",
+          "finish-edge"
+        ],
+        "bindings": [
+          {
+            "slot": "main-pocket",
+            "occurrencePath": "part:0/face:1",
+            "exactRef": {
+              "id": "f1",
+              "revision": "rev-1",
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "frame": "PART",
+              "schemaVersion": "v1",
+              "scope": "project-A"
+            },
+            "frameStatus": "VERIFIED"
+          },
+          {
+            "slot": "finish-edge",
+            "occurrencePath": "part:0/edge:5",
+            "exactRef": {
+              "id": "f2",
+              "revision": "rev-1",
+              "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "frame": "PART",
+              "schemaVersion": "v1",
+              "scope": "project-A"
+            },
+            "frameStatus": "UNKNOWN"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT05-P",
+      "ruleId": "TMPL504-R05",
+      "expected": "PASS",
+      "input": {
+        "params": [
+          {
+            "name": "stepOver",
+            "value": 1.2,
+            "min": 0.1,
+            "max": 2,
+            "unit": "mm",
+            "expectedUnit": "mm",
+            "origin": "TEMPLATE"
+          },
+          {
+            "name": "feed",
+            "value": 300,
+            "min": 50,
+            "max": 500,
+            "unit": "mm/min",
+            "expectedUnit": "mm/min",
+            "origin": "OVERRIDE",
+            "overrideApproved": true
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT05-N",
+      "ruleId": "TMPL504-R05",
+      "expected": "REJECT",
+      "input": {
+        "params": [
+          {
+            "name": "stepOver",
+            "value": 1.2,
+            "min": 0.1,
+            "max": 2,
+            "unit": "mm",
+            "expectedUnit": "mm",
+            "origin": "TEMPLATE"
+          },
+          {
+            "name": "feed",
+            "value": 300,
+            "min": 50,
+            "max": 500,
+            "unit": "mm/s",
+            "expectedUnit": "mm/min",
+            "origin": "OVERRIDE",
+            "overrideApproved": true
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT06-P",
+      "ruleId": "TMPL504-R06",
+      "expected": "PASS",
+      "input": {
+        "nodes": [
+          "rough",
+          "semi",
+          "finish"
+        ],
+        "edges": [
+          [
+            "rough",
+            "semi"
+          ],
+          [
+            "semi",
+            "finish"
+          ]
+        ],
+        "resourceScheduleClaim": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT06-N",
+      "ruleId": "TMPL504-R06",
+      "expected": "REJECT",
+      "input": {
+        "nodes": [
+          "rough",
+          "semi",
+          "finish"
+        ],
+        "edges": [
+          [
+            "rough",
+            "semi"
+          ],
+          [
+            "semi",
+            "finish"
+          ],
+          [
+            "finish",
+            "rough"
+          ]
+        ],
+        "resourceScheduleClaim": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT07-P",
+      "ruleId": "TMPL504-R07",
+      "expected": "PASS",
+      "input": {
+        "templatePinned": true,
+        "templateRevision": "v3",
+        "appliedTemplateRevision": "v3",
+        "schemaCompatible": true,
+        "explicitMigrationApproved": false,
+        "adapterRevision": null,
+        "historyOverwrite": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT07-N",
+      "ruleId": "TMPL504-R07",
+      "expected": "REJECT",
+      "input": {
+        "templatePinned": true,
+        "templateRevision": "v3",
+        "appliedTemplateRevision": "v2",
+        "schemaCompatible": true,
+        "explicitMigrationApproved": false,
+        "adapterRevision": null,
+        "historyOverwrite": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT08-P",
+      "ruleId": "TMPL504-R08",
+      "expected": "PASS",
+      "input": {
+        "mode": "PREVIEW",
+        "persistentWrites": 0,
+        "scopeEpoch": 18,
+        "replyEpoch": 18,
+        "cancelled": false,
+        "lateReceipt": false,
+        "stalePreviewAccepted": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT08-N",
+      "ruleId": "TMPL504-R08",
+      "expected": "REJECT",
+      "input": {
+        "mode": "PREVIEW",
+        "persistentWrites": 0,
+        "scopeEpoch": 18,
+        "replyEpoch": 18,
+        "cancelled": true,
+        "lateReceipt": true,
+        "stalePreviewAccepted": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT09-P",
+      "ruleId": "TMPL504-R09",
+      "expected": "PASS",
+      "input": {
+        "actorAuthorized": true,
+        "commitPermissionRechecked": true,
+        "scope": "project-A",
+        "currentPlanRevision": "plan-r4",
+        "expectedPlanRevision": "plan-r4",
+        "approvedTemplateRevision": "tpl-r3",
+        "templateRevision": "tpl-r3",
+        "templateState": "APPROVED",
+        "frozenTargetMutation": false,
+        "auditAppendOnly": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT09-N",
+      "ruleId": "TMPL504-R09",
+      "expected": "REJECT",
+      "input": {
+        "actorAuthorized": true,
+        "commitPermissionRechecked": true,
+        "scope": "project-A",
+        "currentPlanRevision": "plan-r4",
+        "expectedPlanRevision": "plan-r3",
+        "approvedTemplateRevision": "tpl-r3",
+        "templateRevision": "tpl-r3",
+        "templateState": "APPROVED",
+        "frozenTargetMutation": false,
+        "auditAppendOnly": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT10-P",
+      "ruleId": "TMPL504-R10",
+      "expected": "PASS",
+      "input": {
+        "changed": [
+          "op-1"
+        ],
+        "affected": [
+          "op-1",
+          "op-2"
+        ],
+        "stale": [
+          "op-1",
+          "op-2"
+        ],
+        "unaffected": [
+          "op-3"
+        ],
+        "d09Invalidated": true,
+        "d15State": "NOT_RUN",
+        "d16Released": false,
+        "historicalReleaseModified": false,
+        "unknownControllerSemantic": "UNKNOWN",
+        "materialSweptSimulation": false,
+        "clAnimationCertified": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "TMPL504-AT10-N",
+      "ruleId": "TMPL504-R10",
+      "expected": "REJECT",
+      "input": {
+        "changed": [
+          "op-1"
+        ],
+        "affected": [
+          "op-1",
+          "op-2"
+        ],
+        "stale": [
+          "op-1",
+          "op-2"
+        ],
+        "unaffected": [
+          "op-3"
+        ],
+        "d09Invalidated": true,
+        "d15State": "PASS",
+        "d16Released": true,
+        "historicalReleaseModified": false,
+        "unknownControllerSemantic": "UNKNOWN",
+        "materialSweptSimulation": false,
+        "clAnimationCertified": false
+      },
+      "synthetic": true
+    }
+  ]
+}

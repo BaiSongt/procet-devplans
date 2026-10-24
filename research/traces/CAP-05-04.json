@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-05-04",
+  "topic": "R-TMPL-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "TMPL504-S01",
+    "TMPL504-S02",
+    "TMPL504-S03",
+    "TMPL504-S04",
+    "TMPL504-S05",
+    "TMPL504-S06",
+    "TMPL504-S07",
+    "TMPL504-S08"
+  ],
+  "assetOwner": "05 工艺规划 / D05",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "rules": [
+    {
+      "id": "TMPL504-R01",
+      "capabilityId": "CAP-05-04",
+      "description": "项目作用域与模板/设计/Setup精确引用",
+      "sourceIds": [
+        "TMPL504-S06",
+        "TMPL504-S07",
+        "TMPL504-S08"
+      ],
+      "fields": [
+        "scope",
+        "templateRef.id/revision/hash/frame/schemaVersion",
+        "dependencyRefs[].scope"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT01-P",
+        "TMPL504-AT01-N"
+      ],
+      "failureCode": "EXACT_REF_MISMATCH",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R02",
+      "capabilityId": "CAP-05-04",
+      "description": "适用性谓词显式求值且不可默认为通过",
+      "sourceIds": [
+        "TMPL504-S01",
+        "TMPL504-S02",
+        "TMPL504-S04"
+      ],
+      "fields": [
+        "applicability.featureClasses",
+        "applicability.materialFamilies",
+        "applicability.processKinds",
+        "context.machineCapabilities"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT02-P",
+        "TMPL504-AT02-N"
+      ],
+      "failureCode": "TEMPLATE_INAPPLICABLE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R03",
+      "capabilityId": "CAP-05-04",
+      "description": "刀具参数匹配须D03精确资源+人工确认，禁止相似刀具静默替换",
+      "sourceIds": [
+        "TMPL504-S03",
+        "TMPL504-S04",
+        "TMPL504-S05"
+      ],
+      "fields": [
+        "toolBinding.exactRef",
+        "toolBinding.require",
+        "toolBinding.match",
+        "toolBinding.implicitReplacement"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT03-P",
+        "TMPL504-AT03-N"
+      ],
+      "failureCode": "TOOL_RESOLUTION_REQUIRED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R04",
+      "capabilityId": "CAP-05-04",
+      "description": "特征槽位/几何occurrence绑定及Frame证据必须完整",
+      "sourceIds": [
+        "TMPL504-S01",
+        "TMPL504-S06",
+        "TMPL504-S07"
+      ],
+      "fields": [
+        "slots[]",
+        "bindings[].slot/occurrencePath/exactRef/frameStatus",
+        "frameGraphStatus"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT04-P",
+        "TMPL504-AT04-N"
+      ],
+      "failureCode": "FEATURE_REBIND_UNKNOWN",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R05",
+      "capabilityId": "CAP-05-04",
+      "description": "工艺参数族必须按量纲、边界与人工覆盖批准解析",
+      "sourceIds": [
+        "TMPL504-S02",
+        "TMPL504-S04",
+        "TMPL504-S05"
+      ],
+      "fields": [
+        "params[].value/min/max/unit/expectedUnit/origin/overrideApproved"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT05-P",
+        "TMPL504-AT05-N"
+      ],
+      "failureCode": "PARAMETER_OUT_OF_DOMAIN",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R06",
+      "capabilityId": "CAP-05-04",
+      "description": "重用操作关系DAG独立于机床排程，环与孤立引用拒绝",
+      "sourceIds": [
+        "TMPL504-S01",
+        "TMPL504-S02",
+        "TMPL504-S04"
+      ],
+      "fields": [
+        "nodes[]",
+        "edges[]",
+        "resourceScheduleClaim"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT06-P",
+        "TMPL504-AT06-N"
+      ],
+      "failureCode": "TEMPLATE_DEPENDENCY_CYCLE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R07",
+      "capabilityId": "CAP-05-04",
+      "description": "固定模板版本、schema迁移必须明示适配，不覆盖历史",
+      "sourceIds": [
+        "TMPL504-S06",
+        "TMPL504-S07",
+        "TMPL504-S08"
+      ],
+      "fields": [
+        "templateRevision",
+        "appliedTemplateRevision",
+        "schemaCompatible",
+        "explicitMigrationApproved",
+        "adapterRevision",
+        "historyOverwrite"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT07-P",
+        "TMPL504-AT07-N"
+      ],
+      "failureCode": "TEMPLATE_VERSION_DRIFT",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R08",
+      "capabilityId": "CAP-05-04",
+      "description": "Preview仅写暂态并校验epoch，取消与晚回执无采纳资格",
+      "sourceIds": [
+        "TMPL504-S03",
+        "TMPL504-S06",
+        "TMPL504-S07"
+      ],
+      "fields": [
+        "mode",
+        "persistentWrites",
+        "scopeEpoch/replyEpoch",
+        "cancelled",
+        "lateReceipt",
+        "stalePreviewAccepted"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT08-P",
+        "TMPL504-AT08-N"
+      ],
+      "failureCode": "STALE_OR_MUTATING_PREVIEW",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R09",
+      "capabilityId": "CAP-05-04",
+      "description": "正式采纳时重新验权限+CAS+模板已审状态，冻结不可原位覆盖",
+      "sourceIds": [
+        "TMPL504-S06",
+        "TMPL504-S07",
+        "TMPL504-S08"
+      ],
+      "fields": [
+        "commitPermissionRechecked",
+        "currentPlanRevision",
+        "expectedPlanRevision",
+        "approvedTemplateRevision",
+        "templateState",
+        "frozenTargetMutation"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT09-P",
+        "TMPL504-AT09-N"
+      ],
+      "failureCode": "COMMIT_GATE_REJECTED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TMPL504-R10",
+      "capabilityId": "CAP-05-04",
+      "description": "只失效受影响子图，CL不认证NC，D15未测与D16不可假通过",
+      "sourceIds": [
+        "TMPL504-S01",
+        "TMPL504-S06",
+        "TMPL504-S07"
+      ],
+      "fields": [
+        "changed[]",
+        "affected[]",
+        "stale[]",
+        "d09Invalidated",
+        "d15State",
+        "d16Released",
+        "historicalReleaseModified",
+        "unknownControllerSemantic"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "TMPL504-AT10-P",
+        "TMPL504-AT10-N"
+      ],
+      "failureCode": "DOWNSTREAM_CERTIFICATION_LEAK",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

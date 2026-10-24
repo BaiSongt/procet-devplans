@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "procet-process-template-v0-review",
+  "kind": "ProcessTemplateRevision",
+  "status": "DRAFT_NOT_PRODUCT_SCHEMA",
+  "template": {
+    "id": "template-family-alpha",
+    "revision": "tpl-r3",
+    "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "frame": "PROCESS",
+    "schemaVersion": "procet-template-v0",
+    "scope": "project-A",
+    "ownerDomain": "05",
+    "approval": "PENDING_L3",
+    "lifecycle": "DRAFT",
+    "canonicalProfile": "JCS-RFC8785-IJSON",
+    "family": "prismatic-pocket-rough-finish",
+    "previousRevision": "tpl-r2",
+    "reusableIntents": [
+      {
+        "stableOperationKey": "rough",
+        "featureSlot": "main-pocket",
+        "strategy": "POCKET_ROUGH",
+        "parameterRefs": [
+          "stepOver",
+          "allowance"
+        ]
+      },
+      {
+        "stableOperationKey": "finish",
+        "featureSlot": "finish-edge",
+        "strategy": "WALL_FINISH",
+        "parameterRefs": [
+          "finishFeed"
+        ]
+      }
+    ],
+    "precedenceEdges": [
+      [
+        "rough",
+        "finish"
+      ]
+    ],
+    "featureSlots": [
+      {
+        "id": "main-pocket",
+        "binding": "REQUIRED_EXACT_OCCURRENCE",
+        "frame": "PART"
+      },
+      {
+        "id": "finish-edge",
+        "binding": "REQUIRED_EXACT_OCCURRENCE",
+        "frame": "PART"
+      }
+    ],
+    "applicability": {
+      "materials": [
+        "ALUMINIUM"
+      ],
+      "featureClasses": [
+        "PLANAR_POCKET"
+      ],
+      "processKinds": [
+        "MILLING_3AXIS"
+      ],
+      "requiredCapabilities": [
+        "3_LINEAR_AXES"
+      ]
+    },
+    "parameterFamilies": [
+      {
+        "id": "stepOver",
+        "unit": "mm",
+        "min": 0.1,
+        "max": 2,
+        "default": 1
+      },
+      {
+        "id": "allowance",
+        "unit": "mm",
+        "min": 0,
+        "max": 1,
+        "default": 0.3
+      },
+      {
+        "id": "finishFeed",
+        "unit": "mm/min",
+        "min": 50,
+        "max": 500,
+        "default": 200
+      }
+    ],
+    "toolRequirement": {
+      "diameterMm": [
+        5,
+        10
+      ],
+      "interfaceCode": "HOLDER_A",
+      "explicitD03Binding": "REQUIRED"
+    },
+    "noBuiltInSelections": true,
+    "noBuiltInMachineExecutionBinding": true
+  },
+  "applicationCommand": {
+    "domainPort": "ProcessTemplateDomainPort.preview/apply/commit",
+    "projectScope": "project-A",
+    "actorId": "actor-id-for-authority-check",
+    "expectedPlanRevision": "plan-r4",
+    "scopeEpoch": 18,
+    "taskGeneration": 7,
+    "templateExactRef": {
+      "id": "template-family-alpha",
+      "revision": "tpl-r3",
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "frame": "PROCESS",
+      "schemaVersion": "procet-template-v0",
+      "scope": "project-A"
+    },
+    "dependencyRefs": [
+      {
+        "id": "cad",
+        "revision": "rev-1",
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frame": "PART",
+        "schemaVersion": "v1",
+        "scope": "project-A"
+      },
+      {
+        "id": "feature",
+        "revision": "rev-1",
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frame": "PART",
+        "schemaVersion": "v1",
+        "scope": "project-A"
+      },
+      {
+        "id": "setup",
+        "revision": "rev-1",
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frame": "SETUP",
+        "schemaVersion": "v1",
+        "scope": "project-A"
+      }
+    ],
+    "featureOccurrenceBindings": [
+      {
+        "slot": "main-pocket",
+        "occurrencePath": "part:0/face:1",
+        "frameProof": "VERIFIED"
+      }
+    ],
+    "selectedToolExactRef": {
+      "id": "tool-1",
+      "revision": "rev-1",
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "frame": "TOOL",
+      "schemaVersion": "v1",
+      "scope": "project-A"
+    },
+    "overrideApprovalRef": null,
+    "d08FreezePolicy": "FORK_NO_OVERWRITE",
+    "output": "D05_NEW_PLAN_REVISION_ONLY"
+  },
+  "downstream": {
+    "d09": "STALE_UNTIL_REGENERATED",
+    "d12": "REQUIRES_POSTPROCESS",
+    "d13": "REQUIRES_EXECUTION_SEMANTICS",
+    "d14": "REQUIRES_AXIS_TIMELINE",
+    "d15": "NOT_RUN",
+    "d16": "NOT_RELEASED"
+  },
+  "notes": [
+    "所有编号/尺寸为合成设计示例，非机床事实或实际切削推荐值",
+    "模板不持有D10执行绑定，不持有D12原文；来源数据与发布记录不可被覆盖"
+  ]
+}

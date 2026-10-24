@@ -1,3 +1,25 @@
+## 2026-10-25｜[CAP-05-07 计划修订与差异](CAP-05-07/README.md) · [GUI/3D](CAP-05-07/UI.md) · [20合成正反](CAP-05-07/fixtures.json)
+
+## 2026-10-24｜[CAP-05-04 工艺模板与复用](CAP-05-04/README.md) · [GUI/3D](CAP-05-04/UI.md) · [合成验收](CAP-05-04/fixtures.json)
+
+## 2026-10-24｜[CAP-05-03人工编辑与重排](CAP-05-03/README.md) · [GUI](CAP-05-03/UI.md)
+
+## 2026-10-24：[CAP-05-02策略与工艺参数](CAP-05-02/README.md) · [GUI](CAP-05-02/UI.md) · [研究](../../research/traces/CAP-05-02.json)
+
+## 2026-10-24：[CAP-05-01 工艺路线与工序树](CAP-05-01/README.md) · [GUI/3D](CAP-05-01/UI.md) · [概念原型](CAP-05-01/prototype.html)
+
+## 2026-10-24：[CAP-08-01 后处理管线](CAP-08-01/README.md) · [GUI/3D](CAP-08-01/UI.md)
+
+## CAP-04-08｜装夹影响检查（2026-10-20新增）
+[业务规格](CAP-04-08/README.md) · [统一左侧任务区/单Babylon世界](CAP-04-08/UI.md) · [正反验收](CAP-04-08/fixtures.json)。原L1/L2不变、L3待审批；详细规划30/88，非产品实现。
+
+## 2026-10-19｜CAP-04-04新增详细规划
+[工件坐标系与变换图](CAP-04-04/README.md) · [交互](CAP-04-04/UI.md) · [数学算例](CAP-04-04/math-examples.json)；最新详细CAP **29/88**（旧导航段落保留为历史快照）。
+
+## 2026-10-19｜新增CAP-04-05（以tracking/progress.json为准）
+
+[CAP-04-05 多Setup与转序](CAP-04-05/README.md) 已完成原创详细规划：分序姿态与D07材料转接、夹具重新约束、时序DAG、D04/D10分离、单Babylon世界和统一任务容器、8来源10规则20正反验收。CAP-04-04仍待入库，依赖未通过产品验收；L3待评审。
+
 # 88项业务能力｜逐项导航
 
 原始编号与名称见[88项基线](../architecture/v0.8/03_三级能力映射_88项.md)。候选目录不是已实现清单。每项完成需要业务、界面、数据、模块、研究、验收形成对应关系。
@@ -20,11 +42,43 @@
 | CAP-02-04 | [夹具与工装资源](CAP-02-04/README.md)；[UI字段](CAP-02-04/UI.md) | 已编制/待评审 | R-WH-001及逐项规则追踪已编制，工程补证门保留 |
 | CAP-02-05 | [毛坯与材料目录](CAP-02-05/README.md)；[UI字段](CAP-02-05/UI.md) | 已编制/待评审 | R-MS-001及规则追踪已编制，工程补证门保留 |
 | CAP-02-06 | [测量与检测资源](CAP-02-06/README.md)；[UI字段](CAP-02-06/UI.md) | 已编制/待评审 | R-MET-001及规则追踪已编制，需实机与计量补证 |
+| CAP-02-07 | [资源几何与参数化](CAP-02-07/README.md)；[GUI/字段](CAP-02-07/UI.md) | 已编制/待评审 | R-RG-001及规则追踪已编制，真实资产/OCCT/单世界待工程补证 |
+| CAP-02-08 | [资源能力与兼容性](CAP-02-08/README.md)；[GUI/字段](CAP-02-08/UI.md) | 已编制/待评审 | R-RC-001、10规则/20验收追踪已编制，真实设备及控制器执行需补证 |
 
-全部产品验收仍为未执行；旧历史测试报告和本轮合成数学检查不代表这些新规格已通过。
+| CAP-03-01 | [CAD导入与几何读取](CAP-03-01/README.md)；[GUI](CAP-03-01/UI.md) | 已编制/待评审 | R-CAD-001与10规则/20正反验收追踪已编制；实际解析/离线/安全依赖待产品验收 |
+
+全部产品验收仍为未执行；旧历史测试报告、合成数学检查和规划JSON检查不代表这些新规格已通过。
 
 ## 下一项与接续
 
-下一项CAP-02-07「资源几何与参数化」。后续按原目录逐项推进；前10项研究追踪回补与工作包细分按依赖穿插。未列的74项只有基线描述，不计入详细设计完成。
+2026-10-18：[F1-03公共面工作包](../work-packages/F1-03.md)已完成实施级细分编制，仍待设计评审和产品实施。下一项详细CAP-03-02「零件/装配及版本」；后续相关F1-04按依赖推进。前10项研究追踪回补和必要历史附件迁移继续穿插；未列的72项仍只有基线描述，不计入详细设计完成。
 
-新项使用`docs/capabilities/CAP-xx-xx/`。历史批次保留；修订历史内容时记录原因，不另建无来源的同名权威版本。每项引用[研究目录](../../research/README.md)及对应[工作包](../work-packages/README.md)。
+新项使用`docs/capabilities/CAP-xx-xx/`。历史批次保留，修改时记录原因。每项引用[研究目录](../../research/README.md)与对应[工作包](../work-packages/README.md)。分支是否进入main按GitHub实时状态判断，不根据文档数自动推定。
+
+## 2026-10-19新增完整CAP（规划分支已提交、待评审）
+
+- [CAP-03-02](./CAP-03-02/README.md) · [GUI](./CAP-03-02/UI.md) · [理论](../../research/topics/R-ASM-001.md) · [规则追踪](../../research/traces/CAP-03-02.json)
+- [CAP-03-03](./CAP-03-03/README.md) · [GUI](./CAP-03-03/UI.md) · [理论](../../research/topics/R-TOP-001.md) · [规则追踪](../../research/traces/CAP-03-03.json)
+- [CAP-03-04](./CAP-03-04/README.md) · [GUI](./CAP-03-04/UI.md) · [理论](../../research/topics/R-PMI-001.md) · [规则追踪](../../research/traces/CAP-03-04.json)
+- [CAP-03-05](./CAP-03-05/README.md) · [GUI](./CAP-03-05/UI.md) · [理论](../../research/topics/R-MFR-001.md) · [规则追踪](../../research/traces/CAP-03-05.json)
+- [CAP-03-07](./CAP-03-07/README.md) · [GUI](./CAP-03-07/UI.md) · [理论](../../research/topics/R-FREL-001.md) · [规则追踪](../../research/traces/CAP-03-07.json)
+
+目前**22/88**项详细规格具备完整本轮登记与追踪；其余已提交但来源/附件不齐的草案不列入完整计数，见[缺口登记](../../tracking/pending-source-gaps-2026-10-19.json)。历史上方“下一项”等数字保留作原快照，不再代表实时进度。
+
+## 2026-10-19 补证与新增完整项
+
+- [CAP-01-01研究回补](CAP-01-01/RESEARCH-BACKFILL.md)、[CAP-01-02独立新补证](CAP-01-02/RESEARCH-BACKFILL.md)、[CAP-01-03研究回补](CAP-01-03/RESEARCH-BACKFILL.md)：历史编号及原8项验收保留，新研究追踪逐项完成；不新计CAP。
+- [CAP-03-06人工特征编辑](CAP-03-06/README.md)、[CAP-03-08语义输出与溯源](CAP-03-08/README.md)、[CAP-04-01工艺Setup](CAP-04-01/README.md)：均有完整本轮来源/规则/验收，设计待评审、产品NOT_RUN。
+
+**当前完整详细 CAP 25/88**。仍缺63项完整规格；上文旧数字为历史快照。
+
+## 2026-10-19 新编 CAP-04-02
+
+[业务规格](CAP-04-02/README.md) · [界面与3D](CAP-04-02/UI.md) · [研究专题](../../research/topics/R-STOCKREG-001.md) · [规则追踪](../../research/traces/CAP-04-02.json) · [20项正反场景](CAP-04-02/fixtures.json)。当前**26/88**项详细CAP，均待设计评审，产品NOT_RUN；旧历史快照保留。
+
+
+- **2026-10-19 CAP-01-07补证**：[原业务规格与研究追踪](CAP-01-07/RESEARCH-BACKFILL.md)、[7项来源](../../research/sources/CAP-01-07.json)、[20正反验收](CAP-01-07/fixtures.json)。原CAP计数不增；研究/人类批准/产品测试分离。
+
+## 2026-10-19 CAP-01-08研究补证
+
+[原CAP补证](CAP-01-08/RESEARCH-BACKFILL.md) · [来源](../../research/sources/CAP-01-08.json) · [追踪](../../research/traces/CAP-01-08.json) · [20项正反场景](CAP-01-08/fixtures.json)。原CAP已计数，不增加26/88；产品NOT_RUN。

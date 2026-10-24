@@ -1,0 +1,415 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-05-07",
+  "syntheticOnly": true,
+  "productAcceptance": "NOT_RUN",
+  "cases": [
+    {
+      "id": "REV507-AT01-P",
+      "ruleId": "REV507-R01",
+      "expected": "PASS",
+      "input": {
+        "refs": [
+          {
+            "id": "D01",
+            "revision": "r7",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D02",
+            "revision": "r7",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D04",
+            "revision": "r7",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP-A",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D05",
+            "revision": "r7",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP-A",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D08",
+            "revision": "freeze-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP-A",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          }
+        ],
+        "scope": "demo"
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT01-N",
+      "ruleId": "REV507-R01",
+      "expected": "REJECT",
+      "input": {
+        "refs": [
+          {
+            "id": "D01",
+            "revision": "r7",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D02",
+            "revision": "r7",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D04",
+            "revision": "r7",
+            "hash": "UNKNOWN",
+            "frame": "SETUP-A",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D05",
+            "revision": "r7",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP-A",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D08",
+            "revision": "freeze-1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP-A",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          }
+        ],
+        "scope": "demo"
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT02-P",
+      "ruleId": "REV507-R02",
+      "expected": "PASS",
+      "input": {
+        "baseNodes": [
+          "OP-A",
+          "OP-B"
+        ],
+        "currentChanges": [
+          "OP-A"
+        ],
+        "proposedChanges": [
+          "OP-B"
+        ],
+        "crossEdges": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT02-N",
+      "ruleId": "REV507-R02",
+      "expected": "REJECT",
+      "input": {
+        "baseNodes": [
+          "OP-A",
+          "OP-B"
+        ],
+        "currentChanges": [
+          "OP-A"
+        ],
+        "proposedChanges": [
+          "OP-A"
+        ],
+        "crossEdges": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT03-P",
+      "ruleId": "REV507-R03",
+      "expected": "PASS",
+      "input": {
+        "frozen": [
+          "OP-A"
+        ],
+        "changed": [
+          "OP-B"
+        ],
+        "overwritesD08": false,
+        "approval": ""
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT03-N",
+      "ruleId": "REV507-R03",
+      "expected": "REJECT",
+      "input": {
+        "frozen": [
+          "OP-A"
+        ],
+        "changed": [
+          "OP-A"
+        ],
+        "overwritesD08": true,
+        "approval": ""
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT04-P",
+      "ruleId": "REV507-R04",
+      "expected": "PASS",
+      "input": {
+        "branchA": "A-r3",
+        "branchB": "B-r5",
+        "sharedFactHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "overwriteA": false,
+        "overwriteB": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT04-N",
+      "ruleId": "REV507-R04",
+      "expected": "REJECT",
+      "input": {
+        "branchA": "A-r3",
+        "branchB": "B-r5",
+        "sharedFactHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "overwriteA": true,
+        "overwriteB": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT05-P",
+      "ruleId": "REV507-R05",
+      "expected": "PASS",
+      "input": {
+        "setupRef": "D04-r7",
+        "frame": "SETUP-A",
+        "proofHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "executionRef": "D10-r4",
+        "treatD10AsSetup": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT05-N",
+      "ruleId": "REV507-R05",
+      "expected": "REJECT",
+      "input": {
+        "setupRef": "D04-r7",
+        "frame": "SETUP-A",
+        "proofHash": "",
+        "executionRef": "D10-r4",
+        "treatD10AsSetup": true
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT06-P",
+      "ruleId": "REV507-R06",
+      "expected": "PASS",
+      "input": {
+        "authorized": true,
+        "rechecked": true,
+        "expected": "r7",
+        "current": "r7",
+        "taskGeneration": 12,
+        "replyGeneration": 12,
+        "cancelled": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT06-N",
+      "ruleId": "REV507-R06",
+      "expected": "REJECT",
+      "input": {
+        "authorized": true,
+        "rechecked": false,
+        "expected": "r7",
+        "current": "r8",
+        "taskGeneration": 12,
+        "replyGeneration": 11,
+        "cancelled": true
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT07-P",
+      "ruleId": "REV507-R07",
+      "expected": "PASS",
+      "input": {
+        "diffTypes": [
+          "NODE_ADD",
+          "EDGE_REMOVE",
+          "STRATEGY_CHANGE"
+        ],
+        "stableIdsKnown": true,
+        "renameAutoAccept": false,
+        "ordered": true
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT07-N",
+      "ruleId": "REV507-R07",
+      "expected": "REJECT",
+      "input": {
+        "diffTypes": [
+          "NODE_ADD",
+          "EDGE_REMOVE",
+          "STRATEGY_CHANGE"
+        ],
+        "stableIdsKnown": false,
+        "renameAutoAccept": true,
+        "ordered": true
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT08-P",
+      "ruleId": "REV507-R08",
+      "expected": "PASS",
+      "input": {
+        "affected": [
+          "OP-B"
+        ],
+        "stale": [
+          "D09",
+          "D12",
+          "D13",
+          "D14",
+          "D15",
+          "D16"
+        ],
+        "unaffectedKept": true,
+        "d13": "UNKNOWN",
+        "d15": "BLOCKED",
+        "clAsNcVerified": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT08-N",
+      "ruleId": "REV507-R08",
+      "expected": "REJECT",
+      "input": {
+        "affected": [
+          "OP-B"
+        ],
+        "stale": [
+          "D09"
+        ],
+        "unaffectedKept": true,
+        "d13": "UNKNOWN",
+        "d15": "PASS",
+        "clAsNcVerified": true
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT09-P",
+      "ruleId": "REV507-R09",
+      "expected": "PASS",
+      "input": {
+        "rollbackMode": "FORK_NEW_REVISION",
+        "auditAppendOnly": true,
+        "historyKept": true,
+        "deleteUserData": false
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT09-N",
+      "ruleId": "REV507-R09",
+      "expected": "REJECT",
+      "input": {
+        "rollbackMode": "OVERWRITE_OLD_REVISION",
+        "auditAppendOnly": false,
+        "historyKept": false,
+        "deleteUserData": true
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT10-P",
+      "ruleId": "REV507-R10",
+      "expected": "PASS",
+      "input": {
+        "entries": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "singleDomainPort": true,
+        "worldCount": 1,
+        "taskPanel": "LEFT_UNIFIED",
+        "previewWrites": false,
+        "productStatus": "NOT_RUN"
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    },
+    {
+      "id": "REV507-AT10-N",
+      "ruleId": "REV507-R10",
+      "expected": "REJECT",
+      "input": {
+        "entries": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "singleDomainPort": false,
+        "worldCount": 2,
+        "taskPanel": "RIGHT_DUPLICATE",
+        "previewWrites": true,
+        "productStatus": "PASS"
+      },
+      "synthetic": true,
+      "consumerGate": "independent_product_test_NOT_RUN"
+    }
+  ]
+}

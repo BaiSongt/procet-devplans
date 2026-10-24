@@ -1,0 +1,458 @@
+{
+  "schemaVersion": "procet-synthetic-planning-fixtures-v1",
+  "workPackageId": "E3-03",
+  "status": "SYNTHETIC_PLANNING_ONLY",
+  "exampleNC": {
+    "program": "G21 G90 G17 G54 G40 G49 G94\nG0 X0 Y0 Z5\nG1 X10 F200\nM2",
+    "sha256": "fdec7e00a831f8bb2f8b2b8ecc585899e776474469c9899f191fdf8719dfbe8b",
+    "bytesEncoding": "UTF-8_NO_TRAILING_NEWLINE",
+    "sourceRevision": "SYNTHETIC-D12-001",
+    "d10BindingRevision": "SYNTHETIC-D10-001",
+    "frame": "SYNTHETIC-SETUP-A",
+    "controllerProfile": "synthetic-rs274-subset-v0"
+  },
+  "cases": [
+    {
+      "id": "E3-03-T01",
+      "ruleId": "E303-R01",
+      "polarity": "positive",
+      "description": "E303-R01 正例：D12原始NC字节哈希与D10引用版本、Frame绑定一致；D13只读原文",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T02",
+      "ruleId": "E303-R01",
+      "polarity": "negative",
+      "description": "E303-R01 反例：NC_SOURCE_MISMATCH",
+      "input": {
+        "sourceHashMatches": false,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "NC_SOURCE_MISMATCH"
+      }
+    },
+    {
+      "id": "E3-03-T03",
+      "ruleId": "E303-R02",
+      "polarity": "positive",
+      "description": "E303-R02 正例：控制器方言profile必须有确切版本、哈希和明确覆盖子集",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T04",
+      "ruleId": "E303-R02",
+      "polarity": "negative",
+      "description": "E303-R02 反例：DIALECT_PROFILE_UNKNOWN",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": false,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "reason": "DIALECT_PROFILE_UNKNOWN"
+      }
+    },
+    {
+      "id": "E3-03-T05",
+      "ruleId": "E303-R03",
+      "polarity": "positive",
+      "description": "E303-R03 正例：模态需要跟随NC块状态演化，要求显式运动首态；单位/绝对增量不猜测",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T06",
+      "ruleId": "E303-R03",
+      "polarity": "negative",
+      "description": "E303-R03 反例：MOTION_MODE_UNSET",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": false,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "reason": "MOTION_MODE_UNSET"
+      }
+    },
+    {
+      "id": "E3-03-T07",
+      "ruleId": "E303-R04",
+      "polarity": "positive",
+      "description": "E303-R04 正例：G54等坐标选择必须在D10精确偏置表解析，D04不得被直接改写",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T08",
+      "ruleId": "E303-R04",
+      "polarity": "negative",
+      "description": "E303-R04 反例：WORK_OFFSET_UNKNOWN",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": false,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "reason": "WORK_OFFSET_UNKNOWN"
+      }
+    },
+    {
+      "id": "E3-03-T09",
+      "ruleId": "E303-R05",
+      "polarity": "positive",
+      "description": "E303-R05 正例：刀具长度/直径补偿、M代码辅助行为缺少配置必须保持UNKNOWN",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T10",
+      "ruleId": "E303-R05",
+      "polarity": "negative",
+      "description": "E303-R05 反例：TOOL_OFFSET_UNKNOWN",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": false,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "reason": "TOOL_OFFSET_UNKNOWN"
+      }
+    },
+    {
+      "id": "E3-03-T11",
+      "ruleId": "E303-R06",
+      "polarity": "positive",
+      "description": "E303-R06 正例：未建模宏、循环、子程序或remap必须保留显式UNKNOWN，不可静默略过",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T12",
+      "ruleId": "E303-R06",
+      "polarity": "negative",
+      "description": "E303-R06 反例：UNSUPPORTED_CONTROLLER_SEMANTICS",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": false,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "reason": "UNSUPPORTED_CONTROLLER_SEMANTICS"
+      }
+    },
+    {
+      "id": "E3-03-T13",
+      "ruleId": "E303-R07",
+      "polarity": "positive",
+      "description": "E303-R07 正例：NC块到解释事件的行号、顺序、状态哈希必须完整，不得输出D14轴时序",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T14",
+      "ruleId": "E303-R07",
+      "polarity": "negative",
+      "description": "E303-R07 反例：SOURCE_MAP_MISMATCH",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": false,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "SOURCE_MAP_MISMATCH"
+      }
+    },
+    {
+      "id": "E3-03-T15",
+      "ruleId": "E303-R08",
+      "polarity": "positive",
+      "description": "E303-R08 正例：同NC块重复冲突模态组或非法词，Fail Closed，不得丢弃",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T16",
+      "ruleId": "E303-R08",
+      "polarity": "negative",
+      "description": "E303-R08 反例：MODAL_GROUP_CONFLICT",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": false,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "MODAL_GROUP_CONFLICT"
+      }
+    },
+    {
+      "id": "E3-03-T17",
+      "ruleId": "E303-R09",
+      "polarity": "positive",
+      "description": "E303-R09 正例：提交时重新CAS/授权与取消判断；晚回执只能审计不可采纳",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T18",
+      "ruleId": "E303-R09",
+      "polarity": "negative",
+      "description": "E303-R09 反例：LATE_RECEIPT_DISCARDED",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": false,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "CANCELLED",
+        "reason": "LATE_RECEIPT_DISCARDED"
+      }
+    },
+    {
+      "id": "E3-03-T19",
+      "ruleId": "E303-R10",
+      "polarity": "positive",
+      "description": "E303-R10 正例：D13解释覆盖不能提升为D14、D15或D16通过资格；D11仅CL预验证",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": true
+      },
+      "expected": {
+        "status": "READY_FOR_D14",
+        "reason": "OK"
+      }
+    },
+    {
+      "id": "E3-03-T20",
+      "ruleId": "E303-R10",
+      "polarity": "negative",
+      "description": "E303-R10 反例：CONCLUSION_ESCALATION",
+      "input": {
+        "sourceHashMatches": true,
+        "profileKnown": true,
+        "modalInitialKnown": true,
+        "wcsResolved": true,
+        "toolOffsetResolved": true,
+        "noUnsupportedSemantics": true,
+        "sourceMapAccurate": true,
+        "modalGroupsValid": true,
+        "commitStillValid": true,
+        "claimsOnlyD13": false
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "CONCLUSION_ESCALATION"
+      }
+    }
+  ],
+  "count": 20,
+  "notes": "字段级合成约束验证，不执行G-code解析、NC控制器模拟或真实机床测试；真实NC消费者与D15仍NOT_RUN"
+}

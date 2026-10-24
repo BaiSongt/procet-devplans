@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "procet-b001-observation-v1",
+  "observedOn": "2026-10-19",
+  "origin": "GitHub connector read-only, not a build audit",
+  "originalBaseline": "V0.8 2026-10-16",
+  "threeLayers": {
+    "research": {
+      "status": "observed_git_ref_not_validated_build",
+      "repos": [
+        {
+          "repository": "BaiSongt/procet-gui",
+          "ref": "develop",
+          "exactHead": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+          "observation": "fetch_commit(develop) returned SHA; not evidence of feature acceptance"
+        },
+        {
+          "repository": "BaiSongt/procet-cam",
+          "ref": "develop",
+          "exactHead": "fcec1c86047e6b11be35b8bb38971e3dfcffbd7b",
+          "observation": "fetch_commit(develop) returned SHA; not evidence of feature acceptance"
+        },
+        {
+          "repository": "BaiSongt/procet-solver",
+          "ref": "develop",
+          "exactHead": "44172bc046bfd65c2a4fe36212536c70226be48f",
+          "observation": "fetch_commit(develop) returned SHA; not evidence of feature acceptance"
+        }
+      ]
+    },
+    "integration": {
+      "status": "manifest_declared_not_proven_packaged",
+      "producer": "BaiSongt/procet-gui",
+      "producerRef": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "manifestPath": "integration-lock.json",
+      "manifestBlobSha": "cb2c96019e4053437d668e230fa0e651f7d8d762",
+      "manifestStatus": "read_only_parsed",
+      "targetTriple": "x86_64-pc-windows-msvc",
+      "consumerRefs": [
+        {
+          "moduleId": "procet-contracts",
+          "revision": "60b1b3b8b4a3f6fa5549dc0ee3bdc7fbdc7ca86b",
+          "source": "git"
+        },
+        {
+          "moduleId": "procet-resources",
+          "revision": "9c9bca8aed03f322579149899c65920bca55ef44",
+          "source": "git"
+        },
+        {
+          "moduleId": "solver-adapter",
+          "revision": "b7e8bfc5f8b2963633d225fdd41af662d8874950",
+          "source": "git"
+        },
+        {
+          "moduleId": "solver-contracts",
+          "revision": "b7e8bfc5f8b2963633d225fdd41af662d8874950",
+          "source": "git"
+        },
+        {
+          "moduleId": "procet-docs",
+          "revision": "b64f10ea12fcb568d5c3b84fe07b81da67b54329",
+          "source": "git/worker-declared"
+        },
+        {
+          "moduleId": "procet-knowledge",
+          "revision": "b2a36ab6f80b97512dae0551eeebb7d30b6b6f0f",
+          "source": "git"
+        },
+        {
+          "moduleId": "procet-agent",
+          "revision": "64c559ae60b5a9011dd6edc575b985b54ed351ae",
+          "source": "git/worker-declared"
+        },
+        {
+          "moduleId": "procet-cam",
+          "revision": "fcec1c86047e6b11be35b8bb38971e3dfcffbd7b",
+          "source": "path+../procet-cam",
+          "workspaceDigestDeclared": "sha256:5dadd2c3bcf09d08e4bf5e7c45616695b1e8a95ebe0300fd716efce46f7e2725",
+          "workspaceDigestIndependentVerification": "not_run"
+        }
+      ],
+      "manifestEvidence": {
+        "guiRootCargoSha": "33dc200acf542d1375fa3ac1c8e320b1fbe71890",
+        "guiDesktopCargoSha": "5e72d397c6e2d1ffec494c5b2466df2fadf0e74f",
+        "guiRootPackageSha": "55b637adaad77dfa9fdb86955700f4cea6cdd1fc",
+        "guiDesktopPackageSha": "a87da52c0567d4ceb4e5e3501a695c0d4b85b6c8"
+      },
+      "knownTopology": [
+        "GUI root Rust workspace excludes desktop Tauri [workspace]",
+        "desktop consumes procet-cam via adjacent path dependency",
+        "no procet-2d entry in inspected integration-lock.json",
+        "GUI solver-adapter pin differs from solver develop HEAD"
+      ]
+    },
+    "runtime": {
+      "status": "unknown_no_executable_obtained",
+      "binarySha256": null,
+      "installerSha256": null,
+      "platformEvidence": null,
+      "embeddedIntegrationLockDigest": null,
+      "nativeOcctFileDigest": null,
+      "workerBinaryDigests": [],
+      "sourceOfRuntimeBytes": "not_obtained",
+      "doNotPromoteToPass": true
+    }
+  },
+  "comparison": {
+    "guiDeclaredCamMatchesObservedDevelop": true,
+    "guiDeclaredSolverMatchesObservedDevelop": false,
+    "guiDeclaredSolverDiffersFromObservedDevelopNoBugInference": true,
+    "productionRustSolverSdkDefaultNativeOcctAtObservedDevelop": true,
+    "installedBinaryProvenanceConfirmed": false
+  },
+  "evidenceClass": "source_observation_not_product_test",
+  "productTesting": "not_run",
+  "humanApproval": "pending",
+  "revalidationRequiredOnAnyHeadDrift": true
+}

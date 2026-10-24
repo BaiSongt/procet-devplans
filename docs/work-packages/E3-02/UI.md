@@ -1,0 +1,3 @@
+# E3-02 GUI/3D 与多入口契约
+单一Babylon世界、ActivityRail NC入口、左侧统一TaskPanel；最大字体12px，仅浅/深色。显示D09 CL与D10执行绑定（两个独立exact引用）、post插件/配置SHA、controller和LINE/ARC/HELIX/TCP兼容矩阵、错误代码、逐行NC↔CL高亮、SYNTHETIC解释。3D只呈现来源联动，不制造D14轴运动或D15通过动画。
+任务阶段PRECHECK/GENERATE/MAP/REVIEW/COMMIT并有等待流光、取消、UNKNOWN与迟到回执隔离；人工编辑展示旧/新NC字节Hash及下游D13-D16失效。GUI、CLI、Agent统一`PostProcessingPort`，预览无持久化副作用；提交当刻重验ACL、CAS、Frame、授权与任务代次；Agent不得自行批准D16。浏览器、3D、控制器产品验收NOT_RUN。

@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "procet-cl-geometry-synthetic-v1",
+  "unit": "mm",
+  "coordinateSystem": "SYNTHETIC_XY_RH",
+  "tolerance": 0.000001,
+  "disclaimer": "纯数学/布尔门禁，不证明实际OCCT、弧刀路质量、避碰或机床运动",
+  "arcCases": [
+    {
+      "id": "ARC-01",
+      "kind": "ARC",
+      "start": [
+        1,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        1,
+        0
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "expected": "VALID"
+    },
+    {
+      "id": "ARC-02",
+      "kind": "ARC",
+      "start": [
+        1,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        2,
+        0
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "expected": "RADIUS_MISMATCH"
+    },
+    {
+      "id": "ARC-03",
+      "kind": "ARC",
+      "start": [
+        0,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        0,
+        0
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "expected": "DEGENERATE_RADIUS"
+    },
+    {
+      "id": "ARC-04",
+      "kind": "ARC",
+      "start": [
+        1,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        1,
+        -1
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "expected": "HELIX_REQUIRED"
+    },
+    {
+      "id": "HELIX-05",
+      "kind": "HELIX",
+      "start": [
+        1,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        1,
+        -1
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "expected": "VALID"
+    },
+    {
+      "id": "HELIX-06",
+      "kind": "HELIX",
+      "start": [
+        1,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        1.1,
+        -1
+      ],
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "expected": "RADIUS_MISMATCH"
+    }
+  ],
+  "linkCases": [
+    {
+      "id": "L01",
+      "clearanceKnown": true,
+      "frameExact": true,
+      "strategySupported": true,
+      "expected": "LINK_CONTRACT_CANDIDATE_ONLY"
+    },
+    {
+      "id": "L02",
+      "clearanceKnown": false,
+      "frameExact": true,
+      "strategySupported": true,
+      "expected": "UNKNOWN_NOT_SAFE"
+    },
+    {
+      "id": "L03",
+      "clearanceKnown": true,
+      "frameExact": false,
+      "strategySupported": true,
+      "expected": "UNKNOWN_NOT_SAFE"
+    },
+    {
+      "id": "L04",
+      "clearanceKnown": true,
+      "frameExact": true,
+      "strategySupported": false,
+      "expected": "UNKNOWN_NOT_SAFE"
+    }
+  ]
+}

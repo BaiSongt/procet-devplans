@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-05-01",
+  "topic": "R-ROUTE-001",
+  "status": "compiled_pending_human_review_product_not_run",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "ROUTE-SRC-01",
+    "ROUTE-SRC-02",
+    "ROUTE-SRC-03",
+    "ROUTE-SRC-04",
+    "ROUTE-SRC-05",
+    "ROUTE-SRC-06",
+    "ROUTE-SRC-07",
+    "ROUTE-SRC-08"
+  ],
+  "assetOwner": "05 工艺规划 / D05 (仅本域可写)",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "paths": {
+    "capability": "docs/capabilities/CAP-05-01/README.md",
+    "ui": "docs/capabilities/CAP-05-01/UI.md",
+    "prototype": "docs/capabilities/CAP-05-01/prototype.html",
+    "sources": "research/sources/CAP-05-01.json",
+    "fixtures": "docs/capabilities/CAP-05-01/fixtures.json",
+    "topic": "research/topics/R-ROUTE-001.md",
+    "trace": "research/traces/CAP-05-01.json"
+  },
+  "rules": [
+    {
+      "id": "ROUTE-R01",
+      "capabilityId": "CAP-05-01",
+      "description": "projectScope及D01/D02精确引用必须含id/revision/sha256/frame，并固定D05不可变内容hash",
+      "sourceIds": [
+        "ROUTE-SRC-03",
+        "ROUTE-SRC-08"
+      ],
+      "fields": [
+        "projectScope",
+        "cadExactRef.hash",
+        "cadExactRef.revision",
+        "cadExactRef.frame",
+        "route.contentHash"
+      ],
+      "negativeRequirement": "缺失或损坏任一哈希禁止采纳",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT01-P",
+        "ROUTE-AT01-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R02",
+      "capabilityId": "CAP-05-01",
+      "description": "路线为Stage→Operation→Step显式父子树；保存stageSetupExactRef且双向索引一致",
+      "sourceIds": [
+        "ROUTE-SRC-01",
+        "ROUTE-SRC-02"
+      ],
+      "fields": [
+        "route.stages[].operationIds",
+        "route.operations[].stageId",
+        "route.steps[].operationId"
+      ],
+      "negativeRequirement": "悬空step不得以显示树掩盖",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT02-P",
+        "ROUTE-AT02-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R03",
+      "capabilityId": "CAP-05-01",
+      "description": "节点ID在修订内全局唯一且稳定，重排不得以行号当身份",
+      "sourceIds": [
+        "ROUTE-SRC-01",
+        "ROUTE-SRC-07"
+      ],
+      "fields": [
+        "route.stages[].id",
+        "route.operations[].id",
+        "route.steps[].id"
+      ],
+      "negativeRequirement": "重复ID或重排误绑禁止保存",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT03-P",
+        "ROUTE-AT03-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R04",
+      "capabilityId": "CAP-05-01",
+      "description": "工序先后关系构成可拓扑排序DAG；边必须指向实际工序",
+      "sourceIds": [
+        "ROUTE-SRC-06"
+      ],
+      "fields": [
+        "route.edges[].from",
+        "route.edges[].to",
+        "topologicalOrder"
+      ],
+      "negativeRequirement": "循环与悬空依赖显式REJECT",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT04-P",
+        "ROUTE-AT04-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R05",
+      "capabilityId": "CAP-05-01",
+      "description": "跨Setup前置边必须绑定第04域转序exact引用、Frame与适用范围",
+      "sourceIds": [
+        "ROUTE-SRC-01",
+        "ROUTE-SRC-03"
+      ],
+      "fields": [
+        "route.edges[].crossSetup",
+        "route.edges[].transferExactRef"
+      ],
+      "negativeRequirement": "跨Setup缺少转序证据返回UNKNOWN/阻断采纳",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT05-P",
+        "ROUTE-AT05-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R06",
+      "capabilityId": "CAP-05-01",
+      "description": "工序引用D02确认特征与D01目标必须精确版本；多对多索引不迁移权威Owner",
+      "sourceIds": [
+        "ROUTE-SRC-03",
+        "ROUTE-SRC-04"
+      ],
+      "fields": [
+        "route.operations[].featureExactRef",
+        "d02ExactRef",
+        "cadExactRef"
+      ],
+      "negativeRequirement": "仅用名称引用或过期特征禁止采纳",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT06-P",
+        "ROUTE-AT06-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R07",
+      "capabilityId": "CAP-05-01",
+      "description": "05域仅引用D08冻结成果，不可修改冻结实体；变更必须fork并保留来源",
+      "sourceIds": [
+        "ROUTE-SRC-07"
+      ],
+      "fields": [
+        "route.freeze.readOnlyD08Ref",
+        "route.freeze.appendOnly",
+        "route.freeze.attemptOverwrite"
+      ],
+      "negativeRequirement": "冻结项被覆盖或无追溯变更禁止提交",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT07-P",
+        "ROUTE-AT07-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R08",
+      "capabilityId": "CAP-05-01",
+      "description": "D05工艺阶段与路线不预先写入D10的机床执行绑定；不要求A模式先有D05",
+      "sourceIds": [
+        "ROUTE-SRC-01",
+        "ROUTE-SRC-05"
+      ],
+      "fields": [
+        "route.machineId",
+        "route.executionBindingId",
+        "route.mode"
+      ],
+      "negativeRequirement": "将D10机器硬绑定至规划树属于越界",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT08-P",
+        "ROUTE-AT08-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R09",
+      "capabilityId": "CAP-05-01",
+      "description": "commit须统一DomainPort重验actor权限、CAS和任务代次，取消及晚回执无副作用",
+      "sourceIds": [
+        "ROUTE-SRC-05",
+        "ROUTE-SRC-08"
+      ],
+      "fields": [
+        "actor.canCommit",
+        "cas.expected",
+        "cas.current",
+        "task.cancelled",
+        "task.returnGeneration"
+      ],
+      "negativeRequirement": "权限失效/版本竞争/取消晚回执拒绝采纳",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT09-P",
+        "ROUTE-AT09-N"
+      ]
+    },
+    {
+      "id": "ROUTE-R10",
+      "capabilityId": "CAP-05-01",
+      "description": "D05编辑/预览绝不授予D09-D16产品资格或NC工程验证PASS；未知保留UNKNOWN",
+      "sourceIds": [
+        "ROUTE-SRC-01",
+        "ROUTE-SRC-04"
+      ],
+      "fields": [
+        "route.outcome.stage",
+        "route.outcome.certified",
+        "route.outcome.d15State",
+        "route.outcome.d16State"
+      ],
+      "negativeRequirement": "计划树或CL动画像已验证NC发布判定拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "ROUTE-AT10-P",
+        "ROUTE-AT10-N"
+      ]
+    }
+  ]
+}
