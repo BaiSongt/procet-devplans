@@ -1,0 +1,266 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "W2-02",
+  "researchTopic": "R-ADOPT-FREEZE-001",
+  "sourceRegistry": "research/sources/W2-02.json",
+  "implementation": "docs/work-packages/W2-02.md",
+  "ui": "docs/work-packages/W2-02/UI.md",
+  "fixtures": "docs/work-packages/W2-02/fixtures.json",
+  "validator": "tools/check_w202_planning_2026_10_25.py",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "W202-R01",
+      "workPackageId": "W2-02",
+      "summary": "稳定工序UID绑定",
+      "fixtureGate": "stableStepUid",
+      "failureCode": "REJECT_STALE_STEP_UID",
+      "sourceIds": [
+        "SRC-W202-S01",
+        "SRC-W202-S02",
+        "SRC-W202-S07"
+      ],
+      "fields": [
+        "candidate.bindingStepUid",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-02-T01",
+      "negativeTestId": "W2-02-T02",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R02",
+      "workPackageId": "W2-02",
+      "summary": "候选来源精确revision/hash/frame",
+      "fixtureGate": "exactCandidateRef",
+      "failureCode": "REJECT_SOURCE_DRIFT",
+      "sourceIds": [
+        "SRC-W202-S02",
+        "SRC-W202-S04",
+        "SRC-W202-S06"
+      ],
+      "fields": [
+        "candidate.source",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D06"
+      ],
+      "positiveTestId": "W2-02-T03",
+      "negativeTestId": "W2-02-T04",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R03",
+      "workPackageId": "W2-02",
+      "summary": "D07独立几何证据",
+      "fixtureGate": "independentGeometry",
+      "failureCode": "UNKNOWN_GEOMETRY_EVIDENCE",
+      "sourceIds": [
+        "SRC-W202-S05",
+        "SRC-W202-S08"
+      ],
+      "fields": [
+        "candidate.d07Evidence",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "W2-02-T05",
+      "negativeTestId": "W2-02-T06",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R04",
+      "workPackageId": "W2-02",
+      "summary": "冻结范围禁止交叠覆盖",
+      "fixtureGate": "freezeScope",
+      "failureCode": "REJECT_FROZEN_SCOPE",
+      "sourceIds": [
+        "SRC-W202-S01",
+        "SRC-W202-S02",
+        "SRC-W202-S07"
+      ],
+      "fields": [
+        "plan.freezeSet",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-02-T07",
+      "negativeTestId": "W2-02-T08",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R05",
+      "workPackageId": "W2-02",
+      "summary": "A/B分支隔离",
+      "fixtureGate": "branchIsolation",
+      "failureCode": "REJECT_BRANCH_CROSS_WRITE",
+      "sourceIds": [
+        "SRC-W202-S02",
+        "SRC-W202-S06"
+      ],
+      "fields": [
+        "commit.targetBranch",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "positiveTestId": "W2-02-T09",
+      "negativeTestId": "W2-02-T10",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R06",
+      "workPackageId": "W2-02",
+      "summary": "三方语义差异显式冲突",
+      "fixtureGate": "threeWayConflict",
+      "failureCode": "REJECT_SEMANTIC_CONFLICT",
+      "sourceIds": [
+        "SRC-W202-S02",
+        "SRC-W202-S07"
+      ],
+      "fields": [
+        "plan.semanticDiff",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-02-T11",
+      "negativeTestId": "W2-02-T12",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R07",
+      "workPackageId": "W2-02",
+      "summary": "采纳幂等键与来源指纹",
+      "fixtureGate": "idempotentAdoption",
+      "failureCode": "REJECT_IDEMPOTENCY_COLLISION",
+      "sourceIds": [
+        "SRC-W202-S02",
+        "SRC-W202-S04"
+      ],
+      "fields": [
+        "commit.idempotency",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-02-T13",
+      "negativeTestId": "W2-02-T14",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R08",
+      "workPackageId": "W2-02",
+      "summary": "提交瞬时CAS与权限重验",
+      "fixtureGate": "atomicPrecondition",
+      "failureCode": "REJECT_CAS_OR_ACL",
+      "sourceIds": [
+        "SRC-W202-S03",
+        "SRC-W202-S04"
+      ],
+      "fields": [
+        "commit.guard",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-02-T15",
+      "negativeTestId": "W2-02-T16",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R09",
+      "workPackageId": "W2-02",
+      "summary": "取消与晚回执隔离",
+      "fixtureGate": "lateReceipt",
+      "failureCode": "REJECT_CANCELLED_OR_LATE",
+      "sourceIds": [
+        "SRC-W202-S02",
+        "SRC-W202-S03"
+      ],
+      "fields": [
+        "commit.receipt",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D06",
+        "D05"
+      ],
+      "positiveTestId": "W2-02-T17",
+      "negativeTestId": "W2-02-T18",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W202-R10",
+      "workPackageId": "W2-02",
+      "summary": "下游失效和资格隔离",
+      "fixtureGate": "noQualificationLeak",
+      "failureCode": "REJECT_QUALIFICATION_LEAK",
+      "sourceIds": [
+        "SRC-W202-S01",
+        "SRC-W202-S05",
+        "SRC-W202-S08"
+      ],
+      "fields": [
+        "downstream.qualifications",
+        "adoption.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-02-T19",
+      "negativeTestId": "W2-02-T20",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D05_D07_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

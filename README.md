@@ -1,3 +1,6 @@
+## 2026-10-25｜原W2-02候选采纳、局部冻结与显式冲突（规划待L3）
+[原编号实施10子任务](docs/work-packages/W2-02.md) · [单Babylon/左TaskPanel](docs/work-packages/W2-02/UI.md) · [8公开来源](research/sources/W2-02.json) · [10规则20语义正反](research/traces/W2-02.json) · [独立交接](docs/work-packages/W2-02/independent-consumer-handoff.md)。累计详细CAP40/88、原包20/36、来源401登记/51 registry；规划Oracle结构自查PASS，独立Python文件及真实产品/Owner/L3 NOT_RUN/PENDING。旧段落仅为历史进度快照。
+
 ## 2026-10-25｜CAP-06-01无规划自主求解（规划待L3）
 [业务规格](docs/capabilities/CAP-06-01/README.md) · [单Babylon GUI](docs/capabilities/CAP-06-01/UI.md) · [10来源](research/sources/CAP-06-01.json) · [10规则20正反](research/traces/CAP-06-01.json) · [消费者](docs/capabilities/CAP-06-01/independent-consumer-handoff.md)。累计CAP40/88、原包19/36，来源393登记/50 registry（非去重论文）；独立Python/产品/Owner/L3均NOT_RUN/PENDING。以下历史数据以progress为准。
 

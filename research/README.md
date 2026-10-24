@@ -1,3 +1,6 @@
+## 2026-10-25｜R-ADOPT-FREEZE-001候选采纳与冻结研究
+[理论专题](topics/R-ADOPT-FREEZE-001.md) · [8登记来源及阅读边界](sources/W2-02.json) · [10规则/20正反](traces/W2-02.json)。当前登记401条/51 registry；ISO仅公开目录/摘要，Git文本冲突、RFC条件提交、W3C谱系均不可替代工艺几何/正式批准，产品与独立消费者NOT_RUN。
+
 ## 2026-10-25｜R-AUTOSOLVE-001无规划自主求解
 [研究边界](topics/R-AUTOSOLVE-001.md) · [10官方来源](sources/CAP-06-01.json) · [规则→字段→20正反](traces/CAP-06-01.json)。ISO仅读公开目录、NIST只读官方摘要；393登记/50 registry（非去重），产品/05域消费者/07域消费者NOT_RUN。
 
