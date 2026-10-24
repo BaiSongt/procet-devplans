@@ -1,3 +1,7 @@
+## 2026-10-24｜R-NCEXEC-001 D13执行语义研究
+
+[9项官方/研究来源](sources/E3-03.json) · [10规则20正反](traces/E3-03.json) · [原E3-03工作包](../docs/work-packages/E3-03.md)。来源282条/37 registry；NIST、ISO目录不作全文；LinuxCNC手册不外推实际控制器；产品/独立消费者NOT_RUN。
+
 ## 2026-10-24｜R-TEAM-GOV-001 团队治理与真实验收证据
 
 [专题](topics/R-TEAM-GOV-001.md) · [B0-06 9条官方/论文来源](sources/B0-06.json) · [10规则20正反追踪](traces/B0-06.json)。来源登记**273条/36 registry**；ISO仅目录、NIST仅出版摘要，arXiv仅读摘要；旧R-GOV-001属于B0-02，保持不变。产品与独立消费者均NOT_RUN。

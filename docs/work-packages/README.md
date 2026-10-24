@@ -1,3 +1,7 @@
+## 2026-10-24｜E3-03 独立NC执行语义适配（原编号实施规划）
+
+[E3-03业务与实施子任务](E3-03.md) · [NC执行端口](E3-03/contract.example.json) · [17资产候选Owner](E3-03/asset-owner-consumer-matrix.json) · [10规则20正反](../../research/traces/E3-03.json)。工作包13/36、工作包研究追踪11项、产品NC/消费者 NOT_RUN；以下历史进度以tracking/progress.json为准。
+
 ## 2026-10-24｜B0-06 原编号实施规划已编制
 
 [B0-06责任、ADR与本地验收](B0-06.md) · [GUI/CLI/Agent共域接口](B0-06/contracts-and-ui.md) · [ADR模板](B0-06/adr-template.md) · [本地manifest样例](B0-06/local-acceptance-manifest.example.json) · [来源/正反验收](../../research/traces/B0-06.json)。已正式入库原工作包**12/36**；其中10项有研究追踪；人类签署和产品测试NOT_RUN。旧导航数字视为历史快照。

@@ -1,3 +1,7 @@
+## 2026-10-24｜E3-03 NC控制器语义适配（原编号、仅规划）
+
+[原工作包](docs/work-packages/E3-03.md) · [接口](docs/work-packages/E3-03/contract.example.json) · [9来源](research/sources/E3-03.json) · [10规则20正反](research/traces/E3-03.json)。正式详细CAP33/88、工作包13/36、研究登记282条/37 registry；D13未知语义UNKNOWN、真实控制器与独立D14/D15 NOT_RUN。以下为历史快照，实时以tracking/progress.json为准。
+
 ## 2026-10-24｜B0-06 团队责任、ADR与本地验收模板（仅规划）
 
 [原工作包](docs/work-packages/B0-06.md) · [受管接口及GUI](docs/work-packages/B0-06/contracts-and-ui.md) · [17资产Owner候选](docs/work-packages/B0-06/owner-candidates.json) · [9来源](research/sources/B0-06.json) · [10规则20正反](research/traces/B0-06.json)。正式CAP33/88、原编号工作包**12/36**、来源登记**273条/36 registry**、工作包研究追踪10项，L3、人类签署、产品测试与独立消费者NOT_RUN。已有B0-02的R-GOV-001不覆盖，新增R-TEAM-GOV-001。后文旧统计为历史快照，实时以tracking/progress.json为准。
