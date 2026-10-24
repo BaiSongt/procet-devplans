@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 36,
-    "detailPendingCount": 52,
+    "detailDraftedCount": 37,
+    "detailPendingCount": 51,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -416,6 +416,18 @@
         "acceptanceSpecifications": 20,
         "designApproval": "pending_human_review",
         "productAcceptance": "not_run"
+      },
+      {
+        "id": "CAP-05-06",
+        "path": "docs/capabilities/CAP-05-06/README.md",
+        "uiPath": "docs/capabilities/CAP-05-06/UI.md",
+        "contractPath": "docs/capabilities/CAP-05-06/contract.example.json",
+        "tracePath": "research/traces/CAP-05-06.json",
+        "researchTopic": "R-FREEZE-001",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run"
       }
     ]
   },
@@ -612,8 +624,8 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 334,
-    "registeredSourceCountMeaning": "334条登记记录/43 registry（非去重文献）",
+    "registeredSources": 342,
+    "registeredSourceCountMeaning": "342条来源登记记录/44 registry（非去重）",
     "legacyRegistryRecords": 61,
     "additionalRegistries": [
       "research/sources/F1-03.json",
@@ -657,9 +669,10 @@
       "research/sources/E3-05.json",
       "research/sources/CAP-05-04.json",
       "research/sources/E3-06.json",
-      "research/sources/CAP-05-05.json"
+      "research/sources/CAP-05-05.json",
+      "research/sources/CAP-05-06.json"
     ],
-    "capabilityTraceCompiledCount": 36,
+    "capabilityTraceCompiledCount": 37,
     "workPackageTraceCompiledCount": 14,
     "topics": [
       {
@@ -1214,6 +1227,24 @@
           "10"
         ],
         "necessaryEngineeringEvidence": "planning_synthetic_only_product_not_run"
+      },
+      {
+        "id": "R-FREEZE-001",
+        "path": "research/topics/R-FREEZE-001.md",
+        "status": "drafted_pending_review",
+        "primaryCapability": "CAP-05-06",
+        "relatedDomains": [
+          "01",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10"
+        ],
+        "necessaryEngineeringEvidence": "planning_only_product_NOT_RUN"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -1245,25 +1276,25 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-05-06",
-    "name": "局部冻结与冲突管理",
+    "capabilityId": "CAP-05-07",
+    "name": "计划修订与差异",
     "priorityWorkPackage": "E3-01",
     "parallelPlanningBacklog": [
-      "52项CAP、20原编号包未详编",
-      "17业务资产Owner正式会签/端口独立验收",
-      "11域来源闭合与全仓交叉覆盖矩阵",
-      "历史附件原字节审计和最终风险/交接",
-      "产品、NC、独立消费者、机床测试及L3人工评审NOT_RUN"
+      "51 CAP、20原工作包待详编",
+      "17资产Owner正式签署与独立消费者验收",
+      "11域研究与最终覆盖风险导航",
+      "历史原字节附件审计",
+      "L3和产品/控制器/NC/机床测试NOT_RUN"
     ]
   },
   "checks": {
-    "record": "tracking/verification-CAP-05-05-2026-10-24.json",
+    "record": "tracking/verification-CAP-05-06-2026-10-24.json",
     "status": "PLANNING_V8_SYNTHETIC_PASS_NODE_FILE_NOT_RUN",
     "productTests": "not_run",
     "fullRepositoryDocumentCheck": "not_run_this_iteration"
   },
   "lastPlanningItem": {
-    "id": "CAP-05-05",
+    "id": "CAP-05-06",
     "type": "capability",
     "date": "2026-10-24",
     "status": "planning_compiled_not_product_tested"
@@ -1296,6 +1327,7 @@
     "2026-10-24 CAP-05-03 人工编辑与重排：9来源、10规则/20正反验收；所有产品消费者NOT_RUN。",
     "2026-10-24 CAP-05-04模板与复用：8权威来源、10规则、20合成正反、精确资源/特征槽位/模板版本、CAS/冻结/变更失效；Node脚本、真实消费者及产品NOT_RUN。",
     "2026-10-24 E3-06：10官方来源10规则20合成正反/10变异及5路径负例，D12字节+D10配置+D15覆盖及审批/签名/离线受信根独立门禁；真实Node/签名/NC/现场接收NOT_RUN。",
-    "2026-10-24 CAP-05-05求解候选接管：7合法来源、10规则、20正反合成用例/10变异；D06多解→D05受控局部采纳与D08冻结不覆盖，Node/产品/消费者NOT_RUN。"
+    "2026-10-24 CAP-05-05求解候选接管：7合法来源、10规则、20正反合成用例/10变异；D06多解→D05受控局部采纳与D08冻结不覆盖，Node/产品/消费者NOT_RUN。",
+    "2026-10-24 CAP-05-06：8来源、10工程规则与20独立正反合成案例（内存V8 PASS），D05/D08局部冻结、三方语义冲突、ACL/CAS、取消晚回执与局部失效。Node/产品/消费者 NOT_RUN，L3/Owner PENDING。"
   ]
 }

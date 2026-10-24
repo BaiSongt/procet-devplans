@@ -1,3 +1,6 @@
+## 2026-10-24｜R-FREEZE-001 局部冻结与冲突管理
+[专题](topics/R-FREEZE-001.md) · [8合法来源](sources/CAP-05-06.json) · [10规则与20正反](traces/CAP-05-06.json)。累计342条登记/44 registry；ISO仅目录、NIST论文仅摘要；RFC9110/8785/W3C与Git合并语义均明确适用界限，产品/独立消费者NOT_RUN。
+
 ## 2026-10-24｜R-SOLVER-ADOPT-001 多解求解候选与受控采纳
 [专题](topics/R-SOLVER-ADOPT-001.md) · [7合法公开来源](sources/CAP-05-05.json) · [10规则20正反](traces/CAP-05-05.json)。334登记/43 registry；ISO仅公开目录、CP-SAT状态不代表真实几何可行、OCCT Shape有效不代表NC安全。所有产品/独立消费者NOT_RUN，L3待审。
 

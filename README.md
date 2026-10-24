@@ -1,3 +1,6 @@
+## 2026-10-24｜CAP-05-06 局部冻结与冲突管理（规划待L3）
+[规格](docs/capabilities/CAP-05-06/README.md) · [GUI/3D](docs/capabilities/CAP-05-06/UI.md) · [8来源](research/sources/CAP-05-06.json) · [10规则/20正反](research/traces/CAP-05-06.json) · [独立消费者](docs/capabilities/CAP-05-06/independent-consumer-handoff.md)。详细CAP**37/88**、工作包**16/36**，342登记/44 registry；Node独立执行/真实产品/Owner/L3仍NOT_RUN/PENDING。下文数字为历史快照。
+
 ## 2026-10-24｜CAP-05-05 求解候选接管（仅规划，待L3）
 [业务规格](docs/capabilities/CAP-05-05/README.md) · [GUI/3D](docs/capabilities/CAP-05-05/UI.md) · [合成DTO](docs/capabilities/CAP-05-05/contract.example.json) · [7来源](research/sources/CAP-05-05.json) · [10规则20正反](research/traces/CAP-05-05.json) · [独立消费者](docs/capabilities/CAP-05-05/independent-consumer-handoff.md)。远端规划正式累计详细CAP36/88、原工作包16/36、研究334登记/43 registry；D06多解接管仅生成新D05修订，不覆盖D08冻结或伪授予NC验证。产品/Node文件/消费者NOT_RUN。以下旧数据均为历史快照。
 
