@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-06-01无规划自主求解（规划待L3）
+[业务规格](docs/capabilities/CAP-06-01/README.md) · [单Babylon GUI](docs/capabilities/CAP-06-01/UI.md) · [10来源](research/sources/CAP-06-01.json) · [10规则20正反](research/traces/CAP-06-01.json) · [消费者](docs/capabilities/CAP-06-01/independent-consumer-handoff.md)。累计CAP40/88、原包19/36，来源393登记/50 registry（非去重论文）；独立Python/产品/Owner/L3均NOT_RUN/PENDING。以下历史数据以progress为准。
+
 ## 2026-10-25｜W2-01 A/B接管与分阶段流程（原编号、仅规划）
 [实施及10子任务](docs/work-packages/W2-01.md) · [统一左TaskPanel/单Babylon](docs/work-packages/W2-01/UI.md) · [8合法来源](research/sources/W2-01.json) · [10规则20正反](research/traces/W2-01.json) · [独立D06/D05消费者](docs/work-packages/W2-01/independent-consumer-handoff.md)。正式详细CAP39/88、原包19/36、383条来源登记/49 registry。未启用CI，产品/Owner/L3/独立消费者NOT_RUN/PENDING；以下旧快照以tracking/progress.json为准。
 

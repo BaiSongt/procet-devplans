@@ -1,3 +1,6 @@
+## 2026-10-25｜R-AUTOSOLVE-001无规划自主求解
+[研究边界](topics/R-AUTOSOLVE-001.md) · [10官方来源](sources/CAP-06-01.json) · [规则→字段→20正反](traces/CAP-06-01.json)。ISO仅读公开目录、NIST只读官方摘要；393登记/50 registry（非去重），产品/05域消费者/07域消费者NOT_RUN。
+
 ## 2026-10-25｜R-ABHANDOFF-001 A/B分阶段接管
 [研究边界](topics/R-ABHANDOFF-001.md) · [8合法来源](sources/W2-01.json) · [规则/20正反](traces/W2-01.json)。ISO14649官方公开Abstract未读正文、NIST仅摘要，实际产品/Consumer/Owner/L3未测；合计383登记/49 registry（非去重）。
 
