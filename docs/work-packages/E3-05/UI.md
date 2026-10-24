@@ -12,7 +12,7 @@
 8. A/B模式同一事实，主题仅浅/深，最大字号12px；GUI切换不引发制造资产变更。
 
 ## 异常分支
-- NC字节SHA或方言改变→STAlE来源，旧Run保留只读；禁止自动继承D15/D16资格。
+- NC字节SHA或方言改变→STALE来源，旧Run保留只读；禁止自动继承D15/D16资格。
 - 真B-Rep无效/只有mesh→UNKNOWN_GEOMETRY；显示3D不作为认证证据。
 - 控制器专有宏未解释→UNKNOWN_SEMANTIC，并标注行/块/方言；禁止从CL补数据。
 - 仅有限采样无保守误差界→CONTINUOUS_UNKNOWN，不允许展示全轨迹安全。
