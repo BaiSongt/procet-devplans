@@ -1,3 +1,6 @@
+## 2026-10-25｜E3-02 D12后处理配置与NC来源（仅规划）
+[原工作包](docs/work-packages/E3-02.md) · [GUI](docs/work-packages/E3-02/UI.md) · [9来源](research/sources/E3-02.json) · [10规则20正反](research/traces/E3-02.json)。CAP37/88、原包18/36、359来源登记/46 registry。纠正旧索引342与45 registry实和350不一致；产品/D13/Owner/L3未完成。
+
 ## 2026-10-25｜E3-01中立CL与进退刀/弧段策略（待L3）
 [原工作包](docs/work-packages/E3-01.md) · [GUI/3D](docs/work-packages/E3-01/UI.md) · [8来源](research/sources/E3-01.json) · [10规则20正反](research/traces/E3-01.json) · [D12独立交接](docs/work-packages/E3-01/independent-consumer-handoff.md)。CAP 37/88，原包17/36，研究350登记/45 registry（非去重）；Node/Python独立文件测试、产品/Owner/L3均NOT_RUN/PENDING；main未合并。旧内容是历史快照。
 

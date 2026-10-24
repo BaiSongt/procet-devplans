@@ -1,3 +1,6 @@
+## 2026-10-25｜R-D12-POST-001 后处理版本与NC谱系
+[专题](topics/R-D12-POST-001.md) · [9合法来源](sources/E3-02.json) · [10规则20正反](traces/E3-02.json)。359条登记/46 registry，标准仅读目录，产品NOT_RUN。
+
 ## 2026-10-25｜R-CLLINK-001中立CL、圆弧/螺旋与端面连续链接
 [专题](topics/R-CLLINK-001.md) · [来源登记8条](sources/E3-01.json) · [10规则20正反](traces/E3-01.json) · [6几何4链接数学向量](../docs/work-packages/E3-01/geometry-vectors.json)。累计350来源登记/45 registry；ISO仅目录、NIST仅书目、真实NC/OCCT和独立消费者NOT_RUN。以下为历史快照。
 

@@ -1,3 +1,6 @@
+## 2026-10-25｜E3-02后处理与NC行来源
+[10子任务](E3-02.md) · [统一GUI](E3-02/UI.md) · [规则](../../research/traces/E3-02.json) · [独立D13交接](E3-02/independent-consumer-handoff.md)。原工作包18/36，产品NOT_RUN。
+
 ## 2026-10-25｜E3-01中立CL/链接实施级规划（原编号）
 [业务与10子任务](E3-01.md) · [统一TaskPanel/3D](E3-01/UI.md) · [17资产Owner](E3-01/asset-owner-consumer-matrix.json) · [8来源10规则20正反](../../research/traces/E3-01.json) · [D12独立消费](E3-01/independent-consumer-handoff.md)。正式原编号17/36，L3与产品NOT_RUN。以下为历史快照。
 
