@@ -1,3 +1,6 @@
+## 2026-10-24｜R-RELEASE-001 D16发布与离线信任链
+[专题](topics/R-RELEASE-001.md) · [10官方/开源规范来源](sources/E3-06.json) · [10规则20正反](traces/E3-06.json)。ISO公开目录≠付费正文，SLSA/in-toto的借鉴≠NC安全认证，离线验签/实机NOT_RUN。合计327登记/42 registry，以下均旧快照。
+
 ## 2026-10-24｜R-TMPL-001 工艺模板精确绑定与版本复用
 [专题](topics/R-TMPL-001.md) · [8来源](sources/CAP-05-04.json) · [10规则/20正反](traces/CAP-05-04.json)。ISO仅合法官方目录；Autodesk Support仅检索摘要；模板参数/槽位跨项目需要显式重绑定。累计来源317条/41 registry（非去重）；产品/独立消费者NOT_RUN。
 

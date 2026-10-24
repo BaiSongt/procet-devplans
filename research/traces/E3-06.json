@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "E3-06",
+  "researchTopic": "R-RELEASE-001",
+  "status": "PLANNING_COMPILED_PENDING_HUMAN_REVIEW",
+  "baseline": {
+    "head": "35e3a68153eeee8f59086d7086b092510c89049c",
+    "original36": "docs/architecture/v0.8/04_开发工作包_36项.md",
+    "businessAssets": "docs/architecture/v0.8/business-assets.json"
+  },
+  "sourceRegistry": "research/sources/E3-06.json",
+  "implementation": "docs/work-packages/E3-06.md",
+  "ui": "docs/work-packages/E3-06/UI.md",
+  "fixtures": "docs/work-packages/E3-06/fixtures.json",
+  "validator": "tools/check_e306_planning_2026_10_24.mjs",
+  "assetOwner": "10 程序发布与现场协同（候选，待会签）",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "E306-R01",
+      "workPackageId": "E3-06",
+      "summary": "同一发布闭包内D08/D10/D12/D13/D14/D15必须由精确revision/hash/frame关联，不得以同名/最近版本替代",
+      "fixtureGate": "exactClosure",
+      "failureCode": "EXACT_NC_CONFIG_RUN_MISMATCH",
+      "sourceIds": [
+        "SRC-PREL-001",
+        "SRC-PREL-006",
+        "SRC-PREL-007",
+        "SRC-PREL-010"
+      ],
+      "fields": [
+        "release.closure.ncBytesSha256",
+        "release.closure.d10BindingHash",
+        "release.closure.d15RunRevision",
+        "release.closure.frameId"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-06-T01",
+      "negativeTestId": "E3-06-T02",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R02",
+      "workPackageId": "E3-06",
+      "summary": "D15独立消费者逐维复核规定的必选检查、覆盖声明、未知与有效期，UNKNOWN不得自动变PASS",
+      "fixtureGate": "requiredVerification",
+      "failureCode": "REQUIRED_D15_COVERAGE_NOT_ELIGIBLE",
+      "sourceIds": [
+        "SRC-PREL-005",
+        "SRC-PREL-009"
+      ],
+      "fields": [
+        "release.eligibility.requiredDimensions",
+        "release.eligibility.unknownReasons",
+        "release.eligibility.policyHash"
+      ],
+      "assets": [
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-06-T03",
+      "negativeTestId": "E3-06-T04",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R03",
+      "workPackageId": "E3-06",
+      "summary": "最终NC与控制器语义范围必须完全一致；手工改NC需新D12并失效旧D15/D16资格",
+      "fixtureGate": "controllerBoundary",
+      "failureCode": "D13_UNKNOWN_OR_D12_CHANGED",
+      "sourceIds": [
+        "SRC-PREL-001",
+        "SRC-PREL-002"
+      ],
+      "fields": [
+        "release.closure.d12Revision",
+        "release.closure.controllerDialectHash",
+        "release.closure.unknownInstructionCount"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-06-T05",
+      "negativeTestId": "E3-06-T06",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R04",
+      "workPackageId": "E3-06",
+      "summary": "D16资格候选、QA独立复核及人类发布批准分角色并留审计，不能由单一工具自批准",
+      "fixtureGate": "approvalSeparation",
+      "failureCode": "HUMAN_APPROVAL_OR_ROLE_CONFLICT",
+      "sourceIds": [
+        "SRC-PREL-005",
+        "SRC-PREL-007"
+      ],
+      "fields": [
+        "approval.reviewerPrincipal",
+        "approval.authorizerPrincipal",
+        "approval.decisionRevision",
+        "approval.signedPolicyHash"
+      ],
+      "assets": [
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveTestId": "E3-06-T07",
+      "negativeTestId": "E3-06-T08",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R05",
+      "workPackageId": "E3-06",
+      "summary": "离线清单仅安全相对路径；清点每个载荷的原始字节摘要，禁止路径逃逸/缺件/自述hash代验",
+      "fixtureGate": "manifestByteIntegrity",
+      "failureCode": "MANIFEST_PATH_OR_BYTES_INVALID",
+      "sourceIds": [
+        "SRC-PREL-003",
+        "SRC-PREL-006",
+        "SRC-PREL-008"
+      ],
+      "fields": [
+        "package.files[].path",
+        "package.files[].sha256",
+        "package.manifestCanonicalDigest",
+        "package.payloadCount"
+      ],
+      "assets": [
+        "D12",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-06-T09",
+      "negativeTestId": "E3-06-T10",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R06",
+      "workPackageId": "E3-06",
+      "summary": "脱网接收采用预装的信任根独立验签；包内附带的未知公钥不得被视为可信根",
+      "fixtureGate": "signatureTrust",
+      "failureCode": "SIGNATURE_OR_PINNED_TRUST_INVALID",
+      "sourceIds": [
+        "SRC-PREL-004",
+        "SRC-PREL-008",
+        "SRC-PREL-009"
+      ],
+      "fields": [
+        "signature.algorithm",
+        "signature.keyId",
+        "receiver.pinnedTrustRootDigest",
+        "receiver.verifiedSignerIdentity"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positiveTestId": "E3-06-T11",
+      "negativeTestId": "E3-06-T12",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R07",
+      "workPackageId": "E3-06",
+      "summary": "离线接收策略及撤销新鲜度门禁须显式；不能联网取得必要撤销状态时UNKNOWN并阻止入用",
+      "fixtureGate": "receiverOfflinePolicy",
+      "failureCode": "OFFLINE_TRUST_FRESHNESS_UNKNOWN",
+      "sourceIds": [
+        "SRC-PREL-004",
+        "SRC-PREL-005",
+        "SRC-PREL-009"
+      ],
+      "fields": [
+        "receiver.policyVersion",
+        "receiver.revocationSnapshotAge",
+        "receiver.offlineTrustDecision"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positiveTestId": "E3-06-T13",
+      "negativeTestId": "E3-06-T14",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R08",
+      "workPackageId": "E3-06",
+      "summary": "D17接收只回写带工件digest和幂等键的独立回执；接收不等于已经上机或加工完成",
+      "fixtureGate": "idempotentReceipt",
+      "failureCode": "RECEIPT_IDEMPOTENCY_OR_SUBJECT_MISMATCH",
+      "sourceIds": [
+        "SRC-PREL-007",
+        "SRC-PREL-008",
+        "SRC-PREL-010"
+      ],
+      "fields": [
+        "receipt.packageDigest",
+        "receipt.idempotencyKey",
+        "receipt.receiverIdentity",
+        "receipt.status"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positiveTestId": "E3-06-T15",
+      "negativeTestId": "E3-06-T16",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R09",
+      "workPackageId": "E3-06",
+      "summary": "D16撤回/退役仅追加状态，不物理改写旧包或D08冻结；D17反馈经工程变更才能影响规划",
+      "fixtureGate": "appendOnlyRecall",
+      "failureCode": "REVOCATION_OR_FREEZE_AUDIT_BROKEN",
+      "sourceIds": [
+        "SRC-PREL-005",
+        "SRC-PREL-007",
+        "SRC-PREL-010"
+      ],
+      "fields": [
+        "release.lifecycle.supersedes",
+        "release.lifecycle.revocationReason",
+        "release.audit.previousEventHash",
+        "release.d08FreezeRevision"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "positiveTestId": "E3-06-T17",
+      "negativeTestId": "E3-06-T18",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E306-R10",
+      "workPackageId": "E3-06",
+      "summary": "GUI/CLI/Agent同域Port，提交权限与CAS重验，取消晚回执不得成为新批准或覆盖已发布记录",
+      "fixtureGate": "guardedPortAndCancel",
+      "failureCode": "CAS_AUTH_OR_LATE_RESULT",
+      "sourceIds": [
+        "SRC-PREL-005",
+        "SRC-PREL-006",
+        "SRC-PREL-009"
+      ],
+      "fields": [
+        "request.workContext",
+        "request.expectedRevision",
+        "request.cancelToken",
+        "request.principalAndRoles"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positiveTestId": "E3-06-T19",
+      "negativeTestId": "E3-06-T20",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D17_OFFLINE_VERIFIER_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

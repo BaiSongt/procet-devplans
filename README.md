@@ -1,3 +1,6 @@
+## 2026-10-24｜E3-06 受控发布与离线交付（规划待L3评审）
+[实施原工作包](docs/work-packages/E3-06.md) · [GUI/3D](docs/work-packages/E3-06/UI.md) · [离线清单](docs/work-packages/E3-06/offline-manifest.example.json) · [10来源](research/sources/E3-06.json) · [10规则/20正反](research/traces/E3-06.json)。正式详细CAP35/88、原工作包16/36，研究登记327条/42 registry；所有真实NC/签名/独立D17 NOT_RUN。旧段数字仅历史快照。
+
 ## 2026-10-24｜CAP-05-04 工艺模板与复用（规划待L3评审）
 [业务规格](docs/capabilities/CAP-05-04/README.md) · [GUI/3D](docs/capabilities/CAP-05-04/UI.md) · [合成模板契约](docs/capabilities/CAP-05-04/contract.example.json) · [8来源](research/sources/CAP-05-04.json) · [10规则/20正反](research/traces/CAP-05-04.json)。正式详细CAP35/88、原编号工作包15/36，研究登记317条/41registry；Node文件/真实产品和独立消费者NOT_RUN。以下旧统计均为历史快照。
 

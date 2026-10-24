@@ -1,3 +1,6 @@
+## 2026-10-24｜E3-06 D16受控发布与离线交付（原编号）
+[实施包](E3-06.md) · [GUI/3D](E3-06/UI.md) · [领域契约](E3-06/contract.example.json) · [离线包合成清单](E3-06/offline-manifest.example.json) · [D17独立交接](E3-06/independent-consumer-handoff.md) · [10规则/20正反](../../research/traces/E3-06.json)。正式原编号工作包16/36；真实签名、审批与独立接收NOT_RUN。
+
 ## 2026-10-24｜E3-05 独立NC程序级验证（原编号）
 [E3-05主规格](E3-05.md) · [GUI/3D](E3-05/UI.md) · [覆盖矩阵](E3-05/verification-matrix.json) · [独立交接](E3-05/independent-consumer-handoff.md) · [研究追踪](../../research/traces/E3-05.json)。工作包15/36，产品/独立D16 NOT_RUN。
 
