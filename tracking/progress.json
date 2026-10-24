@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 37,
-    "detailPendingCount": 51,
+    "detailDraftedCount": 38,
+    "detailPendingCount": 50,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -428,6 +428,18 @@
         "acceptanceSpecifications": 20,
         "designApproval": "pending_human_review",
         "productAcceptance": "not_run"
+      },
+      {
+        "id": "CAP-05-07",
+        "path": "docs/capabilities/CAP-05-07/README.md",
+        "uiPath": "docs/capabilities/CAP-05-07/UI.md",
+        "contractPath": "docs/capabilities/CAP-05-07/contract.example.json",
+        "tracePath": "research/traces/CAP-05-07.json",
+        "researchTopic": "R-PLANDIFF-001",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run"
       }
     ]
   },
@@ -655,8 +667,8 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 359,
-    "registeredSourceCountMeaning": "359条登记/46 registry（非去重论文数）",
+    "registeredSources": 367,
+    "registeredSourceCountMeaning": "367条登记/47 registry（非去重论文数）",
     "legacyRegistryRecords": 61,
     "additionalRegistries": [
       "research/sources/F1-03.json",
@@ -703,9 +715,10 @@
       "research/sources/CAP-05-05.json",
       "research/sources/CAP-05-06.json",
       "research/sources/E3-01.json",
-      "research/sources/E3-02.json"
+      "research/sources/E3-02.json",
+      "research/sources/CAP-05-07.json"
     ],
-    "capabilityTraceCompiledCount": 37,
+    "capabilityTraceCompiledCount": 38,
     "workPackageTraceCompiledCount": 16,
     "topics": [
       {
@@ -1307,6 +1320,24 @@
           "10"
         ],
         "necessaryEngineeringEvidence": "planning_synthetic_only_product_NOT_RUN"
+      },
+      {
+        "id": "R-PLANDIFF-001",
+        "path": "research/topics/R-PLANDIFF-001.md",
+        "status": "drafted_pending_review",
+        "primaryCapability": "CAP-05-07",
+        "relatedDomains": [
+          "01",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10"
+        ],
+        "necessaryEngineeringEvidence": "eight_sources_ten_rules_twenty_synthetic_cases_product_NOT_RUN"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -1338,24 +1369,24 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-05-07",
-    "name": "计划修订与差异",
+    "capabilityId": "CAP-05-08",
+    "name": "规划校核与交接",
     "priorityWorkPackage": "W2-01",
     "parallelPlanningBacklog": [
-      "剩余51 CAP、18工作包",
+      "剩余50 CAP、18原工作包",
       "17资产Owner、11域研究与历史附件审计",
       "最终交叉覆盖/风险/交接；真实产品NOT_RUN"
     ]
   },
   "checks": {
-    "record": "tracking/verification-E3-02-2026-10-25.json",
-    "status": "IN_MEMORY_PASS_PYTHON_NOT_RUN",
+    "record": "tracking/verification-CAP-05-07-2026-10-25.json",
+    "status": "V8_EQUIVALENT_PASS_NODE_FILE_EXECUTION_NOT_RUN",
     "productTests": "NOT_RUN",
     "fullRepositoryDocumentCheck": "NOT_RUN"
   },
   "lastPlanningItem": {
-    "id": "E3-02",
-    "type": "work_package",
+    "id": "CAP-05-07",
+    "type": "capability",
     "date": "2026-10-25",
     "status": "planning_compiled_not_product_tested"
   },
@@ -1366,30 +1397,5 @@
     "remainingFilesStatus": "tracking/pending-source-gaps-2026-10-19.json"
   },
   "stopConditionMet": false,
-  "notes": [
-    "计数由实际文档决定，不新造完成项",
-    "研究追踪不等于标准全文取得或具体设备认证",
-    "工作包编制不表示依赖已实现",
-    "最终结束条件见tracking/planning-automation.json",
-    "本轮8个来源定点重读，旧61条历史访问记录不刷新",
-    "分支、main和PR状态需实时读取，生成树对象不构成交付",
-    "2026-10-19：CAP-01-07原有详细规格研究补证入库，详细CAP数量不变，CAP追踪+1，来源记录+7；L3待审，产品NOT_RUN。",
-    "2026-10-19 CAP-04-03夹具与工件约束正式规格补入候选：7来源、10规则、20正反场景；物理装夹安全及产品/实机均NOT_RUN。",
-    "2026-10-19 CAP-02-02刀具切削参数研究补证：7来源、10规则、20正反验收；几何/总成/TCP、实际推荐/采纳、CL/NC执行分离。产品NOT_RUN。",
-    "2026-10-19 B0-05原编号工作包完整细化：10实施子任务、7来源、10规则、20正反规格；Solver#125只读元数据现已merged，旧Draft记录保持历史；产品与独立消费者NOT_RUN。",
-    "2026-10-19新增CAP-04-05多Setup与转序：8官方/研究来源、10规则、20正反验收、3D及多入口契约；CAP-04-04先期规划仍待正式入库；独立消费者和产品NOT_RUN。",
-    "2026-10-19 CAP-01-06统一任务与事件中心：8来源、10规则、20正反验收，保留原AT01..08，L3待人评审，产品NOT_RUN。",
-    "2026-10-20 CAP-02-01研究补证：7合法公开来源/10规则/20独立正反验收；详细CAP仍29，L3与产品NOT_RUN。",
-    "2026-10-20 CAP-04-08装夹影响检查：7公开来源、10规则与20正反验收，影响图有受影响/无关分支；静态预筛与D15工程验证独立，产品NOT_RUN。",
-    "2026-10-24 CAP-05-01工艺路线/工序树：8来源10规则20正反合成验收；CAS/冻结/DAG/多Setup/D05与D10分离；实际Node/产品/独立消费者 NOT_RUN。",
-    "CAP-05-02 已编制9来源10规则20正反验收及4附加异常的内存等价校验；Node/真实产品及独立消费者NOT_RUN、L3待审。",
-    "2026-10-24 E3-03原编号实施规划：10子任务、9官方/技术来源、10规则20正反合成规格；D13不授D15/D16工程合格，所有产品/独立消费/人类评审NOT_RUN。",
-    "2026-10-24 CAP-05-03 人工编辑与重排：9来源、10规则/20正反验收；所有产品消费者NOT_RUN。",
-    "2026-10-24 CAP-05-04模板与复用：8权威来源、10规则、20合成正反、精确资源/特征槽位/模板版本、CAS/冻结/变更失效；Node脚本、真实消费者及产品NOT_RUN。",
-    "2026-10-24 E3-06：10官方来源10规则20合成正反/10变异及5路径负例，D12字节+D10配置+D15覆盖及审批/签名/离线受信根独立门禁；真实Node/签名/NC/现场接收NOT_RUN。",
-    "2026-10-24 CAP-05-05求解候选接管：7合法来源、10规则、20正反合成用例/10变异；D06多解→D05受控局部采纳与D08冻结不覆盖，Node/产品/消费者NOT_RUN。",
-    "2026-10-24 CAP-05-06：8来源、10工程规则与20独立正反合成案例（内存V8 PASS），D05/D08局部冻结、三方语义冲突、ACL/CAS、取消晚回执与局部失效。Node/产品/消费者 NOT_RUN，L3/Owner PENDING。",
-    "2026-10-25 E3-01：8权威登记来源10规则20正反、6弧/螺旋与4连接合成向量、17资产候选Owner；D09中立CL与D10/D12/NC验证严格分离，独立Python及真实产品NOT_RUN。",
-    "2026-10-25 E3-02：9来源10规则20正反、17候选Owner；纠正上次索引顶层342但45registry实际350的差异，新计359；产品/独立D13 NOT_RUN。"
-  ]
+  "notes": "CAP-05-07本轮原创详细规范、8来源10规则20正反与独立消费者交接；规划V8等价校验PASS，新增Node文件未本地执行；产品/Owner/L3 NOT_RUN/PENDING。历史缺口不伪装恢复。"
 }

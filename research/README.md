@@ -1,3 +1,6 @@
+## 2026-10-25｜R-PLANDIFF-001 计划修订与三方语义差异
+[专题](topics/R-PLANDIFF-001.md) · [8来源](sources/CAP-05-07.json) · [10规则20合成正反](traces/CAP-05-07.json)。当前来源登记367条/47 registry；NIST仅读官方Abstract、ISO目录未读付费正文；真实产品/独立消费者NOT_RUN，L3待审。
+
 ## 2026-10-25｜R-D12-POST-001 后处理版本与NC谱系
 [专题](topics/R-D12-POST-001.md) · [9合法来源](sources/E3-02.json) · [10规则20正反](traces/E3-02.json)。359条登记/46 registry，标准仅读目录，产品NOT_RUN。
 

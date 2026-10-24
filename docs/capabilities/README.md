@@ -1,3 +1,5 @@
+## 2026-10-25｜[CAP-05-07 计划修订与差异](CAP-05-07/README.md) · [GUI/3D](CAP-05-07/UI.md) · [20合成正反](CAP-05-07/fixtures.json)
+
 ## 2026-10-24｜[CAP-05-04 工艺模板与复用](CAP-05-04/README.md) · [GUI/3D](CAP-05-04/UI.md) · [合成验收](CAP-05-04/fixtures.json)
 
 ## 2026-10-24｜[CAP-05-03人工编辑与重排](CAP-05-03/README.md) · [GUI](CAP-05-03/UI.md)

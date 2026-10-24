@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-05-07 D05计划修订与语义差异（仅规划）
+[业务](docs/capabilities/CAP-05-07/README.md) · [单世界GUI](docs/capabilities/CAP-05-07/UI.md) · [8来源](research/sources/CAP-05-07.json) · [10规则20正反](research/traces/CAP-05-07.json) · [独立消费者](docs/capabilities/CAP-05-07/independent-consumer-handoff.md)。详细CAP38/88、原包18/36，研究登记367条/47 registry。Node文件执行/产品/Owner/L3均NOT_RUN/PENDING；历史段落数字为快照，以tracking/progress.json为准。
+
 ## 2026-10-25｜E3-02 D12后处理配置与NC来源（仅规划）
 [原工作包](docs/work-packages/E3-02.md) · [GUI](docs/work-packages/E3-02/UI.md) · [9来源](research/sources/E3-02.json) · [10规则20正反](research/traces/E3-02.json)。CAP37/88、原包18/36、359来源登记/46 registry。纠正旧索引342与45 registry实和350不一致；产品/D13/Owner/L3未完成。
 

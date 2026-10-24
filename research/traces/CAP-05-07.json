@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "procet-rule-trace-v1",
+  "capabilityId": "CAP-05-07",
+  "topic": "R-PLANDIFF-001",
+  "status": "compiled_pending_L3",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "REV507-S01",
+    "REV507-S02",
+    "REV507-S03",
+    "REV507-S04",
+    "REV507-S05",
+    "REV507-S06",
+    "REV507-S07",
+    "REV507-S08"
+  ],
+  "assetOwner": "05域D05计划修订唯一写侧；01域工程版本、04域D04 Setup、06域D06/D07、08域NC各自保有业务Owner，17资产会签PENDING",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "rules": [
+    {
+      "id": "REV507-R01",
+      "capabilityId": "CAP-05-07",
+      "description": "输入D01/D02/D04/D05/D08必须固定id、revision、64位hash、frame、schemaVersion、scope；不按latest解析。",
+      "sourceIds": [
+        "REV507-S01",
+        "REV507-S04"
+      ],
+      "fields": [
+        "scope",
+        "refs[]"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT01-P",
+        "REV507-AT01-N"
+      ],
+      "failureCode": "EXACT_REF_MISSING",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R02",
+      "capabilityId": "CAP-05-07",
+      "description": "必须按stable ID和DAG依赖三方比较base/current/proposed；重叠与依赖交叉阻断自动合并。",
+      "sourceIds": [
+        "REV507-S03",
+        "REV507-S05"
+      ],
+      "fields": [
+        "baseNodes[]",
+        "currentChanges[]",
+        "proposedChanges[]",
+        "crossEdges"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT02-P",
+        "REV507-AT02-N"
+      ],
+      "failureCode": "OVERLAP_OR_CROSS",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R03",
+      "capabilityId": "CAP-05-07",
+      "description": "D08冻结快照不可更写，受影响冻结节点必须显式解冻审批并派生新D05 revision。",
+      "sourceIds": [
+        "REV507-S03",
+        "REV507-S02"
+      ],
+      "fields": [
+        "frozen[]",
+        "changed[]",
+        "overwritesD08"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT03-P",
+        "REV507-AT03-N"
+      ],
+      "failureCode": "FROZEN_WRITE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R04",
+      "capabilityId": "CAP-05-07",
+      "description": "A/B共享同一精确事实但各自写头与冻结隔离，不可互相覆盖。",
+      "sourceIds": [
+        "REV507-S03",
+        "REV507-S04"
+      ],
+      "fields": [
+        "branchA",
+        "branchB",
+        "sharedFactHash",
+        "overwriteA",
+        "overwriteB"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT04-P",
+        "REV507-AT04-N"
+      ],
+      "failureCode": "BRANCH_OVERWRITE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R05",
+      "capabilityId": "CAP-05-07",
+      "description": "D04 Setup精确Frame证明与D10执行偏置分离，修订时必须分别指向。",
+      "sourceIds": [
+        "REV507-S01",
+        "REV507-S07"
+      ],
+      "fields": [
+        "setupRef",
+        "frame",
+        "proofHash",
+        "executionRef",
+        "treatD10AsSetup"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT05-P",
+        "REV507-AT05-N"
+      ],
+      "failureCode": "FRAME_BINDING_UNKNOWN",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R06",
+      "capabilityId": "CAP-05-07",
+      "description": "预览租约不授权提交，commit当刻重验ACL/CAS、scopeEpoch、generation、取消晚回执。",
+      "sourceIds": [
+        "REV507-S02",
+        "REV507-S04"
+      ],
+      "fields": [
+        "authorized",
+        "rechecked",
+        "expected",
+        "current",
+        "taskGeneration",
+        "replyGeneration",
+        "cancelled"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT06-P",
+        "REV507-AT06-N"
+      ],
+      "failureCode": "STALE_CAS_OR_TASK",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R07",
+      "capabilityId": "CAP-05-07",
+      "description": "差异需稳定分类与确定顺序；重命名相似性只能展示候选，不自动确认制造对象身份。",
+      "sourceIds": [
+        "REV507-S05",
+        "REV507-S03"
+      ],
+      "fields": [
+        "diffTypes[]",
+        "stableIdsKnown",
+        "renameAutoAccept",
+        "ordered"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT07-P",
+        "REV507-AT07-N"
+      ],
+      "failureCode": "UNVERIFIED_ID_RENAME",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R08",
+      "capabilityId": "CAP-05-07",
+      "description": "仅受影响D05子图传播D09→D12→D13→D14→D15→D16失效；D13 UNKNOWN不应让D15/D16 PASS。",
+      "sourceIds": [
+        "REV507-S06",
+        "REV507-S08",
+        "REV507-S07"
+      ],
+      "fields": [
+        "affected[]",
+        "stale[]",
+        "unaffectedKept",
+        "d13",
+        "d15",
+        "clAsNcVerified"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT08-P",
+        "REV507-AT08-N"
+      ],
+      "failureCode": "INVALIDATION_INCOMPLETE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R09",
+      "capabilityId": "CAP-05-07",
+      "description": "回退必须生成新修订或补偿事件、审计只追加；不得删用户数据或覆盖历史。",
+      "sourceIds": [
+        "REV507-S03",
+        "REV507-S02"
+      ],
+      "fields": [
+        "rollbackMode",
+        "auditAppendOnly",
+        "historyKept",
+        "deleteUserData"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT09-P",
+        "REV507-AT09-N"
+      ],
+      "failureCode": "HISTORY_MUTATED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "REV507-R10",
+      "capabilityId": "CAP-05-07",
+      "description": "GUI/CLI/Agent走同一领域Port；单Babylon世界与统一左TaskPanel，3D选择/预览无写副作用。",
+      "sourceIds": [
+        "REV507-S02",
+        "REV507-S04"
+      ],
+      "fields": [
+        "entries[]",
+        "singleDomainPort",
+        "worldCount",
+        "taskPanel",
+        "previewWrites",
+        "productStatus"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "REV507-AT10-P",
+        "REV507-AT10-N"
+      ],
+      "failureCode": "BYPASS_DOMAIN_PORT",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}
