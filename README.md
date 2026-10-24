@@ -1,3 +1,6 @@
+## 2026-10-25｜W2-01 A/B接管与分阶段流程（原编号、仅规划）
+[实施及10子任务](docs/work-packages/W2-01.md) · [统一左TaskPanel/单Babylon](docs/work-packages/W2-01/UI.md) · [8合法来源](research/sources/W2-01.json) · [10规则20正反](research/traces/W2-01.json) · [独立D06/D05消费者](docs/work-packages/W2-01/independent-consumer-handoff.md)。正式详细CAP39/88、原包19/36、383条来源登记/49 registry。未启用CI，产品/Owner/L3/独立消费者NOT_RUN/PENDING；以下旧快照以tracking/progress.json为准。
+
 ## 2026-10-25｜CAP-05-08 D05规划校核与交接（仅规划）
 [业务](docs/capabilities/CAP-05-08/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-05-08/UI.md) · [8合法来源](research/sources/CAP-05-08.json) · [10规则20正反](research/traces/CAP-05-08.json) · [D06首消费者、D09需D07/D08](docs/capabilities/CAP-05-08/independent-consumer-handoff.md)。正式详编39/88 CAP、原包18/36、研究375登记/48 registry。合成10正10反V8 PASS；Node文件执行、产品/Owner会签/L3全NOT_RUN/PENDING，规划PASS≠产品PASS；以下历史进度快照以tracking/progress.json为准。
 

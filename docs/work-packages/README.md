@@ -1,3 +1,6 @@
+## 2026-10-25｜W2-01实现A/B接管（原编号）
+[实施级任务](W2-01.md) · [领域GUI](W2-01/UI.md) · [17资产候选](W2-01/asset-owner-consumer-matrix.json) · [10规则/20正反](../../research/traces/W2-01.json) · [独立验收协议](W2-01/independent-consumer-handoff.md)。当前19/36、L3/产品NOT_RUN。
+
 ## 2026-10-25｜E3-02后处理与NC行来源
 [10子任务](E3-02.md) · [统一GUI](E3-02/UI.md) · [规则](../../research/traces/E3-02.json) · [独立D13交接](E3-02/independent-consumer-handoff.md)。原工作包18/36，产品NOT_RUN。
 

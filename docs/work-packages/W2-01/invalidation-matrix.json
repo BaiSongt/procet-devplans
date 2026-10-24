@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "procet-w2-01-invalidation-v1",
+  "cases": [
+    {
+      "change": "A/B UI mode,theme,TaskPanel selection",
+      "invalidate": [],
+      "keep": [
+        "D01-D17 all revisions"
+      ]
+    },
+    {
+      "change": "D04 nominal setup Frame",
+      "invalidate": [
+        "dependent D06",
+        "dependent D07",
+        "dependent D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "keep": [
+        "unrelated Setup branches",
+        "D08 history"
+      ]
+    },
+    {
+      "change": "D05 accepted new draft",
+      "invalidate": [
+        "only dependent D06/D07 consumers",
+        "derived D09-D16 when their exact inputs changed"
+      ],
+      "keep": [
+        "previous D08 freeze",
+        "unrelated D05 branch"
+      ]
+    },
+    {
+      "change": "D10 execution binding",
+      "invalidate": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "keep": [
+        "D04 nominal Setup",
+        "D09 neutral CL",
+        "D08 historical freeze"
+      ]
+    },
+    {
+      "change": "cancel or late solver completion",
+      "invalidate": [
+        "unadopted candidate preview"
+      ],
+      "keep": [
+        "current D05/D08 head",
+        "historic JobJournal"
+      ]
+    }
+  ],
+  "rollback": "append-only handoff reversal/new plan revision, old consumer read-only; never delete user data; old readers require explicit missing-hash UNKNOWN"
+}
