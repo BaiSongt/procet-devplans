@@ -1,3 +1,6 @@
+## 2026-10-25｜R-LOCAL-BREP-001 局部B-Rep去料、修补与证据
+[专题](topics/R-LOCAL-BREP-001.md) · [OCCT/ISO等10项来源](sources/CAP-06-03.json) · [10规则/20正反](traces/CAP-06-03.json)。已读OCCT 8.0.1 API/布尔文档，ISO仅目录、NIST 2026-09最终版仅摘要，不能冒充真实内核/产品验证。累计438条登记/55 registry。
+
 ## 2026-10-25｜R-ACK-RECOVERY-001并发提交、回执与恢复
 [理论专题](topics/R-ACK-RECOVERY-001.md) · [8份合法来源与阅读深度](sources/W2-04.json) · [10规则20正反](traces/W2-04.json)。SQLite只承诺相应单库事务，不具跨库天然分布式ACID；Abort不能回滚既成事实。NIST2026-09最终版只读官方摘要。累计428登记/54 registry，产品/消费者NOT_RUN。
 

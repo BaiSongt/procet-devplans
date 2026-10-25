@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-03",
+  "researchTopic": "R-LOCAL-BREP-001",
+  "sourceRegistry": "research/sources/CAP-06-03.json",
+  "specification": "docs/capabilities/CAP-06-03/README.md",
+  "ui": "docs/capabilities/CAP-06-03/UI.md",
+  "fixtures": "docs/capabilities/CAP-06-03/fixtures.json",
+  "validator": "tools/check_cap0603_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0603-R01",
+      "capabilityId": "CAP-06-03",
+      "summary": "精确输入几何及Setup坐标身份",
+      "fields": [
+        "sourceRefs[].hash",
+        "sourceRefs[].frame",
+        "sourceRefs[].revision",
+        "sourceRefs[].unit",
+        "sourceRefs[].scope"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S08",
+        "SRC-C0603-S09"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T01",
+      "negativeTestId": "CAP-06-03-T02",
+      "negativeReason": "REJECT_SOURCE_CLOSURE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R02",
+      "capabilityId": "CAP-06-03",
+      "summary": "重叠去料体必须集合分解后再合并",
+      "fields": [
+        "cellsA",
+        "cellsB",
+        "disjointParts",
+        "resultUnion"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S01",
+        "SRC-C0603-S02"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T03",
+      "negativeTestId": "CAP-06-03-T04",
+      "negativeReason": "REJECT_OVERLAP_IDENTITY",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R03",
+      "capabilityId": "CAP-06-03",
+      "summary": "CUT/COMMON/FUSE错误告警与无破坏参数必须可审计",
+      "fields": [
+        "booleanReport.hasErrors",
+        "booleanReport.warningsReviewed",
+        "booleanReport.nonDestructive"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S01",
+        "SRC-C0603-S02",
+        "SRC-C0603-S05"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T05",
+      "negativeTestId": "CAP-06-03-T06",
+      "negativeReason": "REJECT_BOOLEAN_REPORT",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R04",
+      "capabilityId": "CAP-06-03",
+      "summary": "布尔输入输出拓扑双向检查并留下独立复核资格",
+      "fields": [
+        "preCheck",
+        "postCheck",
+        "independentD07"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S03",
+        "SRC-C0603-S02"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T07",
+      "negativeTestId": "CAP-06-03-T08",
+      "negativeReason": "REJECT_BREP_CHECK",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R05",
+      "capabilityId": "CAP-06-03",
+      "summary": "Fuzzy与几何容差预算必须受控",
+      "fields": [
+        "tolerance.fuzzy",
+        "tolerance.approvedMax",
+        "tolerance.unit"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S05",
+        "SRC-C0603-S03"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T09",
+      "negativeTestId": "CAP-06-03-T10",
+      "negativeReason": "REJECT_TOLERANCE_BUDGET",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R06",
+      "capabilityId": "CAP-06-03",
+      "summary": "多环岛屿拓扑与复合腔体保留",
+      "fields": [
+        "topology.closedLoops",
+        "topology.islandIdsBefore",
+        "topology.islandIdsAfter"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S01",
+        "SRC-C0603-S03"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T11",
+      "negativeTestId": "CAP-06-03-T12",
+      "negativeReason": "REJECT_ISLAND_LOSS",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R07",
+      "capabilityId": "CAP-06-03",
+      "summary": "保护区与目标余量不能被去料侵入",
+      "fields": [
+        "guard.protectedIntersection",
+        "guard.allowanceCertified"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S01",
+        "SRC-C0603-S03",
+        "SRC-C0603-S06"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T13",
+      "negativeTestId": "CAP-06-03-T14",
+      "negativeReason": "REJECT_PROTECTED_ZONE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R08",
+      "capabilityId": "CAP-06-03",
+      "summary": "多Solid独立身份及材料状态不合并",
+      "fields": [
+        "multisolid.before",
+        "multisolid.after",
+        "multisolid.implicitFuse"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S01",
+        "SRC-C0603-S02",
+        "SRC-C0603-S06"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-03-T15",
+      "negativeTestId": "CAP-06-03-T16",
+      "negativeReason": "REJECT_MULTISOLID",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R09",
+      "capabilityId": "CAP-06-03",
+      "summary": "ShapeFix只生成新修订并经再校验",
+      "fields": [
+        "repair.oldHash",
+        "repair.newHash",
+        "repair.historyLogged",
+        "repair.frozenUntouched"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S04",
+        "SRC-C0603-S03",
+        "SRC-C0603-S08"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-03-T17",
+      "negativeTestId": "CAP-06-03-T18",
+      "negativeReason": "REJECT_SILENT_REPAIR",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0603-R10",
+      "capabilityId": "CAP-06-03",
+      "summary": "受管提交与D09资格精确分离",
+      "fields": [
+        "commit.expectedHead",
+        "commit.currentHead",
+        "commit.scopeEpoch",
+        "commit.generation",
+        "downstream.d07Independent",
+        "downstream.d08Frozen"
+      ],
+      "sourceIds": [
+        "SRC-C0603-S07",
+        "SRC-C0603-S08",
+        "SRC-C0603-S09",
+        "SRC-C0603-S10"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-03-T19",
+      "negativeTestId": "CAP-06-03-T20",
+      "negativeReason": "REJECT_STALE_OR_UNCERTIFIED",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

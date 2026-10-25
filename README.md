@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-06-03 局部B-Rep去料计算（L3待审）
+[业务规格](docs/capabilities/CAP-06-03/README.md) · [GUI/3D](docs/capabilities/CAP-06-03/UI.md) · [10项公开来源](research/sources/CAP-06-03.json) · [10规则20正反](research/traces/CAP-06-03.json) · [合成校验](tools/check_cap0603_planning_2026_10_25.cjs) · [独立交接](docs/capabilities/CAP-06-03/independent-consumer-handoff.md)。累计详细CAP42/88、原工作包22/36、来源438条登记/55 registry（非去重）；合成内存30/30 PASS，独立Node/真实OCCT/D07/NC/机床NOT_RUN，Owner/L3待人工审查。旧进度段落仅为历史快照。
+
 ## 2026-10-25｜原W2-04跨域回执与中断恢复（正式规划，L3待审）
 [实施级10子任务](docs/work-packages/W2-04.md) · [GUI/单Babylon](docs/work-packages/W2-04/UI.md) · [8项公开来源](research/sources/W2-04.json) · [10规则20正反](research/traces/W2-04.json) · [独立消费者](docs/work-packages/W2-04/independent-consumer-handoff.md)。当前CAP41/88、原工作包22/36、来源428登记/54 registry（非去重论文）；规划同逻辑内存检查10正10反+10故意变异PASS，独立Node文件执行、真实数据库强杀、跨域消费者、17 Owner正式会签和L3评审均NOT_RUN/PENDING。
 
