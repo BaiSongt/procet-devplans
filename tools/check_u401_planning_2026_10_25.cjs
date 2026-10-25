@@ -28,6 +28,8 @@ assert.ok(r.fields.length>2);assert.ok(r.sourceIds.length>=2);assert.ok(r.source
 assert.equal(p.ruleId,r.id);assert.equal(n.ruleId,r.id);assert.equal(m.ruleId,r.id);
 assert.equal(valid(i,p.input),true,'positive '+r.id);assert.equal(valid(i,n.input),false,'negative '+r.id);
 assert.equal(valid(i,m.input),false,'mutation '+r.id);
+assert.notDeepEqual(m.input,n.input,'mutation must differ from negative fixture: '+r.id);
+assert.ok(m.mutantOf===p.id&&typeof m.changedPath==='string','mutation provenance '+r.id);
 passed+=3;
 }
 console.log('U4-01 planning synthetic checks: '+passed+'/30 PASS; product/consumer/GUI tests NOT_RUN.');

@@ -314,15 +314,15 @@
   "mutations": [
     {
       "ruleId": "U4-01-R01",
-      "changedPath": "ctx.projectId",
+      "changedPath": "ctx.setupRevision",
       "input": {
         "ctx": {
           "projectId": "P1",
           "documentId": "DOC-A",
           "documentRevision": "r17",
-          "documentHash": "",
+          "documentHash": "sha256:doc-a-17",
           "setupId": "S-A",
-          "setupRevision": "s3",
+          "setupRevision": "",
           "setupHash": "sha256:setup-a3",
           "frame": {
             "id": "part-frame",
@@ -332,28 +332,30 @@
           "scopeEpoch": 12
         }
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T01"
     },
     {
       "ruleId": "U4-01-R02",
-      "changedPath": "scope.projectId",
+      "changedPath": "scope.scopeEpoch",
       "input": {
         "scope": {
           "projectId": "P1",
           "documentId": "DOC-A",
-          "scopeEpoch": 12
+          "scopeEpoch": 11
         },
         "result": {
           "projectId": "P1",
-          "documentId": "DOC-B",
+          "documentId": "DOC-A",
           "scopeEpoch": 12
         }
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T03"
     },
     {
       "ruleId": "U4-01-R03",
-      "changedPath": "action",
+      "changedPath": "businessWrites",
       "input": {
         "action": "DISPLAY_CHANGE",
         "before": {
@@ -361,26 +363,33 @@
           "displayMode": "WORKBENCH"
         },
         "after": {
-          "workMode": "A",
+          "workMode": "B",
           "displayMode": "FOCUS3D"
         },
-        "businessWrites": []
+        "businessWrites": [
+          {
+            "assetId": "D08",
+            "kind": "WRITE"
+          }
+        ]
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T05"
     },
     {
       "ruleId": "U4-01-R04",
-      "changedPath": "dirty",
+      "changedPath": "persistedDraft",
       "input": {
         "dirty": true,
-        "resolution": "AUTO_DISCARD",
+        "resolution": "SAVE_DRAFT",
         "persistedDraft": false
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T07"
     },
     {
       "ruleId": "U4-01-R05",
-      "changedPath": "request.setupId",
+      "changedPath": "restored.setupHash",
       "input": {
         "request": {
           "setupId": "S-B",
@@ -388,16 +397,17 @@
           "setupHash": "sha256:setup-b9"
         },
         "restored": {
-          "setupId": "S-A",
-          "setupRevision": "s3",
-          "setupHash": "sha256:setup-a3"
+          "setupId": "S-B",
+          "setupRevision": "s9",
+          "setupHash": "sha256:wrong-setup"
         }
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T09"
     },
     {
       "ruleId": "U4-01-R06",
-      "changedPath": "expected.scopeEpoch",
+      "changedPath": "cancelled",
       "input": {
         "expected": {
           "scopeEpoch": 13,
@@ -405,66 +415,71 @@
           "documentHash": "sha256:doc-b"
         },
         "reply": {
-          "scopeEpoch": 12,
-          "generation": 7,
-          "documentHash": "sha256:doc-a"
+          "scopeEpoch": 13,
+          "generation": 8,
+          "documentHash": "sha256:doc-b"
         },
-        "cancelled": false
+        "cancelled": true
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T11"
     },
     {
       "ruleId": "U4-01-R07",
-      "changedPath": "commit.expectedHead",
+      "changedPath": "commit.aclEpochCurrent",
       "input": {
         "commit": {
           "expectedHead": "rev-15",
-          "currentHead": "rev-16",
+          "currentHead": "rev-15",
           "aclEpochExpected": 6,
-          "aclEpochCurrent": 6,
+          "aclEpochCurrent": 7,
           "hasWritePermission": true,
           "cancelled": false
         }
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T13"
     },
     {
       "ruleId": "U4-01-R08",
-      "changedPath": "scene.sceneCount",
+      "changedPath": "scene.disposedOldOverlay",
       "input": {
         "scene": {
-          "sceneCount": 2,
+          "sceneCount": 1,
           "sceneId": "world-main",
-          "activeLeases": 2,
+          "activeLeases": 1,
           "disposedOldOverlay": false
         }
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T15"
     },
     {
       "ruleId": "U4-01-R09",
-      "changedPath": "edit.frozenHashBefore",
+      "changedPath": "edit.proposedRevision",
       "input": {
         "edit": {
           "frozenHashBefore": "sha256:lock-v1",
-          "frozenHashAfter": "sha256:lock-v2",
-          "proposedRevision": "draft-v2",
-          "mutatesFrozen": true
+          "frozenHashAfter": "sha256:lock-v1",
+          "proposedRevision": "",
+          "mutatesFrozen": false
         }
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T17"
     },
     {
       "ruleId": "U4-01-R10",
-      "changedPath": "restoration.exists",
+      "changedPath": "restoration.fallbackSelected",
       "input": {
         "restoration": {
           "exists": false,
-          "status": "RESOLVED",
+          "status": "STALE_MISSING",
           "fallbackSelected": true
         }
       },
-      "expected": "REJECT"
+      "expected": "REJECT",
+      "mutantOf": "U4-01-T19"
     }
   ]
 }
