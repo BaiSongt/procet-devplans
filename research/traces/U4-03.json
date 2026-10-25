@@ -1,0 +1,547 @@
+{
+  "schemaVersion": "procet-u403-trace-v1",
+  "workPackageId": "U4-03",
+  "researchTopic": "R-SELECTION-LEASE-001",
+  "sourceRegistry": "research/sources/U4-03.json",
+  "specification": "docs/work-packages/U4-03.md",
+  "ui": "docs/work-packages/U4-03/UI.md",
+  "fixtures": "docs/work-packages/U4-03/fixtures.json",
+  "validator": "tools/check_u403_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "U4-03-R01",
+      "workPackageId": "U4-03",
+      "summary": "3D命中必须解析为与D01/D04权威一致的exact GeometryRef",
+      "fields": [
+        "pick.ref.assetId",
+        "pick.ref.objectId",
+        "pick.ref.revision",
+        "pick.ref.hash",
+        "pick.ref.frameHash",
+        "owner.hash",
+        "owner.frameHash",
+        "owner.revision"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-U403-S03",
+        "SRC-U403-S08"
+      ],
+      "criteria": [
+        {
+          "path": "pick.ref.assetId",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "pick.ref.objectId",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "pick.ref.revision",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "pick.ref.hash",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "pick.ref.frameHash",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "pick.ref.hash",
+          "op": "eqField",
+          "other": "owner.hash"
+        },
+        {
+          "path": "pick.ref.frameHash",
+          "op": "eqField",
+          "other": "owner.frameHash"
+        },
+        {
+          "path": "pick.ref.revision",
+          "op": "eqField",
+          "other": "owner.revision"
+        }
+      ],
+      "positiveTestId": "U4-03-T01",
+      "negativeTestId": "U4-03-T02",
+      "negativeReason": "REJECT_U403_R01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R02",
+      "workPackageId": "U4-03",
+      "summary": "列表与3D选择投影同一对象，键盘焦点不得触发写入",
+      "fields": [
+        "selection.listRefHash",
+        "selection.worldRefHash",
+        "selection.focusWrites",
+        "selection.domainWrites",
+        "selection.focusVisible"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-U403-S03",
+        "SRC-U403-S05",
+        "SRC-U403-S06"
+      ],
+      "criteria": [
+        {
+          "path": "selection.listRefHash",
+          "op": "eqField",
+          "other": "selection.worldRefHash"
+        },
+        {
+          "path": "selection.focusWrites",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "selection.domainWrites",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "selection.focusVisible",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-03-T03",
+      "negativeTestId": "U4-03-T04",
+      "negativeReason": "REJECT_U403_R02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R03",
+      "workPackageId": "U4-03",
+      "summary": "工程桌面与资源桌面共用唯一Scene且Overlay占用显式租约",
+      "fields": [
+        "render.sceneCount",
+        "render.worldId",
+        "lease.scopeKey",
+        "render.activeScopeKey",
+        "lease.status",
+        "lease.leaseId"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-U403-S01",
+        "SRC-U403-S02"
+      ],
+      "criteria": [
+        {
+          "path": "render.sceneCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "render.worldId",
+          "op": "eq",
+          "value": "main-world"
+        },
+        {
+          "path": "lease.scopeKey",
+          "op": "eqField",
+          "other": "render.activeScopeKey"
+        },
+        {
+          "path": "lease.status",
+          "op": "eq",
+          "value": "ACTIVE"
+        },
+        {
+          "path": "lease.leaseId",
+          "op": "nonEmpty"
+        }
+      ],
+      "positiveTestId": "U4-03-T05",
+      "negativeTestId": "U4-03-T06",
+      "negativeReason": "REJECT_U403_R03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R04",
+      "workPackageId": "U4-03",
+      "summary": "异步Overlay回执必须匹配epoch/generation及未取消，晚回执无权复活",
+      "fields": [
+        "expected.scopeEpoch",
+        "receipt.scopeEpoch",
+        "expected.generation",
+        "receipt.generation",
+        "expected.geometryHash",
+        "receipt.geometryHash",
+        "receipt.cancelled",
+        "receipt.visibility"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D07"
+      ],
+      "sourceIds": [
+        "SRC-U403-S07",
+        "SRC-U403-S08"
+      ],
+      "criteria": [
+        {
+          "path": "expected.scopeEpoch",
+          "op": "eqField",
+          "other": "receipt.scopeEpoch"
+        },
+        {
+          "path": "expected.generation",
+          "op": "eqField",
+          "other": "receipt.generation"
+        },
+        {
+          "path": "expected.geometryHash",
+          "op": "eqField",
+          "other": "receipt.geometryHash"
+        },
+        {
+          "path": "receipt.cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "receipt.visibility",
+          "op": "eq",
+          "value": "APPLIED"
+        }
+      ],
+      "positiveTestId": "U4-03-T07",
+      "negativeTestId": "U4-03-T08",
+      "negativeReason": "REJECT_U403_R04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R05",
+      "workPackageId": "U4-03",
+      "summary": "切换/撤销释放订阅、拾取映射、Gizmo及Overlay且不删权威对象",
+      "fields": [
+        "cleanup.observerCount",
+        "cleanup.gizmoCount",
+        "cleanup.overlayCount",
+        "cleanup.mappingCount",
+        "cleanup.ownerObjectDeleted"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-U403-S02",
+        "SRC-U403-S03",
+        "SRC-U403-S07"
+      ],
+      "criteria": [
+        {
+          "path": "cleanup.observerCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "cleanup.gizmoCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "cleanup.overlayCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "cleanup.mappingCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "cleanup.ownerObjectDeleted",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-03-T09",
+      "negativeTestId": "U4-03-T10",
+      "negativeReason": "REJECT_U403_R05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R06",
+      "workPackageId": "U4-03",
+      "summary": "可视几何代理只能呈现，不得授予真实碰撞或D15验证资格",
+      "fields": [
+        "proxy.type",
+        "proxy.collisionCertified",
+        "proxy.d15Passed",
+        "proxy.unknownAsPass"
+      ],
+      "assets": [
+        "D03",
+        "D14",
+        "D15"
+      ],
+      "sourceIds": [
+        "SRC-U403-S02",
+        "SRC-U403-S03"
+      ],
+      "criteria": [
+        {
+          "path": "proxy.type",
+          "op": "eq",
+          "value": "VISUAL_ONLY"
+        },
+        {
+          "path": "proxy.collisionCertified",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "proxy.d15Passed",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "proxy.unknownAsPass",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-03-T11",
+      "negativeTestId": "U4-03-T12",
+      "negativeReason": "REJECT_U403_R06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R07",
+      "workPackageId": "U4-03",
+      "summary": "PointerCancel或Esc取消预览必须释放租约并确保零领域写入",
+      "fields": [
+        "cancel.event",
+        "cancel.leaseStatus",
+        "cancel.ownerWrites",
+        "cancel.draftDiscarded"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U403-S04",
+        "SRC-U403-S07"
+      ],
+      "criteria": [
+        {
+          "path": "cancel.event",
+          "op": "eq",
+          "value": "pointercancel"
+        },
+        {
+          "path": "cancel.leaseStatus",
+          "op": "eq",
+          "value": "RELEASED"
+        },
+        {
+          "path": "cancel.ownerWrites",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "cancel.draftDiscarded",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-03-T13",
+      "negativeTestId": "U4-03-T14",
+      "negativeReason": "REJECT_U403_R07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R08",
+      "workPackageId": "U4-03",
+      "summary": "渲染Frame变换为显示投影，不改写D04配准几何与偏置",
+      "fields": [
+        "display.frameHash",
+        "owner.frameHash",
+        "display.bakedIntoOwner",
+        "display.modifiesExecutionBinding",
+        "display.unit"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10"
+      ],
+      "sourceIds": [
+        "SRC-U403-S03",
+        "SRC-U403-S08"
+      ],
+      "criteria": [
+        {
+          "path": "display.frameHash",
+          "op": "eqField",
+          "other": "owner.frameHash"
+        },
+        {
+          "path": "display.bakedIntoOwner",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "display.modifiesExecutionBinding",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "display.unit",
+          "op": "eq",
+          "value": "mm"
+        }
+      ],
+      "positiveTestId": "U4-03-T15",
+      "negativeTestId": "U4-03-T16",
+      "negativeReason": "REJECT_U403_R08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R09",
+      "workPackageId": "U4-03",
+      "summary": "预览转编辑必须走领域Owner并在提交时重验CAS/权限/代次",
+      "fields": [
+        "commit.ownerPort",
+        "commit.expectedHead",
+        "commit.currentHead",
+        "commit.aclEpoch",
+        "commit.currentAclEpoch",
+        "commit.generation",
+        "commit.currentGeneration",
+        "commit.cancelled",
+        "commit.previewAutoCommitted"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U403-S07",
+        "SRC-U403-S09"
+      ],
+      "criteria": [
+        {
+          "path": "commit.ownerPort",
+          "op": "eq",
+          "value": "D04"
+        },
+        {
+          "path": "commit.expectedHead",
+          "op": "eqField",
+          "other": "commit.currentHead"
+        },
+        {
+          "path": "commit.aclEpoch",
+          "op": "eqField",
+          "other": "commit.currentAclEpoch"
+        },
+        {
+          "path": "commit.generation",
+          "op": "eqField",
+          "other": "commit.currentGeneration"
+        },
+        {
+          "path": "commit.cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "commit.previewAutoCommitted",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-03-T17",
+      "negativeTestId": "U4-03-T18",
+      "negativeReason": "REJECT_U403_R09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-03-R10",
+      "workPackageId": "U4-03",
+      "summary": "旧渲染适配Expand迁移按exact映射读兼容且失败可回退",
+      "fields": [
+        "migration.oldReaderCompatible",
+        "migration.singleScene",
+        "migration.rollbackAvailable",
+        "migration.ownerRevisionModified",
+        "migration.stage"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-U403-S01",
+        "SRC-U403-S08"
+      ],
+      "criteria": [
+        {
+          "path": "migration.oldReaderCompatible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.singleScene",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.rollbackAvailable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.ownerRevisionModified",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "migration.stage",
+          "op": "eq",
+          "value": "EXPAND"
+        }
+      ],
+      "positiveTestId": "U4-03-T19",
+      "negativeTestId": "U4-03-T20",
+      "negativeReason": "REJECT_U403_R10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

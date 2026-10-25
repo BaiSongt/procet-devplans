@@ -1,3 +1,6 @@
+## 2026-10-25｜原U4-03统一单Scene选择与预览租约（L3待审）
+[10项实施](docs/work-packages/U4-03.md) · [GUI/3D](docs/work-packages/U4-03/UI.md) · [9份公开来源](research/sources/U4-03.json) · [10规则20正反+10变异](research/traces/U4-03.json) · [独立消费者](docs/work-packages/U4-03/independent-consumer-handoff.md)。累计**46/88详细CAP、27/36原编号包、521条来源登记/64 registry**。合成规则30/30仅内存规划检查，独立Node/真实Babylon GPU/Owner/消费者/NC产品全NOT_RUN；17资产正式会签与L3待审。单Scene为Procet选择，Babylon官方允许多Scene；预览取消不修改业务Owner。规划PASS≠产品PASS，下文数字为历史快照。
+
 ## 2026-10-25｜CAP-06-07独立Oracle与收敛（L3待审）
 [详细规格](docs/capabilities/CAP-06-07/README.md) · [单Babylon GUI](docs/capabilities/CAP-06-07/UI.md) · [10来源](research/sources/CAP-06-07.json) · [10规则20正反+10变异](research/traces/CAP-06-07.json)。累计**46/88 CAP、26/36原包、512来源登记/63 registry**。V8合成30/30，真实OCCT/消费者/校准/产品NOT_RUN；17资产Owner签署与L3待审，规划PASS≠产品PASS。以下旧数字为历史快照。
 

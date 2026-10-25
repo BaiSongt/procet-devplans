@@ -1,3 +1,6 @@
+## 2026-10-25｜R-SELECTION-LEASE-001唯一世界选择/预览生命周期
+[理论与限制](topics/R-SELECTION-LEASE-001.md) · [9项官方公开来源](sources/U4-03.json) · [规则/字段/20正反/10变异](traces/U4-03.json)。官方Babylon确实支持多Scene，W3C PointerEvents4目前为2026-10-08 Working Draft；统一单Scene为内部设计，取消不是撤回已提交业务事实。累计521登记/64 registry（非去重论文），真实GPU/Owner/消费者NOT_RUN。
+
 ## 2026-10-25｜R-ORACLE-CONVERGENCE-001独立验证
 [专题](topics/R-ORACLE-CONVERGENCE-001.md) · [10合法来源](sources/CAP-06-07.json) · [规则及正反](traces/CAP-06-07.json)。512条登记/63 registry；ISO只读目录、NIST只读摘要；真实Oracle/校准与产品NOT_RUN。
 
