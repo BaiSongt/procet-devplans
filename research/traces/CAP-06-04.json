@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-04",
+  "researchTopic": "R-EFFECTIVE-DOMAIN-001",
+  "sourceRegistry": "research/sources/CAP-06-04.json",
+  "specification": "docs/capabilities/CAP-06-04/README.md",
+  "ui": "docs/capabilities/CAP-06-04/UI.md",
+  "fixtures": "docs/capabilities/CAP-06-04/fixtures.json",
+  "validator": "tools/check_cap0604_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0604-R01",
+      "capabilityId": "CAP-06-04",
+      "summary": "确切来源修订/字节哈希/Scope闭包",
+      "fields": [
+        "refs[].revision",
+        "refs[].hash",
+        "refs[].hashKind",
+        "refs[].scope"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S08",
+        "SRC-C0604-S09",
+        "SRC-C0604-S10"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-04-T01",
+      "negativeTestId": "CAP-06-04-T02",
+      "negativeReason": "REJECT_SOURCE_CLOSURE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R02",
+      "capabilityId": "CAP-06-04",
+      "summary": "有向Frame刚体变换及单位手系，显示转换不可写回",
+      "fields": [
+        "transform.from",
+        "transform.to",
+        "transform.hash",
+        "transform.unitsCompatible"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S04",
+        "SRC-C0604-S08"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-04-T03",
+      "negativeTestId": "CAP-06-04-T04",
+      "negativeReason": "REJECT_FRAME_MISMATCH",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R03",
+      "capabilityId": "CAP-06-04",
+      "summary": "从当前Stock扣除目标保留包络和保护区",
+      "fields": [
+        "geometry.stock",
+        "geometry.retain",
+        "geometry.protected",
+        "geometry.removable"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S01",
+        "SRC-C0604-S02",
+        "SRC-C0604-S03"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-04-T05",
+      "negativeTestId": "CAP-06-04-T06",
+      "negativeReason": "REJECT_SET_DOMAIN",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R04",
+      "capabilityId": "CAP-06-04",
+      "summary": "减材目标必须完全位于当前材料之内",
+      "fields": [
+        "target.stock",
+        "target.target",
+        "target.subtractiveOnly"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S02",
+        "SRC-C0604-S04"
+      ],
+      "assets": [
+        "D01",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-04-T07",
+      "negativeTestId": "CAP-06-04-T08",
+      "negativeReason": "REJECT_UNREACHABLE_TARGET",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R05",
+      "capabilityId": "CAP-06-04",
+      "summary": "非均匀余量逐Face审批且真实B-Rep包络待证",
+      "fields": [
+        "allowance.faces[].uid",
+        "allowance.faces[].mm",
+        "allowance.approvalRef"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S01",
+        "SRC-C0604-S05",
+        "SRC-C0604-S07"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-04-T09",
+      "negativeTestId": "CAP-06-04-T10",
+      "negativeReason": "REJECT_ALLOWANCE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R06",
+      "capabilityId": "CAP-06-04",
+      "summary": "保护区与有效去料域必须严格不相交",
+      "fields": [
+        "guard.removable",
+        "guard.protected",
+        "guard.protectedRefHash"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S03",
+        "SRC-C0604-S04"
+      ],
+      "assets": [
+        "D04",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-04-T11",
+      "negativeTestId": "CAP-06-04-T12",
+      "negativeReason": "REJECT_PROTECTED_INTERSECTION",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R07",
+      "capabilityId": "CAP-06-04",
+      "summary": "前序D07不可变序列不被初始毛坯替代",
+      "fields": [
+        "history.previousHash",
+        "history.consumedHash",
+        "history.previousStepUid"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S08",
+        "SRC-C0604-S10"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-04-T13",
+      "negativeTestId": "CAP-06-04-T14",
+      "negativeReason": "REJECT_STATE_HISTORY",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R08",
+      "capabilityId": "CAP-06-04",
+      "summary": "BRepCheck/警告/fuzzy真实证据和合成隔离",
+      "fields": [
+        "engine.pre",
+        "engine.post",
+        "engine.warningsReviewed",
+        "engine.result"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S01",
+        "SRC-C0604-S04",
+        "SRC-C0604-S05",
+        "SRC-C0604-S06"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-04-T15",
+      "negativeTestId": "CAP-06-04-T16",
+      "negativeReason": "REJECT_GEOMETRY_GATE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R09",
+      "capabilityId": "CAP-06-04",
+      "summary": "提交瞬时CAS/ACL/generation、取消晚回执及冻结保护",
+      "fields": [
+        "commit.expectedHead",
+        "commit.aclEpoch",
+        "commit.generation",
+        "commit.frozenD08Untouched"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S08",
+        "SRC-C0604-S09"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-04-T17",
+      "negativeTestId": "CAP-06-04-T18",
+      "negativeReason": "REJECT_COMMIT_STALE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0604-R10",
+      "capabilityId": "CAP-06-04",
+      "summary": "独立消费者及D09→D12→D13→D14→D15→D16资格独立",
+      "fields": [
+        "downstream.d07Independent",
+        "downstream.d13",
+        "downstream.d15",
+        "downstream.d16"
+      ],
+      "sourceIds": [
+        "SRC-C0604-S07",
+        "SRC-C0604-S08",
+        "SRC-C0604-S10"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-04-T19",
+      "negativeTestId": "CAP-06-04-T20",
+      "negativeReason": "REJECT_FALSE_NC_PASS",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-06-04 有效加工域构建（仅规划，L3待审）
+[规格及集合公式](docs/capabilities/CAP-06-04/README.md) · [统一左TaskPanel/单Babylon](docs/capabilities/CAP-06-04/UI.md) · [10来源](research/sources/CAP-06-04.json) · [10规则20正反](research/traces/CAP-06-04.json) · [独立D07交接](docs/capabilities/CAP-06-04/independent-consumer-handoff.md)。当前43/88 CAP、23/36原工作包、456条登记/57 registry。合成30/30通过，真实OCCT/独立Node/D07/NC均NOT_RUN；17资产正式会签及L3 PENDING。以下旧段落为历史快照。
+
 ## 2026-10-25｜W2-05多Setup Feature/Plan可寻址查询（L3待审）
 [10项原编号实施任务](docs/work-packages/W2-05.md) · [GUI/单Babylon](docs/work-packages/W2-05/UI.md) · [8合法来源](research/sources/W2-05.json) · [10规则20正反](research/traces/W2-05.json) · [独立消费者交接](docs/work-packages/W2-05/independent-consumer-handoff.md)。新累计42/88 CAP、23/36原包、446来源登记/56 registry；规划合成20/20 PASS，真实产品/Node独立文件/消费者NOT_RUN，17Owner/L3待人工。以下旧数字均历史快照。
 

@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 42,
-    "detailPendingCount": 46,
+    "detailDraftedCount": 43,
+    "detailPendingCount": 45,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -488,6 +488,19 @@
         "acceptanceSpecifications": 20,
         "designApproval": "pending_human_review",
         "productAcceptance": "not_run"
+      },
+      {
+        "id": "CAP-06-04",
+        "path": "docs/capabilities/CAP-06-04/README.md",
+        "uiPath": "docs/capabilities/CAP-06-04/UI.md",
+        "contractPath": "docs/capabilities/CAP-06-04/contract.example.json",
+        "tracePath": "research/traces/CAP-06-04.json",
+        "sourceRegistry": "research/sources/CAP-06-04.json",
+        "researchTopic": "R-EFFECTIVE-DOMAIN-001",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run"
       }
     ]
   },
@@ -786,8 +799,8 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 446,
-    "registeredSourceCountMeaning": "446条来源登记/56 registry，并非去重论文",
+    "registeredSources": 456,
+    "registeredSourceCountMeaning": "456条来源登记/57 registry，非去重论文",
     "legacyRegistryRecords": 61,
     "additionalRegistries": [
       "research/sources/F1-03.json",
@@ -844,9 +857,10 @@
       "research/sources/CAP-06-02.json",
       "research/sources/W2-04.json",
       "research/sources/CAP-06-03.json",
-      "research/sources/W2-05.json"
+      "research/sources/W2-05.json",
+      "research/sources/CAP-06-04.json"
     ],
-    "capabilityTraceCompiledCount": 42,
+    "capabilityTraceCompiledCount": 43,
     "workPackageTraceCompiledCount": 21,
     "topics": [
       {
@@ -1591,6 +1605,23 @@
           "10"
         ],
         "necessaryEngineeringEvidence": "eight_sources_ten_rules_twenty_synthetic_product_not_run"
+      },
+      {
+        "id": "R-EFFECTIVE-DOMAIN-001",
+        "path": "research/topics/R-EFFECTIVE-DOMAIN-001.md",
+        "primaryCapability": "CAP-06-04",
+        "status": "drafted_pending_human_review",
+        "relatedDomains": [
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10"
+        ],
+        "necessaryEngineeringEvidence": "synthetic_geometry_set_only_OCCT_D07_NOT_RUN"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -1622,8 +1653,8 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-06-04",
-    "name": "有效加工域构建",
+    "capabilityId": "CAP-06-05",
+    "name": "不可变制造状态",
     "parallelWorkPackageId": "W2-06",
     "parallelWorkPackageName": "A/B闭环无界面验收",
     "parallelPlanningBacklog": [
@@ -1632,13 +1663,13 @@
       "11域理论研究与历史附件审计",
       "最终交叉覆盖/风险/交接"
     ],
-    "priority": "CAP-06-04和W2-06交错推进",
-    "remainingCAP": 46,
+    "priority": "下一轮W2-06，穿插CAP-06-05",
+    "remainingCAP": 45,
     "remainingOriginalWorkPackages": 13
   },
   "checks": {
-    "record": "tracking/verification-W2-05-2026-10-25.json",
-    "status": "SYNTHETIC_IN_MEMORY_20_OF_20_PASS_PRODUCT_NOT_RUN",
+    "record": "tracking/verification-CAP-06-04-2026-10-25.json",
+    "status": "SYNTHETIC_V8_30_OF_30_PASS_PRODUCT_NOT_RUN",
     "productTests": "NOT_RUN",
     "independentNodeFileExecution": "NOT_RUN",
     "independentConsumers": "NOT_RUN",
@@ -1647,12 +1678,12 @@
     "l3Approval": "PENDING_HUMAN"
   },
   "lastPlanningItem": {
-    "id": "W2-05",
+    "id": "CAP-06-04",
     "date": "2026-10-25",
     "status": "planning_compiled_pending_human_review",
     "designRuleCount": 10,
     "acceptanceSpecifications": 20,
-    "verification": "synthetic_20_20_PASS",
+    "verification": "synthetic_30_30_PASS",
     "product": "NOT_RUN",
     "consumer": "NOT_RUN"
   },
@@ -1663,5 +1694,5 @@
     "remainingFilesStatus": "tracking/pending-source-gaps-2026-10-19.json"
   },
   "stopConditionMet": false,
-  "notes": "W2-05多Setup寻址及特征工序多对多，8来源10规则20合成正反通过；独立Node/产品/Owner/实机未验证，L3待审"
+  "notes": "CAP-06-04有效加工域规划：10公开来源10规则20正反+10变异，OCCT/D07/Owner/L3均未完成，不将合成检查当产品验收"
 }

@@ -1,3 +1,6 @@
+## 2026-10-25｜R-EFFECTIVE-DOMAIN-001 有效加工域
+[证据深度与限制](topics/R-EFFECTIVE-DOMAIN-001.md) · [10项权威来源](sources/CAP-06-04.json) · [10规则20正反合成](traces/CAP-06-04.json)。OCCT8.0.1 API与PROV/RFC公开章节已读，ISO仅合法目录、NIST仅最终版摘要；非产品认证。累计456登记记录/57 registry，Owner/L3/消费者未验证。
+
 ## 2026-10-25｜R-MULTISETUP-QUERY-001多Setup可寻址查询
 [专题](topics/R-MULTISETUP-QUERY-001.md) · [来源深度/限制](sources/W2-05.json) · [10规则与20正反](traces/W2-05.json)。ISO仅目录，OCCT仅API，NIST8536 Final仅摘要；不把规划当产品PASS。累计446登记/56 registry。
 
