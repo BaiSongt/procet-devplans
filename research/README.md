@@ -1,3 +1,6 @@
+## 2026-10-26｜R-RELEASE-TRAIN-001 发布组合与离线兼容
+[理论与边界](topics/R-RELEASE-TRAIN-001.md) · [十来源及访问深度](sources/T5-03.json) · [规则字段/正反变异](traces/T5-03.json) · [原T5-03实施](../docs/work-packages/T5-03.md)。NIST、SPDX只目录；RFC8785仅摘要；SLSA/TUF/Tauri/通用规范只作规划支持，不冒充已实施。634登记/76 registry（非去重文献），真实产品、消费者、离线签名NOT_RUN。
+
 ## 2026-10-26｜R-STAGE-MACHINING-001 粗半精精阶段有序材料与余量
 [理论与适用限制](topics/R-STAGE-MACHINING-001.md) · [9来源及访问层级](sources/CAP-07-05.json) · [10规则+30合成场景](traces/CAP-07-05.json) · [CAP规格](../docs/capabilities/CAP-07-05/README.md)。ISO仅目录摘要；NIST2023仅出版摘要；OCCT8.0.1为API；Autodesk示例非通用数值标准。共624条来源登记/75 registry，非去重。V8合成30/30，产品与独立消费者NOT_RUN。
 

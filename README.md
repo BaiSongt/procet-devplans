@@ -1,3 +1,6 @@
+## 2026-10-26｜原T5-03 跨仓发布列车与兼容窗口（L3待审）
+[十项规划](docs/work-packages/T5-03.md) · [GUI与3D](docs/work-packages/T5-03/UI.md) · [来源深度](research/sources/T5-03.json) · [十规则/三十合成验收](research/traces/T5-03.json) · [十七资产Owner候选](docs/work-packages/T5-03/asset-owner-candidates.json) · [独立消费者/回退](docs/work-packages/T5-03/independent-consumer-handoff.md)。累计**52/88 CAP、33/36原编号包、634登记/76 registry**（非去重）。V8内存合成30/30规划PASS，真实产品/签名/Win11/NC/独立消费者NOT_RUN，L3/Owner待人类会签。下一项CAP-07-06，后T5-04。**规划PASS≠产品PASS。** 下文历史进度仅快照。
+
 ## 2026-10-26｜CAP-07-05 粗半精精策略族（L3待审）
 [十项施工及原88目标](docs/capabilities/CAP-07-05/README.md) · [GUI/3D](docs/capabilities/CAP-07-05/UI.md) · [9合法来源](research/sources/CAP-07-05.json) · [10规则/30正反差异变异](research/traces/CAP-07-05.json) · [独立消费者与回退](docs/capabilities/CAP-07-05/independent-consumer-handoff.md)。累计**52/88详细CAP、32/36原包、624来源登记/75 registry**（非去重文献）。阶段有序D07真实前后态、侧壁/底面独立余量、Ra目标非实测，D09中立CL到D16独立验证阻断严格区分。仅V8合成30/30规划PASS；Node独立文件、真实OCCT/NC/Owner/消费者/机床NOT_RUN，L3和17Owner正式会签PENDING。下一轮原T5-03后CAP-07-06；以下为历史快照。**规划PASS≠产品PASS**。
 
