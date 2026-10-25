@@ -1,3 +1,6 @@
+## 2026-10-26｜原U4-06模块SDK与贡献验收
+[原10子任务](U4-06.md) · [统一GUI](U4-06/UI.md) · [生命周期及回退](U4-06/adapter-and-lifecycle.md) · [Owner候选](U4-06/asset-owner-candidates.json) · [来源及规则](../../research/traces/U4-06.json) · [独立消费者](U4-06/independent-consumer-handoff.md)。工作包30/36，真实模块/产品NOT_RUN，L3及Owner待签。
+
 ## 2026-10-25｜W2-01实现A/B接管（原编号）
 [实施级任务](W2-01.md) · [领域GUI](W2-01/UI.md) · [17资产候选](W2-01/asset-owner-consumer-matrix.json) · [10规则/20正反](../../research/traces/W2-01.json) · [独立验收协议](W2-01/independent-consumer-handoff.md)。当前19/36、L3/产品NOT_RUN。
 

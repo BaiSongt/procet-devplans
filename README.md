@@ -1,3 +1,6 @@
+## 2026-10-26｜原U4-06 模块SDK与贡献验收（L3待审）
+[原十项实施](docs/work-packages/U4-06.md) · [单Scene/左TaskPanel](docs/work-packages/U4-06/UI.md) · [合成Manifest](docs/work-packages/U4-06/contract.example.json) · [11合法来源](research/sources/U4-06.json) · [10规则/20正反/10变异](research/traces/U4-06.json) · [独立消费者](docs/work-packages/U4-06/independent-consumer-handoff.md)。累计**49/88 CAP、30/36原编号工作包、576条来源登记/70 registry**（非去重文献）；仅规划合成30/30，Node独立文件、真实Tauri、Owner、产品及独立消费者NOT_RUN，17Owner正式会签/L3审批PENDING。规划PASS≠产品PASS。以下为历史快照。
+
 ## 2026-10-26｜CAP-07-02三轴曲面加工（设计L3待审）
 [三轴等高/平行/等残高/有序残料及10项实施](docs/capabilities/CAP-07-02/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-02/UI.md) · [10份官方/论文摘要来源](research/sources/CAP-07-02.json) · [10规则/20正反/10差异变异](research/traces/CAP-07-02.json) · [独立消费者/迁移与回退](docs/capabilities/CAP-07-02/independent-consumer-handoff.md)。累计**49/88详细CAP、29/36原编号包、565来源登记/69 registry**（非去重论文）；内存规划合成30/30，Node独立文件、真实OCCT/曲面残高/Owner/NC/机床均NOT_RUN，L3和17Owner正式会签PENDING。固定三轴不冒充五轴，局部球头残高近似不当真实几何认证，D09 CL不冒充D15验证；**规划PASS≠产品PASS**。下列段落为历史快照。
 
