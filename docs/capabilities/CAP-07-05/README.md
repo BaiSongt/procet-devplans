@@ -19,7 +19,7 @@
 | C0705-10 并发、取消与回退 | Owner CAS/ACL/scope/taskGeneration精确校验，旧读兼容，新CL修订追加 | 取消晚回执不得提交；旧D08冻结不变，回退非删除；R01、R10 |
 
 ## 工作流、异常与工程公式
-计划阶段序列 $P=(p_1,\dots,p_n)$，对每阶段保存 $S_i^{in}$ 与 $S_i^{out}$（均为D07来源指纹），要求下一阶段输入引用前一阶段**已封存**的同一材料状态；不允许用CAD目标实体代替真实Stock。可选验算应由独立OCCT B-Rep Oracle检查 $S_i^{out}=S_i^{in}\\setminus V_i$ 的几何及拓扑有效性（此公式是规划数学表达，**不是**材料扫掠仿真实现）。为普通逐级粗→半精→精方案，允许用 $a_{r,rough}>a_{r,semi}>a_{r,finish}\ge0$ 与轴向对应的规划阈值；该单调条件是**本阶段特定流程策略**，不适用于所有再加工/特种工艺。合成样例余量数值绝不成为真实切削参数。局部偏置/残高无法证真时直接标UNKNOWN。
+计划阶段序列 $P=(p_1,\dots,p_n)$，对每阶段保存 $S_i^{in}$ 与 $S_i^{out}$（均为D07来源指纹），要求下一阶段输入引用前一阶段**已封存**的同一材料状态；不允许用CAD目标实体代替真实Stock。可选验算应由独立OCCT B-Rep Oracle检查 $S_i^{out}=S_i^{in}\setminus V_i$ 的几何及拓扑有效性（此公式是规划数学表达，**不是**材料扫掠仿真实现）。为普通逐级粗→半精→精方案，允许用 $a_{r,rough}>a_{r,semi}>a_{r,finish}\ge0$ 与轴向对应的规划阈值；该单调条件是**本阶段特定流程策略**，不适用于所有再加工/特种工艺。合成样例余量数值绝不成为真实切削参数。局部偏置/残高无法证真时直接标UNKNOWN。
 
 失败码：SOURCE_REVISION_CONFLICT、FRAME_MISMATCH、STOCK_PRESTATE_UNKNOWN、UNSAFE_PROTECTED_ZONE、QUALITY_NOT_MEASURED、D13_SEMANTICS_UNKNOWN、CAS_REJECTED、CANCELLED_STALE_RECEIPT。支持安全重算、只读诊断和持久化草稿，禁止自动覆盖D08冻结或其他Setup。
 
@@ -27,5 +27,5 @@
 业务Owner分工：D04属于04域Setup毛坯与Frame；D10是执行绑定且不得塞入D04；05域负责D05/D08冻结决策；06域拥有D07不可变材料状态；07域只通过 `CAMDomainPort.previewStageSequence/readStageEvidence/commitNeutralCLWithCAS` 生成D09候选。GUI、CLI、Agent走同一Port；每次持久化Owner必须重新验证expectedRevision/hash/frame、权限、scopeEpoch、taskGeneration及取消状态，HTTP条件更新不代替内部事务。D03刀具和D11夹具均只能精确读取。A/B模式复用同一事实链与冻结D08，不得分别维护影子Stock。
 
 ## 验收与边界
-[10条来源→规则→字段→30正反/差异变异](../../../research/traces/CAP-07-05.json) · [机器可检合成场景](fixtures.json) · [GUI/3D](UI.md) · [接口实例](contract.example.json) · [17资产Owner候选](asset-owner-candidates.json) · [独立消费者](independent-consumer-handoff.md) · [研究专题](../../../research/topics/R-STAGE-MACHINING-001.md) · [9条合法来源](../../../research/sources/CAP-07-05.json)。
+[10条规则→字段→30正反/差异变异](../../../research/traces/CAP-07-05.json) · [机器可检合成场景](fixtures.json) · [GUI/3D](UI.md) · [接口实例](contract.example.json) · [17资产Owner候选](asset-owner-candidates.json) · [独立消费者](independent-consumer-handoff.md) · [研究专题](../../../research/topics/R-STAGE-MACHINING-001.md) · [9条合法来源](../../../research/sources/CAP-07-05.json)。
 测试入口：`node tools/check_cap0705_planning_2026_10_26.cjs`。规划正10/反10/差异变异10，提交前可仅在隔离V8环境执行；真实OCCT/NC/机床/消费者全部NOT_RUN，L3待审、17Owner待正式签署。**规划PASS≠产品PASS。**
