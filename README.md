@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-07-01 2.5D特征刀路（L3待审）
+[平面/轮廓/型腔/孔槽、10施工规则](docs/capabilities/CAP-07-01/README.md) · [单Scene/左TaskPanel](docs/capabilities/CAP-07-01/UI.md) · [8来源及实际深度](research/sources/CAP-07-01.json) · [10规则20正反10变异](research/traces/CAP-07-01.json) · [独立消费者](docs/capabilities/CAP-07-01/independent-consumer-handoff.md)。累计**48/88 CAP、28/36原编号包、546来源登记/67 registry**，本轮仅30/30**内存规划合成**；独立Node文件执行、OCCT/后处理/控制器/机床/消费者均NOT_RUN，L3与17Owner正式会签PENDING。**规划PASS≠产品PASS。** 以下为历史快照。
+
 ## 2026-10-25｜原U4-04来源/失效/执行诊断联动（L3待审）
 [原10项实施](docs/work-packages/U4-04.md) · [单Babylon/左TaskPanel](docs/work-packages/U4-04/UI.md) · [9条已核来源与深度](research/sources/U4-04.json) · [10规则/20正反/10变异](research/traces/U4-04.json) · [独立消费者](docs/work-packages/U4-04/independent-consumer-handoff.md)。累计**47/88详细CAP、28/36原工作包、538条来源登记/66 registry**。仅规划合成30/30，NC/Owner/独立Node/GUI/机床NOT_RUN，17资产正式会签与L3待审。下方历史进度为快照。**规划PASS≠产品PASS。**
 
