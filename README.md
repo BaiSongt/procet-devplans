@@ -1,3 +1,6 @@
+## 2026-10-25｜原W2-04跨域回执与中断恢复（正式规划，L3待审）
+[实施级10子任务](docs/work-packages/W2-04.md) · [GUI/单Babylon](docs/work-packages/W2-04/UI.md) · [8项公开来源](research/sources/W2-04.json) · [10规则20正反](research/traces/W2-04.json) · [独立消费者](docs/work-packages/W2-04/independent-consumer-handoff.md)。当前CAP41/88、原工作包22/36、来源428登记/54 registry（非去重论文）；规划同逻辑内存检查10正10反+10故意变异PASS，独立Node文件执行、真实数据库强杀、跨域消费者、17 Owner正式会签和L3评审均NOT_RUN/PENDING。
+
 ## 2026-10-25｜CAP-06-02工序与几何联合搜索（L3待审，仅规划）
 [业务规格](docs/capabilities/CAP-06-02/README.md) · [GUI/3D](docs/capabilities/CAP-06-02/UI.md) · [10公开来源](research/sources/CAP-06-02.json) · [10规则/20正反](research/traces/CAP-06-02.json) · [独立消费者](docs/capabilities/CAP-06-02/independent-consumer-handoff.md)。累计详细CAP41/88、原包21/36、来源登记420条/53 registry；规划合成30/30 PASS，产品/消费者/Owner/L3 NOT_RUN/PENDING。历史数字见tracking/progress.json。
 

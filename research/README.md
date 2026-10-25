@@ -1,3 +1,6 @@
+## 2026-10-25｜R-ACK-RECOVERY-001并发提交、回执与恢复
+[理论专题](topics/R-ACK-RECOVERY-001.md) · [8份合法来源与阅读深度](sources/W2-04.json) · [10规则20正反](traces/W2-04.json)。SQLite只承诺相应单库事务，不具跨库天然分布式ACID；Abort不能回滚既成事实。NIST2026-09最终版只读官方摘要。累计428登记/54 registry，产品/消费者NOT_RUN。
+
 ## 2026-10-25｜R-JOINT-SEARCH-001 工序与几何联合搜索
 [研究适用边界](topics/R-JOINT-SEARCH-001.md) · [10份公开登记](sources/CAP-06-02.json) · [10规则20正反](traces/CAP-06-02.json)。超预算UNKNOWN、支配无证据不可删候选；ISO仅目录、2019论文仅摘要、NIST2026最终版仅官方摘要，OCCT8.0.1为API参考。累计420/53登记，真实产品与独立消费者NOT_RUN。
 
