@@ -1,3 +1,6 @@
+## 2026-10-25｜R-MULTISETUP-QUERY-001多Setup可寻址查询
+[专题](topics/R-MULTISETUP-QUERY-001.md) · [来源深度/限制](sources/W2-05.json) · [10规则与20正反](traces/W2-05.json)。ISO仅目录，OCCT仅API，NIST8536 Final仅摘要；不把规划当产品PASS。累计446登记/56 registry。
+
 ## 2026-10-25｜R-LOCAL-BREP-001 局部B-Rep去料、修补与证据
 [专题](topics/R-LOCAL-BREP-001.md) · [OCCT/ISO等10项来源](sources/CAP-06-03.json) · [10规则/20正反](traces/CAP-06-03.json)。已读OCCT 8.0.1 API/布尔文档，ISO仅目录、NIST 2026-09最终版仅摘要，不能冒充真实内核/产品验证。累计438条登记/55 registry。
 

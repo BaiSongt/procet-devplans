@@ -1,3 +1,6 @@
+## 2026-10-25｜W2-05多Setup Feature/Plan可寻址查询（L3待审）
+[10项原编号实施任务](docs/work-packages/W2-05.md) · [GUI/单Babylon](docs/work-packages/W2-05/UI.md) · [8合法来源](research/sources/W2-05.json) · [10规则20正反](research/traces/W2-05.json) · [独立消费者交接](docs/work-packages/W2-05/independent-consumer-handoff.md)。新累计42/88 CAP、23/36原包、446来源登记/56 registry；规划合成20/20 PASS，真实产品/Node独立文件/消费者NOT_RUN，17Owner/L3待人工。以下旧数字均历史快照。
+
 ## 2026-10-25｜CAP-06-03 局部B-Rep去料计算（L3待审）
 [业务规格](docs/capabilities/CAP-06-03/README.md) · [GUI/3D](docs/capabilities/CAP-06-03/UI.md) · [10项公开来源](research/sources/CAP-06-03.json) · [10规则20正反](research/traces/CAP-06-03.json) · [合成校验](tools/check_cap0603_planning_2026_10_25.cjs) · [独立交接](docs/capabilities/CAP-06-03/independent-consumer-handoff.md)。累计详细CAP42/88、原工作包22/36、来源438条登记/55 registry（非去重）；合成内存30/30 PASS，独立Node/真实OCCT/D07/NC/机床NOT_RUN，Owner/L3待人工审查。旧进度段落仅为历史快照。
 
