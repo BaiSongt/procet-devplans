@@ -1,3 +1,6 @@
+## 2026-10-26｜R-AIKB-001 AI/知识受控能力规划正式入库（L3待审）
+[原T5-01实施与十任务](../docs/work-packages/T5-01.md) · [10份官方/组织公开来源及具体阅读深度](sources/T5-01.json) · [理论研究](topics/R-AIKB-001.md) · [10规则、20正反、10差异变异](traces/T5-01.json)。研究来源合计**595条登记/72 registry**，工作包研究追踪29项，**不是595篇去重论文**。NIST两份仅合法出版元数据与摘要，MCP/OWASP/W3C/RFC/OTel及JSON Schema为公开章节；2022 JSON Schema文档明确Internet-Draft到期。仅规划合成30/30，Node独立执行、真实LLM、Owner/消费者和产品NOT_RUN，17Owner/L3待人类。规划PASS≠产品PASS；以下均为历史状态快照。
+
 ## 2026-10-26｜R-INDEXED-32-001：3+2定位Frame及控制器证据
 [研究推导](topics/R-INDEXED-32-001.md) → [9项原始资料登记与阅读边界](sources/CAP-07-03.json) → [10条规则与20正反/10差异变异](traces/CAP-07-03.json) → [CAP-07-03规格](../docs/capabilities/CAP-07-03/README.md)。ISO841只读目录；Siemens CYCLE800仅搜索摘要，不能由此生成控制器参数；OCCT 8.0.1 API与LinuxCNC2.9具体章节已核。合计585登记/71 registry（非去重）；规划30/30合成≠产品PASS。
 

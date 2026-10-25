@@ -1,3 +1,6 @@
+## 2026-10-26｜原T5-01 AI与知识受控能力（L3待审）
+[十项实施规格](docs/work-packages/T5-01.md) · [唯一Babylon/左TaskPanel](docs/work-packages/T5-01/UI.md) · [合成工具回执](docs/work-packages/T5-01/contract.example.json) · [10来源](research/sources/T5-01.json) · [10规则20正反10差异变异](research/traces/T5-01.json) · [17资产候选](docs/work-packages/T5-01/asset-owner-candidates.json) · [独立消费者/回退](docs/work-packages/T5-01/independent-consumer-handoff.md)。当前累计**50/88 CAP、31/36原工作包、595条来源登记/72 registry（非去重论文）**。统一工具回执/证据scope、LLM Gateway、受控审批，RAG和工具输出不可信；A/B不覆盖D08，D04≠D10，D09 CL→D12 NC→D13语义→D14时序→D15验证→D16发布；未知UNKNOWN、CL动画非工程验证，不做材料扫掠仿真。合成30/30规划PASS；真实LLM/Owner、独立Node文件、消费者/NC/实机NOT_RUN，17 Owner会签与L3 PENDING。**规划PASS≠产品PASS。** 以下旧段为历史快照。
+
 ## 2026-10-26｜CAP-07-03 3+2定位加工（L3待审）
 [原编号业务与十项施工](docs/capabilities/CAP-07-03/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-03/UI.md) · [9来源及真实阅读深度](research/sources/CAP-07-03.json) · [10规则→20正反/10差异变异](research/traces/CAP-07-03.json) · [17资产Owner候选](docs/capabilities/CAP-07-03/asset-owner-candidates.json) · [独立消费者、迁移与回退](docs/capabilities/CAP-07-03/independent-consumer-handoff.md)。**累计50/88 CAP、30/36原包、585登记/71 registry（非去重论文）**。定位回转与三轴切削分离；右手Frame与变换逆检、姿态分支、禁虚构AC参数；D04 Setup≠D10执行绑定，中立CL动画≠D15工程验证，D13 UNKNOWN阻D16；规划合成30/30，Node/OCCT/真实NC/机床/独立消费者NOT_RUN，17Owner签署及L3审批PENDING。**规划PASS≠产品PASS。** 下文为历史进度快照。
 
