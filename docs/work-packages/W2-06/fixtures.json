@@ -1,0 +1,391 @@
+{
+  "schemaVersion": "procet-w206-synthetic-v1",
+  "workPackageId": "W2-06",
+  "evidence": "SYNTHETIC_ONLY_NOT_PRODUCT_TEST",
+  "baseScenario": {
+    "context": {
+      "projectId": "SYNTHETIC_PROJECT",
+      "documentId": "SYNTHETIC_DOC",
+      "branchId": "a",
+      "setupId": "SETUP_A",
+      "d01": {
+        "revision": "D01-r1",
+        "hash": "sha256:SYNTHETIC_D01"
+      },
+      "d04": {
+        "revision": "D04-r2",
+        "hash": "sha256:SYNTHETIC_D04",
+        "frame": "PART_TO_SETUP_A",
+        "unit": "mm"
+      }
+    },
+    "service": {
+      "realOwnerPorts": true,
+      "uiMock": false,
+      "childProcess": true,
+      "sandboxOnly": true,
+      "noUserDbMutation": true
+    },
+    "flow": {
+      "order": [
+        "A_SOLVE",
+        "D07_CHECK",
+        "D05_ADOPT",
+        "D08_FREEZE",
+        "B_ENRICH"
+      ],
+      "noApprovedD05AtStart": true,
+      "d06Candidates": true,
+      "d07Checked": true,
+      "adoptedViaD05Port": true,
+      "d08Frozen": true,
+      "bCompletes": true
+    },
+    "freeze": {
+      "frozenHashBefore": "sha256:SYNTHETIC_D08",
+      "frozenHashAfter": "sha256:SYNTHETIC_D08",
+      "unrelatedHashBefore": "sha256:SYNTHETIC_B",
+      "unrelatedHashAfter": "sha256:SYNTHETIC_B",
+      "scopedInvalidation": true,
+      "changeDecisionRecorded": true
+    },
+    "queries": {
+      "setupA": "SETUP_A",
+      "setupB": "SETUP_B",
+      "setupARevisionHash": "sha256:SYNTHETIC_A",
+      "setupBRevisionHash": "sha256:SYNTHETIC_B",
+      "fromOwner": true,
+      "activeGuiStateOnly": false
+    },
+    "guards": {
+      "aclNow": true,
+      "expectedHead": "rev-7",
+      "currentHead": "rev-7",
+      "expectedEpoch": 3,
+      "currentEpoch": 3,
+      "generation": 5,
+      "currentGeneration": 5,
+      "cancelled": false,
+      "lateReceipt": false
+    },
+    "recovery": {
+      "stagingSealed": true,
+      "manifestDigestMatches": true,
+      "uniqueTerminal": true,
+      "resumeState": "RECOVERED_VERIFIED",
+      "crossDbAtomicAssumed": false
+    },
+    "semantic": {
+      "d09": "NEUTRAL_CL",
+      "d11": "CL_PREVIEW",
+      "d12": "NC_BYTES",
+      "d13": "UNKNOWN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED",
+      "materialSweep": false
+    },
+    "migration": {
+      "legacyReadable": true,
+      "newRevisionIndependent": true,
+      "oldFrozenHashPreserved": true,
+      "deleteUserDb": false,
+      "rollbackToOldPort": true
+    },
+    "evidence": {
+      "headlessRunRequired": true,
+      "exitCodeRequired": true,
+      "independentConsumerPlanned": true,
+      "realProcessRun": false,
+      "consumerResult": "NOT_RUN",
+      "productResult": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "W2-06-T01",
+      "ruleId": "W206-R01",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T02",
+      "ruleId": "W206-R01",
+      "polarity": "negative",
+      "overrides": {
+        "service": {
+          "uiMock": true
+        }
+      },
+      "expected": "REJECT_UI_MOCK_AS_E2E"
+    },
+    {
+      "id": "W2-06-T03",
+      "ruleId": "W206-R02",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T04",
+      "ruleId": "W206-R02",
+      "polarity": "negative",
+      "overrides": {
+        "context": {
+          "d04": {
+            "hash": ""
+          }
+        }
+      },
+      "expected": "REJECT_MISSING_EXACT_REVISION"
+    },
+    {
+      "id": "W2-06-T05",
+      "ruleId": "W206-R03",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T06",
+      "ruleId": "W206-R03",
+      "polarity": "negative",
+      "overrides": {
+        "flow": {
+          "adoptedViaD05Port": false
+        }
+      },
+      "expected": "REJECT_DIRECT_SOLVER_FREEZE"
+    },
+    {
+      "id": "W2-06-T07",
+      "ruleId": "W206-R04",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T08",
+      "ruleId": "W206-R04",
+      "polarity": "negative",
+      "overrides": {
+        "freeze": {
+          "unrelatedHashAfter": "sha256:ALTERED"
+        }
+      },
+      "expected": "REJECT_UNRELATED_INVALIDATION"
+    },
+    {
+      "id": "W2-06-T09",
+      "ruleId": "W206-R05",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T10",
+      "ruleId": "W206-R05",
+      "polarity": "negative",
+      "overrides": {
+        "queries": {
+          "activeGuiStateOnly": true
+        }
+      },
+      "expected": "REJECT_GUI_ONLY_QUERY"
+    },
+    {
+      "id": "W2-06-T11",
+      "ruleId": "W206-R06",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T12",
+      "ruleId": "W206-R06",
+      "polarity": "negative",
+      "overrides": {
+        "guards": {
+          "lateReceipt": true
+        }
+      },
+      "expected": "REJECT_LATE_RECEIPT"
+    },
+    {
+      "id": "W2-06-T13",
+      "ruleId": "W206-R07",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T14",
+      "ruleId": "W206-R07",
+      "polarity": "negative",
+      "overrides": {
+        "recovery": {
+          "resumeState": "UNKNOWN_RECOVERY"
+        }
+      },
+      "expected": "UNKNOWN_RECOVERY"
+    },
+    {
+      "id": "W2-06-T15",
+      "ruleId": "W206-R08",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T16",
+      "ruleId": "W206-R08",
+      "polarity": "negative",
+      "overrides": {
+        "semantic": {
+          "d15": "PASS"
+        }
+      },
+      "expected": "REJECT_CL_AS_NC_PASS"
+    },
+    {
+      "id": "W2-06-T17",
+      "ruleId": "W206-R09",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T18",
+      "ruleId": "W206-R09",
+      "polarity": "negative",
+      "overrides": {
+        "migration": {
+          "deleteUserDb": true
+        }
+      },
+      "expected": "REJECT_DESTRUCTIVE_MIGRATION"
+    },
+    {
+      "id": "W2-06-T19",
+      "ruleId": "W206-R10",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-06-T20",
+      "ruleId": "W206-R10",
+      "polarity": "negative",
+      "overrides": {
+        "evidence": {
+          "consumerResult": "PASS"
+        }
+      },
+      "expected": "REJECT_SYNTHETIC_AS_PRODUCT_PASS"
+    }
+  ],
+  "mutants": [
+    {
+      "id": "W2-06-M01",
+      "ruleId": "W206-R01",
+      "overrides": {
+        "service": {
+          "realOwnerPorts": false
+        }
+      },
+      "expected": "REJECT_UI_MOCK_AS_E2E"
+    },
+    {
+      "id": "W2-06-M02",
+      "ruleId": "W206-R02",
+      "overrides": {
+        "context": {
+          "d04": {
+            "frame": ""
+          }
+        }
+      },
+      "expected": "REJECT_MISSING_EXACT_REVISION"
+    },
+    {
+      "id": "W2-06-M03",
+      "ruleId": "W206-R03",
+      "overrides": {
+        "flow": {
+          "d07Checked": false
+        }
+      },
+      "expected": "REJECT_DIRECT_SOLVER_FREEZE"
+    },
+    {
+      "id": "W2-06-M04",
+      "ruleId": "W206-R04",
+      "overrides": {
+        "freeze": {
+          "scopedInvalidation": false
+        }
+      },
+      "expected": "REJECT_UNRELATED_INVALIDATION"
+    },
+    {
+      "id": "W2-06-M05",
+      "ruleId": "W206-R05",
+      "overrides": {
+        "queries": {
+          "setupBRevisionHash": ""
+        }
+      },
+      "expected": "REJECT_GUI_ONLY_QUERY"
+    },
+    {
+      "id": "W2-06-M06",
+      "ruleId": "W206-R06",
+      "overrides": {
+        "guards": {
+          "currentHead": "r-changed"
+        }
+      },
+      "expected": "REJECT_LATE_RECEIPT"
+    },
+    {
+      "id": "W2-06-M07",
+      "ruleId": "W206-R07",
+      "overrides": {
+        "recovery": {
+          "uniqueTerminal": false
+        }
+      },
+      "expected": "UNKNOWN_RECOVERY"
+    },
+    {
+      "id": "W2-06-M08",
+      "ruleId": "W206-R08",
+      "overrides": {
+        "semantic": {
+          "d11": "NC_VERIFIED"
+        }
+      },
+      "expected": "REJECT_CL_AS_NC_PASS"
+    },
+    {
+      "id": "W2-06-M09",
+      "ruleId": "W206-R09",
+      "overrides": {
+        "migration": {
+          "rollbackToOldPort": false
+        }
+      },
+      "expected": "REJECT_DESTRUCTIVE_MIGRATION"
+    },
+    {
+      "id": "W2-06-M10",
+      "ruleId": "W206-R10",
+      "overrides": {
+        "evidence": {
+          "exitCodeRequired": false
+        }
+      },
+      "expected": "REJECT_SYNTHETIC_AS_PRODUCT_PASS"
+    }
+  ]
+}

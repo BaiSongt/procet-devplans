@@ -1,3 +1,6 @@
+## 2026-10-25｜W2-06 A/B闭环无界面验收（仅规划，L3待审）
+[原编号10项实施及真实harness要求](docs/work-packages/W2-06.md) · [单Babylon与左TaskPanel](docs/work-packages/W2-06/UI.md) · [10份官方来源](research/sources/W2-06.json) · [10规则20正反+10变异](research/traces/W2-06.json) · [独立交接](docs/work-packages/W2-06/independent-consumer-handoff.md) · [实际harness合同](docs/work-packages/W2-06/real-harness.contract.json)。详细CAP仍43/88、原工作包24/36、来源登记466条/58 registry（非去重论文）。规划合成30/30 PASS；真实独立进程/Owner存储/强杀/NC/机床和Node独立文件执行NOT_RUN，L3和17 Owner签署PENDING。历史正文为快照，当前进度以tracking/progress.json为准。规划PASS≠产品PASS。
+
 ## 2026-10-25｜CAP-06-04 有效加工域构建（仅规划，L3待审）
 [规格及集合公式](docs/capabilities/CAP-06-04/README.md) · [统一左TaskPanel/单Babylon](docs/capabilities/CAP-06-04/UI.md) · [10来源](research/sources/CAP-06-04.json) · [10规则20正反](research/traces/CAP-06-04.json) · [独立D07交接](docs/capabilities/CAP-06-04/independent-consumer-handoff.md)。当前43/88 CAP、23/36原工作包、456条登记/57 registry。合成30/30通过，真实OCCT/独立Node/D07/NC均NOT_RUN；17资产正式会签及L3 PENDING。以下旧段落为历史快照。
 

@@ -1,3 +1,6 @@
+## 2026-10-25｜R-AB-E2E-001真实无界面A/B工艺闭环
+[专题与权威资料阅读边界](topics/R-AB-E2E-001.md) · [10来源](sources/W2-06.json) · [10规则20正反+10变异](traces/W2-06.json)。合计466登记记录/58 registry（非466份论文）。ISO只公开摘要、NIST最终版只读出版摘要、OCCT仅API；跨库原子性不能臆造，真实Owner/进程/恢复/独立消费者NOT_RUN。
+
 ## 2026-10-25｜R-EFFECTIVE-DOMAIN-001 有效加工域
 [证据深度与限制](topics/R-EFFECTIVE-DOMAIN-001.md) · [10项权威来源](sources/CAP-06-04.json) · [10规则20正反合成](traces/CAP-06-04.json)。OCCT8.0.1 API与PROV/RFC公开章节已读，ISO仅合法目录、NIST仅最终版摘要；非产品认证。累计456登记记录/57 registry，Owner/L3/消费者未验证。
 
