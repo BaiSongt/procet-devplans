@@ -1,3 +1,6 @@
+## 2026-10-26｜R-INDEXED-32-001：3+2定位Frame及控制器证据
+[研究推导](topics/R-INDEXED-32-001.md) → [9项原始资料登记与阅读边界](sources/CAP-07-03.json) → [10条规则与20正反/10差异变异](traces/CAP-07-03.json) → [CAP-07-03规格](../docs/capabilities/CAP-07-03/README.md)。ISO841只读目录；Siemens CYCLE800仅搜索摘要，不能由此生成控制器参数；OCCT 8.0.1 API与LinuxCNC2.9具体章节已核。合计585登记/71 registry（非去重）；规划30/30合成≠产品PASS。
+
 ## 2026-10-26｜R-MODULE-SDK-001 受控模块贡献与注销
 [逐项理论](topics/R-MODULE-SDK-001.md) → [11项官方来源与深度](sources/U4-06.json) → [规则/字段/正反变异](traces/U4-06.json) → [原U4-06实施](../docs/work-packages/U4-06.md)。NIST仅摘要，类型/exports不构成授权，Tauri不替代Owner CAS。累计576条登记/70 registry，规划合成30/30≠产品PASS。
 

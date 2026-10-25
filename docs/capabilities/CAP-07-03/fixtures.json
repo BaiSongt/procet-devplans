@@ -1,0 +1,513 @@
+{
+  "schemaVersion": "procet-cap0703-synthetic-fixtures-v1",
+  "capabilityId": "CAP-07-03",
+  "syntheticOnly": true,
+  "notRealOcct": true,
+  "notActualMachine": true,
+  "cases": [
+    {
+      "id": "CAP-07-03-T01",
+      "ruleId": "C0703-R01",
+      "expected": "PASS",
+      "input": {
+        "revision": 8,
+        "frameHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "stockHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frozenUnchanged": true
+      },
+      "synthetic": true,
+      "scenario": "精确工程来源与冻结只读 正例"
+    },
+    {
+      "id": "CAP-07-03-T02",
+      "ruleId": "C0703-R01",
+      "expected": "REJECT",
+      "input": {
+        "revision": 8,
+        "frameHash": "stale-frame",
+        "stockHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frozenUnchanged": true
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R01",
+      "mutatedField": "frameHash",
+      "scenario": "精确工程来源与冻结只读 反例"
+    },
+    {
+      "id": "CAP-07-03-T03",
+      "ruleId": "C0703-R02",
+      "expected": "PASS",
+      "input": {
+        "toolAxisLocal": [
+          0,
+          0,
+          1
+        ],
+        "targetNormalLocal": [
+          0,
+          0,
+          1
+        ],
+        "angleToleranceDeg": 0.1,
+        "indexedMode": "INDEXED_3_PLUS_2"
+      },
+      "synthetic": true,
+      "scenario": "定位加工刀轴与目标面法向夹角 正例"
+    },
+    {
+      "id": "CAP-07-03-T04",
+      "ruleId": "C0703-R02",
+      "expected": "REJECT",
+      "input": {
+        "toolAxisLocal": [
+          0,
+          0,
+          1
+        ],
+        "targetNormalLocal": [
+          1,
+          0,
+          0
+        ],
+        "angleToleranceDeg": 0.1,
+        "indexedMode": "INDEXED_3_PLUS_2"
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R02",
+      "mutatedField": "targetNormalLocal",
+      "scenario": "定位加工刀轴与目标面法向夹角 反例"
+    },
+    {
+      "id": "CAP-07-03-T05",
+      "ruleId": "C0703-R03",
+      "expected": "PASS",
+      "input": {
+        "rotationMatrix": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "frameHandedness": "RIGHT",
+        "roundTripErrorMm": 0,
+        "frameToleranceMm": 0.001
+      },
+      "synthetic": true,
+      "scenario": "右手刚性Frame变换与逆变换 正例"
+    },
+    {
+      "id": "CAP-07-03-T06",
+      "ruleId": "C0703-R03",
+      "expected": "REJECT",
+      "input": {
+        "rotationMatrix": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "frameHandedness": "RIGHT",
+        "roundTripErrorMm": 0,
+        "frameToleranceMm": 0.001
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R03",
+      "mutatedField": "rotationMatrix",
+      "scenario": "右手刚性Frame变换与逆变换 反例"
+    },
+    {
+      "id": "CAP-07-03-T07",
+      "ruleId": "C0703-R04",
+      "expected": "PASS",
+      "input": {
+        "kinematicModelStatus": "CANDIDATE_EVALUATED",
+        "poseBranch": "SELECTED_WITH_PROVENANCE",
+        "axisLimitsCandidateOk": true,
+        "poseClaim": "GEOMETRY_ONLY_NOT_MACHINE_VERIFIED"
+      },
+      "synthetic": true,
+      "scenario": "机床姿态解与候选分支显式性 正例"
+    },
+    {
+      "id": "CAP-07-03-T08",
+      "ruleId": "C0703-R04",
+      "expected": "REJECT",
+      "input": {
+        "kinematicModelStatus": "UNKNOWN",
+        "poseBranch": "SELECTED_WITH_PROVENANCE",
+        "axisLimitsCandidateOk": true,
+        "poseClaim": "GEOMETRY_ONLY_NOT_MACHINE_VERIFIED"
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R04",
+      "mutatedField": "kinematicModelStatus",
+      "scenario": "机床姿态解与候选分支显式性 反例"
+    },
+    {
+      "id": "CAP-07-03-T09",
+      "ruleId": "C0703-R05",
+      "expected": "PASS",
+      "input": {
+        "rotaryMovesDuringCut": false,
+        "rotaryLockedForCut": true,
+        "indexChangeStage": "NONCUT_INDEX_TRANSITION"
+      },
+      "synthetic": true,
+      "scenario": "定位旋转与切削段锁止分离 正例"
+    },
+    {
+      "id": "CAP-07-03-T10",
+      "ruleId": "C0703-R05",
+      "expected": "REJECT",
+      "input": {
+        "rotaryMovesDuringCut": true,
+        "rotaryLockedForCut": true,
+        "indexChangeStage": "NONCUT_INDEX_TRANSITION"
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R05",
+      "mutatedField": "rotaryMovesDuringCut",
+      "scenario": "定位旋转与切削段锁止分离 反例"
+    },
+    {
+      "id": "CAP-07-03-T11",
+      "ruleId": "C0703-R06",
+      "expected": "PASS",
+      "input": {
+        "segmentAxisMode": "FIXED_AXIS_3D_SEGMENTS",
+        "poseRefHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "clHasMachineAxes": false,
+        "segmentGroupRecorded": true
+      },
+      "synthetic": true,
+      "scenario": "每个定位姿态对应局部定轴CL段 正例"
+    },
+    {
+      "id": "CAP-07-03-T12",
+      "ruleId": "C0703-R06",
+      "expected": "REJECT",
+      "input": {
+        "segmentAxisMode": "SIMULTANEOUS_5AXIS",
+        "poseRefHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "clHasMachineAxes": false,
+        "segmentGroupRecorded": true
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R06",
+      "mutatedField": "segmentAxisMode",
+      "scenario": "每个定位姿态对应局部定轴CL段 反例"
+    },
+    {
+      "id": "CAP-07-03-T13",
+      "ruleId": "C0703-R07",
+      "expected": "PASS",
+      "input": {
+        "retractedBeforeIndex": true,
+        "transitionPrecheckStatus": "LOCAL_GEOMETRIC_CHECKED",
+        "d15CertifiedByClPreview": false
+      },
+      "synthetic": true,
+      "scenario": "定位切换的进退刀与过渡未知状态 正例"
+    },
+    {
+      "id": "CAP-07-03-T14",
+      "ruleId": "C0703-R07",
+      "expected": "REJECT",
+      "input": {
+        "retractedBeforeIndex": false,
+        "transitionPrecheckStatus": "LOCAL_GEOMETRIC_CHECKED",
+        "d15CertifiedByClPreview": false
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R07",
+      "mutatedField": "retractedBeforeIndex",
+      "scenario": "定位切换的进退刀与过渡未知状态 反例"
+    },
+    {
+      "id": "CAP-07-03-T15",
+      "ruleId": "C0703-R08",
+      "expected": "PASS",
+      "input": {
+        "localAssemblyPrecheck": "PASS_LOCAL_ONLY",
+        "protectedZoneIntact": true,
+        "sceneProxyIsEvidence": false
+      },
+      "synthetic": true,
+      "scenario": "夹具刀柄与盲区独立局部预检 正例"
+    },
+    {
+      "id": "CAP-07-03-T16",
+      "ruleId": "C0703-R08",
+      "expected": "REJECT",
+      "input": {
+        "localAssemblyPrecheck": "UNKNOWN",
+        "protectedZoneIntact": true,
+        "sceneProxyIsEvidence": false
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R08",
+      "mutatedField": "localAssemblyPrecheck",
+      "scenario": "夹具刀柄与盲区独立局部预检 反例"
+    },
+    {
+      "id": "CAP-07-03-T17",
+      "ruleId": "C0703-R09",
+      "expected": "PASS",
+      "input": {
+        "clControllerNeutral": true,
+        "d13Unknown": true,
+        "releaseEligible": false,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "scenario": "NC语义与轴展开/发布的硬边界 正例"
+    },
+    {
+      "id": "CAP-07-03-T18",
+      "ruleId": "C0703-R09",
+      "expected": "REJECT",
+      "input": {
+        "clControllerNeutral": false,
+        "d13Unknown": true,
+        "releaseEligible": false,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R09",
+      "mutatedField": "clControllerNeutral",
+      "scenario": "NC语义与轴展开/发布的硬边界 反例"
+    },
+    {
+      "id": "CAP-07-03-T19",
+      "ruleId": "C0703-R10",
+      "expected": "PASS",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": false,
+        "rollbackNonDestructive": true
+      },
+      "synthetic": true,
+      "scenario": "Owner CAS权限、取消晚回执与非破坏回退 正例"
+    },
+    {
+      "id": "CAP-07-03-T20",
+      "ruleId": "C0703-R10",
+      "expected": "REJECT",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": false,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": false,
+        "rollbackNonDestructive": true
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0703-R10",
+      "mutatedField": "aclAllowed",
+      "scenario": "Owner CAS权限、取消晚回执与非破坏回退 反例"
+    }
+  ],
+  "mutationCases": [
+    {
+      "id": "CAP-07-03-M01",
+      "ruleId": "C0703-R01",
+      "expected": "REJECT",
+      "input": {
+        "revision": 8,
+        "frameHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "stockHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frozenUnchanged": false
+      },
+      "synthetic": true,
+      "mutatedField": "frozenUnchanged",
+      "distinctFromNegativeField": true,
+      "scenario": "精确工程来源与冻结只读 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M02",
+      "ruleId": "C0703-R02",
+      "expected": "REJECT",
+      "input": {
+        "toolAxisLocal": [
+          0,
+          0,
+          1
+        ],
+        "targetNormalLocal": [
+          0,
+          0,
+          1
+        ],
+        "angleToleranceDeg": 0.1,
+        "indexedMode": "UNKNOWN"
+      },
+      "synthetic": true,
+      "mutatedField": "indexedMode",
+      "distinctFromNegativeField": true,
+      "scenario": "定位加工刀轴与目标面法向夹角 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M03",
+      "ruleId": "C0703-R03",
+      "expected": "REJECT",
+      "input": {
+        "rotationMatrix": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "frameHandedness": "LEFT",
+        "roundTripErrorMm": 0,
+        "frameToleranceMm": 0.001
+      },
+      "synthetic": true,
+      "mutatedField": "frameHandedness",
+      "distinctFromNegativeField": true,
+      "scenario": "右手刚性Frame变换与逆变换 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M04",
+      "ruleId": "C0703-R04",
+      "expected": "REJECT",
+      "input": {
+        "kinematicModelStatus": "CANDIDATE_EVALUATED",
+        "poseBranch": "SELECTED_WITH_PROVENANCE",
+        "axisLimitsCandidateOk": false,
+        "poseClaim": "GEOMETRY_ONLY_NOT_MACHINE_VERIFIED"
+      },
+      "synthetic": true,
+      "mutatedField": "axisLimitsCandidateOk",
+      "distinctFromNegativeField": true,
+      "scenario": "机床姿态解与候选分支显式性 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M05",
+      "ruleId": "C0703-R05",
+      "expected": "REJECT",
+      "input": {
+        "rotaryMovesDuringCut": false,
+        "rotaryLockedForCut": false,
+        "indexChangeStage": "NONCUT_INDEX_TRANSITION"
+      },
+      "synthetic": true,
+      "mutatedField": "rotaryLockedForCut",
+      "distinctFromNegativeField": true,
+      "scenario": "定位旋转与切削段锁止分离 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M06",
+      "ruleId": "C0703-R06",
+      "expected": "REJECT",
+      "input": {
+        "segmentAxisMode": "FIXED_AXIS_3D_SEGMENTS",
+        "poseRefHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "clHasMachineAxes": true,
+        "segmentGroupRecorded": true
+      },
+      "synthetic": true,
+      "mutatedField": "clHasMachineAxes",
+      "distinctFromNegativeField": true,
+      "scenario": "每个定位姿态对应局部定轴CL段 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M07",
+      "ruleId": "C0703-R07",
+      "expected": "REJECT",
+      "input": {
+        "retractedBeforeIndex": true,
+        "transitionPrecheckStatus": "UNKNOWN",
+        "d15CertifiedByClPreview": false
+      },
+      "synthetic": true,
+      "mutatedField": "transitionPrecheckStatus",
+      "distinctFromNegativeField": true,
+      "scenario": "定位切换的进退刀与过渡未知状态 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M08",
+      "ruleId": "C0703-R08",
+      "expected": "REJECT",
+      "input": {
+        "localAssemblyPrecheck": "PASS_LOCAL_ONLY",
+        "protectedZoneIntact": true,
+        "sceneProxyIsEvidence": true
+      },
+      "synthetic": true,
+      "mutatedField": "sceneProxyIsEvidence",
+      "distinctFromNegativeField": true,
+      "scenario": "夹具刀柄与盲区独立局部预检 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M09",
+      "ruleId": "C0703-R09",
+      "expected": "REJECT",
+      "input": {
+        "clControllerNeutral": true,
+        "d13Unknown": true,
+        "releaseEligible": true,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "mutatedField": "releaseEligible",
+      "distinctFromNegativeField": true,
+      "scenario": "NC语义与轴展开/发布的硬边界 独立字段错误注入"
+    },
+    {
+      "id": "CAP-07-03-M10",
+      "ruleId": "C0703-R10",
+      "expected": "REJECT",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": false,
+        "rollbackNonDestructive": true
+      },
+      "synthetic": true,
+      "mutatedField": "actualHead",
+      "distinctFromNegativeField": true,
+      "scenario": "Owner CAS权限、取消晚回执与非破坏回退 独立字段错误注入"
+    }
+  ]
+}

@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-03",
+  "researchTopic": "R-INDEXED-32-001",
+  "sourceRegistry": "research/sources/CAP-07-03.json",
+  "specification": "docs/capabilities/CAP-07-03/README.md",
+  "ui": "docs/capabilities/CAP-07-03/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-03/fixtures.json",
+  "validator": "tools/check_cap0703_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "C0703-R01",
+      "capabilityId": "CAP-07-03",
+      "title": "精确工程来源与冻结只读",
+      "summary": "D01/D03/D04/D07/D08快照的真实修订/Frame/hash禁止跨Setup混用；D08冻结只读",
+      "fields": [
+        "revision",
+        "frameHash",
+        "stockHash",
+        "frozenUnchanged"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S02",
+        "SRC-C0703-S07",
+        "SRC-C0703-S08"
+      ],
+      "criteria": [
+        {
+          "path": "revision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "stockHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frozenUnchanged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T01",
+      "negativeTestId": "CAP-07-03-T02",
+      "mutationTestId": "CAP-07-03-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R02",
+      "capabilityId": "CAP-07-03",
+      "title": "定位加工刀轴与目标面法向夹角",
+      "summary": "局部工具轴与规划目标面法向方向一致，角容差由工艺要求给出而非硬编码机床值",
+      "fields": [
+        "toolAxisLocal",
+        "targetNormalLocal",
+        "angleToleranceDeg",
+        "indexedMode"
+      ],
+      "assets": [
+        "D02",
+        "D04",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S01",
+        "SRC-C0703-S02",
+        "SRC-C0703-S03"
+      ],
+      "criteria": [
+        {
+          "path": "toolAxisLocal",
+          "op": "axisAligned",
+          "other": "targetNormalLocal",
+          "toleranceField": "angleToleranceDeg"
+        },
+        {
+          "path": "indexedMode",
+          "op": "eq",
+          "value": "INDEXED_3_PLUS_2"
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T03",
+      "negativeTestId": "CAP-07-03-T04",
+      "mutationTestId": "CAP-07-03-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R03",
+      "capabilityId": "CAP-07-03",
+      "title": "右手刚性Frame变换与逆变换",
+      "summary": "07域不得把Babylon显示手系或镜像矩阵直接作为几何/机床Frame；不存储未知旋转顺序",
+      "fields": [
+        "rotationMatrix",
+        "frameHandedness",
+        "roundTripErrorMm",
+        "frameToleranceMm"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D09",
+        "D10"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S02",
+        "SRC-C0703-S03",
+        "SRC-C0703-S04"
+      ],
+      "criteria": [
+        {
+          "path": "rotationMatrix",
+          "op": "properRotation"
+        },
+        {
+          "path": "frameHandedness",
+          "op": "eq",
+          "value": "RIGHT"
+        },
+        {
+          "path": "roundTripErrorMm",
+          "op": "lteField",
+          "other": "frameToleranceMm"
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T05",
+      "negativeTestId": "CAP-07-03-T06",
+      "mutationTestId": "CAP-07-03-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R04",
+      "capabilityId": "CAP-07-03",
+      "title": "机床姿态解与候选分支显式性",
+      "summary": "候选姿态须针对D03机床构型/限位候选明确给出；无实机标定的姿态只能待验证",
+      "fields": [
+        "kinematicModelStatus",
+        "poseBranch",
+        "axisLimitsCandidateOk",
+        "poseClaim"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D14"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S01",
+        "SRC-C0703-S05"
+      ],
+      "criteria": [
+        {
+          "path": "kinematicModelStatus",
+          "op": "eq",
+          "value": "CANDIDATE_EVALUATED"
+        },
+        {
+          "path": "poseBranch",
+          "op": "eq",
+          "value": "SELECTED_WITH_PROVENANCE"
+        },
+        {
+          "path": "axisLimitsCandidateOk",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "poseClaim",
+          "op": "eq",
+          "value": "GEOMETRY_ONLY_NOT_MACHINE_VERIFIED"
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T07",
+      "negativeTestId": "CAP-07-03-T08",
+      "mutationTestId": "CAP-07-03-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R05",
+      "capabilityId": "CAP-07-03",
+      "title": "定位旋转与切削段锁止分离",
+      "summary": "定位时回转后锁止，分组内仅三轴插补；不得把回转中的CL当已认证的联动五轴",
+      "fields": [
+        "rotaryMovesDuringCut",
+        "rotaryLockedForCut",
+        "indexChangeStage"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D14"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S01",
+        "SRC-C0703-S05",
+        "SRC-C0703-S06"
+      ],
+      "criteria": [
+        {
+          "path": "rotaryMovesDuringCut",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rotaryLockedForCut",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "indexChangeStage",
+          "op": "eq",
+          "value": "NONCUT_INDEX_TRANSITION"
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T09",
+      "negativeTestId": "CAP-07-03-T10",
+      "mutationTestId": "CAP-07-03-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R06",
+      "capabilityId": "CAP-07-03",
+      "title": "每个定位姿态对应局部定轴CL段",
+      "summary": "D09按segmentGroup/indexPoseRef保留切削段与姿态来源；D09不能存成不可追溯的轴动作脚本",
+      "fields": [
+        "segmentAxisMode",
+        "poseRefHash",
+        "clHasMachineAxes",
+        "segmentGroupRecorded"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S02",
+        "SRC-C0703-S06",
+        "SRC-C0703-S07"
+      ],
+      "criteria": [
+        {
+          "path": "segmentAxisMode",
+          "op": "eq",
+          "value": "FIXED_AXIS_3D_SEGMENTS"
+        },
+        {
+          "path": "poseRefHash",
+          "op": "sha256"
+        },
+        {
+          "path": "clHasMachineAxes",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "segmentGroupRecorded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T11",
+      "negativeTestId": "CAP-07-03-T12",
+      "mutationTestId": "CAP-07-03-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R07",
+      "capabilityId": "CAP-07-03",
+      "title": "定位切换的进退刀与过渡未知状态",
+      "summary": "索引姿态变化前必须局部验证离料、退刀与危险区；无机床运动证据不得称D15 PASS",
+      "fields": [
+        "retractedBeforeIndex",
+        "transitionPrecheckStatus",
+        "d15CertifiedByClPreview"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D09",
+        "D11",
+        "D15"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S04",
+        "SRC-C0703-S05",
+        "SRC-C0703-S06"
+      ],
+      "criteria": [
+        {
+          "path": "retractedBeforeIndex",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transitionPrecheckStatus",
+          "op": "eq",
+          "value": "LOCAL_GEOMETRIC_CHECKED"
+        },
+        {
+          "path": "d15CertifiedByClPreview",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T13",
+      "negativeTestId": "CAP-07-03-T14",
+      "mutationTestId": "CAP-07-03-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R08",
+      "capabilityId": "CAP-07-03",
+      "title": "夹具刀柄与盲区独立局部预检",
+      "summary": "局部刀具/刀柄/夹具检查只影响D09候选资格；未知干涉不得由显示Scene当真值",
+      "fields": [
+        "localAssemblyPrecheck",
+        "protectedZoneIntact",
+        "sceneProxyIsEvidence"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D09",
+        "D11"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S03",
+        "SRC-C0703-S04",
+        "SRC-C0703-S07"
+      ],
+      "criteria": [
+        {
+          "path": "localAssemblyPrecheck",
+          "op": "eq",
+          "value": "PASS_LOCAL_ONLY"
+        },
+        {
+          "path": "protectedZoneIntact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sceneProxyIsEvidence",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T15",
+      "negativeTestId": "CAP-07-03-T16",
+      "mutationTestId": "CAP-07-03-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R09",
+      "capabilityId": "CAP-07-03",
+      "title": "NC语义与轴展开/发布的硬边界",
+      "summary": "D09中立CL到D12/D13/D14/D15/D16逐级，不得因CL动画或G10偏置假设提前发布",
+      "fields": [
+        "clControllerNeutral",
+        "d13Unknown",
+        "releaseEligible",
+        "materialSweepSimulated"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S05",
+        "SRC-C0703-S06",
+        "SRC-C0703-S09"
+      ],
+      "criteria": [
+        {
+          "path": "clControllerNeutral",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "d13Unknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "releaseEligible",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "materialSweepSimulated",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T17",
+      "negativeTestId": "CAP-07-03-T18",
+      "mutationTestId": "CAP-07-03-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0703-R10",
+      "capabilityId": "CAP-07-03",
+      "title": "Owner CAS权限、取消晚回执与非破坏回退",
+      "summary": "07域Owner提交新D09时重验revision/ACL/代次，其他Owner只读；失败保留旧D08/D09与用户数据",
+      "fields": [
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "taskGeneration",
+        "receiptGeneration",
+        "cancelled",
+        "rollbackNonDestructive"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0703-S07",
+        "SRC-C0703-S08",
+        "SRC-C0703-S09"
+      ],
+      "criteria": [
+        {
+          "path": "expectedHead",
+          "op": "eqField",
+          "other": "actualHead"
+        },
+        {
+          "path": "aclAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taskGeneration",
+          "op": "eqField",
+          "other": "receiptGeneration"
+        },
+        {
+          "path": "cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rollbackNonDestructive",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-03-T19",
+      "negativeTestId": "CAP-07-03-T20",
+      "mutationTestId": "CAP-07-03-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "approval": "L3_PENDING_HUMAN",
+  "note": "9来源→10规则→字段/17资产候选→20正反+10差异变异为合成规划验证；无真实产品/OCCT/控制器测试"
+}

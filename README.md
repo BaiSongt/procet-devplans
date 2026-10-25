@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-07-03 3+2定位加工（L3待审）
+[原编号业务与十项施工](docs/capabilities/CAP-07-03/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-03/UI.md) · [9来源及真实阅读深度](research/sources/CAP-07-03.json) · [10规则→20正反/10差异变异](research/traces/CAP-07-03.json) · [17资产Owner候选](docs/capabilities/CAP-07-03/asset-owner-candidates.json) · [独立消费者、迁移与回退](docs/capabilities/CAP-07-03/independent-consumer-handoff.md)。**累计50/88 CAP、30/36原包、585登记/71 registry（非去重论文）**。定位回转与三轴切削分离；右手Frame与变换逆检、姿态分支、禁虚构AC参数；D04 Setup≠D10执行绑定，中立CL动画≠D15工程验证，D13 UNKNOWN阻D16；规划合成30/30，Node/OCCT/真实NC/机床/独立消费者NOT_RUN，17Owner签署及L3审批PENDING。**规划PASS≠产品PASS。** 下文为历史进度快照。
+
 ## 2026-10-26｜原U4-06 模块SDK与贡献验收（L3待审）
 [原十项实施](docs/work-packages/U4-06.md) · [单Scene/左TaskPanel](docs/work-packages/U4-06/UI.md) · [合成Manifest](docs/work-packages/U4-06/contract.example.json) · [11合法来源](research/sources/U4-06.json) · [10规则/20正反/10变异](research/traces/U4-06.json) · [独立消费者](docs/work-packages/U4-06/independent-consumer-handoff.md)。累计**49/88 CAP、30/36原编号工作包、576条来源登记/70 registry**（非去重文献）；仅规划合成30/30，Node独立文件、真实Tauri、Owner、产品及独立消费者NOT_RUN，17Owner正式会签/L3审批PENDING。规划PASS≠产品PASS。以下为历史快照。
 
