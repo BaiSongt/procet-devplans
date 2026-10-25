@@ -1,0 +1,641 @@
+{
+  "schemaVersion": "procet-cap-06-06-fixtures-v1",
+  "capabilityId": "CAP-06-06",
+  "syntheticOnly": true,
+  "notOcctExecution": true,
+  "cases": [
+    {
+      "id": "CAP-06-06-T01",
+      "ruleId": "C0606-R01",
+      "input": {
+        "exact": {
+          "project": "SYN",
+          "setup": "S1",
+          "revision": 7,
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "scope": "SYN/A/S1",
+          "owner": "06"
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T02",
+      "ruleId": "C0606-R01",
+      "input": {
+        "exact": {
+          "project": "SYN",
+          "setup": "S1",
+          "revision": 0,
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "scope": "SYN/A/S1",
+          "owner": "06"
+        }
+      },
+      "expected": "REJECT_EXACT_SCOPE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T03",
+      "ruleId": "C0606-R02",
+      "input": {
+        "budget": {
+          "beamWidth": 4,
+          "maxBooleanCalls": 60,
+          "maxExpansions": 100,
+          "maxWallMs": 120000,
+          "maxBytes": 64000000,
+          "workers": 2
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T04",
+      "ruleId": "C0606-R02",
+      "input": {
+        "budget": {
+          "beamWidth": 4,
+          "maxBooleanCalls": 0,
+          "maxExpansions": 100,
+          "maxWallMs": 120000,
+          "maxBytes": 64000000,
+          "workers": 2
+        }
+      },
+      "expected": "REJECT_UNBOUNDED_BUDGET",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T05",
+      "ruleId": "C0606-R03",
+      "input": {
+        "ledger": {
+          "limit": 50,
+          "used": 20,
+          "inflight": [
+            {
+              "token": "T1",
+              "cost": 10
+            },
+            {
+              "token": "T2",
+              "cost": 15
+            }
+          ],
+          "atomicReservation": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T06",
+      "ruleId": "C0606-R03",
+      "input": {
+        "ledger": {
+          "limit": 50,
+          "used": 20,
+          "inflight": [
+            {
+              "token": "T1",
+              "cost": 10
+            },
+            {
+              "token": "T2",
+              "cost": 25
+            }
+          ],
+          "atomicReservation": true
+        }
+      },
+      "expected": "REJECT_BUDGET_LEDGER",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T07",
+      "ruleId": "C0606-R04",
+      "input": {
+        "frontier": {
+          "seed": 42,
+          "tiePolicy": "score_cost_uid",
+          "workerOrderIndependent": true,
+          "snapshotHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "items": [
+            {
+              "key": "0001:A",
+              "uid": "A"
+            },
+            {
+              "key": "0002:B",
+              "uid": "B"
+            }
+          ]
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T08",
+      "ruleId": "C0606-R04",
+      "input": {
+        "frontier": {
+          "seed": 42,
+          "tiePolicy": "score_cost_uid",
+          "workerOrderIndependent": true,
+          "snapshotHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "items": [
+            {
+              "key": "0002:B",
+              "uid": "B"
+            },
+            {
+              "key": "0001:A",
+              "uid": "A"
+            }
+          ]
+        }
+      },
+      "expected": "REJECT_UNSTABLE_FRONTIER",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T09",
+      "ruleId": "C0606-R05",
+      "input": {
+        "dominance": {
+          "claimPrune": true,
+          "a": {
+            "stockBytesHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "protectionHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "remainingHash": "r7",
+            "frameHash": "F1",
+            "toleranceHash": "t5",
+            "scope": "SYN/A/S1",
+            "cost": 9
+          },
+          "b": {
+            "stockBytesHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "protectionHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "remainingHash": "r7",
+            "frameHash": "F1",
+            "toleranceHash": "t5",
+            "scope": "SYN/A/S1",
+            "cost": 10
+          }
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T10",
+      "ruleId": "C0606-R05",
+      "input": {
+        "dominance": {
+          "claimPrune": true,
+          "a": {
+            "stockBytesHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "protectionHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "remainingHash": "r7",
+            "frameHash": "F1",
+            "toleranceHash": "t5",
+            "scope": "SYN/A/S1",
+            "cost": 9
+          },
+          "b": {
+            "stockBytesHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "protectionHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "remainingHash": "r7",
+            "frameHash": "F1",
+            "toleranceHash": "t5",
+            "scope": "SYN/A/S1",
+            "cost": 10
+          }
+        }
+      },
+      "expected": "REJECT_UNSAFE_DOMINANCE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T11",
+      "ruleId": "C0606-R06",
+      "input": {
+        "fork": {
+          "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "parentPreserved": true,
+          "d08Before": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "d08After": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "children": [
+            {
+              "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+              "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T12",
+      "ruleId": "C0606-R06",
+      "input": {
+        "fork": {
+          "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "parentPreserved": true,
+          "d08Before": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "d08After": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "children": [
+            {
+              "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+              "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        }
+      },
+      "expected": "REJECT_FROZEN_FORK",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T13",
+      "ruleId": "C0606-R07",
+      "input": {
+        "cancel": {
+          "cancelled": true,
+          "cancelGeneration": 10,
+          "receiptGeneration": 9,
+          "receiptDisposition": "IGNORED_NO_COMMIT",
+          "newOwnerRevision": null
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T14",
+      "ruleId": "C0606-R07",
+      "input": {
+        "cancel": {
+          "cancelled": true,
+          "cancelGeneration": 10,
+          "receiptGeneration": 9,
+          "receiptDisposition": "COMMITTED",
+          "newOwnerRevision": null
+        }
+      },
+      "expected": "REJECT_LATE_RECEIPT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T15",
+      "ruleId": "C0606-R08",
+      "input": {
+        "replay": {
+          "schema": "frontier-v1",
+          "algorithmVersion": "solver-planning-v0.8",
+          "configHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "scopeHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "inputHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "persistedHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "observedHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "seal": "SEALED",
+          "missingWorkerOutputs": "QUARANTINED"
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T16",
+      "ruleId": "C0606-R08",
+      "input": {
+        "replay": {
+          "schema": "frontier-v1",
+          "algorithmVersion": "solver-planning-v0.8",
+          "configHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "scopeHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "inputHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "persistedHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "observedHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "seal": "SEALED",
+          "missingWorkerOutputs": "QUARANTINED"
+        }
+      },
+      "expected": "REJECT_UNTRUSTED_CHECKPOINT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T17",
+      "ruleId": "C0606-R09",
+      "input": {
+        "commit": {
+          "port": "06.SolverCandidatePort",
+          "expectedHead": "r8",
+          "observedHead": "r8",
+          "aclEpoch": 3,
+          "observedAclEpoch": 3,
+          "taskGeneration": 5,
+          "observedTaskGeneration": 5,
+          "cancelled": false,
+          "idempotencyKey": "SYN-1",
+          "uniqueTerminal": true,
+          "receipt": "COMMITTED"
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T18",
+      "ruleId": "C0606-R09",
+      "input": {
+        "commit": {
+          "port": "06.SolverCandidatePort",
+          "expectedHead": "r8",
+          "observedHead": "r9",
+          "aclEpoch": 3,
+          "observedAclEpoch": 3,
+          "taskGeneration": 5,
+          "observedTaskGeneration": 5,
+          "cancelled": false,
+          "idempotencyKey": "SYN-1",
+          "uniqueTerminal": true,
+          "receipt": "COMMITTED"
+        }
+      },
+      "expected": "REJECT_OWNER_COMMIT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T19",
+      "ruleId": "C0606-R10",
+      "input": {
+        "qualification": {
+          "status": "BUDGET_EXHAUSTED_UNKNOWN",
+          "d07": "REQUIRED_NOT_RUN",
+          "d05": "NOT_APPROVED",
+          "d08FrozenUnchanged": true,
+          "d13": "UNKNOWN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED",
+          "clPreviewAsNcProof": false,
+          "materialSweepSimulated": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-T20",
+      "ruleId": "C0606-R10",
+      "input": {
+        "qualification": {
+          "status": "BUDGET_EXHAUSTED_UNKNOWN",
+          "d07": "REQUIRED_NOT_RUN",
+          "d05": "NOT_APPROVED",
+          "d08FrozenUnchanged": true,
+          "d13": "UNKNOWN",
+          "d15": "NOT_RUN",
+          "d16": "PASS",
+          "clPreviewAsNcProof": false,
+          "materialSweepSimulated": false
+        }
+      },
+      "expected": "REJECT_FALSE_QUALIFICATION",
+      "synthetic": true
+    }
+  ],
+  "mutationCases": [
+    {
+      "id": "CAP-06-06-M01",
+      "ruleId": "C0606-R01",
+      "mutatedField": "exact.project",
+      "input": {
+        "exact": {
+          "project": "SYN",
+          "setup": "S1",
+          "revision": 7,
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frameHash": "missing",
+          "scope": "SYN/A/S1",
+          "owner": "06"
+        }
+      },
+      "expected": "REJECT_EXACT_SCOPE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M02",
+      "ruleId": "C0606-R02",
+      "mutatedField": "budget.beamWidth",
+      "input": {
+        "budget": {
+          "beamWidth": 4,
+          "maxBooleanCalls": 60,
+          "maxExpansions": 100,
+          "maxWallMs": 120000,
+          "maxBytes": -1,
+          "workers": 2
+        }
+      },
+      "expected": "REJECT_UNBOUNDED_BUDGET",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M03",
+      "ruleId": "C0606-R03",
+      "mutatedField": "ledger.limit",
+      "input": {
+        "ledger": {
+          "limit": 50,
+          "used": 20,
+          "inflight": [
+            {
+              "token": "T1",
+              "cost": 10
+            },
+            {
+              "token": "T1",
+              "cost": 15
+            }
+          ],
+          "atomicReservation": true
+        }
+      },
+      "expected": "REJECT_BUDGET_LEDGER",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M04",
+      "ruleId": "C0606-R04",
+      "mutatedField": "frontier.seed",
+      "input": {
+        "frontier": {
+          "seed": null,
+          "tiePolicy": "score_cost_uid",
+          "workerOrderIndependent": true,
+          "snapshotHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "items": [
+            {
+              "key": "0001:A",
+              "uid": "A"
+            },
+            {
+              "key": "0002:B",
+              "uid": "B"
+            }
+          ]
+        }
+      },
+      "expected": "REJECT_UNSTABLE_FRONTIER",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M05",
+      "ruleId": "C0606-R05",
+      "mutatedField": "dominance.a.stockBytesHash",
+      "input": {
+        "dominance": {
+          "claimPrune": true,
+          "a": {
+            "stockBytesHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "protectionHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "remainingHash": "r7",
+            "frameHash": "F1",
+            "toleranceHash": "t5",
+            "scope": "SYN/A/S1",
+            "cost": 11
+          },
+          "b": {
+            "stockBytesHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "protectionHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "remainingHash": "r7",
+            "frameHash": "F1",
+            "toleranceHash": "t5",
+            "scope": "SYN/A/S1",
+            "cost": 10
+          }
+        }
+      },
+      "expected": "REJECT_UNSAFE_DOMINANCE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M06",
+      "ruleId": "C0606-R06",
+      "mutatedField": "fork.parentHash",
+      "input": {
+        "fork": {
+          "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "parentPreserved": false,
+          "d08Before": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "d08After": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "children": [
+            {
+              "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            {
+              "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "parentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+          ]
+        }
+      },
+      "expected": "REJECT_FROZEN_FORK",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M07",
+      "ruleId": "C0606-R07",
+      "mutatedField": "cancel.cancelGeneration",
+      "input": {
+        "cancel": {
+          "cancelled": true,
+          "cancelGeneration": 10,
+          "receiptGeneration": 10,
+          "receiptDisposition": "IGNORED_NO_COMMIT",
+          "newOwnerRevision": null
+        }
+      },
+      "expected": "REJECT_LATE_RECEIPT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M08",
+      "ruleId": "C0606-R08",
+      "mutatedField": "replay.schema",
+      "input": {
+        "replay": {
+          "schema": "frontier-v1",
+          "algorithmVersion": "solver-planning-v0.8",
+          "configHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "scopeHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "inputHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "persistedHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "observedHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "seal": "SEALED",
+          "missingWorkerOutputs": "ASSUMED_SUCCESS"
+        }
+      },
+      "expected": "REJECT_UNTRUSTED_CHECKPOINT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M09",
+      "ruleId": "C0606-R09",
+      "mutatedField": "commit.port",
+      "input": {
+        "commit": {
+          "port": "06.SolverCandidatePort",
+          "expectedHead": "r8",
+          "observedHead": "r8",
+          "aclEpoch": 3,
+          "observedAclEpoch": 4,
+          "taskGeneration": 5,
+          "observedTaskGeneration": 5,
+          "cancelled": false,
+          "idempotencyKey": "SYN-1",
+          "uniqueTerminal": true,
+          "receipt": "COMMITTED"
+        }
+      },
+      "expected": "REJECT_OWNER_COMMIT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-06-M10",
+      "ruleId": "C0606-R10",
+      "mutatedField": "qualification.status",
+      "input": {
+        "qualification": {
+          "status": "BUDGET_EXHAUSTED_UNKNOWN",
+          "d07": "REQUIRED_NOT_RUN",
+          "d05": "NOT_APPROVED",
+          "d08FrozenUnchanged": true,
+          "d13": "UNKNOWN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED",
+          "clPreviewAsNcProof": true,
+          "materialSweepSimulated": false
+        }
+      },
+      "expected": "REJECT_FALSE_QUALIFICATION",
+      "synthetic": true
+    }
+  ]
+}

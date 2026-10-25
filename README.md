@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-06-06 有界多路径预算与并行（L3待审）
+[规划规格](docs/capabilities/CAP-06-06/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-06-06/UI.md) · [9项权威来源](research/sources/CAP-06-06.json) · [10规则20正反+10变异](research/traces/CAP-06-06.json) · [独立消费者](docs/capabilities/CAP-06-06/independent-consumer-handoff.md)。累计**45/88 CAP、25/36原包、494条来源登记/61 registry**；仅规划合成30/30，真实OCCT/NC/产品/Node独立文件执行NOT_RUN；17 Owner正式会签及L3待人类，规划PASS≠产品PASS。以下旧段均为历史快照。
+
 ## 2026-10-25｜原U4-01 WorkContext作用域及正交导航（L3待审）
 [原编号10项实施](docs/work-packages/U4-01.md) · [单Babylon/统一左TaskPanel](docs/work-packages/U4-01/UI.md) · [状态机](docs/work-packages/U4-01/navigation-state-machine.json) · [9项合法来源](research/sources/U4-01.json) · [10规则20正反](research/traces/U4-01.json) · [独立消费者](docs/work-packages/U4-01/independent-consumer-handoff.md)。累计**44/88 CAP、25/36原包、485条来源/60 registry**（非去重论文）。独立Node、真实GUI/Owner、GPU、消费者与NC均NOT_RUN；17Owner签署及L3待人工。30/30仅规划内存合成，规划PASS≠产品PASS。下方数字为历史快照。
 

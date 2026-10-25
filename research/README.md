@@ -1,3 +1,6 @@
+## 2026-10-25｜R-MULTIPATH-BUDGET-001 多路径预算/并行/恢复/安全支配
+[研究推导](topics/R-MULTIPATH-BUDGET-001.md) · [9项来源与实际阅读范围](sources/CAP-06-06.json) · [10规则20正反+10变异](traces/CAP-06-06.json)。OR-Tools官方限制/状态不等于Procet Beam完备性；OCCT8.0.1仅API，不等于线程安全与重复稳定；NIST8536只读摘要。累计494来源记录/61 registry，产品/真实消费者NOT_RUN。
+
 ## 2026-10-25｜R-WORKCTX-001 WorkContext作用域/导航/键盘交互
 [专题](topics/R-WORKCTX-001.md) · [9项官方来源/阅读局限](sources/U4-01.json) · [10规则20正反及10变异](traces/U4-01.json)。WCAG2.2按2024-12-12推荐版正文、APG键盘指导、WHATWG HTML/DOM、Vue Router守卫、BabylonJS多Scene文档、RFC9110及PROV-O的公开章节登记；单Scene是Procet架构决策，不是厂商要求。累计485登记/60 registry，真实GUI/Owner NOT_RUN。
 
