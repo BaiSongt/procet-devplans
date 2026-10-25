@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 51,
-    "detailPendingCount": 37,
+    "detailDraftedCount": 52,
+    "detailPendingCount": 36,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -617,6 +617,21 @@
         "syntheticMutations": 10,
         "designApproval": "pending_human_review",
         "productAcceptance": "not_run"
+      },
+      {
+        "id": "CAP-07-05",
+        "path": "docs/capabilities/CAP-07-05/README.md",
+        "uiPath": "docs/capabilities/CAP-07-05/UI.md",
+        "contractPath": "docs/capabilities/CAP-07-05/contract.example.json",
+        "researchTopic": "R-STAGE-MACHINING-001",
+        "tracePath": "research/traces/CAP-07-05.json",
+        "sourceRegistry": "research/sources/CAP-07-05.json",
+        "fixturePath": "docs/capabilities/CAP-07-05/fixtures.json",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20,
+        "syntheticMutations": 10,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run"
       }
     ]
   },
@@ -1058,8 +1073,8 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 615,
-    "registeredSourceCountMeaning": "604条来源登记/73 registry（非去重论文）",
+    "registeredSources": 624,
+    "registeredSourceCountMeaning": "624条来源登记/75 registry（非去重文献）",
     "legacyRegistryRecords": 61,
     "additionalRegistries": [
       "research/sources/F1-03.json",
@@ -1134,9 +1149,10 @@
       "research/sources/CAP-07-03.json",
       "research/sources/T5-01.json",
       "research/sources/CAP-07-04.json",
-      "research/sources/T5-02.json"
+      "research/sources/T5-02.json",
+      "research/sources/CAP-07-05.json"
     ],
-    "capabilityTraceCompiledCount": 51,
+    "capabilityTraceCompiledCount": 52,
     "workPackageTraceCompiledCount": 30,
     "topics": [
       {
@@ -2128,6 +2144,23 @@
           "11"
         ],
         "necessaryEngineeringEvidence": "synthetic_only_real_2d_ocr_owner_consumers_NOT_RUN"
+      },
+      {
+        "id": "R-STAGE-MACHINING-001",
+        "path": "research/topics/R-STAGE-MACHINING-001.md",
+        "status": "drafted_pending_review",
+        "primaryCapability": "CAP-07-05",
+        "relatedDomains": [
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09"
+        ],
+        "necessaryEngineeringEvidence": "source_register_and_synthetic_trace_only_product_not_run"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -2159,12 +2192,12 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-07-05",
-    "name": "粗半精精策略族",
+    "capabilityId": "CAP-07-06",
+    "name": "进退刀与链接",
     "parallelWorkPackageId": "T5-03",
     "parallelWorkPackageName": "跨仓发布列车与兼容窗口",
-    "priority": "CAP-07-05后T5-03；同步17资产Owner及11域研究",
-    "remainingCAP": 37,
+    "priority": "T5-03后CAP-07-06；避免连续只写07域，推进接口与11域研究",
+    "remainingCAP": 36,
     "remainingOriginalWorkPackages": 4,
     "parallelPlanningBacklog": [
       "17资产跨域会签",
@@ -2174,7 +2207,7 @@
     ]
   },
   "checks": {
-    "record": "tracking/verification-T5-02-2026-10-26.json",
+    "record": "tracking/verification-CAP-07-05-2026-10-26.json",
     "status": "IN_MEMORY_SYNTHETIC_30_OF_30_PASS_PRODUCT_NOT_RUN",
     "productTests": "NOT_RUN",
     "independentNodeFileExecution": "NOT_RUN",
@@ -2184,13 +2217,13 @@
     "l3Approval": "PENDING_HUMAN"
   },
   "lastPlanningItem": {
-    "id": "T5-02",
+    "id": "CAP-07-05",
     "date": "2026-10-26",
     "status": "planning_compiled_pending_human_review",
     "designRuleCount": 10,
     "acceptanceSpecifications": 20,
     "syntheticMutations": 10,
-    "verification": "in_memory_30_of_30_PASS",
+    "verification": "V8_in_memory_30_of_30_PASS",
     "product": "NOT_RUN",
     "consumer": "NOT_RUN"
   },
@@ -2201,5 +2234,5 @@
     "remainingFilesStatus": "tracking/pending-source-gaps-2026-10-19.json"
   },
   "stopConditionMet": false,
-  "notes": "T5-01受控AI工具回执、来源精确scope/hash、RAG不可信、共享LLM版本及ACL/CAS/取消晚回执；10权威来源/10规则20正反10差异变异，仅规划合成30/30，产品/独立消费者NOT_RUN。"
+  "notes": "CAP-07-05粗半精精10规则、阶段有序D07前后状态、径向/轴向余量及质量目标；9合法来源、30合成正反及差异变异，真实产品/消费者NOT_RUN，L3/Owner待签。"
 }

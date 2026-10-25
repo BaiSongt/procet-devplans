@@ -1,3 +1,6 @@
+## 2026-10-26｜R-STAGE-MACHINING-001 粗半精精阶段有序材料与余量
+[理论与适用限制](topics/R-STAGE-MACHINING-001.md) · [9来源及访问层级](sources/CAP-07-05.json) · [10规则+30合成场景](traces/CAP-07-05.json) · [CAP规格](../docs/capabilities/CAP-07-05/README.md)。ISO仅目录摘要；NIST2023仅出版摘要；OCCT8.0.1为API；Autodesk示例非通用数值标准。共624条来源登记/75 registry，非去重。V8合成30/30，产品与独立消费者NOT_RUN。
+
 ## 2026-10-26｜R-2D-DOC-EVIDENCE-001
 [推导与限制](topics/R-2D-DOC-EVIDENCE-001.md) · [11份公开合法资料及阅读深度](sources/T5-02.json) · [10规则及字段/正反/变异](traces/T5-02.json) · [原T5-02实施规划](../docs/work-packages/T5-02.md)。ISO32000-2只读目录、PDF Association只读索引、NISTIR7796只读摘要；OCR不等于权威PMI。累计615来源登记/74 registry非去重；仅合成规划PASS，实际消费者及产品NOT_RUN。
 

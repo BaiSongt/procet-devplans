@@ -1,3 +1,6 @@
+## 2026-10-26｜[CAP-07-05 粗半精精策略族](CAP-07-05/README.md) · [GUI/3D](CAP-07-05/UI.md) · [10规则30正反变异](CAP-07-05/fixtures.json)
+阶段有序D07材料谱系、独立径向/轴向余量与质量目标；详细**52/88**、原编号包**32/36**，仅规划合成PASS、产品NOT_RUN，L3及17Owner待评审。下文为历史快照。
+
 ## 2026-10-25｜[CAP-05-08 规划校核与交接](CAP-05-08/README.md) · [GUI/3D](CAP-05-08/UI.md) · [10规则20合成正反](CAP-05-08/fixtures.json)
 九维度交接门禁、D09独立消费者、17资产候选Owner；详细CAP39/88（仍待L3），真实产品NOT_RUN。下文历史快照以tracking/progress.json为准。
 
