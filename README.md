@@ -1,3 +1,6 @@
+## 2026-10-25｜原U4-02 TaskContribution与EditSession（L3待审）
+[实施十子任务](docs/work-packages/U4-02.md) · [单Scene/左TaskPanel](docs/work-packages/U4-02/UI.md) · [8公开来源](research/sources/U4-02.json) · [10规则/20正反/10变异](research/traces/U4-02.json) · [独立消费者](docs/work-packages/U4-02/independent-consumer-handoff.md)。累计**45/88详细CAP、26/36原编号包、502来源登记/62 registry**。V8等价合成30/30不代表Node独立执行或产品PASS，17资产会签/L3/真实GUI与Owner均待办。以下数字是历史快照。
+
 ## 2026-10-25｜CAP-06-06 有界多路径预算与并行（L3待审）
 [规划规格](docs/capabilities/CAP-06-06/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-06-06/UI.md) · [9项权威来源](research/sources/CAP-06-06.json) · [10规则20正反+10变异](research/traces/CAP-06-06.json) · [独立消费者](docs/capabilities/CAP-06-06/independent-consumer-handoff.md)。累计**45/88 CAP、25/36原包、494条来源登记/61 registry**；仅规划合成30/30，真实OCCT/NC/产品/Node独立文件执行NOT_RUN；17 Owner正式会签及L3待人类，规划PASS≠产品PASS。以下旧段均为历史快照。
 
