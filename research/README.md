@@ -1,3 +1,6 @@
+## 2026-10-25｜R-ORACLE-CONVERGENCE-001独立验证
+[专题](topics/R-ORACLE-CONVERGENCE-001.md) · [10合法来源](sources/CAP-06-07.json) · [规则及正反](traces/CAP-06-07.json)。512条登记/63 registry；ISO只读目录、NIST只读摘要；真实Oracle/校准与产品NOT_RUN。
+
 ## 2026-10-25｜R-TASK-EDIT-001任务贡献、脏草稿与回执
 [专题](topics/R-TASK-EDIT-001.md) · [8份官方来源](sources/U4-02.json) · [10规则20正反+10变异](traces/U4-02.json)。W3C/Vue/WHATWG/RFC只能支持交互、取消与条件提交设计，不直接保证制造业务Owner事实。合计502来源登记/62 registry，实际Owner/GUI NOT_RUN。
 
