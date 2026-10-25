@@ -1,3 +1,6 @@
+## 2026-10-25｜R-UI-QA-001：原U4-05回归证据
+[研究专题](topics/R-UI-QA-001.md) → [9条合法公开来源及读取限制](sources/U4-05.json) → [10条规则与30个规划合成场景](traces/U4-05.json) → [原编号实施](../docs/work-packages/U4-05.md)。当前累计**555登记条/68 registry**；不代表去重论文或实际WCAG/GPU通过。以下为历史研究快照。
+
 ## 2026-10-25｜R-25D-TOOLPATH-001（2.5D中立CL）
 [专题与推导](topics/R-25D-TOOLPATH-001.md) · [8份官网/标准目录与阅读局限](sources/CAP-07-01.json) · [字段→10规则→20正反+10变异](traces/CAP-07-01.json)。ISO14649-11仅合法目录、NIST IR5416仅出版著录、OCCT 8.0.1为API、LinuxCNC2.9不能推广实机；546条来源登记/67 registry非去重论文。仅规划合成验证；真实产品/消费者NOT_RUN。
 

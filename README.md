@@ -1,3 +1,6 @@
+## 2026-10-25｜原U4-05交互/渲染/可访问性回归（仅规划、L3待审）
+[原编号10实施任务](docs/work-packages/U4-05.md) · [单Babylon/左TaskPanel与键盘DPI](docs/work-packages/U4-05/UI.md) · [GPU/Heap测试协议](docs/work-packages/U4-05/performance-protocol.md) · [9份公开来源](research/sources/U4-05.json) · [10规则/20正反/10变异](research/traces/U4-05.json) · [独立消费者](docs/work-packages/U4-05/independent-consumer-handoff.md)。累计**48/88 CAP、29/36原编号工作包、555来源登记/68 registry**；仅30/30内存规划合成，真实WCAG/DPI/GPU/Node独立文件执行/Owner消费者NOT_RUN，17Owner正式会签及L3待审。12px上限不豁免对比度与可点击目标；**规划PASS≠产品PASS**。以下为历史快照。
+
 ## 2026-10-25｜CAP-07-01 2.5D特征刀路（L3待审）
 [平面/轮廓/型腔/孔槽、10施工规则](docs/capabilities/CAP-07-01/README.md) · [单Scene/左TaskPanel](docs/capabilities/CAP-07-01/UI.md) · [8来源及实际深度](research/sources/CAP-07-01.json) · [10规则20正反10变异](research/traces/CAP-07-01.json) · [独立消费者](docs/capabilities/CAP-07-01/independent-consumer-handoff.md)。累计**48/88 CAP、28/36原编号包、546来源登记/67 registry**，本轮仅30/30**内存规划合成**；独立Node文件执行、OCCT/后处理/控制器/机床/消费者均NOT_RUN，L3与17Owner正式会签PENDING。**规划PASS≠产品PASS。** 以下为历史快照。
 
