@@ -1,3 +1,6 @@
+## 2026-10-25｜R-JOINT-SEARCH-001 工序与几何联合搜索
+[研究适用边界](topics/R-JOINT-SEARCH-001.md) · [10份公开登记](sources/CAP-06-02.json) · [10规则20正反](traces/CAP-06-02.json)。超预算UNKNOWN、支配无证据不可删候选；ISO仅目录、2019论文仅摘要、NIST2026最终版仅官方摘要，OCCT8.0.1为API参考。累计420/53登记，真实产品与独立消费者NOT_RUN。
+
 ## 2026-10-25｜R-DEPENDENCY-INVALIDATION-001版本化资产图与最小失效
 [专题](topics/R-DEPENDENCY-INVALIDATION-001.md) · [9来源](sources/W2-03.json) · [10规则20正反](traces/W2-03.json)。版本实例DAG与可有反馈的业务类型图严格分离；NC编辑限定相关执行链、UI主题不污染制造资产、资源可用状态与内容完整性区分。NIST IR8536已采用2026-09最终版的官网摘要，正文未读；来源登记410/52，产品/消费者NOT_RUN。
 

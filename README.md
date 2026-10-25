@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-06-02工序与几何联合搜索（L3待审，仅规划）
+[业务规格](docs/capabilities/CAP-06-02/README.md) · [GUI/3D](docs/capabilities/CAP-06-02/UI.md) · [10公开来源](research/sources/CAP-06-02.json) · [10规则/20正反](research/traces/CAP-06-02.json) · [独立消费者](docs/capabilities/CAP-06-02/independent-consumer-handoff.md)。累计详细CAP41/88、原包21/36、来源登记420条/53 registry；规划合成30/30 PASS，产品/消费者/Owner/L3 NOT_RUN/PENDING。历史数字见tracking/progress.json。
+
 ## 2026-10-25｜原W2-03版本化依赖图与局部失效（仅规划）
 [10项原编号实施子任务](docs/work-packages/W2-03.md) · [单Babylon/左TaskPanel](docs/work-packages/W2-03/UI.md) · [9公开来源含2026年NIST最终版](research/sources/W2-03.json) · [10规则20正反](research/traces/W2-03.json) · [独立消费者](docs/work-packages/W2-03/independent-consumer-handoff.md)。规划进度CAP40/88、原包21/36、研究来源410条登记/52 registry；内存合成30/30 PASS，独立Node文件/真实产品/Owner/L3均NOT_RUN/PENDING。历史快照以progress为准。
 
