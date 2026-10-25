@@ -1,3 +1,6 @@
+## 2026-10-25｜原U4-04来源/失效/执行诊断联动（L3待审）
+[原10项实施](docs/work-packages/U4-04.md) · [单Babylon/左TaskPanel](docs/work-packages/U4-04/UI.md) · [9条已核来源与深度](research/sources/U4-04.json) · [10规则/20正反/10变异](research/traces/U4-04.json) · [独立消费者](docs/work-packages/U4-04/independent-consumer-handoff.md)。累计**47/88详细CAP、28/36原工作包、538条来源登记/66 registry**。仅规划合成30/30，NC/Owner/独立Node/GUI/机床NOT_RUN，17资产正式会签与L3待审。下方历史进度为快照。**规划PASS≠产品PASS。**
+
 ## 2026-10-25｜CAP-06-08 冻结约束增量求解（L3待审）
 [业务、10项施工与30合成验收](docs/capabilities/CAP-06-08/README.md) · [单Scene/左TaskPanel](docs/capabilities/CAP-06-08/UI.md) · [8官方来源及局限](research/sources/CAP-06-08.json) · [规则追踪](research/traces/CAP-06-08.json) · [独立消费者](docs/capabilities/CAP-06-08/independent-consumer-handoff.md)。累计**47/88详细CAP，27/36原工作包，529来源登记/65 registry**（非去重论文）；修正上轮源索引顶层512与实际64 registry合计521不一致。合成规划30/30，Node独立执行/OCCT/Owner/NC/机床NOT_RUN，17Owner/L3待审。以下旧数字为历史快照，规划PASS≠产品PASS。
 

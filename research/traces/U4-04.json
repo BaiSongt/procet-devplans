@@ -1,0 +1,566 @@
+{
+  "schemaVersion": "procet-u404-trace-v1",
+  "workPackageId": "U4-04",
+  "researchTopic": "R-DIAGNOSTIC-001",
+  "sourceRegistry": "research/sources/U4-04.json",
+  "specification": "docs/work-packages/U4-04.md",
+  "ui": "docs/work-packages/U4-04/UI.md",
+  "fixtures": "docs/work-packages/U4-04/fixtures.json",
+  "validator": "tools/check_u404_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "U4-04-R01",
+      "workPackageId": "U4-04",
+      "summary": "NC真实字节范围与块身份必须与D12 exact相连；N行号不可作唯一键",
+      "fields": [
+        "nc.hash",
+        "block.ncHash",
+        "block.endByte",
+        "block.byteRangeId",
+        "block.lineLabelUnique"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "sourceIds": [
+        "SRC-U404-S01",
+        "SRC-U404-S02",
+        "SRC-U404-S05"
+      ],
+      "criteria": [
+        {
+          "path": "nc.hash",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "block.ncHash",
+          "op": "eqField",
+          "other": "nc.hash"
+        },
+        {
+          "path": "block.endByte",
+          "op": "gt",
+          "value": 4
+        },
+        {
+          "path": "block.byteRangeId",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "block.lineLabelUnique",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-04-T01",
+      "negativeTestId": "U4-04-T02",
+      "negativeReason": "REJECT_U404_R01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R02",
+      "workPackageId": "U4-04",
+      "summary": "D13未知/不支持控制器语义必须UNKNOWN且不可在面板制造假动作或发布PASS",
+      "fields": [
+        "semantic.status",
+        "view.badge",
+        "view.inventedActionCount",
+        "release.eligible",
+        "semantic.reasonCode"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-U404-S01",
+        "SRC-U404-S03",
+        "SRC-U404-S09"
+      ],
+      "criteria": [
+        {
+          "path": "semantic.status",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "view.badge",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "view.inventedActionCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "release.eligible",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "semantic.reasonCode",
+          "op": "nonEmpty"
+        }
+      ],
+      "positiveTestId": "U4-04-T03",
+      "negativeTestId": "U4-04-T04",
+      "negativeReason": "REJECT_U404_R02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R03",
+      "workPackageId": "U4-04",
+      "summary": "NC→规范动作→轴时序→D15证据须按每段exact源hash闭合",
+      "fields": [
+        "d13.inputNcHash",
+        "d12.hash",
+        "d14.inputActionHash",
+        "d13.actionHash",
+        "d15.inputAxesHash",
+        "d14.axesHash",
+        "d15.inputBindingHash",
+        "d10.hash",
+        "d15.claimScope"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "sourceIds": [
+        "SRC-U404-S01",
+        "SRC-U404-S03",
+        "SRC-U404-S05"
+      ],
+      "criteria": [
+        {
+          "path": "d13.inputNcHash",
+          "op": "eqField",
+          "other": "d12.hash"
+        },
+        {
+          "path": "d14.inputActionHash",
+          "op": "eqField",
+          "other": "d13.actionHash"
+        },
+        {
+          "path": "d15.inputAxesHash",
+          "op": "eqField",
+          "other": "d14.axesHash"
+        },
+        {
+          "path": "d15.inputBindingHash",
+          "op": "eqField",
+          "other": "d10.hash"
+        },
+        {
+          "path": "d15.claimScope",
+          "op": "eq",
+          "value": "MODELLED_SUBSET_ONLY"
+        }
+      ],
+      "positiveTestId": "U4-04-T05",
+      "negativeTestId": "U4-04-T06",
+      "negativeReason": "REJECT_U404_R03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R04",
+      "workPackageId": "U4-04",
+      "summary": "D09中立CL或D11预演只能标为预检查，不能授权D15程序级通过",
+      "fields": [
+        "preview.kind",
+        "preview.engineeringPass",
+        "preview.materialSweepSimulated",
+        "view.d15Status"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D15"
+      ],
+      "sourceIds": [
+        "SRC-U404-S02",
+        "SRC-U404-S09",
+        "SRC-U404-S05"
+      ],
+      "criteria": [
+        {
+          "path": "preview.kind",
+          "op": "eq",
+          "value": "CL_PREVIEW"
+        },
+        {
+          "path": "preview.engineeringPass",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "preview.materialSweepSimulated",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "view.d15Status",
+          "op": "eq",
+          "value": "NOT_VERIFIED"
+        }
+      ],
+      "positiveTestId": "U4-04-T07",
+      "negativeTestId": "U4-04-T08",
+      "negativeReason": "REJECT_U404_R04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R05",
+      "workPackageId": "U4-04",
+      "summary": "D06收敛与残差曲线必须来自实际归档样本；评分不得画成可靠概率",
+      "fields": [
+        "curve.source",
+        "curve.sampleCount",
+        "curve.runHash",
+        "curve.fabricated",
+        "curve.calibratedReliabilityClaim"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "sourceIds": [
+        "SRC-U404-S03",
+        "SRC-U404-S04",
+        "SRC-U404-S05"
+      ],
+      "criteria": [
+        {
+          "path": "curve.source",
+          "op": "eq",
+          "value": "RECORDED_OWNER_SAMPLES"
+        },
+        {
+          "path": "curve.sampleCount",
+          "op": "gt",
+          "value": 1
+        },
+        {
+          "path": "curve.runHash",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "curve.fabricated",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "curve.calibratedReliabilityClaim",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-04-T09",
+      "negativeTestId": "U4-04-T10",
+      "negativeReason": "REJECT_U404_R05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R06",
+      "workPackageId": "U4-04",
+      "summary": "D12修订仅失效所依赖的D13/D14/D15/D16，保留D09/D08和其他Setup的权威版本",
+      "fields": [
+        "diff.changedAsset",
+        "diff.preservedD09",
+        "diff.preservedD08",
+        "diff.otherSetupUnchanged",
+        "diff.affectedChain",
+        "diff.oldEvidenceImmutable"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-U404-S05",
+        "SRC-U404-S06"
+      ],
+      "criteria": [
+        {
+          "path": "diff.changedAsset",
+          "op": "eq",
+          "value": "D12"
+        },
+        {
+          "path": "diff.preservedD09",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "diff.preservedD08",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "diff.otherSetupUnchanged",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "diff.affectedChain",
+          "op": "eq",
+          "value": "D13>D14>D15>D16"
+        },
+        {
+          "path": "diff.oldEvidenceImmutable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-04-T11",
+      "negativeTestId": "U4-04-T12",
+      "negativeReason": "REJECT_U404_R06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R07",
+      "workPackageId": "U4-04",
+      "summary": "NC段/动作/轴事件与3D选择共享同一exact上下文，不建立第二Scene或领域写入",
+      "fields": [
+        "ui.sceneCount",
+        "ui.taskPanelCount",
+        "ui.ncRefHash",
+        "ui.axisNcRefHash",
+        "ui.ownerWrites",
+        "ui.focusVisible"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D12",
+        "D14"
+      ],
+      "sourceIds": [
+        "SRC-U404-S03",
+        "SRC-U404-S05",
+        "SRC-U404-S07"
+      ],
+      "criteria": [
+        {
+          "path": "ui.sceneCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.taskPanelCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.ncRefHash",
+          "op": "eqField",
+          "other": "ui.axisNcRefHash"
+        },
+        {
+          "path": "ui.ownerWrites",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "ui.focusVisible",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-04-T13",
+      "negativeTestId": "U4-04-T14",
+      "negativeReason": "REJECT_U404_R07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R08",
+      "workPackageId": "U4-04",
+      "summary": "诊断修复入口必须走所属Owner，提交瞬时重查CAS、ACL代次及取消状态",
+      "fields": [
+        "commit.ownerPort",
+        "commit.expectedHead",
+        "owner.currentHead",
+        "commit.aclEpoch",
+        "owner.currentAclEpoch",
+        "commit.generation",
+        "owner.currentGeneration",
+        "commit.cancelled",
+        "commit.directShellWrite"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U404-S06",
+        "SRC-U404-S05"
+      ],
+      "criteria": [
+        {
+          "path": "commit.ownerPort",
+          "op": "eq",
+          "value": "D05"
+        },
+        {
+          "path": "commit.expectedHead",
+          "op": "eqField",
+          "other": "owner.currentHead"
+        },
+        {
+          "path": "commit.aclEpoch",
+          "op": "eqField",
+          "other": "owner.currentAclEpoch"
+        },
+        {
+          "path": "commit.generation",
+          "op": "eqField",
+          "other": "owner.currentGeneration"
+        },
+        {
+          "path": "commit.cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "commit.directShellWrite",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-04-T15",
+      "negativeTestId": "U4-04-T16",
+      "negativeReason": "REJECT_U404_R08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R09",
+      "workPackageId": "U4-04",
+      "summary": "缺行映射、错NC/hash、过期Frame或不可恢复来源均显示SOURCE_GAP，禁止猜邻近编号",
+      "fields": [
+        "gap.status",
+        "gap.guessed",
+        "gap.nearestRevisionSubstitution",
+        "gap.releaseEligible",
+        "gap.diagnosticVisible"
+      ],
+      "assets": [
+        "D04",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "sourceIds": [
+        "SRC-U404-S01",
+        "SRC-U404-S05",
+        "SRC-U404-S08"
+      ],
+      "criteria": [
+        {
+          "path": "gap.status",
+          "op": "eq",
+          "value": "SOURCE_GAP"
+        },
+        {
+          "path": "gap.guessed",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "gap.nearestRevisionSubstitution",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "gap.releaseEligible",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "gap.diagnosticVisible",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-04-T17",
+      "negativeTestId": "U4-04-T18",
+      "negativeReason": "REJECT_U404_R09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-04-R10",
+      "workPackageId": "U4-04",
+      "summary": "Owner回执为必需权威证据，可观测Span可被采样丢弃；D15部分覆盖显示PARTIAL而非安全概率",
+      "fields": [
+        "evidence.ownerReceiptPersisted",
+        "evidence.telemetrySampled",
+        "evidence.reconstructableWithoutTelemetry",
+        "evidence.d15Coverage",
+        "evidence.claimedSafetyProbability"
+      ],
+      "assets": [
+        "D06",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-U404-S03",
+        "SRC-U404-S04",
+        "SRC-U404-S08"
+      ],
+      "criteria": [
+        {
+          "path": "evidence.ownerReceiptPersisted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.telemetrySampled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "evidence.reconstructableWithoutTelemetry",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.d15Coverage",
+          "op": "eq",
+          "value": "PARTIAL"
+        },
+        {
+          "path": "evidence.claimedSafetyProbability",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-04-T19",
+      "negativeTestId": "U4-04-T20",
+      "negativeReason": "REJECT_U404_R10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

@@ -1,3 +1,6 @@
+## 2026-10-25｜U4-04执行诊断专题（规划证据）
+[研究推导](topics/R-DIAGNOSTIC-001.md) · [9项合法来源/实际访问深度](sources/U4-04.json) · [10规则/字段/20正反+10变异](traces/U4-04.json)。ISO 14649-10:2004只核对目录摘要；NIST IR 6556只读著录；NIST IR 8536 2026-09最终版仅读官方公告；OpenTelemetry 1.62.0公开API/SDK章节不可替代Owner权威审计，LinuxCNC N号不唯一。**累计538登记记录/66 registry，非去重论文。** 真实NC/产品/独立Node与17资产会签均未完成，规划PASS≠产品PASS。以下为历史研究快照。
+
 ## 2026-10-25｜R-INCREMENTAL-FREEZE-001 冻结约束局部重算
 [理论与边界](topics/R-INCREMENTAL-FREEZE-001.md) · [8项来源](sources/CAP-06-08.json) · [逐项规则及正反变异](traces/CAP-06-08.json)。LPA*摘要适用图搜索，OCCT历史不保证稳定面ID，NIST仅摘要、ISO仅目录；规划合成30/30≠产品PASS。修复索引前序512→521登记偏差后新增8合计529登记/65 registry。
 
