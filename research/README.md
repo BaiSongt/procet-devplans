@@ -1,3 +1,6 @@
+## 2026-10-26｜R-2D-DOC-EVIDENCE-001
+[推导与限制](topics/R-2D-DOC-EVIDENCE-001.md) · [11份公开合法资料及阅读深度](sources/T5-02.json) · [10规则及字段/正反/变异](traces/T5-02.json) · [原T5-02实施规划](../docs/work-packages/T5-02.md)。ISO32000-2只读目录、PDF Association只读索引、NISTIR7796只读摘要；OCR不等于权威PMI。累计615来源登记/74 registry非去重；仅合成规划PASS，实际消费者及产品NOT_RUN。
+
 ## 2026-10-26｜R-CONTINUOUS-5AXIS-001：四/五轴刀轴场、刀触与奇异性
 [研究推导](topics/R-CONTINUOUS-5AXIS-001.md) → [9项官方与论文摘要来源/阅读深度](sources/CAP-07-04.json) → [10规则与字段/正反/差异变异](traces/CAP-07-04.json) → [CAP-07-04业务与消费者验收](../docs/capabilities/CAP-07-04/README.md)。ISO14649-11仅目录摘要，2019论文仅第三方著录摘要，LinuxCNC2.9与OCCT8.0.1只代表相应文档能力。共604来源登记/73 registry（非去重）；30/30规划合成≠真实产品、控制器或实机PASS。以下为历史研究快照。
 

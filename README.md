@@ -1,3 +1,6 @@
+## 2026-10-26｜原T5-02 2D/Docs→设计证据（L3待审）
+[实施十子任务](docs/work-packages/T5-02.md) · [单Babylon世界/左TaskPanel](docs/work-packages/T5-02/UI.md) · [11权威来源/阅读局限](research/sources/T5-02.json) · [10规则/20正反/10差异变异](research/traces/T5-02.json) · [17资产Owner候选](docs/work-packages/T5-02/asset-owner-candidates.json) · [独立消费者及迁移](docs/work-packages/T5-02/independent-consumer-handoff.md)。累计**51/88 CAP、32/36原编号包、615来源登记/74 registry（非去重）**。DXF/Docs来源锁、OCR人工确认、D01/D02 Owner CAS；30/30仅合成规划PASS，真实2D/OCR/Owner/消费者NOT_RUN，L3和17Owner待审。下一项CAP-07-05，下列进度为历史快照。
+
 ## 2026-10-26｜CAP-07-04 连续四/五轴刀路规划（L3待审）
 [十任务与规则入口](docs/capabilities/CAP-07-04/README.md) · [唯一Babylon Scene/统一左TaskPanel](docs/capabilities/CAP-07-04/UI.md) · [合成中立CL合同](docs/capabilities/CAP-07-04/contract.example.json) · [9份合法来源](research/sources/CAP-07-04.json) · [10规则/20正反/10差异变异](research/traces/CAP-07-04.json) · [17资产Owner候选](docs/capabilities/CAP-07-04/asset-owner-candidates.json) · [真实消费者与回退](docs/capabilities/CAP-07-04/independent-consumer-handoff.md)。累计**51/88 CAP、31/36原包、604来源登记/73 registry（非去重）**。连续刀轴/刀触与3+2分界明确；D04 Setup≠D10绑定，D09 CL→D12 NC→D13语义→D14时序→D15验证→D16发布；UNKNOWN阻发布，CL动画非机床工程验证，不做材料扫掠仿真。30/30为内存规划合成PASS，真实OCCT/独立消费者/机床NOT_RUN、17Owner/L3待签署；规划PASS≠产品PASS。下一项原T5-02，随后CAP-07-05；以下为历史快照。
 
