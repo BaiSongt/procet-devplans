@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-06-05 不可变制造状态（仅规划，L3待审）
+[来源DAG/Stock封存与分叉](docs/capabilities/CAP-06-05/README.md) · [单Babylon及统一左TaskPanel](docs/capabilities/CAP-06-05/UI.md) · [10项官网来源](research/sources/CAP-06-05.json) · [10规则20正反+10变异](research/traces/CAP-06-05.json) · [独立D07交接](docs/capabilities/CAP-06-05/independent-consumer-handoff.md)。累计**44/88 CAP、24/36原包、476来源登记/59 registry（非去重论文）**。V8等价合成30/30 PASS，不代表独立Node或真实OCCT运行；产品、Owner消费者、机床NOT_RUN，17Owner/L3待人类，规划PASS≠产品PASS。历史段落数字均为快照。
+
 ## 2026-10-25｜W2-06 A/B闭环无界面验收（仅规划，L3待审）
 [原编号10项实施及真实harness要求](docs/work-packages/W2-06.md) · [单Babylon与左TaskPanel](docs/work-packages/W2-06/UI.md) · [10份官方来源](research/sources/W2-06.json) · [10规则20正反+10变异](research/traces/W2-06.json) · [独立交接](docs/work-packages/W2-06/independent-consumer-handoff.md) · [实际harness合同](docs/work-packages/W2-06/real-harness.contract.json)。详细CAP仍43/88、原工作包24/36、来源登记466条/58 registry（非去重论文）。规划合成30/30 PASS；真实独立进程/Owner存储/强杀/NC/机床和Node独立文件执行NOT_RUN，L3和17 Owner签署PENDING。历史正文为快照，当前进度以tracking/progress.json为准。规划PASS≠产品PASS。
 

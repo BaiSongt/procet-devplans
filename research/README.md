@@ -1,3 +1,6 @@
+## 2026-10-25｜R-IMMSTATE-001 不可变制造状态/父子谱系与封存指纹
+[专题推导](topics/R-IMMSTATE-001.md) · [10份官方来源与阅读深度](sources/CAP-06-05.json) · [10条规则和20正反](traces/CAP-06-05.json)。OCCT8.0.1为官方API/算法章节，PROV-O/RFC/SQLite为公开正文，NIST IR8536仅Final官方摘要；版权正文未复制。状态字节指纹不等于语义几何等价；实际内核及消费者NOT_RUN。累计476登记/59 registry。
+
 ## 2026-10-25｜R-AB-E2E-001真实无界面A/B工艺闭环
 [专题与权威资料阅读边界](topics/R-AB-E2E-001.md) · [10来源](sources/W2-06.json) · [10规则20正反+10变异](traces/W2-06.json)。合计466登记记录/58 registry（非466份论文）。ISO只公开摘要、NIST最终版只读出版摘要、OCCT仅API；跨库原子性不能臆造，真实Owner/进程/恢复/独立消费者NOT_RUN。
 

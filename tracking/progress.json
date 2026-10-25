@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 43,
-    "detailPendingCount": 45,
+    "detailDraftedCount": 44,
+    "detailPendingCount": 44,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -501,6 +501,19 @@
         "acceptanceSpecifications": 20,
         "designApproval": "pending_human_review",
         "productAcceptance": "not_run"
+      },
+      {
+        "id": "CAP-06-05",
+        "path": "docs/capabilities/CAP-06-05/README.md",
+        "uiPath": "docs/capabilities/CAP-06-05/UI.md",
+        "contractPath": "docs/capabilities/CAP-06-05/contract.example.json",
+        "tracePath": "research/traces/CAP-06-05.json",
+        "researchTopic": "R-IMMSTATE-001",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20,
+        "syntheticMutations": 10,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run"
       }
     ]
   },
@@ -814,8 +827,8 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 466,
-    "registeredSourceCountMeaning": "456条来源登记/57 registry，非去重论文",
+    "registeredSources": 476,
+    "registeredSourceCountMeaning": "476条来源登记/59 registry，非去重论文",
     "legacyRegistryRecords": 61,
     "additionalRegistries": [
       "research/sources/F1-03.json",
@@ -874,9 +887,10 @@
       "research/sources/CAP-06-03.json",
       "research/sources/W2-05.json",
       "research/sources/CAP-06-04.json",
-      "research/sources/W2-06.json"
+      "research/sources/W2-06.json",
+      "research/sources/CAP-06-05.json"
     ],
-    "capabilityTraceCompiledCount": 43,
+    "capabilityTraceCompiledCount": 44,
     "workPackageTraceCompiledCount": 22,
     "topics": [
       {
@@ -1656,6 +1670,23 @@
           "10"
         ],
         "necessaryEngineeringEvidence": "headless_true_owner_ports_crash_replay_independent_consumer_NOT_RUN"
+      },
+      {
+        "id": "R-IMMSTATE-001",
+        "path": "research/topics/R-IMMSTATE-001.md",
+        "primaryCapability": "CAP-06-05",
+        "status": "drafted_pending_human_review",
+        "relatedDomains": [
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10"
+        ],
+        "necessaryEngineeringEvidence": "planning_synthetic_only_OCCT_and_D07_independent_not_run"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -1687,23 +1718,23 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-06-05",
-    "name": "不可变制造状态",
-    "parallelWorkPackageId": "W2-07",
-    "parallelWorkPackageName": "原编号以基线清单下一未详编项为准",
+    "capabilityId": "CAP-06-06",
+    "name": "多路径预算与并行",
+    "parallelWorkPackageId": "U4-01",
+    "parallelWorkPackageName": "建立作用域WorkContext与正交导航",
     "parallelPlanningBacklog": [
-      "剩余45项CAP和12项原工作包",
-      "17资产Owner/接口正式会签",
-      "11域研究与历史附件审计",
-      "最终跨域覆盖矩阵/风险/交接"
+      "剩余44项CAP和12项原工作包",
+      "17资产Owner/接口跨域正式会签",
+      "11域研究与历史原件字节审计",
+      "最终全仓覆盖矩阵、风险与交接"
     ],
-    "priority": "下一轮CAP-06-05，穿插下一未详编原工作包",
-    "remainingCAP": 45,
+    "priority": "下一轮优先原U4-01，穿插CAP-06-06",
+    "remainingCAP": 44,
     "remainingOriginalWorkPackages": 12
   },
   "checks": {
-    "record": "tracking/verification-W2-06-2026-10-25.json",
-    "status": "SYNTHETIC_IN_MEMORY_30_OF_30_PASS_PRODUCT_NOT_RUN",
+    "record": "tracking/verification-CAP-06-05-2026-10-25.json",
+    "status": "SYNTHETIC_V8_30_OF_30_PASS_PRODUCT_NOT_RUN",
     "productTests": "NOT_RUN",
     "independentNodeFileExecution": "NOT_RUN",
     "independentConsumers": "NOT_RUN",
@@ -1712,12 +1743,12 @@
     "l3Approval": "PENDING_HUMAN"
   },
   "lastPlanningItem": {
-    "id": "W2-06",
+    "id": "CAP-06-05",
     "date": "2026-10-25",
     "status": "planning_compiled_pending_human_review",
     "designRuleCount": 10,
     "acceptanceSpecifications": 20,
-    "verification": "synthetic_in_memory_30_30_PASS",
+    "verification": "synthetic_v8_30_of_30_PASS",
     "product": "NOT_RUN",
     "consumer": "NOT_RUN"
   },
@@ -1728,5 +1759,5 @@
     "remainingFilesStatus": "tracking/pending-source-gaps-2026-10-19.json"
   },
   "stopConditionMet": false,
-  "notes": "W2-06 A/B真实无界面闭环验收规划：10官方来源/10规则/20正反+10变异，真实Owner/进程/强杀恢复与产品独立消费者NOT_RUN，17Owner/L3待签。规划PASS≠产品PASS。"
+  "notes": "CAP-06-05 10官网来源/10规则/20正反/10故意变异仅规划合成，不能代替真实B-Rep bytesHash、OCCT或独立D07消费者；17资产正式会签/L3待审。"
 }
