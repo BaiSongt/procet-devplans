@@ -1,0 +1,527 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-04",
+  "researchTopic": "R-CONTINUOUS-5AXIS-001",
+  "sourceRegistry": "research/sources/CAP-07-04.json",
+  "specification": "docs/capabilities/CAP-07-04/README.md",
+  "ui": "docs/capabilities/CAP-07-04/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-04/fixtures.json",
+  "validator": "tools/check_cap0704_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "C0704-R01",
+      "capabilityId": "CAP-07-04",
+      "title": "精确几何/毛坯/Frame与冻结只读",
+      "summary": "D01/D04/D07/D08精确修订与Frame须一致，07候选不得更改D08冻结字节",
+      "fields": [
+        "sourceRevision",
+        "geometryHash",
+        "frameHash",
+        "frozenUnchanged"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S04",
+        "SRC-C0704-S08",
+        "SRC-C0704-S09"
+      ],
+      "criteria": [
+        {
+          "path": "sourceRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "geometryHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frozenUnchanged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T01",
+      "negativeTestId": "CAP-07-04-T02",
+      "mutationTestId": "CAP-07-04-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R02",
+      "capabilityId": "CAP-07-04",
+      "title": "真实刀触点、修剪域与TCP误差",
+      "summary": "刀触需来自可用的修剪几何/刀具接触求解；接触误差和容差单位由工艺约束提供",
+      "fields": [
+        "contactPointLocated",
+        "contactToleranceMm",
+        "contactDeviationMm",
+        "toolAxisConvention"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S05",
+        "SRC-C0704-S06"
+      ],
+      "criteria": [
+        {
+          "path": "contactPointLocated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contactToleranceMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "contactDeviationMm",
+          "op": "lteField",
+          "other": "contactToleranceMm"
+        },
+        {
+          "path": "toolAxisConvention",
+          "op": "eq",
+          "value": "TCP_TOOL_AXIS_WORKPIECE"
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T03",
+      "negativeTestId": "CAP-07-04-T04",
+      "mutationTestId": "CAP-07-04-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R03",
+      "capabilityId": "CAP-07-04",
+      "title": "曲面法向有效性、单位刀轴与右手坐标",
+      "summary": "拒绝退化法向、零向量、左手Frame，屏幕空间镜像不能用作计算坐标",
+      "fields": [
+        "surfaceNormal",
+        "toolAxis",
+        "frameHandedness",
+        "normalAvailable"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S04",
+        "SRC-C0704-S05"
+      ],
+      "criteria": [
+        {
+          "path": "surfaceNormal",
+          "op": "unitVec"
+        },
+        {
+          "path": "toolAxis",
+          "op": "unitVec"
+        },
+        {
+          "path": "frameHandedness",
+          "op": "eq",
+          "value": "RIGHT"
+        },
+        {
+          "path": "normalAvailable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T05",
+      "negativeTestId": "CAP-07-04-T06",
+      "mutationTestId": "CAP-07-04-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R04",
+      "capabilityId": "CAP-07-04",
+      "title": "姿态四元数连续性与局部角步进",
+      "summary": "q/-q代表同旋转；沿刀路按最短等价弧校核方向突变，不得凭平滑屏幕动画当轴运动",
+      "fields": [
+        "toolOrientationQ",
+        "angularJumpDeg",
+        "maxAllowedJumpDeg",
+        "continuousCut",
+        "quaternionSignHandled"
+      ],
+      "assets": [
+        "D02",
+        "D04",
+        "D09",
+        "D11"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S04",
+        "SRC-C0704-S07"
+      ],
+      "criteria": [
+        {
+          "path": "toolOrientationQ",
+          "op": "unitQuat"
+        },
+        {
+          "path": "angularJumpDeg",
+          "op": "lteField",
+          "other": "maxAllowedJumpDeg"
+        },
+        {
+          "path": "continuousCut",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quaternionSignHandled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T07",
+      "negativeTestId": "CAP-07-04-T08",
+      "mutationTestId": "CAP-07-04-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R05",
+      "capabilityId": "CAP-07-04",
+      "title": "刀具过切、刀柄夹具局部检查与保护区",
+      "summary": "独立局部B-Rep几何Oracle对刀具刀柄/夹具分开预检，未知结果不能标通过",
+      "fields": [
+        "gougeCheck",
+        "holderClearance",
+        "protectedZoneUnchanged",
+        "screenProxyIsEvidence"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D07",
+        "D09",
+        "D11"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S05",
+        "SRC-C0704-S06",
+        "SRC-C0704-S07"
+      ],
+      "criteria": [
+        {
+          "path": "gougeCheck",
+          "op": "eq",
+          "value": "PASS_LOCAL_BREP"
+        },
+        {
+          "path": "holderClearance",
+          "op": "eq",
+          "value": "PASS_LOCAL_ONLY"
+        },
+        {
+          "path": "protectedZoneUnchanged",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "screenProxyIsEvidence",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T09",
+      "negativeTestId": "CAP-07-04-T10",
+      "mutationTestId": "CAP-07-04-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R06",
+      "capabilityId": "CAP-07-04",
+      "title": "连续五轴中立CL含TCP/刀轴但无机床轴指令",
+      "summary": "D09保留真实工具轴与加工路径并带Frame/hash，机床关节字与控制器代码不属于中立CL",
+      "fields": [
+        "clMode",
+        "hasMachineJointWords",
+        "poseAndAxisRecords",
+        "clFrameHash"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S01",
+        "SRC-C0704-S02",
+        "SRC-C0704-S08"
+      ],
+      "criteria": [
+        {
+          "path": "clMode",
+          "op": "eq",
+          "value": "CONTINUOUS_5AXIS_NEUTRAL"
+        },
+        {
+          "path": "hasMachineJointWords",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "poseAndAxisRecords",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clFrameHash",
+          "op": "sha256"
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T11",
+      "negativeTestId": "CAP-07-04-T12",
+      "mutationTestId": "CAP-07-04-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R07",
+      "capabilityId": "CAP-07-04",
+      "title": "逆运动学分支与近奇异位形不自动认证",
+      "summary": "07域可提供分支候选而非已认证轴动作；奇异性、限位和构型必须由D10/D14复核",
+      "fields": [
+        "kinematicsEvidence",
+        "ikBranchPolicy",
+        "singularityHandling",
+        "machineVerifiedAtCam"
+      ],
+      "assets": [
+        "D03",
+        "D09",
+        "D10",
+        "D11",
+        "D14"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S02",
+        "SRC-C0704-S03",
+        "SRC-C0704-S07"
+      ],
+      "criteria": [
+        {
+          "path": "kinematicsEvidence",
+          "op": "eq",
+          "value": "D14_REQUIRED"
+        },
+        {
+          "path": "ikBranchPolicy",
+          "op": "eq",
+          "value": "BRANCH_CANDIDATE_WITH_PROVENANCE"
+        },
+        {
+          "path": "singularityHandling",
+          "op": "eq",
+          "value": "UNKNOWN_UNTIL_D14"
+        },
+        {
+          "path": "machineVerifiedAtCam",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T13",
+      "negativeTestId": "CAP-07-04-T14",
+      "mutationTestId": "CAP-07-04-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R08",
+      "capabilityId": "CAP-07-04",
+      "title": "进给意图与实际轴速度/加速度时序隔离",
+      "summary": "D09进给只是请求；五轴联动实际轴速度、回转时序由D14执行语义和机床运动链共同展开",
+      "fields": [
+        "feedIntentRecorded",
+        "d14TimingEvidence",
+        "clPreviewCertifiesFeed",
+        "rotaryRateActualKnown"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S02",
+        "SRC-C0704-S03",
+        "SRC-C0704-S06"
+      ],
+      "criteria": [
+        {
+          "path": "feedIntentRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "d14TimingEvidence",
+          "op": "eq",
+          "value": "REQUIRED_NOT_PROVIDED"
+        },
+        {
+          "path": "clPreviewCertifiesFeed",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rotaryRateActualKnown",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T15",
+      "negativeTestId": "CAP-07-04-T16",
+      "mutationTestId": "CAP-07-04-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R09",
+      "capabilityId": "CAP-07-04",
+      "title": "最终NC后处理、未知控制器语义和发布门禁",
+      "summary": "合成UNKNOWN分支必须阻止D16；D09预览和材料扫掠仿真都不是D15工程证据",
+      "fields": [
+        "d12PostProcessed",
+        "d13ExecutionSemantics",
+        "d15Result",
+        "d16ReleaseEligible",
+        "materialSweepSimulated"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S01",
+        "SRC-C0704-S02",
+        "SRC-C0704-S08"
+      ],
+      "criteria": [
+        {
+          "path": "d12PostProcessed",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "d13ExecutionSemantics",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "d15Result",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d16ReleaseEligible",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "materialSweepSimulated",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T17",
+      "negativeTestId": "CAP-07-04-T18",
+      "mutationTestId": "CAP-07-04-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0704-R10",
+      "capabilityId": "CAP-07-04",
+      "title": "07域Owner条件提交与取消晚回执回退",
+      "summary": "GUI/CLI/Agent共享同一Owner Port，提交时重验CAS/ACL/generation/取消，旧事实和用户数据库不变",
+      "fields": [
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "taskGeneration",
+        "receiptGeneration",
+        "cancelled",
+        "nonDestructiveRollback"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0704-S08",
+        "SRC-C0704-S09"
+      ],
+      "criteria": [
+        {
+          "path": "expectedHead",
+          "op": "eqField",
+          "other": "actualHead"
+        },
+        {
+          "path": "aclAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taskGeneration",
+          "op": "eqField",
+          "other": "receiptGeneration"
+        },
+        {
+          "path": "cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "nonDestructiveRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-04-T19",
+      "negativeTestId": "CAP-07-04-T20",
+      "mutationTestId": "CAP-07-04-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "approval": "L3_PENDING_HUMAN",
+  "note": "9来源→10规则→字段/17资产候选→20正反+10不同字段变异。所有数据合成；独立消费者、OCCT、NC、机床NOT_RUN"
+}

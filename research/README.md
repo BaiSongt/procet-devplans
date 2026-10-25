@@ -1,3 +1,6 @@
+## 2026-10-26｜R-CONTINUOUS-5AXIS-001：四/五轴刀轴场、刀触与奇异性
+[研究推导](topics/R-CONTINUOUS-5AXIS-001.md) → [9项官方与论文摘要来源/阅读深度](sources/CAP-07-04.json) → [10规则与字段/正反/差异变异](traces/CAP-07-04.json) → [CAP-07-04业务与消费者验收](../docs/capabilities/CAP-07-04/README.md)。ISO14649-11仅目录摘要，2019论文仅第三方著录摘要，LinuxCNC2.9与OCCT8.0.1只代表相应文档能力。共604来源登记/73 registry（非去重）；30/30规划合成≠真实产品、控制器或实机PASS。以下为历史研究快照。
+
 ## 2026-10-26｜R-AIKB-001 AI/知识受控能力规划正式入库（L3待审）
 [原T5-01实施与十任务](../docs/work-packages/T5-01.md) · [10份官方/组织公开来源及具体阅读深度](sources/T5-01.json) · [理论研究](topics/R-AIKB-001.md) · [10规则、20正反、10差异变异](traces/T5-01.json)。研究来源合计**595条登记/72 registry**，工作包研究追踪29项，**不是595篇去重论文**。NIST两份仅合法出版元数据与摘要，MCP/OWASP/W3C/RFC/OTel及JSON Schema为公开章节；2022 JSON Schema文档明确Internet-Draft到期。仅规划合成30/30，Node独立执行、真实LLM、Owner/消费者和产品NOT_RUN，17Owner/L3待人类。规划PASS≠产品PASS；以下均为历史状态快照。
 
