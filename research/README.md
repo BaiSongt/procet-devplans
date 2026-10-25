@@ -1,3 +1,6 @@
+## 2026-10-25｜R-INCREMENTAL-FREEZE-001 冻结约束局部重算
+[理论与边界](topics/R-INCREMENTAL-FREEZE-001.md) · [8项来源](sources/CAP-06-08.json) · [逐项规则及正反变异](traces/CAP-06-08.json)。LPA*摘要适用图搜索，OCCT历史不保证稳定面ID，NIST仅摘要、ISO仅目录；规划合成30/30≠产品PASS。修复索引前序512→521登记偏差后新增8合计529登记/65 registry。
+
 ## 2026-10-25｜R-SELECTION-LEASE-001唯一世界选择/预览生命周期
 [理论与限制](topics/R-SELECTION-LEASE-001.md) · [9项官方公开来源](sources/U4-03.json) · [规则/字段/20正反/10变异](traces/U4-03.json)。官方Babylon确实支持多Scene，W3C PointerEvents4目前为2026-10-08 Working Draft；统一单Scene为内部设计，取消不是撤回已提交业务事实。累计521登记/64 registry（非去重论文），真实GPU/Owner/消费者NOT_RUN。
 

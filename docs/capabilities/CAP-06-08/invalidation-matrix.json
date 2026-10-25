@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "procet-cap0608-invalidation-v1",
+  "rules": [
+    {
+      "change": "D04.frameHash",
+      "affected": [
+        "D06",
+        "D07",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "require": "EXACT_PROVENANCE_RECHECK"
+    },
+    {
+      "change": "D05.unfrozenStep",
+      "affected": [
+        "D06",
+        "D07",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "require": "MINIMAL_CLOSURE_IF_EDGES_COMPLETE_ELSE_UNKNOWN"
+    },
+    {
+      "change": "D08.frozenStep",
+      "affected": [
+        "D06"
+      ],
+      "require": "CONFLICT_REQUIRES_HUMAN_NO_MUTATE_D08"
+    },
+    {
+      "change": "D12.ncBytes",
+      "affected": [
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "require": "REEXECUTE_CONTROL_SEMANTICS"
+    },
+    {
+      "change": "GUI.theme",
+      "affected": [],
+      "require": "RENDER_ONLY"
+    }
+  ],
+  "frozenHistoryMustRemain": true,
+  "independentVerification": "NOT_RUN"
+}

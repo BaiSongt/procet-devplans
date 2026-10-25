@@ -1,3 +1,6 @@
+## 2026-10-25｜CAP-06-08 冻结约束增量求解（L3待审）
+[业务、10项施工与30合成验收](docs/capabilities/CAP-06-08/README.md) · [单Scene/左TaskPanel](docs/capabilities/CAP-06-08/UI.md) · [8官方来源及局限](research/sources/CAP-06-08.json) · [规则追踪](research/traces/CAP-06-08.json) · [独立消费者](docs/capabilities/CAP-06-08/independent-consumer-handoff.md)。累计**47/88详细CAP，27/36原工作包，529来源登记/65 registry**（非去重论文）；修正上轮源索引顶层512与实际64 registry合计521不一致。合成规划30/30，Node独立执行/OCCT/Owner/NC/机床NOT_RUN，17Owner/L3待审。以下旧数字为历史快照，规划PASS≠产品PASS。
+
 ## 2026-10-25｜原U4-03统一单Scene选择与预览租约（L3待审）
 [10项实施](docs/work-packages/U4-03.md) · [GUI/3D](docs/work-packages/U4-03/UI.md) · [9份公开来源](research/sources/U4-03.json) · [10规则20正反+10变异](research/traces/U4-03.json) · [独立消费者](docs/work-packages/U4-03/independent-consumer-handoff.md)。累计**46/88详细CAP、27/36原编号包、521条来源登记/64 registry**。合成规则30/30仅内存规划检查，独立Node/真实Babylon GPU/Owner/消费者/NC产品全NOT_RUN；17资产正式会签与L3待审。单Scene为Procet选择，Babylon官方允许多Scene；预览取消不修改业务Owner。规划PASS≠产品PASS，下文数字为历史快照。
 
