@@ -1,3 +1,6 @@
+## 2026-10-25｜R-WORKCTX-001 WorkContext作用域/导航/键盘交互
+[专题](topics/R-WORKCTX-001.md) · [9项官方来源/阅读局限](sources/U4-01.json) · [10规则20正反及10变异](traces/U4-01.json)。WCAG2.2按2024-12-12推荐版正文、APG键盘指导、WHATWG HTML/DOM、Vue Router守卫、BabylonJS多Scene文档、RFC9110及PROV-O的公开章节登记；单Scene是Procet架构决策，不是厂商要求。累计485登记/60 registry，真实GUI/Owner NOT_RUN。
+
 ## 2026-10-25｜R-IMMSTATE-001 不可变制造状态/父子谱系与封存指纹
 [专题推导](topics/R-IMMSTATE-001.md) · [10份官方来源与阅读深度](sources/CAP-06-05.json) · [10条规则和20正反](traces/CAP-06-05.json)。OCCT8.0.1为官方API/算法章节，PROV-O/RFC/SQLite为公开正文，NIST IR8536仅Final官方摘要；版权正文未复制。状态字节指纹不等于语义几何等价；实际内核及消费者NOT_RUN。累计476登记/59 registry。
 

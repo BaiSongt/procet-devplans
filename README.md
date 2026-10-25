@@ -1,3 +1,6 @@
+## 2026-10-25｜原U4-01 WorkContext作用域及正交导航（L3待审）
+[原编号10项实施](docs/work-packages/U4-01.md) · [单Babylon/统一左TaskPanel](docs/work-packages/U4-01/UI.md) · [状态机](docs/work-packages/U4-01/navigation-state-machine.json) · [9项合法来源](research/sources/U4-01.json) · [10规则20正反](research/traces/U4-01.json) · [独立消费者](docs/work-packages/U4-01/independent-consumer-handoff.md)。累计**44/88 CAP、25/36原包、485条来源/60 registry**（非去重论文）。独立Node、真实GUI/Owner、GPU、消费者与NC均NOT_RUN；17Owner签署及L3待人工。30/30仅规划内存合成，规划PASS≠产品PASS。下方数字为历史快照。
+
 ## 2026-10-25｜CAP-06-05 不可变制造状态（仅规划，L3待审）
 [来源DAG/Stock封存与分叉](docs/capabilities/CAP-06-05/README.md) · [单Babylon及统一左TaskPanel](docs/capabilities/CAP-06-05/UI.md) · [10项官网来源](research/sources/CAP-06-05.json) · [10规则20正反+10变异](research/traces/CAP-06-05.json) · [独立D07交接](docs/capabilities/CAP-06-05/independent-consumer-handoff.md)。累计**44/88 CAP、24/36原包、476来源登记/59 registry（非去重论文）**。V8等价合成30/30 PASS，不代表独立Node或真实OCCT运行；产品、Owner消费者、机床NOT_RUN，17Owner/L3待人类，规划PASS≠产品PASS。历史段落数字均为快照。
 

@@ -1,0 +1,470 @@
+{
+  "schemaVersion": "procet-u401-synthetic-fixtures-v1",
+  "purpose": "固定字段正反合成，不代替Owner持久数据库/真实GUI",
+  "cases": [
+    {
+      "id": "U4-01-T01",
+      "input": {
+        "ctx": {
+          "projectId": "P1",
+          "documentId": "DOC-A",
+          "documentRevision": "r17",
+          "documentHash": "sha256:doc-a-17",
+          "setupId": "S-A",
+          "setupRevision": "s3",
+          "setupHash": "sha256:setup-a3",
+          "frame": {
+            "id": "part-frame",
+            "revision": "f2",
+            "hash": "sha256:frame-f2"
+          },
+          "scopeEpoch": 12
+        }
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R01"
+    },
+    {
+      "id": "U4-01-T02",
+      "input": {
+        "ctx": {
+          "projectId": "P1",
+          "documentId": "DOC-A",
+          "documentRevision": "r17",
+          "documentHash": "",
+          "setupId": "S-A",
+          "setupRevision": "s3",
+          "setupHash": "sha256:setup-a3",
+          "frame": {
+            "id": "part-frame",
+            "revision": "f2",
+            "hash": "sha256:frame-f2"
+          },
+          "scopeEpoch": 12
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R01"
+    },
+    {
+      "id": "U4-01-T03",
+      "input": {
+        "scope": {
+          "projectId": "P1",
+          "documentId": "DOC-A",
+          "scopeEpoch": 12
+        },
+        "result": {
+          "projectId": "P1",
+          "documentId": "DOC-A",
+          "scopeEpoch": 12
+        }
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R02"
+    },
+    {
+      "id": "U4-01-T04",
+      "input": {
+        "scope": {
+          "projectId": "P1",
+          "documentId": "DOC-A",
+          "scopeEpoch": 12
+        },
+        "result": {
+          "projectId": "P1",
+          "documentId": "DOC-B",
+          "scopeEpoch": 12
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R02"
+    },
+    {
+      "id": "U4-01-T05",
+      "input": {
+        "action": "DISPLAY_CHANGE",
+        "before": {
+          "workMode": "B",
+          "displayMode": "WORKBENCH"
+        },
+        "after": {
+          "workMode": "B",
+          "displayMode": "FOCUS3D"
+        },
+        "businessWrites": []
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R03"
+    },
+    {
+      "id": "U4-01-T06",
+      "input": {
+        "action": "DISPLAY_CHANGE",
+        "before": {
+          "workMode": "B",
+          "displayMode": "WORKBENCH"
+        },
+        "after": {
+          "workMode": "A",
+          "displayMode": "FOCUS3D"
+        },
+        "businessWrites": []
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R03"
+    },
+    {
+      "id": "U4-01-T07",
+      "input": {
+        "dirty": true,
+        "resolution": "SAVE_DRAFT",
+        "persistedDraft": true
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R04"
+    },
+    {
+      "id": "U4-01-T08",
+      "input": {
+        "dirty": true,
+        "resolution": "AUTO_DISCARD",
+        "persistedDraft": false
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R04"
+    },
+    {
+      "id": "U4-01-T09",
+      "input": {
+        "request": {
+          "setupId": "S-B",
+          "setupRevision": "s9",
+          "setupHash": "sha256:setup-b9"
+        },
+        "restored": {
+          "setupId": "S-B",
+          "setupRevision": "s9",
+          "setupHash": "sha256:setup-b9"
+        }
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R05"
+    },
+    {
+      "id": "U4-01-T10",
+      "input": {
+        "request": {
+          "setupId": "S-B",
+          "setupRevision": "s9",
+          "setupHash": "sha256:setup-b9"
+        },
+        "restored": {
+          "setupId": "S-A",
+          "setupRevision": "s3",
+          "setupHash": "sha256:setup-a3"
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R05"
+    },
+    {
+      "id": "U4-01-T11",
+      "input": {
+        "expected": {
+          "scopeEpoch": 13,
+          "generation": 8,
+          "documentHash": "sha256:doc-b"
+        },
+        "reply": {
+          "scopeEpoch": 13,
+          "generation": 8,
+          "documentHash": "sha256:doc-b"
+        },
+        "cancelled": false
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R06"
+    },
+    {
+      "id": "U4-01-T12",
+      "input": {
+        "expected": {
+          "scopeEpoch": 13,
+          "generation": 8,
+          "documentHash": "sha256:doc-b"
+        },
+        "reply": {
+          "scopeEpoch": 12,
+          "generation": 7,
+          "documentHash": "sha256:doc-a"
+        },
+        "cancelled": false
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R06"
+    },
+    {
+      "id": "U4-01-T13",
+      "input": {
+        "commit": {
+          "expectedHead": "rev-15",
+          "currentHead": "rev-15",
+          "aclEpochExpected": 6,
+          "aclEpochCurrent": 6,
+          "hasWritePermission": true,
+          "cancelled": false
+        }
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R07"
+    },
+    {
+      "id": "U4-01-T14",
+      "input": {
+        "commit": {
+          "expectedHead": "rev-15",
+          "currentHead": "rev-16",
+          "aclEpochExpected": 6,
+          "aclEpochCurrent": 6,
+          "hasWritePermission": true,
+          "cancelled": false
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R07"
+    },
+    {
+      "id": "U4-01-T15",
+      "input": {
+        "scene": {
+          "sceneCount": 1,
+          "sceneId": "world-main",
+          "activeLeases": 1,
+          "disposedOldOverlay": true
+        }
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R08"
+    },
+    {
+      "id": "U4-01-T16",
+      "input": {
+        "scene": {
+          "sceneCount": 2,
+          "sceneId": "world-main",
+          "activeLeases": 2,
+          "disposedOldOverlay": false
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R08"
+    },
+    {
+      "id": "U4-01-T17",
+      "input": {
+        "edit": {
+          "frozenHashBefore": "sha256:lock-v1",
+          "frozenHashAfter": "sha256:lock-v1",
+          "proposedRevision": "draft-v2",
+          "mutatesFrozen": false
+        }
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R09"
+    },
+    {
+      "id": "U4-01-T18",
+      "input": {
+        "edit": {
+          "frozenHashBefore": "sha256:lock-v1",
+          "frozenHashAfter": "sha256:lock-v2",
+          "proposedRevision": "draft-v2",
+          "mutatesFrozen": true
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R09"
+    },
+    {
+      "id": "U4-01-T19",
+      "input": {
+        "restoration": {
+          "exists": false,
+          "status": "STALE_MISSING",
+          "fallbackSelected": false
+        }
+      },
+      "expected": "PASS",
+      "ruleId": "U4-01-R10"
+    },
+    {
+      "id": "U4-01-T20",
+      "input": {
+        "restoration": {
+          "exists": false,
+          "status": "RESOLVED",
+          "fallbackSelected": true
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "U4-01-R10"
+    }
+  ],
+  "mutations": [
+    {
+      "ruleId": "U4-01-R01",
+      "changedPath": "ctx.projectId",
+      "input": {
+        "ctx": {
+          "projectId": "P1",
+          "documentId": "DOC-A",
+          "documentRevision": "r17",
+          "documentHash": "",
+          "setupId": "S-A",
+          "setupRevision": "s3",
+          "setupHash": "sha256:setup-a3",
+          "frame": {
+            "id": "part-frame",
+            "revision": "f2",
+            "hash": "sha256:frame-f2"
+          },
+          "scopeEpoch": 12
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R02",
+      "changedPath": "scope.projectId",
+      "input": {
+        "scope": {
+          "projectId": "P1",
+          "documentId": "DOC-A",
+          "scopeEpoch": 12
+        },
+        "result": {
+          "projectId": "P1",
+          "documentId": "DOC-B",
+          "scopeEpoch": 12
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R03",
+      "changedPath": "action",
+      "input": {
+        "action": "DISPLAY_CHANGE",
+        "before": {
+          "workMode": "B",
+          "displayMode": "WORKBENCH"
+        },
+        "after": {
+          "workMode": "A",
+          "displayMode": "FOCUS3D"
+        },
+        "businessWrites": []
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R04",
+      "changedPath": "dirty",
+      "input": {
+        "dirty": true,
+        "resolution": "AUTO_DISCARD",
+        "persistedDraft": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R05",
+      "changedPath": "request.setupId",
+      "input": {
+        "request": {
+          "setupId": "S-B",
+          "setupRevision": "s9",
+          "setupHash": "sha256:setup-b9"
+        },
+        "restored": {
+          "setupId": "S-A",
+          "setupRevision": "s3",
+          "setupHash": "sha256:setup-a3"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R06",
+      "changedPath": "expected.scopeEpoch",
+      "input": {
+        "expected": {
+          "scopeEpoch": 13,
+          "generation": 8,
+          "documentHash": "sha256:doc-b"
+        },
+        "reply": {
+          "scopeEpoch": 12,
+          "generation": 7,
+          "documentHash": "sha256:doc-a"
+        },
+        "cancelled": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R07",
+      "changedPath": "commit.expectedHead",
+      "input": {
+        "commit": {
+          "expectedHead": "rev-15",
+          "currentHead": "rev-16",
+          "aclEpochExpected": 6,
+          "aclEpochCurrent": 6,
+          "hasWritePermission": true,
+          "cancelled": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R08",
+      "changedPath": "scene.sceneCount",
+      "input": {
+        "scene": {
+          "sceneCount": 2,
+          "sceneId": "world-main",
+          "activeLeases": 2,
+          "disposedOldOverlay": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R09",
+      "changedPath": "edit.frozenHashBefore",
+      "input": {
+        "edit": {
+          "frozenHashBefore": "sha256:lock-v1",
+          "frozenHashAfter": "sha256:lock-v2",
+          "proposedRevision": "draft-v2",
+          "mutatesFrozen": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "ruleId": "U4-01-R10",
+      "changedPath": "restoration.exists",
+      "input": {
+        "restoration": {
+          "exists": false,
+          "status": "RESOLVED",
+          "fallbackSelected": true
+        }
+      },
+      "expected": "REJECT"
+    }
+  ]
+}
