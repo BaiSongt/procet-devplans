@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-07-02三轴曲面加工（设计L3待审）
+[三轴等高/平行/等残高/有序残料及10项实施](docs/capabilities/CAP-07-02/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-02/UI.md) · [10份官方/论文摘要来源](research/sources/CAP-07-02.json) · [10规则/20正反/10差异变异](research/traces/CAP-07-02.json) · [独立消费者/迁移与回退](docs/capabilities/CAP-07-02/independent-consumer-handoff.md)。累计**49/88详细CAP、29/36原编号包、565来源登记/69 registry**（非去重论文）；内存规划合成30/30，Node独立文件、真实OCCT/曲面残高/Owner/NC/机床均NOT_RUN，L3和17Owner正式会签PENDING。固定三轴不冒充五轴，局部球头残高近似不当真实几何认证，D09 CL不冒充D15验证；**规划PASS≠产品PASS**。下列段落为历史快照。
+
 ## 2026-10-25｜原U4-05交互/渲染/可访问性回归（仅规划、L3待审）
 [原编号10实施任务](docs/work-packages/U4-05.md) · [单Babylon/左TaskPanel与键盘DPI](docs/work-packages/U4-05/UI.md) · [GPU/Heap测试协议](docs/work-packages/U4-05/performance-protocol.md) · [9份公开来源](research/sources/U4-05.json) · [10规则/20正反/10变异](research/traces/U4-05.json) · [独立消费者](docs/work-packages/U4-05/independent-consumer-handoff.md)。累计**48/88 CAP、29/36原编号工作包、555来源登记/68 registry**；仅30/30内存规划合成，真实WCAG/DPI/GPU/Node独立文件执行/Owner消费者NOT_RUN，17Owner正式会签及L3待审。12px上限不豁免对比度与可点击目标；**规划PASS≠产品PASS**。以下为历史快照。
 

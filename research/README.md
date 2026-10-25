@@ -1,3 +1,6 @@
+## 2026-10-26｜R-3AXIS-SURFACE-001三轴曲面理论依据
+[研究推导](topics/R-3AXIS-SURFACE-001.md) → [10份合法来源、阅读章节与局限](sources/CAP-07-02.json) → [10规则及机器可检映射](traces/CAP-07-02.json) → [20正反与10差异变异](../docs/capabilities/CAP-07-02/fixtures.json) → [独立消费者合同](../docs/capabilities/CAP-07-02/independent-consumer-handoff.md)。ISO仅目录，OCCT仅API，Suresh/Yang论文仅摘要，NIST Final仅出版摘要；真实产品NOT_RUN。登记累计**565条/69 registry**，非去重论文；规划PASS≠产品PASS。以下为历史研究快照。
+
 ## 2026-10-25｜R-UI-QA-001：原U4-05回归证据
 [研究专题](topics/R-UI-QA-001.md) → [9条合法公开来源及读取限制](sources/U4-05.json) → [10条规则与30个规划合成场景](traces/U4-05.json) → [原编号实施](../docs/work-packages/U4-05.md)。当前累计**555登记条/68 registry**；不代表去重论文或实际WCAG/GPU通过。以下为历史研究快照。
 
