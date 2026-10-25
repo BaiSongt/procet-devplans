@@ -20,4 +20,4 @@ for(const rule of trace.rules){
  }
 }
 if(trace.rules.length!==10||fixtures.cases.length!==20||fixtures.mutations.length!==10||passed!==30)throw Error("规则和验收数量错误");
-process.stdout.write("U4-03 synthetic planning 30/30 PASS; product NOT_RUN\\n");
+process.stdout.write("U4-03 synthetic planning 30/30 PASS; product NOT_RUN\n");
