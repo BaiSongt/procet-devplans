@@ -1,3 +1,7 @@
+## 2026-10-26｜R-WCS-MOTION-001：坐标与运动指令
+
+[研究专题](topics/R-WCS-MOTION-001.md) · [7项来源含版本、访问深度与局限](sources/CAP-08-03.json) · [十规则及30合成验收](traces/CAP-08-03.json)。ISO仅合法目录、NIST仅出版著录；LinuxCNC和OCCT只支持其文档范围，真实产品/消费者NOT_RUN。累计704条登记/84 Registry（非去重）。
+
 ## 2026-10-26｜R-DIALECT-PROFILE-001 控制器方言与UNKNOWN门禁
 [理论阅读层级与局限](topics/R-DIALECT-PROFILE-001.md) → [10条ISO目录/厂商/NIST/OCCT/协议来源](sources/CAP-08-02.json) → [10规则字段映射](traces/CAP-08-02.json) → [CAP-08-02实施](../docs/capabilities/CAP-08-02/README.md)。Siemens仅检索目录且正文打开失败；任何FANUC/SINUMERIK/真实B5实际支持均未认证。**697条登记/83 registry**非去重论文；30/30仅合成规划，产品/消费者NOT_RUN，17Owner/L3 PENDING。
 

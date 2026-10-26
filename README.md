@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-08-03 坐标与运动指令（L3待审）
+[十项实施](docs/capabilities/CAP-08-03/README.md) · [单Babylon与统一左TaskPanel](docs/capabilities/CAP-08-03/UI.md) · [7合法来源](research/sources/CAP-08-03.json) · [10规则/30合成正反与独立字段变异](research/traces/CAP-08-03.json) · [跨域独立消费者与回退](docs/capabilities/CAP-08-03/independent-consumer-handoff.md)。累计**57/88 CAP、36/36原包、704来源登记/84 Registry（非去重）**。合成内存30/30，4份正文10条相对链接0缺失；非全仓测试。真实Node/NC/控制器/机床/消费者NOT_RUN，17资产Owner和L3待会签。下一CAP-08-04；**规划PASS≠产品PASS**。以下为历史快照。
+
 ## 2026-10-26｜CAP-08-02控制器与机床方言（L3待审）
 [实施和十规则](docs/capabilities/CAP-08-02/README.md) · [单Babylon与左TaskPanel](docs/capabilities/CAP-08-02/UI.md) · [10合法来源及真实阅读层级](research/sources/CAP-08-02.json) · [30规划正反变异](docs/capabilities/CAP-08-02/fixtures.json) · [独立消费者交接](docs/capabilities/CAP-08-02/independent-consumer-handoff.md)。累计**56/88 CAP、36/36原编号包、697登记/83 Registry**（非去重）；修复旧研究索引累计678与实际687不一致。Siemens手册正文未读，真实NC/控制器/独立消费者NOT_RUN；17 Owner/L3待审。下一CAP-08-03；**规划PASS≠产品PASS**。以下旧段为历史快照。
 
