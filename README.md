@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-08-08《后处理配置与一致性》（L3待审）
+[十项实施及原始目标](docs/capabilities/CAP-08-08/README.md) · [统一左TaskPanel/单Babylon](docs/capabilities/CAP-08-08/UI.md) · [8合法来源及阅读深度](research/sources/CAP-08-08.json) → [10规则与30正反独立变异](research/traces/CAP-08-08.json) · [独立消费者](docs/capabilities/CAP-08-08/independent-consumer-handoff.md)。累计**62/88 CAP、36/36原包、744登记/89 Registry（非去重）**；本轮V8内存合成30/30，不等于Node独立执行/真实后处理或NC工程PASS。配置闭包包含插件/模板/有效属性/固件选件/Runtime及输入修订；D13需独立重读NC，UNKNOWN阻D16。17Owner和L3待审，历史原始附件/11域研究/全仓交叉仍待闭合。下一CAP-09-01。**规划PASS≠产品PASS**。
+
 ## 2026-10-26｜CAP-08-07《CL与NC映射溯源》（L3待审）
 [十项规划与原目标](docs/capabilities/CAP-08-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-08-07/UI.md) · [8来源及访问限制](research/sources/CAP-08-07.json) · [10规则/30正反变异+12门禁+5映射合成](research/traces/CAP-08-07.json) · [独立消费者](docs/capabilities/CAP-08-07/independent-consumer-handoff.md)。累计**61/88 CAP、36/36原包、736来源登记/88 Registry（非去重）**；规划合成47/47仅JS内存。ISO与NIST未读正文，OCCT8.0.1 API未读。真实Node、产品/NC/控制器/实机/独立消费者NOT_RUN，17Owner/L3待审批。D09中立CL↔D12最终NC为多对多关系，D13独立解释后才可衔接D14轴时序/D15独立验证；UNKNOWN阻D16。**规划PASS≠产品PASS**。下一CAP-08-08，以下历史快照。
 
