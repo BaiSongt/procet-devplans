@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-08-07《CL与NC映射溯源》（L3待审）
+[十项规划与原目标](docs/capabilities/CAP-08-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-08-07/UI.md) · [8来源及访问限制](research/sources/CAP-08-07.json) · [10规则/30正反变异+12门禁+5映射合成](research/traces/CAP-08-07.json) · [独立消费者](docs/capabilities/CAP-08-07/independent-consumer-handoff.md)。累计**61/88 CAP、36/36原包、736来源登记/88 Registry（非去重）**；规划合成47/47仅JS内存。ISO与NIST未读正文，OCCT8.0.1 API未读。真实Node、产品/NC/控制器/实机/独立消费者NOT_RUN，17Owner/L3待审批。D09中立CL↔D12最终NC为多对多关系，D13独立解释后才可衔接D14轴时序/D15独立验证；UNKNOWN阻D16。**规划PASS≠产品PASS**。下一CAP-08-08，以下历史快照。
+
 ## 2026-10-26｜CAP-08-06 NC源码与编辑（L3待审）
 [十项实现与原目标](docs/capabilities/CAP-08-06/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-08-06/UI.md) · [8项来源阅读层级](research/sources/CAP-08-06.json) · [10规则/30正反变异+9语义场景](research/traces/CAP-08-06.json) · [独立消费者](docs/capabilities/CAP-08-06/independent-consumer-handoff.md)。
 累计**60/88 CAP、36/36原工作包、728来源登记/87 Registry（非去重）**。规划合成39/39；独立Node文件运行、真实NC/控制器/机床/消费者NOT_RUN，17资产正式Owner会签和L3审批PENDING_HUMAN。源码编辑产生新D12修订，D13重解释→D14轴时序→D15独立验证→D16发布；未知阻断，CL动画不冒充NC工程验证，不做材料扫掠。**规划PASS≠产品PASS**。下一CAP-08-07；以下为历史快照。

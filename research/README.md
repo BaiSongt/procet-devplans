@@ -1,3 +1,6 @@
+## 2026-10-26｜R-CL-NC-PROVENANCE-001 CL与NC映射溯源
+[推导与OCCT未读限制](topics/R-CL-NC-PROVENANCE-001.md) → [8份来源作者版本与深度](sources/CAP-08-07.json) → [十规则与字段](traces/CAP-08-07.json) → [30规则+12门禁+5映射合成](../docs/capabilities/CAP-08-07/fixtures.json)。累计736登记/88 registry非去重，ISO/NIST只读目录或著录，产品/消费者NOT_RUN。
+
 ## 2026-10-26｜R-NC-SOURCE-EDIT-001：NC源码版本、字节保真与编辑失效
 [专题推导](topics/R-NC-SOURCE-EDIT-001.md) → [8来源及阅读深度](sources/CAP-08-06.json) → [十规则](traces/CAP-08-06.json) → [30正反变异+9合成语义](../docs/capabilities/CAP-08-06/fixtures.json)。ISO/NIST均未读完整正文；728登记/87 Registry非去重；真实产品/消费者NOT_RUN。
 
