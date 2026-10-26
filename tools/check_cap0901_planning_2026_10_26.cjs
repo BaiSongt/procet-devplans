@@ -15,8 +15,9 @@ assert.equal(pass?"PASS":"REJECT",x.expected);if(x.mutatedField)assert.ok(rule.f
 }
 }
 function calc(v){if(v.kind==="XYZ")return v.value;
-if(v.kind==="ROT_X90_THEN_Z90"){const [x,y,z]=v.value;return [-z,-x,y]}
+if(v.kind==="ROT_X90_THEN_Z90"){const [x,y,z]=v.value;return [z,x,y]}
 return null}
+assert.deepEqual(calc({kind:"ROT_X90_THEN_Z90",value:[1,0,0]}),[0,1,0],"独立检查X正向旋转符号");
 let k=0;for(const x of f.vectorOracleCases){const a=calc(x);
 const actual=a===null?"UNKNOWN":a.every((v,i)=>Math.abs(v-x.expected[i])<1e-9)?"PASS":"REJECT";
 assert.equal(actual,x.status,x.id);k++}
