@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-09-05 CL机床运动预验证（D11仅CL_ONLY；L3待审）
+[十项实施与原目标](docs/capabilities/CAP-09-05/README.md) · [统一左TaskPanel与唯一Babylon](docs/capabilities/CAP-09-05/UI.md) · [8来源及访问边界](research/sources/CAP-09-05.json) → [10规则与原包](research/traces/CAP-09-05.json) → [30规则正反字段变异+10状态向量](docs/capabilities/CAP-09-05/fixtures.json) · [独立消费者与回退](docs/capabilities/CAP-09-05/independent-consumer-handoff.md)。**67/88 CAP、36/36原包及研究追踪、805来源登记/96 Registry（非去重）**。仅V8内存40/40合成，Node独立文件/实际NC/OCCT/B5/消费者NOT_RUN；17Owner/L3待人类。D04名义Setup≠D10实际机床绑定，D11预检≠D12→D13→D14→D15工程验证，UNKNOWN阻D16。不做材料扫掠仿真；规划PASS≠产品PASS。以下历史数据为快照。
+
 ## 2026-10-27｜原B0-03黄金样例与规范追踪补证（不新增工作包）
 [原B0-03](docs/work-packages/B0-03.md) · [8来源/10规则/30合成/12对黄金案例](docs/work-packages/B0-03/RESEARCH-BACKFILL.md) · [独立消费者交接](docs/work-packages/B0-03/independent-consumer-handoff.md)。原包研究追踪已到**36/36**，CAP仍**66/88**；累计**797来源登记/95 Registry**（非去重）；产品/实机/独立消费者NOT_RUN、Owner/L3待人类。完整仓链接/最终交接未闭合。
 

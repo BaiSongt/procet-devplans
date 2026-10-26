@@ -1,3 +1,6 @@
+## 2026-10-27｜R-CL-PRECHECK-001 中立CL机床运动预检查
+[理论推导与严格边界](topics/R-CL-PRECHECK-001.md) · [8合法来源与读文限制](sources/CAP-09-05.json) → [10规则、字段/原包](traces/CAP-09-05.json) → [30布尔正反/独立变异+10运动状态合成](../docs/capabilities/CAP-09-05/fixtures.json)。累计**805登记/96 Registry**非去重。LinuxCNC限位与Joint分层不是B5认证，OCCT静态距离不是连续无碰保证；D11只可CL_ONLY/UNKNOWN/REJECT/STALE，NC工程验证必须D12→D13→D14→D15→D16。实际产品/消费者NOT_RUN，Owner/L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-27｜原B0-03独立黄金Oracle研究补证（36/36原包研究追踪）
 [原包正文保持不变](../docs/work-packages/B0-03.md) · [补证与原S01-S08映射](../docs/work-packages/B0-03/RESEARCH-BACKFILL.md) · [8来源与访问限制](sources/B0-03.json) → [10逐字段规则](traces/B0-03.json) → [30规则正反/12对黄金案例](../docs/work-packages/B0-03/golden-cases.json) · [独立交接](../docs/work-packages/B0-03/independent-consumer-handoff.md)。797来源登记/95 Registry，非去重；66/88 CAP不变，36/36原工作包研究追踪。真实产品/消费者NOT_RUN；L3/Owner PENDING_HUMAN，规划PASS≠产品PASS。
 
