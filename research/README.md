@@ -1,3 +1,6 @@
+## 2026-10-26｜R-NC-SOURCE-EDIT-001：NC源码版本、字节保真与编辑失效
+[专题推导](topics/R-NC-SOURCE-EDIT-001.md) → [8来源及阅读深度](sources/CAP-08-06.json) → [十规则](traces/CAP-08-06.json) → [30正反变异+9合成语义](../docs/capabilities/CAP-08-06/fixtures.json)。ISO/NIST均未读完整正文；728登记/87 Registry非去重；真实产品/消费者NOT_RUN。
+
 ## 2026-10-26｜R-CYCLES-MACROS-001循环宏与子程序
 [理论阅读与限制](topics/R-CYCLES-MACROS-001.md) · [8来源作者/时间/阅读章节](sources/CAP-08-05.json) → [10规则/字段](traces/CAP-08-05.json) → [30正反独立变异+8语义](../docs/capabilities/CAP-08-05/fixtures.json)。720条登记/86 Registry非去重，NIST仅著录，真实控制器、消费者NOT_RUN，L3/Owner待签。CAP-08-03资产编号误用列风险待纠偏。
 

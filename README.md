@@ -1,3 +1,7 @@
+## 2026-10-26｜CAP-08-06 NC源码与编辑（L3待审）
+[十项实现与原目标](docs/capabilities/CAP-08-06/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-08-06/UI.md) · [8项来源阅读层级](research/sources/CAP-08-06.json) · [10规则/30正反变异+9语义场景](research/traces/CAP-08-06.json) · [独立消费者](docs/capabilities/CAP-08-06/independent-consumer-handoff.md)。
+累计**60/88 CAP、36/36原工作包、728来源登记/87 Registry（非去重）**。规划合成39/39；独立Node文件运行、真实NC/控制器/机床/消费者NOT_RUN，17资产正式Owner会签和L3审批PENDING_HUMAN。源码编辑产生新D12修订，D13重解释→D14轴时序→D15独立验证→D16发布；未知阻断，CL动画不冒充NC工程验证，不做材料扫掠。**规划PASS≠产品PASS**。下一CAP-08-07；以下为历史快照。
+
 ## 2026-10-26｜CAP-08-05循环宏与子程序（L3待审）
 [实施十项](docs/capabilities/CAP-08-05/README.md) · [单Babylon左TaskPanel](docs/capabilities/CAP-08-05/UI.md) · [8合法来源](research/sources/CAP-08-05.json) · [10规则/30正反变异](research/traces/CAP-08-05.json) · [8条宏循环合成](docs/capabilities/CAP-08-05/fixtures.json) · [独立消费者](docs/capabilities/CAP-08-05/independent-consumer-handoff.md)。累计**59/88 CAP、36/36原包、720来源登记/86 Registry（非去重）**；合成规划38/38，真实Node/控制器/机床/独立消费者NOT_RUN，17Owner/L3待审。CAP-08-03误将D06指刀具仍需横向纠正，不能标已修复。UNKNOWN阻D16，CL预览不充NC工程验证，不做材料扫掠仿真。**规划PASS≠产品PASS**。后续CAP-08-06。下文历史快照。
 
