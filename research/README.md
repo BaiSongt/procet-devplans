@@ -1,3 +1,6 @@
+## 2026-10-27｜R-NC-PROGRAM-VERIFY-001 最终NC程序驱动的独立工程验证
+[理论及阅读限制](topics/R-NC-PROGRAM-VERIFY-001.md) · [10来源：ISO目录、LinuxCNC2.9公开章节、NIST著录、OCCT API、RFC、W3C](sources/CAP-09-06.json) → [10规则/字段与原包](traces/CAP-09-06.json) → [30正反独立字段变异+16合成门禁](../docs/capabilities/CAP-09-06/fixtures.json)。815登记/97 Registry非去重。真实NC语义/轴时序/机床碰撞/独立消费者NOT_RUN；D11 CL_ONLY不授D15/D16，未知阻发布，17Owner及L3待签，**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜R-CL-PRECHECK-001 中立CL机床运动预检查
 [理论推导与严格边界](topics/R-CL-PRECHECK-001.md) · [8合法来源与读文限制](sources/CAP-09-05.json) → [10规则、字段/原包](traces/CAP-09-05.json) → [30布尔正反/独立变异+10运动状态合成](../docs/capabilities/CAP-09-05/fixtures.json)。累计**805登记/96 Registry**非去重。LinuxCNC限位与Joint分层不是B5认证，OCCT静态距离不是连续无碰保证；D11只可CL_ONLY/UNKNOWN/REJECT/STALE，NC工程验证必须D12→D13→D14→D15→D16。实际产品/消费者NOT_RUN，Owner/L3待审，规划PASS≠产品PASS。
 

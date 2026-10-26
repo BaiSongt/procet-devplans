@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-09-06 NC程序驱动验证（D12最终NC→D13→D14→D15→D16）
+[十项施工与原目标](docs/capabilities/CAP-09-06/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-09-06/UI.md) · [10权威来源及阅读深度](research/sources/CAP-09-06.json) → [10逐字段工程规则](research/traces/CAP-09-06.json) → [30正反独立变异+16合成门禁](docs/capabilities/CAP-09-06/fixtures.json) · [独立消费者与回退](docs/capabilities/CAP-09-06/independent-consumer-handoff.md)。累计**68/88 CAP、36/36原包及研究追踪、815来源登记/97 Registry**（非去重）。本轮规划合成说明并不等于Node独立文件执行、真实NC/机床与独立D15 Oracle；这些均NOT_RUN，17资产正式Owner/L3待人类，全部历史附件与全仓覆盖仍未闭合。UNKNOWN/STALE/CL_ONLY不能进入D16，不做材料扫掠仿真；**规划PASS≠产品PASS**。下文为历史快照。
+
 ## 2026-10-27｜CAP-09-05 CL机床运动预验证（D11仅CL_ONLY；L3待审）
 [十项实施与原目标](docs/capabilities/CAP-09-05/README.md) · [统一左TaskPanel与唯一Babylon](docs/capabilities/CAP-09-05/UI.md) · [8来源及访问边界](research/sources/CAP-09-05.json) → [10规则与原包](research/traces/CAP-09-05.json) → [30规则正反字段变异+10状态向量](docs/capabilities/CAP-09-05/fixtures.json) · [独立消费者与回退](docs/capabilities/CAP-09-05/independent-consumer-handoff.md)。**67/88 CAP、36/36原包及研究追踪、805来源登记/96 Registry（非去重）**。仅V8内存40/40合成，Node独立文件/实际NC/OCCT/B5/消费者NOT_RUN；17Owner/L3待人类。D04名义Setup≠D10实际机床绑定，D11预检≠D12→D13→D14→D15工程验证，UNKNOWN阻D16。不做材料扫掠仿真；规划PASS≠产品PASS。以下历史数据为快照。
 
