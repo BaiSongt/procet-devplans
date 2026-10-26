@@ -1,0 +1,528 @@
+{
+  "schemaVersion": "procet-cap0904-trace-v1",
+  "capabilityId": "CAP-09-04",
+  "researchTopic": "R-TOOL-ASSEMBLY-TCP-001",
+  "sourceRegistry": "research/sources/CAP-09-04.json",
+  "specification": "docs/capabilities/CAP-09-04/README.md",
+  "ui": "docs/capabilities/CAP-09-04/UI.md",
+  "fixtures": "docs/capabilities/CAP-09-04/fixtures.json",
+  "validator": "tools/check_cap0904_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-09-04-R01",
+      "capabilityId": "CAP-09-04",
+      "summary": "资源与实际绑定",
+      "fields": [
+        "refs.d03ToolAssemblyExact",
+        "refs.d04NominalSetupOnly",
+        "refs.d10PhysicalInstallExact",
+        "refs.revisionHashFramePinned"
+      ],
+      "sourceIds": [
+        "C0904-S02",
+        "C0904-S04",
+        "C0904-S07"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "refs.d03ToolAssemblyExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "refs.d04NominalSetupOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "refs.d10PhysicalInstallExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "refs.revisionHashFramePinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R02",
+      "capabilityId": "CAP-09-04",
+      "summary": "主轴接口与刀柄连接",
+      "fields": [
+        "interface.spindleInterfaceTyped",
+        "interface.holderMatingInterfaceTyped",
+        "interface.fitProfilePinned",
+        "interface.unknownCompatibilityBlocked"
+      ],
+      "sourceIds": [
+        "C0904-S01",
+        "C0904-S02",
+        "C0904-S06"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "interface.spindleInterfaceTyped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.holderMatingInterfaceTyped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.fitProfilePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.unknownCompatibilityBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R03",
+      "capabilityId": "CAP-09-04",
+      "summary": "装配轴、顺序与变换",
+      "fields": [
+        "geometry.rightHandedSE3",
+        "geometry.gaugePlaneDeclared",
+        "geometry.holderToolChainOrdered",
+        "geometry.mirrorScaleRejected"
+      ],
+      "sourceIds": [
+        "C0904-S02",
+        "C0904-S06",
+        "C0904-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "geometry.rightHandedSE3",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.gaugePlaneDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.holderToolChainOrdered",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.mirrorScaleRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R04",
+      "capabilityId": "CAP-09-04",
+      "summary": "Gauge长度与刀尖定义",
+      "fields": [
+        "gauge.gaugeToTipMeasured",
+        "gauge.unitAndDirectionDeclared",
+        "gauge.sourceMethodCalibrated",
+        "gauge.uncertaintyIncluded"
+      ],
+      "sourceIds": [
+        "C0904-S01",
+        "C0904-S05",
+        "C0904-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "gauge.gaugeToTipMeasured",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gauge.unitAndDirectionDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gauge.sourceMethodCalibrated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gauge.uncertaintyIncluded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R05",
+      "capabilityId": "CAP-09-04",
+      "summary": "实际安装与名义资源不可混用",
+      "fields": [
+        "mount.physicalMountVerified",
+        "mount.toolHolderCuttingPartIdsPinned",
+        "mount.projectionAndStickoutPinned",
+        "mount.nominalNotPhysicalEvidence"
+      ],
+      "sourceIds": [
+        "C0904-S01",
+        "C0904-S05",
+        "C0904-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "mount.physicalMountVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mount.toolHolderCuttingPartIdsPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mount.projectionAndStickoutPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mount.nominalNotPhysicalEvidence",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R06",
+      "capabilityId": "CAP-09-04",
+      "summary": "刀长补偿模态与H映射",
+      "fields": [
+        "offset.finalNcBytesPinned",
+        "offset.d13G43HResolved",
+        "offset.controllerVersionAndOptionsPinned",
+        "offset.tHDisagreementFailClosed"
+      ],
+      "sourceIds": [
+        "C0904-S03",
+        "C0904-S04",
+        "C0904-S05"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "offset.finalNcBytesPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offset.d13G43HResolved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offset.controllerVersionAndOptionsPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offset.tHDisagreementFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R07",
+      "capabilityId": "CAP-09-04",
+      "summary": "TCP与RTCP状态",
+      "fields": [
+        "tcp.tipFrameFromMountedChain",
+        "tcp.rtcpSupportEvidenceOrUnknown",
+        "tcp.independentFrameRoundTrip",
+        "tcp.noClSafetyEquivalence"
+      ],
+      "sourceIds": [
+        "C0904-S03",
+        "C0904-S06",
+        "C0904-S07"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "tcp.tipFrameFromMountedChain",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.rtcpSupportEvidenceOrUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.independentFrameRoundTrip",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.noClSafetyEquivalence",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R08",
+      "capabilityId": "CAP-09-04",
+      "summary": "尺寸/磨损/测量及失效传播",
+      "fields": [
+        "measurement.gaugeEvidenceRevisionPinned",
+        "measurement.wearSeparateFromGeometry",
+        "measurement.unitToleranceUncertaintyPinned",
+        "measurement.changeInvalidatesDownstream"
+      ],
+      "sourceIds": [
+        "C0904-S05",
+        "C0904-S07",
+        "C0904-S09"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "measurement.gaugeEvidenceRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "measurement.wearSeparateFromGeometry",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "measurement.unitToleranceUncertaintyPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "measurement.changeInvalidatesDownstream",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R09",
+      "capabilityId": "CAP-09-04",
+      "summary": "NC驱动核查与发布门禁",
+      "fields": [
+        "execution.d13ReparsesFinalNc",
+        "execution.d14AxisTraceFromD13",
+        "execution.d15IndependentEngineeringVerification",
+        "execution.d16UnknownBlocked"
+      ],
+      "sourceIds": [
+        "C0904-S03",
+        "C0904-S04",
+        "C0904-S08"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "execution.d13ReparsesFinalNc",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.d14AxisTraceFromD13",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.d15IndependentEngineeringVerification",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.d16UnknownBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-04-R10",
+      "capabilityId": "CAP-09-04",
+      "summary": "多入口一致性事务与回退",
+      "fields": [
+        "transaction.oneBabylonLeftTaskPanel",
+        "transaction.guiCliAgentSameOwnerPort",
+        "transaction.casAclEpochCancelOnCommit",
+        "transaction.frozenHistoryNonDestructiveRollback"
+      ],
+      "sourceIds": [
+        "C0904-S08",
+        "C0904-S09",
+        "C0904-S01"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "transaction.oneBabylonLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.guiCliAgentSameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.casAclEpochCancelOnCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.frozenHistoryNonDestructiveRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一输入版本、单位/坐标、装配测量、H/RTCP或证据链不确定即REJECT或UNKNOWN；绝不凭CL动画开放D16。",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,3 +1,6 @@
+## 2026-10-27｜[CAP-09-04刀具安装与TCP核对](CAP-09-04/README.md) · [界面](CAP-09-04/UI.md) · [规则追踪](../../research/traces/CAP-09-04.json)
+**66/88详细CAP、36/36原包**；主轴-刀柄-刀尖装配、Gauge实测、H与RTCP语义分离。产品/独立消费者NOT_RUN，L3及17资产Owner待审；下一CAP-09-05。旧数字仅历史快照。
+
 ## 2026-10-27｜[CAP-09-03逆运动学与解分支](CAP-09-03/README.md) · [单Babylon/统一左TaskPanel](CAP-09-03/UI.md) · [十条理论追踪](../../research/traces/CAP-09-03.json) · [30+5合成反例](CAP-09-03/fixtures.json)
 当前**65/88**项详细CAP，36/36原工作包；下一个CAP-09-04。多支路连续性、Jacobian奇异与角度周期纳入规划，不臆造B5枢轴/限位，产品NOT_RUN、17资产Owner/L3待审。下方数字为历史快照。
 

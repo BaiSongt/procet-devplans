@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-09-04刀具安装与TCP核对（L3待审）
+[十项实施/原目标](docs/capabilities/CAP-09-04/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-09-04/UI.md) · [九来源](research/sources/CAP-09-04.json) · [10规则30正反变异+8合成数例](research/traces/CAP-09-04.json) · [独立交接](docs/capabilities/CAP-09-04/independent-consumer-handoff.md)。进度**66/88 CAP、36/36原工作包、781条来源登记/93 Registry**（非去重文献）。规划V8静态38案例，Node文件/真实NC/B5/消费者NOT_RUN；17资产Owner及L3待人类审批。CL_ONLY不得当NC工程验证，UNKNOWN阻D16。后续旧日期数据为快照。
+
 ## 2026-10-27｜CAP-09-03逆运动学与解分支（L3待审）
 [十项实施及原目标](docs/capabilities/CAP-09-03/README.md) · [单Babylon世界/左TaskPanel](docs/capabilities/CAP-09-03/UI.md) · [9份官方来源与阅读限制](research/sources/CAP-09-03.json) → [10规则30正反变异+5个合成2R数学向量](docs/capabilities/CAP-09-03/fixtures.json) · [独立消费者和回退](docs/capabilities/CAP-09-03/independent-consumer-handoff.md)。累计**65/88 CAP，36/36原包，772登记/92 Registry（非去重）**；仅V8内存合成，独立Node文件/真实OCCT/NC/B5/消费者NOT_RUN；17资产Owner与L3待审。D13独立解释最终NC→D14轴时序→D15工程验证→D16发布；UNKNOWN阻放行，不做材料扫掠仿真，规划PASS≠产品PASS。下一CAP-09-04。
 
