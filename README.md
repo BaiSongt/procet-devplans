@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-09-01机床运动学模型解析（L3待审）
+[十项实施及原目标](docs/capabilities/CAP-09-01/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-09-01/UI.md) · [10来源](research/sources/CAP-09-01.json) · [10规则/30正反独立差异变异](research/traces/CAP-09-01.json) · [5数学向量](docs/capabilities/CAP-09-01/fixtures.json) · [独立消费者](docs/capabilities/CAP-09-01/independent-consumer-handoff.md)。**63/88 CAP、36/36工作包、754来源登记/90 Registry（非去重）**。仅内存合成30/30，数学向量5条规格；独立Node文件、OCCT/NC/实机/B5/消费者NOT_RUN，17Owner/L3待会签。D03资源≠D10执行绑定，D13 NC→D14轴运动→D15验证→D16发布；UNKNOWN不放行。下一CAP-09-02。**规划PASS≠产品PASS**。
+
 ## 2026-10-26｜CAP-08-08《后处理配置与一致性》（L3待审）
 [十项实施及原始目标](docs/capabilities/CAP-08-08/README.md) · [统一左TaskPanel/单Babylon](docs/capabilities/CAP-08-08/UI.md) · [8合法来源及阅读深度](research/sources/CAP-08-08.json) → [10规则与30正反独立变异](research/traces/CAP-08-08.json) · [独立消费者](docs/capabilities/CAP-08-08/independent-consumer-handoff.md)。累计**62/88 CAP、36/36原包、744登记/89 Registry（非去重）**；本轮V8内存合成30/30，不等于Node独立执行/真实后处理或NC工程PASS。配置闭包包含插件/模板/有效属性/固件选件/Runtime及输入修订；D13需独立重读NC，UNKNOWN阻D16。17Owner和L3待审，历史原始附件/11域研究/全仓交叉仍待闭合。下一CAP-09-01。**规划PASS≠产品PASS**。
 

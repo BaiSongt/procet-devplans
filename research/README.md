@@ -1,3 +1,6 @@
+## 2026-10-26｜R-MACHINE-KINEMATICS-GRAPH-001运动学模型与标定证据
+[研究推导及局限](topics/R-MACHINE-KINEMATICS-GRAPH-001.md) → [10权威/论文来源及阅读深度](sources/CAP-09-01.json) → [十规则字段](traces/CAP-09-01.json) → [30正反变异与5数学向量](../docs/capabilities/CAP-09-01/fixtures.json)。ISO仅合法摘要，NIST仅出版摘要，She论文仅摘要片段；LinuxCNC2.9与OCCT8.0.1对应章节已读。754来源登记/90 Registry不等于去重论文，真实机床/消费者NOT_RUN。
+
 ## 2026-10-26｜R-POST-CONFIG-CONSISTENCY-001 后处理配置与一致性
 [理论推导及未读限制](topics/R-POST-CONFIG-CONSISTENCY-001.md) → [8来源作者/版本/章节/局限](sources/CAP-08-08.json) → [10字段规则](traces/CAP-08-08.json) → [30正反变异](../docs/capabilities/CAP-08-08/fixtures.json)。累计744登记/89 Registry非去重；ISO仅合法目录、NIST仅出版著录；静态规划合成与真实控制器执行/机床验证明确分离。
 
