@@ -25,5 +25,5 @@ D03（02域）定义可复用机床主轴、接口、刀柄、切削刀具和标
 D09中立CL可驱动D11预检（黄色“CL_ONLY / 不代表工程验证”），但**不能直接驱动D15**。最终NC D12经08域D13重新解释G43/G49、H寄存器、换刀、控制器动态偏置/RTCP（未知则UNKNOWN），09域D14使用D13事件及D10机床链展开轴时序，D15独立检查，D16仅在所有精准引用一致且已获授权确认时可发布。Haas设置/版本与LinuxCNC行为不可混为同一Dialect。禁止材料扫掠仿真。
 
 ## 工程验收与失效
-[九份合法来源及访问限制](../../../research/sources/CAP-09-04.json) → [10规则和字段/36工作包原编号引用](../../../research/traces/CAP-09-04.json) → [30正反独立变异+8合成反例](fixtures.json)；[任务界面](UI.md)、[合成合同](contract.example.json)、[失效矩阵](invalidation-matrix.json)、[17资产候选Owner](asset-owner-candidates.json)、[独立消费者交接](independent-consumer-handoff.md)、[研究专题](../../../research/topics/R-TOOL-ASSEMBLY-TCP-001.md)、[规划Node校验器](../../../tools/check_cap0904_planning_2026_10_27.cjs)。
+[九份合法来源及访问限制](../../../research/sources/CAP-09-04.json) → [10规则和字段/关联原编号工作包](../../../research/traces/CAP-09-04.json) → [30正反独立变异+8合成反例](fixtures.json)；[任务界面](UI.md)、[合成合同](contract.example.json)、[失效矩阵](invalidation-matrix.json)、[17资产候选Owner](asset-owner-candidates.json)、[独立消费者交接](independent-consumer-handoff.md)、[研究专题](../../../research/topics/R-TOOL-ASSEMBLY-TCP-001.md)、[规划Node校验器](../../../tools/check_cap0904_planning_2026_10_27.cjs)。
 真实B5安装接口/标定/运行、NC解释器、OCCT、浏览器、消费者均NOT_RUN。所有17资产会签、L3设计审批PENDING_HUMAN。**规划PASS≠产品PASS。**
