@@ -1,3 +1,6 @@
+## 2026-10-26｜原T5-06长期质量基线与能力扩展准入（L3待审）
+[十项实施](docs/work-packages/T5-06.md) · [单Babylon与左TaskPanel](docs/work-packages/T5-06/UI.md) · [9项合法来源](research/sources/T5-06.json) · [十规则/30合成](research/traces/T5-06.json) · [独立消费者](docs/work-packages/T5-06/independent-consumer-handoff.md)。**36/36原编号工作包、55/88详细CAP、687条来源登记/82 Registry**（非去重）；仅规划V8合成30/30，真实产品/NC/SQLite恢复/消费者及Node独立执行NOT_RUN；L3和17Owner待会签。**规划PASS≠产品PASS**。尚余33 CAP及17接口、11域研究、历史附件、全仓覆盖/风险/交接。以下为历史快照。
+
 ## 2026-10-26｜CAP-07-08轨迹编辑与局部再生（L3待审）
 [10实施](docs/capabilities/CAP-07-08/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-08/UI.md) · [8合法来源](research/sources/CAP-07-08.json) · [十规则/30正反变异](research/traces/CAP-07-08.json) · [独立消费者](docs/capabilities/CAP-07-08/independent-consumer-handoff.md)。累计55/88 CAP、35/36原编号包、678条登记/81 registry（非去重）。仅规划V8合成34/34，真实Node/产品/机床/独立消费者NOT_RUN；17Owner与L3待评审。规划PASS≠产品PASS。下一原T5-06。以下历史快照。
 

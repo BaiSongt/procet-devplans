@@ -1,3 +1,6 @@
+## 2026-10-26｜R-QUALITY-BASELINE-001
+[质量基线理论与局限](topics/R-QUALITY-BASELINE-001.md) · [9官方合法资料/阅读深度](sources/T5-06.json) → [10工程规则、字段及正反验收](traces/T5-06.json) → [原T5-06](../docs/work-packages/T5-06.md)。ISO25010仅目录摘要，NIST仅出版摘要，OCCT API非NC验证、LinuxCNC非B5控制器认证。687登记/82 registry并非去重论文，V8合成30/30≠产品PASS。
+
 ## 2026-10-26｜R-TOOLPATH-LOCAL-REGEN-001
 [逐项理论及适用边界](topics/R-TOOLPATH-LOCAL-REGEN-001.md) · [8来源](sources/CAP-07-08.json) · [十规则和30合成](traces/CAP-07-08.json) · [CAP实施](../docs/capabilities/CAP-07-08/README.md)。678来源登记/81 registry非去重，厂商保护态≠新路径安全，OCCT拓扑哈希≠稳定制造段ID，产品/Consumer NOT_RUN。历史统计以下仅快照。
 
