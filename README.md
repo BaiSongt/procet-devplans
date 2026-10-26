@@ -1,3 +1,6 @@
+## 2026-10-27｜原F1-02研究补证（不新增原编号包）
+[保留原实施包](docs/work-packages/F1-02.md) · [研究补证/来源](docs/work-packages/F1-02/RESEARCH-BACKFILL.md) · [10规则和30+6合成](research/traces/F1-02.json)。CAP **66/88**、原包36/36、原包研究**35/36**，789登记/94Registry非去重，Owner/L3待审、产品NOT_RUN。其下旧数字为历史快照。
+
 ## 2026-10-27｜CAP-09-04刀具安装与TCP核对（L3待审）
 [十项实施/原目标](docs/capabilities/CAP-09-04/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-09-04/UI.md) · [九来源](research/sources/CAP-09-04.json) · [10规则30正反变异+8合成数例](research/traces/CAP-09-04.json) · [独立交接](docs/capabilities/CAP-09-04/independent-consumer-handoff.md)。进度**66/88 CAP、36/36原工作包、781条来源登记/93 Registry**（非去重文献）。规划V8静态38案例，Node文件/真实NC/B5/消费者NOT_RUN；17资产Owner及L3待人类审批。CL_ONLY不得当NC工程验证，UNKNOWN阻D16。后续旧日期数据为快照。
 

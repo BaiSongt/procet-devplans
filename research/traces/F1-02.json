@@ -1,0 +1,524 @@
+{
+  "schemaVersion": "procet-f102-research-trace-v1",
+  "workPackageId": "F1-02",
+  "originalSpec": "docs/work-packages/F1-02.md",
+  "researchTopic": "R-FRAME-OWNER-F1-02-001",
+  "sourceRegistry": "research/sources/F1-02.json",
+  "fixtures": "docs/work-packages/F1-02/fixtures.json",
+  "validator": "tools/check_f102_planning_2026_10_27.cjs",
+  "rules": [
+    {
+      "id": "F1-02-R01",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T01",
+      "summary": "有方向的变换及复合逆变换",
+      "fields": [
+        "frames.fromToExplicit",
+        "frames.parentChildCompose",
+        "frames.inverseRoundTrip",
+        "frames.referencePinned"
+      ],
+      "sourceIds": [
+        "F102-S01",
+        "F102-S02",
+        "F102-S03"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "frames.fromToExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frames.parentChildCompose",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frames.inverseRoundTrip",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frames.referencePinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R02",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T02",
+      "summary": "点/方向/法向及错帧",
+      "fields": [
+        "vector.pointVersusDirection",
+        "vector.translationIgnoredForDirection",
+        "vector.normalTransformDeclared",
+        "vector.unknownFrameRejected"
+      ],
+      "sourceIds": [
+        "F102-S02",
+        "F102-S03",
+        "F102-S07"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "vector.pointVersusDirection",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "vector.translationIgnoredForDirection",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "vector.normalTransformDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "vector.unknownFrameRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R03",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T03",
+      "summary": "重定位幂等与毛坯不扩张",
+      "fields": [
+        "placement.sourceAnchorImmutable",
+        "placement.recomputeNoAccumulation",
+        "placement.cancelLateAckRejected",
+        "placement.stockDimensionsNotExpanded"
+      ],
+      "sourceIds": [
+        "F102-S02",
+        "F102-S03",
+        "F102-S06"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D10"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "placement.sourceAnchorImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "placement.recomputeNoAccumulation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "placement.cancelLateAckRejected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "placement.stockDimensionsNotExpanded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R04",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T04",
+      "summary": "非刚体拒绝",
+      "fields": [
+        "se3.rightHanded",
+        "se3.orthonormalRotation",
+        "se3.determinantPositive",
+        "se3.scaleMirrorNaNRejected"
+      ],
+      "sourceIds": [
+        "F102-S02",
+        "F102-S03",
+        "F102-S01"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "se3.rightHanded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "se3.orthonormalRotation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "se3.determinantPositive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "se3.scaleMirrorNaNRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R05",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T05",
+      "summary": "名义Setup与执行绑定区隔",
+      "fields": [
+        "binding.d04NominalOnly",
+        "binding.d10ExecutionOwner",
+        "binding.controllerWcsNotFromCamera",
+        "binding.realProfileOrUnknown"
+      ],
+      "sourceIds": [
+        "F102-S01",
+        "F102-S04",
+        "F102-S05"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "binding.d04NominalOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.d10ExecutionOwner",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.controllerWcsNotFromCamera",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.realProfileOrUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R06",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T06",
+      "summary": "撤权与取消晚回执",
+      "fields": [
+        "scope.revisionHashExact",
+        "scope.epochGenerationMatched",
+        "scope.casAclRecheckedOnCommit",
+        "scope.lateAckNotResurrected"
+      ],
+      "sourceIds": [
+        "F102-S06",
+        "F102-S07",
+        "F102-S03"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "scope.revisionHashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.epochGenerationMatched",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.casAclRecheckedOnCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.lateAckNotResurrected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R07",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T07",
+      "summary": "单位和容差归一化",
+      "fields": [
+        "units.canonicalMmRadSpecified",
+        "units.sourceUnitRetained",
+        "units.conversionExplicitOnce",
+        "units.toleranceProvenanceNotHardcoded"
+      ],
+      "sourceIds": [
+        "F102-S02",
+        "F102-S03",
+        "F102-S05"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "units.canonicalMmRadSpecified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "units.sourceUnitRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "units.conversionExplicitOnce",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "units.toleranceProvenanceNotHardcoded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R08",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T08",
+      "summary": "OCCT与Babylon拾取逆映射",
+      "fields": [
+        "render.oneBabylonWorld",
+        "render.ownerGeometryAuthority",
+        "render.pickInverseFrameVerified",
+        "render.meshOnlyNotManufacturingProof"
+      ],
+      "sourceIds": [
+        "F102-S03",
+        "F102-S02",
+        "F102-S07"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D11"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "render.oneBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "render.ownerGeometryAuthority",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "render.pickInverseFrameVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "render.meshOnlyNotManufacturingProof",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R09",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T09",
+      "summary": "静态/运行运动分层",
+      "fields": [
+        "runtime.staticFrameFrozen",
+        "runtime.d10BindingSeparated",
+        "runtime.d13FinalNcReinterpreted",
+        "runtime.d14TemporalFromD13"
+      ],
+      "sourceIds": [
+        "F102-S04",
+        "F102-S02",
+        "F102-S07"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "runtime.staticFrameFrozen",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "runtime.d10BindingSeparated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "runtime.d13FinalNcReinterpreted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "runtime.d14TemporalFromD13",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "F1-02-R10",
+      "workPackageId": "F1-02",
+      "originalAcceptanceId": "F1-02-T10",
+      "summary": "旧数据解释、迁移、回退",
+      "fields": [
+        "migration.legacyMissingFrameUnknown",
+        "migration.oldReaderStillAvailable",
+        "migration.noDatabaseDestruction",
+        "migration.d16FrozenHistoryPreserved"
+      ],
+      "sourceIds": [
+        "F102-S06",
+        "F102-S07",
+        "F102-S08"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "capabilities": [
+        "CAP-04-04",
+        "CAP-09-02",
+        "CAP-09-04"
+      ],
+      "criteria": [
+        {
+          "path": "migration.legacyMissingFrameUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.oldReaderStillAvailable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.noDatabaseDestruction",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.d16FrozenHistoryPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺单位/Frame/revision或未经授权写入必须拒绝或UNKNOWN，不得假装产品验证通过",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "status": "PLANNING_ONLY_PENDING_HUMAN"
+}

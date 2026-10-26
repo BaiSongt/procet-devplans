@@ -1,3 +1,6 @@
+## 2026-10-27｜原F1-02 Frame、单位与安装变换理论追踪补证
+[研究推导](topics/R-FRAME-OWNER-F1-02-001.md) · [8来源/阅读限制](sources/F1-02.json) → [原10项验收映射/10规则](traces/F1-02.json) → [30正反独立变异与6解析案例](../docs/work-packages/F1-02/fixtures.json)。F1-02原8子任务及10产品验收不改，规划合成≠产品PASS。累积789条登记/94Registry非去重；B0-03研究待补。
+
 ## 2026-10-27｜R-TOOL-ASSEMBLY-TCP-001工具装配与TCP
 [专题推导](topics/R-TOOL-ASSEMBLY-TCP-001.md) → [九来源版本与访问边界](sources/CAP-09-04.json) → [十规则字段和原包](traces/CAP-09-04.json) → [30正反变异/8合成数学状态案例](../docs/capabilities/CAP-09-04/fixtures.json)。ISO 13399/26623仅读公开目录，NIST仅著录摘要；LinuxCNC2.9/Haas、OCCT API按各自文档适用。累计781登记/93Registry非去重；真实产品/消费者NOT_RUN，L3/Owner待签。
 

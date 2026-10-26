@@ -1,3 +1,6 @@
+## 2026-10-27｜[F1-02原工作包研究补证](F1-02/RESEARCH-BACKFILL.md)
+[原八项实施/十产品验收](F1-02.md)与[8来源](../../research/sources/F1-02.json)、[10规则逐项对应](../../research/traces/F1-02.json)、[30正反独立变异+6合成数学](F1-02/fixtures.json)相互追踪。36/36原工作包详细规格不重复计数，研究追踪35/36（B0-03仍待）；产品NOT_RUN/L3待审。下方旧数字为历史快照。
+
 ## 2026-10-26｜原T5-05两独立纵向切片
 [实施10子任务](T5-05.md) · [GUI/3D](T5-05/UI.md) · [消费者/回退](T5-05/independent-consumer-handoff.md) · [研究与正反](../../research/traces/T5-05.json)。35/36原包，产品/跨仓消费者NOT_RUN、Owner/L3待审。
 
