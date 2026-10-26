@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "procet-b003-golden-case-catalog-v1",
+  "workPackageId": "B0-03",
+  "syntheticOnly": true,
+  "casePairCount": 12,
+  "versionPolicy": "真实实施caseRevision/inputHash/ownerSignoff必须新建不可变版本，当前均未实测",
+  "cases": [
+    {
+      "caseId": "GOLD-01",
+      "name": "无计划制造特征探索",
+      "ruleId": "B0-03-R04",
+      "capabilityId": "CAP-05-01",
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "未批准Setup不应成为探索门禁",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "探索态不是生产批准",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-02",
+      "name": "同工程双Setup",
+      "ruleId": "B0-03-R09",
+      "capabilityId": "CAP-04-04",
+      "assets": [
+        "D04",
+        "D07"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "旧Setup迟到结果跨epoch写入",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "正确scope与generation保持隔离",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-03",
+      "name": "A/B冻结交接",
+      "ruleId": "B0-03-R04",
+      "capabilityId": "CAP-05-05",
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "覆盖冻结工序或重复引入事实",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "新修订只采纳受影响片段",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-04",
+      "name": "资源离线闭包",
+      "ruleId": "B0-03-R03",
+      "capabilityId": "CAP-02-08",
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "漂移的latest引用与子件丢失",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "精确revision、hash、license",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-05",
+      "name": "刀柄与刀具TCP",
+      "ruleId": "B0-03-R05",
+      "capabilityId": "CAP-09-04",
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "把重叠夹持段当增量叠加",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "解析式与安装测量证据分离",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-06",
+      "name": "三轴/B5轴树",
+      "ruleId": "B0-03-R08",
+      "capabilityId": "CAP-09-01",
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "按机床型号猜轴拓扑或枢轴",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "未取得实机标定保持UNKNOWN",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-07",
+      "name": "局部B-Rep布尔",
+      "ruleId": "B0-03-R08",
+      "capabilityId": "CAP-06-04",
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "保护区破坏但体积接近",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "拓扑/源身份/保护区独立验",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-08",
+      "name": "中立CL",
+      "ruleId": "B0-03-R07",
+      "capabilityId": "CAP-07-07",
+      "assets": [
+        "D09",
+        "D11"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "把实际机床轴坐标写入CL",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "CL仅作预检不得冒充NC验",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-09",
+      "name": "最终NC语义",
+      "ruleId": "B0-03-R07",
+      "capabilityId": "CAP-09-06",
+      "assets": [
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "未知G/M码按成功跳过",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "独立解释最终NC，未知阻断",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-10",
+      "name": "H补偿与TCP",
+      "ruleId": "B0-03-R05",
+      "capabilityId": "CAP-09-04",
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "把H值一律等同Gauge长度",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "控制器Profile与实装对照",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-11",
+      "name": "干涉/限位",
+      "ruleId": "B0-03-R05",
+      "capabilityId": "CAP-09-07",
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "代理外观通过即宣称精确无碰",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "覆盖范围、精度、遗漏声明",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    },
+    {
+      "caseId": "GOLD-12",
+      "name": "精确版本发布闭包",
+      "ruleId": "B0-03-R10",
+      "capabilityId": "CAP-10-01",
+      "assets": [
+        "D12",
+        "D15",
+        "D16"
+      ],
+      "origin": "docs/work-packages/B0-03.md#3-首批十二个黄金场景规格",
+      "positive": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": true,
+        "expected": "PLANNING_CASE_DEFINED",
+        "executionStatus": "NOT_RUN"
+      },
+      "negative": {
+        "caseRevision": "SYNTHETIC-PLAN-V1",
+        "evidenceGate": false,
+        "negativeRisk": "手工编辑NC却复用旧D15结果",
+        "expected": "REJECT_OR_UNKNOWN",
+        "executionStatus": "NOT_RUN"
+      },
+      "oracleBoundary": "精确依赖闭包和回退保历史",
+      "independentConsumer": "PENDING_REAL_CONSUMER",
+      "productObservedResult": null
+    }
+  ]
+}

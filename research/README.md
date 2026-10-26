@@ -1,3 +1,6 @@
+## 2026-10-27｜原B0-03独立黄金Oracle研究补证（36/36原包研究追踪）
+[原包正文保持不变](../docs/work-packages/B0-03.md) · [补证与原S01-S08映射](../docs/work-packages/B0-03/RESEARCH-BACKFILL.md) · [8来源与访问限制](sources/B0-03.json) → [10逐字段规则](traces/B0-03.json) → [30规则正反/12对黄金案例](../docs/work-packages/B0-03/golden-cases.json) · [独立交接](../docs/work-packages/B0-03/independent-consumer-handoff.md)。797来源登记/95 Registry，非去重；66/88 CAP不变，36/36原工作包研究追踪。真实产品/消费者NOT_RUN；L3/Owner PENDING_HUMAN，规划PASS≠产品PASS。
+
 ## 2026-10-27｜原F1-02 Frame、单位与安装变换理论追踪补证
 [研究推导](topics/R-FRAME-OWNER-F1-02-001.md) · [8来源/阅读限制](sources/F1-02.json) → [原10项验收映射/10规则](traces/F1-02.json) → [30正反独立变异与6解析案例](../docs/work-packages/F1-02/fixtures.json)。F1-02原8子任务及10产品验收不改，规划合成≠产品PASS。累积789条登记/94Registry非去重；B0-03研究待补。
 

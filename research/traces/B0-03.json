@@ -1,0 +1,509 @@
+{
+  "schemaVersion": "procet-b003-research-trace-v1",
+  "workPackageId": "B0-03",
+  "originalSpec": "docs/work-packages/B0-03.md",
+  "originalSpecBlobSha": "483909087df448913f9a9418f123ae36238f5b14",
+  "researchTopic": "R-GOLDEN-ORACLE-001",
+  "sourceRegistry": "research/sources/B0-03.json",
+  "fixtures": "docs/work-packages/B0-03/fixtures.json",
+  "goldenCases": "docs/work-packages/B0-03/golden-cases.json",
+  "validator": "tools/check_b003_planning_2026_10_27.cjs",
+  "rules": [
+    {
+      "id": "B0-03-R01",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S01",
+      "summary": "许可和资料资格",
+      "fields": [
+        "input.licenseVerified",
+        "input.publicSyntheticOnly",
+        "input.customerDataAbsent",
+        "input.proprietaryFullTextAbsent"
+      ],
+      "sourceIds": [
+        "B003-S01",
+        "B003-S07"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "capabilities": [
+        "CAP-01-02",
+        "CAP-03-01"
+      ],
+      "criteria": [
+        {
+          "path": "input.licenseVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.publicSyntheticOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.customerDataAbsent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.proprietaryFullTextAbsent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R02",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S02",
+      "summary": "公开来源阅读分级",
+      "fields": [
+        "sources.editionPinned",
+        "sources.accessDepthRecorded",
+        "sources.unreadClausesNotClaimed",
+        "sources.unknownEvidenceBlocksClaims"
+      ],
+      "sourceIds": [
+        "B003-S01",
+        "B003-S02",
+        "B003-S08"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "capabilities": [
+        "CAP-01-08",
+        "CAP-09-08"
+      ],
+      "criteria": [
+        {
+          "path": "sources.editionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sources.accessDepthRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sources.unreadClausesNotClaimed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sources.unknownEvidenceBlocksClaims",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R03",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S03",
+      "summary": "来源-规则-资产谱系",
+      "fields": [
+        "trace.sourceRuleLinked",
+        "trace.fieldUnitFramePinned",
+        "trace.capPackageLinked",
+        "trace.frozenHistoryNotOverwritten"
+      ],
+      "sourceIds": [
+        "B003-S03",
+        "B003-S07"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08"
+      ],
+      "capabilities": [
+        "CAP-01-03",
+        "CAP-08-07"
+      ],
+      "criteria": [
+        {
+          "path": "trace.sourceRuleLinked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trace.fieldUnitFramePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trace.capPackageLinked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trace.frozenHistoryNotOverwritten",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R04",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S04",
+      "summary": "黄金案例A/B与双Setup正交",
+      "fields": [
+        "scenario.abSharesSameFacts",
+        "scenario.twoSetupScopesSeparate",
+        "scenario.frozenResultProtected",
+        "scenario.guiCliAgentSameOwnerPort"
+      ],
+      "sourceIds": [
+        "B003-S03",
+        "B003-S04"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "capabilities": [
+        "CAP-01-05",
+        "CAP-04-04"
+      ],
+      "criteria": [
+        {
+          "path": "scenario.abSharesSameFacts",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scenario.twoSetupScopesSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scenario.frozenResultProtected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scenario.guiCliAgentSameOwnerPort",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R05",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S05",
+      "summary": "独立Oracle和不确定度",
+      "fields": [
+        "oracle.independentFromGenerator",
+        "oracle.methodAndLimitsDeclared",
+        "oracle.tolerancePolicyExact",
+        "oracle.uncertaintyNotMisstatedAsSafety"
+      ],
+      "sourceIds": [
+        "B003-S02",
+        "B003-S05",
+        "B003-S08"
+      ],
+      "assets": [
+        "D06",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-06-07",
+        "CAP-09-07"
+      ],
+      "criteria": [
+        {
+          "path": "oracle.independentFromGenerator",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.methodAndLimitsDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.tolerancePolicyExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.uncertaintyNotMisstatedAsSafety",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R06",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S06",
+      "summary": "每例都有负例与失效",
+      "fields": [
+        "negative.sameCaseRevision",
+        "negative.changesOnlyOneRiskDimension",
+        "negative.expectedRejectOrUnknown",
+        "negative.failureIsObservable"
+      ],
+      "sourceIds": [
+        "B003-S03",
+        "B003-S04"
+      ],
+      "assets": [
+        "D01",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-01-06",
+        "CAP-09-08"
+      ],
+      "criteria": [
+        {
+          "path": "negative.sameCaseRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "negative.changesOnlyOneRiskDimension",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "negative.expectedRejectOrUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "negative.failureIsObservable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R07",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S05",
+      "summary": "CL预检和NC工程验证隔离",
+      "fields": [
+        "nc.neutralClOnlyPrecheck",
+        "nc.finalBytesParsedByD13",
+        "nc.axisTimelineDerivedD14",
+        "nc.unknownBlocksD15D16"
+      ],
+      "sourceIds": [
+        "B003-S06",
+        "B003-S08"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilities": [
+        "CAP-08-05",
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "criteria": [
+        {
+          "path": "nc.neutralClOnlyPrecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.finalBytesParsedByD13",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.axisTimelineDerivedD14",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.unknownBlocksD15D16",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R08",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S07",
+      "summary": "几何/机床独立消费者",
+      "fields": [
+        "consumers.brepIndependentEvidence",
+        "consumers.controllerProfileExact",
+        "consumers.machineCalibrationNotAssumed",
+        "consumers.runCommandVerifiedBeforeClaim"
+      ],
+      "sourceIds": [
+        "B003-S05",
+        "B003-S06",
+        "B003-S08"
+      ],
+      "assets": [
+        "D06",
+        "D10",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-06-04",
+        "CAP-09-01"
+      ],
+      "criteria": [
+        {
+          "path": "consumers.brepIndependentEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "consumers.controllerProfileExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "consumers.machineCalibrationNotAssumed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "consumers.runCommandVerifiedBeforeClaim",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R09",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S04",
+      "summary": "任务UI与事务时间线",
+      "fields": [
+        "ui.singleBabylonWorld",
+        "ui.leftUnifiedTaskPanel",
+        "ui.commitAclCasRecheck",
+        "ui.cancelLateAckAndStaleEpochRejected"
+      ],
+      "sourceIds": [
+        "B003-S03",
+        "B003-S04"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D17"
+      ],
+      "capabilities": [
+        "CAP-01-06",
+        "CAP-01-07"
+      ],
+      "criteria": [
+        {
+          "path": "ui.singleBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftUnifiedTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.commitAclCasRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.cancelLateAckAndStaleEpochRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B0-03-R10",
+      "workPackageId": "B0-03",
+      "originalSubtaskId": "B0-03-S08",
+      "summary": "可重放证据交接与回退",
+      "fields": [
+        "evidence.exactHeadAndInputHash",
+        "evidence.commandExitAndSkippedStatus",
+        "evidence.independentReviewerRecorded",
+        "evidence.rollbackPreservesFrozenAndReleased"
+      ],
+      "sourceIds": [
+        "B003-S03",
+        "B003-S07",
+        "B003-S02"
+      ],
+      "assets": [
+        "D01",
+        "D08",
+        "D16"
+      ],
+      "capabilities": [
+        "CAP-01-03",
+        "CAP-10-01"
+      ],
+      "criteria": [
+        {
+          "path": "evidence.exactHeadAndInputHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.commandExitAndSkippedStatus",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.independentReviewerRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.rollbackPreservesFrozenAndReleased",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确修订/权限/来源/独立证据时拒绝或保持UNKNOWN；规划合成通过不代表产品验证",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "sourceToRuleCount": 24,
+  "productAcceptance": "NOT_RUN"
+}

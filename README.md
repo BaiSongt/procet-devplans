@@ -1,3 +1,6 @@
+## 2026-10-27｜原B0-03黄金样例与规范追踪补证（不新增工作包）
+[原B0-03](docs/work-packages/B0-03.md) · [8来源/10规则/30合成/12对黄金案例](docs/work-packages/B0-03/RESEARCH-BACKFILL.md) · [独立消费者交接](docs/work-packages/B0-03/independent-consumer-handoff.md)。原包研究追踪已到**36/36**，CAP仍**66/88**；累计**797来源登记/95 Registry**（非去重）；产品/实机/独立消费者NOT_RUN、Owner/L3待人类。完整仓链接/最终交接未闭合。
+
 ## 2026-10-27｜原F1-02研究补证（不新增原编号包）
 [保留原实施包](docs/work-packages/F1-02.md) · [研究补证/来源](docs/work-packages/F1-02/RESEARCH-BACKFILL.md) · [10规则和30+6合成](research/traces/F1-02.json)。CAP **66/88**、原包36/36、原包研究**35/36**，789登记/94Registry非去重，Owner/L3待审、产品NOT_RUN。其下旧数字为历史快照。
 
