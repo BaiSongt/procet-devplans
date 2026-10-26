@@ -1,3 +1,6 @@
+## 2026-10-26｜T5-05双纵向切片协作规划（L3待审）
+[十项实施](docs/work-packages/T5-05.md) · [单Babylon/左TaskPanel](docs/work-packages/T5-05/UI.md) · [独立消费者](docs/work-packages/T5-05/independent-consumer-handoff.md) · [9来源](research/sources/T5-05.json) · [10规则30合成](research/traces/T5-05.json)。累计54/88 CAP、35/36原工作包、670登记/80 registry（非去重）。真实团队集成/产品/独立Consumer NOT_RUN、L3/17Owner待人类，规划PASS≠产品PASS。下一CAP-07-08再T5-06。下文均为历史快照。
+
 ## 2026-10-26｜CAP-07-07中立CL轨迹契约（L3待审）
 [十项实施](docs/capabilities/CAP-07-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-07/UI.md) · [9来源](research/sources/CAP-07-07.json) · [10规则30合成正反变异](research/traces/CAP-07-07.json) · [独立消费者](docs/capabilities/CAP-07-07/independent-consumer-handoff.md)。累计**54/88 CAP、34/36原包、661条来源登记/79 registry（非去重）**。D09中立CL的TCP/Frame/刀轴/typed段与D10实际机床执行绑定分离；D13 UNKNOWN阻断D16、D11动画不冒充D15工程验证，不做材料扫掠仿真。仅规划合成30/30；真实Node/OCCT/NC/机床/消费者NOT_RUN，Owner/L3待人类。下一原T5-05后CAP-07-08。**规划PASS≠产品PASS**。下文为历史快照。
 

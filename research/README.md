@@ -1,3 +1,6 @@
+## 2026-10-26｜R-INDEPENDENT-SLICES-001
+[理论及限制](topics/R-INDEPENDENT-SLICES-001.md) · [9来源深度](sources/T5-05.json) · [10规则30合成](traces/T5-05.json) · [原T5-05](../docs/work-packages/T5-05.md)。累计670登记/80 registry，非去重。NIST仅摘要、ISO仅目录、OCCT仅API，真实消费者NOT_RUN，规划PASS≠产品PASS。
+
 ## 2026-10-26｜R-NEUTRAL-CL-CONTRACT-001中立CL契约与NC解耦
 [理论及读文限制](topics/R-NEUTRAL-CL-CONTRACT-001.md) → [9条合法来源](sources/CAP-07-07.json) → [10规则字段及30合成场景](traces/CAP-07-07.json) → [CAP-07-07实施](../docs/capabilities/CAP-07-07/README.md)。ISO只公开目录摘要；OCCT仅API；NIST仅官方著录摘要；RFC/W3C与LinuxCNC公开章节有限范围。累计661登记/79 registry，规划PASS≠产品PASS。
 

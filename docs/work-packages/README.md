@@ -1,3 +1,6 @@
+## 2026-10-26｜原T5-05两独立纵向切片
+[实施10子任务](T5-05.md) · [GUI/3D](T5-05/UI.md) · [消费者/回退](T5-05/independent-consumer-handoff.md) · [研究与正反](../../research/traces/T5-05.json)。35/36原包，产品/跨仓消费者NOT_RUN、Owner/L3待审。
+
 ## 2026-10-26｜原U4-06模块SDK与贡献验收
 [原10子任务](U4-06.md) · [统一GUI](U4-06/UI.md) · [生命周期及回退](U4-06/adapter-and-lifecycle.md) · [Owner候选](U4-06/asset-owner-candidates.json) · [来源及规则](../../research/traces/U4-06.json) · [独立消费者](U4-06/independent-consumer-handoff.md)。工作包30/36，真实模块/产品NOT_RUN，L3及Owner待签。
 
