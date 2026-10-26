@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-07-06 进退刀与链接（L3待审）
+[实施十项](docs/capabilities/CAP-07-06/README.md) · [GUI与3D](docs/capabilities/CAP-07-06/UI.md) · [9来源](research/sources/CAP-07-06.json) · [10规则及30合成正反变异](research/traces/CAP-07-06.json) · [独立消费者](docs/capabilities/CAP-07-06/independent-consumer-handoff.md)。累计**53/88 CAP、33/36工作包、643登记/77 registry（非去重）**。允许有证据保持下刀，禁止静态距离冒充连续安全；D09 CL到D16必须独立执行链。规划合成30/30，不是产品PASS，OCCT/机床/消费者NOT_RUN，L3/17Owner待审。下轮原T5-04后CAP-07-07，以下旧段为历史快照。
+
 ## 2026-10-26｜原T5-03 跨仓发布列车与兼容窗口（L3待审）
 [十项规划](docs/work-packages/T5-03.md) · [GUI与3D](docs/work-packages/T5-03/UI.md) · [来源深度](research/sources/T5-03.json) · [十规则/三十合成验收](research/traces/T5-03.json) · [十七资产Owner候选](docs/work-packages/T5-03/asset-owner-candidates.json) · [独立消费者/回退](docs/work-packages/T5-03/independent-consumer-handoff.md)。累计**52/88 CAP、33/36原编号包、634登记/76 registry**（非去重）。V8内存合成30/30规划PASS，真实产品/签名/Win11/NC/独立消费者NOT_RUN，L3/Owner待人类会签。下一项CAP-07-06，后T5-04。**规划PASS≠产品PASS。** 下文历史进度仅快照。
 

@@ -1,3 +1,6 @@
+## 2026-10-26｜R-LEAD-LINK-001 链接、退让与连续安全证据
+[理论边界](topics/R-LEAD-LINK-001.md) · [9官方/厂商来源与深度](sources/CAP-07-06.json) · [规则/字段/30合成场景](traces/CAP-07-06.json) · [CAP原业务规划](../docs/capabilities/CAP-07-06/README.md)。643登记/77 registry（非去重）；局部静态最近距不证明连续路径无碰，产品/独立消费者NOT_RUN。
+
 ## 2026-10-26｜R-RELEASE-TRAIN-001 发布组合与离线兼容
 [理论与边界](topics/R-RELEASE-TRAIN-001.md) · [十来源及访问深度](sources/T5-03.json) · [规则字段/正反变异](traces/T5-03.json) · [原T5-03实施](../docs/work-packages/T5-03.md)。NIST、SPDX只目录；RFC8785仅摘要；SLSA/TUF/Tauri/通用规范只作规划支持，不冒充已实施。634登记/76 registry（非去重文献），真实产品、消费者、离线签名NOT_RUN。
 

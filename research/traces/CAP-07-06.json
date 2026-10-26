@@ -1,0 +1,546 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-06",
+  "researchTopic": "R-LEAD-LINK-001",
+  "sourceRegistry": "research/sources/CAP-07-06.json",
+  "specification": "docs/capabilities/CAP-07-06/README.md",
+  "ui": "docs/capabilities/CAP-07-06/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-06/fixtures.json",
+  "validator": "tools/check_cap0706_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "C0706-R01",
+      "capabilityId": "CAP-07-06",
+      "title": "精确版本、右手Frame与D08冻结",
+      "summary": "精确版本、右手Frame与D08冻结；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "sourceRevision",
+        "geometryHash",
+        "frameHash",
+        "frameHandedness",
+        "frozenUnchanged"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S06",
+        "SRC-C0706-S07",
+        "SRC-C0706-S08"
+      ],
+      "criteria": [
+        {
+          "path": "sourceRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "geometryHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frameHandedness",
+          "op": "eq",
+          "value": "RIGHT"
+        },
+        {
+          "path": "frozenUnchanged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T01",
+      "negativeTestId": "CAP-07-06-T02",
+      "mutationTestId": "CAP-07-06-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R02",
+      "capabilityId": "CAP-07-06",
+      "title": "安全退让必须相对于Setup方向",
+      "summary": "安全退让必须相对于Setup方向；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "clearanceMode",
+        "safePlaneApproved",
+        "clearanceMm",
+        "worldZHardcoded"
+      ],
+      "assets": [
+        "D04",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S01",
+        "SRC-C0706-S02",
+        "SRC-C0706-S06"
+      ],
+      "criteria": [
+        {
+          "path": "clearanceMode",
+          "op": "eq",
+          "value": "SETUP_LOCAL_VECTOR"
+        },
+        {
+          "path": "safePlaneApproved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clearanceMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "worldZHardcoded",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T03",
+      "negativeTestId": "CAP-07-06-T04",
+      "mutationTestId": "CAP-07-06-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R03",
+      "capabilityId": "CAP-07-06",
+      "title": "进刀几何与刀具包络保守检查",
+      "summary": "进刀几何与刀具包络保守检查；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "entryMode",
+        "entryRadiusMm",
+        "toolEnvelopeKnown",
+        "entryGeometryCertified"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S02",
+        "SRC-C0706-S03",
+        "SRC-C0706-S06"
+      ],
+      "criteria": [
+        {
+          "path": "entryMode",
+          "op": "eq",
+          "value": "RAMP_OR_HELIX"
+        },
+        {
+          "path": "entryRadiusMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "toolEnvelopeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "entryGeometryCertified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T05",
+      "negativeTestId": "CAP-07-06-T06",
+      "mutationTestId": "CAP-07-06-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R04",
+      "capabilityId": "CAP-07-06",
+      "title": "退刀切线连续与局部过切证据",
+      "summary": "退刀切线连续与局部过切证据；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "exitContinuity",
+        "exitLocalGougeCheck",
+        "exitFeedIntentSpecified",
+        "previewCertification"
+      ],
+      "assets": [
+        "D07",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S02",
+        "SRC-C0706-S03",
+        "SRC-C0706-S06"
+      ],
+      "criteria": [
+        {
+          "path": "exitContinuity",
+          "op": "eq",
+          "value": "C1_LOCAL"
+        },
+        {
+          "path": "exitLocalGougeCheck",
+          "op": "eq",
+          "value": "PASS_LOCAL"
+        },
+        {
+          "path": "exitFeedIntentSpecified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "previewCertification",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T07",
+      "negativeTestId": "CAP-07-06-T08",
+      "mutationTestId": "CAP-07-06-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R05",
+      "capabilityId": "CAP-07-06",
+      "title": "端面可保持下刀但须有已认证连接通道",
+      "summary": "端面可保持下刀但须有已认证连接通道；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "stayDownRequested",
+        "certifiedLinkCorridor",
+        "fixtureEnvelopeIncluded",
+        "rapidAcrossStock"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D07",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S02",
+        "SRC-C0706-S03",
+        "SRC-C0706-S06"
+      ],
+      "criteria": [
+        {
+          "path": "stayDownRequested",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "certifiedLinkCorridor",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fixtureEnvelopeIncluded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rapidAcrossStock",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T09",
+      "negativeTestId": "CAP-07-06-T10",
+      "mutationTestId": "CAP-07-06-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R06",
+      "capabilityId": "CAP-07-06",
+      "title": "刀柄夹具材料障碍需精确来源",
+      "summary": "刀柄夹具材料障碍需精确来源；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "toolHolderHash",
+        "fixtureHash",
+        "stockHash",
+        "obstacleSetCurrent",
+        "machineEnvelopeAssumed"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D07",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S06",
+        "SRC-C0706-S07"
+      ],
+      "criteria": [
+        {
+          "path": "toolHolderHash",
+          "op": "sha256"
+        },
+        {
+          "path": "fixtureHash",
+          "op": "sha256"
+        },
+        {
+          "path": "stockHash",
+          "op": "sha256"
+        },
+        {
+          "path": "obstacleSetCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machineEnvelopeAssumed",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T11",
+      "negativeTestId": "CAP-07-06-T12",
+      "mutationTestId": "CAP-07-06-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R07",
+      "capabilityId": "CAP-07-06",
+      "title": "换Setup/3+2姿态重新认证链接",
+      "summary": "换Setup/3+2姿态重新认证链接；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "setupRevision",
+        "frameHash",
+        "orientationRevalidated",
+        "crossSetupReuse"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S05",
+        "SRC-C0706-S06",
+        "SRC-C0706-S07"
+      ],
+      "criteria": [
+        {
+          "path": "setupRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "orientationRevalidated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "crossSetupReuse",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T13",
+      "negativeTestId": "CAP-07-06-T14",
+      "mutationTestId": "CAP-07-06-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R08",
+      "capabilityId": "CAP-07-06",
+      "title": "中立CL运动意图与执行绑定分离",
+      "summary": "中立CL运动意图与执行绑定分离；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "clNeutral",
+        "segmentTyped",
+        "hasControllerWords",
+        "controllerAxesEncoded",
+        "d10BindingSeparate"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D12"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S01",
+        "SRC-C0706-S04",
+        "SRC-C0706-S05"
+      ],
+      "criteria": [
+        {
+          "path": "clNeutral",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "segmentTyped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hasControllerWords",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "controllerAxesEncoded",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "d10BindingSeparate",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T15",
+      "negativeTestId": "CAP-07-06-T16",
+      "mutationTestId": "CAP-07-06-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R09",
+      "capabilityId": "CAP-07-06",
+      "title": "D12至D15未验或语义UNKNOWN时D16阻断",
+      "summary": "D12至D15未验或语义UNKNOWN时D16阻断；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "d12PostStatus",
+        "d13SemanticStatus",
+        "d14TimingStatus",
+        "d15VerificationStatus",
+        "d16Release",
+        "clPreviewIsVerification"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S04",
+        "SRC-C0706-S05",
+        "SRC-C0706-S09"
+      ],
+      "criteria": [
+        {
+          "path": "d12PostStatus",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d13SemanticStatus",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "d14TimingStatus",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d15VerificationStatus",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d16Release",
+          "op": "eq",
+          "value": "BLOCKED"
+        },
+        {
+          "path": "clPreviewIsVerification",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T17",
+      "negativeTestId": "CAP-07-06-T18",
+      "mutationTestId": "CAP-07-06-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0706-R10",
+      "capabilityId": "CAP-07-06",
+      "title": "Owner CAS/ACL/晚回执/回退保护",
+      "summary": "Owner CAS/ACL/晚回执/回退保护；本规则为规划推导，不宣称标准未读条款",
+      "fields": [
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "taskGeneration",
+        "receiptGeneration",
+        "cancelled",
+        "rollbackMode"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D17"
+      ],
+      "sourceIds": [
+        "SRC-C0706-S07",
+        "SRC-C0706-S08"
+      ],
+      "criteria": [
+        {
+          "path": "expectedHead",
+          "op": "sameField",
+          "other": "actualHead"
+        },
+        {
+          "path": "actualHead",
+          "op": "sha256"
+        },
+        {
+          "path": "aclAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taskGeneration",
+          "op": "eq",
+          "value": 5
+        },
+        {
+          "path": "receiptGeneration",
+          "op": "eq",
+          "value": 5
+        },
+        {
+          "path": "cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rollbackMode",
+          "op": "eq",
+          "value": "NON_DESTRUCTIVE"
+        }
+      ],
+      "positiveTestId": "CAP-07-06-T19",
+      "negativeTestId": "CAP-07-06-T20",
+      "mutationTestId": "CAP-07-06-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}
