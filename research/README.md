@@ -1,3 +1,6 @@
+## 2026-10-26｜R-AUX-MCODE-001 主轴换刀与辅助动作
+[研究推导与D06资产纠错](topics/R-AUX-MCODE-001.md) · [8来源与真实阅读深度](sources/CAP-08-04.json) · [10规则/字段/38合成正反与异构语义](traces/CAP-08-04.json) → [业务规划](../docs/capabilities/CAP-08-04/README.md)。ISO只读目录，NIST只读著录，Haas M06/M08专页只读官方搜索摘要；真实产品与消费者NOT_RUN。累计712登记/85 Registry非去重，L3/Owner待审。
+
 ## 2026-10-26｜R-WCS-MOTION-001：坐标与运动指令
 
 [研究专题](topics/R-WCS-MOTION-001.md) · [7项来源含版本、访问深度与局限](sources/CAP-08-03.json) · [十规则及30合成验收](traces/CAP-08-03.json)。ISO仅合法目录、NIST仅出版著录；LinuxCNC和OCCT只支持其文档范围，真实产品/消费者NOT_RUN。累计704条登记/84 Registry（非去重）。

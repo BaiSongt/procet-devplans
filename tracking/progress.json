@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 57,
-    "detailPendingCount": 31,
+    "detailDraftedCount": 58,
+    "detailPendingCount": 30,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -702,6 +702,21 @@
         "syntheticMutations": 10,
         "designApproval": "pending_human_review",
         "productAcceptance": "not_run"
+      },
+      {
+        "id": "CAP-08-04",
+        "path": "docs/capabilities/CAP-08-04/README.md",
+        "uiPath": "docs/capabilities/CAP-08-04/UI.md",
+        "researchTopic": "R-AUX-MCODE-001",
+        "tracePath": "research/traces/CAP-08-04.json",
+        "sourceRegistry": "research/sources/CAP-08-04.json",
+        "fixturePath": "docs/capabilities/CAP-08-04/fixtures.json",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 20,
+        "syntheticMutations": 10,
+        "syntheticSemanticCases": 8,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run"
       }
     ]
   },
@@ -1207,8 +1222,8 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 704,
-    "registeredSourceCountMeaning": "704条登记/84 registry（非去重论文数）",
+    "registeredSources": 712,
+    "registeredSourceCountMeaning": "712条登记/85 registry（非去重论文数）",
     "legacyRegistryRecords": 61,
     "additionalRegistries": [
       "research/sources/F1-03.json",
@@ -1293,9 +1308,10 @@
       "research/sources/CAP-07-08.json",
       "research/sources/T5-06.json",
       "research/sources/CAP-08-02.json",
-      "research/sources/CAP-08-03.json"
+      "research/sources/CAP-08-03.json",
+      "research/sources/CAP-08-04.json"
     ],
-    "capabilityTraceCompiledCount": 57,
+    "capabilityTraceCompiledCount": 58,
     "workPackageTraceCompiledCount": 34,
     "topics": [
       {
@@ -2409,6 +2425,21 @@
           "10"
         ],
         "necessaryEngineeringEvidence": "7_sources_30_synthetic_cases_product_consumer_NOT_RUN"
+      },
+      {
+        "id": "R-AUX-MCODE-001",
+        "path": "research/topics/R-AUX-MCODE-001.md",
+        "status": "drafted_pending_human_review",
+        "primaryCapability": "CAP-08-04",
+        "relatedDomains": [
+          "02",
+          "04",
+          "07",
+          "08",
+          "09",
+          "10"
+        ],
+        "necessaryEngineeringEvidence": "8_sources_30_rule_cases_8_semantic_cases;Haas_detail_search_excerpt_only;real_NC_IO_consumer_NOT_RUN"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -2440,12 +2471,12 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-08-04",
-    "name": "主轴换刀与辅助动作",
+    "capabilityId": "CAP-08-05",
+    "name": "循环宏与子程序",
     "parallelWorkPackageId": null,
     "parallelWorkPackageName": null,
-    "priority": "继续32项CAP、17资产Owner/接口、11域研究及最终覆盖交接",
-    "remainingCAP": 31,
+    "priority": "继续30项CAP、17资产Owner签约、11域研究、历史附件与最终全仓交叉覆盖",
+    "remainingCAP": 30,
     "remainingOriginalWorkPackages": 0,
     "parallelPlanningBacklog": [
       "17资产Owner正式跨域签署及独立消费者验收",
@@ -2455,8 +2486,8 @@
     ]
   },
   "checks": {
-    "record": "tracking/verification-CAP-08-03-2026-10-26.json",
-    "status": "SYNTHETIC_30_PASS_REAL_PRODUCT_NOT_RUN",
+    "record": "tracking/verification-CAP-08-04-2026-10-26.json",
+    "status": "SYNTHETIC_38_PASS_REAL_PRODUCT_NOT_RUN",
     "productTests": "NOT_RUN",
     "independentNodeFileExecution": "NOT_RUN",
     "independentConsumers": "NOT_RUN",
@@ -2465,13 +2496,14 @@
     "l3Approval": "PENDING_HUMAN"
   },
   "lastPlanningItem": {
-    "id": "CAP-08-03",
+    "id": "CAP-08-04",
     "date": "2026-10-26",
     "status": "planning_compiled_pending_human_review",
     "designRuleCount": 10,
     "acceptanceSpecifications": 20,
     "syntheticMutations": 10,
-    "verification": "IN_MEMORY_30_OF_30_SYNTHETIC_PASS",
+    "syntheticSemanticCases": 8,
+    "verification": "IN_MEMORY_38_OF_38_SYNTHETIC_PASS",
     "product": "NOT_RUN",
     "consumer": "NOT_RUN"
   },
@@ -2482,5 +2514,5 @@
     "remainingFilesStatus": "tracking/pending-source-gaps-2026-10-19.json"
   },
   "stopConditionMet": false,
-  "notes": "CAP-07-07新增中立CL typed段、TCP/刀轴/Frame与D09来源契约；真实后处理/控制器/机床/跨域消费者NOT_RUN。"
+  "notes": "CAP-08-04明确M6冷却/换刀分方言，设备真实ACK不得模拟；发现跨CAP资产编号风险：D06实际为求解候选、并非刀具总成，后续需审查CAP-08-03。产品/控制器/跨域消费者NOT_RUN。"
 }

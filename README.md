@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-08-04 主轴换刀与辅助动作（L3待审）
+[实施十项](docs/capabilities/CAP-08-04/README.md) · [单Babylon与统一左TaskPanel](docs/capabilities/CAP-08-04/UI.md) · [8项真实访问层级](research/sources/CAP-08-04.json) · [来源→十规则→字段→30验收](research/traces/CAP-08-04.json) · [8条换刀/冷却/定向语义合成](docs/capabilities/CAP-08-04/fixtures.json) · [独立消费者/回退](docs/capabilities/CAP-08-04/independent-consumer-handoff.md)。**58/88 CAP、36/36原包、712登记/85 Registry（非去重）**。纠正D06实为求解候选非刀具；M6冷却跨控制器差异需Profile，ACK不得伪造。V8规划合成38/38；真实Node/NC/控制器/机床/消费者NOT_RUN、17Owner/L3待会签。**规划PASS≠产品PASS**。后续CAP-08-05；下文为历史快照。
+
 ## 2026-10-26｜CAP-08-03 坐标与运动指令（L3待审）
 [十项实施](docs/capabilities/CAP-08-03/README.md) · [单Babylon与统一左TaskPanel](docs/capabilities/CAP-08-03/UI.md) · [7合法来源](research/sources/CAP-08-03.json) · [10规则/30合成正反与独立字段变异](research/traces/CAP-08-03.json) · [跨域独立消费者与回退](docs/capabilities/CAP-08-03/independent-consumer-handoff.md)。累计**57/88 CAP、36/36原包、704来源登记/84 Registry（非去重）**。合成内存30/30，4份正文10条相对链接0缺失；非全仓测试。真实Node/NC/控制器/机床/消费者NOT_RUN，17资产Owner和L3待会签。下一CAP-08-04；**规划PASS≠产品PASS**。以下为历史快照。
 
