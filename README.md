@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-09-08《仿真播放与校验报告》（L3待审）
+[十项实施/原目标](docs/capabilities/CAP-09-08/README.md) · [唯一Babylon/左TaskPanel](docs/capabilities/CAP-09-08/UI.md) · [9官方合法来源](research/sources/CAP-09-08.json) → [10规则/40字段](research/traces/CAP-09-08.json) → [30正反独立变异+14状态](docs/capabilities/CAP-09-08/fixtures.json) · [报告与独立消费者](docs/capabilities/CAP-09-08/independent-consumer-handoff.md)。**70/88 CAP、36/36原工作包及研究追踪、834登记/99 Registry（非去重）**。仅规划V8等价44/44合成；独立Node、真实NC/OCCT/B5/浏览器/消费者NOT_RUN，17Owner/L3待审。D14动画≠D15独立工程PASS，UNKNOWN阻D16。历史附件与最终全仓交叉未完成。**规划PASS≠产品PASS**。下文为历史快照。
+
 ## 2026-10-27｜CAP-09-07 干涉、限位与可达性（L3待审）
 [原业务目标与十项实施](docs/capabilities/CAP-09-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-09-07/UI.md) · [10来源](research/sources/CAP-09-07.json) → [10规则/40字段](research/traces/CAP-09-07.json) → [30正反变异+20安全门禁+6界限合成](docs/capabilities/CAP-09-07/fixtures.json) · [独立消费者](docs/capabilities/CAP-09-07/independent-consumer-handoff.md)。**69/88 CAP、36/36原工作包及研究追踪、825登记/98 Registry（非去重）**。Axis与Joint分别核验，静态OCCT不证明连续运动安全；UNKNOWN阻D16。所有实际Node/NC/OCCT/实机/消费者NOT_RUN、17资产Owner/L3待人类；历史附件和最终交叉未闭合。**规划PASS≠产品PASS**。
 

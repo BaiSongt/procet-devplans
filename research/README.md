@@ -1,3 +1,6 @@
+## 2026-10-27｜R-SIM-PLAYBACK-EVIDENCE-001播放与可审计报告
+[理论与阅读边界](topics/R-SIM-PLAYBACK-EVIDENCE-001.md) · [9来源](sources/CAP-09-08.json) → [10规则40字段](traces/CAP-09-08.json) → [30正反变异+14状态](../docs/capabilities/CAP-09-08/fixtures.json)。累计834登记/99 Registry非去重；ISO仅读目录、NIST仅摘要/著录、Babylon Lite不冒称完整版API；Node/NC/B5/消费方NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-LIMIT-COLLISION-001 机床限位与连续碰撞验证边界
 [理论与未读限制](topics/R-LIMIT-COLLISION-001.md) · [10合法来源](sources/CAP-09-07.json) → [10规则/40字段/原包](traces/CAP-09-07.json) → [30字段正反变异+20门禁+6数学合成](../docs/capabilities/CAP-09-07/fixtures.json)。累计**825条登记/98 Registry**非去重；ISO仅公开摘要、NIST与arXiv仅官方摘要，OCCT仅静态距API。真实Node/NC/OCCT/B5/独立消费者NOT_RUN；17Owner/L3待人类，规划PASS≠产品PASS。
 
