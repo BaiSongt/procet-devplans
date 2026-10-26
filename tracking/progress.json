@@ -14,8 +14,8 @@
     "businessAssetsPath": "docs/architecture/v0.8/business-assets.json"
   },
   "capabilities": {
-    "detailDraftedCount": 68,
-    "detailPendingCount": 20,
+    "detailDraftedCount": 69,
+    "detailPendingCount": 19,
     "defaultForUnlisted": "baseline_only_not_detailed",
     "commonReviewStatus": "pending_human_review",
     "commonProductAcceptance": "not_run_by_this_planning_workflow",
@@ -859,6 +859,21 @@
         "tracePath": "research/traces/CAP-09-06.json",
         "review": "PENDING_HUMAN",
         "productAcceptance": "NOT_RUN"
+      },
+      {
+        "id": "CAP-09-07",
+        "path": "docs/capabilities/CAP-09-07/README.md",
+        "uiPath": "docs/capabilities/CAP-09-07/UI.md",
+        "tracePath": "research/traces/CAP-09-07.json",
+        "researchTopic": "R-LIMIT-COLLISION-001",
+        "sourceRegistry": "research/sources/CAP-09-07.json",
+        "designRuleCount": 10,
+        "acceptanceSpecifications": 30,
+        "syntheticStatusCases": 20,
+        "syntheticMathematicalCases": 6,
+        "designApproval": "pending_human_review",
+        "productAcceptance": "not_run",
+        "researchTrace": "compiled_pending_human_review_product_not_run"
       }
     ]
   },
@@ -1377,11 +1392,11 @@
   "research": {
     "registryPath": "research/references.json",
     "registryIndexPath": "research/source-index.json",
-    "registeredSources": 815,
-    "registeredSourceCountMeaning": "815条来源登记/97份registry（非去重文献）",
+    "registeredSources": 825,
+    "registeredSourceCountMeaning": "825条来源登记/98份registry（非去重文献）",
     "legacyRegistryRecords": 61,
-    "additionalRegistries": 97,
-    "capabilityTraceCompiledCount": 67,
+    "additionalRegistries": 98,
+    "capabilityTraceCompiledCount": 68,
     "workPackageTraceCompiledCount": 36,
     "topics": [
       {
@@ -2673,6 +2688,20 @@
           "10"
         ],
         "necessaryEngineeringEvidence": "planning_trace_10_rules_46_synthetic_cases_product_NOT_RUN"
+      },
+      {
+        "id": "R-LIMIT-COLLISION-001",
+        "path": "research/topics/R-LIMIT-COLLISION-001.md",
+        "status": "drafted_pending_review",
+        "primaryCapability": "CAP-09-07",
+        "relatedDomains": [
+          "02",
+          "04",
+          "08",
+          "09",
+          "10"
+        ],
+        "necessaryEngineeringEvidence": "static_vs_continuous_collision_unknowns_explicit"
       }
     ],
     "domainCoverage": "11域研究继续逐项补齐，公共面和渐进迁移只提供局部依据，不声明整域完成"
@@ -2706,12 +2735,12 @@
     "confirmedRepairCommit": "2a88ea79855cea35564be4cdc5c5a553355719a2"
   },
   "next": {
-    "capabilityId": "CAP-09-07",
-    "name": "干涉、限位与可达性",
+    "capabilityId": "CAP-09-08",
+    "name": "仿真播放与校验报告",
     "parallelWorkPackageId": null,
     "parallelWorkPackageName": null,
-    "priority": "剩20CAP；原36包及研究追踪齐备，17资产正式Owner会签/接口与11域交叉研究、历史附件审计及最终覆盖尚需完成",
-    "remainingCAP": 20,
+    "priority": "剩19CAP；继续17资产跨域Owner/接口正式会签、11域研究交叉、历史附件原始字节审计和最终覆盖风险交接",
+    "remainingCAP": 19,
     "remainingOriginalWorkPackages": 0,
     "parallelPlanningBacklog": [
       "17资产Owner正式会签",
@@ -2721,8 +2750,8 @@
     ]
   },
   "checks": {
-    "record": "tracking/cap0906-verification-2026-10-27.json",
-    "status": "PLANNING_SYNTHETIC_46_CASES_DECLARED; NODE_FILE_NOT_RUN",
+    "record": "tracking/cap0907-verification-2026-10-27.json",
+    "status": "PLANNING_SYNTHETIC_56_CASES_DECLARED; NODE_FILE_NOT_RUN",
     "productTests": "NOT_RUN",
     "independentNodeFileExecution": "NOT_RUN",
     "independentConsumers": "NOT_RUN",
@@ -2731,13 +2760,14 @@
     "l3Approval": "PENDING_HUMAN"
   },
   "lastPlanningItem": {
-    "id": "CAP-09-06",
+    "id": "CAP-09-07",
     "date": "2026-10-27",
     "status": "planning_compiled_pending_human_review",
     "designRuleCount": 10,
-    "acceptanceSpecifications": 20,
+    "acceptanceSpecifications": 30,
     "syntheticMutations": 10,
-    "semanticVectors": 16,
+    "semanticVectors": 20,
+    "mathematicalVectors": 6,
     "verification": "SCHEMA_AND_SYNTHETIC_CASES_NOT_PRODUCT",
     "product": "NOT_RUN",
     "consumer": "NOT_RUN"
@@ -2747,9 +2777,9 @@
     "observedMainBeforeWork": "271f2ad017fd30ef01c13763c61046f888ea0d48",
     "integrationStatus": "draft_pr_open_not_merged",
     "remainingFilesStatus": "tracking/pending-source-gaps-2026-10-19.json",
-    "verificationStatus": "CAP09_06_PLANNING_ONLY",
+    "verificationStatus": "CAP09_07_PLANNING_ONLY",
     "planningOnly": true
   },
   "stopConditionMet": false,
-  "notes": "CAP-09-06 NC程序驱动验证新编10规则、30字段正反变异及16合成门禁向量；原36工作包及研究追踪均36/36，17Owner正式签署与L3待人类；真实Node/NC/OCCT/B5/消费者NOT_RUN。规划PASS≠产品PASS。"
+  "notes": "CAP-09-07提出双层Axis/Joint限位、静态B-Rep与连续轨迹区间证据严格隔离、36包原追踪不变；56合成案例NOT_PRODUCT，真实Node/NC/OCCT/B5/浏览器/消费者NOT_RUN；17Owner与L3待人类，历史原件与最终全仓审计未完成。规划PASS≠产品PASS。"
 }

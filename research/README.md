@@ -1,3 +1,6 @@
+## 2026-10-27｜R-LIMIT-COLLISION-001 机床限位与连续碰撞验证边界
+[理论与未读限制](topics/R-LIMIT-COLLISION-001.md) · [10合法来源](sources/CAP-09-07.json) → [10规则/40字段/原包](traces/CAP-09-07.json) → [30字段正反变异+20门禁+6数学合成](../docs/capabilities/CAP-09-07/fixtures.json)。累计**825条登记/98 Registry**非去重；ISO仅公开摘要、NIST与arXiv仅官方摘要，OCCT仅静态距API。真实Node/NC/OCCT/B5/独立消费者NOT_RUN；17Owner/L3待人类，规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-NC-PROGRAM-VERIFY-001 最终NC程序驱动的独立工程验证
 [理论及阅读限制](topics/R-NC-PROGRAM-VERIFY-001.md) · [10来源：ISO目录、LinuxCNC2.9公开章节、NIST著录、OCCT API、RFC、W3C](sources/CAP-09-06.json) → [10规则/字段与原包](traces/CAP-09-06.json) → [30正反独立字段变异+16合成门禁](../docs/capabilities/CAP-09-06/fixtures.json)。815登记/97 Registry非去重。真实NC语义/轴时序/机床碰撞/独立消费者NOT_RUN；D11 CL_ONLY不授D15/D16，未知阻发布，17Owner及L3待签，**规划PASS≠产品PASS**。
 
