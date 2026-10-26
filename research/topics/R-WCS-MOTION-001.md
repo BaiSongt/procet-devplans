@@ -1,0 +1,3 @@
+# R-WCS-MOTION-001｜WCS、刀补与运动语义
+2026-10-26逐项访问[7条合法公开源](../sources/CAP-08-03.json)，含作者/版次/URL/定位章节及局限。ISO 6983-1:2009**仅合法目录与Abstract**；NIST IR6556**仅官方出版著录**，全文未读。LinuxCNC 2.9 G-Codes和Overview的WCS、模态、G43、G40/41/42、圆弧说明只适用其控制器，不可外推真实B5/SINUMERIK。OCCT 8.0.1 gp_Trsf仅证明几何变换API，不证明RTCP、刀补和轴安全。RFC 9110 §13.1.1 If-Match是CAS类比，W3C PROV-O提供溯源模型，均不能取代领域Owner事务或机床独立验收。
+因此要求D04与D10独立版本、D13实际NC字节重解释、D14/D15独立安全证据、D16未知阻断；[逐项规则](../traces/CAP-08-03.json)与[独立消费者](../../docs/capabilities/CAP-08-03/independent-consumer-handoff.md)是规划要求，非产品通过。
