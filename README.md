@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-07-08轨迹编辑与局部再生（L3待审）
+[10实施](docs/capabilities/CAP-07-08/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-08/UI.md) · [8合法来源](research/sources/CAP-07-08.json) · [十规则/30正反变异](research/traces/CAP-07-08.json) · [独立消费者](docs/capabilities/CAP-07-08/independent-consumer-handoff.md)。累计55/88 CAP、35/36原编号包、678条登记/81 registry（非去重）。仅规划V8合成34/34，真实Node/产品/机床/独立消费者NOT_RUN；17Owner与L3待评审。规划PASS≠产品PASS。下一原T5-06。以下历史快照。
+
 ## 2026-10-26｜T5-05双纵向切片协作规划（L3待审）
 [十项实施](docs/work-packages/T5-05.md) · [单Babylon/左TaskPanel](docs/work-packages/T5-05/UI.md) · [独立消费者](docs/work-packages/T5-05/independent-consumer-handoff.md) · [9来源](research/sources/T5-05.json) · [10规则30合成](research/traces/T5-05.json)。累计54/88 CAP、35/36原工作包、670登记/80 registry（非去重）。真实团队集成/产品/独立Consumer NOT_RUN、L3/17Owner待人类，规划PASS≠产品PASS。下一CAP-07-08再T5-06。下文均为历史快照。
 

@@ -1,3 +1,6 @@
+## 2026-10-26｜R-TOOLPATH-LOCAL-REGEN-001
+[逐项理论及适用边界](topics/R-TOOLPATH-LOCAL-REGEN-001.md) · [8来源](sources/CAP-07-08.json) · [十规则和30合成](traces/CAP-07-08.json) · [CAP实施](../docs/capabilities/CAP-07-08/README.md)。678来源登记/81 registry非去重，厂商保护态≠新路径安全，OCCT拓扑哈希≠稳定制造段ID，产品/Consumer NOT_RUN。历史统计以下仅快照。
+
 ## 2026-10-26｜R-INDEPENDENT-SLICES-001
 [理论及限制](topics/R-INDEPENDENT-SLICES-001.md) · [9来源深度](sources/T5-05.json) · [10规则30合成](traces/T5-05.json) · [原T5-05](../docs/work-packages/T5-05.md)。累计670登记/80 registry，非去重。NIST仅摘要、ISO仅目录、OCCT仅API，真实消费者NOT_RUN，规划PASS≠产品PASS。
 
