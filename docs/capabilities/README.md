@@ -1,3 +1,6 @@
+## 2026-10-27｜[CAP-09-03逆运动学与解分支](CAP-09-03/README.md) · [单Babylon/统一左TaskPanel](CAP-09-03/UI.md) · [十条理论追踪](../../research/traces/CAP-09-03.json) · [30+5合成反例](CAP-09-03/fixtures.json)
+当前**65/88**项详细CAP，36/36原工作包；下一个CAP-09-04。多支路连续性、Jacobian奇异与角度周期纳入规划，不臆造B5枢轴/限位，产品NOT_RUN、17资产Owner/L3待审。下方数字为历史快照。
+
 ## 2026-10-26｜[CAP-07-08轨迹编辑与局部再生](CAP-07-08/README.md) · [GUI与3D](CAP-07-08/UI.md) · [正反变异和依赖图](CAP-07-08/fixtures.json)
 55/88 CAP，17Owner/L3待审，真实产品NOT_RUN。后续旧数字仅历史快照。
 
