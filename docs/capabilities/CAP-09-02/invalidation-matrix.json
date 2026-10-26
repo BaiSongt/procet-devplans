@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "procet-cap0902-invalidation-v1",
+  "causes": [
+    {
+      "changed": "D03 machine model/pivots",
+      "stale": [
+        "D10_BINDING_RECHECK",
+        "D14",
+        "D15",
+        "D16_NEXT"
+      ]
+    },
+    {
+      "changed": "D04 nominal Setup",
+      "stale": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16_NEXT"
+      ]
+    },
+    {
+      "changed": "D10 execution binding",
+      "stale": [
+        "D13_CONTEXT",
+        "D14",
+        "D15",
+        "D16_NEXT"
+      ]
+    },
+    {
+      "changed": "D12 final NC or D13 controller profile",
+      "stale": [
+        "D13",
+        "D14",
+        "D15",
+        "D16_NEXT"
+      ]
+    },
+    {
+      "changed": "FrameGraph code/schema",
+      "stale": [
+        "D14",
+        "D15",
+        "D16_NEXT"
+      ]
+    }
+  ],
+  "preserve": [
+    "D08_FROZEN",
+    "D16_HISTORICAL_RELEASE",
+    "DATABASE"
+  ],
+  "transaction": [
+    "CAS",
+    "ACL",
+    "Frame",
+    "scopeEpoch",
+    "generation",
+    "cancelled"
+  ],
+  "lateACK": "REJECT_LOG_ONLY",
+  "migration": "EXPAND_MIGRATE_CONTRACT_OLD_READER_PLUS_SCHEMA_PLUS_PROFILE_ROLLBACK",
+  "consumers": "NOT_RUN"
+}

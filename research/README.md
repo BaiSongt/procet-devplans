@@ -1,3 +1,6 @@
+## 2026-10-27｜R-FRAMEGRAPH-FK-001统一Frame与正解
+[理论及局限](topics/R-FRAMEGRAPH-FK-001.md) → [9来源版本、访问深度、章节](sources/CAP-09-02.json) → [10规则、字段、CAP/原包、正反变异](traces/CAP-09-02.json) → [30+8合成向量](../docs/capabilities/CAP-09-02/fixtures.json)。ISO仅目录、NIST仅著录摘要、Lynch/Park只读公开视频简介；实际B5、产品、消费者NOT_RUN。累计763登记/91 Registry非去重，L3/Owner待审。规划PASS≠产品PASS。
+
 ## 2026-10-26｜R-MACHINE-KINEMATICS-GRAPH-001运动学模型与标定证据
 [研究推导及局限](topics/R-MACHINE-KINEMATICS-GRAPH-001.md) → [10权威/论文来源及阅读深度](sources/CAP-09-01.json) → [十规则字段](traces/CAP-09-01.json) → [30正反变异与5数学向量](../docs/capabilities/CAP-09-01/fixtures.json)。ISO仅合法摘要，NIST仅出版摘要，She论文仅摘要片段；LinuxCNC2.9与OCCT8.0.1对应章节已读。754来源登记/90 Registry不等于去重论文，真实机床/消费者NOT_RUN。
 

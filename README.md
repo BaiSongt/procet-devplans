@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-09-02统一坐标与运动正解（L3待审）
+[实施与Frame合同](docs/capabilities/CAP-09-02/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-09-02/UI.md) · [9真实阅读层级来源](research/sources/CAP-09-02.json) → [10规则/30正反独立字段变异](research/traces/CAP-09-02.json) · [8数学向量](docs/capabilities/CAP-09-02/fixtures.json) · [独立消费者](docs/capabilities/CAP-09-02/independent-consumer-handoff.md)。正式**64/88 CAP、36/36原包、763登记/91 Registry（非去重）**，仅规划合成，Node独立文件、真实NC/机床/消费者NOT_RUN。D04≠D10，D13解释NC→D14轴时序→D15验证→D16发布，UNKNOWN不通过；17Owner/L3待审。下一CAP-09-03。规划PASS≠产品PASS。
+
 ## 2026-10-26｜CAP-09-01机床运动学模型解析（L3待审）
 [十项实施及原目标](docs/capabilities/CAP-09-01/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-09-01/UI.md) · [10来源](research/sources/CAP-09-01.json) · [10规则/30正反独立差异变异](research/traces/CAP-09-01.json) · [5数学向量](docs/capabilities/CAP-09-01/fixtures.json) · [独立消费者](docs/capabilities/CAP-09-01/independent-consumer-handoff.md)。**63/88 CAP、36/36工作包、754来源登记/90 Registry（非去重）**。仅内存合成30/30，数学向量5条规格；独立Node文件、OCCT/NC/实机/B5/消费者NOT_RUN，17Owner/L3待会签。D03资源≠D10执行绑定，D13 NC→D14轴运动→D15验证→D16发布；UNKNOWN不放行。下一CAP-09-02。**规划PASS≠产品PASS**。
 
