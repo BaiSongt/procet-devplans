@@ -1,3 +1,6 @@
+## 2026-10-26｜R-CYCLES-MACROS-001循环宏与子程序
+[理论阅读与限制](topics/R-CYCLES-MACROS-001.md) · [8来源作者/时间/阅读章节](sources/CAP-08-05.json) → [10规则/字段](traces/CAP-08-05.json) → [30正反独立变异+8语义](../docs/capabilities/CAP-08-05/fixtures.json)。720条登记/86 Registry非去重，NIST仅著录，真实控制器、消费者NOT_RUN，L3/Owner待签。CAP-08-03资产编号误用列风险待纠偏。
+
 ## 2026-10-26｜R-AUX-MCODE-001 主轴换刀与辅助动作
 [研究推导与D06资产纠错](topics/R-AUX-MCODE-001.md) · [8来源与真实阅读深度](sources/CAP-08-04.json) · [10规则/字段/38合成正反与异构语义](traces/CAP-08-04.json) → [业务规划](../docs/capabilities/CAP-08-04/README.md)。ISO只读目录，NIST只读著录，Haas M06/M08专页只读官方搜索摘要；真实产品与消费者NOT_RUN。累计712登记/85 Registry非去重，L3/Owner待审。
 

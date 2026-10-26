@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-08-05循环宏与子程序（L3待审）
+[实施十项](docs/capabilities/CAP-08-05/README.md) · [单Babylon左TaskPanel](docs/capabilities/CAP-08-05/UI.md) · [8合法来源](research/sources/CAP-08-05.json) · [10规则/30正反变异](research/traces/CAP-08-05.json) · [8条宏循环合成](docs/capabilities/CAP-08-05/fixtures.json) · [独立消费者](docs/capabilities/CAP-08-05/independent-consumer-handoff.md)。累计**59/88 CAP、36/36原包、720来源登记/86 Registry（非去重）**；合成规划38/38，真实Node/控制器/机床/独立消费者NOT_RUN，17Owner/L3待审。CAP-08-03误将D06指刀具仍需横向纠正，不能标已修复。UNKNOWN阻D16，CL预览不充NC工程验证，不做材料扫掠仿真。**规划PASS≠产品PASS**。后续CAP-08-06。下文历史快照。
+
 ## 2026-10-26｜CAP-08-04 主轴换刀与辅助动作（L3待审）
 [实施十项](docs/capabilities/CAP-08-04/README.md) · [单Babylon与统一左TaskPanel](docs/capabilities/CAP-08-04/UI.md) · [8项真实访问层级](research/sources/CAP-08-04.json) · [来源→十规则→字段→30验收](research/traces/CAP-08-04.json) · [8条换刀/冷却/定向语义合成](docs/capabilities/CAP-08-04/fixtures.json) · [独立消费者/回退](docs/capabilities/CAP-08-04/independent-consumer-handoff.md)。**58/88 CAP、36/36原包、712登记/85 Registry（非去重）**。纠正D06实为求解候选非刀具；M6冷却跨控制器差异需Profile，ACK不得伪造。V8规划合成38/38；真实Node/NC/控制器/机床/消费者NOT_RUN、17Owner/L3待会签。**规划PASS≠产品PASS**。后续CAP-08-05；下文为历史快照。
 
