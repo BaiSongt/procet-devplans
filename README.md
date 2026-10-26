@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-07-07中立CL轨迹契约（L3待审）
+[十项实施](docs/capabilities/CAP-07-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-07-07/UI.md) · [9来源](research/sources/CAP-07-07.json) · [10规则30合成正反变异](research/traces/CAP-07-07.json) · [独立消费者](docs/capabilities/CAP-07-07/independent-consumer-handoff.md)。累计**54/88 CAP、34/36原包、661条来源登记/79 registry（非去重）**。D09中立CL的TCP/Frame/刀轴/typed段与D10实际机床执行绑定分离；D13 UNKNOWN阻断D16、D11动画不冒充D15工程验证，不做材料扫掠仿真。仅规划合成30/30；真实Node/OCCT/NC/机床/消费者NOT_RUN，Owner/L3待人类。下一原T5-05后CAP-07-08。**规划PASS≠产品PASS**。下文为历史快照。
+
 ## 2026-10-26｜原T5-04受控迁移与旧实现退出（L3待审）
 [十项实施](docs/work-packages/T5-04.md) · [迁移恢复手册](docs/work-packages/T5-04/migration-runbook.md) · [单Babylon/左TaskPanel](docs/work-packages/T5-04/UI.md) · [9来源](research/sources/T5-04.json) · [10规则30合成正反变异](research/traces/T5-04.json) · [17资产候选Owner](docs/work-packages/T5-04/asset-owner-candidates.json) · [独立消费者](docs/work-packages/T5-04/independent-consumer-handoff.md)。累计**53/88 CAP、34/36原包、652来源登记/78 registry（非去重）**。旧Reader、golden、用户库、D08冻结保留；D04 Setup≠D10机床执行配置，D09 CL→D12 NC→D13语义→D14时序→D15验证→D16发布，UNKNOWN阻断；仅V8规则合成30/30，真实Node/迁移/恢复/消费者/NC/实机NOT_RUN，17Owner/L3 PENDING。下一CAP-07-07后T5-05。**规划PASS≠产品PASS**。以下为历史快照。
 

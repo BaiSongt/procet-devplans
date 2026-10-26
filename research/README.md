@@ -1,3 +1,6 @@
+## 2026-10-26｜R-NEUTRAL-CL-CONTRACT-001中立CL契约与NC解耦
+[理论及读文限制](topics/R-NEUTRAL-CL-CONTRACT-001.md) → [9条合法来源](sources/CAP-07-07.json) → [10规则字段及30合成场景](traces/CAP-07-07.json) → [CAP-07-07实施](../docs/capabilities/CAP-07-07/README.md)。ISO只公开目录摘要；OCCT仅API；NIST仅官方著录摘要；RFC/W3C与LinuxCNC公开章节有限范围。累计661登记/79 registry，规划PASS≠产品PASS。
+
 ## 2026-10-26｜R-CONTROLLED-MIGRATION-001迁移规划理论
 [理论适用边界](topics/R-CONTROLLED-MIGRATION-001.md) → [9原作者及官方来源](sources/T5-04.json) → [10可机检规则](traces/T5-04.json) → [原T5-04实施](../docs/work-packages/T5-04.md)。Fowler Expand/Migrate/Contract、AWS抽象枝与渐进替换、SQLite备份、RFC条件写、PROV-O谱系；NIST只读摘要。652登记/78 registry非去重。合成30/30，真实产品/独立消费者未执行。
 
