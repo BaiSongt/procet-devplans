@@ -1,3 +1,6 @@
+## 2026-10-26｜CAP-08-02控制器与机床方言（L3待审）
+[实施和十规则](docs/capabilities/CAP-08-02/README.md) · [单Babylon与左TaskPanel](docs/capabilities/CAP-08-02/UI.md) · [10合法来源及真实阅读层级](research/sources/CAP-08-02.json) · [30规划正反变异](docs/capabilities/CAP-08-02/fixtures.json) · [独立消费者交接](docs/capabilities/CAP-08-02/independent-consumer-handoff.md)。累计**56/88 CAP、36/36原编号包、697登记/83 Registry**（非去重）；修复旧研究索引累计678与实际687不一致。Siemens手册正文未读，真实NC/控制器/独立消费者NOT_RUN；17 Owner/L3待审。下一CAP-08-03；**规划PASS≠产品PASS**。以下旧段为历史快照。
+
 ## 2026-10-26｜原T5-06长期质量基线与能力扩展准入（L3待审）
 [十项实施](docs/work-packages/T5-06.md) · [单Babylon与左TaskPanel](docs/work-packages/T5-06/UI.md) · [9项合法来源](research/sources/T5-06.json) · [十规则/30合成](research/traces/T5-06.json) · [独立消费者](docs/work-packages/T5-06/independent-consumer-handoff.md)。**36/36原编号工作包、55/88详细CAP、687条来源登记/82 Registry**（非去重）；仅规划V8合成30/30，真实产品/NC/SQLite恢复/消费者及Node独立执行NOT_RUN；L3和17Owner待会签。**规划PASS≠产品PASS**。尚余33 CAP及17接口、11域研究、历史附件、全仓覆盖/风险/交接。以下为历史快照。
 

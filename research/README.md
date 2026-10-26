@@ -1,3 +1,6 @@
+## 2026-10-26｜R-DIALECT-PROFILE-001 控制器方言与UNKNOWN门禁
+[理论阅读层级与局限](topics/R-DIALECT-PROFILE-001.md) → [10条ISO目录/厂商/NIST/OCCT/协议来源](sources/CAP-08-02.json) → [10规则字段映射](traces/CAP-08-02.json) → [CAP-08-02实施](../docs/capabilities/CAP-08-02/README.md)。Siemens仅检索目录且正文打开失败；任何FANUC/SINUMERIK/真实B5实际支持均未认证。**697条登记/83 registry**非去重论文；30/30仅合成规划，产品/消费者NOT_RUN，17Owner/L3 PENDING。
+
 ## 2026-10-26｜R-QUALITY-BASELINE-001
 [质量基线理论与局限](topics/R-QUALITY-BASELINE-001.md) · [9官方合法资料/阅读深度](sources/T5-06.json) → [10工程规则、字段及正反验收](traces/T5-06.json) → [原T5-06](../docs/work-packages/T5-06.md)。ISO25010仅目录摘要，NIST仅出版摘要，OCCT API非NC验证、LinuxCNC非B5控制器认证。687登记/82 registry并非去重论文，V8合成30/30≠产品PASS。
 
