@@ -1,0 +1,496 @@
+{
+  "schemaVersion": "procet-t504-fixtures-v1",
+  "purpose": "纯合成规则，不是产品PASS",
+  "cases": [
+    {
+      "id": "T5-04-T01",
+      "ruleId": "T5-04-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "inventory": {
+          "exactLegacyRef": true,
+          "exactNewRef": true,
+          "oldGoldenRetained": true,
+          "readOnlySurvey": true,
+          "inventedPrivateHead": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T02",
+      "ruleId": "T5-04-R01",
+      "scenario": "NEGATIVE",
+      "input": {
+        "inventory": {
+          "exactLegacyRef": false,
+          "exactNewRef": true,
+          "oldGoldenRetained": true,
+          "readOnlySurvey": true,
+          "inventedPrivateHead": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "inventory.exactLegacyRef"
+    },
+    {
+      "id": "T5-04-T03",
+      "ruleId": "T5-04-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "ownership": {
+          "singleWriterByDomain": true,
+          "sharedC0Minimal": true,
+          "portsVersioned": true,
+          "ownerRevisionHashFrame": true,
+          "dualDomainWrites": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T04",
+      "ruleId": "T5-04-R02",
+      "scenario": "NEGATIVE",
+      "input": {
+        "ownership": {
+          "singleWriterByDomain": false,
+          "sharedC0Minimal": true,
+          "portsVersioned": true,
+          "ownerRevisionHashFrame": true,
+          "dualDomainWrites": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "ownership.singleWriterByDomain"
+    },
+    {
+      "id": "T5-04-T05",
+      "ruleId": "T5-04-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "expand": {
+          "newReaderIntroduced": true,
+          "oldReaderRetained": true,
+          "consumerVersionPinned": true,
+          "migrationBeforeContract": true,
+          "destructiveEarlyDrop": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T06",
+      "ruleId": "T5-04-R03",
+      "scenario": "NEGATIVE",
+      "input": {
+        "expand": {
+          "newReaderIntroduced": false,
+          "oldReaderRetained": true,
+          "consumerVersionPinned": true,
+          "migrationBeforeContract": true,
+          "destructiveEarlyDrop": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "expand.newReaderIntroduced"
+    },
+    {
+      "id": "T5-04-T07",
+      "ruleId": "T5-04-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "recovery": {
+          "consistentBackup": true,
+          "backupChecksumRecorded": true,
+          "restoreRehearsed": true,
+          "userDbPreserved": true,
+          "crossStoreAtomicAssumed": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T08",
+      "ruleId": "T5-04-R04",
+      "scenario": "NEGATIVE",
+      "input": {
+        "recovery": {
+          "consistentBackup": false,
+          "backupChecksumRecorded": true,
+          "restoreRehearsed": true,
+          "userDbPreserved": true,
+          "crossStoreAtomicAssumed": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "recovery.consistentBackup"
+    },
+    {
+      "id": "T5-04-T09",
+      "ruleId": "T5-04-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "freeze": {
+          "sameAssetFact": true,
+          "frozenD08Preserved": true,
+          "decisionAuditLinked": true,
+          "staleDerivedInvalidated": true,
+          "candidateOverwritesFrozen": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T10",
+      "ruleId": "T5-04-R05",
+      "scenario": "NEGATIVE",
+      "input": {
+        "freeze": {
+          "sameAssetFact": false,
+          "frozenD08Preserved": true,
+          "decisionAuditLinked": true,
+          "staleDerivedInvalidated": true,
+          "candidateOverwritesFrozen": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "freeze.sameAssetFact"
+    },
+    {
+      "id": "T5-04-T11",
+      "ruleId": "T5-04-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "nc": {
+          "setupSeparateBinding": true,
+          "neutralCLPreserved": true,
+          "finalNCReparsed": true,
+          "d14TimelineIndependent": true,
+          "d15VerificationIndependent": true,
+          "unknownD13Releases": false,
+          "clPreviewAsNCValidation": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T12",
+      "ruleId": "T5-04-R06",
+      "scenario": "NEGATIVE",
+      "input": {
+        "nc": {
+          "setupSeparateBinding": false,
+          "neutralCLPreserved": true,
+          "finalNCReparsed": true,
+          "d14TimelineIndependent": true,
+          "d15VerificationIndependent": true,
+          "unknownD13Releases": false,
+          "clPreviewAsNCValidation": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "nc.setupSeparateBinding"
+    },
+    {
+      "id": "T5-04-T13",
+      "ruleId": "T5-04-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "gui": {
+          "singleBabylonScene": true,
+          "leftUnifiedTaskPanel": true,
+          "allEntrypointsSameOwner": true,
+          "fontMax12": 12,
+          "overlayLeaseReleased": true,
+          "previewWritesBusiness": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T14",
+      "ruleId": "T5-04-R07",
+      "scenario": "NEGATIVE",
+      "input": {
+        "gui": {
+          "singleBabylonScene": false,
+          "leftUnifiedTaskPanel": true,
+          "allEntrypointsSameOwner": true,
+          "fontMax12": 12,
+          "overlayLeaseReleased": true,
+          "previewWritesBusiness": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "gui.singleBabylonScene"
+    },
+    {
+      "id": "T5-04-T15",
+      "ruleId": "T5-04-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "auth": {
+          "expectedRevisionHashChecked": true,
+          "aclEpochChecked": true,
+          "frameScopeChecked": true,
+          "taskGenerationChecked": true,
+          "cancelTokenChecked": true,
+          "lateReceiptCommits": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T16",
+      "ruleId": "T5-04-R08",
+      "scenario": "NEGATIVE",
+      "input": {
+        "auth": {
+          "expectedRevisionHashChecked": false,
+          "aclEpochChecked": true,
+          "frameScopeChecked": true,
+          "taskGenerationChecked": true,
+          "cancelTokenChecked": true,
+          "lateReceiptCommits": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "auth.expectedRevisionHashChecked"
+    },
+    {
+      "id": "T5-04-T17",
+      "ruleId": "T5-04-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "contract": {
+          "oldReaderTestPass": true,
+          "newConsumerStandalonePass": true,
+          "rollbackCompositionPinned": true,
+          "legacyGoldenRetained": true,
+          "humanCutoverDecision": true,
+          "unknownAcceptedAsPass": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T18",
+      "ruleId": "T5-04-R09",
+      "scenario": "NEGATIVE",
+      "input": {
+        "contract": {
+          "oldReaderTestPass": false,
+          "newConsumerStandalonePass": true,
+          "rollbackCompositionPinned": true,
+          "legacyGoldenRetained": true,
+          "humanCutoverDecision": true,
+          "unknownAcceptedAsPass": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "contract.oldReaderTestPass"
+    },
+    {
+      "id": "T5-04-T19",
+      "ruleId": "T5-04-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "handoff": {
+          "migrationLedgerComplete": true,
+          "migrationHashTraceable": true,
+          "isolatedRollbackCase": true,
+          "notRunClearlyMarked": true,
+          "humanSignoffPending": true,
+          "productPassClaimed": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "T5-04-T20",
+      "ruleId": "T5-04-R10",
+      "scenario": "NEGATIVE",
+      "input": {
+        "handoff": {
+          "migrationLedgerComplete": false,
+          "migrationHashTraceable": true,
+          "isolatedRollbackCase": true,
+          "notRunClearlyMarked": true,
+          "humanSignoffPending": true,
+          "productPassClaimed": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "handoff.migrationLedgerComplete"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "T5-04-M01",
+      "ruleId": "T5-04-R01",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "inventory": {
+          "exactLegacyRef": true,
+          "exactNewRef": true,
+          "oldGoldenRetained": true,
+          "readOnlySurvey": true,
+          "inventedPrivateHead": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "inventory.inventedPrivateHead"
+    },
+    {
+      "id": "T5-04-M02",
+      "ruleId": "T5-04-R02",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "ownership": {
+          "singleWriterByDomain": true,
+          "sharedC0Minimal": true,
+          "portsVersioned": true,
+          "ownerRevisionHashFrame": true,
+          "dualDomainWrites": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "ownership.dualDomainWrites"
+    },
+    {
+      "id": "T5-04-M03",
+      "ruleId": "T5-04-R03",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "expand": {
+          "newReaderIntroduced": true,
+          "oldReaderRetained": true,
+          "consumerVersionPinned": true,
+          "migrationBeforeContract": true,
+          "destructiveEarlyDrop": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "expand.destructiveEarlyDrop"
+    },
+    {
+      "id": "T5-04-M04",
+      "ruleId": "T5-04-R04",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "recovery": {
+          "consistentBackup": true,
+          "backupChecksumRecorded": true,
+          "restoreRehearsed": true,
+          "userDbPreserved": true,
+          "crossStoreAtomicAssumed": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "recovery.crossStoreAtomicAssumed"
+    },
+    {
+      "id": "T5-04-M05",
+      "ruleId": "T5-04-R05",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "freeze": {
+          "sameAssetFact": true,
+          "frozenD08Preserved": true,
+          "decisionAuditLinked": true,
+          "staleDerivedInvalidated": true,
+          "candidateOverwritesFrozen": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "freeze.candidateOverwritesFrozen"
+    },
+    {
+      "id": "T5-04-M06",
+      "ruleId": "T5-04-R06",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "nc": {
+          "setupSeparateBinding": true,
+          "neutralCLPreserved": true,
+          "finalNCReparsed": true,
+          "d14TimelineIndependent": true,
+          "d15VerificationIndependent": true,
+          "unknownD13Releases": true,
+          "clPreviewAsNCValidation": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "nc.unknownD13Releases"
+    },
+    {
+      "id": "T5-04-M07",
+      "ruleId": "T5-04-R07",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "gui": {
+          "singleBabylonScene": true,
+          "leftUnifiedTaskPanel": true,
+          "allEntrypointsSameOwner": true,
+          "fontMax12": 12,
+          "overlayLeaseReleased": true,
+          "previewWritesBusiness": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "gui.previewWritesBusiness"
+    },
+    {
+      "id": "T5-04-M08",
+      "ruleId": "T5-04-R08",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "auth": {
+          "expectedRevisionHashChecked": true,
+          "aclEpochChecked": true,
+          "frameScopeChecked": true,
+          "taskGenerationChecked": true,
+          "cancelTokenChecked": true,
+          "lateReceiptCommits": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "auth.lateReceiptCommits"
+    },
+    {
+      "id": "T5-04-M09",
+      "ruleId": "T5-04-R09",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "contract": {
+          "oldReaderTestPass": true,
+          "newConsumerStandalonePass": true,
+          "rollbackCompositionPinned": true,
+          "legacyGoldenRetained": true,
+          "humanCutoverDecision": true,
+          "unknownAcceptedAsPass": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "contract.unknownAcceptedAsPass"
+    },
+    {
+      "id": "T5-04-M10",
+      "ruleId": "T5-04-R10",
+      "scenario": "DIFFERENT_FIELD_MUTATION",
+      "input": {
+        "handoff": {
+          "migrationLedgerComplete": true,
+          "migrationHashTraceable": true,
+          "isolatedRollbackCase": true,
+          "notRunClearlyMarked": true,
+          "humanSignoffPending": true,
+          "productPassClaimed": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "handoff.productPassClaimed"
+    }
+  ]
+}

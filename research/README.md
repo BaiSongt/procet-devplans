@@ -1,3 +1,6 @@
+## 2026-10-26｜R-CONTROLLED-MIGRATION-001迁移规划理论
+[理论适用边界](topics/R-CONTROLLED-MIGRATION-001.md) → [9原作者及官方来源](sources/T5-04.json) → [10可机检规则](traces/T5-04.json) → [原T5-04实施](../docs/work-packages/T5-04.md)。Fowler Expand/Migrate/Contract、AWS抽象枝与渐进替换、SQLite备份、RFC条件写、PROV-O谱系；NIST只读摘要。652登记/78 registry非去重。合成30/30，真实产品/独立消费者未执行。
+
 ## 2026-10-26｜R-LEAD-LINK-001 链接、退让与连续安全证据
 [理论边界](topics/R-LEAD-LINK-001.md) · [9官方/厂商来源与深度](sources/CAP-07-06.json) · [规则/字段/30合成场景](traces/CAP-07-06.json) · [CAP原业务规划](../docs/capabilities/CAP-07-06/README.md)。643登记/77 registry（非去重）；局部静态最近距不证明连续路径无碰，产品/独立消费者NOT_RUN。
 

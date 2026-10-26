@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "procet-research-register-v1",
+  "workPackageId": "T5-04",
+  "researchTopic": "R-CONTROLLED-MIGRATION-001",
+  "recordedOn": "2026-10-26",
+  "sources": [
+    {
+      "id": "SRC-T504-FOWLER",
+      "title": "Parallel Change",
+      "authors": [
+        "Danilo Sato"
+      ],
+      "publisher": "MartinFowler.com",
+      "edition": "2014-05-13",
+      "published": "2014-05-13",
+      "url": "https://martinfowler.com/bliki/ParallelChange.html",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "original_author_public_html",
+      "locator": "Expand / Migrate / Contract",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "工程演化模式，不保证任意几何及数据迁移正确",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-BRANCH",
+      "title": "Branch by abstraction pattern",
+      "authors": [
+        "AWS Prescriptive Guidance Team"
+      ],
+      "publisher": "Amazon Web Services",
+      "edition": "online guide",
+      "published": "未标固定出版日",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-decomposing-monoliths/branch-by-abstraction.html",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_public_html_sections",
+      "locator": "identify upstream dependencies / abstraction / switch",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "旧内部模块抽象，不要求Procet改用微服务",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-STRANGLER",
+      "title": "Strangler fig pattern",
+      "authors": [
+        "AWS Prescriptive Guidance Team"
+      ],
+      "publisher": "Amazon Web Services",
+      "edition": "online guide",
+      "published": "未标固定出版日",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-decomposing-monoliths/strangler-fig.html",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_public_html_sections",
+      "locator": "Transform / Coexist / Eliminate / rollback",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "适合渐进替换，不证明所有业务可代理",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-BACKUP",
+      "title": "SQLite Online Backup API",
+      "authors": [
+        "SQLite Development Team"
+      ],
+      "publisher": "SQLite",
+      "edition": "living documentation",
+      "published": "未标固定出版日",
+      "url": "https://www.sqlite.org/backup.html",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_public_html_sections",
+      "locator": "Online Backup API / Backup Techniques",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "单SQLite一致备份参考，非跨SQLite/PG/文件原子快照",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-ALTER",
+      "title": "SQLite ALTER TABLE",
+      "authors": [
+        "SQLite Development Team"
+      ],
+      "publisher": "SQLite",
+      "edition": "living documentation",
+      "published": "未标固定出版日",
+      "url": "https://www.sqlite.org/lang_altertable.html",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_public_html_sections",
+      "locator": "ALTER TABLE / foreign_key_check",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "具体DDL受SQLite版本影响，不证明任意回滚可行",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-PRAGMA",
+      "title": "SQLite PRAGMA user_version",
+      "authors": [
+        "SQLite Development Team"
+      ],
+      "publisher": "SQLite",
+      "edition": "living documentation",
+      "published": "未标固定出版日",
+      "url": "https://www.sqlite.org/pragma.html#pragma_user_version",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_public_html_sections",
+      "locator": "PRAGMA user_version / schema_version",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "user_version由应用维护，不等于兼容性自动证明",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-RFC",
+      "title": "RFC 9110: HTTP Semantics",
+      "authors": [
+        "R. Fielding et al."
+      ],
+      "publisher": "IETF / RFC Editor",
+      "edition": "RFC 9110",
+      "published": "2022-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_targeted_full_html",
+      "locator": "13.1.1 If-Match / 13.2 Precondition Evaluation",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "HTTP预条件可作CAS类比，但不能替代领域Owner事务",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-PROV",
+      "title": "PROV-O: The PROV Ontology",
+      "authors": [
+        "Timothy Lebo et al."
+      ],
+      "publisher": "W3C",
+      "edition": "W3C Recommendation",
+      "published": "2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_public_html_sections",
+      "locator": "wasDerivedFrom / wasRevisionOf / invalidation",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "谱系模型不保证真实存储、权限与审计实现",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-T504-NIST",
+      "title": "Secure Software Development Framework (SSDF)",
+      "authors": [
+        "Murugiah Souppaya; Karen Scarfone; Donna Dodson"
+      ],
+      "publisher": "NIST",
+      "edition": "SP 800-218 v1.1 Final",
+      "published": "2022-02-03",
+      "url": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "accessedOn": "2026-10-26",
+      "accessDepth": "official_catalog_abstract_only",
+      "locator": "Publication metadata / Abstract / Final status",
+      "supports": "受控迁移总体方法或对应T5-04规则的部分设计依据",
+      "limits": "未读PDF任务表，不引用具体条款；Rev.1仍Draft",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    }
+  ]
+}
