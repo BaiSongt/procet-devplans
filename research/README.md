@@ -1,3 +1,6 @@
+## 2026-10-27｜R-IK-BRANCH-001逆解多支路与Jacobian奇异
+[专题推导/阅读局限](topics/R-IK-BRANCH-001.md) → [9来源、版本与访问章节](sources/CAP-09-03.json) → [10字段规则、原工作包与正反变异](traces/CAP-09-03.json) → [30合成门禁/5个2R数学向量](../docs/capabilities/CAP-09-03/fixtures.json)。ISO仅官网摘要、NIST仅官方著录摘要、Modern Robotics仅教学网页，LinuxCNC2.9/OCCT8.0.1/RFC/W3C为相应公开章节；绝不推断B5实机。累计772条登记/92 Registry（非去重），17资产Owner/L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-FRAMEGRAPH-FK-001统一Frame与正解
 [理论及局限](topics/R-FRAMEGRAPH-FK-001.md) → [9来源版本、访问深度、章节](sources/CAP-09-02.json) → [10规则、字段、CAP/原包、正反变异](traces/CAP-09-02.json) → [30+8合成向量](../docs/capabilities/CAP-09-02/fixtures.json)。ISO仅目录、NIST仅著录摘要、Lynch/Park只读公开视频简介；实际B5、产品、消费者NOT_RUN。累计763登记/91 Registry非去重，L3/Owner待审。规划PASS≠产品PASS。
 
