@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-04-06《机床Setup绑定》实施规划（L3待审）
+[十项施工](docs/capabilities/CAP-04-06/README.md) · [GUI/3D](docs/capabilities/CAP-04-06/UI.md) · [10合法来源](research/sources/CAP-04-06.json) → [10规则40字段](research/traces/CAP-04-06.json) → [74例合成](docs/capabilities/CAP-04-06/fixtures.json) · [17资产交接](docs/capabilities/CAP-04-06/independent-consumer-handoff.md)。累计87/88 CAP、36/36原包、993登记/116 Registry（非去重）；V8规划合成74/74，Node/真实NC/B5/三轴/消费者NOT_RUN。D04≠D10、NC未知阻D16，17Owner/L3及最终交接待审；规划PASS≠产品PASS。
+
 ## 2026-10-27｜CAP-11-08《人机授权与安全约束》（L3待审）
 [原业务/十项施工](docs/capabilities/CAP-11-08/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-08/UI.md) · [10合法来源及访问限制](research/sources/CAP-11-08.json) → [10规则40字段](research/traces/CAP-11-08.json) → [50正反+31状态+6跨域合成](docs/capabilities/CAP-11-08/fixtures.json) · [17资产Owner候选及独立消费](docs/capabilities/CAP-11-08/independent-consumer-handoff.md)。累计**86/88详细CAP、36/36原包及研究追踪、983来源登记/115 Registry（非去重）**；V8等价规划合成87/87，Node/真实Owner/NC/B5/独立消费者NOT_RUN，17Owner正式会签及L3、最终全仓审计待办。**规划PASS≠产品PASS**。
 

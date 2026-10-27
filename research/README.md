@@ -1,3 +1,6 @@
+## 2026-10-28｜R-MACHINE-BIND-001 机床执行绑定与坐标链
+[10来源及阅读局限](sources/CAP-04-06.json) → [10规则40字段](traces/CAP-04-06.json) → [74正反/状态/数学案例](../docs/capabilities/CAP-04-06/fixtures.json) → [理论推导](topics/R-MACHINE-BIND-001.md)。ISO仅读目录，NIST仅著录，LinuxCNC2.9/OCCT/RFC/W3C只引用公开章节；真实产品/Owner及机床NOT_RUN。
+
 ## 2026-10-27｜R-HUMAN-AUTH-001 人机授权、审批与Owner职责
 [来源作者/版本/访问深度和限制](sources/CAP-11-08.json) → [10规则40字段/T5-01/T5-02](traces/CAP-11-08.json) → [87项字段/状态/NC隔离合成](../docs/capabilities/CAP-11-08/fixtures.json) → [工程推导](topics/R-HUMAN-AUTH-001.md)。NIST仅官方出版摘要、OWASP仅资源页介绍、MCP 2026-07-28仅公开授权/安全章节；983登记/115 Registry（非去重）。实际Owner、Node、消费者、机床NOT_RUN，Owner/L3待人类，规划PASS≠产品PASS。
 
