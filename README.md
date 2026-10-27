@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-04《工具调用与智能体编排》V0.8实施级规划（L3待审）
+[十项实施](docs/capabilities/CAP-11-04/README.md) · [GUI/3D](docs/capabilities/CAP-11-04/UI.md) · [Agent合同](docs/capabilities/CAP-11-04/agent-orchestration-contract.json) · [10合法公开来源](research/sources/CAP-11-04.json) → [10规则40字段](research/traces/CAP-11-04.json) → [50逐字段正反+24门禁](docs/capabilities/CAP-11-04/fixtures.json) · [独立消费者](docs/capabilities/CAP-11-04/independent-consumer-handoff.md)。累计**82/88 CAP、36/36原包、943登记/111 Registry（非去重）**；V8合成74/74，独立Node/实际Owner/Agent/NC/B5/消费者NOT_RUN。17Owner正式会签、L3待人类；历史原字节/11域研究终核及全仓风险交接未闭合。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-11-03《检索增强与证据》V0.8实施级规划（L3待审）
 [十项实施](docs/capabilities/CAP-11-03/README.md) · [单Babylon与左TaskPanel](docs/capabilities/CAP-11-03/UI.md) · [9份来源](research/sources/CAP-11-03.json) → [10规则40字段](research/traces/CAP-11-03.json) → [50独立字段正反+28门禁](docs/capabilities/CAP-11-03/fixtures.json) · [独立消费者](docs/capabilities/CAP-11-03/independent-consumer-handoff.md)。累计**81/88 CAP、36/36原包追踪、933来源登记/110 Registry（非去重）**；V8合成78/78，Node文件执行、真实RAG/NC/B5/独立消费NOT_RUN，17Owner及L3待人类。向量检索不是权限、引用不是NC验证，UNKNOWN阻发布。**规划PASS≠产品PASS**。
 

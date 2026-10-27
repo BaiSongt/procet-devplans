@@ -1,3 +1,6 @@
+## 2026-10-27｜[CAP-11-04 工具调用与智能体编排](CAP-11-04/README.md)
+[GUI/3D](CAP-11-04/UI.md) · [合同](CAP-11-04/agent-orchestration-contract.json) · [来源规则](../../research/traces/CAP-11-04.json) · [74合成案例](CAP-11-04/fixtures.json)。**82/88**详细规划，36/36原包；非产品PASS，Owner/L3待审。
+
 ## CAP-10-06｜现场执行与工单（仅规划，L3待审）
 [原88项目标和十子任务](CAP-10-06/README.md) · [GUI/3D](CAP-10-06/UI.md) · [现场工单合同](CAP-10-06/workorder-contract.json) · [10规则40字段](../../research/traces/CAP-10-06.json) · [72合成验收](CAP-10-06/fixtures.json)。详细CAP **76/88**、原包36/36；产品/MES/NC/机床NOT_RUN，Owner/L3待审。
 

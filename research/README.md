@@ -1,3 +1,6 @@
+## 2026-10-27｜R-AGENT-ORCHESTRATION-001 Agent最小权限、取消与Owner边界
+[10份合法来源/阅读局限](sources/CAP-11-04.json) → [10规则40字段](traces/CAP-11-04.json) → [50正反+24枚举门禁](../docs/capabilities/CAP-11-04/fixtures.json) → [研究推导](topics/R-AGENT-ORCHESTRATION-001.md)。MCP Tasks在2025-11-25实验性；NIST AI600-1仅读出版摘要。943登记/111 Registry非去重；Node/Owner/NC/消费者NOT_RUN，17Owner/L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-RAG-EVIDENCE-001 受控检索与可复核证据
 [9份权威来源及读文深度](sources/CAP-11-03.json) → [10规则40字段](traces/CAP-11-03.json) → [50正反字段+28门禁](../docs/capabilities/CAP-11-03/fixtures.json) → [理论边界](topics/R-RAG-EVIDENCE-001.md)。OWASP三主题、W3C Annotation/PROV、RFC9110指定公开章节已核；论文仅摘要/引言、NIST仅著录摘要、JSON Schema是到期Internet-Draft。933登记/110 Registry非去重，独立产品与消费者NOT_RUN、17Owner/L3待审。规划PASS≠产品PASS。
 

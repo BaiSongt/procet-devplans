@@ -1,0 +1,581 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-04",
+  "researchTopic": "R-AGENT-ORCHESTRATION-001",
+  "sourceRegistry": "research/sources/CAP-11-04.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-04-R01",
+      "capabilityId": "CAP-11-04",
+      "summary": "工具目录、schema与Owner Port",
+      "engineeringRule": "工具须注册有限操作、输入Schema指纹与明确Owner Port，不提供万能Shell或隐含写权限",
+      "fields": [
+        "tool.namespaceVersion",
+        "tool.ownerPort",
+        "tool.inputSchemaDigest",
+        "tool.allowedOperations"
+      ],
+      "sourceIds": [
+        "C1104-S01",
+        "C1104-S05"
+      ],
+      "relatedDomains": [
+        "01",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "tool.namespaceVersion",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.ownerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.inputSchemaDigest",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.allowedOperations",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R02",
+      "capabilityId": "CAP-11-04",
+      "summary": "精确业务上下文投影",
+      "engineeringRule": "每次调用锁定Project/Owner exact revision、对象原字节Hash、坐标Frame，不复用过期缓存当真值",
+      "fields": [
+        "context.projectId",
+        "context.ownerRevision",
+        "context.assetHash",
+        "context.frameId"
+      ],
+      "sourceIds": [
+        "C1104-S01",
+        "C1104-S07",
+        "C1104-S08"
+      ],
+      "relatedDomains": [
+        "01",
+        "03",
+        "04",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "context.projectId",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "context.ownerRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "context.assetHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "context.frameId",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R03",
+      "capabilityId": "CAP-11-04",
+      "summary": "受委托权限及二次鉴权",
+      "engineeringRule": "在目标业务Owner内按用户身份、权限范围、现时ACL与ScopeEpoch重新检查",
+      "fields": [
+        "auth.principal",
+        "auth.scopes",
+        "auth.ownerAclCurrent",
+        "auth.scopeEpochCurrent"
+      ],
+      "sourceIds": [
+        "C1104-S02",
+        "C1104-S05",
+        "C1104-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "auth.principal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.scopes",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.ownerAclCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.scopeEpochCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R04",
+      "capabilityId": "CAP-11-04",
+      "summary": "计划DAG及副作用预算",
+      "engineeringRule": "编排依赖无环、记录每节点副作用类型，冻结成果只可引用且请求预算有界",
+      "fields": [
+        "plan.graphAcyclic",
+        "plan.sideEffectClass",
+        "plan.dependenciesFrozen",
+        "plan.budgetBounded"
+      ],
+      "sourceIds": [
+        "C1104-S01",
+        "C1104-S04",
+        "C1104-S05"
+      ],
+      "relatedDomains": [
+        "05",
+        "06",
+        "07",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "plan.graphAcyclic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "plan.sideEffectClass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "plan.dependenciesFrozen",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "plan.budgetBounded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R05",
+      "capabilityId": "CAP-11-04",
+      "summary": "高影响动作人工确认",
+      "engineeringRule": "提交/发布等高风险动作必须确认精确动作摘要、对应业务Scope与有效期限",
+      "fields": [
+        "approval.actionDigest",
+        "approval.humanConfirmed",
+        "approval.scopeBinding",
+        "approval.notExpired"
+      ],
+      "sourceIds": [
+        "C1104-S01",
+        "C1104-S05",
+        "C1104-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "08",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "approval.actionDigest",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.humanConfirmed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.scopeBinding",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.notExpired",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R06",
+      "capabilityId": "CAP-11-04",
+      "summary": "派发侧CAS、撤权与取消重验",
+      "engineeringRule": "Port在最终提交处检验expectedRevision、Hash、cancelEpoch和业务前置条件；跨调用不依赖LLM保证原子性",
+      "fields": [
+        "dispatch.expectedRevision",
+        "dispatch.hashMatch",
+        "dispatch.cancelEpochCurrent",
+        "dispatch.portPrecondition"
+      ],
+      "sourceIds": [
+        "C1104-S02",
+        "C1104-S03",
+        "C1104-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "06",
+        "07",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D09",
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "dispatch.expectedRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dispatch.hashMatch",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dispatch.cancelEpochCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dispatch.portPrecondition",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R07",
+      "capabilityId": "CAP-11-04",
+      "summary": "重试幂等与晚回执",
+      "engineeringRule": "幂等键绑定输入Digest；取消后的回执不可激活新提交，已真实提交的先前副作用必须审计并协调",
+      "fields": [
+        "retry.idempotencyKey",
+        "retry.samePayloadDigest",
+        "retry.ackAfterCancelRejected",
+        "retry.noDuplicateCommit"
+      ],
+      "sourceIds": [
+        "C1104-S03",
+        "C1104-S04",
+        "C1104-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "07",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D09",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "retry.idempotencyKey",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "retry.samePayloadDigest",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "retry.ackAfterCancelRejected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "retry.noDuplicateCommit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R08",
+      "capabilityId": "CAP-11-04",
+      "summary": "结果解析与提示注入隔离",
+      "engineeringRule": "工具结果经Schema与Owner收据验证，只作不可信数据，证据不足UNKNOWN不得继续写入",
+      "fields": [
+        "result.schemaValidated",
+        "result.dataOnly",
+        "result.ownerReceiptVerified",
+        "result.unknownOnGap"
+      ],
+      "sourceIds": [
+        "C1104-S05",
+        "C1104-S06",
+        "C1104-S08"
+      ],
+      "relatedDomains": [
+        "03",
+        "05",
+        "11"
+      ],
+      "assets": [
+        "D02",
+        "D05",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "result.schemaValidated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "result.dataOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "result.ownerReceiptVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "result.unknownOnGap",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R09",
+      "capabilityId": "CAP-11-04",
+      "summary": "NC工程资格专门门禁",
+      "engineeringRule": "D04 Setup不冒充D10实装；D12最终NC→D13执行语义→D14时序→D15独立验证，未知不得签D16",
+      "fields": [
+        "nc.d04NotD10",
+        "nc.finalNcD12",
+        "nc.d13D14D15Independent",
+        "nc.d16BlockedUnknown"
+      ],
+      "sourceIds": [
+        "C1104-S07",
+        "C1104-S08",
+        "C1104-S09"
+      ],
+      "relatedDomains": [
+        "04",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "nc.d04NotD10",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.finalNcD12",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d13D14D15Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d16BlockedUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-04-R10",
+      "capabilityId": "CAP-11-04",
+      "summary": "GUI/CLI/Agent同一入口与回滚审计",
+      "engineeringRule": "共享Owner Port及action receipt；单Babylon世界/统一左TaskPanel，关联审计，失效可回退而不覆写A/B冻结",
+      "fields": [
+        "ux.sameOwnerPort",
+        "ux.singleBabylonLeftPanel",
+        "ux.auditTraceLinked",
+        "ux.rollbackFrozenSafe"
+      ],
+      "sourceIds": [
+        "C1104-S01",
+        "C1104-S03",
+        "C1104-S08",
+        "C1104-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "ux.sameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.singleBabylonLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.auditTraceLinked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.rollbackFrozenSafe",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一独立正例+四逐字段负例；另有单独状态门禁，非产品测试",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}
