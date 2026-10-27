@@ -1,0 +1,510 @@
+{
+  "schemaVersion": "procet-cap1003-trace-v1",
+  "capabilityId": "CAP-10-03",
+  "researchTopic": "R-OFFLINE-MEDIA-001",
+  "sourceRegistry": "research/sources/CAP-10-03.json",
+  "specification": "docs/capabilities/CAP-10-03/README.md",
+  "ui": "docs/capabilities/CAP-10-03/UI.md",
+  "fixtures": "docs/capabilities/CAP-10-03/fixtures.json",
+  "validator": "tools/check_cap1003_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-10-03-R01",
+      "capabilityId": "CAP-10-03",
+      "summary": "介质归属与接收主体",
+      "engineeringRule": "交接需明确介质Owner、身份、接收职责和精确传递意图；未知无主介质阻断",
+      "fields": [
+        "identity.mediaOwnerKnown",
+        "identity.mediaSerialBound",
+        "identity.receiverRoleAuthenticated",
+        "identity.transferIntentPinned"
+      ],
+      "sourceIds": [
+        "C1003-S01",
+        "C1003-S02",
+        "C1003-S09"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "identity.mediaOwnerKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.mediaSerialBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.receiverRoleAuthenticated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.transferIntentPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R02",
+      "capabilityId": "CAP-10-03",
+      "summary": "原字节与子程序闭包",
+      "engineeringRule": "收端离线重算最终NC及所有调用文件的逐字节SHA；Manifest JCS摘要单独验证",
+      "fields": [
+        "integrity.finalNcBytesRehashed",
+        "integrity.subprogramClosureChecked",
+        "integrity.manifestJcsDigestMatched",
+        "integrity.fileListExact"
+      ],
+      "sourceIds": [
+        "C1003-S03",
+        "C1003-S04",
+        "C1003-S08"
+      ],
+      "assets": [
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "integrity.finalNcBytesRehashed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "integrity.subprogramClosureChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "integrity.manifestJcsDigestMatched",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "integrity.fileListExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R03",
+      "capabilityId": "CAP-10-03",
+      "summary": "独立验签与预置信任根",
+      "engineeringRule": "接收者不得只信复制方自报PASS；用预置信任根验证签名、签署策略和轮换",
+      "fields": [
+        "trust.trustedRootPreinstalled",
+        "trust.signatureCheckedOnReceiver",
+        "trust.signerPolicyPinned",
+        "trust.keyRotationPolicyChecked"
+      ],
+      "sourceIds": [
+        "C1003-S03",
+        "C1003-S05",
+        "C1003-S04"
+      ],
+      "assets": [
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "trust.trustedRootPreinstalled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trust.signatureCheckedOnReceiver",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trust.signerPolicyPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trust.keyRotationPolicyChecked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R04",
+      "capabilityId": "CAP-10-03",
+      "summary": "离线过期、撤销与防回滚",
+      "engineeringRule": "时间和撤销快照缺口保持UNKNOWN，拒绝信任根版本倒退且不默许过期",
+      "fields": [
+        "freshness.trustedTimeEvidenceAvailable",
+        "freshness.revocationSnapshotCurrent",
+        "freshness.noRollbackRootMetadata",
+        "freshness.offlineUnknownFailsClosed"
+      ],
+      "sourceIds": [
+        "C1003-S05",
+        "C1003-S01",
+        "C1003-S09"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "freshness.trustedTimeEvidenceAvailable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freshness.revocationSnapshotCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freshness.noRollbackRootMetadata",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freshness.offlineUnknownFailsClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R05",
+      "capabilityId": "CAP-10-03",
+      "summary": "封闭文件路径",
+      "engineeringRule": "拒绝绝对路径、..、symlink/reparse、大小写折叠重复及Windows特殊路径",
+      "fields": [
+        "paths.relativeOnly",
+        "paths.noSymlink",
+        "paths.caseFoldUnique",
+        "paths.noTraversalOrAltStreams"
+      ],
+      "sourceIds": [
+        "C1003-S06",
+        "C1003-S07",
+        "C1003-S01"
+      ],
+      "assets": [
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "paths.relativeOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "paths.noSymlink",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "paths.caseFoldUnique",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "paths.noTraversalOrAltStreams",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R06",
+      "capabilityId": "CAP-10-03",
+      "summary": "现场设备与实装精确匹配",
+      "engineeringRule": "目标机床、控制器Profile及D10实际执行绑定必须与签发证据一致；D04只提供名义Setup",
+      "fields": [
+        "target.machineIdentityExact",
+        "target.controllerProfileExact",
+        "target.d10ExecutionBindingExact",
+        "target.d04NominalDistinctFromD10"
+      ],
+      "sourceIds": [
+        "C1003-S08",
+        "C1003-S09",
+        "C1003-S01"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "target.machineIdentityExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.controllerProfileExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.d10ExecutionBindingExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.d04NominalDistinctFromD10",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R07",
+      "capabilityId": "CAP-10-03",
+      "summary": "独立NC工程验证证据闭包",
+      "engineeringRule": "D15必须独立覆盖D12原NC经D13/D14的执行语义和时序，CL_ONLY/UNKNOWN不能取得上机资格",
+      "fields": [
+        "validation.independentD15Exact",
+        "validation.d12D13D14ClosureExact",
+        "validation.noClOnlyPass",
+        "validation.unknownRejects"
+      ],
+      "sourceIds": [
+        "C1003-S08",
+        "C1003-S03",
+        "C1003-S09"
+      ],
+      "assets": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "validation.independentD15Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validation.d12D13D14ClosureExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validation.noClOnlyPass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validation.unknownRejects",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R08",
+      "capabilityId": "CAP-10-03",
+      "summary": "签收不等于机床运行",
+      "engineeringRule": "接收端记录重新哈希和本地验签证据，签收只能追加D17记录且不得自动导入机床",
+      "fields": [
+        "receipt.receiverHashRecorded",
+        "receipt.verifiedWithoutNetwork",
+        "receipt.noAutoMachineImport",
+        "receipt.receiptAppendOnly"
+      ],
+      "sourceIds": [
+        "C1003-S01",
+        "C1003-S09",
+        "C1003-S05"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "receipt.receiverHashRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "receipt.verifiedWithoutNetwork",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "receipt.noAutoMachineImport",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "receipt.receiptAppendOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R09",
+      "capabilityId": "CAP-10-03",
+      "summary": "权限重验、取消与晚回执",
+      "engineeringRule": "10域收端提交前重验ACL、expectedRevision/hash/Frame、scopeEpoch及取消；晚ACK不得写回旧事实",
+      "fields": [
+        "transaction.precommitAclRechecked",
+        "transaction.expectedRevisionHashFrameCAS",
+        "transaction.scopeEpochCancelChecked",
+        "transaction.lateAckRejected"
+      ],
+      "sourceIds": [
+        "C1003-S01",
+        "C1003-S09",
+        "C1003-S05"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "transaction.precommitAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.expectedRevisionHashFrameCAS",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.scopeEpochCancelChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.lateAckRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-03-R10",
+      "capabilityId": "CAP-10-03",
+      "summary": "单域Port、单Babylon与兼容回退",
+      "engineeringRule": "GUI/CLI/Agent统一调用10域同一Port，单Babylon只读预览、统一左TaskPanel且新旧Reader可受控回退",
+      "fields": [
+        "ui.singleDomainPort",
+        "ui.oneBabylonWorld",
+        "ui.leftTaskPanel",
+        "ui.rollbackDualReader"
+      ],
+      "sourceIds": [
+        "C1003-S01",
+        "C1003-S06",
+        "C1003-S09"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "ui.singleDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.oneBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.rollbackDualReader",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段应有单字段独立变异负例，验签与签收仍需独立真实消费者测试",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

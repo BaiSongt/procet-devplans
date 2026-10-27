@@ -1,3 +1,6 @@
+## 2026-10-27｜R-OFFLINE-MEDIA-001 无网络NC签收与可验证信任
+[9项来源和真实访问深度](sources/CAP-10-03.json) → [10条规则/40字段](traces/CAP-10-03.json) → [75项正反/离线门禁](../docs/capabilities/CAP-10-03/fixtures.json) → [独立收方研究及风险](topics/R-OFFLINE-MEDIA-001.md)。NIST两份仅官网摘要、RFC公开正文、TUF v1.0.36已读页面与既有v1.0.37分开登记；真实离线信任根、接收进程、时钟、机床NOT_RUN。累计861登记/102Registry（非去重），17Owner/L3待人类；规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-RELEASE-APPROVAL-001 审签、密钥与离线信任
 [理论与局限](topics/R-RELEASE-APPROVAL-001.md) → [9官方来源](sources/CAP-10-02.json) → [10条逐字段规则](traces/CAP-10-02.json) → [70字段+14状态](../docs/capabilities/CAP-10-02/fixtures.json)。累计852登记/101 Registry非去重；NIST仅官方著录摘要、ISO仅目录，RFC/TUF/W3C读取公开正文；未做真实签名/独立验签。17资产Owner/L3待人类。规划PASS≠产品PASS。
 

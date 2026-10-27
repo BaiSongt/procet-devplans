@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-10-03《离线介质交付》（L3待审）
+[10项原目标实施](docs/capabilities/CAP-10-03/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-10-03/UI.md) · [9份官方公开来源与阅读深度](research/sources/CAP-10-03.json) → [10规则40字段/2原包](research/traces/CAP-10-03.json) → [10正40独立字段反例+25离线门禁](docs/capabilities/CAP-10-03/fixtures.json) · [独立消费者/回退](docs/capabilities/CAP-10-03/independent-consumer-handoff.md)。累计**73/88详细CAP、36/36原编号包及研究追踪、861来源登记/102 Registry（非去重）**。75/75为V8规划内存合成，Node文件、真实U盘/签名/机床/接收方均NOT_RUN；17Owner/L3待审。签名、哈希、介质签收和D15独立NC工程安全不能互相冒充；离线时间/撤销UNKNOWN不发上机资格。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-10-02《发布审批与签发》实施级规划（L3待审）
 [10子任务与原目标](docs/capabilities/CAP-10-02/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-10-02/UI.md) · [9项官方来源及阅读深度](research/sources/CAP-10-02.json) → [10规则40字段](research/traces/CAP-10-02.json) → [70逐字段正反+14状态门禁](docs/capabilities/CAP-10-02/fixtures.json) · [独立收方与回退](docs/capabilities/CAP-10-02/independent-consumer-handoff.md)。累计**72/88详细CAP、36/36原工作包和追踪、852登记/101 Registry（非去重）**。仅V8等价内存84/84合成，独立Node/真实签名/控制器/B5/离线消费者NOT_RUN。CAP-10-01候选≠签发；签名数学正确≠D15物理工程安全；失效/撤权/UNKNOWN阻D16。17资产Owner/L3待人类，历史附件和全仓交叉未闭合。规划PASS≠产品PASS。
 
