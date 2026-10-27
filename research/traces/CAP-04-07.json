@@ -1,0 +1,725 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-04-07",
+  "researchTopic": "R-TOOL-MOUNT-001",
+  "sourceRegistry": "research/sources/CAP-04-07.json",
+  "workPackageIds": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-04-07-R01",
+      "capabilityId": "CAP-04-07",
+      "summary": "接口规格和兼容矩阵",
+      "engineeringRule": "02域D03主轴端与刀柄端均使用具名接口+exact revision，机床品牌或外观相似不能判兼容",
+      "fields": [
+        "interface.spindleExact",
+        "interface.holderExact",
+        "interface.matingEvidence",
+        "interface.unsupportedBlocked"
+      ],
+      "sourceIds": [
+        "C0407-S01",
+        "C0407-S02"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "interface.spindleExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.holderExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.matingEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.unsupportedBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R02",
+      "capabilityId": "CAP-04-07",
+      "summary": "刀具组件全链装配",
+      "engineeringRule": "SpindleMount→Holder→Extension(optional)→Tool→Tip必须逐边固定from/to Frame、修订与插入/夹持证据",
+      "fields": [
+        "assembly.orderedChain",
+        "assembly.parentLocal",
+        "assembly.componentExact",
+        "assembly.retentionKnown"
+      ],
+      "sourceIds": [
+        "C0407-S01",
+        "C0407-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "assembly.orderedChain",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "assembly.parentLocal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "assembly.componentExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "assembly.retentionKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R03",
+      "capabilityId": "CAP-04-07",
+      "summary": "Gauge Length及参考基准",
+      "engineeringRule": "Gauge Length是具名量测基准面至特定TCP的轴向距离；刀具伸长量、刀柄长度、总长禁止混用",
+      "fields": [
+        "gauge.datumExact",
+        "gauge.measuredRevision",
+        "gauge.axisAndUnit",
+        "gauge.notStickout"
+      ],
+      "sourceIds": [
+        "C0407-S05",
+        "C0407-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "gauge.datumExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gauge.measuredRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gauge.axisAndUnit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gauge.notStickout",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R04",
+      "capabilityId": "CAP-04-07",
+      "summary": "刀轴和TCP刚体变换",
+      "engineeringRule": "列向量左乘，主轴载体→刀柄→刀具→TCP；显示矩阵与缩放/镜像不得回写业务Frame",
+      "fields": [
+        "tcp.fromToFrames",
+        "tcp.rightHanded",
+        "tcp.transformOrder",
+        "tcp.assemblyAxisKnown"
+      ],
+      "sourceIds": [
+        "C0407-S03",
+        "C0407-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "tcp.fromToFrames",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.rightHanded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.transformOrder",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.assemblyAxisKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R05",
+      "capabilityId": "CAP-04-07",
+      "summary": "实际装配与机床执行隔离",
+      "engineeringRule": "D03库中工具定义不等于D10已装机的T位/刀柄/伸长量，D04名义Setup不写D10或控制器刀表",
+      "fields": [
+        "boundary.d03CatalogUnchanged",
+        "boundary.d04NominalSeparate",
+        "boundary.d10RevisionNew",
+        "boundary.noControllerWrite"
+      ],
+      "sourceIds": [
+        "C0407-S01",
+        "C0407-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "boundary.d03CatalogUnchanged",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "boundary.d04NominalSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "boundary.d10RevisionNew",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "boundary.noControllerWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R06",
+      "capabilityId": "CAP-04-07",
+      "summary": "刀长H与程序执行语义",
+      "engineeringRule": "T换刀、G43 H、G43.1/2与G49解析由08域D13按控制器版本解释；H不是Gauge Length通用别名",
+      "fields": [
+        "controller.dialectExact",
+        "controller.toolTableExact",
+        "controller.offsetStateKnown",
+        "controller.unknownFailClosed"
+      ],
+      "sourceIds": [
+        "C0407-S05",
+        "C0407-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "controller.dialectExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "controller.toolTableExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "controller.offsetStateKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "controller.unknownFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R07",
+      "capabilityId": "CAP-04-07",
+      "summary": "碰撞包络与可达性输入",
+      "engineeringRule": "总成网格仅表现；Holder/Extension/Tool有效包络按D03/D10精确版本给D14/D15独立消费者",
+      "fields": [
+        "safety.holderEnvelopeExact",
+        "safety.toolEnvelopeExact",
+        "safety.installedPoseExact",
+        "safety.noMeshCertification"
+      ],
+      "sourceIds": [
+        "C0407-S04",
+        "C0407-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "safety.holderEnvelopeExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.toolEnvelopeExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.installedPoseExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.noMeshCertification",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R08",
+      "capabilityId": "CAP-04-07",
+      "summary": "三入口与统一GUI",
+      "engineeringRule": "GUI/CLI/Agent调用04域ToolMountPort，单Babylon世界+左TaskPanel，3D交互仅租约式只读预览",
+      "fields": [
+        "ui.singleBabylon",
+        "ui.unifiedLeftPanel",
+        "ui.ownerPortShared",
+        "ui.previewReadOnly"
+      ],
+      "sourceIds": [
+        "C0407-S07",
+        "C0407-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "ui.singleBabylon",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.unifiedLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.ownerPortShared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.previewReadOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R09",
+      "capabilityId": "CAP-04-07",
+      "summary": "CAS取消撤权与业务回执",
+      "engineeringRule": "提交由04域Owner重复校验ACL、ScopeEpoch、expected revision/hash/Frame、CAS和取消代；晚回执不复权",
+      "fields": [
+        "commit.aclCurrent",
+        "commit.scopeEpochCurrent",
+        "commit.casAndDependencies",
+        "commit.cancelLeaseCurrent"
+      ],
+      "sourceIds": [
+        "C0407-S08",
+        "C0407-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "commit.aclCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.scopeEpochCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casAndDependencies",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelLeaseCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-07-R10",
+      "capabilityId": "CAP-04-07",
+      "summary": "失效图、NC验证和回退",
+      "engineeringRule": "换装配新D10仅使下游依赖D11-D16失效，冻结D08和旧D16不覆写；D13 UNKNOWN/CL_ONLY不可发布",
+      "fields": [
+        "handoff.invalidationsExact",
+        "handoff.frozenD08Preserved",
+        "handoff.d15NCIndependent",
+        "handoff.rollbackAndAck"
+      ],
+      "sourceIds": [
+        "C0407-S05",
+        "C0407-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "handoff.invalidationsExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.frozenD08Preserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.d15NCIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.rollbackAndAck",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1个完整正例+4个独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

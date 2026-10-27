@@ -1,3 +1,6 @@
+## 2026-10-28｜R-TOOL-MOUNT-001 主轴刀具安装、Gauge/TCP与控制器刀长分离
+[合法来源与阅读深度](sources/CAP-04-07.json) → [10规则40字段](traces/CAP-04-07.json) → [50单字段正反+24状态+6算术](../docs/capabilities/CAP-04-07/fixtures.json) → [专题推导](topics/R-TOOL-MOUNT-001.md)。ISO四项仅官网目录，LinuxCNC2.9/OCCT/RFC/W3C限公开章节；1003登记/117 Registry非去重，17Owner/L3待审，真实产品/消费者NOT_RUN。
+
 ## 2026-10-28｜R-MACHINE-BIND-001 机床执行绑定与坐标链
 [10来源及阅读局限](sources/CAP-04-06.json) → [10规则40字段](traces/CAP-04-06.json) → [74正反/状态/数学案例](../docs/capabilities/CAP-04-06/fixtures.json) → [理论推导](topics/R-MACHINE-BIND-001.md)。ISO仅读目录，NIST仅著录，LinuxCNC2.9/OCCT/RFC/W3C只引用公开章节；真实产品/Owner及机床NOT_RUN。
 

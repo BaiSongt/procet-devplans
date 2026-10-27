@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-04-07《刀具安装关系》实施级规划（L3待审）
+[十项施工](docs/capabilities/CAP-04-07/README.md) · [GUI/3D](docs/capabilities/CAP-04-07/UI.md) · [10官方来源及局限](research/sources/CAP-04-07.json) → [10规则40字段](research/traces/CAP-04-07.json) → [80项规划合成](docs/capabilities/CAP-04-07/fixtures.json) · [17资产候选Owner/交接](docs/capabilities/CAP-04-07/independent-consumer-handoff.md)。**88/88 CAP、36/36原编号包、1003来源登记/117 Registry（非去重）**；单Babylon/左TaskPanel、D03资源≠D10实装、H≠Gauge；L3/17Owner会签、11域终核、历史附件、全仓矩阵与实际NC/三轴/B5/消费者验收仍未完成。**规划PASS≠产品PASS**。
+
 ## 2026-10-28｜CAP-04-06《机床Setup绑定》实施规划（L3待审）
 [十项施工](docs/capabilities/CAP-04-06/README.md) · [GUI/3D](docs/capabilities/CAP-04-06/UI.md) · [10合法来源](research/sources/CAP-04-06.json) → [10规则40字段](research/traces/CAP-04-06.json) → [74例合成](docs/capabilities/CAP-04-06/fixtures.json) · [17资产交接](docs/capabilities/CAP-04-06/independent-consumer-handoff.md)。累计87/88 CAP、36/36原包、993登记/116 Registry（非去重）；V8规划合成74/74，Node/真实NC/B5/三轴/消费者NOT_RUN。D04≠D10、NC未知阻D16，17Owner/L3及最终交接待审；规划PASS≠产品PASS。
 

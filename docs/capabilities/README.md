@@ -1,3 +1,6 @@
+## 2026-10-28｜[CAP-04-07 刀具安装关系](CAP-04-07/README.md)
+[统一GUI/3D](CAP-04-07/UI.md) · [10源/规则追踪](../../research/traces/CAP-04-07.json) · [80项规划合成](CAP-04-07/fixtures.json) · [候选Owner](CAP-04-07/independent-consumer-handoff.md)。**原88项全部有详细稿但均待L3**；17Owner/11域终核/历史附件/全仓覆盖尚未闭合。
+
 ## 2026-10-27｜[CAP-11-08 人机授权与安全约束](CAP-11-08/README.md)
 [统一UI/3D](CAP-11-08/UI.md) · [10规则40字段](../../research/traces/CAP-11-08.json) · [87项合成](CAP-11-08/fixtures.json) · [17资产候选Owner](CAP-11-08/asset-owner-candidates.json)。累计**86/88**，尚余CAP-04-06/07；L3及Owner签署未获批，真实机床/独立消费者NOT_RUN。
 
