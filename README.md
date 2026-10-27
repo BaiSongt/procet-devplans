@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-03《检索增强与证据》V0.8实施级规划（L3待审）
+[十项实施](docs/capabilities/CAP-11-03/README.md) · [单Babylon与左TaskPanel](docs/capabilities/CAP-11-03/UI.md) · [9份来源](research/sources/CAP-11-03.json) → [10规则40字段](research/traces/CAP-11-03.json) → [50独立字段正反+28门禁](docs/capabilities/CAP-11-03/fixtures.json) · [独立消费者](docs/capabilities/CAP-11-03/independent-consumer-handoff.md)。累计**81/88 CAP、36/36原包追踪、933来源登记/110 Registry（非去重）**；V8合成78/78，Node文件执行、真实RAG/NC/B5/独立消费NOT_RUN，17Owner及L3待人类。向量检索不是权限、引用不是NC验证，UNKNOWN阻发布。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-11-02《工艺知识与规则》V0.8实施级规划（L3待审）
 [10项实施](docs/capabilities/CAP-11-02/README.md) · [唯一Babylon与左TaskPanel](docs/capabilities/CAP-11-02/UI.md) · [工艺知识合同](docs/capabilities/CAP-11-02/knowledge-contract.example.json) · [10合法来源/阅读深度](research/sources/CAP-11-02.json) → [10规则40字段](research/traces/CAP-11-02.json) → [50单字段正反+24门禁](docs/capabilities/CAP-11-02/fixtures.json) · [17资产Owner候选/独立消费](docs/capabilities/CAP-11-02/independent-consumer-handoff.md)。累计**80/88详细CAP、36/36原包及追踪、924登记/109 Registry（非去重）**；仅V8合成74/74。独立Node、真实SHACL/知识引擎/机床/消费者NOT_RUN；17Owner/L3待人类，最终研究/历史附件/全仓交叉未闭合。知识仅建议、不覆盖D08，不把CL模拟冒充D15，UNKNOWN阻D16。**规划PASS≠产品PASS**。
 
