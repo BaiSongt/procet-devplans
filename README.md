@@ -1,3 +1,6 @@
+## 2026-10-28｜11域跨域研究与来源链首轮复核（终核未完成）
+[11域Owner/研究锚点与NC链](docs/architecture/v0.8/11域研究交叉复核_2026-10-28.md) · [结构化11域映射](docs/architecture/v0.8/11域研究交叉复核_2026-10-28.json) · [6官方来源及真实访问深度](research/sources/DOMAIN-CROSSCHECK-V08.json) → [11规则/CAP/原包](research/traces/DOMAIN-CROSSCHECK-V08.json) → [正反案例](docs/architecture/v0.8/11域研究交叉验收_2026-10-28.json) · [Node可运行只读校验器](tools/check_11domain_crosscheck_v08.cjs)。**88/88 CAP、36/36原包、17/17候选接口不变；11/11领域首轮研究锚点，非逐篇终核**；1016登记/119 Registry（非去重）。正式Owner签署0/17、真实消费者0/17、L3待审，历史附件/全仓矩阵/风险交接未闭合；规划PASS≠产品PASS。
+
 ## 2026-10-28｜D01—D17资产Owner接口首轮跨域终核（待正式签署）
 [17资产候选Owner/Port与独立消费者矩阵](docs/architecture/v0.8/17资产Owner接口交叉核验_2026-10-28.md) · [公开7来源+真实阅读范围](research/sources/ASSET-OWNERS-V08.json) → [10规则与字段](research/traces/ASSET-OWNERS-V08.json) → [正反合成/本地可运行Node校验器](tools/check_asset_owner_ports_v08.cjs)。**88/88 CAP及36/36原包不变；17/17仅候选接口列示，0/17人类Owner签署、0/17真实独立消费者验收**；原基线保持，来源登记1010/118 Registry（非去重）。V8静态正反只属规划；L3/历史附件/11域终核/全仓链接及风险交接未闭合，规划PASS≠产品PASS。
 

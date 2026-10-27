@@ -1,0 +1,364 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "researchTopic": "R-11DOMAIN-CROSSCHECK-001",
+  "sourceRegistry": "research/sources/DOMAIN-CROSSCHECK-V08.json",
+  "workPackageIds": [
+    "B0-02",
+    "F1-02",
+    "F1-03",
+    "W2-02",
+    "F1-05",
+    "E3-02",
+    "E3-03",
+    "E3-05",
+    "T5-03",
+    "T5-01"
+  ],
+  "rules": [
+    {
+      "id": "XDOM-R01",
+      "summary": "01域写权与来源边界",
+      "engineeringRule": "阅读入口与审计不等于D01—D17业务写入权",
+      "fields": [
+        "domains[0].ownerAssetIds",
+        "domains[0].anchorTrace",
+        "domains[0].anchorRegistry",
+        "domains[0].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S03"
+      ],
+      "capabilities": [
+        "CAP-01-04"
+      ],
+      "workPackages": [
+        "B0-02"
+      ],
+      "assets": [],
+      "relatedDomains": [
+        "01"
+      ],
+      "positiveAcceptance": "XDOM-POS-01",
+      "negativeAcceptance": "XDOM-NEG-01",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R02",
+      "summary": "02域写权与来源边界",
+      "engineeringRule": "D03资源档案不等于D10实际安装位姿",
+      "fields": [
+        "domains[1].ownerAssetIds",
+        "domains[1].anchorTrace",
+        "domains[1].anchorRegistry",
+        "domains[1].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S02",
+        "XDOM-S06"
+      ],
+      "capabilities": [
+        "CAP-02-01"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "assets": [
+        "D03"
+      ],
+      "relatedDomains": [
+        "02"
+      ],
+      "positiveAcceptance": "XDOM-POS-02",
+      "negativeAcceptance": "XDOM-NEG-02",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R03",
+      "summary": "03域写权与来源边界",
+      "engineeringRule": "D01/D02输入真值不得被D07派生几何逆向覆写",
+      "fields": [
+        "domains[2].ownerAssetIds",
+        "domains[2].anchorTrace",
+        "domains[2].anchorRegistry",
+        "domains[2].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S06"
+      ],
+      "capabilities": [
+        "CAP-03-01"
+      ],
+      "workPackages": [
+        "F1-03"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "relatedDomains": [
+        "03"
+      ],
+      "positiveAcceptance": "XDOM-POS-03",
+      "negativeAcceptance": "XDOM-NEG-03",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R04",
+      "summary": "04域写权与来源边界",
+      "engineeringRule": "D04名义Setup与D10机床执行绑定独立版本与Frame",
+      "fields": [
+        "domains[3].ownerAssetIds",
+        "domains[3].anchorTrace",
+        "domains[3].anchorRegistry",
+        "domains[3].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S02",
+        "XDOM-S04"
+      ],
+      "capabilities": [
+        "CAP-04-06"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "assets": [
+        "D04",
+        "D10"
+      ],
+      "relatedDomains": [
+        "04"
+      ],
+      "positiveAcceptance": "XDOM-POS-04",
+      "negativeAcceptance": "XDOM-NEG-04",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R05",
+      "summary": "05域写权与来源边界",
+      "engineeringRule": "只有05域采纳冻结D08，A/B同事实不覆盖已冻结修订",
+      "fields": [
+        "domains[4].ownerAssetIds",
+        "domains[4].anchorTrace",
+        "domains[4].anchorRegistry",
+        "domains[4].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S03"
+      ],
+      "capabilities": [
+        "CAP-05-06"
+      ],
+      "workPackages": [
+        "W2-02"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "relatedDomains": [
+        "05"
+      ],
+      "positiveAcceptance": "XDOM-POS-05",
+      "negativeAcceptance": "XDOM-NEG-05",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R06",
+      "summary": "06域写权与来源边界",
+      "engineeringRule": "D06/D07求解候选与材料状态无权提交冻结D08",
+      "fields": [
+        "domains[5].ownerAssetIds",
+        "domains[5].anchorTrace",
+        "domains[5].anchorRegistry",
+        "domains[5].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S06"
+      ],
+      "capabilities": [
+        "CAP-06-01"
+      ],
+      "workPackages": [
+        "F1-05"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "relatedDomains": [
+        "06"
+      ],
+      "positiveAcceptance": "XDOM-POS-06",
+      "negativeAcceptance": "XDOM-NEG-06",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R07",
+      "summary": "07域写权与来源边界",
+      "engineeringRule": "D09中立CL及可视化仅提供刀位意图，不能授予NC工程PASS",
+      "fields": [
+        "domains[6].ownerAssetIds",
+        "domains[6].anchorTrace",
+        "domains[6].anchorRegistry",
+        "domains[6].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S04",
+        "XDOM-S06"
+      ],
+      "capabilities": [
+        "CAP-07-07"
+      ],
+      "workPackages": [
+        "E3-02"
+      ],
+      "assets": [
+        "D09"
+      ],
+      "relatedDomains": [
+        "07"
+      ],
+      "positiveAcceptance": "XDOM-POS-07",
+      "negativeAcceptance": "XDOM-NEG-07",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R08",
+      "summary": "08域写权与来源边界",
+      "engineeringRule": "D12最终NC字节及D13控制器语义须精确匹配，未知即UNKNOWN",
+      "fields": [
+        "domains[7].ownerAssetIds",
+        "domains[7].anchorTrace",
+        "domains[7].anchorRegistry",
+        "domains[7].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S04",
+        "XDOM-S03"
+      ],
+      "capabilities": [
+        "CAP-08-03"
+      ],
+      "workPackages": [
+        "E3-03"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "relatedDomains": [
+        "08"
+      ],
+      "positiveAcceptance": "XDOM-POS-08",
+      "negativeAcceptance": "XDOM-NEG-08",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R09",
+      "summary": "09域写权与来源边界",
+      "engineeringRule": "D11仅CL_ONLY；D14轴时序与D15独立NC验证不可跳过",
+      "fields": [
+        "domains[8].ownerAssetIds",
+        "domains[8].anchorTrace",
+        "domains[8].anchorRegistry",
+        "domains[8].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S04",
+        "XDOM-S06"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-05"
+      ],
+      "assets": [
+        "D11",
+        "D14",
+        "D15"
+      ],
+      "relatedDomains": [
+        "09"
+      ],
+      "positiveAcceptance": "XDOM-POS-09",
+      "negativeAcceptance": "XDOM-NEG-09",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R10",
+      "summary": "10域写权与来源边界",
+      "engineeringRule": "D16不能凭D11签发；D17批量OPC逐项状态检查且现场事实只追加",
+      "fields": [
+        "domains[9].ownerAssetIds",
+        "domains[9].anchorTrace",
+        "domains[9].anchorRegistry",
+        "domains[9].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S05",
+        "XDOM-S06"
+      ],
+      "capabilities": [
+        "CAP-10-01"
+      ],
+      "workPackages": [
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "relatedDomains": [
+        "10"
+      ],
+      "positiveAcceptance": "XDOM-POS-10",
+      "negativeAcceptance": "XDOM-NEG-10",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    },
+    {
+      "id": "XDOM-R11",
+      "summary": "11域写权与来源边界",
+      "engineeringRule": "Agent检索/建议/审批提示不具有任何业务资产Owner写权",
+      "fields": [
+        "domains[10].ownerAssetIds",
+        "domains[10].anchorTrace",
+        "domains[10].anchorRegistry",
+        "domains[10].forbiddenWriteAsset"
+      ],
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S03"
+      ],
+      "capabilities": [
+        "CAP-11-08"
+      ],
+      "workPackages": [
+        "T5-01"
+      ],
+      "assets": [],
+      "relatedDomains": [
+        "11"
+      ],
+      "positiveAcceptance": "XDOM-POS-11",
+      "negativeAcceptance": "XDOM-NEG-11",
+      "productAcceptance": "NOT_RUN",
+      "derivationClass": "INTERNAL_ENGINEERING_RULE_SUPPORTED_NOT_MANDATED_BY_PUBLIC_SOURCE"
+    }
+  ]
+}
