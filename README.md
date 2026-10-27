@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-06《智能任务与长时作业》V0.8实施级规划（L3待审）
+[十项施工及状态契约](docs/capabilities/CAP-11-06/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-06/UI.md) · [10官方公开来源](research/sources/CAP-11-06.json) → [10规则40字段](research/traces/CAP-11-06.json) → [50逐字段正反+28异步门禁+4 DAG](docs/capabilities/CAP-11-06/fixtures.json) · [17 Owner候选/独立消费者](docs/capabilities/CAP-11-06/independent-consumer-handoff.md)。**84/88 CAP、36/36原包追踪、963登记/113 Registry（非去重）**。V8合成82/82仅规划，独立Node文件/真实Worker/Owner事务/NC/B5/消费者NOT_RUN；MCP Tasks 2025实验版与SEP-2663 Extension不默认兼容。取消先对账、不删除已提交事实，迟到ACK不得复活任务；17资产正式会签/L3、11域终核、历史原字节、全仓矩阵仍待。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-11-05《工艺推荐与方案解释》V0.8实施级规划（L3待审）
 [十项实施](docs/capabilities/CAP-11-05/README.md) · [GUI/3D](docs/capabilities/CAP-11-05/UI.md) · [精确合同](docs/capabilities/CAP-11-05/recommendation-contract.example.json) · [10合法来源](research/sources/CAP-11-05.json) → [10规则40字段](research/traces/CAP-11-05.json) → [50正反+24状态+2公式](docs/capabilities/CAP-11-05/fixtures.json) · [跨域Owner/独立消费者](docs/capabilities/CAP-11-05/independent-consumer-handoff.md)。累计**83/88 CAP、36/36原包研究追踪、953来源登记/112 Registry**（非去重）；76/76仅V8规划合成，独立Node/真实刀具数据库/NC/B5/消费者NOT_RUN。公式有单位但非推荐认证；17Owner/L3、历史原字节、11域终核、全仓矩阵仍待。**规划PASS≠产品PASS**。
 

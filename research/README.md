@@ -1,3 +1,6 @@
+## 2026-10-27｜R-DURABLE-AI-TASKS-001 异步状态、恢复、幂等与取消竞争
+[10份合法来源/版本/章节深度/未读局限](sources/CAP-11-06.json) → [十规则/40字段/T5-01、T5-02](traces/CAP-11-06.json) → [50字段正反+28状态+4 DAG合成](../docs/capabilities/CAP-11-06/fixtures.json) → [理论推导及禁用假设](topics/R-DURABLE-AI-TASKS-001.md)。MCP2025实验Tasks与SEP-2663 Extension协议未默认兼容；Temporal仅参考设计、RFC9110§9.2.2可查，NIST仅出版摘要。累计963条登记/113 Registry，非去重论文；独立Node/真实产品/消费者NOT_RUN，Owner/L3待审。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜R-PROCESS-RECOMMENDATION-001 工艺推荐参数适用性、解释与风险
 [10份官方/厂商/规范来源及合法读取深度](sources/CAP-11-05.json) → [10规则40字段/T5-01、T5-02](traces/CAP-11-05.json) → [50正反+24状态+2算术](../docs/capabilities/CAP-11-05/fixtures.json) → [研究推导与边界](topics/R-PROCESS-RECOMMENDATION-001.md)。ISO13399/3002仅官网目录，NIST仅官方著录摘要；Sandvik公式是单位算术而非机床许可，LinuxCNC模态仅限2.9。累计953登记/112 Registry非去重；真实NC/B5/独立消费NOT_RUN，17Owner与L3待审。**规划PASS≠产品PASS。**
 
