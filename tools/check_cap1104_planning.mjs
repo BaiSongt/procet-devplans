@@ -1,7 +1,8 @@
 // 中文注释：仅规划数据静态规则核查；不能充当产品或真实制造验收。
 import fs from 'node:fs';
 import path from 'node:path';
-const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..');
+import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const cap='CAP-11-04';
 const t=read('research/traces/'+cap+'.json'),s=read('research/sources/'+cap+'.json'),f=read('docs/capabilities/'+cap+'/fixtures.json');
