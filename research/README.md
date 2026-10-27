@@ -1,3 +1,6 @@
+## 2026-10-28｜R-ASSET-OWNER-INTERFACE-001 17资产Owner与端口跨域终核（候选）
+[来源/版本/章节/阅读局限](sources/ASSET-OWNERS-V08.json) → [10规则与字段/原包](traces/ASSET-OWNERS-V08.json) → [17资产候选接口及76+静态断言](../docs/architecture/v0.8/17资产Owner接口交叉核验_2026-10-28.md) → [研究](topics/R-ASSET-OWNER-INTERFACE-001.md)。1010来源登记/118 Registry非去重；人类Owner/L3与真实消费者NOT_RUN，历史附件/11域终核/全仓审计待补。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-TOOL-MOUNT-001 主轴刀具安装、Gauge/TCP与控制器刀长分离
 [合法来源与阅读深度](sources/CAP-04-07.json) → [10规则40字段](traces/CAP-04-07.json) → [50单字段正反+24状态+6算术](../docs/capabilities/CAP-04-07/fixtures.json) → [专题推导](topics/R-TOOL-MOUNT-001.md)。ISO四项仅官网目录，LinuxCNC2.9/OCCT/RFC/W3C限公开章节；1003登记/117 Registry非去重，17Owner/L3待审，真实产品/消费者NOT_RUN。
 

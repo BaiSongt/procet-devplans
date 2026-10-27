@@ -1,3 +1,6 @@
+## 2026-10-28｜D01—D17资产Owner接口首轮跨域终核（待正式签署）
+[17资产候选Owner/Port与独立消费者矩阵](docs/architecture/v0.8/17资产Owner接口交叉核验_2026-10-28.md) · [公开7来源+真实阅读范围](research/sources/ASSET-OWNERS-V08.json) → [10规则与字段](research/traces/ASSET-OWNERS-V08.json) → [正反合成/本地可运行Node校验器](tools/check_asset_owner_ports_v08.cjs)。**88/88 CAP及36/36原包不变；17/17仅候选接口列示，0/17人类Owner签署、0/17真实独立消费者验收**；原基线保持，来源登记1010/118 Registry（非去重）。V8静态正反只属规划；L3/历史附件/11域终核/全仓链接及风险交接未闭合，规划PASS≠产品PASS。
+
 ## 2026-10-28｜CAP-04-07《刀具安装关系》实施级规划（L3待审）
 [十项施工](docs/capabilities/CAP-04-07/README.md) · [GUI/3D](docs/capabilities/CAP-04-07/UI.md) · [10官方来源及局限](research/sources/CAP-04-07.json) → [10规则40字段](research/traces/CAP-04-07.json) → [80项规划合成](docs/capabilities/CAP-04-07/fixtures.json) · [17资产候选Owner/交接](docs/capabilities/CAP-04-07/independent-consumer-handoff.md)。**88/88 CAP、36/36原编号包、1003来源登记/117 Registry（非去重）**；单Babylon/左TaskPanel、D03资源≠D10实装、H≠Gauge；L3/17Owner会签、11域终核、历史附件、全仓矩阵与实际NC/三轴/B5/消费者验收仍未完成。**规划PASS≠产品PASS**。
 

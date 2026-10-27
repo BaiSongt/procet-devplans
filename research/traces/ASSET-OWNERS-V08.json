@@ -1,0 +1,354 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "researchTopic": "R-ASSET-OWNER-INTERFACE-001",
+  "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+  "workPackageIds": [
+    "B0-02",
+    "F1-01",
+    "F1-02",
+    "F1-04",
+    "F1-06",
+    "W2-02",
+    "W2-03",
+    "W2-04",
+    "E3-03",
+    "E3-04",
+    "E3-05",
+    "E3-06",
+    "T5-03",
+    "U4-01"
+  ],
+  "rules": [
+    {
+      "id": "ASOWN-R01",
+      "summary": "资产唯一写入域及非签署占位",
+      "engineeringRule": "资产唯一写入域及非签署占位；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "contracts[].assetId",
+        "contracts[].ownerCandidate",
+        "contracts[].ownerDomain",
+        "contracts[].ownerSignoff"
+      ],
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S07"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "B0-02",
+        "F1-01"
+      ],
+      "relatedDomains": [
+        "03",
+        "02",
+        "04",
+        "10"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R01",
+      "negativeAcceptance": "ASOWN-NEG-R01",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R02",
+      "summary": "输入/输出交叉边保持原17资产基线",
+      "engineeringRule": "输入/输出交叉边保持原17资产基线；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "contracts[].inputs",
+        "contracts[].outputs",
+        "contracts[].producerPort",
+        "contracts[].consumerAcknowledgement"
+      ],
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S02"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D12",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-01",
+        "W2-03"
+      ],
+      "relatedDomains": [
+        "05",
+        "06",
+        "08",
+        "09"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R02",
+      "negativeAcceptance": "ASOWN-NEG-R02",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R03",
+      "summary": "读取使用exact ID/revision/hash/schema/Frame与显式hash档案",
+      "engineeringRule": "读取使用exact ID/revision/hash/schema/Frame与显式hash档案；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.commonReferenceFields",
+        "globalPolicies.mutableLatestAliasAllowed",
+        "globalPolicies.artifactHashMode",
+        "contracts[].framePolicy"
+      ],
+      "sourceIds": [
+        "ASOWN-S03",
+        "ASOWN-S06"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02"
+      ],
+      "relatedDomains": [
+        "03",
+        "04",
+        "09"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R03",
+      "negativeAcceptance": "ASOWN-NEG-R03",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R04",
+      "summary": "Owner Port提交重验ACL/ScopeEpoch/CAS及撤销代",
+      "engineeringRule": "Owner Port提交重验ACL/ScopeEpoch/CAS及撤销代；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.commitChecks",
+        "globalPolicies.lateAckRestoresWrite",
+        "contracts[].writeAuthority",
+        "globalPolicies.humanOwnerSigningStatus"
+      ],
+      "sourceIds": [
+        "ASOWN-S04",
+        "ASOWN-S07"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "W2-04",
+        "B0-06"
+      ],
+      "relatedDomains": [
+        "05",
+        "10"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R04",
+      "negativeAcceptance": "ASOWN-NEG-R04",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R05",
+      "summary": "D04名义Setup与D10执行绑定隔离",
+      "engineeringRule": "D04名义Setup与D10执行绑定隔离；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.d04D10Separate",
+        "contracts[D04].ownerDomain",
+        "contracts[D10].ownerDomain",
+        "contracts[D10].producerCapabilities"
+      ],
+      "sourceIds": [
+        "ASOWN-S06",
+        "ASOWN-S01"
+      ],
+      "assets": [
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04"
+      ],
+      "relatedDomains": [
+        "04"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R05",
+      "negativeAcceptance": "ASOWN-NEG-R05",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R06",
+      "summary": "A/B共事实且冻结D08只经新Revision变更",
+      "engineeringRule": "A/B共事实且冻结D08只经新Revision变更；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.immutableABFreeze",
+        "contracts[D08].ownerDomain",
+        "contracts[D05].writeAuthority",
+        "contracts[D06].writeAuthority"
+      ],
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S02"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-06"
+      ],
+      "relatedDomains": [
+        "05",
+        "06"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R06",
+      "negativeAcceptance": "ASOWN-NEG-R06",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R07",
+      "summary": "中立CL与NC全链端口独立",
+      "engineeringRule": "中立CL与NC全链端口独立；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.ncChain",
+        "globalPolicies.clAnimationGrantsNcPass",
+        "contracts[D13].ownerDomain",
+        "contracts[D15].ownerDomain"
+      ],
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S05"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-01",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "E3-06"
+      ],
+      "relatedDomains": [
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R07",
+      "negativeAcceptance": "ASOWN-NEG-R07",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R08",
+      "summary": "未支持执行语义保持unknown且阻断D16",
+      "engineeringRule": "未支持执行语义保持unknown且阻断D16；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.unknownExecutionGrantsRelease",
+        "contracts[D11].invariant",
+        "contracts[D13].invariant",
+        "contracts[D16].invariant"
+      ],
+      "sourceIds": [
+        "ASOWN-S05",
+        "ASOWN-S07"
+      ],
+      "assets": [
+        "D11",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-05"
+      ],
+      "relatedDomains": [
+        "09",
+        "08",
+        "10"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R08",
+      "negativeAcceptance": "ASOWN-NEG-R08",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R09",
+      "summary": "GUI/CLI/Agent同Owner端口、唯一Babylon与左容器",
+      "engineeringRule": "GUI/CLI/Agent同Owner端口、唯一Babylon与左容器；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.singleBabylonWorld",
+        "globalPolicies.unifiedLeftTaskPanel",
+        "globalPolicies.entrypointDomainPortUnified",
+        "contracts[].readEntry"
+      ],
+      "sourceIds": [
+        "ASOWN-S04",
+        "ASOWN-S06"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D09",
+        "D10"
+      ],
+      "workPackages": [
+        "U4-01",
+        "F1-03"
+      ],
+      "relatedDomains": [
+        "03",
+        "04",
+        "07"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R09",
+      "negativeAcceptance": "ASOWN-NEG-R09",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ASOWN-R10",
+      "summary": "独立消费者验收、旧数据回退、审计结论分级",
+      "engineeringRule": "独立消费者验收、旧数据回退、审计结论分级；依据公开资料及Procet原业务基线形成的内部设计，待Owner签署",
+      "fields": [
+        "globalPolicies.independentConsumerRequired",
+        "globalPolicies.legacyUnknownWriteAllowed",
+        "globalPolicies.migrationRequiresRollbackRef",
+        "globalPolicies.productStatus"
+      ],
+      "sourceIds": [
+        "ASOWN-S02",
+        "ASOWN-S07"
+      ],
+      "assets": [
+        "D12",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "F1-06",
+        "T5-03"
+      ],
+      "relatedDomains": [
+        "08",
+        "09",
+        "10"
+      ],
+      "positiveAcceptance": "ASOWN-POS-R10",
+      "negativeAcceptance": "ASOWN-NEG-R10",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}
