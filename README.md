@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-10-05《MDC数据采集》实施级规划（L3待审）
+[十项实施与原目标](docs/capabilities/CAP-10-05/README.md) · [左TaskPanel/单Babylon](docs/capabilities/CAP-10-05/UI.md) · [MTConnect2.5.0及8份来源](research/sources/CAP-10-05.json) → [十规则四十字段](research/traces/CAP-10-05.json) → [68项合成场景](docs/capabilities/CAP-10-05/fixtures.json) · [独立消费者](docs/capabilities/CAP-10-05/independent-consumer-handoff.md)。累计**75/88详细CAP、36/36原包及研究、879来源登记/104 Registry（非去重）**。68/68仅V8内存规划合成；真实MTConnect/OPC、机床、独立Node与消费者NOT_RUN，17Owner/L3待审。**D17遥测≠D15工程验证，规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-10-04《DNC程序交换》详细规划（L3待审）
 [十项实施与原目标](docs/capabilities/CAP-10-04/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-10-04/UI.md) · [10来源及阅读深度](research/sources/CAP-10-04.json) → [10规则40字段](research/traces/CAP-10-04.json) → [50独立字段正反+18传输门禁](docs/capabilities/CAP-10-04/fixtures.json) · [10域接口及独立收方](docs/capabilities/CAP-10-04/independent-consumer-handoff.md)。**74/88详细CAP、36/36原包追踪、871登记/103 Registry（非去重）**。68/68仅V8规划合成；真实DNC/OPC UA厂商适配/机床与独立消费者NOT_RUN，17资产Owner/L3待人类。**OPC可选文件树≠DNC传输实际可用≠控制器程序激活≠CycleStart≠D15工程安全。**规划PASS≠产品PASS。
 

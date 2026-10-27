@@ -1,3 +1,6 @@
+## 2026-10-27｜R-MDC-OBSERVABILITY-001 MDC数据质量与时间序列
+[8来源及阅读深度](sources/CAP-10-05.json) → [10规则40字段](traces/CAP-10-05.json) → [68合成案例](../docs/capabilities/CAP-10-05/fixtures.json) → [研究与局限](topics/R-MDC-OBSERVABILITY-001.md)。MTConnect官方2.5.0 PDF第37/40/54页截图与正文、OPC MachineTools 1.02.0及Services 1.05.07公开章节已读，NIST论文仅著录摘要；累计879登记/104Registry非去重。实际设备/消费者NOT_RUN，17Owner/L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-DNC-TRANSFER-001 机床文件传输与执行授权隔离
 [10项官方与论文来源/阅读层级](sources/CAP-10-04.json) → [10规则40字段及原包](traces/CAP-10-04.json) → [68项规划合成](../docs/capabilities/CAP-10-04/fixtures.json) → [专题推导与局限](topics/R-DNC-TRANSFER-001.md)。OPC-40501-1 v1.02.0 §8.1 FileSystem可选，旧ProductionProgramType弃用；MTConnect观测不能冒充DNC上传，文件上传不能授权CycleStart。871来源登记/103 Registry非去重，真实机床/消费者NOT_RUN、Owner/L3待审。规划PASS≠产品PASS。
 
