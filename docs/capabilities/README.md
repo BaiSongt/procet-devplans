@@ -1,3 +1,6 @@
+## CAP-10-01 程序发布包（L3待审）
+| [CAP-10-01](CAP-10-01/README.md) | [GUI/3D](CAP-10-01/UI.md) | [指纹与离线闭包](CAP-10-01/package-contract.json) | 10规则40字段/88规划合成（仅内存）；不代替人类签发/产品验收 |
+
 ## 2026-10-27｜[CAP-09-04刀具安装与TCP核对](CAP-09-04/README.md) · [界面](CAP-09-04/UI.md) · [规则追踪](../../research/traces/CAP-09-04.json)
 **66/88详细CAP、36/36原包**；主轴-刀柄-刀尖装配、Gauge实测、H与RTCP语义分离。产品/独立消费者NOT_RUN，L3及17资产Owner待审；下一CAP-09-05。旧数字仅历史快照。
 

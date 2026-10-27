@@ -1,0 +1,517 @@
+{
+  "schemaVersion": "procet-cap1001-trace-v1",
+  "capabilityId": "CAP-10-01",
+  "researchTopic": "R-RELEASE-PACK-001",
+  "sourceRegistry": "research/sources/CAP-10-01.json",
+  "specification": "docs/capabilities/CAP-10-01/README.md",
+  "ui": "docs/capabilities/CAP-10-01/UI.md",
+  "fixtures": "docs/capabilities/CAP-10-01/fixtures.json",
+  "validator": "tools/check_cap1001_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-10-01-R01",
+      "capabilityId": "CAP-10-01",
+      "summary": "原始NC字节闭包",
+      "engineeringRule": "D16包必须逐字节固定D12主程序和外部子程序；编码及换行不可静默转换。",
+      "fields": [
+        "contents.ncRawShaPinned",
+        "contents.encodingAndLineEndingsPinned",
+        "contents.subprogramClosureComplete",
+        "contents.noSilentRewrite"
+      ],
+      "sourceIds": [
+        "C1001-S01",
+        "C1001-S02",
+        "C1001-S03"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "contents.ncRawShaPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contents.encodingAndLineEndingsPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contents.subprogramClosureComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contents.noSilentRewrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R02",
+      "capabilityId": "CAP-10-01",
+      "summary": "刀具清单不得猜测",
+      "engineeringRule": "刀具列表由D10实际装配、D03目录和D13已解释的最终NC调用闭合；T/H、规长与实测字段须区分。",
+      "fields": [
+        "tools.machineResourcesExact",
+        "tools.actualAssemblyPinned",
+        "tools.ncToolCallsResolved",
+        "tools.unknownToolBlocksReview"
+      ],
+      "sourceIds": [
+        "C1001-S02",
+        "C1001-S06",
+        "C1001-S09"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "tools.machineResourcesExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tools.actualAssemblyPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tools.ncToolCallsResolved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tools.unknownToolBlocksReview",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R03",
+      "capabilityId": "CAP-10-01",
+      "summary": "名义Setup与实装分离",
+      "engineeringRule": "每个工序Setup的名义D04和实际D10绑定独立引用，保留Frame变换、单位、轴链版本与多Setup关系。",
+      "fields": [
+        "setup.nominalSetupFramePinned",
+        "setup.actualBindingFramePinned",
+        "setup.machineKinematicsRevisionPinned",
+        "setup.multiSetupNotCollapsed"
+      ],
+      "sourceIds": [
+        "C1001-S06",
+        "C1001-S09",
+        "C1001-S01"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "setup.nominalSetupFramePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setup.actualBindingFramePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setup.machineKinematicsRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setup.multiSetupNotCollapsed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R04",
+      "capabilityId": "CAP-10-01",
+      "summary": "独立D15验证门禁",
+      "engineeringRule": "CL_ONLY、D11预检和D14动画不能替代D15；结果必须绑定最终NC字节、D10实际绑定及覆盖与Oracle版本。",
+      "fields": [
+        "validation.d15OracleIndependent",
+        "validation.coverageForExactNc",
+        "validation.actualMachineBindingMatched",
+        "validation.unknownCannotPass"
+      ],
+      "sourceIds": [
+        "C1001-S02",
+        "C1001-S09",
+        "C1001-S06"
+      ],
+      "assets": [
+        "D11",
+        "D12",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "validation.d15OracleIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validation.coverageForExactNc",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validation.actualMachineBindingMatched",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validation.unknownCannotPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R05",
+      "capabilityId": "CAP-10-01",
+      "summary": "冻结A/B共享事实不覆盖",
+      "engineeringRule": "发布候选引用D08精确冻结，A/B模式和不同生产者只可并存、衍生新修订，不可回写已冻结工艺或旧D16。",
+      "fields": [
+        "freeze.d08Immutable",
+        "freeze.modeSharedSameFact",
+        "freeze.exactRevisionDependencies",
+        "freeze.noOverwriteExistingRelease"
+      ],
+      "sourceIds": [
+        "C1001-S06",
+        "C1001-S05",
+        "C1001-S04"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "freeze.d08Immutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.modeSharedSameFact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.exactRevisionDependencies",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.noOverwriteExistingRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R06",
+      "capabilityId": "CAP-10-01",
+      "summary": "可重复指纹但不混Hash域",
+      "engineeringRule": "manifest JCS规范化和原始NC、附件逐文件SHA须分别计算；manifest签名材料不能包含自身待算摘要形成循环。",
+      "fields": [
+        "manifest.jcsSchemaPinned",
+        "manifest.payloadHashesIndependent",
+        "manifest.canonicalDigestExplicit",
+        "manifest.noCircularSelfHash"
+      ],
+      "sourceIds": [
+        "C1001-S03",
+        "C1001-S04",
+        "C1001-S05"
+      ],
+      "assets": [
+        "D12",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "manifest.jcsSchemaPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "manifest.payloadHashesIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "manifest.canonicalDigestExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "manifest.noCircularSelfHash",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R07",
+      "capabilityId": "CAP-10-01",
+      "summary": "离线包拒绝路径欺骗",
+      "engineeringRule": "仅接受包内相对路径、去重与大小写折叠冲突检查，拒绝symlink/路径逃逸；接收端离线重算摘要。",
+      "fields": [
+        "offline.safeRelativePaths",
+        "offline.noSymlinkTraversal",
+        "offline.caseFoldCollisionRejected",
+        "offline.receiverRehashRequired"
+      ],
+      "sourceIds": [
+        "C1001-S04",
+        "C1001-S05",
+        "C1001-S08"
+      ],
+      "assets": [
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "offline.safeRelativePaths",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offline.noSymlinkTraversal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offline.caseFoldCollisionRejected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offline.receiverRehashRequired",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R08",
+      "capabilityId": "CAP-10-01",
+      "summary": "统一业务端口与只读预览",
+      "engineeringRule": "GUI、CLI、Agent共用10域ReleasePackagePort；唯一Babylon世界/左TaskPanel呈现装夹，不得以3D选中当作签发。",
+      "fields": [
+        "ui.singleOwnerPort",
+        "ui.onlyOneBabylonWorld",
+        "ui.leftTaskPanelUnified",
+        "ui.previewNotSignoff"
+      ],
+      "sourceIds": [
+        "C1001-S06",
+        "C1001-S07",
+        "C1001-S08"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "ui.singleOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.onlyOneBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftTaskPanelUnified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.previewNotSignoff",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R09",
+      "capabilityId": "CAP-10-01",
+      "summary": "提交时ACL与CAS重验",
+      "engineeringRule": "生成候选提交时须重验权限、expectedRevision/hash/Frame、scopeEpoch、取消令牌；晚回执不能落库。",
+      "fields": [
+        "transaction.aclRecheckedAtCommit",
+        "transaction.expectedRevisionHashFrameCAS",
+        "transaction.cancelEpochChecked",
+        "transaction.lateAckNoMutation"
+      ],
+      "sourceIds": [
+        "C1001-S07",
+        "C1001-S08",
+        "C1001-S06"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "transaction.aclRecheckedAtCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.expectedRevisionHashFrameCAS",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.cancelEpochChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.lateAckNoMutation",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-01-R10",
+      "capabilityId": "CAP-10-01",
+      "summary": "候选/签发/回退隔离",
+      "engineeringRule": "CAP-10-01只生成候选包，CAP-10-02人类授权签发另行设计；上游失效后STALE，历史发布不删除，D17回执不改写包。",
+      "fields": [
+        "lifecycle.candidateNotSigned",
+        "lifecycle.staleInvalidated",
+        "lifecycle.oldReleaseImmutable",
+        "lifecycle.d17FeedbackSeparate"
+      ],
+      "sourceIds": [
+        "C1001-S04",
+        "C1001-S05",
+        "C1001-S06"
+      ],
+      "assets": [
+        "D12",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "lifecycle.candidateNotSigned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.staleInvalidated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.oldReleaseImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.d17FeedbackSeparate",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "至少两个不同字段反例与所有字段独立变异必须拒绝；规划合成不授D16签发权限。",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

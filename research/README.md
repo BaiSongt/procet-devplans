@@ -1,3 +1,6 @@
+## 2026-10-27｜R-RELEASE-PACK-001 NC发布包、指纹与离线可信边界
+[理论/局限](topics/R-RELEASE-PACK-001.md) → [9来源/合法访问深度](sources/CAP-10-01.json) → [10条逐字段规则](traces/CAP-10-01.json) → [30固定正反+40独立变异+18状态](../docs/capabilities/CAP-10-01/fixtures.json)。累计843登记/100 Registry非去重；ISO目录、NIST摘要不能代替未读正文，TUF/SLSA仅作为发布威胁模型参考；L3/17Owner待审、独立Node和真实消费者NOT_RUN。规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-SIM-PLAYBACK-EVIDENCE-001播放与可审计报告
 [理论与阅读边界](topics/R-SIM-PLAYBACK-EVIDENCE-001.md) · [9来源](sources/CAP-09-08.json) → [10规则40字段](traces/CAP-09-08.json) → [30正反变异+14状态](../docs/capabilities/CAP-09-08/fixtures.json)。累计834登记/99 Registry非去重；ISO仅读目录、NIST仅摘要/著录、Babylon Lite不冒称完整版API；Node/NC/B5/消费方NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。
 

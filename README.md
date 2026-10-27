@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-10-01《程序发布包》候选封装规划（L3待审）
+[十项实施及原目标](docs/capabilities/CAP-10-01/README.md) · [单Babylon和左TaskPanel](docs/capabilities/CAP-10-01/UI.md) · [9官方合法来源](research/sources/CAP-10-01.json) → [10规则×4字段](research/traces/CAP-10-01.json) → [30正反+40全字段变异+18门禁](docs/capabilities/CAP-10-01/fixtures.json) · [独立消费者/回退](docs/capabilities/CAP-10-01/independent-consumer-handoff.md)。累计**71/88详细CAP、36/36原包研究追踪、843条来源登记/100 Registry（非去重）**。仅V8等价内存88/88合成，不等于独立Node、真实NC/OCCT/三轴/B5/离线消费者PASS。10域D16候选不等于CAP-10-02签发，UNKNOWN与CL_ONLY不得上机；17Owner与L3待人类。**规划PASS≠产品PASS**。以下历史快照。
+
 ## 2026-10-27｜CAP-09-08《仿真播放与校验报告》（L3待审）
 [十项实施/原目标](docs/capabilities/CAP-09-08/README.md) · [唯一Babylon/左TaskPanel](docs/capabilities/CAP-09-08/UI.md) · [9官方合法来源](research/sources/CAP-09-08.json) → [10规则/40字段](research/traces/CAP-09-08.json) → [30正反独立变异+14状态](docs/capabilities/CAP-09-08/fixtures.json) · [报告与独立消费者](docs/capabilities/CAP-09-08/independent-consumer-handoff.md)。**70/88 CAP、36/36原工作包及研究追踪、834登记/99 Registry（非去重）**。仅规划V8等价44/44合成；独立Node、真实NC/OCCT/B5/浏览器/消费者NOT_RUN，17Owner/L3待审。D14动画≠D15独立工程PASS，UNKNOWN阻D16。历史附件与最终全仓交叉未完成。**规划PASS≠产品PASS**。下文为历史快照。
 
