@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-02-05毛坯/材料来源Registry与精确实体包含补证
+[10来源及合法阅读边界](research/sources/CAP-02-05.json) → [10规则40字段/原包](research/traces/CAP-02-05-v08-supplement.json) → [10正40独立负4数学+8未运行状态](docs/capabilities/CAP-02-05/research-fixtures-v08.json) → [专题与交接](docs/capabilities/CAP-02-05/RESEARCH-TRACE-2026-10-28.md)。原R-MS与references原字节保留，**1044登记/123 Registry非去重**；02域剩3同名来源缺口。V8规划合成54/54，独立Node/真实OCCT/机床/消费者NOT_RUN；17Owner/L3待人类。规划PASS≠产品PASS。
+
 ## 2026-10-28｜CAP-02-04夹具研究同名来源补证与单边接触/失效追踪
 [8项合法来源及真实阅读边界](research/sources/CAP-02-04.json) → [10规则40字段、原F1-02/F1-06/E3-04与WH-T映射](research/traces/CAP-02-04-v08-supplement.json) → [10正40独立负+6合成数学/8状态设计](docs/capabilities/CAP-02-04/research-fixtures-v08.json) → [补证审计说明](docs/capabilities/CAP-02-04/RESEARCH-TRACE-2026-10-28.md)。既有R-WH-001与原8条WH-R不改；**1034条登记/122 Registry，02域同名来源缺口5→4**。NIST与SAGE只读著录摘要、ISO只读官网目录，OCCT/LinuxCNC/RFC/W3C仅读公开指定部分。规划合成检查不等于Node独立文件执行或真实工装/NC验收；Owner正式会签0/17，L3待审。规划PASS≠产品PASS。
 

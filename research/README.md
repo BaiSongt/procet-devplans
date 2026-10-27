@@ -1,3 +1,6 @@
+## 2026-10-28｜R-MS-001材料与毛坯来源、真实Solid残差研究补证
+[10官方/论文来源及阅读范围](sources/CAP-02-05.json) → [10规则40字段/原MS-T](traces/CAP-02-05-v08-supplement.json) → [54静态正反/数学样例](../docs/capabilities/CAP-02-05/research-fixtures-v08.json) → [独立消费者与回退](../docs/capabilities/CAP-02-05/independent-consumer-v08.md)。bbox≠精确Solid包含，ISO513≠工件认证，历史revision不解析latest。原R-MS和references原字节不动；1044登记/123 Registry不代表去重或全文核验，Native/产品消费者未测，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-WH-001 夹具研究来源及单边/有限载荷工程追踪补证
 [新增官方/论文8登记](sources/CAP-02-04.json) → [增量10规则/40字段](traces/CAP-02-04-v08-supplement.json) → [50正反及6独立数学合成](../docs/capabilities/CAP-02-04/research-fixtures-v08.json) → [证据与产品边界](../docs/capabilities/CAP-02-04/RESEARCH-TRACE-2026-10-28.md)。原research/references.json、R-WH-001及历史CAP-02-04 Trace不改。双边矩阵满秩≠单边不能脱离，摩擦与载荷缺证则UNKNOWN；没有B5/NC/消费者实测。来源累计1034/122 Registry，非去重且非逐篇终核，规划PASS≠产品PASS。
 
