@@ -27,4 +27,4 @@
 
 ## 2026-10-28新增：17资产Owner/消费者交叉评审
 
-[候选矩阵与交接](17资产Owner接口交叉核验_2026-10-28.md) · [结构化Owner端口](owner-interface-review-v08.json) · [正反场景](owner-port-review-fixtures.json) · [对应研究](../../research/topics/R-ASSET-OWNER-INTERFACE-001.md)。原业务资产基线不修改；17份Owner正式签署与独立消费者验收未完成。
+[候选矩阵与交接](17资产Owner接口交叉核验_2026-10-28.md) · [结构化Owner端口](owner-interface-review-v08.json) · [正反场景](owner-port-review-fixtures.json) · [对应研究](../../../research/topics/R-ASSET-OWNER-INTERFACE-001.md)。原业务资产基线不修改；17份Owner正式签署与独立消费者验收未完成。
