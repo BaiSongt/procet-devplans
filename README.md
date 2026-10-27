@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-02《工艺知识与规则》V0.8实施级规划（L3待审）
+[10项实施](docs/capabilities/CAP-11-02/README.md) · [唯一Babylon与左TaskPanel](docs/capabilities/CAP-11-02/UI.md) · [工艺知识合同](docs/capabilities/CAP-11-02/knowledge-contract.example.json) · [10合法来源/阅读深度](research/sources/CAP-11-02.json) → [10规则40字段](research/traces/CAP-11-02.json) → [50单字段正反+24门禁](docs/capabilities/CAP-11-02/fixtures.json) · [17资产Owner候选/独立消费](docs/capabilities/CAP-11-02/independent-consumer-handoff.md)。累计**80/88详细CAP、36/36原包及追踪、924登记/109 Registry（非去重）**；仅V8合成74/74。独立Node、真实SHACL/知识引擎/机床/消费者NOT_RUN；17Owner/L3待人类，最终研究/历史附件/全仓交叉未闭合。知识仅建议、不覆盖D08，不把CL模拟冒充D15，UNKNOWN阻D16。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-11-01《AI工作台与自然交互》V0.8实施级规划（L3待审）
 [原目标/十项业务任务](docs/capabilities/CAP-11-01/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-01/UI.md) · [9来源及真实阅读深度](research/sources/CAP-11-01.json) → [10规则40字段](research/traces/CAP-11-01.json) → [50逐字段正反+20门禁](docs/capabilities/CAP-11-01/fixtures.json) · [17Owner候选与独立消费](docs/capabilities/CAP-11-01/independent-consumer-handoff.md)。累计**79/88详细CAP、36/36原编号包、914来源登记/108 Registry（非去重）**。本轮V8合成70/70，故意变异捕获，独立Node/浏览器/真实模型/NC/机床/消费者NOT_RUN，Owner/L3 PENDING_HUMAN。Agent仅建议/草案，Owner提交重验权限/CAS/取消；单Canvas/左容器/12px，D04≠D10，D11 CL_ONLY≠D15 NC验证。**规划PASS≠产品PASS**。
 

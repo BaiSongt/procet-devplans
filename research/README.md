@@ -1,3 +1,6 @@
+## 2026-10-27｜R-PROCESS-KNOWLEDGE-001 材料设备知识、版本适用域和来源证据
+[10来源及实读局限](sources/CAP-11-02.json) → [10规则40字段](traces/CAP-11-02.json) → [50正反+24门禁](../docs/capabilities/CAP-11-02/fixtures.json) → [研究推导](topics/R-PROCESS-KNOWLEDGE-001.md)。W3C SKOS/SHACL/PROV-O、JSON Schema/RFC/OWASP已读限定公开章节；ISO仅合法目录、NIST仅著录摘要。924登记/109 Registry非去重；17Owner/L3 PENDING_HUMAN，Node/实际材料与机床/消费者NOT_RUN。规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-AI-WORKBENCH-001 AI工作台人机授权和3D上下文
 [9项官方来源/阅读限制](sources/CAP-11-01.json) → [10规则40字段/T5-01/T5-02](traces/CAP-11-01.json) → [70合成案例](../docs/capabilities/CAP-11-01/fixtures.json) → [逐项推导及未读限制](topics/R-AI-WORKBENCH-001.md)。MCP 2025-11-25工具/Prompt/Auth、OWASP LLM06、W3C PROV-O、RFC9110、Babylon公开页面已读；NIST AI600-1仅官方著录摘要。914登记/108 Registry非去重，17Owner/L3待会签，Node/真实LLM/NC/机床/独立消费者NOT_RUN；规划PASS≠产品PASS。
 
