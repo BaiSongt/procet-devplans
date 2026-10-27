@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-10-04《DNC程序交换》详细规划（L3待审）
+[十项实施与原目标](docs/capabilities/CAP-10-04/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-10-04/UI.md) · [10来源及阅读深度](research/sources/CAP-10-04.json) → [10规则40字段](research/traces/CAP-10-04.json) → [50独立字段正反+18传输门禁](docs/capabilities/CAP-10-04/fixtures.json) · [10域接口及独立收方](docs/capabilities/CAP-10-04/independent-consumer-handoff.md)。**74/88详细CAP、36/36原包追踪、871登记/103 Registry（非去重）**。68/68仅V8规划合成；真实DNC/OPC UA厂商适配/机床与独立消费者NOT_RUN，17资产Owner/L3待人类。**OPC可选文件树≠DNC传输实际可用≠控制器程序激活≠CycleStart≠D15工程安全。**规划PASS≠产品PASS。
+
 ## 2026-10-27｜CAP-10-03《离线介质交付》（L3待审）
 [10项原目标实施](docs/capabilities/CAP-10-03/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-10-03/UI.md) · [9份官方公开来源与阅读深度](research/sources/CAP-10-03.json) → [10规则40字段/2原包](research/traces/CAP-10-03.json) → [10正40独立字段反例+25离线门禁](docs/capabilities/CAP-10-03/fixtures.json) · [独立消费者/回退](docs/capabilities/CAP-10-03/independent-consumer-handoff.md)。累计**73/88详细CAP、36/36原编号包及研究追踪、861来源登记/102 Registry（非去重）**。75/75为V8规划内存合成，Node文件、真实U盘/签名/机床/接收方均NOT_RUN；17Owner/L3待审。签名、哈希、介质签收和D15独立NC工程安全不能互相冒充；离线时间/撤销UNKNOWN不发上机资格。**规划PASS≠产品PASS**。
 

@@ -1,3 +1,6 @@
+## 2026-10-27｜R-DNC-TRANSFER-001 机床文件传输与执行授权隔离
+[10项官方与论文来源/阅读层级](sources/CAP-10-04.json) → [10规则40字段及原包](traces/CAP-10-04.json) → [68项规划合成](../docs/capabilities/CAP-10-04/fixtures.json) → [专题推导与局限](topics/R-DNC-TRANSFER-001.md)。OPC-40501-1 v1.02.0 §8.1 FileSystem可选，旧ProductionProgramType弃用；MTConnect观测不能冒充DNC上传，文件上传不能授权CycleStart。871来源登记/103 Registry非去重，真实机床/消费者NOT_RUN、Owner/L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-OFFLINE-MEDIA-001 无网络NC签收与可验证信任
 [9项来源和真实访问深度](sources/CAP-10-03.json) → [10条规则/40字段](traces/CAP-10-03.json) → [75项正反/离线门禁](../docs/capabilities/CAP-10-03/fixtures.json) → [独立收方研究及风险](topics/R-OFFLINE-MEDIA-001.md)。NIST两份仅官网摘要、RFC公开正文、TUF v1.0.36已读页面与既有v1.0.37分开登记；真实离线信任根、接收进程、时钟、机床NOT_RUN。累计861登记/102Registry（非去重），17Owner/L3待人类；规划PASS≠产品PASS。
 
