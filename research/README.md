@@ -1,3 +1,6 @@
+## 2026-10-28｜R-WH-001 夹具研究来源及单边/有限载荷工程追踪补证
+[新增官方/论文8登记](sources/CAP-02-04.json) → [增量10规则/40字段](traces/CAP-02-04-v08-supplement.json) → [50正反及6独立数学合成](../docs/capabilities/CAP-02-04/research-fixtures-v08.json) → [证据与产品边界](../docs/capabilities/CAP-02-04/RESEARCH-TRACE-2026-10-28.md)。原research/references.json、R-WH-001及历史CAP-02-04 Trace不改。双边矩阵满秩≠单边不能脱离，摩擦与载荷缺证则UNKNOWN；没有B5/NC/消费者实测。来源累计1034/122 Registry，非去重且非逐篇终核，规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-TA-001 工具总成历史研究的机器追踪补证
 [保留原R-TA-001](topics/R-TA-001.md) 与旧references.json中SRC-TA-001..008，新增[6条重新核阅官方登记](sources/CAP-02-03.json) → [10条工程规则/40字段/原包/TA-AC](traces/CAP-02-03.json) → [10正40独立负+8个未执行状态设计](../docs/capabilities/CAP-02-03/research-fixtures-v08.json) → [证据阅读局限与机床UNKNOWN](../docs/capabilities/CAP-02-03/RESEARCH-TRACE-2026-10-28.md)。Index上一轮登记总数误写1016而120份声明合计1020，已修正后累积**1026登记/121 Registry（非去重）**；不等于逐份外部原文审校。Node/Owner/NC/B5/消费者NOT_RUN，L3待审，规划PASS≠产品PASS。
 

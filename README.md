@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-02-04夹具研究同名来源补证与单边接触/失效追踪
+[8项合法来源及真实阅读边界](research/sources/CAP-02-04.json) → [10规则40字段、原F1-02/F1-06/E3-04与WH-T映射](research/traces/CAP-02-04-v08-supplement.json) → [10正40独立负+6合成数学/8状态设计](docs/capabilities/CAP-02-04/research-fixtures-v08.json) → [补证审计说明](docs/capabilities/CAP-02-04/RESEARCH-TRACE-2026-10-28.md)。既有R-WH-001与原8条WH-R不改；**1034条登记/122 Registry，02域同名来源缺口5→4**。NIST与SAGE只读著录摘要、ISO只读官网目录，OCCT/LinuxCNC/RFC/W3C仅读公开指定部分。规划合成检查不等于Node独立文件执行或真实工装/NC验收；Owner正式会签0/17，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜CAP-02-03刀柄总成同名来源、Trace补证与研究索引校正
 [6项官方来源、合法阅读深度](research/sources/CAP-02-03.json) → [10规则40字段](research/traces/CAP-02-03.json) → [10正40独立负/8状态设计](docs/capabilities/CAP-02-03/research-fixtures-v08.json) → [新补证说明](docs/capabilities/CAP-02-03/RESEARCH-TRACE-2026-10-28.md)；既有R-TA-001、SRC-TA-001..008不变。上一轮source-index顶层1016与120份Registry逐项声明求和1020不一致，本轮纠正后新增6条，成为**1026条登记/121 Registry（非去重）**。02域同名Trace缺口由1降为0、同名Registry缺口由6降为5；10原工作包零直接边/55CAP无显式资产生产边不擅自补写。规划静态10正40独立负，Node文件执行与真实机床/消费者NOT_RUN，Owner签署0/17、L3待审，规划PASS≠产品PASS。
 
