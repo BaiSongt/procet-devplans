@@ -1,3 +1,6 @@
+## 2026-10-27｜R-AI-WORKBENCH-001 AI工作台人机授权和3D上下文
+[9项官方来源/阅读限制](sources/CAP-11-01.json) → [10规则40字段/T5-01/T5-02](traces/CAP-11-01.json) → [70合成案例](../docs/capabilities/CAP-11-01/fixtures.json) → [逐项推导及未读限制](topics/R-AI-WORKBENCH-001.md)。MCP 2025-11-25工具/Prompt/Auth、OWASP LLM06、W3C PROV-O、RFC9110、Babylon公开页面已读；NIST AI600-1仅官方著录摘要。914登记/108 Registry非去重，17Owner/L3待会签，Node/真实LLM/NC/机床/独立消费者NOT_RUN；规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-DIGITAL-THREAD-AUDIT-001 数字主线、来源DAG与审计
 [10合法来源和真实访问深度](sources/CAP-10-08.json) → [10规则40字段与原工作包](traces/CAP-10-08.json) → [50正反+8图+19状态门禁](../docs/capabilities/CAP-10-08/fixtures.json) → [理论适用限制](topics/R-DIGITAL-THREAD-AUDIT-001.md)。W3C PROV-O/OPC 10000-5/RFC8785/9162/9110公开章节查证；NIST IR8536 Final和Hedberg 2019仅官网摘要、ISO 23247-1/-4仅合法目录。905条来源登记/107 Registry非去重，产品与独立消费者NOT_RUN，Owner及L3待人类；规划PASS≠产品PASS。
 

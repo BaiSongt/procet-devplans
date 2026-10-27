@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-01《AI工作台与自然交互》V0.8实施级规划（L3待审）
+[原目标/十项业务任务](docs/capabilities/CAP-11-01/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-01/UI.md) · [9来源及真实阅读深度](research/sources/CAP-11-01.json) → [10规则40字段](research/traces/CAP-11-01.json) → [50逐字段正反+20门禁](docs/capabilities/CAP-11-01/fixtures.json) · [17Owner候选与独立消费](docs/capabilities/CAP-11-01/independent-consumer-handoff.md)。累计**79/88详细CAP、36/36原编号包、914来源登记/108 Registry（非去重）**。本轮V8合成70/70，故意变异捕获，独立Node/浏览器/真实模型/NC/机床/消费者NOT_RUN，Owner/L3 PENDING_HUMAN。Agent仅建议/草案，Owner提交重验权限/CAS/取消；单Canvas/左容器/12px，D04≠D10，D11 CL_ONLY≠D15 NC验证。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-10-08《数字主线与审计》V0.8实施级规划（L3待审）
 [原88项原文及十子任务](docs/capabilities/CAP-10-08/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-10-08/UI.md) · [10来源与阅读范围](research/sources/CAP-10-08.json) → [十规则/40字段](research/traces/CAP-10-08.json) → [50字段正反+8图+19门禁](docs/capabilities/CAP-10-08/fixtures.json) · [17Owner候选/独立消费](docs/capabilities/CAP-10-08/independent-consumer-handoff.md)。累计**78/88详细CAP、36/36原包及研究、905条来源登记/107 Registry**（非去重）；V8 77/77仅合成规划，独立Node、真实NC/OPC/B5/质量及消费者NOT_RUN，17Owner/L3待人类。反馈业务图可环、不可变实例来源DAG不可环，D04≠D10，CL动画≠NC独立D15安全验证。规划PASS≠产品PASS。
 

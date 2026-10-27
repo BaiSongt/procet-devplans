@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "procet-ai-workbench-interaction-v1",
+  "capabilityId": "CAP-11-01",
+  "approval": "L3_PENDING_HUMAN",
+  "owner": "11 AI工作台与知识库（候选；正式Owner待会签）",
+  "minCommonC0": [
+    "projectId",
+    "scopeEpoch",
+    "assetType",
+    "assetId",
+    "exactRevision",
+    "contentHash",
+    "unit",
+    "frameIdOrNA",
+    "schemaVersion"
+  ],
+  "ports": {
+    "context": "AiWorkbenchPort.readContext(exactAssetRefs, acl, scopeEpoch) -> ReadSnapshot|DENIED|UNKNOWN",
+    "propose": "AiWorkbenchPort.proposeIntent(userText, readSnapshot, trustLabels) -> ProposedChange|UNKNOWN",
+    "preview": "AiWorkbenchPort.previewDiff(proposedChangeId, exactRefs) -> ReadOnlyDiff",
+    "consent": "AiWorkbenchPort.requestHumanDecision(proposedChangeId, affectedAssets, exactRevisionHashes) -> ApprovalReceipt|DENIED",
+    "dispatch": "AiWorkbenchPort.dispatchToDomainOwner(approvalReceipt, expectedRevisionHashes, scopeEpoch, cancelToken) -> PORT_ONLY|STALE|DENIED",
+    "cancel": "AiWorkbenchPort.cancel(proposalId, reason) -> CANCELLING|CANCELLED"
+  },
+  "contextSnapshot": {
+    "required": [
+      "projectScope",
+      "selectedAssetIds",
+      "exactRevisionHashes",
+      "unit",
+      "frameIdOrNA",
+      "sourceOwnerDomain",
+      "readAclEpoch",
+      "scopeEpoch",
+      "generatedAt",
+      "modelVersion",
+      "promptTemplateVersion"
+    ],
+    "unknownPolicy": "缺项不猜测，禁止下游写入"
+  },
+  "actions": {
+    "readOnly": [
+      "explainSelection",
+      "inspectEvidence",
+      "suggestPlan",
+      "previewSimulation"
+    ],
+    "manualOwnerApproval": [
+      "adoptProcessPlan",
+      "createNewRevision"
+    ],
+    "prohibited": [
+      "forceOverwriteFrozenAB",
+      "publishD16WithoutIndependentD15",
+      "remoteCycleStart",
+      "treatCLOnlyAsNcValidation"
+    ]
+  },
+  "resultStates": [
+    "PASS",
+    "DRAFT_ONLY",
+    "CL_ONLY",
+    "REQUIRE_HUMAN",
+    "PORT_ONLY",
+    "STALE",
+    "REJECT",
+    "UNKNOWN",
+    "CANCELLED",
+    "PENDING_INDEPENDENT_GATE"
+  ],
+  "invariants": [
+    "D04名义Setup与D10实际执行绑定分离",
+    "D09 CL与D11 CL_ONLY不能冒充NC D15",
+    "D12原始NC字节→D13语义→D14Joint→D15独立Oracle→D16人类签发",
+    "Owner唯一写入、每次提交重新校验ACL/scopeEpoch/CAS/cancelToken",
+    "无材料去除扫掠仿真",
+    "所有返回状态只是Port规划模型，非实际产品证明"
+  ],
+  "roles": {
+    "GUI": "共享同域Port及授权上下文",
+    "CLI": "共享同域Port及授权上下文",
+    "Agent": "只生成候选，不拥有新的写入特权"
+  },
+  "independentConsumer": "NOT_RUN"
+}
