@@ -1,3 +1,6 @@
+## 2026-10-27｜R-WORKORDER-EXECUTION-001 工单/作业指导与现场实际执行
+[8合法来源及版本/章节/限制](sources/CAP-10-06.json) → [10规则40字段](traces/CAP-10-06.json) → [72正反门禁](../docs/capabilities/CAP-10-06/fixtures.json) → [研究推导与未读限制](topics/R-WORKORDER-EXECUTION-001.md)。OPC40001-3 1.0.1和OPC10031-4 2.00.0公开正文，旧OPC40501 Job节点弃用；ISO22400-2:2014仅合法目录摘要，NIST仅论文摘要。累计887条登记/105 Registry非去重；17Owner/L3待审，真实ERP/MES、质量、机床、独立消费者NOT_RUN；**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜R-MDC-OBSERVABILITY-001 MDC数据质量与时间序列
 [8来源及阅读深度](sources/CAP-10-05.json) → [10规则40字段](traces/CAP-10-05.json) → [68合成案例](../docs/capabilities/CAP-10-05/fixtures.json) → [研究与局限](topics/R-MDC-OBSERVABILITY-001.md)。MTConnect官方2.5.0 PDF第37/40/54页截图与正文、OPC MachineTools 1.02.0及Services 1.05.07公开章节已读，NIST论文仅著录摘要；累计879登记/104Registry非去重。实际设备/消费者NOT_RUN，17Owner/L3待审，规划PASS≠产品PASS。
 

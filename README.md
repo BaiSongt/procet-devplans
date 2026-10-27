@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-10-06《现场执行与工单》实施级规划（L3待审）
+[10子任务与原88项目标](docs/capabilities/CAP-10-06/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-10-06/UI.md) · [8项来源及阅读深度](research/sources/CAP-10-06.json) → [10规则40字段](research/traces/CAP-10-06.json) → [50正反字段变异+22门禁](docs/capabilities/CAP-10-06/fixtures.json) · [独立消费者及旧MES回退](docs/capabilities/CAP-10-06/independent-consumer-handoff.md)。累计**76/88 CAP、36/36原包研究追踪、887条登记/105 Registry（非去重）**。72/72仅V8规划合成，Node文件进程/真实MES/NC/OPC/机床/独立消费者NOT_RUN；17Owner/L3待人类。外部MES工单真值不回写，旧OPC Job节点已弃用，工单完工≠NC执行/质检合格/机床启动。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-10-05《MDC数据采集》实施级规划（L3待审）
 [十项实施与原目标](docs/capabilities/CAP-10-05/README.md) · [左TaskPanel/单Babylon](docs/capabilities/CAP-10-05/UI.md) · [MTConnect2.5.0及8份来源](research/sources/CAP-10-05.json) → [十规则四十字段](research/traces/CAP-10-05.json) → [68项合成场景](docs/capabilities/CAP-10-05/fixtures.json) · [独立消费者](docs/capabilities/CAP-10-05/independent-consumer-handoff.md)。累计**75/88详细CAP、36/36原包及研究、879来源登记/104 Registry（非去重）**。68/68仅V8内存规划合成；真实MTConnect/OPC、机床、独立Node与消费者NOT_RUN，17Owner/L3待审。**D17遥测≠D15工程验证，规划PASS≠产品PASS**。
 

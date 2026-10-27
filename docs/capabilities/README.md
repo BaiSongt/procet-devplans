@@ -1,3 +1,6 @@
+## CAP-10-06｜现场执行与工单（仅规划，L3待审）
+[原88项目标和十子任务](CAP-10-06/README.md) · [GUI/3D](CAP-10-06/UI.md) · [现场工单合同](CAP-10-06/workorder-contract.json) · [10规则40字段](../../research/traces/CAP-10-06.json) · [72合成验收](CAP-10-06/fixtures.json)。详细CAP **76/88**、原包36/36；产品/MES/NC/机床NOT_RUN，Owner/L3待审。
+
 ## CAP-10-01 程序发布包（L3待审）
 | [CAP-10-01](CAP-10-01/README.md) | [GUI/3D](CAP-10-01/UI.md) | [指纹与离线闭包](CAP-10-01/package-contract.json) | 10规则40字段/88规划合成（仅内存）；不代替人类签发/产品验收 |
 

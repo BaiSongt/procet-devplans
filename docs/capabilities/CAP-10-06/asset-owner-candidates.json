@@ -1,0 +1,59 @@
+{
+  "status": "PENDING_HUMAN",
+  "kind": "candidate_not_signed",
+  "businessAssetCount": 17,
+  "source": "docs/architecture/v0.8/business-assets.json",
+  "externalSystem": "ERP/MES原始工单为外部业务事实；10域只读投影，D16受控发布，D17事件append",
+  "interfaces": [
+    {
+      "producer": "外部MES",
+      "owner": "EXTERNAL_PENDING",
+      "consumer": "10.WorkOrderExecutionPort",
+      "contract": "jobOrderId+sourceRevision+authorizedRead; no silently overwritten MES"
+    },
+    {
+      "producer": "D03",
+      "owner": "02",
+      "consumer": "10.WorkOrderExecutionPort",
+      "contract": "machineId/Profile exact revision/hash"
+    },
+    {
+      "producer": "D04",
+      "owner": "04",
+      "consumer": "10.WorkOrderExecutionPort",
+      "contract": "nominalSetupRef; not real installation"
+    },
+    {
+      "producer": "D10",
+      "owner": "04",
+      "consumer": "10.WorkOrderExecutionPort",
+      "contract": "actualMachineBinding+frameRef+hash; UNKNOWN blocks claim"
+    },
+    {
+      "producer": "D12/D13",
+      "owner": "08",
+      "consumer": "10.WorkOrderExecutionPort",
+      "contract": "finalNcBytesSHA256+profile+NC semantic provenance read only"
+    },
+    {
+      "producer": "D14/D15",
+      "owner": "09",
+      "consumer": "10.WorkOrderExecutionPort",
+      "contract": "Joint timeline+independent NC verification not derived from telemetry"
+    },
+    {
+      "producer": "D16",
+      "owner": "10",
+      "consumer": "10.WorkOrderExecutionPort",
+      "contract": "approved signed release exact digest; never planning candidate"
+    },
+    {
+      "producer": "D17",
+      "owner": "10",
+      "consumer": "External MES and read-only GUI",
+      "contract": "append-only field receipt/quality provenance CAS; independent outward confirmation"
+    }
+  ],
+  "all17AssetOwnerSignoffs": "PENDING_HUMAN",
+  "extensionOnlyNoNewDAsset": true
+}
