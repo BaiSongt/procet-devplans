@@ -1,0 +1,523 @@
+{
+  "schemaVersion": "procet-rule-trace-v1",
+  "capabilityId": "CAP-10-07",
+  "researchTopic": "R-FIELD-ECN-001",
+  "sourceRegistry": "research/sources/CAP-10-07.json",
+  "workPackageIds": [
+    "E3-06",
+    "T5-03"
+  ],
+  "rules": [
+    {
+      "id": "CAP-10-07-R01",
+      "capabilityId": "CAP-10-07",
+      "summary": "异常原始事实与可信采集",
+      "engineeringRule": "现场报警/人工问题必须带来源事件ID、时间质量、原始字节指纹及设备修订，来源不明保持UNKNOWN",
+      "fields": [
+        "report.rawEventIdAndDigest",
+        "report.sourceTimeQuality",
+        "report.machineProfileRevision",
+        "report.unverifiedMarkedUnknown"
+      ],
+      "sourceIds": [
+        "C1007-S01",
+        "C1007-S02",
+        "C1007-S07"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "report.rawEventIdAndDigest",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "report.sourceTimeQuality",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "report.machineProfileRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "report.unverifiedMarkedUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R02",
+      "capabilityId": "CAP-10-07",
+      "summary": "确认与解决分开",
+      "engineeringRule": "OPC Acknowledge/Confirm（能力探测）只是状态事实，不等于排除故障或许可重新启动",
+      "fields": [
+        "alarm.ackNotResolution",
+        "alarm.confirmOptionalProbed",
+        "alarm.eventIdExact",
+        "alarm.noCycleStartFromAck"
+      ],
+      "sourceIds": [
+        "C1007-S01",
+        "C1007-S02"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "alarm.ackNotResolution",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alarm.confirmOptionalProbed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alarm.eventIdExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alarm.noCycleStartFromAck",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R03",
+      "capabilityId": "CAP-10-07",
+      "summary": "追加事件与独立问题身份",
+      "engineeringRule": "D17只追加问题、证据和更正事件，保留原始事故链和外部MES/质量Owner真值",
+      "fields": [
+        "incident.d17AppendOnly",
+        "incident.externalOwnerPreserved",
+        "incident.evidenceHashPinned",
+        "incident.correctionsAsNewEvent"
+      ],
+      "sourceIds": [
+        "C1007-S02",
+        "C1007-S04",
+        "C1007-S05"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "incident.d17AppendOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "incident.externalOwnerPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "incident.evidenceHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "incident.correctionsAsNewEvent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R04",
+      "capabilityId": "CAP-10-07",
+      "summary": "隔离处置与人工分级",
+      "engineeringRule": "质量、安全、NC异常须按证据分类并等待授权分流，未知风险不允许自动复产",
+      "fields": [
+        "triage.safetyOwnerAssigned",
+        "triage.qualityOwnerIndependent",
+        "triage.unknownBlocksResumption",
+        "triage.noUnapprovedControllerCommand"
+      ],
+      "sourceIds": [
+        "C1007-S02",
+        "C1007-S03",
+        "C1007-S04"
+      ],
+      "assets": [
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "triage.safetyOwnerAssigned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "triage.qualityOwnerIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "triage.unknownBlocksResumption",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "triage.noUnapprovedControllerCommand",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R05",
+      "capabilityId": "CAP-10-07",
+      "summary": "变更影响图与精确快照",
+      "engineeringRule": "冻结上游exact Revision/hash/frame和影响图，针对工序、Setup、NC、机床及验收逐项重新定位",
+      "fields": [
+        "impact.exactRevisionHashFrame",
+        "impact.dependenciesListed",
+        "impact.d04d10Distinguished",
+        "impact.d15RevalidationScope"
+      ],
+      "sourceIds": [
+        "C1007-S03",
+        "C1007-S04",
+        "C1007-S05"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "impact.exactRevisionHashFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.dependenciesListed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.d04d10Distinguished",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.d15RevalidationScope",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R06",
+      "capabilityId": "CAP-10-07",
+      "summary": "新修订分支与A/B冻结保护",
+      "engineeringRule": "现场反馈只可生成新变更请求/新工程修订，使用来源关系，不回写旧A/B批准快照",
+      "fields": [
+        "revision.forksNewDraft",
+        "revision.abFrozenReadOnly",
+        "revision.wasRevisionOfBound",
+        "revision.noHistoricalOverwrite"
+      ],
+      "sourceIds": [
+        "C1007-S03",
+        "C1007-S04",
+        "C1007-S05"
+      ],
+      "assets": [
+        "D01",
+        "D08",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "revision.forksNewDraft",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "revision.abFrozenReadOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "revision.wasRevisionOfBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "revision.noHistoricalOverwrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R07",
+      "capabilityId": "CAP-10-07",
+      "summary": "D04计划与D10现场绑定独立",
+      "engineeringRule": "机床/刀具/夹具/Frame修正后须重取D10实装来源、精确引用，不从D04自动推定",
+      "fields": [
+        "setup.d04NominalOnly",
+        "setup.d10ActualRevisionHashFrame",
+        "setup.machineToolFixtureProfilePinned",
+        "setup.unknownActualBlocksRelease"
+      ],
+      "sourceIds": [
+        "C1007-S02",
+        "C1007-S03",
+        "C1007-S08"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "setup.d04NominalOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setup.d10ActualRevisionHashFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setup.machineToolFixtureProfilePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setup.unknownActualBlocksRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R08",
+      "capabilityId": "CAP-10-07",
+      "summary": "NC重新验收与发布闭环",
+      "engineeringRule": "变更影响D12/控制器语义时必须由最终NC重新经过D13→D14→D15独立Oracle→D16审批",
+      "fields": [
+        "reverify.d12ByteDigestExact",
+        "reverify.d13d14Reexecuted",
+        "reverify.d15IndependentOracle",
+        "reverify.d16NewHumanRelease"
+      ],
+      "sourceIds": [
+        "C1007-S02",
+        "C1007-S03",
+        "C1007-S04"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "reverify.d12ByteDigestExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "reverify.d13d14Reexecuted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "reverify.d15IndependentOracle",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "reverify.d16NewHumanRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R09",
+      "capabilityId": "CAP-10-07",
+      "summary": "提交CAS/权限/取消晚回执",
+      "engineeringRule": "变更、签收及反馈均须重核Owner ACL/scopeEpoch和CAS；取消/迟到回执不复活请求",
+      "fields": [
+        "guard.aclScopeEpochRechecked",
+        "guard.revisionHashCAS",
+        "guard.cancelLateAckRejected",
+        "guard.idempotencyKeyScoped"
+      ],
+      "sourceIds": [
+        "C1007-S05",
+        "C1007-S06"
+      ],
+      "assets": [
+        "D01",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "guard.aclScopeEpochRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "guard.revisionHashCAS",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "guard.cancelLateAckRejected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "guard.idempotencyKeyScoped",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-07-R10",
+      "capabilityId": "CAP-10-07",
+      "summary": "同域多入口与非破坏迁移",
+      "engineeringRule": "GUI/CLI/Agent共用10域Port；统一Babylon与左Panel；旧Reader双读、回退保留历史及消费者验收",
+      "fields": [
+        "ux.sameDomainPort",
+        "ux.singleBabylonLeftPanel",
+        "ux.shadowReadRollback",
+        "ux.independentConsumerPending"
+      ],
+      "sourceIds": [
+        "C1007-S04",
+        "C1007-S05",
+        "C1007-S06"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "ux.sameDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.singleBabylonLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.shadowReadRollback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.independentConsumerPending",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项独立单字段负例；仅规划合成，不构成工程产品验收",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

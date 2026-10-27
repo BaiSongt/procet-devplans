@@ -1,3 +1,6 @@
+## 2026-10-27｜R-FIELD-ECN-001 现场异常与工程变更
+[8来源/合法阅读范围](sources/CAP-10-07.json) → [10规则40字段](traces/CAP-10-07.json) → [50正反+20合成门禁](../docs/capabilities/CAP-10-07/fixtures.json) → [理论及适用边界](topics/R-FIELD-ECN-001.md)。OPC 10000-9 v1.05.06 §4.3与OPC40501-1公开正文可核；ISO10007仅目录、NIST2019仅摘要、MTConnect仅官网文件列表。累计895登记/106 Registry非去重；17Owner/L3待审，真实OPC/NC/质检/消费者NOT_RUN，规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-WORKORDER-EXECUTION-001 工单/作业指导与现场实际执行
 [8合法来源及版本/章节/限制](sources/CAP-10-06.json) → [10规则40字段](traces/CAP-10-06.json) → [72正反门禁](../docs/capabilities/CAP-10-06/fixtures.json) → [研究推导与未读限制](topics/R-WORKORDER-EXECUTION-001.md)。OPC40001-3 1.0.1和OPC10031-4 2.00.0公开正文，旧OPC40501 Job节点弃用；ISO22400-2:2014仅合法目录摘要，NIST仅论文摘要。累计887条登记/105 Registry非去重；17Owner/L3待审，真实ERP/MES、质量、机床、独立消费者NOT_RUN；**规划PASS≠产品PASS**。
 

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "procet-field-engineering-change-contract-v1",
+  "owningDomain": "10",
+  "producerPort": "FieldEngineeringChangePort",
+  "issueOrigin": {
+    "sourceEventId": "exact",
+    "sourceType": "OPC_ALARM_OR_MES_OR_OPERATOR",
+    "rawDigest": "sha256-required",
+    "sourceQuality": "known-or-UNKNOWN",
+    "owner": "D17_EVIDENCE_OWNER",
+    "physicalTruth": "NOT_ASSUMED"
+  },
+  "change": {
+    "requestId": "new_immutable_id",
+    "sourceIssueRef": "exact",
+    "baseEngineeringRevision": "exact",
+    "baseHash": "exact",
+    "baseFrame": "exact-or-UNKNOWN",
+    "newBranch": "separate_revisable_draft",
+    "frozenAB": "immutable",
+    "provRevisionLink": "wasRevisionOf",
+    "humanDisposition": "PENDING_HUMAN"
+  },
+  "affectedOwners": [
+    {
+      "assets": [
+        "D01",
+        "D08"
+      ],
+      "owner": "01域业务Owner候选"
+    },
+    {
+      "assets": [
+        "D03"
+      ],
+      "owner": "02域制造资源Owner候选"
+    },
+    {
+      "assets": [
+        "D04",
+        "D10"
+      ],
+      "owner": "04域分别名义Setup与执行绑定Owner候选"
+    },
+    {
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "owner": "08域NC及语义Owner候选"
+    },
+    {
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "owner": "09域轴运动及独立验证Owner候选"
+    },
+    {
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "owner": "10域受控发布与现场记录Owner候选"
+    }
+  ],
+  "commandSurface": {
+    "samePortFor": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "remoteCycleStart": false,
+    "alarmAcknowledgeAsRepair": false
+  },
+  "commit": {
+    "required": [
+      "sourceRawDigest",
+      "sourceRef",
+      "expectedRevision",
+      "expectedHash",
+      "aclEpoch",
+      "scopeEpoch",
+      "cancelToken",
+      "idempotencyKey"
+    ],
+    "cancelLateAck": "STALE",
+    "mutation": "append_event_and_new_revision_only"
+  },
+  "release": {
+    "requiresExactFinalNcDigest": true,
+    "requiresD13D14Replay": true,
+    "requiresIndependentD15": true,
+    "requiresNewHumanD16": true,
+    "unknownBlocksRelease": true
+  },
+  "versioning": {
+    "expandMigrateContract": true,
+    "legacyReaderShadow": true,
+    "rollbackPreservesHistory": true
+  },
+  "review": "PENDING_HUMAN",
+  "productTests": "NOT_RUN"
+}
