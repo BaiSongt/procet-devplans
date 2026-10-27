@@ -1,3 +1,6 @@
+## 2026-10-28｜88CAP×36包×17资产首轮全量显式覆盖矩阵（非最终移交）
+[结构化矩阵与风险](docs/architecture/v0.8/全仓交叉覆盖首轮_2026-10-28.md) · [312条CAP→包与33条资产→生产CAP](docs/architecture/v0.8/cross-coverage-v08.json) · [4官方来源](research/sources/CROSS-COVERAGE-V08.json) → [8规则](research/traces/CROSS-COVERAGE-V08.json) → [8正12负验收](docs/architecture/v0.8/cross-coverage-fixtures-v08.json)。88/88CAP、36/36原包、17/17候选接口不变；10包无原CAP直接边、55 CAP非资产显式producer，02域6个同名source与1个同名trace缺口须核旧专题。当前**1020来源登记/120 Registry，非去重**。V8静态PASS与12/12故意错误拒绝；独立Node、实际Owner/消费者/NC/机床、全仓502MD链接均NOT_RUN；L3、历史原件及最终交接未完成。规划PASS≠产品PASS。
+
 ## 2026-10-28｜11域跨域研究与来源链首轮复核（终核未完成）
 [11域Owner/研究锚点与NC链](docs/architecture/v0.8/11域研究交叉复核_2026-10-28.md) · [结构化11域映射](docs/architecture/v0.8/11域研究交叉复核_2026-10-28.json) · [6官方来源及真实访问深度](research/sources/DOMAIN-CROSSCHECK-V08.json) → [11规则/CAP/原包](research/traces/DOMAIN-CROSSCHECK-V08.json) → [正反案例](docs/architecture/v0.8/11域研究交叉验收_2026-10-28.json) · [Node可运行只读校验器](tools/check_11domain_crosscheck_v08.cjs)。**88/88 CAP、36/36原包、17/17候选接口不变；11/11领域首轮研究锚点，非逐篇终核**；V8远端回读执行 **43/43规划静态检查**（24项正向/门禁、19项故意负向变异），**独立Node文件系统进程NOT_RUN**（容器网络无法获取GitHub），本轮仅为11域首轮锚点，不代表11域全部来源终核。1016登记/119 Registry（非去重）。正式Owner签署0/17、真实消费者0/17、L3待审，历史附件/全仓矩阵/风险交接未闭合；规划PASS≠产品PASS。
 

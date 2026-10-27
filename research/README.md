@@ -1,3 +1,6 @@
+## 2026-10-28｜R-CROSS-COVERAGE-001 88 CAP×36包×17资产显式关系复核
+[全量矩阵](../docs/architecture/v0.8/全仓交叉覆盖首轮_2026-10-28.md) · [4项来源及真实阅读层级](sources/CROSS-COVERAGE-V08.json) → [8条规则](traces/CROSS-COVERAGE-V08.json) → [8正12负案例](../docs/architecture/v0.8/cross-coverage-fixtures-v08.json) → [专题推导](topics/R-CROSS-COVERAGE-001.md)。原88CAP表312条包边中10原包无直接CAP边；17资产候选Port33条生产CAP边，55 CAP无显式生产边（不等于无消费）；旧02域6项同名source及1个同名trace未标准化，旧研究不能丢。V8静态规划检查，独立产品/Node/真实消费者NOT_RUN，L3待人类。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-11DOMAIN-CROSSCHECK-001 11域跨域研究首轮证据补证
 [研究](topics/R-11DOMAIN-CROSSCHECK-001.md) · [6项公开来源/真实深度](sources/DOMAIN-CROSSCHECK-V08.json) → [11条规则/字段/原包/正反ID](traces/DOMAIN-CROSSCHECK-V08.json) → [11域研究锚点矩阵及门禁](../docs/architecture/v0.8/11域研究交叉复核_2026-10-28.md)。**逐域锚点11/11但不是全Registry终核**。远端V8合成43/43通过，独立Node文件进程NOT_RUN；11域首轮静态映射与研究补证不替代最终逐Registry终核。来源1016登记/119 Registry非去重，Owner/L3/实际消费者/历史附件/全仓矩阵仍待办，规划PASS≠产品PASS。
 
