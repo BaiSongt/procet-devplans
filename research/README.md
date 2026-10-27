@@ -1,3 +1,6 @@
+## 2026-10-28｜R-TA-001 工具总成历史研究的机器追踪补证
+[保留原R-TA-001](topics/R-TA-001.md) 与旧references.json中SRC-TA-001..008，新增[6条重新核阅官方登记](sources/CAP-02-03.json) → [10条工程规则/40字段/原包/TA-AC](traces/CAP-02-03.json) → [10正40独立负+8个未执行状态设计](../docs/capabilities/CAP-02-03/research-fixtures-v08.json) → [证据阅读局限与机床UNKNOWN](../docs/capabilities/CAP-02-03/RESEARCH-TRACE-2026-10-28.md)。Index上一轮登记总数误写1016而120份声明合计1020，已修正后累积**1026登记/121 Registry（非去重）**；不等于逐份外部原文审校。Node/Owner/NC/B5/消费者NOT_RUN，L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-CROSS-COVERAGE-001 88 CAP×36包×17资产显式关系复核
 [全量矩阵](../docs/architecture/v0.8/全仓交叉覆盖首轮_2026-10-28.md) · [4项来源及真实阅读层级](sources/CROSS-COVERAGE-V08.json) → [8条规则](traces/CROSS-COVERAGE-V08.json) → [8正12负案例](../docs/architecture/v0.8/cross-coverage-fixtures-v08.json) → [专题推导](topics/R-CROSS-COVERAGE-001.md)。原88CAP表312条包边中10原包无直接CAP边；17资产候选Port33条生产CAP边，55 CAP无显式生产边（不等于无消费）；旧02域6项同名source及1个同名trace未标准化，旧研究不能丢。V8静态规划检查，独立产品/Node/真实消费者NOT_RUN，L3待人类。规划PASS≠产品PASS。
 

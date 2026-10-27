@@ -29,14 +29,14 @@ case"DROP_CAP":x.capabilities.shift();break;
 case"FAKE_CAP_PACKAGE":x.capabilities[0].originalWorkPackages.push("T5-06");break;
 case"DUPLICATE_PACKAGE":x.workPackages[1].id=x.workPackages[0].id;break;
 case"FAKE_OWNER_SIGN":x.assets[0].humanSignoff="APPROVED";break;
-case"FAKE_SOURCE_REGISTRY":x.capabilities.find(y=>y.id==="CAP-02-03").sameNameIndexedRegistry="research/sources/CAP-02-03.json";break;
+case"INJECT_FAKE_SOURCE_GAP":x.capabilities.find(y=>y.id==="CAP-02-03").sameNameIndexedRegistry=null;break;
 case"MERGE_D04_D10":x.safeguards.d04D10Separate=false;break;
 case"SPOOF_NC_CHAIN":x.safeguards.ncChain[1]="D11";break;
 case"FAKE_CONSUMER_PASS":x.assets[0].realConsumer="PASS";break;
 case"CONCEAL_ZERO_LINK_PACKAGE":x.workPackages.find(y=>y.id==="B0-05").originalMapping="HAS_DIRECT_CAP";break;
 case"FAKE_OWNER_PRODUCER":x.assets[0].explicitProducerCapabilities.push("CAP-11-08");break;
 case"FAKE_PRODUCT_PASS":x.capabilities[0].productState="PASS";break;
-case"CONCEAL_TRACE_GAP":x.gaps.capsWithoutSameNameTrace=[];break;
+case"INJECT_FAKE_TRACE_GAP":x.gaps.capsWithoutSameNameTrace=["CAP-02-03"];break;
 default:throw Error(k)}return x}
 if(check(m).length){console.error(check(m));process.exit(1)}
 if(process.argv.includes("--self-test")){for(const f of fx.negatives){let x=change(JSON.parse(JSON.stringify(m)),f.mutation);if(!check(x).length){console.error("NOT_REJECTED",f.id);process.exit(1)}}console.log("PLANNING_STATIC_PASS",fx.negatives.length,"negative rejected; product NOT_RUN");}

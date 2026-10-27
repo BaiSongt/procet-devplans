@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-02-03刀柄总成同名来源、Trace补证与研究索引校正
+[6项官方来源、合法阅读深度](research/sources/CAP-02-03.json) → [10规则40字段](research/traces/CAP-02-03.json) → [10正40独立负/8状态设计](docs/capabilities/CAP-02-03/research-fixtures-v08.json) → [新补证说明](docs/capabilities/CAP-02-03/RESEARCH-TRACE-2026-10-28.md)；既有R-TA-001、SRC-TA-001..008不变。上一轮source-index顶层1016与120份Registry逐项声明求和1020不一致，本轮纠正后新增6条，成为**1026条登记/121 Registry（非去重）**。02域同名Trace缺口由1降为0、同名Registry缺口由6降为5；10原工作包零直接边/55CAP无显式资产生产边不擅自补写。规划静态10正40独立负，Node文件执行与真实机床/消费者NOT_RUN，Owner签署0/17、L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-28｜88CAP×36包×17资产首轮全量显式覆盖矩阵（非最终移交）
 [结构化矩阵与风险](docs/architecture/v0.8/全仓交叉覆盖首轮_2026-10-28.md) · [312条CAP→包与33条资产→生产CAP](docs/architecture/v0.8/cross-coverage-v08.json) · [4官方来源](research/sources/CROSS-COVERAGE-V08.json) → [8规则](research/traces/CROSS-COVERAGE-V08.json) → [8正12负验收](docs/architecture/v0.8/cross-coverage-fixtures-v08.json)。88/88CAP、36/36原包、17/17候选接口不变；10包无原CAP直接边、55 CAP非资产显式producer，02域6个同名source与1个同名trace缺口须核旧专题。当前**1020来源登记/120 Registry，非去重**。V8静态PASS与12/12故意错误拒绝；独立Node、实际Owner/消费者/NC/机床、全仓502MD链接均NOT_RUN；L3、历史原件及最终交接未完成。规划PASS≠产品PASS。
 
