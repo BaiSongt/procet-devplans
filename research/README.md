@@ -1,3 +1,6 @@
+## 2026-10-27｜R-DIGITAL-THREAD-AUDIT-001 数字主线、来源DAG与审计
+[10合法来源和真实访问深度](sources/CAP-10-08.json) → [10规则40字段与原工作包](traces/CAP-10-08.json) → [50正反+8图+19状态门禁](../docs/capabilities/CAP-10-08/fixtures.json) → [理论适用限制](topics/R-DIGITAL-THREAD-AUDIT-001.md)。W3C PROV-O/OPC 10000-5/RFC8785/9162/9110公开章节查证；NIST IR8536 Final和Hedberg 2019仅官网摘要、ISO 23247-1/-4仅合法目录。905条来源登记/107 Registry非去重，产品与独立消费者NOT_RUN，Owner及L3待人类；规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-FIELD-ECN-001 现场异常与工程变更
 [8来源/合法阅读范围](sources/CAP-10-07.json) → [10规则40字段](traces/CAP-10-07.json) → [50正反+20合成门禁](../docs/capabilities/CAP-10-07/fixtures.json) → [理论及适用边界](topics/R-FIELD-ECN-001.md)。OPC 10000-9 v1.05.06 §4.3与OPC40501-1公开正文可核；ISO10007仅目录、NIST2019仅摘要、MTConnect仅官网文件列表。累计895登记/106 Registry非去重；17Owner/L3待审，真实OPC/NC/质检/消费者NOT_RUN，规划PASS≠产品PASS。
 

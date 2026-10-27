@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-10-08《数字主线与审计》V0.8实施级规划（L3待审）
+[原88项原文及十子任务](docs/capabilities/CAP-10-08/README.md) · [单Babylon/统一左TaskPanel](docs/capabilities/CAP-10-08/UI.md) · [10来源与阅读范围](research/sources/CAP-10-08.json) → [十规则/40字段](research/traces/CAP-10-08.json) → [50字段正反+8图+19门禁](docs/capabilities/CAP-10-08/fixtures.json) · [17Owner候选/独立消费](docs/capabilities/CAP-10-08/independent-consumer-handoff.md)。累计**78/88详细CAP、36/36原包及研究、905条来源登记/107 Registry**（非去重）；V8 77/77仅合成规划，独立Node、真实NC/OPC/B5/质量及消费者NOT_RUN，17Owner/L3待人类。反馈业务图可环、不可变实例来源DAG不可环，D04≠D10，CL动画≠NC独立D15安全验证。规划PASS≠产品PASS。
+
 ## 2026-10-27｜CAP-10-07《异常反馈与工程变更》实施级规划（L3待审）
 [原目标/10项实施](docs/capabilities/CAP-10-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-10-07/UI.md) · [8项合法来源与阅读深度](research/sources/CAP-10-07.json) → [10规则40字段](research/traces/CAP-10-07.json) → [50逐字段正反+20门禁](docs/capabilities/CAP-10-07/fixtures.json) · [独立消费者与无损回退](docs/capabilities/CAP-10-07/independent-consumer-handoff.md)。累计**77/88详细CAP、36/36原包和研究追踪、895来源登记/106 Registry（非去重）**；70/70仅V8内存规划合成，独立Node进程/真实OPC/NC/机床/质检/消费者NOT_RUN；17Owner/L3待人类。报警Ack≠维修/放行，现场D17 append仅触发新ECN Revision，不覆盖冻结A/B。**规划PASS≠产品PASS**。
 
