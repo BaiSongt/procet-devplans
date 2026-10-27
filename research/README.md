@@ -1,5 +1,5 @@
 ## 2026-10-28｜R-11DOMAIN-CROSSCHECK-001 11域跨域研究首轮证据补证
-[研究](topics/R-11DOMAIN-CROSSCHECK-001.md) · [6项公开来源/真实深度](sources/DOMAIN-CROSSCHECK-V08.json) → [11条规则/字段/原包/正反ID](traces/DOMAIN-CROSSCHECK-V08.json) → [11域研究锚点矩阵及门禁](../docs/architecture/v0.8/11域研究交叉复核_2026-10-28.md)。**逐域锚点11/11但不是全Registry终核**。来源1016登记/119 Registry非去重，Owner/L3/实际消费者/历史附件/全仓矩阵仍待办，规划PASS≠产品PASS。
+[研究](topics/R-11DOMAIN-CROSSCHECK-001.md) · [6项公开来源/真实深度](sources/DOMAIN-CROSSCHECK-V08.json) → [11条规则/字段/原包/正反ID](traces/DOMAIN-CROSSCHECK-V08.json) → [11域研究锚点矩阵及门禁](../docs/architecture/v0.8/11域研究交叉复核_2026-10-28.md)。**逐域锚点11/11但不是全Registry终核**。远端V8合成43/43通过，独立Node文件进程NOT_RUN；11域首轮静态映射与研究补证不替代最终逐Registry终核。来源1016登记/119 Registry非去重，Owner/L3/实际消费者/历史附件/全仓矩阵仍待办，规划PASS≠产品PASS。
 
 ## 2026-10-28｜R-ASSET-OWNER-INTERFACE-001 17资产Owner与端口跨域终核（候选）
 [来源/版本/章节/阅读局限](sources/ASSET-OWNERS-V08.json) → [10规则与字段/原包](traces/ASSET-OWNERS-V08.json) → [17资产候选接口及79项静态正反/图合成](../docs/architecture/v0.8/17资产Owner接口交叉核验_2026-10-28.md) → [研究](topics/R-ASSET-OWNER-INTERFACE-001.md)。1010来源登记/118 Registry非去重；人类Owner/L3与真实消费者NOT_RUN，历史附件/11域终核/全仓审计待补。规划PASS≠产品PASS。

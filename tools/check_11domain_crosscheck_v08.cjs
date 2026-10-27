@@ -16,7 +16,7 @@ function verify(m,owners,p,index,src,tr,fixtures){
  const ids=m.domains.map(x=>x.domainId),unique=a=>new Set(a).size===a.length;
  check("全域编号",()=>ensure(ids.join(",")==="01,02,03,04,05,06,07,08,09,10,11","11域编号/顺序错误"));
  check("17资产Owner候选集",()=>ensure(Object.keys(expectedOwner).length===17 && JSON.stringify(m.expectedAssetOwners)===JSON.stringify(expectedOwner),"17资产Owner原候选映射发生偏移"));
- check("来源及追踪",()=>{ensure(src.registeredRecords===src.sources.length,"来源数量不一致");ensure(tr.rules.length===11&&unique(tr.rules.map(x=>x.id)),"规则不足或重号");ensure(registries.has(tr.sourceRegistry)&&tr.sourceRegistry===m.baseline.sourceRegistry||tr.sourceRegistry===fixtures.sourceRegistry,"来源登记路径无效");});
+ check("来源及追踪",()=>{ensure(src.registeredRecords===src.sources.length,"来源数量不一致");ensure(tr.rules.length===11&&unique(tr.rules.map(x=>x.id)),"规则不足或重号");ensure(registries.has(tr.sourceRegistry)&&tr.sourceRegistry===fixtures.sourceRegistry,"来源登记路径无效");});
  for(const d of m.domains){
   check("XDOM-POS-"+d.domainId,()=>{
    const expected=Object.keys(expectedOwner).filter(x=>expectedOwner[x]===d.domainId).sort();
@@ -41,10 +41,11 @@ function verify(m,owners,p,index,src,tr,fixtures){
  }
  for(const c of fixtures.guardNegative){const bad=JSON.parse(JSON.stringify(m));bad.crossGuards[c.guard]=!bad.crossGuards[c.guard];try{ensure(bad.crossGuards[c.guard]===required[c.guard],"预期拒绝");throw Error("NEGATIVE_MUTATION_ACCEPTED")}catch(e){ensure(e.message!=="NEGATIVE_MUTATION_ACCEPTED","未捕获门禁负例");rejected.push(c.id)}}
  ensure(rejected.length===19,"负向变异数量异常");
- return {positive:results.length,rejected:rejected.length,total:results.length+rejected.length,status:"PASS_PLANNING_ONLY",nodeRuntime:"NODE_SCRIPT_ACTUAL",product:"NOT_RUN"};
+ return {positive:results.length,rejected:rejected.length,total:results.length+rejected.length,status:"PASS_PLANNING_ONLY",nodeRuntime:"NOT_RUN_IN_PURE_FUNCTION",product:"NOT_RUN"};
 }
 if(require.main===module){
  const result=verify(load("docs/architecture/v0.8/11域研究交叉复核_2026-10-28.json"),load("docs/architecture/v0.8/owner-interface-review-v08.json"),load("tracking/progress.json"),load("research/source-index.json"),load("research/sources/DOMAIN-CROSSCHECK-V08.json"),load("research/traces/DOMAIN-CROSSCHECK-V08.json"),load("docs/architecture/v0.8/11域研究交叉验收_2026-10-28.json"));
+ result.nodeRuntime="INDEPENDENT_NODE_FILE_IO";
  process.stdout.write(JSON.stringify(result,null,2)+"\n");
 }
 module.exports={verify};
