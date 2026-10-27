@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "procet-human-authorization-v0.8-proposal",
+  "capabilityId": "CAP-11-08",
+  "syntheticExampleOnly": true,
+  "intent": {
+    "id": "demo-action-intent",
+    "humanPrincipal": "demo-human",
+    "delegatedAgent": "demo-agent",
+    "delegationId": "demo-limited",
+    "project": "demo-project",
+    "scopeEpoch": 7,
+    "aclVersion": "demo-acl7",
+    "action": "CREATE_D05_DRAFT_REVISION",
+    "targetAsset": "D05",
+    "expectedRevision": "demo-r3",
+    "expectedHash": "sha256:synthetic-target",
+    "frame": "part-frame-r2",
+    "unit": "mm",
+    "changeDigest": "sha256:synthetic-diff",
+    "rawEvidenceHash": "sha256:synthetic-original",
+    "nonce": "demo-single-use",
+    "expiresAt": "SYNTHETIC_ONLY",
+    "cancelGeneration": 3
+  },
+  "approval": {
+    "state": "PENDING_HUMAN",
+    "humanSigner": "NOT_SIGNED",
+    "approvalBoundDigest": "sha256:synthetic-diff",
+    "cannotBeAgentSigned": true
+  },
+  "ownerWrite": {
+    "ownerPort": "05.ProcessOwnerPort.commitCAS",
+    "recheck": [
+      "acl",
+      "scopeEpoch",
+      "expectedRevision",
+      "hash",
+      "frame",
+      "nonce",
+      "expiresAt",
+      "cancelGeneration"
+    ],
+    "result": "NOT_COMMITTED"
+  },
+  "manufacturing": {
+    "d04SetupRevision": "demo-setup",
+    "d10ExecutionBindingRevision": "demo-execution",
+    "d08Frozen": "UNCHANGED",
+    "d12NC": "UNKNOWN",
+    "d13Semantics": "UNKNOWN",
+    "d14AxisTrace": "NOT_RUN",
+    "d15IndependentNC": "NOT_RUN",
+    "d16Release": "FORBIDDEN"
+  },
+  "audit": {
+    "appendOnly": true,
+    "lateAck": "QUARANTINE_OR_RECONCILE_REAL_RECEIPT",
+    "independentConsumers": "NOT_RUN",
+    "productTests": "NOT_RUN"
+  }
+}

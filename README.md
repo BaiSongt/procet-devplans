@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-08《人机授权与安全约束》（L3待审）
+[原业务/十项施工](docs/capabilities/CAP-11-08/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-08/UI.md) · [10合法来源及访问限制](research/sources/CAP-11-08.json) → [10规则40字段](research/traces/CAP-11-08.json) → [50正反+31状态+6跨域合成](docs/capabilities/CAP-11-08/fixtures.json) · [17资产Owner候选及独立消费](docs/capabilities/CAP-11-08/independent-consumer-handoff.md)。累计**86/88详细CAP、36/36原包及研究追踪、983来源登记/115 Registry（非去重）**；V8等价规划合成87/87，Node/真实Owner/NC/B5/独立消费者NOT_RUN，17Owner正式会签及L3、最终全仓审计待办。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-11-07《知识反馈与版本管理》V0.8实施级规划（L3待审）
 [十项任务/原业务](docs/capabilities/CAP-11-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-07/UI.md) · [版本候选合同](docs/capabilities/CAP-11-07/knowledge-feedback-contract.example.json) · [10份官方来源/合法阅读深度](research/sources/CAP-11-07.json) → [10规则40字段](research/traces/CAP-11-07.json) → [50独立正反+24状态+6血缘DAG](docs/capabilities/CAP-11-07/fixtures.json) · [17候选Owner及独立消费](docs/capabilities/CAP-11-07/independent-consumer-handoff.md)。累计**85/88详细CAP、36/36原包研究追踪、973登记/114 Registry**（非去重）；静态规划合成不等于实际独立Node、知识CAS、NC/B5或消费者PASS。新知识修订及撤销只追加，不能覆盖冻结A/B，D13 UNKNOWN阻D16；17Owner/L3、历史原始附件与最终11域矩阵待办。**规划PASS≠产品PASS**。
 

@@ -1,3 +1,6 @@
+## 2026-10-27｜[CAP-11-08 人机授权与安全约束](CAP-11-08/README.md)
+[统一UI/3D](CAP-11-08/UI.md) · [10规则40字段](../../research/traces/CAP-11-08.json) · [87项合成](CAP-11-08/fixtures.json) · [17资产候选Owner](CAP-11-08/asset-owner-candidates.json)。累计**86/88**，尚余CAP-04-06/07；L3及Owner签署未获批，真实机床/独立消费者NOT_RUN。
+
 ## 2026-10-27｜[CAP-11-04 工具调用与智能体编排](CAP-11-04/README.md)
 [GUI/3D](CAP-11-04/UI.md) · [合同](CAP-11-04/agent-orchestration-contract.json) · [来源规则](../../research/traces/CAP-11-04.json) · [74合成案例](CAP-11-04/fixtures.json)。**82/88**详细规划，36/36原包；非产品PASS，Owner/L3待审。
 

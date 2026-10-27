@@ -1,0 +1,1346 @@
+{
+  "schemaVersion": "procet-cap1108-fixtures-v1",
+  "capabilityId": "CAP-11-08",
+  "syntheticOnly": true,
+  "description": "50独立字段正反+31授权状态/撤销竞争+6跨域NC隔离案例",
+  "cases": [
+    {
+      "id": "CAP-11-08-R01-P",
+      "ruleId": "CAP-11-08-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "identity": {
+          "principalVerified": true,
+          "delegationExact": true,
+          "noAgentImpersonation": true,
+          "projectTenantPinned": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R01-N-identity-principalVerified",
+      "ruleId": "CAP-11-08-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.principalVerified",
+      "input": {
+        "identity": {
+          "principalVerified": false,
+          "delegationExact": true,
+          "noAgentImpersonation": true,
+          "projectTenantPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R01-N-identity-delegationExact",
+      "ruleId": "CAP-11-08-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.delegationExact",
+      "input": {
+        "identity": {
+          "principalVerified": true,
+          "delegationExact": false,
+          "noAgentImpersonation": true,
+          "projectTenantPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R01-N-identity-noAgentImpersonation",
+      "ruleId": "CAP-11-08-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.noAgentImpersonation",
+      "input": {
+        "identity": {
+          "principalVerified": true,
+          "delegationExact": true,
+          "noAgentImpersonation": false,
+          "projectTenantPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R01-N-identity-projectTenantPinned",
+      "ruleId": "CAP-11-08-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.projectTenantPinned",
+      "input": {
+        "identity": {
+          "principalVerified": true,
+          "delegationExact": true,
+          "noAgentImpersonation": true,
+          "projectTenantPinned": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R02-P",
+      "ruleId": "CAP-11-08-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "scope": {
+          "actionAllowlisted": true,
+          "resourceAudienceBound": true,
+          "scopeEpochCurrent": true,
+          "leastPrivilege": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R02-N-scope-actionAllowlisted",
+      "ruleId": "CAP-11-08-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "scope.actionAllowlisted",
+      "input": {
+        "scope": {
+          "actionAllowlisted": false,
+          "resourceAudienceBound": true,
+          "scopeEpochCurrent": true,
+          "leastPrivilege": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R02-N-scope-resourceAudienceBound",
+      "ruleId": "CAP-11-08-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "scope.resourceAudienceBound",
+      "input": {
+        "scope": {
+          "actionAllowlisted": true,
+          "resourceAudienceBound": false,
+          "scopeEpochCurrent": true,
+          "leastPrivilege": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R02-N-scope-scopeEpochCurrent",
+      "ruleId": "CAP-11-08-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "scope.scopeEpochCurrent",
+      "input": {
+        "scope": {
+          "actionAllowlisted": true,
+          "resourceAudienceBound": true,
+          "scopeEpochCurrent": false,
+          "leastPrivilege": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R02-N-scope-leastPrivilege",
+      "ruleId": "CAP-11-08-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "scope.leastPrivilege",
+      "input": {
+        "scope": {
+          "actionAllowlisted": true,
+          "resourceAudienceBound": true,
+          "scopeEpochCurrent": true,
+          "leastPrivilege": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R03-P",
+      "ruleId": "CAP-11-08-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "intent": {
+          "targetRevisionHashPinned": true,
+          "diffDigestPinned": true,
+          "riskEffectsShown": true,
+          "untrustedInputIsData": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R03-N-intent-targetRevisionHashPinned",
+      "ruleId": "CAP-11-08-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "intent.targetRevisionHashPinned",
+      "input": {
+        "intent": {
+          "targetRevisionHashPinned": false,
+          "diffDigestPinned": true,
+          "riskEffectsShown": true,
+          "untrustedInputIsData": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R03-N-intent-diffDigestPinned",
+      "ruleId": "CAP-11-08-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "intent.diffDigestPinned",
+      "input": {
+        "intent": {
+          "targetRevisionHashPinned": true,
+          "diffDigestPinned": false,
+          "riskEffectsShown": true,
+          "untrustedInputIsData": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R03-N-intent-riskEffectsShown",
+      "ruleId": "CAP-11-08-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "intent.riskEffectsShown",
+      "input": {
+        "intent": {
+          "targetRevisionHashPinned": true,
+          "diffDigestPinned": true,
+          "riskEffectsShown": false,
+          "untrustedInputIsData": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R03-N-intent-untrustedInputIsData",
+      "ruleId": "CAP-11-08-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "intent.untrustedInputIsData",
+      "input": {
+        "intent": {
+          "targetRevisionHashPinned": true,
+          "diffDigestPinned": true,
+          "riskEffectsShown": true,
+          "untrustedInputIsData": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R04-P",
+      "ruleId": "CAP-11-08-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "approval": {
+          "humanIdentityCurrent": true,
+          "separationOfDuties": true,
+          "digestScopeMatch": true,
+          "notExpiredOrReusable": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R04-N-approval-humanIdentityCurrent",
+      "ruleId": "CAP-11-08-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "approval.humanIdentityCurrent",
+      "input": {
+        "approval": {
+          "humanIdentityCurrent": false,
+          "separationOfDuties": true,
+          "digestScopeMatch": true,
+          "notExpiredOrReusable": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R04-N-approval-separationOfDuties",
+      "ruleId": "CAP-11-08-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "approval.separationOfDuties",
+      "input": {
+        "approval": {
+          "humanIdentityCurrent": true,
+          "separationOfDuties": false,
+          "digestScopeMatch": true,
+          "notExpiredOrReusable": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R04-N-approval-digestScopeMatch",
+      "ruleId": "CAP-11-08-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "approval.digestScopeMatch",
+      "input": {
+        "approval": {
+          "humanIdentityCurrent": true,
+          "separationOfDuties": true,
+          "digestScopeMatch": false,
+          "notExpiredOrReusable": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R04-N-approval-notExpiredOrReusable",
+      "ruleId": "CAP-11-08-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "approval.notExpiredOrReusable",
+      "input": {
+        "approval": {
+          "humanIdentityCurrent": true,
+          "separationOfDuties": true,
+          "digestScopeMatch": true,
+          "notExpiredOrReusable": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R05-P",
+      "ruleId": "CAP-11-08-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "freeze": {
+          "d08Immutable": true,
+          "abSharedNotOverwritten": true,
+          "newRevisionOnly": true,
+          "noImplicitWrite": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R05-N-freeze-d08Immutable",
+      "ruleId": "CAP-11-08-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "freeze.d08Immutable",
+      "input": {
+        "freeze": {
+          "d08Immutable": false,
+          "abSharedNotOverwritten": true,
+          "newRevisionOnly": true,
+          "noImplicitWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R05-N-freeze-abSharedNotOverwritten",
+      "ruleId": "CAP-11-08-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "freeze.abSharedNotOverwritten",
+      "input": {
+        "freeze": {
+          "d08Immutable": true,
+          "abSharedNotOverwritten": false,
+          "newRevisionOnly": true,
+          "noImplicitWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R05-N-freeze-newRevisionOnly",
+      "ruleId": "CAP-11-08-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "freeze.newRevisionOnly",
+      "input": {
+        "freeze": {
+          "d08Immutable": true,
+          "abSharedNotOverwritten": true,
+          "newRevisionOnly": false,
+          "noImplicitWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R05-N-freeze-noImplicitWrite",
+      "ruleId": "CAP-11-08-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "freeze.noImplicitWrite",
+      "input": {
+        "freeze": {
+          "d08Immutable": true,
+          "abSharedNotOverwritten": true,
+          "newRevisionOnly": true,
+          "noImplicitWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R06-P",
+      "ruleId": "CAP-11-08-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "commit": {
+          "ownerPortOnly": true,
+          "aclScopeRechecked": true,
+          "casRevisionHashFrameExact": true,
+          "cancelGenerationCurrent": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R06-N-commit-ownerPortOnly",
+      "ruleId": "CAP-11-08-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "commit.ownerPortOnly",
+      "input": {
+        "commit": {
+          "ownerPortOnly": false,
+          "aclScopeRechecked": true,
+          "casRevisionHashFrameExact": true,
+          "cancelGenerationCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R06-N-commit-aclScopeRechecked",
+      "ruleId": "CAP-11-08-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "commit.aclScopeRechecked",
+      "input": {
+        "commit": {
+          "ownerPortOnly": true,
+          "aclScopeRechecked": false,
+          "casRevisionHashFrameExact": true,
+          "cancelGenerationCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R06-N-commit-casRevisionHashFrameExact",
+      "ruleId": "CAP-11-08-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "commit.casRevisionHashFrameExact",
+      "input": {
+        "commit": {
+          "ownerPortOnly": true,
+          "aclScopeRechecked": true,
+          "casRevisionHashFrameExact": false,
+          "cancelGenerationCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R06-N-commit-cancelGenerationCurrent",
+      "ruleId": "CAP-11-08-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "commit.cancelGenerationCurrent",
+      "input": {
+        "commit": {
+          "ownerPortOnly": true,
+          "aclScopeRechecked": true,
+          "casRevisionHashFrameExact": true,
+          "cancelGenerationCurrent": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R07-P",
+      "ruleId": "CAP-11-08-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "race": {
+          "uniqueNonce": true,
+          "expiryAndReplayChecked": true,
+          "lateAckQuarantined": true,
+          "committedReceiptRetained": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R07-N-race-uniqueNonce",
+      "ruleId": "CAP-11-08-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "race.uniqueNonce",
+      "input": {
+        "race": {
+          "uniqueNonce": false,
+          "expiryAndReplayChecked": true,
+          "lateAckQuarantined": true,
+          "committedReceiptRetained": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R07-N-race-expiryAndReplayChecked",
+      "ruleId": "CAP-11-08-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "race.expiryAndReplayChecked",
+      "input": {
+        "race": {
+          "uniqueNonce": true,
+          "expiryAndReplayChecked": false,
+          "lateAckQuarantined": true,
+          "committedReceiptRetained": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R07-N-race-lateAckQuarantined",
+      "ruleId": "CAP-11-08-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "race.lateAckQuarantined",
+      "input": {
+        "race": {
+          "uniqueNonce": true,
+          "expiryAndReplayChecked": true,
+          "lateAckQuarantined": false,
+          "committedReceiptRetained": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R07-N-race-committedReceiptRetained",
+      "ruleId": "CAP-11-08-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "race.committedReceiptRetained",
+      "input": {
+        "race": {
+          "uniqueNonce": true,
+          "expiryAndReplayChecked": true,
+          "lateAckQuarantined": true,
+          "committedReceiptRetained": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R08-P",
+      "ruleId": "CAP-11-08-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "nc": {
+          "d04d10Distinct": true,
+          "d13UnknownBlocksRelease": true,
+          "d15FromFinalNcIndependent": true,
+          "d16OwnerApprovalOnly": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R08-N-nc-d04d10Distinct",
+      "ruleId": "CAP-11-08-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "nc.d04d10Distinct",
+      "input": {
+        "nc": {
+          "d04d10Distinct": false,
+          "d13UnknownBlocksRelease": true,
+          "d15FromFinalNcIndependent": true,
+          "d16OwnerApprovalOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R08-N-nc-d13UnknownBlocksRelease",
+      "ruleId": "CAP-11-08-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "nc.d13UnknownBlocksRelease",
+      "input": {
+        "nc": {
+          "d04d10Distinct": true,
+          "d13UnknownBlocksRelease": false,
+          "d15FromFinalNcIndependent": true,
+          "d16OwnerApprovalOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R08-N-nc-d15FromFinalNcIndependent",
+      "ruleId": "CAP-11-08-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "nc.d15FromFinalNcIndependent",
+      "input": {
+        "nc": {
+          "d04d10Distinct": true,
+          "d13UnknownBlocksRelease": true,
+          "d15FromFinalNcIndependent": false,
+          "d16OwnerApprovalOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R08-N-nc-d16OwnerApprovalOnly",
+      "ruleId": "CAP-11-08-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "nc.d16OwnerApprovalOnly",
+      "input": {
+        "nc": {
+          "d04d10Distinct": true,
+          "d13UnknownBlocksRelease": true,
+          "d15FromFinalNcIndependent": true,
+          "d16OwnerApprovalOnly": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R09-P",
+      "ruleId": "CAP-11-08-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "ui": {
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": true,
+          "guiCliAgentSamePort": true,
+          "fontLimit12": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R09-N-ui-singleBabylonWorld",
+      "ruleId": "CAP-11-08-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.singleBabylonWorld",
+      "input": {
+        "ui": {
+          "singleBabylonWorld": false,
+          "leftTaskPanelOnly": true,
+          "guiCliAgentSamePort": true,
+          "fontLimit12": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R09-N-ui-leftTaskPanelOnly",
+      "ruleId": "CAP-11-08-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.leftTaskPanelOnly",
+      "input": {
+        "ui": {
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": false,
+          "guiCliAgentSamePort": true,
+          "fontLimit12": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R09-N-ui-guiCliAgentSamePort",
+      "ruleId": "CAP-11-08-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.guiCliAgentSamePort",
+      "input": {
+        "ui": {
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": true,
+          "guiCliAgentSamePort": false,
+          "fontLimit12": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R09-N-ui-fontLimit12",
+      "ruleId": "CAP-11-08-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.fontLimit12",
+      "input": {
+        "ui": {
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": true,
+          "guiCliAgentSamePort": true,
+          "fontLimit12": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R10-P",
+      "ruleId": "CAP-11-08-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "audit": {
+          "appendOnlyRedacted": true,
+          "independentConsumerGate": true,
+          "migrationReadOnlyRollback": true,
+          "ownerSignoffPending": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R10-N-audit-appendOnlyRedacted",
+      "ruleId": "CAP-11-08-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "audit.appendOnlyRedacted",
+      "input": {
+        "audit": {
+          "appendOnlyRedacted": false,
+          "independentConsumerGate": true,
+          "migrationReadOnlyRollback": true,
+          "ownerSignoffPending": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R10-N-audit-independentConsumerGate",
+      "ruleId": "CAP-11-08-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "audit.independentConsumerGate",
+      "input": {
+        "audit": {
+          "appendOnlyRedacted": true,
+          "independentConsumerGate": false,
+          "migrationReadOnlyRollback": true,
+          "ownerSignoffPending": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R10-N-audit-migrationReadOnlyRollback",
+      "ruleId": "CAP-11-08-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "audit.migrationReadOnlyRollback",
+      "input": {
+        "audit": {
+          "appendOnlyRedacted": true,
+          "independentConsumerGate": true,
+          "migrationReadOnlyRollback": false,
+          "ownerSignoffPending": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-08-R10-N-audit-ownerSignoffPending",
+      "ruleId": "CAP-11-08-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "audit.ownerSignoffPending",
+      "input": {
+        "audit": {
+          "appendOnlyRedacted": true,
+          "independentConsumerGate": true,
+          "migrationReadOnlyRollback": true,
+          "ownerSignoffPending": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "transitions": [
+    {
+      "id": "AUTH-01",
+      "label": "预检有效",
+      "state": "REQUESTED",
+      "event": "PREFLIGHT",
+      "ctx": {
+        "policyFresh": true,
+        "scopeValid": true,
+        "evidencePinned": true
+      },
+      "expected": "REVIEW_READY",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-02",
+      "label": "预检拒绝：policyFresh",
+      "state": "REQUESTED",
+      "event": "PREFLIGHT",
+      "ctx": {
+        "policyFresh": false,
+        "scopeValid": true,
+        "evidencePinned": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-03",
+      "label": "预检拒绝：scopeValid",
+      "state": "REQUESTED",
+      "event": "PREFLIGHT",
+      "ctx": {
+        "policyFresh": true,
+        "scopeValid": false,
+        "evidencePinned": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-04",
+      "label": "预检拒绝：evidencePinned",
+      "state": "REQUESTED",
+      "event": "PREFLIGHT",
+      "ctx": {
+        "policyFresh": true,
+        "scopeValid": true,
+        "evidencePinned": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-05",
+      "label": "批准界面可见",
+      "state": "REVIEW_READY",
+      "event": "REQUEST_APPROVAL",
+      "ctx": {
+        "riskDisclosure": true,
+        "approverSeparated": true
+      },
+      "expected": "PENDING_REVIEW",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-06",
+      "label": "审核拒绝：riskDisclosure",
+      "state": "REVIEW_READY",
+      "event": "REQUEST_APPROVAL",
+      "ctx": {
+        "riskDisclosure": false,
+        "approverSeparated": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-07",
+      "label": "审核拒绝：approverSeparated",
+      "state": "REVIEW_READY",
+      "event": "REQUEST_APPROVAL",
+      "ctx": {
+        "riskDisclosure": true,
+        "approverSeparated": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-08",
+      "label": "真实人类审批",
+      "state": "PENDING_REVIEW",
+      "event": "APPROVE",
+      "ctx": {
+        "authenticated": true,
+        "digestMatched": true,
+        "targetPinned": true,
+        "expired": false,
+        "agentSelfApproved": false
+      },
+      "expected": "APPROVED",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-09",
+      "label": "审批拒绝：authenticated",
+      "state": "PENDING_REVIEW",
+      "event": "APPROVE",
+      "ctx": {
+        "authenticated": false,
+        "digestMatched": true,
+        "targetPinned": true,
+        "expired": false,
+        "agentSelfApproved": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-10",
+      "label": "审批拒绝：digestMatched",
+      "state": "PENDING_REVIEW",
+      "event": "APPROVE",
+      "ctx": {
+        "authenticated": true,
+        "digestMatched": false,
+        "targetPinned": true,
+        "expired": false,
+        "agentSelfApproved": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-11",
+      "label": "审批拒绝：targetPinned",
+      "state": "PENDING_REVIEW",
+      "event": "APPROVE",
+      "ctx": {
+        "authenticated": true,
+        "digestMatched": true,
+        "targetPinned": false,
+        "expired": false,
+        "agentSelfApproved": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-12",
+      "label": "审批拒绝：expired",
+      "state": "PENDING_REVIEW",
+      "event": "APPROVE",
+      "ctx": {
+        "authenticated": true,
+        "digestMatched": true,
+        "targetPinned": true,
+        "expired": true,
+        "agentSelfApproved": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-13",
+      "label": "审批拒绝：agentSelfApproved",
+      "state": "PENDING_REVIEW",
+      "event": "APPROVE",
+      "ctx": {
+        "authenticated": true,
+        "digestMatched": true,
+        "targetPinned": true,
+        "expired": false,
+        "agentSelfApproved": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-14",
+      "label": "人工拒绝",
+      "state": "PENDING_REVIEW",
+      "event": "DECLINE",
+      "ctx": {},
+      "expected": "DENIED",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-15",
+      "label": "Owner准备提交",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "COMMIT_READY",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-16",
+      "label": "D13未知语义",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": false,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-17",
+      "label": "Owner拒绝：ownerPort",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": false,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-18",
+      "label": "Owner拒绝：aclCurrent",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": false,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-19",
+      "label": "Owner拒绝：casExact",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": false,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-20",
+      "label": "Owner拒绝：cancelCurrent",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": false,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-21",
+      "label": "Owner拒绝：frameExact",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": false,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-22",
+      "label": "Owner拒绝：scopeCurrent",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": false,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-23",
+      "label": "Owner拒绝：frozenProtected",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": false,
+        "nonceUnused": true,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-24",
+      "label": "Owner拒绝：nonceUnused",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": false,
+        "approvalCurrent": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-25",
+      "label": "Owner拒绝：approvalCurrent",
+      "state": "APPROVED",
+      "event": "COMMIT",
+      "ctx": {
+        "semanticKnown": true,
+        "ownerPort": true,
+        "aclCurrent": true,
+        "casExact": true,
+        "cancelCurrent": true,
+        "frameExact": true,
+        "scopeCurrent": true,
+        "frozenProtected": true,
+        "nonceUnused": true,
+        "approvalCurrent": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-26",
+      "label": "撤销未提交",
+      "state": "PENDING_REVIEW",
+      "event": "CANCEL",
+      "ctx": {
+        "ownerCommitProven": false
+      },
+      "expected": "CANCELLED",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-27",
+      "label": "撤销已提交需对账",
+      "state": "APPROVED",
+      "event": "CANCEL",
+      "ctx": {
+        "ownerCommitProven": true
+      },
+      "expected": "RECONCILE_COMMITTED",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-28",
+      "label": "取消后晚ACK无提交证据",
+      "state": "CANCELLED",
+      "event": "LATE_ACK",
+      "ctx": {
+        "ownerCommitProven": false
+      },
+      "expected": "QUARANTINED",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-29",
+      "label": "取消后晚ACK已提交",
+      "state": "CANCELLED",
+      "event": "LATE_ACK",
+      "ctx": {
+        "ownerCommitProven": true
+      },
+      "expected": "RECONCILE_COMMITTED",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-30",
+      "label": "重试已提交",
+      "state": "COMMITTED",
+      "event": "RETRY",
+      "ctx": {
+        "ownerCommitProven": true
+      },
+      "expected": "EXISTING_RECEIPT",
+      "synthetic": true
+    },
+    {
+      "id": "AUTH-31",
+      "label": "重试未证实提交",
+      "state": "COMMITTING",
+      "event": "RETRY",
+      "ctx": {
+        "ownerCommitProven": false
+      },
+      "expected": "RECONCILE_REQUIRED",
+      "synthetic": true
+    }
+  ],
+  "crossCases": [
+    {
+      "id": "CROSS-P",
+      "flags": {
+        "d08Frozen": true,
+        "d04D10Separated": true,
+        "d13Known": true,
+        "d15FromFinalNC": true,
+        "d16IndependentApprover": true
+      },
+      "expected": "RELEASE_REVIEW_ONLY"
+    },
+    {
+      "id": "CROSS-N-1",
+      "mutatedField": "d08Frozen",
+      "flags": {
+        "d08Frozen": false,
+        "d04D10Separated": true,
+        "d13Known": true,
+        "d15FromFinalNC": true,
+        "d16IndependentApprover": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "CROSS-N-2",
+      "mutatedField": "d04D10Separated",
+      "flags": {
+        "d08Frozen": true,
+        "d04D10Separated": false,
+        "d13Known": true,
+        "d15FromFinalNC": true,
+        "d16IndependentApprover": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "CROSS-N-3",
+      "mutatedField": "d13Known",
+      "flags": {
+        "d08Frozen": true,
+        "d04D10Separated": true,
+        "d13Known": false,
+        "d15FromFinalNC": true,
+        "d16IndependentApprover": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "CROSS-N-4",
+      "mutatedField": "d15FromFinalNC",
+      "flags": {
+        "d08Frozen": true,
+        "d04D10Separated": true,
+        "d13Known": true,
+        "d15FromFinalNC": false,
+        "d16IndependentApprover": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "CROSS-N-5",
+      "mutatedField": "d16IndependentApprover",
+      "flags": {
+        "d08Frozen": true,
+        "d04D10Separated": true,
+        "d13Known": true,
+        "d15FromFinalNC": true,
+        "d16IndependentApprover": false
+      },
+      "expected": "REJECT"
+    }
+  ]
+}

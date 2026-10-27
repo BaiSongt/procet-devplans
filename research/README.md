@@ -1,3 +1,6 @@
+## 2026-10-27｜R-HUMAN-AUTH-001 人机授权、审批与Owner职责
+[来源作者/版本/访问深度和限制](sources/CAP-11-08.json) → [10规则40字段/T5-01/T5-02](traces/CAP-11-08.json) → [87项字段/状态/NC隔离合成](../docs/capabilities/CAP-11-08/fixtures.json) → [工程推导](topics/R-HUMAN-AUTH-001.md)。NIST仅官方出版摘要、OWASP仅资源页介绍、MCP 2026-07-28仅公开授权/安全章节；983登记/115 Registry（非去重）。实际Owner、Node、消费者、机床NOT_RUN，Owner/L3待人类，规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-KNOWLEDGE-FEEDBACK-001 知识反馈、来源血缘与受控回退
 [十项来源/作者版本/访问层级/未读局限](sources/CAP-11-07.json) → [十规则40字段/T5-01及T5-02](traces/CAP-11-07.json) → [50正反+24状态+6血缘DAG](../docs/capabilities/CAP-11-07/fixtures.json) → [理论推导与禁用假设](topics/R-KNOWLEDGE-FEEDBACK-001.md)。ISO10007仅读官方目录、NIST只出版摘要，非标准全文；973登记/114 Registry（非去重）。Owner/L3待人类、实际消费者/NC NOT_RUN，规划PASS≠产品PASS。
 
