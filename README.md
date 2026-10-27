@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-05《工艺推荐与方案解释》V0.8实施级规划（L3待审）
+[十项实施](docs/capabilities/CAP-11-05/README.md) · [GUI/3D](docs/capabilities/CAP-11-05/UI.md) · [精确合同](docs/capabilities/CAP-11-05/recommendation-contract.example.json) · [10合法来源](research/sources/CAP-11-05.json) → [10规则40字段](research/traces/CAP-11-05.json) → [50正反+24状态+2公式](docs/capabilities/CAP-11-05/fixtures.json) · [跨域Owner/独立消费者](docs/capabilities/CAP-11-05/independent-consumer-handoff.md)。累计**83/88 CAP、36/36原包研究追踪、953来源登记/112 Registry**（非去重）；76/76仅V8规划合成，独立Node/真实刀具数据库/NC/B5/消费者NOT_RUN。公式有单位但非推荐认证；17Owner/L3、历史原字节、11域终核、全仓矩阵仍待。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-11-04《工具调用与智能体编排》V0.8实施级规划（L3待审）
 [十项实施](docs/capabilities/CAP-11-04/README.md) · [GUI/3D](docs/capabilities/CAP-11-04/UI.md) · [Agent合同](docs/capabilities/CAP-11-04/agent-orchestration-contract.json) · [10合法公开来源](research/sources/CAP-11-04.json) → [10规则40字段](research/traces/CAP-11-04.json) → [50逐字段正反+24门禁](docs/capabilities/CAP-11-04/fixtures.json) · [独立消费者](docs/capabilities/CAP-11-04/independent-consumer-handoff.md)。累计**82/88 CAP、36/36原包、943登记/111 Registry（非去重）**；V8合成74/74，独立Node/实际Owner/Agent/NC/B5/消费者NOT_RUN。17Owner正式会签、L3待人类；历史原字节/11域研究终核及全仓风险交接未闭合。**规划PASS≠产品PASS**。
 
