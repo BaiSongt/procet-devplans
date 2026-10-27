@@ -1,3 +1,6 @@
+## 2026-10-27｜R-RELEASE-APPROVAL-001 审签、密钥与离线信任
+[理论与局限](topics/R-RELEASE-APPROVAL-001.md) → [9官方来源](sources/CAP-10-02.json) → [10条逐字段规则](traces/CAP-10-02.json) → [70字段+14状态](../docs/capabilities/CAP-10-02/fixtures.json)。累计852登记/101 Registry非去重；NIST仅官方著录摘要、ISO仅目录，RFC/TUF/W3C读取公开正文；未做真实签名/独立验签。17资产Owner/L3待人类。规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-RELEASE-PACK-001 NC发布包、指纹与离线可信边界
 [理论/局限](topics/R-RELEASE-PACK-001.md) → [9来源/合法访问深度](sources/CAP-10-01.json) → [10条逐字段规则](traces/CAP-10-01.json) → [30固定正反+40独立变异+18状态](../docs/capabilities/CAP-10-01/fixtures.json)。累计843登记/100 Registry非去重；ISO目录、NIST摘要不能代替未读正文，TUF/SLSA仅作为发布威胁模型参考；L3/17Owner待审、独立Node和真实消费者NOT_RUN。规划PASS≠产品PASS。
 

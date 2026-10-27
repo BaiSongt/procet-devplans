@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-10-02《发布审批与签发》实施级规划（L3待审）
+[10子任务与原目标](docs/capabilities/CAP-10-02/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-10-02/UI.md) · [9项官方来源及阅读深度](research/sources/CAP-10-02.json) → [10规则40字段](research/traces/CAP-10-02.json) → [70逐字段正反+14状态门禁](docs/capabilities/CAP-10-02/fixtures.json) · [独立收方与回退](docs/capabilities/CAP-10-02/independent-consumer-handoff.md)。累计**72/88详细CAP、36/36原工作包和追踪、852登记/101 Registry（非去重）**。仅V8等价内存84/84合成，独立Node/真实签名/控制器/B5/离线消费者NOT_RUN。CAP-10-01候选≠签发；签名数学正确≠D15物理工程安全；失效/撤权/UNKNOWN阻D16。17资产Owner/L3待人类，历史附件和全仓交叉未闭合。规划PASS≠产品PASS。
+
 ## 2026-10-27｜CAP-10-01《程序发布包》候选封装规划（L3待审）
 [十项实施及原目标](docs/capabilities/CAP-10-01/README.md) · [单Babylon和左TaskPanel](docs/capabilities/CAP-10-01/UI.md) · [9官方合法来源](research/sources/CAP-10-01.json) → [10规则×4字段](research/traces/CAP-10-01.json) → [30正反+40全字段变异+18门禁](docs/capabilities/CAP-10-01/fixtures.json) · [独立消费者/回退](docs/capabilities/CAP-10-01/independent-consumer-handoff.md)。累计**71/88详细CAP、36/36原包研究追踪、843条来源登记/100 Registry（非去重）**。仅V8等价内存88/88合成，不等于独立Node、真实NC/OCCT/三轴/B5/离线消费者PASS。10域D16候选不等于CAP-10-02签发，UNKNOWN与CL_ONLY不得上机；17Owner与L3待人类。**规划PASS≠产品PASS**。以下历史快照。
 
