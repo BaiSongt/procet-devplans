@@ -1,3 +1,6 @@
+## 2026-10-27｜CAP-11-07《知识反馈与版本管理》V0.8实施级规划（L3待审）
+[十项任务/原业务](docs/capabilities/CAP-11-07/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-07/UI.md) · [版本候选合同](docs/capabilities/CAP-11-07/knowledge-feedback-contract.example.json) · [10份官方来源/合法阅读深度](research/sources/CAP-11-07.json) → [10规则40字段](research/traces/CAP-11-07.json) → [50独立正反+24状态+6血缘DAG](docs/capabilities/CAP-11-07/fixtures.json) · [17候选Owner及独立消费](docs/capabilities/CAP-11-07/independent-consumer-handoff.md)。累计**85/88详细CAP、36/36原包研究追踪、973登记/114 Registry**（非去重）；静态规划合成不等于实际独立Node、知识CAS、NC/B5或消费者PASS。新知识修订及撤销只追加，不能覆盖冻结A/B，D13 UNKNOWN阻D16；17Owner/L3、历史原始附件与最终11域矩阵待办。**规划PASS≠产品PASS**。
+
 ## 2026-10-27｜CAP-11-06《智能任务与长时作业》V0.8实施级规划（L3待审）
 [十项施工及状态契约](docs/capabilities/CAP-11-06/README.md) · [单Babylon/左TaskPanel](docs/capabilities/CAP-11-06/UI.md) · [10官方公开来源](research/sources/CAP-11-06.json) → [10规则40字段](research/traces/CAP-11-06.json) → [50逐字段正反+28异步门禁+4 DAG](docs/capabilities/CAP-11-06/fixtures.json) · [17 Owner候选/独立消费者](docs/capabilities/CAP-11-06/independent-consumer-handoff.md)。**84/88 CAP、36/36原包追踪、963登记/113 Registry（非去重）**。V8合成82/82仅规划，独立Node文件/真实Worker/Owner事务/NC/B5/消费者NOT_RUN；MCP Tasks 2025实验版与SEP-2663 Extension不默认兼容。取消先对账、不删除已提交事实，迟到ACK不得复活任务；17资产正式会签/L3、11域终核、历史原字节、全仓矩阵仍待。**规划PASS≠产品PASS**。
 

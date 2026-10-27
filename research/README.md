@@ -1,3 +1,6 @@
+## 2026-10-27｜R-KNOWLEDGE-FEEDBACK-001 知识反馈、来源血缘与受控回退
+[十项来源/作者版本/访问层级/未读局限](sources/CAP-11-07.json) → [十规则40字段/T5-01及T5-02](traces/CAP-11-07.json) → [50正反+24状态+6血缘DAG](../docs/capabilities/CAP-11-07/fixtures.json) → [理论推导与禁用假设](topics/R-KNOWLEDGE-FEEDBACK-001.md)。ISO10007仅读官方目录、NIST只出版摘要，非标准全文；973登记/114 Registry（非去重）。Owner/L3待人类、实际消费者/NC NOT_RUN，规划PASS≠产品PASS。
+
 ## 2026-10-27｜R-DURABLE-AI-TASKS-001 异步状态、恢复、幂等与取消竞争
 [10份合法来源/版本/章节深度/未读局限](sources/CAP-11-06.json) → [十规则/40字段/T5-01、T5-02](traces/CAP-11-06.json) → [50字段正反+28状态+4 DAG合成](../docs/capabilities/CAP-11-06/fixtures.json) → [理论推导及禁用假设](topics/R-DURABLE-AI-TASKS-001.md)。MCP2025实验Tasks与SEP-2663 Extension协议未默认兼容；Temporal仅参考设计、RFC9110§9.2.2可查，NIST仅出版摘要。累计963条登记/113 Registry，非去重论文；独立Node/真实产品/消费者NOT_RUN，Owner/L3待审。**规划PASS≠产品PASS**。
 
