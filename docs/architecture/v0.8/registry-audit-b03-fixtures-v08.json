@@ -1,0 +1,2196 @@
+{
+  "schemaVersion": "procet-registry-audit-fixtures-v08",
+  "audit": "research/audits/REGISTRY-AUDIT-B03-2026-10-28.json",
+  "trace": "research/traces/REGISTRY-AUDIT-B03-V08.json",
+  "summary": {
+    "positive": 10,
+    "independentSingleFieldNegative": 100,
+    "gates": 8,
+    "total": 118
+  },
+  "cases": [
+    {
+      "id": "RA3-P01",
+      "ruleId": "RA3-R01",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N01-sourceId",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-registryPath",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-registryBlobSha",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-sourceUrl",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-readDepth",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-capabilityId",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-originalWorkPackageId",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-fieldPath",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-L3",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N01-product",
+      "ruleId": "RA3-R01",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "B004-S02",
+        "registryPath": "research/sources/B0-04.json",
+        "registryBlobSha": "8ef31ffa763b8372122025ee9440eff90d3e9e64",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/commands/cargo-vendor.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-04",
+        "fieldPath": "build.offlineVendorManifestHash",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P02",
+      "ruleId": "RA3-R02",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N02-sourceId",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-registryPath",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-registryBlobSha",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-sourceUrl",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-readDepth",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-capabilityId",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-originalWorkPackageId",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-fieldPath",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-L3",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N02-product",
+      "ruleId": "RA3-R02",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-REG-003",
+        "registryPath": "research/sources/CAP-04-02.json",
+        "registryBlobSha": "61a71f064627f08129a55f8ca38f8b0c87dca1e4",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.stockPartFrameCompositionOrder",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P03",
+      "ruleId": "RA3-R03",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N03-sourceId",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-registryPath",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-registryBlobSha",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-sourceUrl",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-readDepth",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-capabilityId",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-originalWorkPackageId",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-fieldPath",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-L3",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N03-product",
+      "ruleId": "RA3-R03",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-UI3D-001",
+        "registryPath": "research/sources/CAP-01-07.json",
+        "registryBlobSha": "c800cb1630f8c90845bb694213b29d1a37717b8c",
+        "sourceUrl": "https://www.w3.org/TR/pointerevents3/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-07",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "ui.pointerOwnerCaptureGeneration",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P04",
+      "ruleId": "RA3-R04",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N04-sourceId",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-registryPath",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-registryBlobSha",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-sourceUrl",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-readDepth",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-capabilityId",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-originalWorkPackageId",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-fieldPath",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-L3",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N04-product",
+      "ruleId": "RA3-R04",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-EXT-001",
+        "registryPath": "research/sources/CAP-01-08.json",
+        "registryBlobSha": "704e2172f97e3f1a5b5d285505c6556dce5efcf0",
+        "sourceUrl": "https://v2.tauri.app/security/capabilities/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "extension.windowCapabilityScopeEpoch",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P05",
+      "ruleId": "RA3-R05",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N05-sourceId",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-registryPath",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-registryBlobSha",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-sourceUrl",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-readDepth",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-capabilityId",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-originalWorkPackageId",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-fieldPath",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-L3",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N05-product",
+      "ruleId": "RA3-R05",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-FIX-002",
+        "registryPath": "research/sources/CAP-04-03.json",
+        "registryBlobSha": "c4f0e4efe56476ede41c1107a935cd994d64d990",
+        "sourceUrl": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-03",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "fixture.clampForceToLocatorEvidence",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P06",
+      "ruleId": "RA3-R06",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N06-sourceId",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-registryPath",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-registryBlobSha",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-sourceUrl",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-readDepth",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-capabilityId",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-originalWorkPackageId",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-fieldPath",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-L3",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N06-product",
+      "ruleId": "RA3-R06",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-CUT-005",
+        "registryPath": "research/sources/CAP-02-02.json",
+        "registryBlobSha": "58be124c0e3fb5f139d17a857468bae07e370e18",
+        "sourceUrl": "https://www.sandvik.coromant.com/en-gb/knowledge/machining-formulas-definitions/milling-formulas-definitions",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-02-02",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "cutting.feedRateFormulaUnits",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P07",
+      "ruleId": "RA3-R07",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N07-sourceId",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-registryPath",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-registryBlobSha",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-sourceUrl",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-readDepth",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-capabilityId",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-originalWorkPackageId",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-fieldPath",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-L3",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N07-product",
+      "ruleId": "RA3-R07",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "B005-S02",
+        "registryPath": "research/sources/B0-05.json",
+        "registryBlobSha": "276113e26e0a731f30c192a672aa45980bbeb5b3",
+        "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-08",
+        "originalWorkPackageId": "B0-05",
+        "fieldPath": "release.requiredChecksAndApprovalsSnapshot",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P08",
+      "ruleId": "RA3-R08",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N08-sourceId",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-registryPath",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-registryBlobSha",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-sourceUrl",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-readDepth",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-capabilityId",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-originalWorkPackageId",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-fieldPath",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-L3",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N08-product",
+      "ruleId": "RA3-R08",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-MSET-007",
+        "registryPath": "research/sources/CAP-04-05.json",
+        "registryBlobSha": "29e8dba196ee292519c45a5eecc64843bc509c3a",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00170-026-17859-3",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-05",
+        "originalWorkPackageId": "W2-05",
+        "fieldPath": "setup.tadTolerancePrecedenceGraph",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P09",
+      "ruleId": "RA3-R09",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N09-sourceId",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-registryPath",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-registryBlobSha",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-sourceUrl",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-readDepth",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-capabilityId",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-originalWorkPackageId",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-fieldPath",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-L3",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N09-product",
+      "ruleId": "RA3-R09",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "FRAME-S06",
+        "registryPath": "research/sources/CAP-04-04.json",
+        "registryBlobSha": "29c698296231c483943eda043a5373bb7d2a944e",
+        "sourceUrl": "https://www.nist.gov/publications/guidelines-registration-two-coordinate-frames",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-04-04",
+        "originalWorkPackageId": "F1-04",
+        "fieldPath": "frame.registrationResidualAndNoiseModel",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-P10",
+      "ruleId": "RA3-R10",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA3-N10-sourceId",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-INVALID",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-registryPath",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "registryPath",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/MISSING.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-registryBlobSha",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-sourceUrl",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-readDepth",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "UNREAD_FULLTEXT",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-capabilityId",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-originalWorkPackageId",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-fieldPath",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "not.the.rule",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-L3",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA3-N10-product",
+      "ruleId": "RA3-R10",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-TASK-001",
+        "registryPath": "research/sources/CAP-01-06.json",
+        "registryBlobSha": "12307113df9c31aaa40b5e5ae561d790ca36b8b0",
+        "sourceUrl": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-06",
+        "originalWorkPackageId": "U4-01",
+        "fieldPath": "task.eventIdSpecversionDedupeKey",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    }
+  ],
+  "gates": [
+    {
+      "id": "RA3-G01",
+      "action": "COMMIT",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "cancelled": false,
+        "epochChanged": false,
+        "revisionMatch": true,
+        "lateAck": false
+      },
+      "expected": "OWNER_REVALIDATE"
+    },
+    {
+      "id": "RA3-G02",
+      "action": "COMMIT",
+      "input": {
+        "acl": false,
+        "cas": true,
+        "cancelled": false,
+        "epochChanged": false,
+        "revisionMatch": true,
+        "lateAck": false
+      },
+      "expected": "DENY"
+    },
+    {
+      "id": "RA3-G03",
+      "action": "COMMIT",
+      "input": {
+        "acl": true,
+        "cas": false,
+        "cancelled": false,
+        "epochChanged": false,
+        "revisionMatch": true,
+        "lateAck": false
+      },
+      "expected": "DENY"
+    },
+    {
+      "id": "RA3-G04",
+      "action": "COMMIT",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "cancelled": true,
+        "epochChanged": false,
+        "revisionMatch": true,
+        "lateAck": false
+      },
+      "expected": "DENY"
+    },
+    {
+      "id": "RA3-G05",
+      "action": "COMMIT",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "cancelled": false,
+        "epochChanged": false,
+        "revisionMatch": true,
+        "lateAck": true
+      },
+      "expected": "DENY"
+    },
+    {
+      "id": "RA3-G06",
+      "action": "RELEASE",
+      "input": {
+        "ncProduced": false,
+        "semanticKnown": false,
+        "axisTimeline": false,
+        "validated": false,
+        "clAnimation": true
+      },
+      "expected": "BLOCK_RELEASE"
+    },
+    {
+      "id": "RA3-G07",
+      "action": "RELEASE",
+      "input": {
+        "ncProduced": true,
+        "semanticKnown": false,
+        "axisTimeline": true,
+        "validated": true,
+        "clAnimation": true
+      },
+      "expected": "BLOCK_RELEASE"
+    },
+    {
+      "id": "RA3-G08",
+      "action": "RELEASE",
+      "input": {
+        "ncProduced": true,
+        "semanticKnown": true,
+        "axisTimeline": true,
+        "validated": true,
+        "clAnimation": false
+      },
+      "expected": "HUMAN_REVIEW_REQUIRED"
+    }
+  ]
+}

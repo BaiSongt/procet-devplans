@@ -1,3 +1,6 @@
+## 2026-10-28｜Registry第三批研究原字节审计：累计30/127份、225/1075条
+[第三批证据、字段与失效风险](docs/architecture/v0.8/研究注册第三批证据审计_2026-10-28.md) · [10份原Blob与10条公开资料复核](research/audits/REGISTRY-AUDIT-B03-2026-10-28.json) → [10工程规则及字段/CAP/原包](research/traces/REGISTRY-AUDIT-B03-V08.json) → [118正反/门禁案例](docs/architecture/v0.8/registry-audit-b03-fixtures-v08.json)。本批71条中22条无内联rules，须跨Trace核对；Node、产品与独立消费者NOT_RUN，Owner与L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜127份Registry第二批证据审计：累计20份154条
 [第二批研究结论及风险](docs/architecture/v0.8/研究注册第二批证据审计_2026-10-28.md) · [10份原Blob及10官方HTML证据](research/audits/REGISTRY-AUDIT-B02-2026-10-28.json) → [10规则/字段/CAP/原工作包](research/traces/REGISTRY-AUDIT-B02-V08.json) → [10正90反8门禁](docs/architecture/v0.8/registry-audit-b02-fixtures-v08.json)。累计20/127 Registry、154/1075登记结构审计；16项官方外页当轮重核；V8等价108/108，Node/NC/B5/消费者NOT_RUN，Owner和L3待审。规划PASS≠产品PASS。
 
