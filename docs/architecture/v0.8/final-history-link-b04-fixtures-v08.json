@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "procet-v08-link-scan-gates-b04-v1",
+  "description": "B04-P01为真实GitHub读取下的局部审计合格；B04-P02仅合成全量示意，不是现行全仓PASS。",
+  "observedActual": {
+    "exactHead": "ddb7d3105b5fc476162157a0d789d7b3a2985a86",
+    "markdownTotal": 531,
+    "readCount": 96,
+    "relativeDestinations": 290,
+    "shaMismatches": 0,
+    "missingLinks": 0,
+    "outsideRepo": 0,
+    "parser": "REGEX_HEURISTIC",
+    "anchorsChecked": false,
+    "htmlChecked": false,
+    "fullScanClaim": false,
+    "historyStatus": "OPEN_MISSING_ORIGINALS",
+    "fakeRecovery": false,
+    "ownerCount": 0,
+    "consumerCount": 0,
+    "productPass": false
+  },
+  "syntheticOnlyFullExample": {
+    "exactHead": "ddb7d3105b5fc476162157a0d789d7b3a2985a86",
+    "markdownTotal": 531,
+    "readCount": 531,
+    "relativeDestinations": 290,
+    "shaMismatches": 0,
+    "missingLinks": 0,
+    "outsideRepo": 0,
+    "parser": "COMMONMARK_AST",
+    "anchorsChecked": true,
+    "htmlChecked": true,
+    "fullScanClaim": true,
+    "historyStatus": "OPEN_MISSING_ORIGINALS",
+    "fakeRecovery": false,
+    "ownerCount": 0,
+    "consumerCount": 0,
+    "productPass": false
+  },
+  "cases": [
+    {
+      "id": "B04-P01",
+      "input": "observedActual",
+      "gate": "batch",
+      "expected": true
+    },
+    {
+      "id": "B04-P02",
+      "input": "syntheticOnlyFullExample",
+      "gate": "full",
+      "expected": true
+    },
+    {
+      "id": "B04-OBS-NOT-FULL",
+      "input": "observedActual",
+      "gate": "full",
+      "expected": false
+    }
+  ],
+  "negativeCases": [
+    {
+      "id": "B04-N01",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "exactHead": "0000000000000000000000000000000000000000"
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N02",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "markdownTotal": 530
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N03",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "readCount": 95
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N04",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "parser": "COMMONMARK_AST"
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N05",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "anchorsChecked": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N06",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "htmlChecked": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N07",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "fullScanClaim": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N08",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "relativeDestinations": 289
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N09",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "shaMismatches": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N10",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "missingLinks": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N11",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "outsideRepo": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N12",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "historyStatus": "RECOVERED_ORIGINAL"
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N13",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "fakeRecovery": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N14",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "ownerCount": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N15",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "consumerCount": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N16",
+      "base": "observedActual",
+      "gate": "batch",
+      "oneFieldOverride": {
+        "productPass": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N17",
+      "base": "syntheticOnlyFullExample",
+      "gate": "full",
+      "oneFieldOverride": {
+        "readCount": 530
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N18",
+      "base": "syntheticOnlyFullExample",
+      "gate": "full",
+      "oneFieldOverride": {
+        "parser": "REGEX_HEURISTIC"
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N19",
+      "base": "syntheticOnlyFullExample",
+      "gate": "full",
+      "oneFieldOverride": {
+        "anchorsChecked": false
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N20",
+      "base": "syntheticOnlyFullExample",
+      "gate": "full",
+      "oneFieldOverride": {
+        "htmlChecked": false
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N21",
+      "base": "syntheticOnlyFullExample",
+      "gate": "full",
+      "oneFieldOverride": {
+        "missingLinks": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B04-N22",
+      "base": "syntheticOnlyFullExample",
+      "gate": "full",
+      "oneFieldOverride": {
+        "outsideRepo": 1
+      },
+      "expected": false
+    }
+  ],
+  "memoryEquivalentAssertionsPassed": 25,
+  "standaloneNodeFileProcess": "NOT_RUN"
+}

@@ -28,3 +28,8 @@
 ## 2026-10-28新增：17资产Owner/消费者交叉评审
 
 [候选矩阵与交接](17资产Owner接口交叉核验_2026-10-28.md) · [结构化Owner端口](owner-interface-review-v08.json) · [正反场景](owner-port-review-fixtures.json) · [对应研究](../../../research/topics/R-ASSET-OWNER-INTERFACE-001.md)。原业务资产基线不修改；17份Owner正式签署与独立消费者验收未完成。
+
+
+## 2026-10-29｜最终引用审计B04
+
+[第四轮链接与跨HEAD审计](第四轮Markdown链接审计与跨HEAD失效_2026-10-29.md) · [96份Blob-SHA清单](../../../research/audits/FINAL-HISTORY-LINK-B04-2026-10-29.json) · [25项设计门禁](final-history-link-b04-fixtures-v08.json)。此轮只验证部分启发式相对链接，不代表全仓、L3或产品验收通过。

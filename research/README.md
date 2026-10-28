@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B04：冻结96文件路径SHA与链接增量复查
+[96份Git Blob/290项相对目的地及前轮样本失效分级](audits/FINAL-HISTORY-LINK-B04-2026-10-29.json) → [五条来源/字段/CAP/原包规则](traces/FINAL-HISTORY-LINK-B04-V08.json) → [25项规划正反门禁](../docs/architecture/v0.8/final-history-link-b04-fixtures-v08.json) → [只读Node](../tools/check_final_history_link_b04_v08.cjs) · [来源深度和后续交接](../docs/architecture/v0.8/第四轮Markdown链接审计与跨HEAD失效_2026-10-29.md)。**仅本轮96份明确清单校验、290项启发式路径0缺失；531份快照未全读，旧快照150份未给路径清单，不能拼成全仓PASS。** Owner/L3/NC/B5/独立消费者仍未通过。规划PASS≠产品PASS。
+
 ## 2026-10-29｜R-FINAL-HISTORY-LINK-B03：文件引用与原字节真实性
 [150份Git Blob的1273项相对目的地样本和5类历史原件缺口](audits/FINAL-HISTORY-LINK-B03-2026-10-29.json) → [6条规则与字段/CAP/包](traces/FINAL-HISTORY-LINK-B03-V08.json) → [17项合成正反门禁](../docs/architecture/v0.8/final-history-link-b03-fixtures-v08.json) · [只读Node](../tools/check_final_history_link_b03_v08.cjs) · [来源深度与交接](../docs/architecture/v0.8/最终附件原字节与链接闭环第三轮_2026-10-29.md)。**380份MD待扫、原字节未恢复，完全终核不通过；L3/Owner/产品未验收。**
 
