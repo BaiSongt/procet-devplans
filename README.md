@@ -1,3 +1,6 @@
+## 2026-10-28｜第七批Registry原Blob审计：70/127份、576/1075条
+[第61—70份91来源及10条外部官方公开页](research/audits/REGISTRY-AUDIT-B07-2026-10-28.json) → [U4-02原WCAG证据补证](research/traces/U4-02-accessibility-supplement-v08.json) → [34项规划正反/门禁合成](docs/architecture/v0.8/registry-audit-b07-fixtures-v08.json) · [研究结论](docs/architecture/v0.8/研究注册第七批证据审计_2026-10-28.md) · [只读Node校验器](tools/check_registry_audit_b07_v08.cjs)。原同名Trace90/91显式，补余下1条，历史字节/312映射不变。**内存规划断言通过≠Node进程执行≠产品通过**；Owner会签0/17、L3待审，旧原始附件/全仓链接与最终交接未闭合。规划PASS≠产品PASS。
+
 ## 2026-10-28｜第六批Registry跨Trace审计：60/127份、485/1075条
 [92登记原Blob/同名Trace显式引用](research/audits/REGISTRY-AUDIT-B06-2026-10-28.json) → [U4-01 WCAG增量证据](research/traces/U4-01-accessibility-supplement-v08.json) → [29项可机检规划案例](docs/architecture/v0.8/registry-audit-b06-fixtures-v08.json) · [报告](docs/architecture/v0.8/研究注册第六批证据审计_2026-10-28.md)。原91/92显式，补第92条。Node与真实产品NOT_RUN、Owner/L3待审。规划PASS≠产品PASS。
 
