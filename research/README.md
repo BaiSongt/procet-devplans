@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B06 跨Trace原始显式ID核验
+[第51—60份/92条与原Blob](audits/REGISTRY-AUDIT-B06-2026-10-28.json) → [唯一缺失SRC-U401-S01增量研究](traces/U4-01-accessibility-supplement-v08.json) → [29规划案例](../docs/architecture/v0.8/registry-audit-b06-fixtures-v08.json) · [独立校验](../tools/check_registry_audit_b06_v08.cjs)。本批无内联rules但原同名Trace91/92显式；补证不改历史。累计60/127、485/1075，产品NOT_RUN。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B05 第五批研究来源与规则
 [41—50份原Registry/十项外部网页](audits/REGISTRY-AUDIT-B05-2026-10-28.json) → [142正反和门禁的机器可检数据](audits/REGISTRY-AUDIT-B05-2026-10-28.json) → [Node只读工具](../tools/check_registry_audit_b05_v08.cjs) → [局限与交接](../docs/architecture/v0.8/研究注册第五批证据审计_2026-10-28.md)。累计50/127 Registry、393/1075记录，实际产品NOT_RUN。规划PASS≠产品PASS。
 

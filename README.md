@@ -1,3 +1,6 @@
+## 2026-10-28｜第六批Registry跨Trace审计：60/127份、485/1075条
+[92登记原Blob/同名Trace显式引用](research/audits/REGISTRY-AUDIT-B06-2026-10-28.json) → [U4-01 WCAG增量证据](research/traces/U4-01-accessibility-supplement-v08.json) → [29项可机检规划案例](docs/architecture/v0.8/registry-audit-b06-fixtures-v08.json) · [报告](docs/architecture/v0.8/研究注册第六批证据审计_2026-10-28.md)。原91/92显式，补第92条。Node与真实产品NOT_RUN、Owner/L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜第五批Registry证据审计：累计50/127份、393/1075条
 [研究结论](docs/architecture/v0.8/研究注册第五批证据审计_2026-10-28.md) · [10份原Blob/10外部源/10规则/142规划案例](research/audits/REGISTRY-AUDIT-B05-2026-10-28.json) · [只读Node校验器](tools/check_registry_audit_b05_v08.cjs)。本批84条未内联rules待跨Trace；独立Node及产品/消费者NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。
 
