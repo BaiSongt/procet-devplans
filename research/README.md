@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B12机床测试与NC执行证据边界
+[111—120份研究原Blob及7外部页](audits/REGISTRY-AUDIT-B12-2026-10-28.json) → [CAP-04-06两来源缺口新增3条工程规则](traces/CAP-04-06-b12-evidence-supplement-v08.json) → [35机器可检规划用例](../docs/architecture/v0.8/registry-audit-b12-fixtures-v08.json) · [局限/交接](../docs/architecture/v0.8/研究注册第十二批证据审计_2026-10-28.md)。累计120/127、1020/1075登记，ISO/NIST均未读付费/PDF正文；独立Node/产品/Owner/L3未通过。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B11 工单/离线交付/AI引用新规则
 [第101—110份研究Blob与8项外页定点复核](audits/REGISTRY-AUDIT-B11-2026-10-28.json) → [四条跨域规则](traces/REGISTRY-AUDIT-B11-CROSSDOMAIN-V08.json) → [58个机器可检规划用例](../docs/architecture/v0.8/registry-audit-b11-fixtures-v08.json) → [研究解释及边界](../docs/architecture/v0.8/研究注册第十一批证据审计_2026-10-28.md)。原同名Trace90/90，累计110/127 Registry与933/1075登记（非去重文献），Node/产品/Owner待验收；规划PASS≠产品PASS。
 

@@ -1,3 +1,6 @@
+## 2026-10-28｜第十二批Registry 111—120：ISO230-1与NIST解释器证据边界
+[10份87条原Blob/Trace及7外页](research/audits/REGISTRY-AUDIT-B12-2026-10-28.json) → [CAP-04-06缺2来源/3增量规则](research/traces/CAP-04-06-b12-evidence-supplement-v08.json) → [35规划正反与门禁](docs/architecture/v0.8/registry-audit-b12-fixtures-v08.json) · [研究/交接](docs/architecture/v0.8/研究注册第十二批证据审计_2026-10-28.md) · [只读Node](tools/check_registry_audit_b12_v08.cjs)。累计**120/127 Registry、1020/1075登记**（非去重论文）；原Trace85/87补缺2。ISO只读目录、NIST只读出版摘要且日期分离；V8内存35/35，独立Node/产品/消费者NOT_RUN，Owner0/17、L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜第十一批Registry 101—110：工单偏序、TUF版本和RAG引用权限
 [90条原源ID和8外页复核](research/audits/REGISTRY-AUDIT-B11-2026-10-28.json) → [4条跨域规则](research/traces/REGISTRY-AUDIT-B11-CROSSDOMAIN-V08.json) → [58规划正反门禁](docs/architecture/v0.8/registry-audit-b11-fixtures-v08.json) · [研究解释](docs/architecture/v0.8/研究注册第十一批证据审计_2026-10-28.md) · [只读Node](tools/check_registry_audit_b11_v08.cjs)。原同名Trace **90/90** 覆盖，累计**110/127 Registry与933/1075条来源登记**（不去重论文）。TUF latest1.0.37与固定1.0.36分离，JobOrder/报警ACK≠真实机床运行，RAG引用≠NC执行权；规划58/58内存断言，独立Node/产品/消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

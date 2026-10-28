@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "procet-registry-audit-b12-supplement-v08",
+  "recordedOn": "2026-10-28",
+  "status": "TWO_CAP0406_SAME_NAME_GAPS_SUPPLEMENTED",
+  "sourceIndexBlobSha": "2b12ac81ae010165de82bc46c02a56211a28bd8a",
+  "sourceRegistryRange": [
+    111,
+    120
+  ],
+  "originalDirectCapPackageEdgesUnchanged": 312,
+  "rules": [
+    {
+      "id": "B12-C0406-R11",
+      "summary": "ISO 230-1几何适用范围不等于实机测量与运行认证",
+      "sourceIds": [
+        "C0406-S02",
+        "C0406-S03"
+      ],
+      "capabilityIds": [
+        "CAP-04-06",
+        "CAP-04-04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "E3-04"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "fields": [
+        "geometry.standardId",
+        "geometry.evidenceClass",
+        "geometry.machineRevision",
+        "geometry.testReport",
+        "geometry.testScope",
+        "geometry.noOperationalCertification",
+        "geometry.humanReviewState"
+      ],
+      "engineeringRule": "公开Abstract可证明无负载/准静态试验适用范围；具体机器是否通过几何测量、动态测试须另有真实设备报告和人类复核，ISO目录不能直接认证B5或角度头。"
+    },
+    {
+      "id": "B12-C0406-R12",
+      "summary": "NISTIR6556著录与实际NC方言/轴序/发布严格区分",
+      "sourceIds": [
+        "C0406-S10",
+        "C0406-S04",
+        "C0406-S06"
+      ],
+      "capabilityIds": [
+        "CAP-04-06",
+        "CAP-08-03",
+        "CAP-09-01"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04",
+        "T5-05"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "fields": [
+        "nc.referenceId",
+        "nc.dialect",
+        "nc.finalNcDigest",
+        "nc.d13State",
+        "nc.d14State",
+        "nc.d15State",
+        "nc.releaseEligible"
+      ],
+      "engineeringRule": "NIST公开摘要证明NGC解释器存在，不证明OEM方言；以D10实际绑定、D12最终NC字节，经D13解释→D14真实轴时序→D15独立验证才可候选D16，未知不发布。"
+    },
+    {
+      "id": "B12-C0406-R13",
+      "summary": "双证据下的跨入口Owner事务、单世界及取消回退",
+      "sourceIds": [
+        "C0406-S02",
+        "C0406-S10",
+        "C1106-S01",
+        "ASOWN-S01"
+      ],
+      "capabilityIds": [
+        "CAP-04-06",
+        "CAP-11-06",
+        "CAP-11-08"
+      ],
+      "workPackages": [
+        "U4-02",
+        "T5-02",
+        "E3-04"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "fields": [
+        "consumer.d04Separate",
+        "consumer.d10BindingExact",
+        "consumer.guiPort",
+        "consumer.cliPort",
+        "consumer.agentPort",
+        "consumer.singleWorldCount",
+        "consumer.taskPanel",
+        "consumer.casAclScopeRecheck",
+        "consumer.cancelLateAckDiscard",
+        "consumer.frozenABPreserved"
+      ],
+      "engineeringRule": "GUI/CLI/Agent统一机器绑定Owner Port，单Babylon与左TaskPanel只是入口；写入重验exact revision/hash/frame、ACL/CAS/ScopeEpoch，丢弃取消晚回执、保留冻结A/B及成对Reader回退。Procet内部约束不冒充外部标准条款。"
+    }
+  ],
+  "fixtures": "docs/architecture/v0.8/registry-audit-b12-fixtures-v08.json",
+  "checker": "tools/check_registry_audit_b12_v08.cjs",
+  "limits": [
+    "原同名Trace只证明显式结构关系，非全部外部原文复查",
+    "标准限公开摘要，NIST限出版元数据与摘要",
+    "所有业务Owner/GUI约束为工程推导，非外部标准直接规定",
+    "规划PASS≠产品PASS"
+  ]
+}
