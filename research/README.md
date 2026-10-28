@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B04第四批来源追踪
+[31—40份原Blob/84条结构登记/10个公开网页定点核阅](audits/REGISTRY-AUDIT-B04-2026-10-28.json) → [10条规则与CAP/原编号包](traces/REGISTRY-AUDIT-B04-V08.json) → [148项独立正反与门禁](../docs/architecture/v0.8/registry-audit-b04-fixtures-v08.json) → [局限和跨Trace待办](../docs/architecture/v0.8/研究注册第四批证据审计_2026-10-28.md)。累计40/127份、309/1075条，原来源字节不变。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B03第三批原Blob与来源字段追踪
 [第21—30份/71条结构记录/10条公开HTML实读](audits/REGISTRY-AUDIT-B03-2026-10-28.json) → [10条CAP及原包规则](traces/REGISTRY-AUDIT-B03-V08.json) → [10正100独立反8门禁](../docs/architecture/v0.8/registry-audit-b03-fixtures-v08.json) → [局限与待消歧](../docs/architecture/v0.8/研究注册第三批证据审计_2026-10-28.md)。累计30/127份、225/1075登记；22条无内联规则不等于无研究。规划PASS≠产品PASS。
 
