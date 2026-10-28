@@ -54,5 +54,5 @@ const result={scope:'PLANNING_ONLY',auditHead:audit.observedExactHead,
  sampleMissing:audit.markdown.missingInSample,fullScan:'NOT_RUN',
  historicalOriginalBytes:'NOT_RECOVERED',designFixtureAssertions:pass,totalFixtures:17,
  ruleCount:trace.rules.length,errors,product:'NOT_RUN'};
-process.stdout.write(JSON.stringify(result,null,2)+'\\n');
+process.stdout.write(JSON.stringify(result,null,2)+'\n');
 if(errors.length)process.exitCode=1;
