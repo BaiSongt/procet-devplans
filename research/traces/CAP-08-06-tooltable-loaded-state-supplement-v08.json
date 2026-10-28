@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "procet-cap0806-tooltable-loaded-state-supplement-v08",
+  "recordedOn": "2026-10-28",
+  "status": "ADDITIVE_RESEARCH_DO_NOT_REWRITE_ORIGINALS",
+  "sourceRegistry": "research/sources/CAP-08-06.json",
+  "originalRegistryBlobSha": "f89e9f39e53c20c3d392a4d0ce41ef5f1d33c108",
+  "originalTrace": "research/traces/CAP-08-06.json",
+  "originalTraceBlobSha": "0d144bf683aa3fe86bf927563489e6a9c34d941c",
+  "originalUnreferencedId": "C086-S7",
+  "rules": [
+    {
+      "id": "B09-C086-R01",
+      "sourceIds": [
+        "C086-S7",
+        "C086-S3"
+      ],
+      "summary": "NC磁盘源码、工具表磁盘文件、控制器已加载工具表是不同事实；File Save不可冒充Runtime Reload或D15工程验证",
+      "fields": [
+        "contract.ncRawHash",
+        "contract.ncExpectedHash",
+        "contract.toolTableFileHash",
+        "contract.loadedToolTableHash",
+        "contract.toolFileRevision",
+        "contract.loadedToolRevision",
+        "contract.toolReloadEvidenceChecked",
+        "contract.controllerStateEvidence"
+      ],
+      "capabilityIds": [
+        "CAP-08-06",
+        "CAP-09-04"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetOwners": [
+        "D03",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positiveFixture": "B09-P01",
+      "negativeFixturePrefix": "B09-N",
+      "machineCheck": "tools/check_registry_audit_b09_v08.cjs"
+    },
+    {
+      "id": "B09-C086-R02",
+      "sourceIds": [
+        "C086-S7",
+        "C083-S2",
+        "C086-S1"
+      ],
+      "summary": "D03工具表、D10执行绑定或Profile变化即使NC字节不变，旧D13语义、D14轴时序、D15资格和D16发布也必须STALE；不将G43/M6解释外推到B5",
+      "fields": [
+        "contract.toolSourceOwner",
+        "contract.bindingOwner",
+        "contract.toolFrame",
+        "contract.bindingFrame",
+        "contract.controllerProfileHash",
+        "contract.expectedProfileHash",
+        "workflow.d12RevisionUnchanged",
+        "workflow.d13InterpretedExact",
+        "workflow.d14AxisRecomputed",
+        "workflow.d15IndependentVerified"
+      ],
+      "capabilityIds": [
+        "CAP-08-06",
+        "CAP-08-02",
+        "CAP-09-04"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04",
+        "U4-04"
+      ],
+      "assetOwners": [
+        "D03",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveFixture": "B09-P01",
+      "negativeFixturePrefix": "B09-N",
+      "machineCheck": "tools/check_registry_audit_b09_v08.cjs"
+    },
+    {
+      "id": "B09-C086-R03",
+      "sourceIds": [
+        "C086-S4",
+        "C086-S5",
+        "C086-S6",
+        "C086-S7"
+      ],
+      "summary": "Owner以exact revision/hash/frame及CAS/ACL/ScopeEpoch校验候选依赖快照；GUI/CLI/Agent共用入口，取消晚回执不提交；独立D15及人类D16为真实门禁",
+      "fields": [
+        "contract.toolDependencySnapshotPinned",
+        "contract.noFileEqualsRuntimeAssumption",
+        "workflow.casRechecked",
+        "workflow.aclRechecked",
+        "workflow.scopeEpoch",
+        "workflow.currentEpoch",
+        "workflow.cancelled",
+        "workflow.lateReceipt",
+        "workflow.guiSamePort",
+        "workflow.cliSamePort",
+        "workflow.agentSamePort",
+        "workflow.worldCount",
+        "workflow.leftTaskPanelCount",
+        "workflow.fontMaxPx",
+        "workflow.clOnlyNotNCProof",
+        "workflow.noMaterialSweepClaim"
+      ],
+      "capabilityIds": [
+        "CAP-08-06",
+        "CAP-08-02"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04",
+        "U4-04"
+      ],
+      "assetOwners": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveFixture": "B09-P01",
+      "negativeFixturePrefix": "B09-N",
+      "machineCheck": "tools/check_registry_audit_b09_v08.cjs"
+    }
+  ],
+  "integrity": {
+    "original312DirectEdgesUnchanged": true,
+    "candidateCAPRelationsDoNotGrantWrite": true,
+    "l1l2Unchanged": true,
+    "l3": "PENDING_HUMAN",
+    "c0": "MINIMAL_COMMON",
+    "frozenABUnchanged": true,
+    "ownerSignatures": "0/17"
+  },
+  "limitations": "三条均为有限官方文档启发下的Procet工程推导；不暗示ISO/NIST/厂商直接规定上述字段或实际产品通过，真实控制器工具表状态需独立采集。"
+}

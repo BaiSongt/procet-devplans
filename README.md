@@ -1,3 +1,7 @@
+## 2026-10-28｜第九批Registry原Trace缺口与NC工具表加载态：90/127份、754/1075条
+
+[10份原Blob/84登记及7外部公开页](research/audits/REGISTRY-AUDIT-B09-2026-10-28.json) → [唯一缺口C086-S7三规则补证](research/traces/CAP-08-06-tooltable-loaded-state-supplement-v08.json) → [3正/30独立反/8门禁](docs/architecture/v0.8/registry-audit-b09-fixtures-v08.json) · [研究结论与交接](docs/architecture/v0.8/研究注册第九批证据审计_2026-10-28.md) · [Node只读校验器](tools/check_registry_audit_b09_v08.cjs)。原同名Trace83/84+补证1，不改原312条直接关系。规划V8内存断言41/41，独立Node文件进程、真实NC/B5/17消费者NOT_RUN；正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-28｜第八批Registry及T5-05独立消费者研究：80/127份、670/1075条
 [原Blob/同名Trace 94/94与9合法公开页](research/audits/REGISTRY-AUDIT-B08-2026-10-28.json) → [T5-05三规则/字段/CAP候选与原包](research/traces/T5-05-independent-consumer-supplement-v08.json) → [36个正反/门禁案例](docs/architecture/v0.8/registry-audit-b08-fixtures-v08.json) · [研究与风险交接](docs/architecture/v0.8/研究注册第八批证据审计_2026-10-28.md) · [只读Node工具](tools/check_registry_audit_b08_v08.cjs)。原Trace 94/94结构显式不代表外部原文全核；V8规划内存合成36/36，独立Node/真实产品、Owner与L3未通过。规划PASS≠产品PASS。
 

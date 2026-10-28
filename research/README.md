@@ -1,3 +1,7 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B09 原NC/工具表文件与已加载状态分离
+
+[十份原Git Blob、84来源及7项实读公开页](audits/REGISTRY-AUDIT-B09-2026-10-28.json) → [CAP-08-06增量三规则](traces/CAP-08-06-tooltable-loaded-state-supplement-v08.json) → [41正反/发布门禁](../docs/architecture/v0.8/registry-audit-b09-fixtures-v08.json) · [研究及局限](../docs/architecture/v0.8/研究注册第九批证据审计_2026-10-28.md) · [Node只读验证](../tools/check_registry_audit_b09_v08.cjs)。累计90/127份、754/1075条登记（非去重出版物）；独立Node文件进程、产品/消费者NOT_RUN，Owner/L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-28｜第八批Registry与T5-05消费者证据边界
 [10份原Registry/Trace SHA和9项官方公开页](audits/REGISTRY-AUDIT-B08-2026-10-28.json) → [T5-05追加研究规则](traces/T5-05-independent-consumer-supplement-v08.json) → [36项验收](../docs/architecture/v0.8/registry-audit-b08-fixtures-v08.json)。累计80/127、670/1075（均非去重文献）；Schema不代表独立消费者运行，CL动画不代表最终NC验证。Node/产品与正式签署NOT_RUN。规划PASS≠产品PASS。
 
