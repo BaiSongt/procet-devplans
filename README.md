@@ -1,3 +1,6 @@
+## 2026-10-29｜跨域终核首轮：88 CAP/36原包/17候选Owner/127 Registry精确路径审查
+[静态Git Tree覆盖与来源版本审计](research/audits/FINAL-CROSS-COVERAGE-B01-2026-10-29.json) → [6条研究规则](research/traces/FINAL-CROSS-COVERAGE-B01-V08.json) → [6正10独立反例](docs/architecture/v0.8/final-cross-coverage-b01-fixtures-v08.json) · [审查报告](docs/architecture/v0.8/跨域终核首轮与证据升级_2026-10-29.md) · [Node只读工具](tools/check_final_cross_coverage_b01_v08.cjs)。首轮选定结构路径0缺失；旧首轮矩阵四项同名来源缺口在新索引已闭合；111/1075外部登记定点重访非全文，528份Markdown全仓链接与真实Node仍NOT_RUN；17正式Owner/消费者0，历史原字节及终风险交接未闭。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜Registry第十三批最后7份，来源结构覆盖127/127
 [55登记及原/补充Trace关联](research/audits/REGISTRY-AUDIT-B13-2026-10-29.json) → [4跨资源规则](research/traces/REGISTRY-AUDIT-B13-CROSSRESOURCE-V08.json) → [35规划正反与门禁](docs/architecture/v0.8/registry-audit-b13-fixtures-v08.json) · [中文研究](docs/architecture/v0.8/研究注册第十三批证据审计_2026-10-29.md) · [Node只读](tools/check_registry_audit_b13_v08.cjs)。**127/127 Registry、1075/1075登记结构已审计**，外部定点重访仅111登记（非去重）；Node/产品/消费者NOT_RUN，17 Owner签署0、L3待审。原始附件、全仓链接及最终风险/交接未完成。规划PASS≠产品PASS。
 

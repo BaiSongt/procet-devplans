@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-CROSS-COVERAGE-B01来源成熟度与跨域静态终核
+[精确HEAD的88 CAP/36包/17Owner/127Registry证据](audits/FINAL-CROSS-COVERAGE-B01-2026-10-29.json) → [6条规则](traces/FINAL-CROSS-COVERAGE-B01-V08.json) → [6正10单字段反](../docs/architecture/v0.8/final-cross-coverage-b01-fixtures-v08.json) · [SSDF Final/Draft及局限报告](../docs/architecture/v0.8/跨域终核首轮与证据升级_2026-10-29.md)。复核PROV-O、RFC8785与NIST 1.1 Final/1.2 Draft官网指定HTML，均不冒称产品验收/未读PDF条款。528份MD全仓扫描、历史原始附件、Owner/消费者与风险终核仍待。
+
 ## 2026-10-29｜最后7份Registry及跨资源资格
 [本批55来源](audits/REGISTRY-AUDIT-B13-2026-10-29.json) → [4规则](traces/REGISTRY-AUDIT-B13-CROSSRESOURCE-V08.json) → [35合成案例](../docs/architecture/v0.8/registry-audit-b13-fixtures-v08.json) · [研究限制](../docs/architecture/v0.8/研究注册第十三批证据审计_2026-10-29.md)。结构127/127、1075/1075已遍历，外部正文重访111登记，非去重；真实Node/产品/消费者NOT_RUN，Owner0/17，L3待审，历史附件和最终风险交接未闭。规划PASS≠产品PASS。
 

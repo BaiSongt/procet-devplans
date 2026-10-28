@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "researchTopic": "R-FINAL-CROSS-COVERAGE-B01",
+  "sourceRegistries": [
+    "research/sources/ASSET-OWNERS-V08.json",
+    "research/sources/CROSS-COVERAGE-V08.json"
+  ],
+  "auditPath": "research/audits/FINAL-CROSS-COVERAGE-B01-2026-10-29.json",
+  "derivationClass": "PROCET_INTERNAL_GOVERNANCE_RULES_USING_PUBLIC_TECHNICAL_BACKGROUND",
+  "rules": [
+    {
+      "id": "FIN-R01",
+      "engineeringRule": "以实时exact HEAD+Git Tree的显式文件路径重算88 CAP、36包、17候选Port及127 Registry，旧快照的无同名来源不能覆盖新增Registry；只做静态文件存在性，不升级为产品PASS。",
+      "fields": [
+        "audit.exactObservedHead",
+        "audit.capabilities[].detail.sha",
+        "audit.registryPaths[].blobSha",
+        "audit.conclusions.legacySameNameRegistryGapsNowIndexed"
+      ],
+      "sourceIds": [
+        "ASOWN-S01",
+        "COV-S01"
+      ],
+      "capabilities": [
+        "CAP-10-08",
+        "CAP-11-03"
+      ],
+      "workPackages": [
+        "T5-05",
+        "T5-06"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positiveAcceptance": "POS-01",
+      "negativeAcceptance": "NEG-01"
+    },
+    {
+      "id": "FIN-R02",
+      "engineeringRule": "127个登记文件与1075条来源登记仅为Registry结构计数；来源ID、具体可读章节、实际访问时间须区分，不能将来源记录当去重出版物或本轮全文阅读。",
+      "fields": [
+        "audit.counts.sourceRegistries",
+        "audit.counts.indexedRecords",
+        "audit.conclusions.notUniquePublicationCount",
+        "audit.status.allExternalPublicationsRead"
+      ],
+      "sourceIds": [
+        "COV-S01",
+        "COV-S02"
+      ],
+      "capabilities": [
+        "CAP-11-03",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "T5-05"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "positiveAcceptance": "POS-02",
+      "negativeAcceptance": "NEG-02"
+    },
+    {
+      "id": "FIN-R03",
+      "engineeringRule": "SSDF 1.1 Final与1.2 Initial Public Draft必须分别标记；目录/摘要不是未读标准正文，任何版本推导或宣称具体验证遵从都须有对应正文和独立验收。",
+      "fields": [
+        "audit.newSourceReview[].version",
+        "audit.newSourceReview[].read",
+        "audit.newSourceReview[].limit"
+      ],
+      "sourceIds": [
+        "COV-S04"
+      ],
+      "capabilities": [
+        "CAP-10-08",
+        "CAP-11-07"
+      ],
+      "workPackages": [
+        "T5-06",
+        "T5-05"
+      ],
+      "assets": [
+        "D16"
+      ],
+      "positiveAcceptance": "POS-03",
+      "negativeAcceptance": "NEG-03"
+    },
+    {
+      "id": "FIN-R04",
+      "engineeringRule": "原10个零直接CAP边工作包仍保留原312关系，不用候选关系伪装原映射；无直接资产生产边的CAP不可自动判定规格缺失。",
+      "fields": [
+        "audit.zeroOriginalCapEdgePackages",
+        "audit.noDirectAssetProducerCaps",
+        "audit.zeroOriginalCapEdgePolicy"
+      ],
+      "sourceIds": [
+        "COV-S01"
+      ],
+      "capabilities": [
+        "CAP-01-08",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-03",
+        "B0-05",
+        "T5-05"
+      ],
+      "assets": [
+        "D01",
+        "D16"
+      ],
+      "positiveAcceptance": "POS-04",
+      "negativeAcceptance": "NEG-04"
+    },
+    {
+      "id": "FIN-R05",
+      "engineeringRule": "历史文件原始字节必须可验证才能称恢复；缺失留明示缺口，不能从新编结构推定原附件已迁移。",
+      "fields": [
+        "audit.historicOriginalsStillAbsent",
+        "audit.status.historicalByteRecovery"
+      ],
+      "sourceIds": [
+        "ASOWN-S01",
+        "COV-S01"
+      ],
+      "capabilities": [
+        "CAP-01-02",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-01",
+        "T5-06"
+      ],
+      "assets": [
+        "D01"
+      ],
+      "positiveAcceptance": "POS-05",
+      "negativeAcceptance": "NEG-05"
+    },
+    {
+      "id": "FIN-R06",
+      "engineeringRule": "候选Owner Port与真实Owner/独立消费者签署是独立状态；D04≠D10，D09中立CL→D12 NC→D13→D14→D15→D16必须由真实消费者验证，UNKNOWN阻断发布；规划合成无法升级NC机床或产品PASS。",
+      "fields": [
+        "audit.ownerCandidatePorts[].ownerSignoff",
+        "audit.status.realConsumers",
+        "audit.status.occtNcMachine",
+        "audit.status.productPass"
+      ],
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S03",
+        "COV-S04"
+      ],
+      "capabilities": [
+        "CAP-04-06",
+        "CAP-09-06",
+        "CAP-10-02"
+      ],
+      "workPackages": [
+        "E3-04",
+        "E3-05",
+        "E3-06"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveAcceptance": "POS-06",
+      "negativeAcceptance": "NEG-06"
+    }
+  ]
+}
