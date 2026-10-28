@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B05：NC文档静态证据与D13–D16工程语义隔离
+[50份Git Blob/283行内链接/旧B04 96份未变](audits/FINAL-HISTORY-LINK-B05-2026-10-29.json) → [6条来源→字段→CAP/原包规则](traces/FINAL-HISTORY-LINK-B05-V08.json) → [18规划正反+5待运行状态门禁](../docs/architecture/v0.8/final-history-link-b05-fixtures-v08.json) · [只读Node](../tools/check_final_history_link_b05_v08.cjs) · [研究局限](../docs/architecture/v0.8/第五轮NC与发布证据链接审计_2026-10-29.md)。不把静态链接、CL预览冒充NC解释/独立消费者/L3/OEM，未运行产品；历史原附件未恢复。规划PASS≠产品PASS。
+
 ## 2026-10-29｜R-FINAL-HISTORY-LINK-B04：冻结96文件路径SHA与链接增量复查
 [96份Git Blob/290项相对目的地及前轮样本失效分级](audits/FINAL-HISTORY-LINK-B04-2026-10-29.json) → [五条来源/字段/CAP/原包规则](traces/FINAL-HISTORY-LINK-B04-V08.json) → [25项规划正反门禁](../docs/architecture/v0.8/final-history-link-b04-fixtures-v08.json) → [只读Node](../tools/check_final_history_link_b04_v08.cjs) · [来源深度和后续交接](../docs/architecture/v0.8/第四轮Markdown链接审计与跨HEAD失效_2026-10-29.md)。**仅本轮96份明确清单校验、290项启发式路径0缺失；531份快照未全读，旧快照150份未给路径清单，不能拼成全仓PASS。** Owner/L3/NC/B5/独立消费者仍未通过。规划PASS≠产品PASS。
 

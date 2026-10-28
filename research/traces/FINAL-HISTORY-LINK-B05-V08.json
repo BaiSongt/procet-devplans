@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "procet-v08-research-trace-v1",
+  "researchTopic": "R-FINAL-HISTORY-LINK-B05",
+  "auditPath": "research/audits/FINAL-HISTORY-LINK-B05-2026-10-29.json",
+  "rules": [
+    {
+      "id": "B05-R01",
+      "rule": "当前HEAD的50份逐文件路径及Git Blob SHA要与树一致；前批96份只在当前树SHA保持一致时才能计入跨批146项，禁止把无路径SHA的B03样本直接累计。",
+      "sourceRefs": [
+        "B05-GH",
+        "B05-PROV"
+      ],
+      "fields": [
+        "observedExactHead",
+        "observedGitTreeSha",
+        "fileManifest[].gitBlobSha",
+        "markdownSnapshot.currentB04ManifestPathShaUnchanged",
+        "markdownSnapshot.uniqueB04AndB05Files"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B05-P01",
+        "B05-N01",
+        "B05-N02",
+        "B05-N03",
+        "B05-N04"
+      ]
+    },
+    {
+      "id": "B05-R02",
+      "rule": "行内正则0断链不等于全仓链接PASS：参考式、跨行、HTML href、锚点、外链、GFM/AST仍待独立执行；新文件插入后必须重算Markdown分母。",
+      "sourceRefs": [
+        "B05-CM",
+        "B05-GH"
+      ],
+      "fields": [
+        "markdownSnapshot.parserMode",
+        "markdownSnapshot.commonMarkAstChecked",
+        "markdownSnapshot.referenceDefinitionLinksChecked",
+        "markdownSnapshot.fullRepoMarkdownScan",
+        "markdownSnapshot.remainingMarkdownWithoutB04B05Manifest"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "U4-02",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B05-P01",
+        "B05-N05",
+        "B05-N06",
+        "B05-N07"
+      ]
+    },
+    {
+      "id": "B05-R03",
+      "rule": "CAP-09 NC文档的静态可达性不能赋予D13解释语义PASS；G/M模态及机床Profile、刀长补偿、坐标偏置变化要求独立D13解释，再将已解释轨迹交D14，未知保持UNKNOWN。",
+      "sourceRefs": [
+        "B05-LC",
+        "B05-PROV"
+      ],
+      "fields": [
+        "domainBoundaries.unknownNcSemantics",
+        "domainBoundaries.clPreviewIsNcEngineeringVerification",
+        "fileManifest[].path"
+      ],
+      "caps": [
+        "CAP-09-01",
+        "CAP-09-07",
+        "CAP-10-01"
+      ],
+      "packages": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "acceptance": [
+        "B05-P02",
+        "B05-N08",
+        "B05-N09",
+        "B05-G01"
+      ]
+    },
+    {
+      "id": "B05-R04",
+      "rule": "D04 Setup与D10执行绑定保留独立Owner exact revision/hash/frame；D12 NC字节不变但工具表装载态/控制器Profile变更仍须重算D13→D15资格，D16拒绝旧验证，LinuxCNC示例不自动等于OEM。",
+      "sourceRefs": [
+        "B05-LC",
+        "B05-NIST"
+      ],
+      "fields": [
+        "domainBoundaries.unknownNcSemantics",
+        "domainBoundaries.productAcceptance"
+      ],
+      "caps": [
+        "CAP-04-06",
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-03",
+        "E3-04",
+        "E3-06"
+      ],
+      "acceptance": [
+        "B05-P02",
+        "B05-N10",
+        "B05-G02",
+        "B05-G03"
+      ]
+    },
+    {
+      "id": "B05-R05",
+      "rule": "GUI/CLI/Agent同一业务Owner入口；单Babylon活动世界、统一左TaskPanel；CAS+权限重验、取消后的迟到回执拒绝、失效迁移回退和独立消费者证明必须单独通过，不被README链接PASS代替。",
+      "sourceRefs": [
+        "B05-PROV",
+        "B05-NIST"
+      ],
+      "fields": [
+        "domainBoundaries.ownerSignatures",
+        "domainBoundaries.independentConsumerAcceptances"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-01-07",
+        "CAP-11-01"
+      ],
+      "packages": [
+        "B0-02",
+        "U4-02",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B05-P01",
+        "B05-N11",
+        "B05-G04"
+      ]
+    },
+    {
+      "id": "B05-R06",
+      "rule": "计划审计PASS不等于L3批准、17资产Owner会签、独立消费者、OCCT/NC/B5工程验证或D16发布；旧原件不得以NEWLY_AUTHORED伪装恢复。",
+      "sourceRefs": [
+        "B05-PROV",
+        "B05-NIST",
+        "B05-GH"
+      ],
+      "fields": [
+        "history.originalAttachmentsRecovery",
+        "history.humanDisposition",
+        "domainBoundaries.l3",
+        "domainBoundaries.productAcceptance"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05",
+        "T5-06"
+      ],
+      "acceptance": [
+        "B05-P01",
+        "B05-N12",
+        "B05-G05"
+      ]
+    }
+  ]
+}

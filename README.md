@@ -1,3 +1,6 @@
+## 2026-10-29｜跨域终核第五轮：50份NC/发布领域Markdown路径SHA及执行语义补证
+[50份逐文件Git SHA/283行内相对链接](research/audits/FINAL-HISTORY-LINK-B05-2026-10-29.json) → [六条领域/审计研究规则](research/traces/FINAL-HISTORY-LINK-B05-V08.json) → [18项合成正反、五项待运行状态门禁](docs/architecture/v0.8/final-history-link-b05-fixtures-v08.json) · [独立Node只读校验器](tools/check_final_history_link_b05_v08.cjs) · [中文审计/来源局限](docs/architecture/v0.8/第五轮NC与发布证据链接审计_2026-10-29.md)。旧B04 96路径SHA在同HEAD保持不变，跨批显式146份；仅启发式行内链接，非全仓/AST/产品PASS。17 Owner和17消费者0/17、L3待审、独立Node/NC/OCCT/B5 NOT_RUN。
+
 ## 2026-10-29｜跨域终核第三轮：150份Markdown原Blob读取与历史原字节边界
 [150/530份Markdown样本、1273相对目的地与原历史附件缺口](research/audits/FINAL-HISTORY-LINK-B03-2026-10-29.json) → [6条研究/工程规则](research/traces/FINAL-HISTORY-LINK-B03-V08.json) → [17项合成正反门禁](docs/architecture/v0.8/final-history-link-b03-fixtures-v08.json) · [只读校验器](tools/check_final_history_link_b03_v08.cjs) · [中文审查及局限](docs/architecture/v0.8/最终附件原字节与链接闭环第三轮_2026-10-29.md)。**仅150份已读、余380未读，正则不是CommonMark AST，故全仓仍NOT_RUN**；三份有路径旧JSON确证缺失、另两类旧原件未定位，不假称恢复。Owner/消费者0，L3待审，产品NOT_RUN。
 
