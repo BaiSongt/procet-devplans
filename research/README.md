@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-02-07资源几何与参数化研究补证
+[8项官方/论文登记](sources/CAP-02-07.json) → [10规则40字段](traces/CAP-02-07-v08-supplement.json) → [55正反与算术合成](../docs/capabilities/CAP-02-07/research-fixtures-v08.json) → [研究/禁用推论](../docs/capabilities/CAP-02-07/RESEARCH-TRACE-2026-10-28.md)。来源累计1060条/125 Registry非去重；BRep合法性、Solid、Mesh、AABB、OEM与NC资格分开，V8规划合成55/55，独立Node与真实产品NOT_RUN。CAP-02-08研究Registry仍待补。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-MET-001公开来源到计量验收的二次补证
 [来源及版本/作者/阅读限制](sources/CAP-02-06.json) → [10规则40字段](traces/CAP-02-06-v08-supplement.json) → [正反/数学合成样例](../docs/capabilities/CAP-02-06/research-fixtures-v08.json) → [研究推导](../docs/capabilities/CAP-02-06/RESEARCH-TRACE-2026-10-28.md)。ISO仅目录摘要、BIPM仅DOI摘要，NIST/LinuxCNC/W3C读取公开限定章节；1052登记/124 Registry，不是去重论文。规划合成54/54，Node与产品/消费者NOT_RUN，L3待审。
 

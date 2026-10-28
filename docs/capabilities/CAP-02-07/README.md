@@ -98,3 +98,7 @@ D03(Resources)持有 `ResourceDefinitionRevision`、组件/接口/参数模板�
 RG-I01盘点现有types/GUI/消费者；I02定义typed参数与版本；I03几何派生/核验；I04mesh/拓扑映射；I05单世界3D接线；I06资格发布与离线闭包；I07跨域兼容和反例回归。生产者Resources/Geometry，消费者CAM/Setup/09/GUI和独立验证者必须共同评审。涉及Frame由F1-02负责，资源闭包由F1-06负责，稳定拓扑与F1-03协调，不能把同一逻辑复制多仓。
 
 迁移保留旧reader、programmatic示意、受控缩略图和旧版本引用；新Writer按feature flag灰度打开，工程数据回退独立于代码回退。未批准：参数化Schema最终wire名称、OEM资产准入政策、locked OCCT版本、拓扑映射与网格细分默认值、双预览视口迁移计划。现阶段没有运行Rust/TS/OCCT/Windows产品测试。
+
+
+## V0.8研究补证（2026-10-28）
+[8来源](../../../research/sources/CAP-02-07.json) → [10规则40字段](../../../research/traces/CAP-02-07-v08-supplement.json) → [55规划合成](research-fixtures-v08.json) → [研究](RESEARCH-TRACE-2026-10-28.md)与[消费者](independent-consumer-v08.md)。原RG-R与RG-T保持，真实产品未验收。

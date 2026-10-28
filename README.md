@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-02-07资源几何与参数化研究补证
+[8项官方/论文登记](research/sources/CAP-02-07.json) → [10规则40字段](research/traces/CAP-02-07-v08-supplement.json) → [55正反与算术合成](docs/capabilities/CAP-02-07/research-fixtures-v08.json) → [研究/禁用推论](docs/capabilities/CAP-02-07/RESEARCH-TRACE-2026-10-28.md)。来源累计1060条/125 Registry非去重；BRep合法性、Solid、Mesh、AABB、OEM与NC资格分开，V8规划合成55/55，独立Node与真实产品NOT_RUN。CAP-02-08研究Registry仍待补。规划PASS≠产品PASS。
+
 ## 2026-10-28｜CAP-02-06测量资源计量溯源、临界判定与控制器语义研究补证
 [8项权威来源及合法阅读深度](research/sources/CAP-02-06.json) → [10规则40字段和原包](research/traces/CAP-02-06-v08-supplement.json) → [10正40独立反例4数学与8状态设计](docs/capabilities/CAP-02-06/research-fixtures-v08.json) → [专题、历史保护和Owner交接](docs/capabilities/CAP-02-06/RESEARCH-TRACE-2026-10-28.md)。累计**1052来源登记/124 Registry（非去重）**，02域还缺CAP-02-07..08同名来源。独立Node、实际检测/NC/B5/消费者均NOT_RUN；Owner会签0/17，L3待审。规划PASS≠产品PASS。
 
