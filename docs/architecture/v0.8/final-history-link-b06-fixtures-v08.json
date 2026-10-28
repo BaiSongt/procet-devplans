@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "procet-v08-final-link-b06-fixtures-v1",
+  "observedActual": {
+    "head": "13691ab9f9d5eedae5b33503d50131b44910bb4d",
+    "tree": "8f7cbf60d34bb38795a8db9a9f16d2a0f7e06a92",
+    "markdown": 533,
+    "read": 50,
+    "sha": 50,
+    "inline": 403,
+    "refs": 0,
+    "rawMissing": 1,
+    "decodedMissing": 0,
+    "fixes": 1,
+    "previousStable": 146,
+    "unique": 196,
+    "remaining": 337,
+    "parser": "REGEX_INLINE_PLUS_SINGLE_PERCENT_DECODE_BY_SEGMENT",
+    "fullScan": false,
+    "ast": false,
+    "owner": 0,
+    "consumer": 0,
+    "l3": "PENDING_HUMAN",
+    "product": false,
+    "history": "NOT_RECOVERED",
+    "unknown": "UNKNOWN"
+  },
+  "cases": [
+    {
+      "id": "B06-P01",
+      "expected": true
+    },
+    {
+      "id": "B06-N01",
+      "oneFieldOverride": {
+        "head": "bad"
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N02",
+      "oneFieldOverride": {
+        "tree": "bad"
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N03",
+      "oneFieldOverride": {
+        "markdown": 532
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N04",
+      "oneFieldOverride": {
+        "read": 49
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N05",
+      "oneFieldOverride": {
+        "sha": 49
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N06",
+      "oneFieldOverride": {
+        "inline": 402
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N07",
+      "oneFieldOverride": {
+        "rawMissing": 0
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N08",
+      "oneFieldOverride": {
+        "decodedMissing": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N09",
+      "oneFieldOverride": {
+        "fixes": 0
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N10",
+      "oneFieldOverride": {
+        "refs": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N11",
+      "oneFieldOverride": {
+        "parser": "AST"
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N12",
+      "oneFieldOverride": {
+        "fullScan": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N13",
+      "oneFieldOverride": {
+        "ast": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N14",
+      "oneFieldOverride": {
+        "owner": 17
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N15",
+      "oneFieldOverride": {
+        "unknown": "KNOWN"
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N16",
+      "oneFieldOverride": {
+        "product": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N17",
+      "oneFieldOverride": {
+        "l3": "APPROVED"
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N18",
+      "oneFieldOverride": {
+        "consumer": 17
+      },
+      "expected": false
+    },
+    {
+      "id": "B06-N19",
+      "oneFieldOverride": {
+        "history": "RECOVERED"
+      },
+      "expected": false
+    }
+  ],
+  "uriCases": [
+    {
+      "id": "B06-U01",
+      "base": "docs/capabilities/README.md",
+      "uri": "batch01-v0.9.1/01_功能规格/CAP-01-05_A-B%20工作模式编排.md",
+      "expected": "EXISTS"
+    },
+    {
+      "id": "B06-U02",
+      "base": "docs/capabilities/README.md",
+      "uri": "%2e%2e/%2e%2e/%2e%2e/secret.md",
+      "expected": "REJECT_ROOT"
+    },
+    {
+      "id": "B06-U03",
+      "base": "docs/capabilities/README.md",
+      "uri": "bad%2Fescape.md",
+      "expected": "REJECT_SEPARATOR"
+    },
+    {
+      "id": "B06-U04",
+      "base": "docs/capabilities/README.md",
+      "uri": "bad%ZZ.md",
+      "expected": "REJECT_PERCENT"
+    },
+    {
+      "id": "B06-U05",
+      "base": "docs/capabilities/README.md",
+      "uri": "bad%00.md",
+      "expected": "REJECT_NUL"
+    },
+    {
+      "id": "B06-U06",
+      "base": "docs/capabilities/README.md",
+      "uri": "CAP-11-01/README.md#anchor-not-verified",
+      "expected": "EXISTS"
+    },
+    {
+      "id": "B06-U07",
+      "base": "docs/capabilities/README.md",
+      "uri": "https://example.com",
+      "expected": "SKIP"
+    },
+    {
+      "id": "B06-U08",
+      "base": "docs/capabilities/README.md",
+      "uri": "bad%5Cescape.md",
+      "expected": "REJECT_SEPARATOR"
+    }
+  ],
+  "domainGates": [
+    {
+      "id": "B06-G01",
+      "state": "UNTRUSTED_RAG_DIRECT_TOOL",
+      "expected": "BLOCK"
+    },
+    {
+      "id": "B06-G02",
+      "state": "CANCELLED_LATE_ACK_CAS_STALE",
+      "expected": "REJECT"
+    },
+    {
+      "id": "B06-G03",
+      "state": "CL_ONLY_NO_FINAL_NC_D15",
+      "expected": "BLOCK_D16"
+    },
+    {
+      "id": "B06-G04",
+      "state": "PLANNING_ONLY_NO_OWNER_L3",
+      "expected": "NOT_FINAL"
+    }
+  ]
+}

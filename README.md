@@ -1,3 +1,6 @@
+## 2026-10-29｜第六轮终核：AI/早期规格Markdown路径解码与SHA链
+[50份逐原Blob/SHA、403行内链接、1条%20误报修正](research/audits/FINAL-HISTORY-LINK-B06-2026-10-29.json) → [6规则](research/traces/FINAL-HISTORY-LINK-B06-V08.json) → [20项V8正反及8 URI、4设计门禁](docs/architecture/v0.8/final-history-link-b06-fixtures-v08.json) · [只读Node](tools/check_final_history_link_b06_v08.cjs) · [研究边界](docs/architecture/v0.8/第六轮AI与历史规格链接审计_2026-10-29.md)。当前HEAD旧B05索引移动已避重，B04+B05+B06在基线533份中**196份逐SHA清单**，其余337；尚非全仓AST或产品PASS，Node/NC/B5/17消费者NOT_RUN，17 Owner、L3待人审。
+
 ## 2026-10-29｜跨域终核第五轮：50份NC/发布领域Markdown路径SHA及执行语义补证
 [50份逐文件Git SHA/283行内相对链接](research/audits/FINAL-HISTORY-LINK-B05-2026-10-29.json) → [六条领域/审计研究规则](research/traces/FINAL-HISTORY-LINK-B05-V08.json) → [18项合成正反、五项待运行状态门禁](docs/architecture/v0.8/final-history-link-b05-fixtures-v08.json) · [独立Node只读校验器](tools/check_final_history_link_b05_v08.cjs) · [中文审计/来源局限](docs/architecture/v0.8/第五轮NC与发布证据链接审计_2026-10-29.md)。旧B04 96路径SHA在同HEAD保持不变，跨批显式146份；仅启发式行内链接，非全仓/AST/产品PASS。17 Owner和17消费者0/17、L3待审、独立Node/NC/OCCT/B5 NOT_RUN。
 
