@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B07 第七批原同名Trace与U4-02 WCAG补证
+[10份91登记及10项官方实读范围](audits/REGISTRY-AUDIT-B07-2026-10-28.json) → [U4-02唯一同名显式来源缺口增量规则](traces/U4-02-accessibility-supplement-v08.json) → [34规划案例](../docs/architecture/v0.8/registry-audit-b07-fixtures-v08.json) → [Node只读工具](../tools/check_registry_audit_b07_v08.cjs) · [专题、局限及交接](../docs/architecture/v0.8/研究注册第七批证据审计_2026-10-28.md)。累计70/127、576/1075，外部定点复核66项登记而非独立论文；独立Node/产品/消费者NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B06 跨Trace原始显式ID核验
 [第51—60份/92条与原Blob](audits/REGISTRY-AUDIT-B06-2026-10-28.json) → [唯一缺失SRC-U401-S01增量研究](traces/U4-01-accessibility-supplement-v08.json) → [29规划案例](../docs/architecture/v0.8/registry-audit-b06-fixtures-v08.json) · [独立校验](../tools/check_registry_audit_b06_v08.cjs)。本批无内联rules但原同名Trace91/92显式；补证不改历史。累计60/127、485/1075，产品NOT_RUN。
 
