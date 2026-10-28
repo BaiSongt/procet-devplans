@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+'use strict';
+// B10只读规划审计：合成数据不能替代真实NC和设备安全。
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..'),read=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const sha=p=>{const b=fs.readFileSync(path.join(root,p));return crypto.createHash('sha1').update(Buffer.from('blob '+b.length+String.fromCharCode(0))).update(b).digest('hex')};
+const a=read('research/audits/REGISTRY-AUDIT-B10-2026-10-28.json'),idx=read('research/source-index.json'),sup=read('research/traces/CAP-09-07-iso10791-scope-supplement-v08.json'),fx=read('docs/architecture/v0.8/registry-audit-b10-fixtures-v08.json'),prog=read('tracking/registry-audit-progress-v08.json');
+assert.equal(sha('research/source-index.json'),a.sourceIndexBlobSha);assert.equal(idx.registries.length,127);assert.equal(idx.registeredRecords,1075);
+let total=0,covered=0,inline=0;const allIds=new Set();
+for(const item of a.items){assert.equal(idx.registries[item.ordinal-1].path,item.registryPath);assert.equal(idx.registries[item.ordinal-1].registeredRecords,item.sourceCount);assert.equal(sha(item.registryPath),item.registryBlobSha);assert.equal(sha(item.tracePath),item.traceBlobSha);
+const src=read(item.registryPath).sources,tr=read(item.tracePath),refs=new Set(tr.rules.flatMap(r=>r.sourceIds||[])),missing=src.filter(s=>!refs.has(s.id)).map(s=>s.id);assert.deepEqual(src.map(s=>s.id),item.sourceIds);assert.deepEqual(missing,item.unreferencedInOriginalSameNameTrace);
+for(const s of src){assert.ok(!allIds.has(s.id),'duplicate '+s.id);allIds.add(s.id);if(Array.isArray(s.rules)&&s.rules.length)inline++;}total+=src.length;covered+=src.length-missing.length;}
+assert.equal(total,89);assert.equal(covered,88);assert.equal(inline,0);assert.deepEqual(a.originalSameNameTraceUnreferenced,['C0907-S02']);assert.equal(a.externalReopenedCount,8);
+assert.equal(sha(sup.sourceRegistry),sup.originalRegistryBlobSha);assert.equal(sha(sup.originalTrace),sup.originalTraceBlobSha);
+for(const r of sup.rules){assert.ok(r.fields.length&&r.capabilityIds.length&&r.workPackages.length);for(const id of r.sourceIds)assert.ok(allIds.has(id),'dangling source '+id);}
+const valid=['HORIZONTAL_LINEAR','HORIZONTAL_B_PRIME','HORIZONTAL_A_B_PRIME'];
+function decide(x){const s=x.source,c=x.closure,w=x.workflow;return(s.standardId==='ISO 10791-1:2015'&&valid.includes(s.machineConfiguration)&&s.scopeClaim==='GEOMETRIC_TESTS_ONLY'&&s.accessDepth==='CATALOG_ABSTRACT_ONLY'&&s.noInventedTolerance&&s.accessoryHeadSeparate&&s.geometryNotNcSafety&&s.scopeReviewed&&c.finalNcHash==='sha256:final-nc-demo'&&c.d13EventsHash==='sha256:d13-demo'&&c.d14JointTimelineHash==='sha256:d14-demo'&&c.d10BindingHash==='sha256:d10-demo'&&c.machineGeometryHash==='sha256:geometry-demo'&&c.frameId==='MCS-RH'&&c.oracleFrameId===c.frameId&&c.jointLimitsProvenance&&c.fullMotionIntervalProof&&c.staticDistanceIsDone&&c.independentD15Consumer&&c.controllerUnknownFailClosed&&c.noClProof&&w.casRechecked&&w.aclRechecked&&w.scopeEpoch==='epoch:12'&&w.scopeEpoch===w.currentEpoch&&!w.cancelled&&!w.lateReceipt&&w.guiOwnerPort==='SafetyVerificationPort'&&w.cliOwnerPort===w.guiOwnerPort&&w.agentOwnerPort===w.guiOwnerPort&&w.worldCount===1&&w.leftPanelCount===1&&w.fontMaxPx>0&&w.fontMaxPx<=12&&w.frozenAB&&w.pairedReaderRollback&&w.humanD16Required&&w.noSweepClaim)?'PLANNING_CANDIDATE_NOT_PRODUCT_PASS':'REJECT_DESIGN_CONTRACT';}
+const gates={"B5_VERTICAL_GANTRY":"ISO_10791_1_OUT_OF_SCOPE","ACCESSORY_HEAD":"SEPARATE_GEOMETRY_STANDARD_REQUIRED","STATIC_ENDPOINTS_ONLY":"UNKNOWN_CONTINUOUS_CLEARANCE","D13_UNKNOWN_MODAL":"UNKNOWN_BLOCK_D16","D10_CHANGED":"STALE_RECOMPUTE_D13_D15","CANCEL_LATE_ACK":"DISCARD_LATE_RECEIPT","CL_ANIMATION_ONLY":"CL_NOT_NC_ENGINEERING_PASS","D16_REQUEST":"HUMAN_AND_REAL_INDEPENDENT_CONSUMER_REQUIRED"};let tested=0,base=fx.cases[0].input;
+for(const z of fx.cases){assert.equal(decide(z.input),z.expected,z.id);tested++;if(z.changedField){let diff=0;for(const g of Object.keys(base))for(const k of Object.keys(base[g]))if(base[g][k]!==z.input[g][k])diff++;assert.equal(diff,1,'not independent '+z.id);}}
+for(const g of fx.gates){assert.equal(gates[g.kind],g.expected,g.id);tested++;}
+assert.equal(fx.positiveCases,3);assert.equal(fx.independentSingleFieldNegatives,35);assert.equal(fx.gatesCount,8);assert.equal(tested,46);assert.equal(prog.structuralAuditedRegistries,100);assert.equal(prog.structuralAuditedRegistrations,843);
+console.log('B10 原Trace 88/89+补证1；规划合成 46/46；真实Node/产品验收NOT_RUN');

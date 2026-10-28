@@ -1,3 +1,6 @@
+## 2026-10-28｜第十批Registry与ISO10791-1范围补证：100/127份、843/1075条
+[原Blob/89登记与8项公开页](research/audits/REGISTRY-AUDIT-B10-2026-10-28.json) → [三规则补证](research/traces/CAP-09-07-iso10791-scope-supplement-v08.json) → [3正35独立反8门禁](docs/architecture/v0.8/registry-audit-b10-fixtures-v08.json) · [研究交接](docs/architecture/v0.8/研究注册第十批证据审计_2026-10-28.md) · [只读校验器](tools/check_registry_audit_b10_v08.cjs)。原Trace88/89、唯一C0907-S02增量补齐；ISO官网仅摘要，B5与角度头不得冒称已认证。V8内存46/46；Node/NC/机床/消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-28｜第九批Registry原Trace缺口与NC工具表加载态：90/127份、754/1075条
 
 [10份原Blob/84登记及7外部公开页](research/audits/REGISTRY-AUDIT-B09-2026-10-28.json) → [唯一缺口C086-S7三规则补证](research/traces/CAP-08-06-tooltable-loaded-state-supplement-v08.json) → [3正/30独立反/8门禁](docs/architecture/v0.8/registry-audit-b09-fixtures-v08.json) · [研究结论与交接](docs/architecture/v0.8/研究注册第九批证据审计_2026-10-28.md) · [Node只读校验器](tools/check_registry_audit_b09_v08.cjs)。原同名Trace83/84+补证1，不改原312条直接关系。规划V8内存断言41/41，独立Node文件进程、真实NC/B5/17消费者NOT_RUN；正式Owner0/17、L3待审。**规划PASS≠产品PASS。**

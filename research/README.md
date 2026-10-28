@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B10 ISO机床几何测试范围研究
+[91—100原Blob/8外部公开页](audits/REGISTRY-AUDIT-B10-2026-10-28.json) → [CAP-09-07新增三规则](traces/CAP-09-07-iso10791-scope-supplement-v08.json) → [46规划正反/门禁](../docs/architecture/v0.8/registry-audit-b10-fixtures-v08.json) · [研究边界](../docs/architecture/v0.8/研究注册第十批证据审计_2026-10-28.md) · [Node只读校验器](../tools/check_registry_audit_b10_v08.cjs)。累计100/127 Registry、843/1075条，独立Node/产品与Owner/L3未验收；ISO未读正文，不外推B5。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B09 原NC/工具表文件与已加载状态分离
 
 [十份原Git Blob、84来源及7项实读公开页](audits/REGISTRY-AUDIT-B09-2026-10-28.json) → [CAP-08-06增量三规则](traces/CAP-08-06-tooltable-loaded-state-supplement-v08.json) → [41正反/发布门禁](../docs/architecture/v0.8/registry-audit-b09-fixtures-v08.json) · [研究及局限](../docs/architecture/v0.8/研究注册第九批证据审计_2026-10-28.md) · [Node只读验证](../tools/check_registry_audit_b09_v08.cjs)。累计90/127份、754/1075条登记（非去重出版物）；独立Node文件进程、产品/消费者NOT_RUN，Owner/L3待审。**规划PASS≠产品PASS。**
