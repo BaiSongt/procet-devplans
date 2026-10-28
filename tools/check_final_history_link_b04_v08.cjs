@@ -24,7 +24,7 @@ for(const e of a.fileManifest){
  const p=path.resolve(root,e.path);
  if(!p.startsWith(root+path.sep)){issues.push('ESCAPE_'+e.path);continue}
  if(!fs.existsSync(p)){issues.push('ABSENT_'+e.path);continue}
- const buf=fs.readFileSync(p),sha=crypto.createHash('sha1').update(Buffer.concat([Buffer.from('blob '+buf.length+'\\0'),buf])).digest('hex');
+ const buf=fs.readFileSync(p),sha=crypto.createHash('sha1').update(Buffer.concat([Buffer.from('blob '+buf.length+'\0'),buf])).digest('hex');
  if(sha!==e.gitBlobSha)issues.push('STALE_'+e.path);else readCount++;
 }
 expect(readCount===96,'EXACT_BLOBS');
