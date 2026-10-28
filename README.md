@@ -1,3 +1,6 @@
+## 2026-10-28｜CAP-02-08《资源能力与兼容性》研究补证
+[10份公开来源与阅读深度](research/sources/CAP-02-08.json) → [12规则48字段及原工作包](research/traces/CAP-02-08-v08-supplement.json) → [12正48独立负8数学](docs/capabilities/CAP-02-08/research-fixtures-v08.json) → [证据边界/独立消费者](docs/capabilities/CAP-02-08/RESEARCH-TRACE-2026-10-28.md)。原RC与RC-T01..20、旧references字节保留；累计**1070登记/126 Registry（非去重）**，02域同名研究来源补证齐全但未逐份终核。V8规划合成**68/68**，独立Node、真实NC/三轴/B5/17消费者NOT_RUN，Owner会签0/17、L3待审；历史附件、10包映射/全仓链接和最终风险交接未闭合。规划PASS≠产品PASS。
+
 ## 2026-10-28｜CAP-02-07资源几何与参数化研究补证
 [8项官方/论文登记](research/sources/CAP-02-07.json) → [10规则40字段](research/traces/CAP-02-07-v08-supplement.json) → [55正反与算术合成](docs/capabilities/CAP-02-07/research-fixtures-v08.json) → [研究/禁用推论](docs/capabilities/CAP-02-07/RESEARCH-TRACE-2026-10-28.md)。来源累计1060条/125 Registry非去重；BRep合法性、Solid、Mesh、AABB、OEM与NC资格分开，V8规划合成55/55，独立Node与真实产品NOT_RUN。CAP-02-08研究Registry仍待补。规划PASS≠产品PASS。
 
