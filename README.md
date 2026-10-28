@@ -1,3 +1,6 @@
+## 2026-10-29｜跨域终核第三轮：150份Markdown原Blob读取与历史原字节边界
+[150/530份Markdown样本、1273相对目的地与原历史附件缺口](research/audits/FINAL-HISTORY-LINK-B03-2026-10-29.json) → [6条研究/工程规则](research/traces/FINAL-HISTORY-LINK-B03-V08.json) → [17项合成正反门禁](docs/architecture/v0.8/final-history-link-b03-fixtures-v08.json) · [只读校验器](tools/check_final_history_link_b03_v08.cjs) · [中文审查及局限](docs/architecture/v0.8/最终附件原字节与链接闭环第三轮_2026-10-29.md)。**仅150份已读、余380未读，正则不是CommonMark AST，故全仓仍NOT_RUN**；三份有路径旧JSON确证缺失、另两类旧原件未定位，不假称恢复。Owner/消费者0，L3待审，产品NOT_RUN。
+
 ## 2026-10-29｜跨域终核首轮：88 CAP/36原包/17候选Owner/127 Registry精确路径审查
 [静态Git Tree覆盖与来源版本审计](research/audits/FINAL-CROSS-COVERAGE-B01-2026-10-29.json) → [6条研究规则](research/traces/FINAL-CROSS-COVERAGE-B01-V08.json) → [6正10独立反例](docs/architecture/v0.8/final-cross-coverage-b01-fixtures-v08.json) · [审查报告](docs/architecture/v0.8/跨域终核首轮与证据升级_2026-10-29.md) · [Node只读工具](tools/check_final_cross_coverage_b01_v08.cjs)。首轮选定结构路径0缺失；旧首轮矩阵四项同名来源缺口在新索引已闭合；111/1075外部登记定点重访非全文，528份Markdown全仓链接与真实Node仍NOT_RUN；17正式Owner/消费者0，历史原字节及终风险交接未闭。**规划PASS≠产品PASS。**
 

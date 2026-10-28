@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "procet-v08-history-link-gates-v1",
+  "description": "唯一实际状态为PARTIAL；完全就绪状态是合成正例，不代表实测完成。",
+  "observedActual": {
+    "exactHead": "0c8c4e948c4777a6cb9622ce29aa3b5d9f18be78",
+    "treeTruncated": false,
+    "markdownTotal": 530,
+    "markdownChecked": 150,
+    "linkParser": "REGEX_HEURISTIC",
+    "anchorsChecked": false,
+    "missingLinks": 0,
+    "outOfRoot": 0,
+    "historicalDisposition": "OPEN_MISSING_ORIGINALS",
+    "fakeRecoveredOriginals": false,
+    "sourceReadDepthOverclaim": false,
+    "ownerSignatureEvidence": "PENDING_HUMAN",
+    "consumerProof": "NOT_RUN",
+    "productPassed": false,
+    "planningOnly": true
+  },
+  "syntheticEligible": {
+    "exactHead": "0c8c4e948c4777a6cb9622ce29aa3b5d9f18be78",
+    "treeTruncated": false,
+    "markdownTotal": 530,
+    "markdownChecked": 530,
+    "linkParser": "COMMONMARK_AST",
+    "anchorsChecked": true,
+    "missingLinks": 0,
+    "outOfRoot": 0,
+    "historicalDisposition": "HUMAN_ACCEPTED_RISK_OR_VERIFIED_ORIGINAL",
+    "fakeRecoveredOriginals": false,
+    "sourceReadDepthOverclaim": false,
+    "ownerSignatureEvidence": "PENDING_HUMAN",
+    "consumerProof": "NOT_RUN",
+    "productPassed": false,
+    "planningOnly": true
+  },
+  "cases": [
+    {
+      "id": "P01-OBSERVED-PARTIAL",
+      "input": "observedActual",
+      "expectedEligible": false
+    },
+    {
+      "id": "P02-SYNTHETIC-ALL-GATES",
+      "input": "syntheticEligible",
+      "expectedEligible": true
+    }
+  ],
+  "negativeCases": [
+    {
+      "id": "N01-HEAD",
+      "overrides": {
+        "exactHead": "0000000000000000000000000000000000000000"
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N02-TREE",
+      "overrides": {
+        "treeTruncated": true
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N03-SCAN",
+      "overrides": {
+        "markdownChecked": 529
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N04-TOTAL",
+      "overrides": {
+        "markdownTotal": 531
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N05-PARSER",
+      "overrides": {
+        "linkParser": "REGEX_HEURISTIC"
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N06-ANCHORS",
+      "overrides": {
+        "anchorsChecked": false
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N07-BROKEN",
+      "overrides": {
+        "missingLinks": 1
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N08-OUTSIDE",
+      "overrides": {
+        "outOfRoot": 1
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N09-HISTORY",
+      "overrides": {
+        "historicalDisposition": "OPEN_MISSING_ORIGINALS"
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N10-FAKE-RESTORE",
+      "overrides": {
+        "fakeRecoveredOriginals": true
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N11-SOURCE-OVERCLAIM",
+      "overrides": {
+        "sourceReadDepthOverclaim": true
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N12-FAKE-OWNER",
+      "overrides": {
+        "ownerSignatureEvidence": "AUTO_SIGNED"
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N13-FAKE-CONSUMER",
+      "overrides": {
+        "consumerProof": "AUTO_PASSED"
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N14-PRODUCT",
+      "overrides": {
+        "productPassed": true
+      },
+      "expectedEligible": false
+    },
+    {
+      "id": "N15-SCOPE",
+      "overrides": {
+        "planningOnly": false
+      },
+      "expectedEligible": false
+    }
+  ]
+}

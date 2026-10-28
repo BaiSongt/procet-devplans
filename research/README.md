@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B03：文件引用与原字节真实性
+[150份Git Blob的1273项相对目的地样本和5类历史原件缺口](audits/FINAL-HISTORY-LINK-B03-2026-10-29.json) → [6条规则与字段/CAP/包](traces/FINAL-HISTORY-LINK-B03-V08.json) → [17项合成正反门禁](../docs/architecture/v0.8/final-history-link-b03-fixtures-v08.json) · [只读Node](../tools/check_final_history_link_b03_v08.cjs) · [来源深度与交接](../docs/architecture/v0.8/最终附件原字节与链接闭环第三轮_2026-10-29.md)。**380份MD待扫、原字节未恢复，完全终核不通过；L3/Owner/产品未验收。**
+
 ## 2026-10-29｜R-FINAL-HANDOFF-B02 17资产风险与交接独立门禁
 [17资产/11域/10零边包风险数据](audits/FINAL-RISK-HANDOFF-B02-2026-10-29.json) → [6条规则与来源](traces/FINAL-RISK-HANDOFF-B02-V08.json) → [204项合成门禁](../docs/architecture/v0.8/final-risk-handoff-b02-fixtures-v08.json) → [独立Node只读工具](../tools/check_final_risk_handoff_b02_v08.cjs) · [研究局限、风险及正式交接](../docs/architecture/v0.8/V08最终风险与交接第二轮_2026-10-29.md)。外部网页本轮定点3项，Owner0/17、独立消费者0/17、Node/NC/OCCT/B5 NOT_RUN，L3 PENDING_HUMAN；规划PASS≠产品PASS。
 
