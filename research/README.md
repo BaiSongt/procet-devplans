@@ -1,5 +1,5 @@
 ## 2026-10-28｜第八批Registry与T5-05消费者证据边界
-[10份原Registry/Trace SHA和7项官方公开页](audits/REGISTRY-AUDIT-B08-2026-10-28.json) → [T5-05追加研究规则](traces/T5-05-independent-consumer-supplement-v08.json) → [36项验收](../docs/architecture/v0.8/registry-audit-b08-fixtures-v08.json)。累计80/127、670/1075（均非去重文献）；Schema不代表独立消费者运行，CL动画不代表最终NC验证。Node/产品与正式签署NOT_RUN。规划PASS≠产品PASS。
+[10份原Registry/Trace SHA和9项官方公开页](audits/REGISTRY-AUDIT-B08-2026-10-28.json) → [T5-05追加研究规则](traces/T5-05-independent-consumer-supplement-v08.json) → [36项验收](../docs/architecture/v0.8/registry-audit-b08-fixtures-v08.json)。累计80/127、670/1075（均非去重文献）；Schema不代表独立消费者运行，CL动画不代表最终NC验证。Node/产品与正式签署NOT_RUN。规划PASS≠产品PASS。
 
 ## 2026-10-28｜R-REGISTRY-AUDIT-B07 第七批原同名Trace与U4-02 WCAG补证
 [10份91登记及10项官方实读范围](audits/REGISTRY-AUDIT-B07-2026-10-28.json) → [U4-02唯一同名显式来源缺口增量规则](traces/U4-02-accessibility-supplement-v08.json) → [34规划案例](../docs/architecture/v0.8/registry-audit-b07-fixtures-v08.json) → [Node只读工具](../tools/check_registry_audit_b07_v08.cjs) · [专题、局限及交接](../docs/architecture/v0.8/研究注册第七批证据审计_2026-10-28.md)。累计70/127、576/1075，外部定点复核66项登记而非独立论文；独立Node/产品/消费者NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。

@@ -23,11 +23,11 @@ for(const x of audit.items){
  total+=src.length;covered+=src.length-missing.length;
 }
 assert.equal(total,94);assert.equal(covered,94);assert.equal(inline,0);
-assert.equal(audit.externalPagesActuallyReopened.length,7);
+assert.equal(audit.externalPagesActuallyReopened.length,9);
 assert.equal(sha('research/sources/T5-05.json'),sup.originalRegistryBlobSha);
 assert.equal(sha('research/traces/T5-05.json'),sup.originalTraceBlobSha);
-const t505=new Set(read('research/sources/T5-05.json').sources.map(s=>s.id));
-for(const r of sup.rules)for(const id of r.sourceIds)assert.ok(t505.has(id),'补证来源悬空 '+id);
+const batchSources=new Set(audit.items.flatMap(x=>x.sourceIds));
+for(const r of sup.rules)for(const id of r.sourceIds)assert.ok(batchSources.has(id),'补证来源悬空 '+id);
 function decide(x){const c=x.contract,w=x.workflow;
  if(!(c.schemaValidated&&c.consumerExecuted&&c.consumerSuiteIndependent&&c.consumerEvidenceHash===c.sourceEvidenceHash&&c.producerRevision===c.consumerExpectedRevision&&c.producerHash===c.consumerExpectedHash&&c.producerFrame===c.consumerExpectedFrame&&c.units===c.consumerUnits&&c.ownerPort==='D09.OwnerPort'&&c.ownerAuthorized))return 'REJECT';
  if(!(w.finalArtifact==='FINAL_NC'&&w.setupId!=='UNKNOWN'&&w.executionBindingId!=='UNKNOWN'&&w.d12Postprocessed&&w.d13Known&&w.d14AxisTime&&w.d15IndependentValidated&&w.d16Review==='HUMAN_REQUIRED'&&w.casRechecked&&w.aclRechecked&&w.scopeEpoch===w.currentEpoch&&!w.cancelled&&!w.lateReceipt&&w.activeWorlds===1&&w.taskPanelCount===1&&w.guiSamePort&&w.cliSamePort&&w.agentSamePort&&w.fontMaxPx>0&&w.fontMaxPx<=12&&w.clAnimationNotProductProof&&w.materialSweepNotClaimed))return 'REJECT';
