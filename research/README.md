@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B05 第五批研究来源与规则
+[41—50份原Registry/十项外部网页](audits/REGISTRY-AUDIT-B05-2026-10-28.json) → [142正反和门禁的机器可检数据](audits/REGISTRY-AUDIT-B05-2026-10-28.json) → [Node只读工具](../tools/check_registry_audit_b05_v08.cjs) → [局限与交接](../docs/architecture/v0.8/研究注册第五批证据审计_2026-10-28.md)。累计50/127 Registry、393/1075记录，实际产品NOT_RUN。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B04第四批来源追踪
 [31—40份原Blob/84条结构登记/10个公开网页定点核阅](audits/REGISTRY-AUDIT-B04-2026-10-28.json) → [10条规则与CAP/原编号包](traces/REGISTRY-AUDIT-B04-V08.json) → [148项独立正反与门禁](../docs/architecture/v0.8/registry-audit-b04-fixtures-v08.json) → [局限和跨Trace待办](../docs/architecture/v0.8/研究注册第四批证据审计_2026-10-28.md)。累计40/127份、309/1075条，原来源字节不变。规划PASS≠产品PASS。
 

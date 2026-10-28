@@ -1,3 +1,6 @@
+## 2026-10-28｜第五批Registry证据审计：累计50/127份、393/1075条
+[研究结论](docs/architecture/v0.8/研究注册第五批证据审计_2026-10-28.md) · [10份原Blob/10外部源/10规则/142规划案例](research/audits/REGISTRY-AUDIT-B05-2026-10-28.json) · [只读Node校验器](tools/check_registry_audit_b05_v08.cjs)。本批84条未内联rules待跨Trace；独立Node及产品/消费者NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜Registry第四批原Blob与工程研究：累计40/127份、309/1075条
 [第四批审计结论](docs/architecture/v0.8/研究注册第四批证据审计_2026-10-28.md) · [十份原Blob/十条外页定点实读](research/audits/REGISTRY-AUDIT-B04-2026-10-28.json) → [10规则与字段/CAP/原包](research/traces/REGISTRY-AUDIT-B04-V08.json) → [148规划正反/门禁案例](docs/architecture/v0.8/registry-audit-b04-fixtures-v08.json)。本批52条无内联rules须逐项查跨Trace，不等于无研究；真实Node/产品/消费者NOT_RUN，Owner与L3待审。规划PASS≠产品PASS。
 
