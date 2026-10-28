@@ -1,3 +1,6 @@
+## 2026-10-28｜R-MET-001公开来源到计量验收的二次补证
+[来源及版本/作者/阅读限制](sources/CAP-02-06.json) → [10规则40字段](traces/CAP-02-06-v08-supplement.json) → [正反/数学合成样例](../docs/capabilities/CAP-02-06/research-fixtures-v08.json) → [研究推导](../docs/capabilities/CAP-02-06/RESEARCH-TRACE-2026-10-28.md)。ISO仅目录摘要、BIPM仅DOI摘要，NIST/LinuxCNC/W3C读取公开限定章节；1052登记/124 Registry，不是去重论文。规划合成54/54，Node与产品/消费者NOT_RUN，L3待审。
+
 ## 2026-10-28｜R-MS-001材料与毛坯来源、真实Solid残差研究补证
 [10官方/论文来源及阅读范围](sources/CAP-02-05.json) → [10规则40字段/原MS-T](traces/CAP-02-05-v08-supplement.json) → [54静态正反/数学样例](../docs/capabilities/CAP-02-05/research-fixtures-v08.json) → [独立消费者与回退](../docs/capabilities/CAP-02-05/independent-consumer-v08.md)。bbox≠精确Solid包含，ISO513≠工件认证，历史revision不解析latest。原R-MS和references原字节不动；1044登记/123 Registry不代表去重或全文核验，Native/产品消费者未测，L3待审。规划PASS≠产品PASS。
 
