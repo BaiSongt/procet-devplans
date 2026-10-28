@@ -16,6 +16,12 @@ requireCheck(a.fileManifest.reduce((s,x)=>s+x.inlineLocalLinksHeuristic,0)===283
 requireCheck(a.markdownSnapshot.currentB04ManifestPathShaUnchanged===96,'B04_SNAPSHOT');
 requireCheck(a.markdownSnapshot.fullRepoMarkdownScan==='NOT_RUN','NO_FULL_SCAN_CLAIM');
 requireCheck(t.rules.length===6&&t.rules.every(x=>x.sourceRefs.length&&x.fields.length&&x.caps.length&&x.packages.length&&x.acceptance.length),'SOURCE_TRACE_RULES');
+const registeredSources=new Set(a.sourceRecords.map(x=>x.id));
+const registeredCases=new Set([...f.cases,...f.domainGateSyntheticOnly].map(x=>x.id));
+requireCheck(t.rules.every(r=>r.sourceRefs.every(id=>registeredSources.has(id))),'RULE_SOURCE_IDS');
+requireCheck(t.rules.every(r=>r.acceptance.every(id=>registeredCases.has(id))),'RULE_ACCEPTANCE_IDS');
+requireCheck(f.domainGateSyntheticOnly.length===5&&new Set(f.domainGateSyntheticOnly.map(x=>x.id)).size===5,'GATE_CASES_5');
+
 let caseCount=0;
 for(const c of f.cases){const x={...actual,...(c.oneFieldOverride||{})};if(gate(x)===c.expected)caseCount++;else errors.push('CASE_'+c.id)}
 requireCheck(caseCount===18,'FIXTURES_18');
