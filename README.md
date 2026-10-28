@@ -1,3 +1,6 @@
+## 2026-10-28｜原10项工作包零CAP直接边候选消歧
+[逐包职责与独立Golden交接](docs/architecture/v0.8/10工作包零直接边候选映射_2026-10-28.md) · [5份公开来源](research/sources/ZERO-EDGE-WORKPACKAGES-V08.json) → [6规则](research/traces/ZERO-EDGE-WORKPACKAGES-V08.json) → [10包候选关系](docs/architecture/v0.8/zero-edge-workpackage-review-v08.json) → [62正反合成](docs/architecture/v0.8/zero-edge-workpackage-fixtures-v08.json)。原312边和10零边不动；1075登记/127 Registry（非去重），V8等价62/62，Node/产品/消费者NOT_RUN；Owner与L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜CAP-02-08《资源能力与兼容性》研究补证
 [10份公开来源与阅读深度](research/sources/CAP-02-08.json) → [12规则48字段及原工作包](research/traces/CAP-02-08-v08-supplement.json) → [12正48独立负8数学](docs/capabilities/CAP-02-08/research-fixtures-v08.json) → [证据边界/独立消费者](docs/capabilities/CAP-02-08/RESEARCH-TRACE-2026-10-28.md)。原RC与RC-T01..20、旧references字节保留；累计**1070登记/126 Registry（非去重）**，02域同名研究来源补证齐全但未逐份终核。V8规划合成**68/68**，独立Node、真实NC/三轴/B5/17消费者NOT_RUN，Owner会签0/17、L3待审；历史附件、10包映射/全仓链接和最终风险交接未闭合。规划PASS≠产品PASS。
 

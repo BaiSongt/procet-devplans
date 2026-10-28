@@ -1,3 +1,6 @@
+## 2026-10-28｜R-ZERO-EDGE-001 横向质量包零直接边治理
+[5份来源](sources/ZERO-EDGE-WORKPACKAGES-V08.json) → [6规则](traces/ZERO-EDGE-WORKPACKAGES-V08.json) → [10包矩阵](../docs/architecture/v0.8/zero-edge-workpackage-review-v08.json)。NIST仅著录摘要，W3C/RFC/LinuxCNC公开选读；不改原312边/10零边。62/62仅V8规划合成、Node与真实消费者NOT_RUN。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-RC-001资源兼容性及控制器语义研究增量
 [10份合法公开来源](sources/CAP-02-08.json) → [12条规则、48字段、F1-02/F1-06/E3-04](traces/CAP-02-08-v08-supplement.json) → [68个规划正反与数学案例](../docs/capabilities/CAP-02-08/research-fixtures-v08.json) → [独立消费者及禁用推论](../docs/capabilities/CAP-02-08/RESEARCH-TRACE-2026-10-28.md)。ISO只读目录摘要、NIST两论文只读官方摘要，LinuxCNC/OCCT/W3C/RFC公开章节有限阅读；不可据此认证B5/NC。累计1070登记/126 Registry（非去重），L3/产品/独立消费者NOT_RUN。规划PASS≠产品PASS。
 
