@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B01 注册表结构与来源推论第一批终核
+[10份117登记/6官方公开原始网页](audits/REGISTRY-AUDIT-B01-2026-10-28.json) → [6项工程规则+字段/CAP/原工作包](traces/REGISTRY-AUDIT-B01-V08.json) → [54合成正反案例](../docs/architecture/v0.8/registry-audit-b01-fixtures-v08.json) → [审计解释与限制](../docs/architecture/v0.8/研究注册第一批证据审计_2026-10-28.md)。旧10个Registry原字节保留，117条未逐篇重查仅6项当轮公开官方页已核；无内联rules 34条须后续跨Trace排查。127 Registry/1075登记仍不是去重论文，Node/产品/消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-ZERO-EDGE-001 横向质量包零直接边治理
 [5份来源](sources/ZERO-EDGE-WORKPACKAGES-V08.json) → [6规则](traces/ZERO-EDGE-WORKPACKAGES-V08.json) → [10包矩阵](../docs/architecture/v0.8/zero-edge-workpackage-review-v08.json)。NIST仅著录摘要，W3C/RFC/LinuxCNC公开选读；不改原312边/10零边。62/62仅V8规划合成、Node与真实消费者NOT_RUN。规划PASS≠产品PASS。
 

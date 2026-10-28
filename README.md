@@ -1,3 +1,6 @@
+## 2026-10-28｜127份Registry第一批证据审计（10份、117登记）
+[逐文件Git Blob/字段缺口与6项官方重核](docs/architecture/v0.8/研究注册第一批证据审计_2026-10-28.md) · [审计明细](research/audits/REGISTRY-AUDIT-B01-2026-10-28.json) → [6规则及CAP/原包](research/traces/REGISTRY-AUDIT-B01-V08.json) → [54独立正反合成案例](docs/architecture/v0.8/registry-audit-b01-fixtures-v08.json) · [进度](tracking/registry-audit-progress-v08.json)。127 Registry/1075登记基数不变；10份117条仅结构/原Blob核验，6份官方网页重查，34条缺内联规则仅列审计问题，不冒称跨Trace缺失；独立Node/产品/消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜原10项工作包零CAP直接边候选消歧
 [逐包职责与独立Golden交接](docs/architecture/v0.8/10工作包零直接边候选映射_2026-10-28.md) · [5份公开来源](research/sources/ZERO-EDGE-WORKPACKAGES-V08.json) → [6规则](research/traces/ZERO-EDGE-WORKPACKAGES-V08.json) → [10包候选关系](docs/architecture/v0.8/zero-edge-workpackage-review-v08.json) → [62正反合成](docs/architecture/v0.8/zero-edge-workpackage-fixtures-v08.json)。原312边和10零边不动；1075登记/127 Registry（非去重），V8等价62/62，Node/产品/消费者NOT_RUN；Owner与L3待审。规划PASS≠产品PASS。
 

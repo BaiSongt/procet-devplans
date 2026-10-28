@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "procet-registry-audit-trace-v08",
+  "audit": "research/audits/REGISTRY-AUDIT-B01-2026-10-28.json",
+  "fixtures": "docs/architecture/v0.8/registry-audit-b01-fixtures-v08.json",
+  "rules": [
+    {
+      "id": "RA1-R01",
+      "sourceIds": [
+        "SRC-CAD-002"
+      ],
+      "capabilityIds": [
+        "CAP-03-01"
+      ],
+      "originalWorkPackages": [
+        "B0-02"
+      ],
+      "fieldPaths": [
+        "cad.ap242SourceEdition",
+        "evidence.sourceRevision",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limitations",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "登记目录版次与模型来源hash；解析STEP不授予AP242全部PMI产品合格",
+      "policy": "SCOPED_PLANNING_ONLY_NOT_OWNER_AUTHORIZATION",
+      "positiveCaseId": "RA1-P01",
+      "negativeCasePrefix": "RA1-N01"
+    },
+    {
+      "id": "RA1-R02",
+      "sourceIds": [
+        "SRC-ASM-001"
+      ],
+      "capabilityIds": [
+        "CAP-03-02"
+      ],
+      "originalWorkPackages": [
+        "F1-04"
+      ],
+      "fieldPaths": [
+        "assembly.occurrenceLocationFrame",
+        "evidence.sourceRevision",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limitations",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "Shape定义与Instance发生Frame分离；不可用单一ShapeID吞并安装变换",
+      "policy": "SCOPED_PLANNING_ONLY_NOT_OWNER_AUTHORIZATION",
+      "positiveCaseId": "RA1-P02",
+      "negativeCasePrefix": "RA1-N02"
+    },
+    {
+      "id": "RA1-R03",
+      "sourceIds": [
+        "SRC-FREL-001"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "originalWorkPackages": [
+        "F1-03"
+      ],
+      "fieldPaths": [
+        "feature.interactionEvidenceKind",
+        "evidence.sourceRevision",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limitations",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "特征关系是有类型的候选证据；几何相交不等于唯一制造关系",
+      "policy": "SCOPED_PLANNING_ONLY_NOT_OWNER_AUTHORIZATION",
+      "positiveCaseId": "RA1-P03",
+      "negativeCasePrefix": "RA1-N03"
+    },
+    {
+      "id": "RA1-R04",
+      "sourceIds": [
+        "SRC-AUTH-001"
+      ],
+      "capabilityIds": [
+        "CAP-01-04"
+      ],
+      "originalWorkPackages": [
+        "B0-01"
+      ],
+      "fieldPaths": [
+        "auth.subjectObjectOperationScope",
+        "evidence.sourceRevision",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limitations",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "授权在Owner事务重判主体对象操作范围；CAS/取消由工程策略补充",
+      "policy": "SCOPED_PLANNING_ONLY_NOT_OWNER_AUTHORIZATION",
+      "positiveCaseId": "RA1-P04",
+      "negativeCasePrefix": "RA1-N04"
+    },
+    {
+      "id": "RA1-R05",
+      "sourceIds": [
+        "SRC-REF-001"
+      ],
+      "capabilityIds": [
+        "CAP-01-03"
+      ],
+      "originalWorkPackages": [
+        "F1-06"
+      ],
+      "fieldPaths": [
+        "revision.canonicalizationProfile",
+        "evidence.sourceRevision",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limitations",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "序列化规范与内容hash须具名，任意JSON.stringify不得宣称RFC8785一致",
+      "policy": "SCOPED_PLANNING_ONLY_NOT_OWNER_AUTHORIZATION",
+      "positiveCaseId": "RA1-P05",
+      "negativeCasePrefix": "RA1-N05"
+    },
+    {
+      "id": "RA1-R06",
+      "sourceIds": [
+        "SRC-SNAP-006"
+      ],
+      "capabilityIds": [
+        "CAP-01-03"
+      ],
+      "originalWorkPackages": [
+        "W2-01"
+      ],
+      "fieldPaths": [
+        "revision.provenanceDerivation",
+        "evidence.sourceRevision",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limitations",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "来源实体/活动/关联Revision保留；A/B回流不得覆盖冻结版本",
+      "policy": "SCOPED_PLANNING_ONLY_NOT_OWNER_AUTHORIZATION",
+      "positiveCaseId": "RA1-P06",
+      "negativeCasePrefix": "RA1-N06"
+    }
+  ],
+  "domainConstraints": {
+    "oneBabylonWorld": true,
+    "oneLeftTaskPanel": true,
+    "guiCliAgentSameOwnerPort": true,
+    "ownerExactRevisionHashFrame": true,
+    "casAclScopeCancelAtCommit": true,
+    "lateAckRestoresAuthority": false,
+    "setupD04EqualsExecutedD10": false,
+    "neutralClCountsAsFinalNcAcceptance": false,
+    "ncPipeline": [
+      "D09_CL",
+      "D12_FINAL_NC",
+      "D13_EXEC_SEMANTICS",
+      "D14_AXIS_TIMELINE",
+      "D15_INDEPENDENT_VALIDATION",
+      "D16_RELEASE"
+    ],
+    "unknownSemanticCanRelease": false,
+    "materialSweepNotRequired": true,
+    "abFrozenProtected": true,
+    "l3": "PENDING_HUMAN",
+    "product": "NOT_RUN"
+  }
+}
