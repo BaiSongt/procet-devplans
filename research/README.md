@@ -1,3 +1,6 @@
+## 2026-10-29｜最后7份Registry及跨资源资格
+[本批55来源](audits/REGISTRY-AUDIT-B13-2026-10-29.json) → [4规则](traces/REGISTRY-AUDIT-B13-CROSSRESOURCE-V08.json) → [35合成案例](../docs/architecture/v0.8/registry-audit-b13-fixtures-v08.json) · [研究限制](../docs/architecture/v0.8/研究注册第十三批证据审计_2026-10-29.md)。结构127/127、1075/1075已遍历，外部正文重访111登记，非去重；真实Node/产品/消费者NOT_RUN，Owner0/17，L3待审，历史附件和最终风险交接未闭。规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B12机床测试与NC执行证据边界
 [111—120份研究原Blob及7外部页](audits/REGISTRY-AUDIT-B12-2026-10-28.json) → [CAP-04-06两来源缺口新增3条工程规则](traces/CAP-04-06-b12-evidence-supplement-v08.json) → [35机器可检规划用例](../docs/architecture/v0.8/registry-audit-b12-fixtures-v08.json) · [局限/交接](../docs/architecture/v0.8/研究注册第十二批证据审计_2026-10-28.md)。累计120/127、1020/1075登记，ISO/NIST均未读付费/PDF正文；独立Node/产品/Owner/L3未通过。规划PASS≠产品PASS。
 

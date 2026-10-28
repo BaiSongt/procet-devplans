@@ -1,3 +1,6 @@
+## 2026-10-29｜Registry第十三批最后7份，来源结构覆盖127/127
+[55登记及原/补充Trace关联](research/audits/REGISTRY-AUDIT-B13-2026-10-29.json) → [4跨资源规则](research/traces/REGISTRY-AUDIT-B13-CROSSRESOURCE-V08.json) → [35规划正反与门禁](docs/architecture/v0.8/registry-audit-b13-fixtures-v08.json) · [中文研究](docs/architecture/v0.8/研究注册第十三批证据审计_2026-10-29.md) · [Node只读](tools/check_registry_audit_b13_v08.cjs)。**127/127 Registry、1075/1075登记结构已审计**，外部定点重访仅111登记（非去重）；Node/产品/消费者NOT_RUN，17 Owner签署0、L3待审。原始附件、全仓链接及最终风险/交接未完成。规划PASS≠产品PASS。
+
 ## 2026-10-28｜第十二批Registry 111—120：ISO230-1与NIST解释器证据边界
 [10份87条原Blob/Trace及7外页](research/audits/REGISTRY-AUDIT-B12-2026-10-28.json) → [CAP-04-06缺2来源/3增量规则](research/traces/CAP-04-06-b12-evidence-supplement-v08.json) → [35规划正反与门禁](docs/architecture/v0.8/registry-audit-b12-fixtures-v08.json) · [研究/交接](docs/architecture/v0.8/研究注册第十二批证据审计_2026-10-28.md) · [只读Node](tools/check_registry_audit_b12_v08.cjs)。累计**120/127 Registry、1020/1075登记**（非去重论文）；原Trace85/87补缺2。ISO只读目录、NIST只读出版摘要且日期分离；V8内存35/35，独立Node/产品/消费者NOT_RUN，Owner0/17、L3待审。规划PASS≠产品PASS。
 
