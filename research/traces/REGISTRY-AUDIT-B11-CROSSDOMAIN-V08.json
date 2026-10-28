@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "procet-registry-audit-b11-crossdomain-v08",
+  "recordedOn": "2026-10-28",
+  "status": "NEW_CROSSDOMAIN_RESEARCH_NO_ORIGINAL_TRACE_GAP",
+  "sourceRegistryRange": [
+    101,
+    110
+  ],
+  "sourceIndexBlobSha": "2b12ac81ae010165de82bc46c02a56211a28bd8a",
+  "originalDirectCapPackageEdgesUnchanged": 312,
+  "rules": [
+    {
+      "id": "B11-XDOMAIN-R01",
+      "summary": "OPC工单偏序与真实机床执行严格分离",
+      "sourceIds": [
+        "C1006-S01",
+        "C1007-S01",
+        "C1005-S03"
+      ],
+      "capabilityIds": [
+        "CAP-10-06",
+        "CAP-10-07",
+        "CAP-10-05"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetOwners": [
+        "D03",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D17"
+      ],
+      "designRule": "JobOrderList StartTime/Priority并列时保持排序不确定；Alarm ACK、列表位置和DNC收件不等于CycleStart，不证明D13/D14或独立D15。缺少机器事件必须UNKNOWN。",
+      "fields": [
+        "order.specVersion",
+        "order.jobId",
+        "order.state",
+        "order.startTime",
+        "order.priority",
+        "order.tieResolution",
+        "order.listIsCycleStartProof",
+        "order.physicalStartState",
+        "order.d15State"
+      ]
+    },
+    {
+      "id": "B11-XDOMAIN-R02",
+      "summary": "离线TUF固定版和接收端验签、元数据防回滚",
+      "sourceIds": [
+        "C1002-S05",
+        "C1003-S05",
+        "C1003-S02",
+        "C1003-S03"
+      ],
+      "capabilityIds": [
+        "CAP-10-02",
+        "CAP-10-03",
+        "CAP-10-04"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetOwners": [
+        "D12",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "designRule": "TUF latest现为v1.0.37，与固定1.0.36不可混合；接收端预置信任根、可信时钟/过期、版本单调、签名/依赖闭包独立验证。介质净化、隔离暂存不等于控制器加载或NC运行。",
+      "fields": [
+        "package.tufSpecPinned",
+        "package.latestObserved",
+        "package.rootKeyId",
+        "package.snapshotVersion",
+        "package.lastTrustedVersion",
+        "package.expiration",
+        "package.trustedTime",
+        "package.signatureVerified",
+        "package.subprogramClosed",
+        "package.payloadHash",
+        "package.transferStage",
+        "package.cycleStartAllowed",
+        "package.mediaSanitizationIsTransferProof"
+      ]
+    },
+    {
+      "id": "B11-XDOMAIN-R03",
+      "summary": "RAG引文锚点与权限：只作数据不授执行权",
+      "sourceIds": [
+        "C1103-S02",
+        "C1103-S04",
+        "C1101-S01",
+        "C1102-S03"
+      ],
+      "capabilityIds": [
+        "CAP-11-03",
+        "CAP-11-01",
+        "CAP-11-02",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02",
+        "E3-06"
+      ],
+      "assetOwners": [
+        "D01",
+        "D05",
+        "D12",
+        "D15",
+        "D16"
+      ],
+      "designRule": "来源Owner/revision/hash与Text Quote/Position Selector State冻结并于引用时重验；召回后仍做当前Scope/ACL授权。索引文本不可信、不授工具/NC/DNC执行权，不能替代D15/D16。",
+      "fields": [
+        "knowledge.owner",
+        "knowledge.readerScope",
+        "knowledge.documentScope",
+        "knowledge.sourceRevision",
+        "knowledge.currentRevision",
+        "knowledge.sourceHash",
+        "knowledge.selectorType",
+        "knowledge.selectorStateHash",
+        "knowledge.postRetrievalAcl",
+        "knowledge.retrievedChunkIsDataOnly",
+        "knowledge.automaticNcToolCall",
+        "knowledge.releaseFromRetrieval"
+      ]
+    },
+    {
+      "id": "B11-XDOMAIN-R04",
+      "summary": "三入口同域业务Port与3D、取消和回退",
+      "sourceIds": [
+        "C1101-S01",
+        "C1103-S02",
+        "C1006-S01"
+      ],
+      "capabilityIds": [
+        "CAP-01-07",
+        "CAP-11-01",
+        "CAP-10-06"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-02",
+        "T5-01",
+        "E3-06"
+      ],
+      "assetOwners": [
+        "D01",
+        "D05",
+        "D17"
+      ],
+      "designRule": "GUI/CLI/Agent同领域Owner Port，全局单Babylon世界+统一左TaskPanel最大12px字体，写入重验CAS/ACL/ScopeEpoch，取消晚回执丢弃，冻结A/B不覆盖，旧Reader成对升级可回退。",
+      "fields": [
+        "ux.guiPort",
+        "ux.cliPort",
+        "ux.agentPort",
+        "ux.babylonWorldCount",
+        "ux.taskPanel",
+        "ux.fontMaxPx",
+        "ux.casAclScopeRechecked",
+        "ux.cancelLateAckDiscarded",
+        "ux.pairedReaderRollback",
+        "ux.frozenABImmutable"
+      ]
+    }
+  ],
+  "fixtures": "docs/architecture/v0.8/registry-audit-b11-fixtures-v08.json",
+  "checker": "tools/check_registry_audit_b11_v08.cjs",
+  "limits": [
+    "本轮原同名Trace 90/90已引用，无需制造缺口",
+    "来源是公开规范特定段落或合法NIST出版摘要，不是实机认证",
+    "设计规则中Procet Owner和UI约束为内部工程推导，非标准原条款",
+    "规划PASS≠产品PASS"
+  ]
+}

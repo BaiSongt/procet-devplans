@@ -1,0 +1,3167 @@
+{
+  "schemaVersion": "procet-registry-audit-b11-fixtures-v08",
+  "recordedOn": "2026-10-28",
+  "meaning": "合成规划契约正反变异，不能替代产品/控制器验收",
+  "positiveCases": 4,
+  "independentSingleFieldNegatives": 44,
+  "gatesCount": 10,
+  "requirements": [
+    {
+      "path": "order.specVersion",
+      "op": "eq",
+      "expected": "OPC-40001-3@1.0.1"
+    },
+    {
+      "path": "order.jobId",
+      "op": "eq",
+      "expected": "job:demo-42"
+    },
+    {
+      "path": "order.state",
+      "op": "eq",
+      "expected": "READY"
+    },
+    {
+      "path": "order.startTime",
+      "op": "isDate",
+      "expected": "2026-10-29T08:00:00Z"
+    },
+    {
+      "path": "order.priority",
+      "op": "intBetween",
+      "expected": [
+        0,
+        100
+      ]
+    },
+    {
+      "path": "order.tieResolution",
+      "op": "eq",
+      "expected": "EXPLICIT_UNKNOWN"
+    },
+    {
+      "path": "order.listIsCycleStartProof",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "path": "order.physicalStartState",
+      "op": "eq",
+      "expected": "UNKNOWN"
+    },
+    {
+      "path": "order.d15State",
+      "op": "eq",
+      "expected": "NOT_RUN"
+    },
+    {
+      "path": "package.tufSpecPinned",
+      "op": "eq",
+      "expected": "1.0.36"
+    },
+    {
+      "path": "package.latestObserved",
+      "op": "eq",
+      "expected": "1.0.37"
+    },
+    {
+      "path": "package.rootKeyId",
+      "op": "eq",
+      "expected": "root:preinstalled-a"
+    },
+    {
+      "path": "package.snapshotVersion",
+      "op": "greaterThanPath",
+      "expected": "package.lastTrustedVersion"
+    },
+    {
+      "path": "package.lastTrustedVersion",
+      "op": "lessThanPath",
+      "expected": "package.snapshotVersion"
+    },
+    {
+      "path": "package.expiration",
+      "op": "eq",
+      "expected": "VALID_AT_TRUSTED_TIME"
+    },
+    {
+      "path": "package.trustedTime",
+      "op": "eq",
+      "expected": "AVAILABLE"
+    },
+    {
+      "path": "package.signatureVerified",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "package.subprogramClosed",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "package.payloadHash",
+      "op": "eq",
+      "expected": "sha256:demo-final-nc"
+    },
+    {
+      "path": "package.transferStage",
+      "op": "eq",
+      "expected": "STAGING_ONLY"
+    },
+    {
+      "path": "package.cycleStartAllowed",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "path": "package.mediaSanitizationIsTransferProof",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "path": "knowledge.owner",
+      "op": "eq",
+      "expected": "D05"
+    },
+    {
+      "path": "knowledge.readerScope",
+      "op": "eq",
+      "expected": "tenant-a/project-1"
+    },
+    {
+      "path": "knowledge.documentScope",
+      "op": "eq",
+      "expected": "tenant-a/project-1"
+    },
+    {
+      "path": "knowledge.sourceRevision",
+      "op": "eq",
+      "expected": "rev:12"
+    },
+    {
+      "path": "knowledge.currentRevision",
+      "op": "sameAs",
+      "expected": "knowledge.sourceRevision"
+    },
+    {
+      "path": "knowledge.sourceHash",
+      "op": "eq",
+      "expected": "sha256:demo-source"
+    },
+    {
+      "path": "knowledge.selectorType",
+      "op": "oneOf",
+      "expected": [
+        "TextQuoteSelector",
+        "TextPositionSelector"
+      ]
+    },
+    {
+      "path": "knowledge.selectorStateHash",
+      "op": "eq",
+      "expected": "sha256:demo-source"
+    },
+    {
+      "path": "knowledge.postRetrievalAcl",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "knowledge.retrievedChunkIsDataOnly",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "knowledge.automaticNcToolCall",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "path": "knowledge.releaseFromRetrieval",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "path": "ux.guiPort",
+      "op": "eq",
+      "expected": "AuditReviewPort"
+    },
+    {
+      "path": "ux.cliPort",
+      "op": "sameAs",
+      "expected": "ux.guiPort"
+    },
+    {
+      "path": "ux.agentPort",
+      "op": "sameAs",
+      "expected": "ux.guiPort"
+    },
+    {
+      "path": "ux.babylonWorldCount",
+      "op": "eq",
+      "expected": 1
+    },
+    {
+      "path": "ux.taskPanel",
+      "op": "eq",
+      "expected": "LEFT_ONLY"
+    },
+    {
+      "path": "ux.fontMaxPx",
+      "op": "range",
+      "expected": [
+        1,
+        12
+      ]
+    },
+    {
+      "path": "ux.casAclScopeRechecked",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "ux.cancelLateAckDiscarded",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "ux.pairedReaderRollback",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "ux.frozenABImmutable",
+      "op": "eq",
+      "expected": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "B11-P01",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "PLANNING_CANDIDATE_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B11-P02",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 6,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "PLANNING_CANDIDATE_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B11-P03",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextPositionSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "PLANNING_CANDIDATE_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B11-P04",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 43,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "PLANNING_CANDIDATE_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B11-N01",
+      "changedField": "order.specVersion",
+      "input": {
+        "order": {
+          "specVersion": "INVALID_OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.specVersion"
+    },
+    {
+      "id": "B11-N02",
+      "changedField": "order.jobId",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "INVALID_job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.jobId"
+    },
+    {
+      "id": "B11-N03",
+      "changedField": "order.state",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "INVALID_READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.state"
+    },
+    {
+      "id": "B11-N04",
+      "changedField": "order.startTime",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "INVALID_DATE",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.startTime"
+    },
+    {
+      "id": "B11-N05",
+      "changedField": "order.priority",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": -1,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.priority"
+    },
+    {
+      "id": "B11-N06",
+      "changedField": "order.tieResolution",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "INVALID_EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.tieResolution"
+    },
+    {
+      "id": "B11-N07",
+      "changedField": "order.listIsCycleStartProof",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": true,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.listIsCycleStartProof"
+    },
+    {
+      "id": "B11-N08",
+      "changedField": "order.physicalStartState",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "INVALID_UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.physicalStartState"
+    },
+    {
+      "id": "B11-N09",
+      "changedField": "order.d15State",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "INVALID_NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "order.d15State"
+    },
+    {
+      "id": "B11-N10",
+      "changedField": "package.tufSpecPinned",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "INVALID_1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.tufSpecPinned"
+    },
+    {
+      "id": "B11-N11",
+      "changedField": "package.latestObserved",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "INVALID_1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.latestObserved"
+    },
+    {
+      "id": "B11-N12",
+      "changedField": "package.rootKeyId",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "INVALID_root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.rootKeyId"
+    },
+    {
+      "id": "B11-N13",
+      "changedField": "package.snapshotVersion",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 40,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.snapshotVersion"
+    },
+    {
+      "id": "B11-N14",
+      "changedField": "package.lastTrustedVersion",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 50,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.lastTrustedVersion"
+    },
+    {
+      "id": "B11-N15",
+      "changedField": "package.expiration",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "INVALID_VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.expiration"
+    },
+    {
+      "id": "B11-N16",
+      "changedField": "package.trustedTime",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "INVALID_AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.trustedTime"
+    },
+    {
+      "id": "B11-N17",
+      "changedField": "package.signatureVerified",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": false,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.signatureVerified"
+    },
+    {
+      "id": "B11-N18",
+      "changedField": "package.subprogramClosed",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": false,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.subprogramClosed"
+    },
+    {
+      "id": "B11-N19",
+      "changedField": "package.payloadHash",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "INVALID_sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.payloadHash"
+    },
+    {
+      "id": "B11-N20",
+      "changedField": "package.transferStage",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "INVALID_STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.transferStage"
+    },
+    {
+      "id": "B11-N21",
+      "changedField": "package.cycleStartAllowed",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": true,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.cycleStartAllowed"
+    },
+    {
+      "id": "B11-N22",
+      "changedField": "package.mediaSanitizationIsTransferProof",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": true
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "package.mediaSanitizationIsTransferProof"
+    },
+    {
+      "id": "B11-N23",
+      "changedField": "knowledge.owner",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "INVALID_D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.owner"
+    },
+    {
+      "id": "B11-N24",
+      "changedField": "knowledge.readerScope",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "INVALID_tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.readerScope"
+    },
+    {
+      "id": "B11-N25",
+      "changedField": "knowledge.documentScope",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "INVALID_tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.documentScope"
+    },
+    {
+      "id": "B11-N26",
+      "changedField": "knowledge.sourceRevision",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "INVALID_rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.sourceRevision"
+    },
+    {
+      "id": "B11-N27",
+      "changedField": "knowledge.currentRevision",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:stale",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.currentRevision"
+    },
+    {
+      "id": "B11-N28",
+      "changedField": "knowledge.sourceHash",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "INVALID_sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.sourceHash"
+    },
+    {
+      "id": "B11-N29",
+      "changedField": "knowledge.selectorType",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "BadSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.selectorType"
+    },
+    {
+      "id": "B11-N30",
+      "changedField": "knowledge.selectorStateHash",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "INVALID_sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.selectorStateHash"
+    },
+    {
+      "id": "B11-N31",
+      "changedField": "knowledge.postRetrievalAcl",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": false,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.postRetrievalAcl"
+    },
+    {
+      "id": "B11-N32",
+      "changedField": "knowledge.retrievedChunkIsDataOnly",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": false,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.retrievedChunkIsDataOnly"
+    },
+    {
+      "id": "B11-N33",
+      "changedField": "knowledge.automaticNcToolCall",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": true,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.automaticNcToolCall"
+    },
+    {
+      "id": "B11-N34",
+      "changedField": "knowledge.releaseFromRetrieval",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": true
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "knowledge.releaseFromRetrieval"
+    },
+    {
+      "id": "B11-N35",
+      "changedField": "ux.guiPort",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "INVALID_AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.guiPort"
+    },
+    {
+      "id": "B11-N36",
+      "changedField": "ux.cliPort",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "rev:stale",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.cliPort"
+    },
+    {
+      "id": "B11-N37",
+      "changedField": "ux.agentPort",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "rev:stale",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.agentPort"
+    },
+    {
+      "id": "B11-N38",
+      "changedField": "ux.babylonWorldCount",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 2,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.babylonWorldCount"
+    },
+    {
+      "id": "B11-N39",
+      "changedField": "ux.taskPanel",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "INVALID_LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.taskPanel"
+    },
+    {
+      "id": "B11-N40",
+      "changedField": "ux.fontMaxPx",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 13,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.fontMaxPx"
+    },
+    {
+      "id": "B11-N41",
+      "changedField": "ux.casAclScopeRechecked",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": false,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.casAclScopeRechecked"
+    },
+    {
+      "id": "B11-N42",
+      "changedField": "ux.cancelLateAckDiscarded",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": false,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.cancelLateAckDiscarded"
+    },
+    {
+      "id": "B11-N43",
+      "changedField": "ux.pairedReaderRollback",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": false,
+          "frozenABImmutable": true
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.pairedReaderRollback"
+    },
+    {
+      "id": "B11-N44",
+      "changedField": "ux.frozenABImmutable",
+      "input": {
+        "order": {
+          "specVersion": "OPC-40001-3@1.0.1",
+          "jobId": "job:demo-42",
+          "state": "READY",
+          "startTime": "2026-10-29T08:00:00Z",
+          "priority": 5,
+          "tieResolution": "EXPLICIT_UNKNOWN",
+          "listIsCycleStartProof": false,
+          "physicalStartState": "UNKNOWN",
+          "d15State": "NOT_RUN"
+        },
+        "package": {
+          "tufSpecPinned": "1.0.36",
+          "latestObserved": "1.0.37",
+          "rootKeyId": "root:preinstalled-a",
+          "snapshotVersion": 42,
+          "lastTrustedVersion": 41,
+          "expiration": "VALID_AT_TRUSTED_TIME",
+          "trustedTime": "AVAILABLE",
+          "signatureVerified": true,
+          "subprogramClosed": true,
+          "payloadHash": "sha256:demo-final-nc",
+          "transferStage": "STAGING_ONLY",
+          "cycleStartAllowed": false,
+          "mediaSanitizationIsTransferProof": false
+        },
+        "knowledge": {
+          "owner": "D05",
+          "readerScope": "tenant-a/project-1",
+          "documentScope": "tenant-a/project-1",
+          "sourceRevision": "rev:12",
+          "currentRevision": "rev:12",
+          "sourceHash": "sha256:demo-source",
+          "selectorType": "TextQuoteSelector",
+          "selectorStateHash": "sha256:demo-source",
+          "postRetrievalAcl": true,
+          "retrievedChunkIsDataOnly": true,
+          "automaticNcToolCall": false,
+          "releaseFromRetrieval": false
+        },
+        "ux": {
+          "guiPort": "AuditReviewPort",
+          "cliPort": "AuditReviewPort",
+          "agentPort": "AuditReviewPort",
+          "babylonWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "fontMaxPx": 12,
+          "casAclScopeRechecked": true,
+          "cancelLateAckDiscarded": true,
+          "pairedReaderRollback": true,
+          "frozenABImmutable": false
+        }
+      },
+      "expected": "REJECT_DESIGN_CONTRACT",
+      "expectedErrorContains": "ux.frozenABImmutable"
+    }
+  ],
+  "gates": [
+    {
+      "id": "B11-G01",
+      "kind": "JOB_ORDER_TIED_START_PRIORITY",
+      "expected": "UNKNOWN_ORDER_NOT_MACHINE_START"
+    },
+    {
+      "id": "B11-G02",
+      "kind": "ALARM_ACKED_NOT_REPAIRED",
+      "expected": "ACK_NOT_RESOLUTION"
+    },
+    {
+      "id": "B11-G03",
+      "kind": "OBSERVATION_WITHOUT_CYCLE_EVENT",
+      "expected": "UNKNOWN_PHYSICAL_START"
+    },
+    {
+      "id": "B11-G04",
+      "kind": "TUF_EXPIRED_OR_CLOCK_UNKNOWN",
+      "expected": "OFFLINE_FAIL_CLOSED"
+    },
+    {
+      "id": "B11-G05",
+      "kind": "SIGNED_PACKAGE_RECEIPT_ONLY",
+      "expected": "NOT_CONTROLLER_LOADED"
+    },
+    {
+      "id": "B11-G06",
+      "kind": "TRUST_ROOT_ROLLBACK",
+      "expected": "REJECT_ROLLBACK"
+    },
+    {
+      "id": "B11-G07",
+      "kind": "RAG_CROSS_TENANT",
+      "expected": "DENY_AND_REDACT"
+    },
+    {
+      "id": "B11-G08",
+      "kind": "RAG_STALE_SELECTOR",
+      "expected": "RESELECT_SOURCE_REVISION"
+    },
+    {
+      "id": "B11-G09",
+      "kind": "CANCELLED_WITH_LATE_ACK",
+      "expected": "DISCARD_LATE_RECEIPT"
+    },
+    {
+      "id": "B11-G10",
+      "kind": "CL_PREVIEW_REQUESTS_D16",
+      "expected": "D15_INDEPENDENT_AND_HUMAN_GATE"
+    }
+  ],
+  "productAcceptance": "NOT_RUN",
+  "independentNodeExecution": "NOT_RUN"
+}
