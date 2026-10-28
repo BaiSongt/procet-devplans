@@ -1,3 +1,6 @@
+## 2026-10-28｜第十一批Registry 101—110：工单偏序、TUF版本和RAG引用权限
+[90条原源ID和8外页复核](research/audits/REGISTRY-AUDIT-B11-2026-10-28.json) → [4条跨域规则](research/traces/REGISTRY-AUDIT-B11-CROSSDOMAIN-V08.json) → [58规划正反门禁](docs/architecture/v0.8/registry-audit-b11-fixtures-v08.json) · [研究解释](docs/architecture/v0.8/研究注册第十一批证据审计_2026-10-28.md) · [只读Node](tools/check_registry_audit_b11_v08.cjs)。原同名Trace **90/90** 覆盖，累计**110/127 Registry与933/1075条来源登记**（不去重论文）。TUF latest1.0.37与固定1.0.36分离，JobOrder/报警ACK≠真实机床运行，RAG引用≠NC执行权；规划58/58内存断言，独立Node/产品/消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-28｜第十批Registry与ISO10791-1范围补证：100/127份、843/1075条
 [原Blob/89登记与8项公开页](research/audits/REGISTRY-AUDIT-B10-2026-10-28.json) → [三规则补证](research/traces/CAP-09-07-iso10791-scope-supplement-v08.json) → [3正35独立反8门禁](docs/architecture/v0.8/registry-audit-b10-fixtures-v08.json) · [研究交接](docs/architecture/v0.8/研究注册第十批证据审计_2026-10-28.md) · [只读校验器](tools/check_registry_audit_b10_v08.cjs)。原Trace88/89、唯一C0907-S02增量补齐；ISO官网仅摘要，B5与角度头不得冒称已认证。V8内存46/46；Node/NC/机床/消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-10-28｜R-REGISTRY-AUDIT-B11 工单/离线交付/AI引用新规则
+[第101—110份研究Blob与8项外页定点复核](audits/REGISTRY-AUDIT-B11-2026-10-28.json) → [四条跨域规则](traces/REGISTRY-AUDIT-B11-CROSSDOMAIN-V08.json) → [58个机器可检规划用例](../docs/architecture/v0.8/registry-audit-b11-fixtures-v08.json) → [研究解释及边界](../docs/architecture/v0.8/研究注册第十一批证据审计_2026-10-28.md)。原同名Trace90/90，累计110/127 Registry与933/1075登记（非去重文献），Node/产品/Owner待验收；规划PASS≠产品PASS。
+
 ## 2026-10-28｜R-REGISTRY-AUDIT-B10 ISO机床几何测试范围研究
 [91—100原Blob/8外部公开页](audits/REGISTRY-AUDIT-B10-2026-10-28.json) → [CAP-09-07新增三规则](traces/CAP-09-07-iso10791-scope-supplement-v08.json) → [46规划正反/门禁](../docs/architecture/v0.8/registry-audit-b10-fixtures-v08.json) · [研究边界](../docs/architecture/v0.8/研究注册第十批证据审计_2026-10-28.md) · [Node只读校验器](../tools/check_registry_audit_b10_v08.cjs)。累计100/127 Registry、843/1075条，独立Node/产品与Owner/L3未验收；ISO未读正文，不外推B5。规划PASS≠产品PASS。
 
