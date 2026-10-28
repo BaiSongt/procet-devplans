@@ -1,0 +1,1033 @@
+{
+  "schemaVersion": "procet-final-risk-handoff-b02-v08",
+  "createdOn": "2026-10-29",
+  "repository": "BaiSongt/procet-devplans",
+  "branch": "gpt-ai/plans/cap-02-07-20261017",
+  "baseExactHead": "26a0e2927b82efcea169a557e2e3a6fe43ae5c2f",
+  "mainSha": "271f2ad017fd30ef01c13763c61046f888ea0d48",
+  "pr1": "DRAFT_OPEN_NOT_MERGED",
+  "auditType": "NEWLY_AUTHORED_STATIC_PLANNING_ONLY",
+  "baseline": {
+    "domains": 11,
+    "capabilities": 88,
+    "originalWorkPackages": 36,
+    "candidateAssetPorts": 17,
+    "originalCapPackageEdges": 312,
+    "registries": 127,
+    "sourceRecords": 1075
+  },
+  "freshObservations": {
+    "gitTreeFileCount": 1406,
+    "gitTreeMarkdownCount": 529,
+    "previousB01MarkdownCount": 528,
+    "markdownSubsetReviewed": 6,
+    "subsetRelativeLinksChecked": 10,
+    "subsetMissingLinks": 0,
+    "fullMarkdownScan": "NOT_RUN",
+    "externalSourcePagesRevisitedInThisRound": 3,
+    "oldRegistryExternalPagesRevisitedEarlier": 111,
+    "remainingUnrevisitedRegistrationsEarlier": 964,
+    "fullExternalSourceReview": "NOT_DONE"
+  },
+  "authoritySources": [
+    {
+      "id": "B02-W3C",
+      "author": "Timothy Lebo、Satya Sahoo、Deborah McGuinness（编辑）",
+      "title": "PROV-O: The PROV Ontology",
+      "version": "W3C Recommendation 2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "readOn": "2026-10-29",
+      "readDepth": "公开HTML §3.1与prov:wasInvalidatedBy属性段；浏览器页面指定文本",
+      "scopeLimit": "只提供血缘/失效建模词汇，不能据此证明Procet CAS、签署与运行时过期清理"
+    },
+    {
+      "id": "B02-OAS",
+      "author": "OpenAPI Initiative",
+      "title": "OpenAPI Specification",
+      "version": "v3.1.1，2024-10-24",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "readOn": "2026-10-29",
+      "readDepth": "公开HTML §3.1、§4.3.1及§4.8.24目录/描述",
+      "scopeLimit": "仅HTTP接口描述语义；不规定本规划业务Owner、NC控制器或Babylon事务语义；未检查更新版3.1.2"
+    },
+    {
+      "id": "B02-NIST",
+      "author": "Murugiah Souppaya、Karen Scarfone、Donna Dodson",
+      "title": "Secure Software Development Framework (SSDF) Version 1.1",
+      "version": "NIST SP 800-218 Final，2022-02",
+      "url": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "readOn": "2026-10-29",
+      "readDepth": "NIST官方出版页元数据与Abstract",
+      "scopeLimit": "PDF正文未在本轮阅读，不能引用特定SSDF实践编号或声称产品遵从"
+    }
+  ],
+  "technicalGrounding": "来源仅作设计方法参考，所有Procet门禁均为内部工程推导，不称为官方标准逐条合规",
+  "risks": [
+    {
+      "id": "H02-R01",
+      "severity": "P0",
+      "gap": "17资产Owner未正式签署",
+      "gate": "OWNER_SIGNATURE",
+      "disposition": "逐资产保存签署者、exact接口契约版本、日期及签署证据；签署前仅候选Port"
+    },
+    {
+      "id": "H02-R02",
+      "severity": "P0",
+      "gap": "17项真实独立消费者均未执行",
+      "gate": "INDEPENDENT_CONSUMER",
+      "disposition": "由非Producer消费者在三入口按exact引用、错误帧/旧哈希、并发冲突、取消回执独立验收"
+    },
+    {
+      "id": "H02-R03",
+      "severity": "P0",
+      "gap": "NC/OCCT/B5与OEM实机验收未知",
+      "gate": "PRODUCT_EVIDENCE",
+      "disposition": "D09 CL仅动画，D12 NC→D13解释→D14轴时序→D15验证→D16发布逐环留证；unknown拒绝放行"
+    },
+    {
+      "id": "H02-R04",
+      "severity": "P1",
+      "gap": "964条来源登记尚未外部原页逐条复核",
+      "gate": "SOURCE_MATURITY",
+      "disposition": "先按高风险证据依赖排优先级；不等同964份独立文献/未读ISO正文"
+    },
+    {
+      "id": "H02-R05",
+      "severity": "P1",
+      "gap": "历史三份架构JSON及CAP-01-02旧补证/旧脚本原字节缺失",
+      "gate": "HISTORIC_BYTES",
+      "disposition": "仅接受带真实字节/校验和及来源的恢复；否则列缺失并区分新编与原件"
+    },
+    {
+      "id": "H02-R06",
+      "severity": "P1",
+      "gap": "完整Markdown相对链接尚未执行全仓扫描",
+      "gate": "MARKDOWN_SCAN",
+      "disposition": "先运行tools/check_final_cross_coverage_b01_v08.cjs --full-md，记录全量覆盖与误报复核，不能据局部静态核查宣称全仓PASS"
+    },
+    {
+      "id": "H02-R07",
+      "severity": "P1",
+      "gap": "10原包零直接CAP边",
+      "gate": "ZERO_EDGE_REVIEW",
+      "disposition": "保留312原始边及10原包空直接边；候选链接单列人工评审，禁止反写历史真值"
+    },
+    {
+      "id": "H02-R08",
+      "severity": "P0",
+      "gap": "权限撤销/ScopeEpoch/CAS/取消晚回执",
+      "gate": "TRANSACTION_AUTH",
+      "disposition": "提交瞬间ACL与scope epoch重验；不允许迟到ACK复活写权限；失败可回滚"
+    },
+    {
+      "id": "H02-R09",
+      "severity": "P1",
+      "gap": "单Babylon世界与统一左TaskPanel尚未产品验证",
+      "gate": "UI_CONSUMER",
+      "disposition": "GUI/CLI/Agent统一业务Port；只允许一个活动Engine/Scene/Canvas，独立消费者验证而非仅截图"
+    },
+    {
+      "id": "H02-R10",
+      "severity": "P1",
+      "gap": "L3未经审批且A/B冻结成果保护",
+      "gate": "HUMAN_L3_AND_AB_FREEZE",
+      "disposition": "L1/L2保持，L3等待人类评审；A/B共享同一事实，迁移提供失效/回退锚点，不覆盖冻结"
+    }
+  ],
+  "domainRisks": [
+    {
+      "domain": "01",
+      "name": "工程与公共工作台",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "公共入口/身份与单3D域仲裁",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "02",
+      "name": "制造资源",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "制造资源exact修订和真实运动链",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "03",
+      "name": "CAD/PMI与制造特征",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "设计冻结/PMI及特征来源",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "04",
+      "name": "装夹与坐标系",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "D04 Setup与D10绑定分离",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "05",
+      "name": "工艺规划",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "工艺工序证据与人工审定",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "06",
+      "name": "几何与工艺求解",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "OCCT几何不等同实机安全",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "07",
+      "name": "CAM刀路",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "中立CL不含OEM语义",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "08",
+      "name": "NC与后处理",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "后置NC源与工具表加载区分",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "09",
+      "name": "机床运动与工程验证",
+      "capabilities": 8,
+      "priority": "P0",
+      "gap": "D13执行语义→D14轴时序→D15独立验证",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "10",
+      "name": "发布与现场闭环",
+      "capabilities": 8,
+      "priority": "P0",
+      "gap": "D16发布权限/签名/离线接收回执",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    },
+    {
+      "domain": "11",
+      "name": "AI与知识智能体",
+      "capabilities": 8,
+      "priority": "P1",
+      "gap": "Agent权限重验/知识证据隔离",
+      "action": "保留CAP细项验收与独立消费者Owner评审；不得以结构PASS自动提升产品PASS",
+      "status": "OPEN_ENGINEERING_REVIEW"
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "D01",
+      "name": "设计基线与制造目标",
+      "ownerDomain": "03",
+      "ownerCandidate": "03 CAD / PMI 与制造特征",
+      "producerPort": "03.DesignBaselinePort",
+      "producerCapabilities": [
+        "CAP-03-01",
+        "CAP-03-02"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "F1-06"
+      ],
+      "inputs": [],
+      "outputs": [
+        "D02",
+        "D04",
+        "D05",
+        "D06"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "03.DesignBaselinePort.readExact",
+        "cli": "03.DesignBaselinePort.readExact",
+        "agent": "03.DesignBaselinePort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D02",
+      "name": "制造特征与加工要求",
+      "ownerDomain": "03",
+      "ownerCandidate": "03 CAD / PMI 与制造特征",
+      "producerPort": "03.ManufacturingFeaturePort",
+      "producerCapabilities": [
+        "CAP-03-05",
+        "CAP-03-07"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "W2-05"
+      ],
+      "inputs": [
+        "D01"
+      ],
+      "outputs": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "03.ManufacturingFeaturePort.readExact",
+        "cli": "03.ManufacturingFeaturePort.readExact",
+        "agent": "03.ManufacturingFeaturePort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D03",
+      "name": "制造资源能力档案",
+      "ownerDomain": "02",
+      "ownerCandidate": "02 制造资源",
+      "producerPort": "02.ManufacturingResourcePort",
+      "producerCapabilities": [
+        "CAP-02-01",
+        "CAP-02-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "inputs": [],
+      "outputs": [
+        "D04",
+        "D06",
+        "D09",
+        "D10"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "02.ManufacturingResourcePort.readExact",
+        "cli": "02.ManufacturingResourcePort.readExact",
+        "agent": "02.ManufacturingResourcePort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D04",
+      "name": "工艺 Setup 与毛坯",
+      "ownerDomain": "04",
+      "ownerCandidate": "04 装夹与坐标系",
+      "producerPort": "04.ProcessSetupPort",
+      "producerCapabilities": [
+        "CAP-04-01",
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04"
+      ],
+      "inputs": [
+        "D01",
+        "D03"
+      ],
+      "outputs": [
+        "D05",
+        "D06",
+        "D07",
+        "D09",
+        "D10"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "04.ProcessSetupPort.readExact",
+        "cli": "04.ProcessSetupPort.readExact",
+        "agent": "04.ProcessSetupPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D05",
+      "name": "工艺规划与人工决策",
+      "ownerDomain": "05",
+      "ownerCandidate": "05 工艺规划",
+      "producerPort": "05.ProcessPlanPort",
+      "producerCapabilities": [
+        "CAP-05-01",
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-05"
+      ],
+      "inputs": [
+        "D01",
+        "D02",
+        "D04",
+        "D06",
+        "D07",
+        "D17"
+      ],
+      "outputs": [
+        "D06",
+        "D08"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "05.ProcessPlanPort.readExact",
+        "cli": "05.ProcessPlanPort.readExact",
+        "agent": "05.ProcessPlanPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D06",
+      "name": "求解候选与搜索结果",
+      "ownerDomain": "06",
+      "ownerCandidate": "06 工艺与几何求解",
+      "producerPort": "06.SolverRunPort",
+      "producerCapabilities": [
+        "CAP-06-01",
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02"
+      ],
+      "inputs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D17"
+      ],
+      "outputs": [
+        "D05",
+        "D07",
+        "D08"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "06.SolverRunPort.readExact",
+        "cli": "06.SolverRunPort.readExact",
+        "agent": "06.SolverRunPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D07",
+      "name": "有序材料状态与局部几何",
+      "ownerDomain": "06",
+      "ownerCandidate": "06 工艺与几何求解",
+      "producerPort": "06.OrderedMaterialStatePort",
+      "producerCapabilities": [
+        "CAP-06-05",
+        "CAP-06-03"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-03"
+      ],
+      "inputs": [
+        "D04",
+        "D06"
+      ],
+      "outputs": [
+        "D05",
+        "D08",
+        "D09"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "06.OrderedMaterialStatePort.readExact",
+        "cli": "06.OrderedMaterialStatePort.readExact",
+        "agent": "06.OrderedMaterialStatePort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D08",
+      "name": "工艺确认与冻结快照",
+      "ownerDomain": "05",
+      "ownerCandidate": "05 工艺规划",
+      "producerPort": "05.FrozenPlanPort",
+      "producerCapabilities": [
+        "CAP-05-06",
+        "CAP-05-08"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03"
+      ],
+      "inputs": [
+        "D02",
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "outputs": [
+        "D09",
+        "D16"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "05.FrozenPlanPort.readExact",
+        "cli": "05.FrozenPlanPort.readExact",
+        "agent": "05.FrozenPlanPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D09",
+      "name": "中立刀路 CL",
+      "ownerDomain": "07",
+      "ownerCandidate": "07 CAM 刀路",
+      "producerPort": "07.NeutralCLPort",
+      "producerCapabilities": [
+        "CAP-07-07",
+        "CAP-07-08"
+      ],
+      "originalWorkPackages": [
+        "E3-01",
+        "E3-02"
+      ],
+      "inputs": [
+        "D03",
+        "D04",
+        "D07",
+        "D08"
+      ],
+      "outputs": [
+        "D11",
+        "D12"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "07.NeutralCLPort.readExact",
+        "cli": "07.NeutralCLPort.readExact",
+        "agent": "07.NeutralCLPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D10",
+      "name": "机床执行配置",
+      "ownerDomain": "04",
+      "ownerCandidate": "04 装夹与坐标系（引用 02 制造资源）",
+      "producerPort": "04.MachineExecutionBindingPort",
+      "producerCapabilities": [
+        "CAP-04-06",
+        "CAP-04-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "inputs": [
+        "D03",
+        "D04"
+      ],
+      "outputs": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "04.MachineExecutionBindingPort.readExact",
+        "cli": "04.MachineExecutionBindingPort.readExact",
+        "agent": "04.MachineExecutionBindingPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D11",
+      "name": "CL 级运动预验证",
+      "ownerDomain": "09",
+      "ownerCandidate": "09 机床运动与工程验证",
+      "producerPort": "09.CLPrecheckPort",
+      "producerCapabilities": [
+        "CAP-09-05"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "inputs": [
+        "D09",
+        "D10"
+      ],
+      "outputs": [
+        "D16"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "09.CLPrecheckPort.readExact",
+        "cli": "09.CLPrecheckPort.readExact",
+        "agent": "09.CLPrecheckPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D12",
+      "name": "NC 程序与后处理记录",
+      "ownerDomain": "08",
+      "ownerCandidate": "08 NC 与后处理 · NC 生成",
+      "producerPort": "08.NCProgramPort",
+      "producerCapabilities": [
+        "CAP-08-01",
+        "CAP-08-07"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "inputs": [
+        "D09",
+        "D10"
+      ],
+      "outputs": [
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "08.NCProgramPort.readExact",
+        "cli": "08.NCProgramPort.readExact",
+        "agent": "08.NCProgramPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D13",
+      "name": "NC 控制器执行语义",
+      "ownerDomain": "08",
+      "ownerCandidate": "08 NC 与后处理 · NC 执行适配",
+      "producerPort": "08.ControllerSemanticsPort",
+      "producerCapabilities": [
+        "CAP-08-02",
+        "CAP-08-03"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "inputs": [
+        "D10",
+        "D12"
+      ],
+      "outputs": [
+        "D14",
+        "D15"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "08.ControllerSemanticsPort.readExact",
+        "cli": "08.ControllerSemanticsPort.readExact",
+        "agent": "08.ControllerSemanticsPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D14",
+      "name": "机床轴运动时序",
+      "ownerDomain": "09",
+      "ownerCandidate": "09 机床运动与工程验证 · 运动学展开",
+      "producerPort": "09.AxisTimelinePort",
+      "producerCapabilities": [
+        "CAP-09-02",
+        "CAP-09-03"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "inputs": [
+        "D10",
+        "D13"
+      ],
+      "outputs": [
+        "D15"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "09.AxisTimelinePort.readExact",
+        "cli": "09.AxisTimelinePort.readExact",
+        "agent": "09.AxisTimelinePort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D15",
+      "name": "NC 程序级仿真与验证记录",
+      "ownerDomain": "09",
+      "ownerCandidate": "09 机床运动与工程验证 · 程序验证",
+      "producerPort": "09.NCVerificationPort",
+      "producerCapabilities": [
+        "CAP-09-06",
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "E3-05",
+        "E3-06"
+      ],
+      "inputs": [
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "outputs": [
+        "D16"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "entrypoints": {
+        "gui": "09.NCVerificationPort.readExact",
+        "cli": "09.NCVerificationPort.readExact",
+        "agent": "09.NCVerificationPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D16",
+      "name": "程序发布与审批包",
+      "ownerDomain": "10",
+      "ownerCandidate": "10 程序发布与现场协同",
+      "producerPort": "10.ProgramReleasePort",
+      "producerCapabilities": [
+        "CAP-10-01",
+        "CAP-10-02"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "inputs": [
+        "D08",
+        "D11",
+        "D12",
+        "D15"
+      ],
+      "outputs": [
+        "D17"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "10.ProgramReleasePort.readExact",
+        "cli": "10.ProgramReleasePort.readExact",
+        "agent": "10.ProgramReleasePort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    },
+    {
+      "assetId": "D17",
+      "name": "现场执行与检测反馈",
+      "ownerDomain": "10",
+      "ownerCandidate": "10 程序发布与现场协同",
+      "producerPort": "10.ShopfloorObservationPort",
+      "producerCapabilities": [
+        "CAP-10-05",
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "T5-03",
+        "T5-05"
+      ],
+      "inputs": [
+        "D16"
+      ],
+      "outputs": [
+        "D05",
+        "D06"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "entrypoints": {
+        "gui": "10.ShopfloorObservationPort.readExact",
+        "cli": "10.ShopfloorObservationPort.readExact",
+        "agent": "10.ShopfloorObservationPort.readExact"
+      },
+      "signoff": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "product": "NOT_RUN",
+      "schema": "DRAFT_NOT_FROZEN",
+      "independentConsumerPlan": {
+        "reference": "exact revision+contentHash+schemaVersion+scope+frameRefWhenApplicable",
+        "readGate": "GUI/CLI/Agent同业务Owner Port",
+        "positive": "已获正式签署且符合ExactRef/CAS/ACL的独立消费者可接受",
+        "negative": "错revision/hash/frame、陈旧ScopeEpoch、取消后晚ACK、未签署任一拒绝",
+        "executionStatus": "SPEC_ONLY_NOT_EXECUTED"
+      }
+    }
+  ],
+  "zeroOriginalEdgeWorkPackages": [
+    {
+      "packageId": "B0-03",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "B0-04",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "B0-05",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "B0-06",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "F1-01",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "U4-03",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "U4-05",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "T5-04",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "T5-05",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "packageId": "T5-06",
+      "originalDirectEdges": 0,
+      "policy": "PRESERVE_ORIGINAL_ZERO_CANDIDATE_LINKS_ONLY",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ],
+  "globalGates": {
+    "sameDomainEntry": true,
+    "singleBabylonWorld": true,
+    "unifiedLeftTaskPanel": true,
+    "abFrozenTruthPreserved": true,
+    "setupExecutionBindingSeparated": true,
+    "minimumCommonC0": true,
+    "sourceExecutionStages": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "unknownSemanticsPublish": false,
+    "materialSweptSimulationPlanned": false,
+    "legacyUnknownMustNotGainWrite": true
+  },
+  "humanL3": "PENDING_HUMAN",
+  "ownerSigned": 0,
+  "independentConsumerPassed": 0,
+  "productVerification": "NOT_RUN",
+  "planningPassDoesNotImplyProductPass": true
+}
