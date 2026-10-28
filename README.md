@@ -1,3 +1,6 @@
+## 2026-10-28｜127份Registry第二批证据审计：累计20份154条
+[第二批研究结论及风险](docs/architecture/v0.8/研究注册第二批证据审计_2026-10-28.md) · [10份原Blob及10官方HTML证据](research/audits/REGISTRY-AUDIT-B02-2026-10-28.json) → [10规则/字段/CAP/原工作包](research/traces/REGISTRY-AUDIT-B02-V08.json) → [10正90反8门禁](docs/architecture/v0.8/registry-audit-b02-fixtures-v08.json)。累计20/127 Registry、154/1075登记结构审计；16项官方外页当轮重核；V8等价108/108，Node/NC/B5/消费者NOT_RUN，Owner和L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-28｜127份Registry第一批证据审计（10份、117登记）
 [逐文件Git Blob/字段缺口与6项官方重核](docs/architecture/v0.8/研究注册第一批证据审计_2026-10-28.md) · [审计明细](research/audits/REGISTRY-AUDIT-B01-2026-10-28.json) → [6规则及CAP/原包](research/traces/REGISTRY-AUDIT-B01-V08.json) → [54独立正反合成案例](docs/architecture/v0.8/registry-audit-b01-fixtures-v08.json) · [进度](tracking/registry-audit-progress-v08.json)。127 Registry/1075登记基数不变；10份117条仅结构/原Blob核验，6份官方网页重查，34条缺内联规则仅列审计问题，不冒称跨Trace缺失；独立Node/产品/消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
 
