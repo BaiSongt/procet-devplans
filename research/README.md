@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B07：B0-04缺件修复与36份工作包证据
+[36份Git原Blob与130项行内路径](audits/FINAL-HISTORY-LINK-B07-2026-10-29.json) → [10项新编原编号包子任务](../docs/work-packages/B0-04/subtasks.json) → [六条研究规则](traces/FINAL-HISTORY-LINK-B07-V08.json) → [25项正反设计验收](../docs/architecture/v0.8/final-history-link-b07-fixtures-v08.json) · [Node只读](../tools/check_final_history_link_b07_v08.cjs) · [原文/来源与局限](../docs/architecture/v0.8/第七轮B0-04缺失子任务与链接补证_2026-10-29.md)。确实发现B0-04/02到subtasks.json断链并用NEWLY_AUTHORED规划规格补齐，非恢复历史附件；四批路径SHA合计232/534（同快照），剩302尚未冻结，AST/全仓/真实Node/产品NOT_RUN，17正式Owner与独立消费者0、L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-29｜第六轮终核：AI/早期规格Markdown路径解码与SHA链
 [50份逐原Blob/SHA、403行内链接、1条%20误报修正](audits/FINAL-HISTORY-LINK-B06-2026-10-29.json) → [6规则](traces/FINAL-HISTORY-LINK-B06-V08.json) → [20项V8正反及8 URI、4设计门禁](../docs/architecture/v0.8/final-history-link-b06-fixtures-v08.json) · [只读Node](../tools/check_final_history_link_b06_v08.cjs) · [研究边界](../docs/architecture/v0.8/第六轮AI与历史规格链接审计_2026-10-29.md)。当前HEAD旧B05索引移动已避重，B04+B05+B06在基线533份中**196份逐SHA清单**，其余337；尚非全仓AST或产品PASS，Node/NC/B5/17消费者NOT_RUN，17 Owner、L3待人审。
 

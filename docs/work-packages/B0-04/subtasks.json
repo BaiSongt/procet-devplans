@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "procet-b004-subtasks-v1",
+  "workPackage": "B0-04",
+  "recordedOn": "2026-10-29",
+  "origin": "NEWLY_AUTHORED_FROM_EXISTING_B0-04_02_SPEC_NOT_RECOVERED_HISTORICAL_BYTES",
+  "sourcePath": "docs/work-packages/B0-04/02-implementation-and-acceptance.md",
+  "sourceBlobSha": "8483058c6f66d9aac53efddd18a43f06ff595742",
+  "sourceExactHead": "bd0eb8a6cc6c9214539e20c9a0c4c593f1c84e8f",
+  "designApproval": "L3_PENDING_HUMAN",
+  "formalOwnerSignatures": 0,
+  "realConsumerTests": 0,
+  "productStatus": "NOT_RUN",
+  "note": "十个子任务的交付件名称均为未来产物，非已存在的构建、安装或实机证据；Owner为拟议角色而非已签署人员。",
+  "subtasks": [
+    {
+      "id": "B0-04-S01",
+      "title": "冻结来源与三锁",
+      "ownerRole": "平台集成",
+      "consumerRole": "B0-01/B0-05",
+      "dependencies": [],
+      "plannedDeliverable": "build-dependency-snapshot.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R01",
+        "B004-R08"
+      ],
+      "testEntry": "双Cargo metadata只读采样",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "不切换旧组合",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S02",
+      "title": "CAM发行源与开发覆盖隔离",
+      "ownerRole": "CAM Owner",
+      "consumerRole": "桌面/后处理",
+      "dependencies": [
+        "B0-04-S01"
+      ],
+      "plannedDeliverable": "cam-consumption-profile.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R01",
+        "B004-R02"
+      ],
+      "testEntry": "干净检出删除兄弟目录正反例",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "开发覆盖只限dev",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S03",
+      "title": "双Cargo Workspace与独立锁",
+      "ownerRole": "集成工程师",
+      "consumerRole": "质量组",
+      "dependencies": [
+        "B0-04-S01"
+      ],
+      "plannedDeliverable": "workspace-lock-matrix.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R03",
+        "B004-R04"
+      ],
+      "testEntry": "根Cargo与Tauri分别metadata/build --locked",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "保留上一已验证锁",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S04",
+      "title": "pnpm frozen及离线store",
+      "ownerRole": "前端构建Owner",
+      "consumerRole": "桌面",
+      "dependencies": [
+        "B0-04-S01"
+      ],
+      "plannedDeliverable": "frontend-offline-contract.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R05"
+      ],
+      "testEntry": "pnpm10 --offline --frozen-lockfile与缺缓存负例",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "不清理用户store",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S05",
+      "title": "Native OCCT ABI/运行DLL闭包",
+      "ownerRole": "Native Owner",
+      "consumerRole": "桌面",
+      "dependencies": [
+        "B0-04-S03"
+      ],
+      "plannedDeliverable": "native-bundle-descriptors.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R06"
+      ],
+      "testEntry": "Windows运行DLL/ABI/hash检查",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "恢复旧Native字节",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S06",
+      "title": "Worker协议与二进制随包",
+      "ownerRole": "Worker Owner",
+      "consumerRole": "Host",
+      "dependencies": [
+        "B0-04-S03"
+      ],
+      "plannedDeliverable": "worker-bundle-manifest.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R07"
+      ],
+      "testEntry": "目标平台Worker启动及握手",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "未知Worker禁用",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S07",
+      "title": "隔离Windows无网发行验收",
+      "ownerRole": "独立质量组",
+      "consumerRole": "发布Owner",
+      "dependencies": [
+        "B0-04-S02",
+        "B0-04-S03",
+        "B0-04-S04",
+        "B0-04-S05",
+        "B0-04-S06"
+      ],
+      "plannedDeliverable": "clean-room-acceptance.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R08"
+      ],
+      "testEntry": "两Cargo/pnpm/Native/Worker/installer独立核验",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "拒绝激活未证组合",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S08",
+      "title": "Host CAS/ACL同Owner业务Port",
+      "ownerRole": "平台治理",
+      "consumerRole": "GUI/CLI/Agent",
+      "dependencies": [
+        "B0-04-S01"
+      ],
+      "plannedDeliverable": "release-gate-contract.json",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R10"
+      ],
+      "testEntry": "授权Epoch/CAS/取消晚ACK负例",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "旧reader兼容，拒晚回执",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S09",
+      "title": "左TaskPanel与单Babylon只读GUI",
+      "ownerRole": "GUI Owner",
+      "consumerRole": "质量组/操作员",
+      "dependencies": [
+        "B0-04-S01"
+      ],
+      "plannedDeliverable": "gui-tasks.md",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R10"
+      ],
+      "testEntry": "浏览器/桌面E2E、3D不提交",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "UI降级不改变领域事实",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    },
+    {
+      "id": "B0-04-S10",
+      "title": "离线发布交接与成对回退",
+      "ownerRole": "发布审核Owner",
+      "consumerRole": "离线现场",
+      "dependencies": [
+        "B0-04-S07",
+        "B0-04-S08",
+        "B0-04-S09"
+      ],
+      "plannedDeliverable": "release-handoff-report.md",
+      "deliverableExists": false,
+      "relatedRuleIds": [
+        "B004-R09",
+        "B004-R10"
+      ],
+      "testEntry": "installer/Native/Worker联合回滚演练",
+      "actualTestEntry": "TO_BE_CREATED",
+      "productTest": "NOT_RUN",
+      "independentConsumer": "NOT_RUN",
+      "rollback": "以新事件激活旧已验证组合",
+      "revisionAndHashRequired": true,
+      "frameRef": "not_applicable",
+      "casPermissionRecheck": true,
+      "cancelledLateAckMayCommit": false
+    }
+  ]
+}
