@@ -1,3 +1,6 @@
+## 2026-10-30｜B31 CAP-03-05装配实例Face重绑证据
+[专项补证及阅读限制](docs/capabilities/CAP-03-05/ASSEMBLY-FACE-B31-2026-10-30.md) → [6来源](research/sources/CAP-03-05-assembly-face-b31.json) → [8规则](research/traces/CAP-03-05-assembly-face-b31-v08.json) → [4正50反](docs/capabilities/CAP-03-05/assembly-face-b31-fixtures-v08.json) → [只读Node](tools/check_cap0305_assembly_face_b31_v08.cjs)。定义复用≠同一个制造特征实例；FaceIndex不跨Revision稳定；Split/无历史不自动采纳。V8同函数54/54合成，独立Node/OCCT/D02-D05消费者NOT_RUN，L3/17 Owner待审。累计137 Registry/1128登记。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B30 原E3-03 G81循环G98/G99退刀与L重复
 [研究](docs/work-packages/E3-03/CANNED-RETRACT-B30-2026-10-30.md) → [5项来源](research/sources/E3-03-canned-retract-b30.json) → [8规则及字段](research/traces/E3-03-canned-retract-b30-v08.json) → [7正47反1未知](docs/work-packages/E3-03/canned-retract-b30-fixtures-v08.json) → [只读Node](tools/check_e303_canned_retract_b30_v08.cjs)。LinuxCNC2.9限定语义，V8同函数合成55/55通过；实际Node进程、NC/Owner/L3仍未通过。**规划PASS≠产品PASS。**
 
