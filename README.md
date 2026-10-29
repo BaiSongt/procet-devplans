@@ -1,3 +1,6 @@
+## 2026-10-29｜B16 Markdown AST/跨文件锚点可执行初审（非全仓PASS）
+[官方GFM/RFC/GitHub章节及本地运行边界](docs/architecture/v0.8/第十六轮GFM-AST链接与锚点初审_2026-10-29.md) → [6项来源6规则/字段/CAP/包](research/traces/FINAL-MARKDOWN-B16-AST-V08.json) → [18项独立合成+2惰性代码](docs/architecture/v0.8/final-markdown-b16-ast-fixtures-v08.json) · [只读Python AST工具](tools/check_final_md_b16_ast_v08.py) · [核验记录](tracking/final-md-b16-verification-2026-10-29.json)。发现GitHub仓根`/`路径与`a name`锚点需特殊处理；本地18/18合成通过，exact HEAD Tree为1629项/543 Markdown；完整checkout/全仓AST NOT_RUN，Owner/消费者0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B15 修复B14 Git Commit/Tree SHA身份混淆
 [现场核验与范围](docs/architecture/v0.8/第十五轮Git提交与Tree身份勘误_2026-10-29.md) → [来源→5规则/字段/CAP/原包](research/traces/FINAL-MARKDOWN-B15-TREE-V08.json) → [1正16反机器设计](docs/architecture/v0.8/final-markdown-b15-tree-fixtures-v08.json) · [只读Node](tools/check_final_md_b15_tree_v08.cjs)。原B14字段将commit SHA误填为Tree SHA，已依据GitHub原生commit/tree对象修正；固定541 Markdown路径身份不变，GFM AST/独立Node全仓及产品NOT_RUN，Owner与消费者0/17、L3待审。**规划PASS≠产品PASS。**
 

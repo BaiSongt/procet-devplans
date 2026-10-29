@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-MD-B16 GFM解析Token/HTML锚点/根路径与UNKNOWN资格
+[公开官方规范及实读深度](../docs/architecture/v0.8/第十六轮GFM-AST链接与锚点初审_2026-10-29.md) → [六来源六规则→字段/CAP/原包](traces/FINAL-MARKDOWN-B16-AST-V08.json) → [18独立合成+2代码惰性](../docs/architecture/v0.8/final-markdown-b16-ast-fixtures-v08.json) · [Python只读AST检查器](../tools/check_final_md_b16_ast_v08.py)。本地合成PASS，543份固定HEAD全仓AST实际NOT_RUN，Unicode/复杂slug待GitHub渲染复核、Owner/L3/产品待验收。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜R-FINAL-MD-B15 Git提交与Tree对象身份勘误
 [实际对象SHA和GitHub官方文档深度](../docs/architecture/v0.8/第十五轮Git提交与Tree身份勘误_2026-10-29.md) → [5条证据规则](traces/FINAL-MARKDOWN-B15-TREE-V08.json) → [1正16反](../docs/architecture/v0.8/final-markdown-b15-tree-fixtures-v08.json) · [只读Node](../tools/check_final_md_b15_tree_v08.cjs)。只纠正B14 audit tree字段，GFM AST与产品NOT_RUN。**规划PASS≠产品PASS。**
 
