@@ -1,3 +1,6 @@
+## 2026-10-30｜B25 D07封存字节及双层摘要研究
+[实际来源深度](sources/CAP-06-05-seal-hash-b25.json) → [7规则字段/原F1-05/W2-02/03/06](traces/CAP-06-05-seal-hash-b25-v08.json) → [1正47反](../docs/capabilities/CAP-06-05/seal-hash-b25-fixtures-v08.json)。RFC8785只对合规JSON适用，不能对原始BRep规范化。Node/OCCT/D07/NC/Owner仍NOT_RUN/PENDING。
+
 ## 2026-10-30｜R-CAP0604-B24：保护区余料/OCCT Glue
 [OCCT8.0.1与W3C选读/数学推导](../docs/capabilities/CAP-06-04/RESIDUAL-GLUE-B24-2026-10-30.md) → [4项来源](sources/CAP-06-04-residual-glue-b24.json) → [7规则](traces/CAP-06-04-residual-glue-b24-v08.json) → [2正30反](../docs/capabilities/CAP-06-04/residual-glue-b24-fixtures-v08.json)。实际Node/OCCT/产品NOT_RUN，L3待审。
 

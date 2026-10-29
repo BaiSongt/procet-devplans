@@ -1,3 +1,6 @@
+## 2026-10-30｜B25 CAP-06-05原始BRep字节/状态双哈希
+[研究](docs/capabilities/CAP-06-05/SEAL-HASH-B25-2026-10-30.md) → [5来源](research/sources/CAP-06-05-seal-hash-b25.json) → [7规则/原包](research/traces/CAP-06-05-seal-hash-b25-v08.json) → [1正47反](docs/capabilities/CAP-06-05/seal-hash-b25-fixtures-v08.json) · [Node只读工具](tools/check_cap0605_seal_hash_b25_v08.cjs)。同函数V8合成通过，独立Node文件/真实OCCT/消费者/NC NOT_RUN，Owner0/17、L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-30｜B24 CAP-06-04余料/Glue前提补证
 [研究](docs/capabilities/CAP-06-04/RESIDUAL-GLUE-B24-2026-10-30.md) → [来源](research/sources/CAP-06-04-residual-glue-b24.json) → [7规则与原包](research/traces/CAP-06-04-residual-glue-b24-v08.json) → [2正30反](docs/capabilities/CAP-06-04/residual-glue-b24-fixtures-v08.json) → [只读Node](tools/check_cap0604_residual_glue_b24_v08.cjs)。保护区不碰不代表终态完工；Glue必须有真实几何重合证据。仅V8同函数合成通过，Node/OCCT/D07/NC及17消费者NOT_RUN、Owner0/17、L3待审。规划PASS≠产品PASS。
 

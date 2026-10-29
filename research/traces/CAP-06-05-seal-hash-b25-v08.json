@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "procet-b25-trace-v1",
+  "capabilityId": "CAP-06-05",
+  "date": "2026-10-30",
+  "sourceRegistry": "research/sources/CAP-06-05-seal-hash-b25.json",
+  "workPackages": [
+    "F1-05",
+    "W2-02",
+    "W2-03",
+    "W2-06"
+  ],
+  "rules": [
+    {
+      "id": "B25-R1",
+      "statement": "原始D07封存字节SHA256及长度须由实际字节复算；哈希字段不得自证",
+      "sourceIds": [
+        "B25-S03",
+        "B25-S05"
+      ],
+      "fields": [
+        "rawBrep.bytesBase64",
+        "rawBrep.byteLength",
+        "rawBrep.sha256"
+      ],
+      "primaryPackage": "W2-03",
+      "capabilityId": "CAP-06-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B25-P01"
+      ],
+      "negativeIds": [
+        "B25-N01",
+        "B25-N02",
+        "B25-N03",
+        "B25-N04",
+        "B25-N05"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B25-R2",
+      "statement": "BRepTools::Write显式固定OCCT/格式/网格/法向，不假设默认别名有稳定跨版字节",
+      "sourceIds": [
+        "B25-S01",
+        "B25-S05"
+      ],
+      "fields": [
+        "serializer.api",
+        "serializer.format",
+        "serializer.withTriangles",
+        "serializer.withNormals"
+      ],
+      "primaryPackage": "W2-03",
+      "capabilityId": "CAP-06-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B25-P01"
+      ],
+      "negativeIds": [
+        "B25-N06",
+        "B25-N07",
+        "B25-N08",
+        "B25-N09",
+        "B25-N10",
+        "B25-N11"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B25-R3",
+      "statement": "受限合成状态元数据需满足确定性JSON表示，重复字段/非规范数据拒绝；不冒充完整JCS",
+      "sourceIds": [
+        "B25-S02",
+        "B25-S05"
+      ],
+      "fields": [
+        "metadata.json",
+        "metadata.scheme"
+      ],
+      "primaryPackage": "W2-02",
+      "capabilityId": "CAP-06-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B25-P01"
+      ],
+      "negativeIds": [
+        "B25-N12",
+        "B25-N13",
+        "B25-N14",
+        "B25-N15",
+        "B25-N16"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B25-R4",
+      "statement": "域分隔状态SHA独立于原始BRep SHA，绑定父D07/D01目标/D04 Setup修订及Frame",
+      "sourceIds": [
+        "B25-S02",
+        "B25-S03",
+        "B25-S05"
+      ],
+      "fields": [
+        "metadata.stateSha256",
+        "metadata.domain",
+        "refs.D01.hash",
+        "refs.D04.hash",
+        "refs.parentD07.hash"
+      ],
+      "primaryPackage": "F1-05",
+      "capabilityId": "CAP-06-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B25-P01"
+      ],
+      "negativeIds": [
+        "B25-N17",
+        "B25-N18",
+        "B25-N19",
+        "B25-N20",
+        "B25-N21",
+        "B25-N22"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B25-R5",
+      "statement": "提交瞬时CAS/ACL/ScopeEpoch/取消代次重验，缺恢复证据不能假称COMMITTED",
+      "sourceIds": [
+        "B25-S04",
+        "B25-S05"
+      ],
+      "fields": [
+        "commit.expectedHead",
+        "commit.aclEpoch",
+        "commit.scopeEpoch",
+        "commit.ownerReceipt"
+      ],
+      "primaryPackage": "W2-02",
+      "capabilityId": "CAP-06-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B25-P01"
+      ],
+      "negativeIds": [
+        "B25-N23",
+        "B25-N24",
+        "B25-N25",
+        "B25-N26",
+        "B25-N27",
+        "B25-N28",
+        "B25-N29",
+        "B25-N30",
+        "B25-N31",
+        "B25-N32",
+        "B25-N33"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B25-R6",
+      "statement": "未完成独立D07消费者不得授D08/D09/NC产品资格，UNKNOWN保持阻断",
+      "sourceIds": [
+        "B25-S05"
+      ],
+      "fields": [
+        "qualification.independentD07",
+        "qualification.d13",
+        "qualification.d15",
+        "qualification.d16"
+      ],
+      "primaryPackage": "W2-06",
+      "capabilityId": "CAP-06-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B25-P01"
+      ],
+      "negativeIds": [
+        "B25-N34",
+        "B25-N35",
+        "B25-N36",
+        "B25-N37",
+        "B25-N38",
+        "B25-N39",
+        "B25-N40"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B25-R7",
+      "statement": "GUI/CLI/Agent同一个06域Owner，单Babylon/左TaskPanel，D04与D10绑定不同",
+      "sourceIds": [
+        "B25-S05"
+      ],
+      "fields": [
+        "ui.ownerPort",
+        "ui.routes",
+        "ui.singleBabylon",
+        "refs.D04.hash",
+        "refs.D10.hash"
+      ],
+      "primaryPackage": "W2-06",
+      "capabilityId": "CAP-06-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B25-P01"
+      ],
+      "negativeIds": [
+        "B25-N41",
+        "B25-N42",
+        "B25-N43",
+        "B25-N44",
+        "B25-N45",
+        "B25-N46",
+        "B25-N47"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}
