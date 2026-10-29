@@ -41,3 +41,7 @@
 ## 2026-10-29｜B08：56份CAD/资源/Setup跨域证据冻结
 
 [原Blob/SHA及247条链接](../../../research/audits/FINAL-HISTORY-LINK-B08-2026-10-29.json) · [六条规则追踪](../../../research/traces/FINAL-HISTORY-LINK-B08-V08.json) · [27项合成正反](final-history-link-b08-fixtures-v08.json) · [报告与局限](第八轮跨域规格链接冻结与追踪门禁_2026-10-29.md)。同基线累计288/535份逐SHA，剩247份；非GFM AST/全仓Node或产品PASS。
+
+## 2026-10-29｜B14：541份Markdown固定HEAD路径SHA全覆盖与AST下一门禁
+
+[固定快照541/541路径SHA及原始附件缺口](../../../research/audits/FINAL-MARKDOWN-B14-2026-10-29.json) · [7规则与官方来源](../../../research/traces/FINAL-MARKDOWN-B14-V08.json) · [1正12反](final-markdown-b14-fixtures-v08.json) · [只读Node](../../../tools/check_final_md_b14_v08.cjs) · [专项报告](第十四轮全仓MarkdownSHA冻结与历史证据门禁_2026-10-29.md)。286旧SHA未变化+255新增精确读取；仅固定B13 HEAD；**GFM AST/锚点/HTML仍NOT_RUN**，历史3旧JSON原字节缺失，17 Owner和17消费者0、L3待审。规划PASS≠产品PASS。

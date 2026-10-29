@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "procet-final-md-b14-fixtures-v08",
+  "status": "SYNTHETIC_ONLY",
+  "expectedBaseHead": "e591be97249c74e2a6a8252ca03709be9f3cbbb1",
+  "baseline": {
+    "markdownTotal": 541,
+    "priorStableReadPaths": 286,
+    "newExactReadPaths": 255,
+    "priorChangedFilesReRead": [
+      "docs/work-packages/E3-04.md",
+      "docs/work-packages/E3-05/independent-consumer-handoff.md"
+    ],
+    "missingLegacyOriginalCount": 3,
+    "gfmAst": "NOT_RUN",
+    "ownerFormalSigned": 0,
+    "consumerRealPass": 0,
+    "l3": "PENDING_HUMAN",
+    "product": "NOT_RUN"
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PASS",
+      "mutation": "none",
+      "purpose": "仅固定Git Blob和真实未运行状态的规划正例"
+    },
+    {
+      "id": "N01",
+      "expected": "REJECT",
+      "field": "markdownManifest[0].gitBlobSha",
+      "mutation": "改为别的SHA",
+      "rule": "B14-R01",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N02",
+      "expected": "REJECT",
+      "field": "markdownManifest",
+      "mutation": "删一条路径",
+      "rule": "B14-R01",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N03",
+      "expected": "REJECT",
+      "field": "markdownManifest",
+      "mutation": "重复一条路径",
+      "rule": "B14-R01",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N04",
+      "expected": "REJECT",
+      "field": "markdownManifest[0].proof",
+      "mutation": "改为无来源的证明类型",
+      "rule": "B14-R02",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N05",
+      "expected": "REJECT",
+      "field": "summary.priorStableReadPaths",
+      "mutation": 287,
+      "rule": "B14-R02",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N06",
+      "expected": "REJECT",
+      "field": "summary.markdownTotal",
+      "mutation": 542,
+      "rule": "B14-R02",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N07",
+      "expected": "REJECT",
+      "field": "historicalOriginalMissing[0].recovered",
+      "mutation": true,
+      "rule": "B14-R05",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N08",
+      "expected": "REJECT",
+      "field": "gates.ownerFormalSigned",
+      "mutation": 17,
+      "rule": "B14-R06",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N09",
+      "expected": "REJECT",
+      "field": "gates.consumerRealPass",
+      "mutation": 1,
+      "rule": "B14-R06",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N10",
+      "expected": "REJECT",
+      "field": "gates.l3",
+      "mutation": "APPROVED",
+      "rule": "B14-R06",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N11",
+      "expected": "REJECT",
+      "field": "parserGates.gfmAst",
+      "mutation": "PASS_UNRUN",
+      "rule": "B14-R03",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    },
+    {
+      "id": "N12",
+      "expected": "REJECT",
+      "field": "gates.productNC",
+      "mutation": "PASS_UNRUN",
+      "rule": "B14-R07",
+      "scope": "单字段或路径结构故意错误，仅规划测试"
+    }
+  ],
+  "runtimeExpected": "Node --self-test设计1正12反；非真实仓库消费者/机床运行"
+}
