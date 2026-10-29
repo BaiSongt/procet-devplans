@@ -1,3 +1,6 @@
+## 2026-10-30｜B24 CAP-06-04余料/Glue前提补证
+[研究](docs/capabilities/CAP-06-04/RESIDUAL-GLUE-B24-2026-10-30.md) → [来源](research/sources/CAP-06-04-residual-glue-b24.json) → [7规则与原包](research/traces/CAP-06-04-residual-glue-b24-v08.json) → [2正30反](docs/capabilities/CAP-06-04/residual-glue-b24-fixtures-v08.json) → [只读Node](tools/check_cap0604_residual_glue_b24_v08.cjs)。保护区不碰不代表终态完工；Glue必须有真实几何重合证据。仅V8同函数合成通过，Node/OCCT/D07/NC及17消费者NOT_RUN、Owner0/17、L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-29｜B23 CAP-06-03 OCCT布尔历史/简化与独立D07资格
 [研究及阅读深度](docs/capabilities/CAP-06-03/BREP-HISTORY-B23-2026-10-29.md) → [7份来源](research/sources/CAP-06-03-brep-history-b23.json) → [7条规则/原编号包](research/traces/CAP-06-03-brep-history-b23-v08.json) → [1正40反](docs/capabilities/CAP-06-03/brep-history-b23-fixtures-v08.json) → [只读Node](tools/check_cap0603_brep_history_b23_v08.cjs)。Generated为空不能断言Solid无变化，Deleted/Modified不混淆，SimplifyResult必须融合最终历史；V8同函数合成PASS，独立Node/真实OCCT/D07消费者NOT_RUN；Owner0/17、L3待审，规划PASS≠产品PASS。
 

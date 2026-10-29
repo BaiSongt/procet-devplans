@@ -1,3 +1,6 @@
+## 2026-10-30｜R-CAP0604-B24：保护区余料/OCCT Glue
+[OCCT8.0.1与W3C选读/数学推导](../docs/capabilities/CAP-06-04/RESIDUAL-GLUE-B24-2026-10-30.md) → [4项来源](sources/CAP-06-04-residual-glue-b24.json) → [7规则](traces/CAP-06-04-residual-glue-b24-v08.json) → [2正30反](../docs/capabilities/CAP-06-04/residual-glue-b24-fixtures-v08.json)。实际Node/OCCT/产品NOT_RUN，L3待审。
+
 ## 2026-10-29｜R-BREP-HISTORY-B23 OCCT布尔历史谱系与简化前后ID审查
 [OCCT8.0.1官方历史章节、API、NIST1994摘要、W3C及原固定Blob](../docs/capabilities/CAP-06-03/BREP-HISTORY-B23-2026-10-29.md) → [7登记](sources/CAP-06-03-brep-history-b23.json) → [7规则/字段/原包](traces/CAP-06-03-brep-history-b23-v08.json) → [1正40反合成](../docs/capabilities/CAP-06-03/brep-history-b23-fixtures-v08.json)。不把Generated为空当未变更、不把Plan合成当产品Boolean，独立Node/OCCT/17消费者NOT_RUN，L3待审。
 
