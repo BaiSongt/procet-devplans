@@ -1,3 +1,6 @@
+## 2026-10-29｜R-PMI-001 B22 PMI源清单、Reader损失与冻结资格
+[公开来源阅读深度](../docs/capabilities/CAP-03-04/PMI-LOSS-LEDGER-B22-2026-10-29.md) → [5登记](sources/CAP-03-04-pmi-loss-b22.json) → [8规则/字段/包/验收](traces/CAP-03-04-pmi-loss-b22-v08.json)。ISO/NIST论文仅目录摘要，真实STEP和产品NOT_RUN。规划PASS≠产品PASS。
+
 ## 2026-10-29｜R-FIX-001 B21 unilateral rank与接触形闭合资格
 [Modern Robotics §12.1.7/§12.2.3、Carr Lane、NIST摘要、ISO目录/内生CAP源深度](../docs/capabilities/CAP-04-03/UNILATERAL-CONTACT-B21-2026-10-29.md) → [7条来源→规则→字段→原CAP/工作包](traces/CAP-04-03-unilateral-b21-v08.json) → [2正29反合成](../docs/capabilities/CAP-04-03/unilateral-b21-fixtures-v08.json)。六条3-2-1接触rank6仍有x/z非穿透分离Twist；只验证给定见证，不求通用LP。V8 31/31合成、真实独立Node/物理稳定/NC/17消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
 

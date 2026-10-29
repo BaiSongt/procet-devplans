@@ -1,3 +1,5 @@
+> **B22新增：** [PMI损失账本及分母防错](PMI-LOSS-LEDGER-B22-2026-10-29.md) · [5来源](../../../research/sources/CAP-03-04-pmi-loss-b22.json) · [8规则/29反例](../../../research/traces/CAP-03-04-pmi-loss-b22-v08.json)。原20案例未改，L3与产品仍待审。
+
 # CAP-03-04｜PMI与设计约束：从设计标注到可追溯的制造要求
 
 > V0.1，2026-10-18；**文档已编制／L3待评审／产品未实现或验收不由本规划保证**。原V0.8第03域第04项，保持88项总数不变。关联原工作包B0-02、F1-03、F1-04、T5-02；基础研究见[R-PMI-001](../../../research/topics/R-PMI-001.md)、[界面细则](UI.md)、[规则追踪](../../../research/traces/CAP-03-04.json)、[20个合成场景](fixtures.json)。

@@ -1,3 +1,6 @@
+## 2026-10-29｜B22 CAP-03-04 PMI解析损失账本
+[专项研究与阅读限制](docs/capabilities/CAP-03-04/PMI-LOSS-LEDGER-B22-2026-10-29.md) → [5份来源登记](research/sources/CAP-03-04-pmi-loss-b22.json) → [8规则及原包](research/traces/CAP-03-04-pmi-loss-b22-v08.json) → [1正29反合成](docs/capabilities/CAP-03-04/pmi-loss-b22-fixtures-v08.json) · [只读Node](tools/check_cap0304_pmi_loss_b22_v08.cjs)。V8同函数30/30合成，独立Node/STEP/OCCT/17消费者NOT_RUN、L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-29｜B21 CAP-04-03单侧接触的秩满不等于一阶形闭合
 [来源与合成反例](docs/capabilities/CAP-04-03/UNILATERAL-CONTACT-B21-2026-10-29.md) → [6来源7规则字段/原包](research/traces/CAP-04-03-unilateral-b21-v08.json) → [2正29反](docs/capabilities/CAP-04-03/unilateral-b21-fixtures-v08.json) · [只读Node](tools/check_cap0403_unilateral_b21_v08.cjs)。3-2-1原六接触rank=6，但x/z两条非零Twist满足单侧不穿透，不能认证一阶形闭合、摩擦力闭合或实机稳定；V8同源码函数31/31合成通过，独立Node、真实夹紧/OCCT/NC/消费者NOT_RUN，正式Owner0/17，L3待审。**规划PASS≠产品PASS。**
 
