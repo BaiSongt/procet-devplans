@@ -1,3 +1,6 @@
+## 2026-10-30｜B27 R-ORACLE-CONVERGENCE-001 OCCT积分/独立Oracle补证
+[实读API和NIST仅摘要](../docs/capabilities/CAP-06-07/ORACLE-OPTIONS-B27-2026-10-30.md) → [6来源](sources/CAP-06-07-oracle-options-b27.json) → [8可证伪规则](traces/CAP-06-07-oracle-options-b27-v08.json) → [合成反例](../docs/capabilities/CAP-06-07/oracle-options-b27-fixtures-v08.json)；BRepCheck参数、VolumePropertiesGK真实重载、零距离非无穿透，Node/OCCT/消费者NOT_RUN。
+
 ## 2026-10-30｜R-CAP0606-WORKER-LEASE-B26 Worker失联预算与取消Fence
 [研究阅读深度](../docs/capabilities/CAP-06-06/WORKER-LEASE-B26-2026-10-30.md) → [5来源](sources/CAP-06-06-worker-lease-b26.json) → [8规则/原包](traces/CAP-06-06-worker-lease-b26-v08.json) → [2正31反](../docs/capabilities/CAP-06-06/worker-lease-b26-fixtures-v08.json)。核阅OCCT8.0.1、Python3.14.10、Tokio1.54.1、SQLite官方章节；仅V8合成，真实Worker与产品未验。
 

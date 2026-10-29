@@ -1,0 +1,537 @@
+{
+  "schemaVersion": "procet-b27-fixtures-v1",
+  "syntheticOnly": true,
+  "base": {
+    "schemaVersion": "procet-b27-oracle-synthetic-v1",
+    "refs": {
+      "D01": {
+        "revision": "D01-r1",
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "D04": {
+        "revision": "D04-r2",
+        "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "D07": {
+        "revision": "D07-r3",
+        "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "frameHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "scope": "SYN/P/A/S1"
+    },
+    "oracle": {
+      "generatorPid": 41,
+      "verifierPid": 42,
+      "generatorBinaryHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "verifierBinaryHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "recomputed": true,
+      "independence": "PROCESS_ONLY_SYNTHETIC",
+      "commonModeRisk": "OPEN"
+    },
+    "brep": {
+      "geomControls": true,
+      "exactMethod": true,
+      "allSolidsChecked": true,
+      "valid": true,
+      "closed": true,
+      "orientation": "COHERENT",
+      "solidCount": 2,
+      "checkedCount": 2,
+      "selfInterferenceChecked": true
+    },
+    "volume": {
+      "algorithm": "VolumePropertiesGK",
+      "onlyClosed": true,
+      "skipShared": true,
+      "eps": 0.0005,
+      "reportedRelError": 0.0001,
+      "before": 100,
+      "removed": 30,
+      "after": 70,
+      "unit": "mm3",
+      "freshAccumulation": true
+    },
+    "policy": {
+      "version": "SYNTHETIC_POLICY_r1",
+      "volumeUnit": "mm3",
+      "absTol": 0.01,
+      "relTol": 0.0001,
+      "maxGKRelError": 0.001
+    },
+    "topology": {
+      "independentBoolean": true,
+      "protectedIntersectionVolume": 0,
+      "targetMismatchVolume": 0,
+      "distanceZeroIsNoOverlapProof": false,
+      "islandCountExpected": 2,
+      "islandCountObserved": 2
+    },
+    "owner": {
+      "port": "06.OracleVerificationPort",
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "babylonWorlds": 1,
+      "taskPanel": "UnifiedTaskPanel.left",
+      "expectedHead": "1111111111111111111111111111111111111111111111111111111111111111",
+      "observedHead": "1111111111111111111111111111111111111111111111111111111111111111",
+      "aclEpoch": 3,
+      "observedAclEpoch": 3,
+      "scopeEpoch": 2,
+      "observedScopeEpoch": 2,
+      "generation": 4,
+      "observedGeneration": 4,
+      "cancelled": false,
+      "stageSealed": true,
+      "committed": false
+    },
+    "downstream": {
+      "D05": "NOT_APPROVED",
+      "D08FrozenUnchanged": true,
+      "D10Bound": false,
+      "D13": "UNKNOWN",
+      "D15": "NOT_RUN",
+      "D16": "BLOCKED",
+      "clAnimationAsNcProof": false,
+      "materialSweep": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B27-P01",
+      "expect": "PASS",
+      "patches": []
+    },
+    {
+      "id": "B27-P02",
+      "expect": "PASS",
+      "patches": [
+        {
+          "path": "volume.removed",
+          "value": 0
+        },
+        {
+          "path": "volume.after",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "B27-N01",
+      "expect": "B27-R1",
+      "patches": [
+        {
+          "path": "refs.D04.hash",
+          "value": "invalid"
+        }
+      ]
+    },
+    {
+      "id": "B27-N02",
+      "expect": "B27-R1",
+      "patches": [
+        {
+          "path": "refs.D07.revision",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B27-N03",
+      "expect": "B27-R1",
+      "patches": [
+        {
+          "path": "refs.frameHash",
+          "value": "missing"
+        }
+      ]
+    },
+    {
+      "id": "B27-N04",
+      "expect": "B27-R1",
+      "patches": [
+        {
+          "path": "refs.scope",
+          "value": "CROSS_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "B27-N05",
+      "expect": "B27-R2",
+      "patches": [
+        {
+          "path": "oracle.verifierPid",
+          "value": 41
+        }
+      ]
+    },
+    {
+      "id": "B27-N06",
+      "expect": "B27-R2",
+      "patches": [
+        {
+          "path": "oracle.recomputed",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N07",
+      "expect": "B27-R2",
+      "patches": [
+        {
+          "path": "oracle.independence",
+          "value": "INDEPENDENT_CERTIFIED"
+        }
+      ]
+    },
+    {
+      "id": "B27-N08",
+      "expect": "B27-R2",
+      "patches": [
+        {
+          "path": "oracle.commonModeRisk",
+          "value": "CLOSED"
+        }
+      ]
+    },
+    {
+      "id": "B27-N09",
+      "expect": "B27-R3",
+      "patches": [
+        {
+          "path": "brep.geomControls",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N10",
+      "expect": "B27-R3",
+      "patches": [
+        {
+          "path": "brep.exactMethod",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N11",
+      "expect": "B27-R3",
+      "patches": [
+        {
+          "path": "brep.valid",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N12",
+      "expect": "B27-R3",
+      "patches": [
+        {
+          "path": "brep.checkedCount",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "B27-N13",
+      "expect": "B27-R3",
+      "patches": [
+        {
+          "path": "brep.selfInterferenceChecked",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N14",
+      "expect": "B27-R4",
+      "patches": [
+        {
+          "path": "volume.onlyClosed",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N15",
+      "expect": "B27-R4",
+      "patches": [
+        {
+          "path": "volume.skipShared",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N16",
+      "expect": "B27-R4",
+      "patches": [
+        {
+          "path": "volume.eps",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "B27-N17",
+      "expect": "B27-R4",
+      "patches": [
+        {
+          "path": "volume.reportedRelError",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "B27-N18",
+      "expect": "B27-R4",
+      "patches": [
+        {
+          "path": "volume.freshAccumulation",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B27-N19",
+      "expect": "B27-R5",
+      "patches": [
+        {
+          "path": "volume.after",
+          "value": 71
+        }
+      ]
+    },
+    {
+      "id": "B27-N20",
+      "expect": "B27-R5",
+      "patches": [
+        {
+          "path": "volume.removed",
+          "value": -3
+        }
+      ]
+    },
+    {
+      "id": "B27-N21",
+      "expect": "B27-R5",
+      "patches": [
+        {
+          "path": "volume.unit",
+          "value": "m3"
+        }
+      ]
+    },
+    {
+      "id": "B27-N22",
+      "expect": "B27-R5",
+      "patches": [
+        {
+          "path": "policy.absTol",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "B27-N23",
+      "expect": "B27-R5",
+      "patches": [
+        {
+          "path": "policy.relTol",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "B27-N24",
+      "expect": "B27-R6",
+      "patches": [
+        {
+          "path": "topology.protectedIntersectionVolume",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "B27-N25",
+      "expect": "B27-R6",
+      "patches": [
+        {
+          "path": "topology.targetMismatchVolume",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "B27-N26",
+      "expect": "B27-R6",
+      "patches": [
+        {
+          "path": "topology.distanceZeroIsNoOverlapProof",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B27-N27",
+      "expect": "B27-R6",
+      "patches": [
+        {
+          "path": "topology.islandCountObserved",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "B27-N28",
+      "expect": "B27-R7",
+      "patches": [
+        {
+          "path": "owner.aclEpoch",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "B27-N29",
+      "expect": "B27-R7",
+      "patches": [
+        {
+          "path": "owner.expectedHead",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "B27-N30",
+      "expect": "B27-R7",
+      "patches": [
+        {
+          "path": "owner.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B27-N31",
+      "expect": "B27-R7",
+      "patches": [
+        {
+          "path": "owner.babylonWorlds",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "B27-N32",
+      "expect": "B27-R7",
+      "patches": [
+        {
+          "path": "owner.taskPanel",
+          "value": "Drawer.right"
+        }
+      ]
+    },
+    {
+      "id": "B27-N33",
+      "expect": "B27-R8",
+      "patches": [
+        {
+          "path": "downstream.D16",
+          "value": "READY"
+        }
+      ]
+    },
+    {
+      "id": "B27-N34",
+      "expect": "B27-R8",
+      "patches": [
+        {
+          "path": "downstream.D13",
+          "value": "SUPPORTED"
+        }
+      ]
+    },
+    {
+      "id": "B27-N35",
+      "expect": "B27-R8",
+      "patches": [
+        {
+          "path": "downstream.clAnimationAsNcProof",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B27-N36",
+      "expect": "B27-R8",
+      "patches": [
+        {
+          "path": "downstream.materialSweep",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B27-N37",
+      "expect": "B27-R8",
+      "patches": [
+        {
+          "path": "downstream.D08FrozenUnchanged",
+          "value": false
+        }
+      ]
+    }
+  ],
+  "mathBoxes": [
+    {
+      "id": "B27-M01",
+      "kind": "tangent",
+      "a": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "b": [
+        1,
+        0,
+        0,
+        2,
+        1,
+        1
+      ],
+      "expectedIntersectionVolume": 0
+    },
+    {
+      "id": "B27-M02",
+      "kind": "overlap",
+      "a": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "b": [
+        0.5,
+        0,
+        0,
+        1.5,
+        1,
+        1
+      ],
+      "expectedIntersectionVolume": 0.5
+    }
+  ],
+  "warning": "正反例仅机器模拟DTO与解析包围盒，不调用OCCT，距离为零的两情况不能靠本工具推断真实BRep相交"
+}

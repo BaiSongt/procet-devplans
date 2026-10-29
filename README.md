@@ -1,3 +1,6 @@
+## 2026-10-30｜B27 CAP-06-07 独立Oracle的OCCT选项与零距离陷阱
+[公开API与NIST摘要/内生设计边界](docs/capabilities/CAP-06-07/ORACLE-OPTIONS-B27-2026-10-30.md) → [6来源](research/sources/CAP-06-07-oracle-options-b27.json) → [8规则/字段/原F1-05/W2-02/03/06包](research/traces/CAP-06-07-oracle-options-b27-v08.json) → [2正37反+2 AABB](docs/capabilities/CAP-06-07/oracle-options-b27-fixtures-v08.json) → [只读Node](tools/check_cap0607_oracle_options_b27_v08.cjs)。V8同函数合成41/41通过；独立Node文件进程/OCCT/NC/B5/17实际消费者NOT_RUN、Owner0/17、L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B26 CAP-06-06 Worker取消与不确定预算结算
 [专项研究](docs/capabilities/CAP-06-06/WORKER-LEASE-B26-2026-10-30.md) → [5来源](research/sources/CAP-06-06-worker-lease-b26.json) → [8规则/字段/原包](research/traces/CAP-06-06-worker-lease-b26-v08.json) → [2正31反](docs/capabilities/CAP-06-06/worker-lease-b26-fixtures-v08.json) → [只读Node](tools/check_cap0606_worker_lease_b26_v08.cjs) → [执行等级](tracking/cap0606-worker-lease-b26-verification-2026-10-30.json)。失联held不释放、重复SHA回执不重复计费、取消晚ACK不得提交；V8同函数合成33/33 PASS；独立Node/OCCT/消费者/NC/B5/OEM NOT_RUN、Owner0/17、L3待审，规划PASS≠产品PASS。
 
