@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-OWNER-EDGE-B17 业务类型边、实例revision与独立回执
+[合法来源/已读章节与局限](../docs/architecture/v0.8/第十七轮17资产44关系边准入与撤权回执交接_2026-10-29.md) → [复用ASOWN-S01/S03/S04/S06/S07的8条可追踪规则](traces/FINAL-ASSET-B17-EDGE-HANDOFF-V08.json) → [1正39反样例](../docs/architecture/v0.8/final-asset-b17-edge-fixtures-v08.json)。不更改127注册表/1075旧来源登记，独立Node未执行，正式签署及真实消费者0/17。
+
 ## 2026-10-29｜R-FINAL-MD-B16 GFM解析Token/HTML锚点/根路径与UNKNOWN资格
 [公开官方规范及实读深度](../docs/architecture/v0.8/第十六轮GFM-AST链接与锚点初审_2026-10-29.md) → [六来源六规则→字段/CAP/原包](traces/FINAL-MARKDOWN-B16-AST-V08.json) → [18独立合成+2代码惰性](../docs/architecture/v0.8/final-markdown-b16-ast-fixtures-v08.json) · [Python只读AST检查器](../tools/check_final_md_b16_ast_v08.py)。本地合成PASS，543份固定HEAD全仓AST实际NOT_RUN，Unicode/复杂slug待GitHub渲染复核、Owner/L3/产品待验收。**规划PASS≠产品PASS。**
 

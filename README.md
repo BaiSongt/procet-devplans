@@ -1,3 +1,6 @@
+## 2026-10-29｜B17 17资产44边候选Owner与独立消费者机器准入（非真实会签）
+[17资产交接来源/限界](docs/architecture/v0.8/第十七轮17资产44关系边准入与撤权回执交接_2026-10-29.md) → [8规则映射](research/traces/FINAL-ASSET-B17-EDGE-HANDOFF-V08.json) → [1正39反合成门禁](docs/architecture/v0.8/final-asset-b17-edge-fixtures-v08.json) · [只读Node](tools/check_final_asset_b17_edge_v08.cjs) · [证据等级](tracking/final-asset-b17-verification-2026-10-29.json)。远端原文件17资产/44互惠边/17候选Owner Port结构一致；同源码V8执行1正39反；独立Node、签署与产品NOT_RUN，Owner和消费者0/17，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B16 Markdown AST/跨文件锚点可执行初审（非全仓PASS）
 [官方GFM/RFC/GitHub章节及本地运行边界](docs/architecture/v0.8/第十六轮GFM-AST链接与锚点初审_2026-10-29.md) → [6项来源6规则/字段/CAP/包](research/traces/FINAL-MARKDOWN-B16-AST-V08.json) → [18项独立合成+2惰性代码](docs/architecture/v0.8/final-markdown-b16-ast-fixtures-v08.json) · [只读Python AST工具](tools/check_final_md_b16_ast_v08.py) · [核验记录](tracking/final-md-b16-verification-2026-10-29.json)。发现GitHub仓根`/`路径与`a name`锚点需特殊处理；本地18/18合成通过，exact HEAD Tree为1629项/543 Markdown；完整checkout/全仓AST NOT_RUN，Owner/消费者0/17、L3待审。**规划PASS≠产品PASS。**
 
