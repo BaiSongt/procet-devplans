@@ -1,3 +1,7 @@
+## 2026-10-29｜CAP-04-02 工程配准Frame与D04提交资格专项补证
+
+[配准Frame数学与资格范围](../../capabilities/CAP-04-02/FRAME-CONTRACT-B09-2026-10-29.md) → [八条增量来源/规则追踪](../../../research/traces/CAP-04-02-frame-contract-b09-v08.json) → [47项合成正反](../../capabilities/CAP-04-02/frame-contract-b09-fixtures-v08.json) → [只读Node校验器](../../../tools/check_cap0402_frame_contract_b09_v08.cjs)。L3/17 Owner/17独立消费者及真实NC/OCCT/B5仍未验收，规划PASS≠产品PASS。
+
 # Procet Studio 架构与团队开发计划 V0.8
 
 **2026-10-16｜评审稿｜仅 Procet-* 新架构。**
