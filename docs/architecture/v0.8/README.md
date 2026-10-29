@@ -33,3 +33,7 @@
 ## 2026-10-29｜最终引用审计B04
 
 [第四轮链接与跨HEAD审计](第四轮Markdown链接审计与跨HEAD失效_2026-10-29.md) · [96份Blob-SHA清单](../../../research/audits/FINAL-HISTORY-LINK-B04-2026-10-29.json) · [25项设计门禁](final-history-link-b04-fixtures-v08.json)。此轮只验证部分启发式相对链接，不代表全仓、L3或产品验收通过。
+
+## 2026-10-29｜B08：56份CAD/资源/Setup跨域证据冻结
+
+[原Blob/SHA及247条链接](../../../research/audits/FINAL-HISTORY-LINK-B08-2026-10-29.json) · [六条规则追踪](../../../research/traces/FINAL-HISTORY-LINK-B08-V08.json) · [27项合成正反](final-history-link-b08-fixtures-v08.json) · [报告与局限](第八轮跨域规格链接冻结与追踪门禁_2026-10-29.md)。同基线累计288/535份逐SHA，剩247份；非GFM AST/全仓Node或产品PASS。

@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B08：CAD/资源/Setup 56份SHA证据
+[56份Git原Blob/SHA与247项已识别行内相对链接](audits/FINAL-HISTORY-LINK-B08-2026-10-29.json) → [六条来源/规则/字段/CAP/原包](traces/FINAL-HISTORY-LINK-B08-V08.json) → [27条正反场景](../docs/architecture/v0.8/final-history-link-b08-fixtures-v08.json) · [Node只读](../tools/check_final_history_link_b08_v08.cjs) · [研究局限](../docs/architecture/v0.8/第八轮跨域规格链接冻结与追踪门禁_2026-10-29.md)。同HEAD累计288/535份路径SHA，247份待验；全仓AST、完整Node进程、真实产品/消费者仍NOT_RUN，Owner0/17、L3待人审，规划PASS≠产品PASS。
+
 ## 2026-10-29｜R-FINAL-HISTORY-LINK-B07：B0-04缺件修复与36份工作包证据
 [36份Git原Blob与130项行内路径](audits/FINAL-HISTORY-LINK-B07-2026-10-29.json) → [10项新编原编号包子任务](../docs/work-packages/B0-04/subtasks.json) → [六条研究规则](traces/FINAL-HISTORY-LINK-B07-V08.json) → [25项正反设计验收](../docs/architecture/v0.8/final-history-link-b07-fixtures-v08.json) · [Node只读](../tools/check_final_history_link_b07_v08.cjs) · [原文/来源与局限](../docs/architecture/v0.8/第七轮B0-04缺失子任务与链接补证_2026-10-29.md)。确实发现B0-04/02到subtasks.json断链并用NEWLY_AUTHORED规划规格补齐，非恢复历史附件；四批路径SHA合计232/534（同快照），剩302尚未冻结，AST/全仓/真实Node/产品NOT_RUN，17正式Owner与独立消费者0、L3待审。规划PASS≠产品PASS。
 
