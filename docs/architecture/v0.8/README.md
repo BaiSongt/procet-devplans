@@ -1,3 +1,6 @@
+## 2026-10-29｜B15：Git Commit/Tree原SHA类型勘误
+[原因及后续门禁](第十五轮Git提交与Tree身份勘误_2026-10-29.md) · [5条规则](../../../research/traces/FINAL-MARKDOWN-B15-TREE-V08.json) · [1正16反](final-markdown-b15-tree-fixtures-v08.json) · [Node](../../../tools/check_final_md_b15_tree_v08.cjs)。原B14审计误用commit SHA作Tree SHA，已纠正；AST、L3与产品不因此PASS。
+
 ## 2026-10-29｜CAP-04-02 工程配准Frame与D04提交资格专项补证
 
 [配准Frame数学与资格范围](../../capabilities/CAP-04-02/FRAME-CONTRACT-B09-2026-10-29.md) → [八条增量来源/规则追踪](../../../research/traces/CAP-04-02-frame-contract-b09-v08.json) → [47项合成正反](../../capabilities/CAP-04-02/frame-contract-b09-fixtures-v08.json) → [只读Node校验器](../../../tools/check_cap0402_frame_contract_b09_v08.cjs)。L3/17 Owner/17独立消费者及真实NC/OCCT/B5仍未验收，规划PASS≠产品PASS。

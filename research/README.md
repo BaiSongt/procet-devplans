@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-MD-B15 Git提交与Tree对象身份勘误
+[实际对象SHA和GitHub官方文档深度](../docs/architecture/v0.8/第十五轮Git提交与Tree身份勘误_2026-10-29.md) → [5条证据规则](traces/FINAL-MARKDOWN-B15-TREE-V08.json) → [1正16反](../docs/architecture/v0.8/final-markdown-b15-tree-fixtures-v08.json) · [只读Node](../tools/check_final_md_b15_tree_v08.cjs)。只纠正B14 audit tree字段，GFM AST与产品NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜E3-06 B13跨平台离线ZIP路径与目标文件身份
 [Microsoft Win32、Python zipfile、TUF 1.0.36与RFC8785实际阅读范围](../docs/work-packages/E3-06/OFFLINE-PORTABLE-B13-2026-10-29.md) → [7规则来源/字段/原包](traces/E3-06-offline-portable-b13-trace-v08.json) → [31项规划合成案例](../docs/work-packages/E3-06/offline-portable-b13-fixtures-v08.json)。不把Node预检当真实ZIP解包/验签/NC发布验证。L3待审批、17 Owner和17消费者仍0。**规划PASS≠产品PASS。**
 

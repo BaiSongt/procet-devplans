@@ -1,3 +1,6 @@
+## 2026-10-29｜B15 修复B14 Git Commit/Tree SHA身份混淆
+[现场核验与范围](docs/architecture/v0.8/第十五轮Git提交与Tree身份勘误_2026-10-29.md) → [来源→5规则/字段/CAP/原包](research/traces/FINAL-MARKDOWN-B15-TREE-V08.json) → [1正16反机器设计](docs/architecture/v0.8/final-markdown-b15-tree-fixtures-v08.json) · [只读Node](tools/check_final_md_b15_tree_v08.cjs)。原B14字段将commit SHA误填为Tree SHA，已依据GitHub原生commit/tree对象修正；固定541 Markdown路径身份不变，GFM AST/独立Node全仓及产品NOT_RUN，Owner与消费者0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B12 D15区间保守界/端点采样漏碰撞补证
 [专项规格](docs/work-packages/E3-05/D15-INTERVAL-B12-2026-10-29.md) → [6规则/官方来源/字段与CAP原包](research/traces/E3-05-d15-interval-b12-v08.json) → [正反合成及中点碰撞反例](docs/work-packages/E3-05/d15-interval-b12-fixtures-v08.json) · [只读Node校验器](tools/check_e305_d15_interval_b12_v08.cjs) · [验证记录](tracking/e305-d15-interval-b12-verification-2026-10-29.json)。仅合成保守区间资格，不是连续安全认证；D16/产品NOT_RUN、正式Owner0/17，L3待审。**规划PASS≠产品PASS。**
 
