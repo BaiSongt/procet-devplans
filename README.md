@@ -1,3 +1,6 @@
+## 2026-10-29｜B19 CAP-01-07 GPU上下文失效、恢复后拾取/回执证据补证
+[工程与来源](docs/capabilities/CAP-01-07/WEBGL-RECOVERY-B19-2026-10-29.md) → [8规则/4公开来源/字段/原包](research/traces/CAP-01-07-webgl-recovery-b19-v08.json) → [1正26独立单字段反例](docs/capabilities/CAP-01-07/webgl-recovery-b19-fixtures-v08.json) · [只读Node校验器](tools/check_cap0107_webgl_recovery_b19_v08.cjs)。本轮V8同函数合成27/27；独立Node和浏览器/Babylon真实恢复NOT_RUN，Owner/消费者0/17、L3待审，完整AST未闭。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B18 Git符号链接/gitlink目标不得被Markdown链接误判PASS
 [官方Git Trees对象模式与研究补证](docs/architecture/v0.8/第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则→字段/CAP/原包/案例](research/traces/FINAL-MD-B18-GITMODE-V08.json) → [13独立合成](docs/architecture/v0.8/final-md-b18-gitmode-fixtures-v08.json) · [只读Python封装](tools/check_final_md_b18_gitmode_v08.py) · [执行等级记录](tracking/final-md-b18-verification-2026-10-29.json)。当前固定HEAD无120000/160000模式；本地脚本13/13合成、合成Git库真实mode三例PASS，**Procet完整仓库AST与产品NOT_RUN**。Owner/消费者0/17、L3待审。**规划PASS≠产品PASS。**
 

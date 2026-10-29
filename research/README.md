@@ -1,3 +1,6 @@
+## 2026-10-29｜R-UI3D-B19 WebGL恢复与领域状态隔离
+[WebGL1.0.3/Khronos扩展/MDN/Babylon官方合法正文与阅读局限](../docs/capabilities/CAP-01-07/WEBGL-RECOVERY-B19-2026-10-29.md) → [4来源、8规则→字段/CAP-01-07/原U4包](traces/CAP-01-07-webgl-recovery-b19-v08.json) → [1正26单字段反例](../docs/capabilities/CAP-01-07/webgl-recovery-b19-fixtures-v08.json)；原7项UI3D研究来源不覆盖，新增只在本补证追踪。V8合成已执行；独立Node/浏览器/17消费者NOT_RUN，L3待人审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜R-FINAL-MD-B18 Git mode/symlink/gitlink与本地AST可信等级
 [GitHub官方Tree/GFM/相对链接合法来源与局限](../docs/architecture/v0.8/第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则/字段/CAP/原包](traces/FINAL-MD-B18-GITMODE-V08.json) → [13项合成正反](../docs/architecture/v0.8/final-md-b18-gitmode-fixtures-v08.json) · [只读Git模式检查器](../tools/check_final_md_b18_gitmode_v08.py)。本地合成及真实临时Git对象PASS；当前仓0个gitlink/symlink，真实全仓AST未运行，Owner与L3未批准；不改127 Registry原记录。**规划PASS≠产品PASS。**
 

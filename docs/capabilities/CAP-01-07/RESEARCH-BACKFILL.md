@@ -51,3 +51,7 @@ A/B是同事实的探索/生产业务模式，不与展示模式或Host ControlM
 W3C Pointer Events L3 于2026-06-30成为Recommendation，本文只读取相关事件/捕获章节，不认定浏览器端测通过；WAI ARIA APG是规范性建议与操作模式资料，不是制造软件认证；WCAG 2.2网页已检查但尚未跑符合性工具；Babylon官网仅说明具备pick与左右手支持，产品的单世界是内部选择；Khronos glTF2.0.1只约束glTF文件坐标，不自动证明OCCT/G-code中的Frame转换正确。每项版本/日期/作者/章节和未读限制记录在来源JSON。
 
 校验边界：**规划JSON结构与8个故意错误变异 PASS（内存静态校验），Python校验入口未运行、真实GUI/Renderer/NC/产品消费者均 NOT_RUN**。
+
+
+## 2026-10-29 B19 补证导航（不改原十规则）
+[WebGL上下文失效恢复及跨域回执研究](WEBGL-RECOVERY-B19-2026-10-29.md)：补充8条候选规则、1正26独立单字段反例，原10规则/20验收保留。实际Babylon/产品与L3仍待验证。
