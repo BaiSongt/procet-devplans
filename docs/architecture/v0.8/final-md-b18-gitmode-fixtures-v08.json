@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "procet-final-md-b18-gitmode-fixtures-v08",
+  "scope": "SYNTHETIC_ONLY",
+  "supportingDocuments": {
+    "docs/target.md": "# Good\n",
+    "docs/regular.md": "# Other\n"
+  },
+  "gates": {
+    "fullRepoAst": "NOT_RUN",
+    "githubRenderer": "NOT_RUN",
+    "product": "NOT_RUN",
+    "formalOwner": "PENDING_HUMAN"
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "source": "[x](target.md)",
+      "expected": "PASS_LOCAL_PATH"
+    },
+    {
+      "id": "P02",
+      "source": "[x](target.md#good)",
+      "expected": "PASS_LOCAL_ANCHOR_CANDIDATE"
+    },
+    {
+      "id": "P03",
+      "source": "[x](regular.md)",
+      "expected": "PASS_LOCAL_PATH",
+      "objectOverrides": {
+        "docs/regular.md": "100755"
+      }
+    },
+    {
+      "id": "N01",
+      "source": "[x](../../outside.md)",
+      "expected": "REJECT_ESCAPE_REPO"
+    },
+    {
+      "id": "N02",
+      "source": "[x](missing.md)",
+      "expected": "REJECT_MISSING_PATH"
+    },
+    {
+      "id": "U01",
+      "source": "[x](target.md)",
+      "expected": "UNKNOWN_GIT_SYMLINK",
+      "objectOverrides": {
+        "docs/target.md": "120000"
+      }
+    },
+    {
+      "id": "U02",
+      "source": "[x](target.md#good)",
+      "expected": "UNKNOWN_GIT_SYMLINK",
+      "objectOverrides": {
+        "docs/target.md": "120000"
+      }
+    },
+    {
+      "id": "U03",
+      "source": "[x](alias/file.md)",
+      "expected": "UNKNOWN_GIT_SYMLINK",
+      "objectOverrides": {
+        "docs/alias": "120000"
+      }
+    },
+    {
+      "id": "U04",
+      "source": "[x](vendor/file.md)",
+      "expected": "UNKNOWN_GITLINK",
+      "objectOverrides": {
+        "docs/vendor": "160000"
+      }
+    },
+    {
+      "id": "U05",
+      "source": "[x](target.md)",
+      "expected": "UNKNOWN_GIT_OBJECT_MODE",
+      "objectOverrides": {
+        "docs/target.md": "100664"
+      }
+    },
+    {
+      "id": "U06",
+      "source": "[x](https://example.org/x)",
+      "expected": "EXTERNAL_NOT_CHECKED",
+      "objectOverrides": {
+        "docs/target.md": "120000"
+      }
+    },
+    {
+      "id": "U07",
+      "source": "[x](target.md?raw=1)",
+      "expected": "UNKNOWN_QUERY_SEMANTICS",
+      "objectOverrides": {
+        "docs/target.md": "100644"
+      }
+    },
+    {
+      "id": "U08",
+      "source": "[x](../../outside.md)",
+      "expected": "REJECT_ESCAPE_REPO",
+      "objectOverrides": {
+        "docs/outside.md": "120000"
+      }
+    }
+  ]
+}

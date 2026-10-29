@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FINAL-MD-B18 Git mode/symlink/gitlink与本地AST可信等级
+[GitHub官方Tree/GFM/相对链接合法来源与局限](../docs/architecture/v0.8/第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则/字段/CAP/原包](traces/FINAL-MD-B18-GITMODE-V08.json) → [13项合成正反](../docs/architecture/v0.8/final-md-b18-gitmode-fixtures-v08.json) · [只读Git模式检查器](../tools/check_final_md_b18_gitmode_v08.py)。本地合成及真实临时Git对象PASS；当前仓0个gitlink/symlink，真实全仓AST未运行，Owner与L3未批准；不改127 Registry原记录。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜R-FINAL-OWNER-EDGE-B17 业务类型边、实例revision与独立回执
 [合法来源/已读章节与局限](../docs/architecture/v0.8/第十七轮17资产44关系边准入与撤权回执交接_2026-10-29.md) → [复用ASOWN-S01/S03/S04/S06/S07的8条可追踪规则](traces/FINAL-ASSET-B17-EDGE-HANDOFF-V08.json) → [1正39反样例](../docs/architecture/v0.8/final-asset-b17-edge-fixtures-v08.json)。不更改127注册表/1075旧来源登记，独立Node未执行，正式签署及真实消费者0/17。
 

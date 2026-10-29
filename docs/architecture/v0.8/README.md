@@ -1,3 +1,6 @@
+## 2026-10-29｜B18 Git链接目标的对象模式与AST保守资格
+[来源与发现](第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则/字段/原包](../../../research/traces/FINAL-MD-B18-GITMODE-V08.json) → [13独立合成](final-md-b18-gitmode-fixtures-v08.json) · [工具](../../../tools/check_final_md_b18_gitmode_v08.py)。本地Python/临时Git模式样例通过，不等于真实规划仓AST全跑或GitHub渲染器验证。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B15：Git Commit/Tree原SHA类型勘误
 [原因及后续门禁](第十五轮Git提交与Tree身份勘误_2026-10-29.md) · [5条规则](../../../research/traces/FINAL-MARKDOWN-B15-TREE-V08.json) · [1正16反](final-markdown-b15-tree-fixtures-v08.json) · [Node](../../../tools/check_final_md_b15_tree_v08.cjs)。原B14审计误用commit SHA作Tree SHA，已纠正；AST、L3与产品不因此PASS。
 

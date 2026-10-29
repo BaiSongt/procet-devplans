@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "procet-final-md-b18-gitmode-trace-v08",
+  "createdOn": "2026-10-29",
+  "scope": "NEWLY_AUTHORED_SUPPLEMENT_NOT_HISTORICAL_BYTES",
+  "exactSourceCommit": "ac9799610643801430d1bbb6dfec2613a931e72b",
+  "exactSourceTree": "aa3d4e8d793f93f6abafa493ce71c44138c5769e",
+  "sources": [
+    {
+      "id": "B18-S01",
+      "author": "GitHub Docs",
+      "title": "REST API endpoints for Git trees",
+      "version": "当前在线API文档（未固定网页修订）",
+      "published": "页面未给固定发布日期",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/rest/git/trees",
+      "readingDepth": "Get a tree、Create a tree的mode/type定义、recursive截断及100000项/7MB说明；公开HTML章节",
+      "limits": "只规定Git数据模型；不能证明GitHub Markdown渲染器对符号链接和gitlink的跟随行为"
+    },
+    {
+      "id": "B18-S02",
+      "author": "GitHub Docs",
+      "title": "Basic writing and formatting syntax",
+      "version": "动态在线文档（页面未标注版本）",
+      "published": "页面未标注",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax",
+      "readingDepth": "Relative links、Section links、Custom anchors公开正文",
+      "limits": "相对路径支持不是Git文件模式解引用认证"
+    },
+    {
+      "id": "B18-S03",
+      "author": "GitHub / CommonMark社区；基础规范John MacFarlane",
+      "title": "GitHub Flavored Markdown Spec",
+      "version": "0.29-gfm",
+      "published": "2019-04-06",
+      "accessed": "2026-10-29",
+      "url": "https://github.github.io/gfm/",
+      "readingDepth": "§4.7 link reference、§6.6 links、§6.10 raw HTML在线公开正文",
+      "limits": "规范没有定义Git对象120000/160000时的GitHub产品页面解引用方式"
+    },
+    {
+      "id": "B18-S04",
+      "author": "BaiSongt/procet-devplans GitHub原生对象（本轮只读）",
+      "title": "固定规划分支Commit与Git Tree",
+      "version": "commit ac9799610643801430d1bbb6dfec2613a931e72b; tree aa3d4e8d793f93f6abafa493ce71c44138c5769e",
+      "published": "原GitHub提交，日期不另推断",
+      "accessed": "2026-10-29",
+      "url": "https://github.com/BaiSongt/procet-devplans/commit/ac9799610643801430d1bbb6dfec2613a931e72b",
+      "readingDepth": "经连接器回读Commit与完整递归Git Tree的1639条、545 Markdown和mode直方图",
+      "limits": "固定旧快照没有120000/160000，仅证明当前无真实特殊模式路径；不构成完整AST扫描"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B18-R01",
+      "summary": "Git对象模式和对象类型须作为本地链接可信条件，不可把存在Blob等同普通文档",
+      "sourceIds": [
+        "B18-S01",
+        "B18-S04"
+      ],
+      "fields": [
+        "git.mode",
+        "git.type",
+        "git.sha",
+        "exactCommit"
+      ],
+      "caps": [
+        "CAP-01-03"
+      ],
+      "workPackages": [
+        "B0-05"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "P03",
+        "U05"
+      ]
+    },
+    {
+      "id": "B18-R02",
+      "summary": "指向符号链接本体或其后代路径须UNKNOWN，不能直接PASS或按字面缺失误REJECT",
+      "sourceIds": [
+        "B18-S01",
+        "B18-S02"
+      ],
+      "fields": [
+        "targetPath",
+        "parentPath.mode",
+        "resolvedTargetUnknown"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03"
+      ],
+      "acceptanceIds": [
+        "U01",
+        "U02",
+        "U03"
+      ]
+    },
+    {
+      "id": "B18-R03",
+      "summary": "gitlink指向外部仓库提交，不能从当前仓Blob Tree推断其内部文档存在",
+      "sourceIds": [
+        "B18-S01"
+      ],
+      "fields": [
+        "git.mode=160000",
+        "git.type=commit",
+        "gitlinkPrefix"
+      ],
+      "caps": [
+        "CAP-01-08"
+      ],
+      "workPackages": [
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "U04"
+      ]
+    },
+    {
+      "id": "B18-R04",
+      "summary": "仓内普通文件、锚点及越仓根/缺失路径各自保持原B16候选或拒绝语义",
+      "sourceIds": [
+        "B18-S02",
+        "B18-S03"
+      ],
+      "fields": [
+        "targetPath",
+        "fragment",
+        "pathResolution",
+        "git.mode"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "P02",
+        "N01",
+        "N02",
+        "U08"
+      ]
+    },
+    {
+      "id": "B18-R05",
+      "summary": "外链和查询参数保持独立UNKNOWN/EXTERNAL等级；合成Git测试不是仓库全量AST或产品验收",
+      "sourceIds": [
+        "B18-S01",
+        "B18-S03"
+      ],
+      "fields": [
+        "uri.scheme",
+        "uri.query",
+        "evidenceLevel",
+        "fullRepoAst"
+      ],
+      "caps": [
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "T5-06"
+      ],
+      "acceptanceIds": [
+        "U06",
+        "U07"
+      ]
+    }
+  ],
+  "fixturePath": "docs/architecture/v0.8/final-md-b18-gitmode-fixtures-v08.json",
+  "checkerPath": "tools/check_final_md_b18_gitmode_v08.py",
+  "gates": {
+    "syntheticCases": 13,
+    "localActualGitObjectTest": "PASS_SYNTHETIC_GIT_REPO_THREE_LINKS",
+    "fullRepoAst": "NOT_RUN",
+    "officialGithubRenderParity": "NOT_RUN",
+    "owners": "0/17",
+    "independentRealConsumers": "0/17",
+    "l3": "PENDING_HUMAN",
+    "product": "NOT_RUN"
+  }
+}

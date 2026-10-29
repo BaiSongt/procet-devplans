@@ -1,3 +1,6 @@
+## 2026-10-29｜B18 Git符号链接/gitlink目标不得被Markdown链接误判PASS
+[官方Git Trees对象模式与研究补证](docs/architecture/v0.8/第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则→字段/CAP/原包/案例](research/traces/FINAL-MD-B18-GITMODE-V08.json) → [13独立合成](docs/architecture/v0.8/final-md-b18-gitmode-fixtures-v08.json) · [只读Python封装](tools/check_final_md_b18_gitmode_v08.py) · [执行等级记录](tracking/final-md-b18-verification-2026-10-29.json)。当前固定HEAD无120000/160000模式；本地脚本13/13合成、合成Git库真实mode三例PASS，**Procet完整仓库AST与产品NOT_RUN**。Owner/消费者0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B17 17资产44边候选Owner与独立消费者机器准入（非真实会签）
 [17资产交接来源/限界](docs/architecture/v0.8/第十七轮17资产44关系边准入与撤权回执交接_2026-10-29.md) → [8规则映射](research/traces/FINAL-ASSET-B17-EDGE-HANDOFF-V08.json) → [1正39反合成门禁](docs/architecture/v0.8/final-asset-b17-edge-fixtures-v08.json) · [只读Node](tools/check_final_asset_b17_edge_v08.cjs) · [证据等级](tracking/final-asset-b17-verification-2026-10-29.json)。远端原文件17资产/44互惠边/17候选Owner Port结构一致；同源码V8执行1正39反；独立Node、签署与产品NOT_RUN，Owner和消费者0/17，L3待审。**规划PASS≠产品PASS。**
 
