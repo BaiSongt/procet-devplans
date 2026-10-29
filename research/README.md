@@ -1,3 +1,6 @@
+## 2026-10-29｜R-FIX-001 B21 unilateral rank与接触形闭合资格
+[Modern Robotics §12.1.7/§12.2.3、Carr Lane、NIST摘要、ISO目录/内生CAP源深度](../docs/capabilities/CAP-04-03/UNILATERAL-CONTACT-B21-2026-10-29.md) → [7条来源→规则→字段→原CAP/工作包](traces/CAP-04-03-unilateral-b21-v08.json) → [2正29反合成](../docs/capabilities/CAP-04-03/unilateral-b21-fixtures-v08.json)。六条3-2-1接触rank6仍有x/z非穿透分离Twist；只验证给定见证，不求通用LP。V8 31/31合成、真实独立Node/物理稳定/NC/17消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-29｜B20 R-STOCKREG-001可辨识性与刚体资格研究增量
 [六项公开来源与一项内生规格、阅读局限](../docs/capabilities/CAP-04-02/ROBUST-REGISTRATION-B20-2026-10-29.md) → [9条来源→字段→CAP-04-02/原F1/U4包→独立验收](traces/CAP-04-02-robust-b20-v08.json)；ISO5459仅摘要、Umeyama原论文未读，合成39/39不证明产品配准/测量合格，Owner/消费者0/17、L3待审。
 

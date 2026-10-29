@@ -1,3 +1,6 @@
+## 2026-10-29｜B21 CAP-04-03单侧接触的秩满不等于一阶形闭合
+[来源与合成反例](docs/capabilities/CAP-04-03/UNILATERAL-CONTACT-B21-2026-10-29.md) → [6来源7规则字段/原包](research/traces/CAP-04-03-unilateral-b21-v08.json) → [2正29反](docs/capabilities/CAP-04-03/unilateral-b21-fixtures-v08.json) · [只读Node](tools/check_cap0403_unilateral_b21_v08.cjs)。3-2-1原六接触rank=6，但x/z两条非零Twist满足单侧不穿透，不能认证一阶形闭合、摩擦力闭合或实机稳定；V8同源码函数31/31合成通过，独立Node、真实夹紧/OCCT/NC/消费者NOT_RUN，正式Owner0/17，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B20 CAP-04-02点集退化、刚体镜像/缩放与测量资格补证
 [专项研究与公开来源边界](docs/capabilities/CAP-04-02/ROBUST-REGISTRATION-B20-2026-10-29.md) → [6项公开来源+1项内生规格、9规则/字段/原包](research/traces/CAP-04-02-robust-b20-v08.json) → [4正35反独立合成](docs/capabilities/CAP-04-02/robust-b20-fixtures-v08.json) → [只读Node工具](tools/check_cap0402_robust_b20_v08.cjs)。V8同函数合成39/39，独立Node真实仓库、OCCT/ICP/测量/产品NOT_RUN，L3/17 Owner待审；规划PASS≠产品PASS。
 
