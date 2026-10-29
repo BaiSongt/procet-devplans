@@ -92,6 +92,19 @@
       "depth": "citation_only_via_Eigen_reference",
       "locator": "仅由Eigen官方API引用确认论文题目/DOI，未读取论文正文",
       "limit": "不得冒称看过算法原文、误差界或实验验证"
+    },
+    {
+      "id": "B20-S07",
+      "author": "Procet V0.8 规划编制组（未完成L3审批）",
+      "publisher": "BaiSongt/procet-devplans public repository",
+      "title": "CAP-04-02 毛坯/零件定位配准（内生业务与接口约束）",
+      "version": "2026-10-19首编；固定 Git Blob b57eb25a59abdb8e483c8f75501e0060f9038f80",
+      "published": "2026-10-19 (document date)",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/6d27c9f94fed16cf1ebd9a830fe7baa2a1cbe597/docs/capabilities/CAP-04-02/README.md",
+      "accessed": "2026-10-29",
+      "depth": "internal_full_spec_text",
+      "locator": "§1 Owner、§3业务流程、§4字段、§5端口与失败/迁移",
+      "limit": "内生业务候选规范，非外部标准、非L3批准、非产品源码或消费者实测；仅作为现有规划约束来源"
     }
   ],
   "rules": [
@@ -100,7 +113,8 @@
       "description": "CAD/Stock各有不可替代的exact对象及CAD occurrence，来源对Hash锁定",
       "sourceIds": [
         "B20-S01",
-        "B20-S02"
+        "B20-S02",
+        "B20-S07"
       ],
       "fields": [
         "targetCadExactRef",
@@ -130,14 +144,17 @@
         "B20-N05"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "ISO datum摘要仅说明设计基准语义；exact hash、CAD occurrence及stock Owner为Procet自身规划约束。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R02_UNIT_FRAME",
       "description": "单位与D04坐标Frame明确，不从D10执行偏置推导设计Frame",
       "sourceIds": [
         "B20-S01",
-        "B20-S02"
+        "B20-S02",
+        "B20-S07"
       ],
       "fields": [
         "sourceUnit",
@@ -163,7 +180,9 @@
         "B20-N08"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "OCCT提供变换数学；D04与D10责任隔离来源于Procet架构，不能归因于ISO收费正文。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R03_OBSERVABILITY",
@@ -195,7 +214,9 @@
         "B20-N12"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "非共线条件来自刚体几何推导，Eigen/Open3D仅提供配准算法背景；不宣称论文正文理论证明。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R04_RIGID",
@@ -229,7 +250,9 @@
         "B20-N17"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "Eigen API明确with_scaling默认true；OCCT API确认SetValues会正交化。先验原矩阵校验是设计防错推导。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R05_RESIDUAL",
@@ -260,7 +283,9 @@
         "B20-N18"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "公开Open3D教程有残差优化；本工具仅执行可复现合成点对检验。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R06_QUALIFICATION",
@@ -298,13 +323,15 @@
         "B20-N23"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "Open3D解释算法返回，不支持制造测量认证；不升级认证为内部工程隔离规则。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R07_UI_OWNER",
       "description": "GUI/CLI/Agent复用D04.OwnerPort，唯一Babylon及左TaskPanel，ghost不提交",
       "sourceIds": [
-        "B20-S02"
+        "B20-S07"
       ],
       "fields": [
         "engineCount",
@@ -333,13 +360,15 @@
         "B20-N27"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "Procet CAP-04-02约束，非OCCT/Eigen/Open3D规范。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R08_CAS_ACK",
       "description": "commit时重验exact revision/scope/permission、取消及晚回执",
       "sourceIds": [
-        "B20-S01"
+        "B20-S07"
       ],
       "fields": [
         "expectedRevision",
@@ -372,13 +401,15 @@
         "B20-N32"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "Procet CAP-04-02提交事务约束，非ISO 5459权限条款。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     },
     {
       "id": "R09_D04_D10",
       "description": "D04配准绝不直接修改D10机床执行绑定；NC未知维持D15/D16阻断",
       "sourceIds": [
-        "B20-S01"
+        "B20-S07"
       ],
       "fields": [
         "executionBindingUpdated",
@@ -403,7 +434,9 @@
         "B20-N35"
       ],
       "status": "candidate_pending_L3",
-      "productAcceptance": "NOT_RUN"
+      "productAcceptance": "NOT_RUN",
+      "derivation": "Procet CAP-04-02及V0.8业务Owner边界，非ISO 5459控制器规定。",
+      "evidenceClass": "EXTERNAL_PUBLIC_OR_INTERNAL_SPEC_PLUS_EXPLICIT_DERIVATION"
     }
   ]
 }
