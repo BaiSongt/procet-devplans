@@ -1,3 +1,6 @@
+## 2026-10-29｜R-D13-MODAL-B10 控制器模态与已装载刀长证据
+[官方LinuxCNC 2.9公开章节和NIST仅元数据范围](../docs/capabilities/CAP-09-07/D13-MODAL-B10-2026-10-29.md) → [6规则与作者/版本/日期/局限](traces/CAP-09-07-d13-modal-b10-v08.json) → [28项单字段正反](../docs/capabilities/CAP-09-07/d13-modal-b10-fixtures-v08.json)。不替代控制器实测或独立D15，Owner/L3待签。规划PASS≠产品PASS。
+
 ## 2026-10-29｜R-FINAL-HISTORY-LINK-B08：CAD/资源/Setup 56份SHA证据
 [56份Git原Blob/SHA与247项已识别行内相对链接](audits/FINAL-HISTORY-LINK-B08-2026-10-29.json) → [六条来源/规则/字段/CAP/原包](traces/FINAL-HISTORY-LINK-B08-V08.json) → [27条正反场景](../docs/architecture/v0.8/final-history-link-b08-fixtures-v08.json) · [Node只读](../tools/check_final_history_link_b08_v08.cjs) · [研究局限](../docs/architecture/v0.8/第八轮跨域规格链接冻结与追踪门禁_2026-10-29.md)。同HEAD累计288/535份路径SHA，247份待验；全仓AST、完整Node进程、真实产品/消费者仍NOT_RUN，Owner0/17、L3待人审，规划PASS≠产品PASS。
 

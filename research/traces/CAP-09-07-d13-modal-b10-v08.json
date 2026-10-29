@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "procet-d13-modal-handoff-b10-v1",
+  "topic": "R-D13-MODAL-B10",
+  "created": "2026-10-29",
+  "sourceHead": "029e23ae01009735a24a4fddb51990eb2fcfc95a",
+  "sourcePaths": [
+    "docs/capabilities/CAP-09-07/README.md",
+    "docs/work-packages/E3-04.md",
+    "research/traces/CAP-09-07.json"
+  ],
+  "planningOnly": true,
+  "designApproval": "PENDING_HUMAN",
+  "ownerSigned": 0,
+  "independentConsumers": 0,
+  "product": "NOT_RUN",
+  "actualD13Semantic": "unknown",
+  "actualD14": "NOT_RUN",
+  "actualD15": "NOT_RUN",
+  "actualD16": "BLOCKED",
+  "sources": [
+    {
+      "id": "B10-LC-OV",
+      "publisher": "LinuxCNC Documentation",
+      "author": "LinuxCNC documentation team",
+      "version": "2.9",
+      "published": "2.9 branch (exact page date not stated)",
+      "accessed": "2026-10-29",
+      "url": "https://www.linuxcnc.org/docs/2.9/html/gcode/overview.html",
+      "sectionsRead": [
+        "§1 Overview",
+        "§2 Format of a line",
+        "§13 Modal Groups"
+      ],
+      "depth": "OFFICIAL_PUBLIC_HTML_SELECTED_SECTIONS",
+      "limits": "LinuxCNC方言/特定配置的规则，非所有OEM控制器、B5或产品实现的事实"
+    },
+    {
+      "id": "B10-LC-G",
+      "publisher": "LinuxCNC Documentation",
+      "author": "LinuxCNC documentation team",
+      "version": "2.9",
+      "published": "2.9 branch (exact page date not stated)",
+      "accessed": "2026-10-29",
+      "url": "https://www.linuxcnc.org/docs/2.9/html/gcode/g-code.html",
+      "sectionsRead": [
+        "§1 Conventions",
+        "§G43 Tool Length Offset",
+        "§G49",
+        "§G53",
+        "§G54-G59.3",
+        "§G90/G91"
+      ],
+      "depth": "OFFICIAL_PUBLIC_HTML_SELECTED_SECTIONS",
+      "limits": "G43/G53及工具表细节不能外推西门子/法那科/国产OEM及未知机床配置"
+    },
+    {
+      "id": "B10-NIST-META",
+      "publisher": "NIST",
+      "author": "Thomas R. Kramer; Frederick M. Proctor; Elena Messina",
+      "version": "NISTIR 6556 Version 3",
+      "published": "2000-08-17",
+      "accessed": "2026-10-29",
+      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=823374",
+      "sectionsRead": [
+        "公开检索所示标题/作者/报告编号/日期元数据"
+      ],
+      "depth": "SEARCH_METADATA_ONLY_PDF_BODY_NOT_READ",
+      "limits": "未打开或核对PDF正文，不引用任何具体技术条款、解释器测试结果或实现结论"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B10-D13-R01",
+      "text": "D12最终NC原字节hash与D13解释事件hash、控制器Profile及方言版本必须组成同一解释来源闭包；任何未识别命令保留unknown。",
+      "fields": [
+        "d12NcHashPinned",
+        "d13EventSourceHashPinned",
+        "controllerProfileHashPinned",
+        "controllerDialectVersionPinned",
+        "modalEntrySnapshotPinned"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "sourceRefs": [
+        "B10-LC-OV",
+        "B10-NIST-META"
+      ],
+      "acceptance": [
+        "B10-P01",
+        "B10-N01",
+        "B10-N02",
+        "B10-N03",
+        "B10-N04",
+        "B10-N05"
+      ]
+    },
+    {
+      "id": "B10-D13-R02",
+      "text": "控制器解释需记录单位G20/21、距离模式G90/91、平面与组内互斥的模态前后态；无入口快照禁止把坐标直接投递D14。",
+      "fields": [
+        "unitsModeKnown",
+        "distanceModeKnown",
+        "planeModeKnown",
+        "modalGroupsConflictFree"
+      ],
+      "caps": [
+        "CAP-09-07"
+      ],
+      "packages": [
+        "E3-04"
+      ],
+      "sourceRefs": [
+        "B10-LC-OV",
+        "B10-LC-G"
+      ],
+      "acceptance": [
+        "B10-P01",
+        "B10-N06",
+        "B10-N07",
+        "B10-N08",
+        "B10-N09"
+      ]
+    },
+    {
+      "id": "B10-D13-R03",
+      "text": "LinuxCNC 2.9 G53为非模态且要求可用线性运动模式；程序M2/M30之后的行不执行，跨行G53或尾行不可作为轴时序。",
+      "fields": [
+        "g53IsNonModalPerBlock",
+        "g53LinearMotionActive",
+        "programEndStopsExecution"
+      ],
+      "caps": [
+        "CAP-09-07"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "sourceRefs": [
+        "B10-LC-OV",
+        "B10-LC-G"
+      ],
+      "acceptance": [
+        "B10-P01",
+        "B10-N10",
+        "B10-N11",
+        "B10-N12"
+      ]
+    },
+    {
+      "id": "B10-D13-R04",
+      "text": "G43读取已装载刀具的长度/工具表，须绑定实际载入表的修订hash、H解释和刀长应用阶段；不能凭静态T号码或资源Catalog视为已装载。",
+      "fields": [
+        "loadedToolTableHashPinned",
+        "toolChangeStageKnown",
+        "g43LengthOffsetResolved",
+        "g43CompensationFrameKnown"
+      ],
+      "caps": [
+        "CAP-09-07"
+      ],
+      "packages": [
+        "E3-04"
+      ],
+      "sourceRefs": [
+        "B10-LC-G"
+      ],
+      "acceptance": [
+        "B10-P01",
+        "B10-N13",
+        "B10-N14",
+        "B10-N15",
+        "B10-N16"
+      ]
+    },
+    {
+      "id": "B10-D13-R05",
+      "text": "D04名义Setup与D10实际执行绑定分离，D03运动链exact hash/frame及D10偏置、装夹和TCP修订必须被D14复核；未知运动学不得伪装B5。",
+      "fields": [
+        "d04AndD10Separate",
+        "d03MachineLinkHashFramePinned",
+        "d10ExecutionBindingHashFramePinned",
+        "d14UnknownKinematicsBlocked"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-04-02"
+      ],
+      "packages": [
+        "E3-04",
+        "B0-05"
+      ],
+      "sourceRefs": [
+        "B10-LC-G"
+      ],
+      "acceptance": [
+        "B10-P01",
+        "B10-N17",
+        "B10-N18",
+        "B10-N19",
+        "B10-N20"
+      ]
+    },
+    {
+      "id": "B10-D13-R06",
+      "text": "D13完整才可形成合成D14交接候选；D14不自动产生D15验证或D16发布；GUI/CLI/Agent同OwnerPort，提交点CAS/ACL/权限Epoch与取消重验，晚回执不提交、A/B冻结保留。",
+      "fields": [
+        "guiCliAgentSameOwnerPort",
+        "casAclEpochRechecked",
+        "lateAckCommitAllowed",
+        "frozenRollbackPreserved",
+        "clAnimationIsEngineeringVerification",
+        "d15Passed",
+        "d16Released"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "sourceRefs": [
+        "B10-LC-OV"
+      ],
+      "acceptance": [
+        "B10-P01",
+        "B10-N21",
+        "B10-N22",
+        "B10-N23",
+        "B10-N24",
+        "B10-N25",
+        "B10-N26",
+        "B10-N27"
+      ]
+    }
+  ]
+}

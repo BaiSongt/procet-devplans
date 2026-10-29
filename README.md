@@ -1,3 +1,6 @@
+## 2026-10-29｜B10 D13模态状态、刀长装载与D14/D15资格补证
+[CAP-09-07/E3-04专题补证](docs/capabilities/CAP-09-07/D13-MODAL-B10-2026-10-29.md) → [6条来源/字段/规则追踪](research/traces/CAP-09-07-d13-modal-b10-v08.json) → [28项正反合成](docs/capabilities/CAP-09-07/d13-modal-b10-fixtures-v08.json) · [只读Node](tools/check_cap0907_d13_modal_b10_v08.cjs) · [验证记录](tracking/cap0907-d13-modal-b10-verification-2026-10-29.json)。最终NC及D13解释上下文不全时D14/D15/D16阻断；V8合成28/28，独立Node/真实NC/B5/OEM/17消费者NOT_RUN，Owner0/17，L3待人审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜第七轮终核：B0-04真实缺失子任务与工作包SHA/链接补证
 [36份原Blob/SHA及130个单行链接](research/audits/FINAL-HISTORY-LINK-B07-2026-10-29.json) → [新编B0-04十项机器子任务](docs/work-packages/B0-04/subtasks.json) → [六条来源/规则/字段/CAP/原包追踪](research/traces/FINAL-HISTORY-LINK-B07-V08.json) → [25项规划正反合成设计](docs/architecture/v0.8/final-history-link-b07-fixtures-v08.json) · [只读Node校验器](tools/check_final_history_link_b07_v08.cjs) · [研究/历史原件限制](docs/architecture/v0.8/第七轮B0-04缺失子任务与链接补证_2026-10-29.md)。本轮发现B0-04的`subtasks.json`真实缺失，依现有S01—S10表格**NEWLY_AUTHORED**补齐引用，非历史字节恢复；四批同一基线逐SHA路径232/534、尚有302，非GFM AST/全仓PASS。Node独立进程、真实产品和17消费者NOT_RUN，Owner0/17、L3待人类。**规划PASS≠产品PASS。**
 
