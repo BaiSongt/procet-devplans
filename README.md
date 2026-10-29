@@ -1,3 +1,6 @@
+## 2026-10-30｜B30 原E3-03 G81循环G98/G99退刀与L重复
+[研究](docs/work-packages/E3-03/CANNED-RETRACT-B30-2026-10-30.md) → [5项来源](research/sources/E3-03-canned-retract-b30.json) → [8规则及字段](research/traces/E3-03-canned-retract-b30-v08.json) → [7正47反1未知](docs/work-packages/E3-03/canned-retract-b30-fixtures-v08.json) → [只读Node](tools/check_e303_canned_retract_b30_v08.cjs)。LinuxCNC2.9限定语义，V8同函数合成55/55通过；实际Node进程、NC/Owner/L3仍未通过。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B29 CAP-11-04 MCP2026版本漂移/工具目录隔离与MRTR
 [专项研究与阅读限制](docs/capabilities/CAP-11-04/MCP-VERSION-CACHE-B29-2026-10-30.md) → [6来源](research/sources/CAP-11-04-mcp-version-cache-b29.json) → [8规则/字段/原T5-01/T5-02](research/traces/CAP-11-04-mcp-version-cache-b29-v08.json) → [3正45反合成](docs/capabilities/CAP-11-04/mcp-version-cache-b29-fixtures-v08.json) → [只读Node工具](tools/check_cap1104_mcp_version_cache_b29_v08.cjs)。当前MCP官方版2026-07-28，2025-11-25为旧协议；本轮V8同函数48/48合成PASS，独立Node/SDK/业务Owner/17消费者NOT_RUN，正式Owner0/17、L3待审。规划PASS≠产品PASS。
 

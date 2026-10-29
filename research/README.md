@@ -1,3 +1,6 @@
+## 2026-10-30｜B30 R-NCEXEC-001 G81返回平面与增量循环
+[LinuxCNC2.9 §43–45/61实读及NIST仅目录的局限](../docs/work-packages/E3-03/CANNED-RETRACT-B30-2026-10-30.md) → [5来源](sources/E3-03-canned-retract-b30.json) → [8规则字段](traces/E3-03-canned-retract-b30-v08.json) → [55合成正反未知](../docs/work-packages/E3-03/canned-retract-b30-fixtures-v08.json)。独立Node及真实D13/D14/D15/OEM均NOT_RUN，L3待审。
+
 ## 2026-10-30｜R-AGENT-ORCHESTRATION-001 B29 MCP版本迁移/授权目录缓存
 [2026-07-28官方Versioning、Tools、Authorization、2025-11-25旧Tools与发布说明的读深](../docs/capabilities/CAP-11-04/MCP-VERSION-CACHE-B29-2026-10-30.md) → [6来源](sources/CAP-11-04-mcp-version-cache-b29.json) → [8规则到字段/原T5-01/T5-02/机器验收](traces/CAP-11-04-mcp-version-cache-b29-v08.json) → [3正45反](../docs/capabilities/CAP-11-04/mcp-version-cache-b29-fixtures-v08.json)。最新2026协议引入逐请求元数据/缓存/MRTR，不能复用旧初始化假设；仅合成规划，SDK/Owner真实验收NOT_RUN，L3待审。
 
