@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "procet-cap0402-b20-source-rule-field-acceptance-v08",
+  "createdOn": "2026-10-29",
+  "classification": "NEWLY_AUTHORED_RESEARCH_SUPPLEMENT",
+  "capabilityId": "CAP-04-02",
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "baselineHead": "6d27c9f94fed16cf1ebd9a830fe7baa2a1cbe597",
+  "L3": "PENDING_HUMAN_REVIEW",
+  "originalCAPSpec": "UNCHANGED",
+  "evidenceLevel": "PLANNING_SYNTHETIC_ONLY",
+  "sources": [
+    {
+      "id": "B20-S01",
+      "author": "ISO/TC 213",
+      "publisher": "ISO",
+      "title": "ISO 5459:2024 Geometrical tolerancing — Datums and datum systems",
+      "version": "Edition 3, 2024-10",
+      "published": "2024-10",
+      "url": "https://www.iso.org/standard/87855.html",
+      "accessed": "2026-10-29",
+      "depth": "official_catalog_abstract",
+      "locator": "官方Abstract与出版目录",
+      "limit": "收费115页正文未读；不能从目录推出具体定位公差或检验操作"
+    },
+    {
+      "id": "B20-S02",
+      "author": "Open CASCADE SAS / OCCT maintainers",
+      "publisher": "Open CASCADE",
+      "title": "gp_Trsf Class Reference",
+      "version": "OCCT 8.0.1 online",
+      "published": "not_stated",
+      "url": "https://occt3d.com/dev/doc/refman/html/classgp___trsf.html",
+      "accessed": "2026-10-29",
+      "depth": "public_API_method_text",
+      "locator": "Detailed Description, SetValues, IsNegative, ScaleFactor, Multiplied",
+      "limit": "SetValues会正交化; API并非产品版本OCCT实测；须在入库前验证原始矩阵"
+    },
+    {
+      "id": "B20-S03",
+      "author": "Eigen contributors; algorithm referenced to Shinji Umeyama",
+      "publisher": "Eigen",
+      "title": "Eigen 3.4 Geometry Module — umeyama",
+      "version": "Eigen 3.4 reference",
+      "published": "not_stated",
+      "url": "https://libeigen.gitlab.io/eigen/docs-3.4/group__Geometry__Module.html",
+      "accessed": "2026-10-29",
+      "depth": "public_API_function_text",
+      "locator": "umeyama(src,dst,bool with_scaling=true); with_scaling=false sets c=1",
+      "limit": "Eigen接口与SVD说明不证明制造现场配准唯一性、精度或OCC兼容性"
+    },
+    {
+      "id": "B20-S04",
+      "author": "Open3D contributors",
+      "publisher": "Open3D",
+      "title": "Global registration tutorial",
+      "version": "Open3D 0.19.0 published manual",
+      "published": "version_release_not_checked",
+      "url": "https://open3d.org/docs/release/tutorial/pipelines/global_registration.html",
+      "accessed": "2026-10-29",
+      "depth": "public_tutorial_RANSAC",
+      "locator": "RANSAC correspondence checks and local refinement discussion",
+      "limit": "教程阈值为演示配置而非Procet生产公差；不能把fitness当datum验收"
+    },
+    {
+      "id": "B20-S05",
+      "author": "Open3D contributors",
+      "publisher": "Open3D",
+      "title": "registration_icp API",
+      "version": "Open3D 0.16.0",
+      "published": "not_stated",
+      "url": "https://open3d.org/docs/0.16.0/python_api/open3d.pipelines.registration.registration_icp.html",
+      "accessed": "2026-10-29",
+      "depth": "public_API_parameters",
+      "locator": "initial transform、correspondence threshold、estimation method without scaling default",
+      "limit": "仅文档行为，不代表真实装夹测量或NC验证"
+    },
+    {
+      "id": "B20-S06",
+      "author": "Shinji Umeyama",
+      "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "title": "Least-squares estimation of transformation parameters between two point patterns",
+      "version": "1991, DOI 10.1109/34.88573",
+      "published": "1991",
+      "url": "https://doi.org/10.1109/34.88573",
+      "accessed": "2026-10-29",
+      "depth": "citation_only_via_Eigen_reference",
+      "locator": "仅由Eigen官方API引用确认论文题目/DOI，未读取论文正文",
+      "limit": "不得冒称看过算法原文、误差界或实验验证"
+    }
+  ],
+  "rules": [
+    {
+      "id": "R01_SOURCE_ID",
+      "description": "CAD/Stock各有不可替代的exact对象及CAD occurrence，来源对Hash锁定",
+      "sourceIds": [
+        "B20-S01",
+        "B20-S02"
+      ],
+      "fields": [
+        "targetCadExactRef",
+        "stockExactRef",
+        "cadOccurrencePath",
+        "topologyQualified",
+        "correspondenceHash",
+        "currentCorrespondenceHash"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N01",
+        "B20-N02",
+        "B20-N03",
+        "B20-N04",
+        "B20-N05"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R02_UNIT_FRAME",
+      "description": "单位与D04坐标Frame明确，不从D10执行偏置推导设计Frame",
+      "sourceIds": [
+        "B20-S01",
+        "B20-S02"
+      ],
+      "fields": [
+        "sourceUnit",
+        "targetUnit",
+        "expectedFrame",
+        "outputFrame"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N06",
+        "B20-N07",
+        "B20-N08"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R03_OBSERVABILITY",
+      "description": "共线/双点对应关系旋转欠定；满足非退化是候选验证必要条件但不是实测认证",
+      "sourceIds": [
+        "B20-S03",
+        "B20-S04"
+      ],
+      "fields": [
+        "sourcePts",
+        "targetPts"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N09",
+        "B20-N10",
+        "B20-N11",
+        "B20-N12"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R04_RIGID",
+      "description": "候选必须SO(3)正交且det≈+1；禁镜像、剪切、隐式缩放，原矩阵先检再送OCCT",
+      "sourceIds": [
+        "B20-S02",
+        "B20-S03"
+      ],
+      "fields": [
+        "rotation",
+        "translation",
+        "withScaling"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N13",
+        "B20-N14",
+        "B20-N15",
+        "B20-N16",
+        "B20-N17"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R05_RESIDUAL",
+      "description": "逐配对点计算一致单位下的残差并区分合成阈值与生产公差",
+      "sourceIds": [
+        "B20-S03",
+        "B20-S04"
+      ],
+      "fields": [
+        "sourcePts",
+        "targetPts",
+        "rotation",
+        "translation"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N18"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R06_QUALIFICATION",
+      "description": "ICP/Umeyama输出只能是候选，算法修订锁定；不得把fitness或收敛升级为datum/测量/工程PASS",
+      "sourceIds": [
+        "B20-S03",
+        "B20-S04",
+        "B20-S05"
+      ],
+      "fields": [
+        "algorithm",
+        "solverProfileRef",
+        "solutionStatus",
+        "metrologyQualified",
+        "datumApproved",
+        "engineeringVerified"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N19",
+        "B20-N20",
+        "B20-N21",
+        "B20-N22",
+        "B20-N23"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R07_UI_OWNER",
+      "description": "GUI/CLI/Agent复用D04.OwnerPort，唯一Babylon及左TaskPanel，ghost不提交",
+      "sourceIds": [
+        "B20-S02"
+      ],
+      "fields": [
+        "engineCount",
+        "sceneCount",
+        "canvasCount",
+        "leftTaskPanelCount",
+        "previewOnly",
+        "consumerOwnerPorts"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N24",
+        "B20-N25",
+        "B20-N26",
+        "B20-N27"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R08_CAS_ACK",
+      "description": "commit时重验exact revision/scope/permission、取消及晚回执",
+      "sourceIds": [
+        "B20-S01"
+      ],
+      "fields": [
+        "expectedRevision",
+        "currentRevision",
+        "scopeEpoch",
+        "responseScopeEpoch",
+        "permissionEpoch",
+        "responsePermissionEpoch",
+        "permissionCurrent",
+        "cancelled",
+        "lateAckApplied"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N28",
+        "B20-N29",
+        "B20-N30",
+        "B20-N31",
+        "B20-N32"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "R09_D04_D10",
+      "description": "D04配准绝不直接修改D10机床执行绑定；NC未知维持D15/D16阻断",
+      "sourceIds": [
+        "B20-S01"
+      ],
+      "fields": [
+        "executionBindingUpdated",
+        "ncValidation",
+        "releaseStatus"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "U4-02"
+      ],
+      "positiveTests": [
+        "B20-P01",
+        "B20-P02",
+        "B20-P03",
+        "B20-P04"
+      ],
+      "negativeTests": [
+        "B20-N33",
+        "B20-N34",
+        "B20-N35"
+      ],
+      "status": "candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

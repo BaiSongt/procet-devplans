@@ -1,3 +1,6 @@
+## 2026-10-29｜B20 R-STOCKREG-001可辨识性与刚体资格研究增量
+[六项合法公开来源及阅读局限](../docs/capabilities/CAP-04-02/ROBUST-REGISTRATION-B20-2026-10-29.md) → [9条来源→字段→CAP-04-02/原F1/U4包→独立验收](traces/CAP-04-02-robust-b20-v08.json)；ISO5459仅摘要、Umeyama原论文未读，合成39/39不证明产品配准/测量合格，Owner/消费者0/17、L3待审。
+
 ## 2026-10-29｜R-UI3D-B19 WebGL恢复与领域状态隔离
 [WebGL1.0.3/Khronos扩展/MDN/Babylon官方合法正文与阅读局限](../docs/capabilities/CAP-01-07/WEBGL-RECOVERY-B19-2026-10-29.md) → [4来源、8规则→字段/CAP-01-07/原U4包](traces/CAP-01-07-webgl-recovery-b19-v08.json) → [1正26单字段反例](../docs/capabilities/CAP-01-07/webgl-recovery-b19-fixtures-v08.json)；原7项UI3D研究来源不覆盖，新增只在本补证追踪。V8合成已执行；独立Node/浏览器/17消费者NOT_RUN，L3待人审。**规划PASS≠产品PASS。**
 

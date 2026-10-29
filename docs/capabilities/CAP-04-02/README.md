@@ -1,5 +1,8 @@
 # CAP-04-02｜毛坯/零件定位配准
 
+**B20补充研究（2026-10-29）**：[非退化点集与严格刚体、ICP资格](ROBUST-REGISTRATION-B20-2026-10-29.md)；[9规则追踪](../../../research/traces/CAP-04-02-robust-b20-v08.json)；[39合成案例](robust-b20-fixtures-v08.json)。不替代原REG-R01..R10及20项验收。规划PASS≠产品PASS。
+
+
 **原V0.8第04域第02项；2026-10-19首编V0.1。规划已编制，L3待人工评审；产品Rust/TS/OCCT/Windows/实机均 NOT_RUN。** 关联 [CAP-04-01](../CAP-04-01/README.md)、[CAP-02-05](../CAP-02-05/README.md)、[CAP-03-02](../CAP-03-02/README.md)、[字段与交互](UI.md)、[研究](../../../research/topics/R-STOCKREG-001.md)、[来源登记](../../../research/sources/CAP-04-02.json)、[十规则追踪](../../../research/traces/CAP-04-02.json)、[二十正反场景](fixtures.json)、[合成数学样例](math-examples.json)。
 
 ## 1. 业务目的、责任及明确非目标

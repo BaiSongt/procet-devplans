@@ -1,3 +1,6 @@
+## 2026-10-29｜B20 CAP-04-02点集退化、刚体镜像/缩放与测量资格补证
+[专项研究与公开来源边界](docs/capabilities/CAP-04-02/ROBUST-REGISTRATION-B20-2026-10-29.md) → [6来源9规则/字段/原包](research/traces/CAP-04-02-robust-b20-v08.json) → [4正35反独立合成](docs/capabilities/CAP-04-02/robust-b20-fixtures-v08.json) → [只读Node工具](tools/check_cap0402_robust_b20_v08.cjs)。V8同函数合成39/39，独立Node真实仓库、OCCT/ICP/测量/产品NOT_RUN，L3/17 Owner待审；规划PASS≠产品PASS。
+
 ## 2026-10-29｜B19 CAP-01-07 GPU上下文失效、恢复后拾取/回执证据补证
 [工程与来源](docs/capabilities/CAP-01-07/WEBGL-RECOVERY-B19-2026-10-29.md) → [8规则/4公开来源/字段/原包](research/traces/CAP-01-07-webgl-recovery-b19-v08.json) → [1正26独立单字段反例](docs/capabilities/CAP-01-07/webgl-recovery-b19-fixtures-v08.json) · [只读Node校验器](tools/check_cap0107_webgl_recovery_b19_v08.cjs)。本轮V8同函数合成27/27；独立Node和浏览器/Babylon真实恢复NOT_RUN，Owner/消费者0/17、L3待审，完整AST未闭。**规划PASS≠产品PASS。**
 
