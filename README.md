@@ -1,3 +1,6 @@
+## 2026-10-30｜B28 原E3-03圆弧模态/半径病态专项
+[研究](docs/work-packages/E3-03/ARC-MODAL-B28-2026-10-30.md) → [4来源](research/sources/E3-03-arc-modal-b28.json) → [8规则](research/traces/E3-03-arc-modal-b28-v08.json) → [5正16反合成](docs/work-packages/E3-03/arc-modal-b28-fixtures-v08.json) → [只读Node校验](tools/check_e303_arc_modal_b28_v08.cjs)。中心G90.1/G91.1不能混同轴G90/G91；R近半圆未知不得升格，实际NC/消费者NOT_RUN、Owner/L3待签。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B27 CAP-06-07 独立Oracle的OCCT选项与零距离陷阱
 [公开API与NIST摘要/内生设计边界](docs/capabilities/CAP-06-07/ORACLE-OPTIONS-B27-2026-10-30.md) → [6来源](research/sources/CAP-06-07-oracle-options-b27.json) → [8规则/字段/原F1-05/W2-02/03/06包](research/traces/CAP-06-07-oracle-options-b27-v08.json) → [2正37反+2 AABB](docs/capabilities/CAP-06-07/oracle-options-b27-fixtures-v08.json) → [只读Node](tools/check_cap0607_oracle_options_b27_v08.cjs)。V8同函数合成41/41通过；独立Node文件进程/OCCT/NC/B5/17实际消费者NOT_RUN、Owner0/17、L3待审。规划PASS≠产品PASS。
 

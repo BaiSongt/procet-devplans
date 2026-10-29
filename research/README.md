@@ -1,3 +1,6 @@
+## 2026-10-30｜R-NCEXEC-001 B28 D13圆弧语义补证
+[LinuxCNC2.9公开章节、NIST元数据及内生规则](../docs/work-packages/E3-03/ARC-MODAL-B28-2026-10-30.md) → [4来源](sources/E3-03-arc-modal-b28.json) → [8规则](traces/E3-03-arc-modal-b28-v08.json) → [5正16反](../docs/work-packages/E3-03/arc-modal-b28-fixtures-v08.json)。独立NC/Node/机床NOT_RUN，L3待审。
+
 ## 2026-10-30｜B27 R-ORACLE-CONVERGENCE-001 OCCT积分/独立Oracle补证
 [实读API和NIST仅摘要](../docs/capabilities/CAP-06-07/ORACLE-OPTIONS-B27-2026-10-30.md) → [6来源](sources/CAP-06-07-oracle-options-b27.json) → [8可证伪规则](traces/CAP-06-07-oracle-options-b27-v08.json) → [合成反例](../docs/capabilities/CAP-06-07/oracle-options-b27-fixtures-v08.json)；BRepCheck参数、VolumePropertiesGK真实重载、零距离非无穿透，Node/OCCT/消费者NOT_RUN。
 
