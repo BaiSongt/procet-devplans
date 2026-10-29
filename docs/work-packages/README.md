@@ -1,3 +1,6 @@
+## 2026-10-29｜E3-06 B13离线包Win32路径别名/ZIP成员身份补证
+[工程规格](E3-06/OFFLINE-PORTABLE-B13-2026-10-29.md) → [四项官方原文、7规则和字段/CAP/原包](../../research/traces/E3-06-offline-portable-b13-trace-v08.json) → [8正23反合成](E3-06/offline-portable-b13-fixtures-v08.json) · [只读Node](../../tools/check_e306_offline_portable_b13_v08.cjs)。本地独立Node合成31/31，非原始ZIP或真实D17验收；L3/正式Owner/产品待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-27｜[F1-02原工作包研究补证](F1-02/RESEARCH-BACKFILL.md)
 [原八项实施/十产品验收](F1-02.md)与[8来源](../../research/sources/F1-02.json)、[10规则逐项对应](../../research/traces/F1-02.json)、[30正反独立变异+6合成数学](F1-02/fixtures.json)相互追踪。36/36原工作包详细规格不重复计数，研究追踪35/36（B0-03仍待）；产品NOT_RUN/L3待审。下方旧数字为历史快照。
 

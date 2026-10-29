@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "procet-e306-offline-portable-b13-fixtures-v08",
+  "synthetic": true,
+  "realDigestComputed": false,
+  "humanApproved": false,
+  "publicationAllowed": false,
+  "purpose": "独立单字段正反注入；PASS仅规划预检，不是D16发布批准",
+  "baseline": {
+    "kind": "synthetic_d16_offline_portability_preflight",
+    "policy": {
+      "profile": "PROPOSED_ASCII_SAFE_V1_PENDING_L3",
+      "maxEntryBytes": 512,
+      "maxTotalBytes": 1024,
+      "maxExpansionRatio": 25,
+      "expectedRevision": "policy-r2",
+      "currentRevision": "policy-r2",
+      "roleAllowed": true,
+      "requestPermissionEpoch": 8,
+      "livePermissionEpoch": 8,
+      "cancelled": false,
+      "lateReceipt": false
+    },
+    "archive": {
+      "format": "ZIP",
+      "declaredEntryCount": 2,
+      "entries": [
+        {
+          "path": "nc/program.nc",
+          "kind": "regular",
+          "isLink": false,
+          "uncompressedBytes": 120,
+          "compressedBytes": 90,
+          "expectedSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "observedSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "path": "evidence/d15.json",
+          "kind": "regular",
+          "isLink": false,
+          "uncompressedBytes": 160,
+          "compressedBytes": 130,
+          "expectedSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "observedSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ]
+    },
+    "manifest": {
+      "paths": [
+        "nc/program.nc",
+        "evidence/d15.json"
+      ],
+      "d12FinalNcSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d15IndependentEvidenceSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "canonicalizationProfile": "RFC8785_DESIGN_ONLY"
+    },
+    "closure": {
+      "d12CurrentNcSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d15CurrentEvidenceSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "d13Known": true,
+      "d14Known": true,
+      "d15ExactQualified": true,
+      "d04IsNotD10": true
+    },
+    "receiver": {
+      "archiveIndexReopened": true,
+      "pinnedTrustRootConfigured": true,
+      "revocationFreshness": "KNOWN_CURRENT",
+      "reportKind": "PREFLIGHT_ONLY",
+      "independentConsumer": "NOT_RUN",
+      "machineExecution": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PASS",
+      "mutate": {
+        "path": "policy.maxEntryBytes",
+        "value": 600
+      },
+      "purpose": "独立合法变化"
+    },
+    {
+      "id": "P02",
+      "expected": "PASS",
+      "mutate": {
+        "path": "policy.maxTotalBytes",
+        "value": 2048
+      },
+      "purpose": "独立合法变化"
+    },
+    {
+      "id": "P03",
+      "expected": "PASS",
+      "mutate": {
+        "path": "policy.maxExpansionRatio",
+        "value": 40
+      },
+      "purpose": "独立合法变化"
+    },
+    {
+      "id": "P04",
+      "expected": "PASS",
+      "mutate": {
+        "path": "archive.entries[0].compressedBytes",
+        "value": 50
+      },
+      "purpose": "独立合法变化"
+    },
+    {
+      "id": "P05",
+      "expected": "PASS",
+      "mutate": {
+        "path": "archive.entries[1].compressedBytes",
+        "value": 100
+      },
+      "purpose": "独立合法变化"
+    },
+    {
+      "id": "P06",
+      "expected": "PASS",
+      "mutate": {
+        "path": "archive.entries[1].uncompressedBytes",
+        "value": 150
+      },
+      "purpose": "独立合法变化"
+    },
+    {
+      "id": "P07",
+      "expected": "PASS",
+      "mutate": {
+        "path": "receiver.reportKind",
+        "value": "PENDING_HUMAN"
+      },
+      "purpose": "独立合法变化"
+    },
+    {
+      "id": "N01",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R01",
+      "mutate": {
+        "path": "archive.entries[0].path",
+        "value": "nc/../program.nc"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N02",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R01",
+      "mutate": {
+        "path": "archive.entries[0].path",
+        "value": "NUL.nc"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N03",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R01",
+      "mutate": {
+        "path": "archive.entries[0].path",
+        "value": "C:/program.nc"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N04",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R02",
+      "mutate": {
+        "path": "manifest.paths[0]",
+        "value": "nc/different.nc"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N05",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R02",
+      "mutate": {
+        "path": "archive.entries[1].path",
+        "value": "NC/program.nc"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N06",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R02",
+      "mutate": {
+        "path": "archive.declaredEntryCount",
+        "value": 1
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N07",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R03",
+      "mutate": {
+        "path": "archive.entries[0].kind",
+        "value": "symlink"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N08",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R03",
+      "mutate": {
+        "path": "archive.entries[0].isLink",
+        "value": true
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N09",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R03",
+      "mutate": {
+        "path": "receiver.archiveIndexReopened",
+        "value": false
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N10",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R04",
+      "mutate": {
+        "path": "archive.entries[0].uncompressedBytes",
+        "value": 600
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N11",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R04",
+      "mutate": {
+        "path": "archive.entries[0].compressedBytes",
+        "value": 1
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N12",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R04",
+      "mutate": {
+        "path": "policy.maxTotalBytes",
+        "value": 200
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N13",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R05",
+      "mutate": {
+        "path": "archive.entries[0].observedSha256",
+        "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N14",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R05",
+      "mutate": {
+        "path": "closure.d12CurrentNcSha256",
+        "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N15",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R05",
+      "mutate": {
+        "path": "closure.d15ExactQualified",
+        "value": false
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N16",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R06",
+      "mutate": {
+        "path": "policy.currentRevision",
+        "value": "policy-r3"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N17",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R06",
+      "mutate": {
+        "path": "policy.requestPermissionEpoch",
+        "value": 9
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N18",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R06",
+      "mutate": {
+        "path": "policy.cancelled",
+        "value": true
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N19",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R06",
+      "mutate": {
+        "path": "policy.lateReceipt",
+        "value": true
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N20",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R07",
+      "mutate": {
+        "path": "receiver.pinnedTrustRootConfigured",
+        "value": false
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N21",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R07",
+      "mutate": {
+        "path": "receiver.revocationFreshness",
+        "value": "UNKNOWN"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N22",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R07",
+      "mutate": {
+        "path": "receiver.reportKind",
+        "value": "MACHINE_EXECUTED"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    },
+    {
+      "id": "N23",
+      "expected": "REJECT",
+      "expectedRule": "E306-B13-R07",
+      "mutate": {
+        "path": "receiver.machineExecution",
+        "value": "PASS"
+      },
+      "purpose": "独立单字段错误变异，至少触发目标规则"
+    }
+  ]
+}
