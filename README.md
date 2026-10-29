@@ -1,3 +1,6 @@
+## 2026-10-29｜B12 D15区间保守界/端点采样漏碰撞补证
+[专项规格](docs/work-packages/E3-05/D15-INTERVAL-B12-2026-10-29.md) → [6规则/官方来源/字段与CAP原包](research/traces/E3-05-d15-interval-b12-v08.json) → [正反合成及中点碰撞反例](docs/work-packages/E3-05/d15-interval-b12-fixtures-v08.json) · [只读Node校验器](tools/check_e305_d15_interval_b12_v08.cjs) · [验证记录](tracking/e305-d15-interval-b12-verification-2026-10-29.json)。仅合成保守区间资格，不是连续安全认证；D16/产品NOT_RUN、正式Owner0/17，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B11 E3-04 D14轴时序与编程轴/Joint映射的证据资格
 [增量规格及ISO841/LinuxCNC 2.9实读范围](docs/work-packages/E3-04/D14-TIMING-B11-2026-10-29.md) → [7条来源/规则/字段/CAP/原包](research/traces/E3-04-d14-timing-b11-v08.json) → [1正、34独立单字段反例、6算术样例](docs/work-packages/E3-04/d14-timing-b11-fixtures-v08.json) · [只读Node](tools/check_e304_d14_timing_b11_v08.cjs) · [执行等级记录](tracking/e304-d14-timing-b11-verification-2026-10-29.json)。G93/G94/G95名义时间与实机节拍隔离；AXIS不凭名称等同物理Joint，G64路径混合不得冒充连续安全证书。V8合成41/41，独立Node、NC/B5/OEM/17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

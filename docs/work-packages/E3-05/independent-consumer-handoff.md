@@ -8,3 +8,5 @@
 D16应重算摘要与依赖闭包，遇到UNKNOWN/NOT_RUN/源revision漂移/参数越权应拒绝签发。验证脚本输入只用测试数据，真实B5轴限位、控制器与刀柄资料缺失时保持NOT_RUN。发布批准属人类授权，不能自动从CAP、规划fixture或D15候选派生。
 
 迁移回退按versioned reader/shadow verify；保留历史Run、原因与变更记录；新的验证替代旧资格而不是覆盖原记录。交付清单：领域schema、接口、golden NC、真实配置证据、几何样件合法来源、正反E2E和产品版本/环境manifest；全部仍待产品团队实施。
+## B12端点采样别名和区间保守界独立消费者任务（2026-10-29）
+必须独立复核“端点净距1 mm、中点球体重叠”反例，以及初始实体包含、IsDone失败、只从端点位置差计算移动量、遗漏旋转Joint/刀柄/承载链、时间逆序、D10/NC修订漂移、取消晚ACK。D16不得接受SAMPLED_ONLY/合成保守界候选为产品PASS；应独立重算来源闭包、覆盖时段与Oracle身份。此处是规划交接，**真实D16执行NOT_RUN**。详见[专项规格](D15-INTERVAL-B12-2026-10-29.md)和[正反验收](d15-interval-b12-fixtures-v08.json)。

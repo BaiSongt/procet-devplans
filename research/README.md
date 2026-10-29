@@ -1,3 +1,6 @@
+## 2026-10-29｜R-D15-INTERVAL-B12：连续区间保守界证据等级
+[OCCT8.0.1/LinuxCNC2.9/W3C/NIST来源深度与数学反例](../docs/work-packages/E3-05/D15-INTERVAL-B12-2026-10-29.md) → [来源/6规则/字段/原编号包](traces/E3-05-d15-interval-b12-v08.json) → [端点漏碰撞及浮点边界反例](../docs/work-packages/E3-05/d15-interval-b12-fixtures-v08.json)。NIST仅元数据、产品/独立消费者未运行。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜R-D14-TIMING-B11：D13→D14多进给时序与物理Joint映射资格
 [LinuxCNC 2.9三个HTML公开章节、ISO841官方摘要与范围](../docs/work-packages/E3-04/D14-TIMING-B11-2026-10-29.md) → [7规则到字段/CAP/原工作包](traces/E3-04-d14-timing-b11-v08.json) → [41合成正反及名义时间案例](../docs/work-packages/E3-04/d14-timing-b11-fixtures-v08.json)。G93 F2名义30秒不能认证控制器实际运行；G64无容差不升格D15。V8同逻辑41/41；独立Node/产品/真实消费者NOT_RUN、Owner0/17、L3待审。**规划PASS≠产品PASS。**
 
