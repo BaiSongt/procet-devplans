@@ -1,3 +1,6 @@
+## 2026-10-30｜B31 CAP-03-05装配Occurrence/Face谱系与重绑资格
+[OCCT8.0.1三份官方API实读、ISO10303-242:2025仅公开目录、NIST2015仅摘要、原CAP固定Blob](../docs/capabilities/CAP-03-05/ASSEMBLY-FACE-B31-2026-10-30.md) → [6份来源](sources/CAP-03-05-assembly-face-b31.json) → [8规则/字段/原包](traces/CAP-03-05-assembly-face-b31-v08.json) → [4正50负合成](../docs/capabilities/CAP-03-05/assembly-face-b31-fixtures-v08.json)。V8同函数54/54；独立Node、实际OCCT、D02/D05消费者、Owner和L3仍NOT_RUN/PENDING。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B30 R-NCEXEC-001 G81返回平面与增量循环
 [LinuxCNC2.9 §43–45/61实读及NIST仅目录的局限](../docs/work-packages/E3-03/CANNED-RETRACT-B30-2026-10-30.md) → [5来源](sources/E3-03-canned-retract-b30.json) → [8规则字段](traces/E3-03-canned-retract-b30-v08.json) → [55合成正反未知](../docs/work-packages/E3-03/canned-retract-b30-fixtures-v08.json)。独立Node及真实D13/D14/D15/OEM均NOT_RUN，L3待审。
 
