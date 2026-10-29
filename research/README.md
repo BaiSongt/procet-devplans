@@ -1,3 +1,6 @@
+## 2026-10-29｜R-D14-TIMING-B11：D13→D14多进给时序与物理Joint映射资格
+[LinuxCNC 2.9三个HTML公开章节、ISO841官方摘要与范围](../docs/work-packages/E3-04/D14-TIMING-B11-2026-10-29.md) → [7规则到字段/CAP/原工作包](traces/E3-04-d14-timing-b11-v08.json) → [41合成正反及名义时间案例](../docs/work-packages/E3-04/d14-timing-b11-fixtures-v08.json)。G93 F2名义30秒不能认证控制器实际运行；G64无容差不升格D15。V8同逻辑41/41；独立Node/产品/真实消费者NOT_RUN、Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜R-D13-MODAL-B10 控制器模态与已装载刀长证据
 [官方LinuxCNC 2.9公开章节和NIST仅元数据范围](../docs/capabilities/CAP-09-07/D13-MODAL-B10-2026-10-29.md) → [6规则与作者/版本/日期/局限](traces/CAP-09-07-d13-modal-b10-v08.json) → [28项单字段正反](../docs/capabilities/CAP-09-07/d13-modal-b10-fixtures-v08.json)。不替代控制器实测或独立D15，Owner/L3待签。规划PASS≠产品PASS。
 

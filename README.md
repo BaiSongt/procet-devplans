@@ -1,3 +1,6 @@
+## 2026-10-29｜B11 E3-04 D14轴时序与编程轴/Joint映射的证据资格
+[增量规格及ISO841/LinusCNC 2.9实读范围](docs/work-packages/E3-04/D14-TIMING-B11-2026-10-29.md) → [7条来源/规则/字段/CAP/原包](research/traces/E3-04-d14-timing-b11-v08.json) → [1正、34独立单字段反例、6算术样例](docs/work-packages/E3-04/d14-timing-b11-fixtures-v08.json) · [只读Node](tools/check_e304_d14_timing_b11_v08.cjs) · [执行等级记录](tracking/e304-d14-timing-b11-verification-2026-10-29.json)。G93/G94/G95名义时间与实机节拍隔离；AXIS不凭名称等同物理Joint，G64路径混合不得冒充连续安全证书。V8合成41/41，独立Node、NC/B5/OEM/17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B10 D13模态状态、刀长装载与D14/D15资格补证
 [CAP-09-07/E3-04专题补证](docs/capabilities/CAP-09-07/D13-MODAL-B10-2026-10-29.md) → [6条来源/字段/规则追踪](research/traces/CAP-09-07-d13-modal-b10-v08.json) → [28项正反合成](docs/capabilities/CAP-09-07/d13-modal-b10-fixtures-v08.json) · [只读Node](tools/check_cap0907_d13_modal_b10_v08.cjs) · [验证记录](tracking/cap0907-d13-modal-b10-verification-2026-10-29.json)。最终NC及D13解释上下文不全时D14/D15/D16阻断；V8合成28/28，独立Node/真实NC/B5/OEM/17消费者NOT_RUN，Owner0/17，L3待人审。**规划PASS≠产品PASS。**
 
