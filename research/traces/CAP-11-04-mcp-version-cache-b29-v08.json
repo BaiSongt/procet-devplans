@@ -1,0 +1,297 @@
+{
+  "schemaVersion": "procet-cap1104-b29-trace-v1",
+  "date": "2026-10-30",
+  "capabilityId": "CAP-11-04",
+  "researchTopic": "R-AGENT-ORCHESTRATION-001",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "B29-R1",
+      "statement": "2026协议逐请求版本与客户端身份/capability，服务端可发现、客户端发现非必需；拒绝旧initialize/session假混用",
+      "sourceIds": [
+        "B29-S01",
+        "B29-S04",
+        "B29-S05"
+      ],
+      "fields": [
+        "protocol.version",
+        "protocol.requestMeta.version",
+        "protocol.headerVersion",
+        "protocol.usedInitialize",
+        "protocol.serverDiscoverSupported",
+        "protocol.clientDiscoverMandatory"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-06"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06"
+      ]
+    },
+    {
+      "id": "B29-R2",
+      "statement": "只按已批准provider ID+限定命名空间+input/output schema指纹选工具；跨服务同名不可静默劫持",
+      "sourceIds": [
+        "B29-S02",
+        "B29-S06"
+      ],
+      "fields": [
+        "catalog.providerId",
+        "catalog.qualifiedName",
+        "catalog.inputSchemaDigest",
+        "catalog.selectedSchemaDigest"
+      ],
+      "capabilityIds": [
+        "CAP-11-04"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N07",
+        "N08",
+        "N09",
+        "N10"
+      ]
+    },
+    {
+      "id": "B29-R3",
+      "statement": "工具目录按真实授权上下文私有缓存，分页完整且TTL/目录修订有效；公开缓存不得成为Owner权限",
+      "sourceIds": [
+        "B29-S02",
+        "B29-S06"
+      ],
+      "fields": [
+        "cache.scope",
+        "cache.authorizationHash",
+        "cache.remainingMs",
+        "cache.allPages",
+        "cache.selectedRevision"
+      ],
+      "capabilityIds": [
+        "CAP-11-04"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N11",
+        "N12",
+        "N13",
+        "N14",
+        "N15"
+      ]
+    },
+    {
+      "id": "B29-R4",
+      "statement": "工具annotations/description不授写权，最小READ/PROPOSE能力由可信Owner登记而非LLM断言",
+      "sourceIds": [
+        "B29-S02",
+        "B29-S06"
+      ],
+      "fields": [
+        "trust.annotationsAreAuthority",
+        "trust.descriptionGrantsWrite",
+        "trust.toolHasWriteCapability",
+        "trust.trustedServer"
+      ],
+      "capabilityIds": [
+        "CAP-11-04"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N16",
+        "N17",
+        "N18",
+        "N19"
+      ]
+    },
+    {
+      "id": "B29-R5",
+      "statement": "MRTR重试RPC ID不同且requestState绑定，inputResponses只是输入数据，审批仍按actionDigest重验",
+      "sourceIds": [
+        "B29-S02",
+        "B29-S06"
+      ],
+      "fields": [
+        "mrtr.retryRpcId",
+        "mrtr.requestStateBound",
+        "mrtr.responseTreatedAsData",
+        "mrtr.approvalRevalidated",
+        "mrtr.state"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-06"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N24"
+      ]
+    },
+    {
+      "id": "B29-R6",
+      "statement": "outputSchema校验只说明结构，不把structuredContent/文本冒充业务Owner收据；isError为失败",
+      "sourceIds": [
+        "B29-S02",
+        "B29-S06"
+      ],
+      "fields": [
+        "result.isError",
+        "result.outputSchemaValidated",
+        "result.structuredContentRole",
+        "result.ownerReceiptFromResultText"
+      ],
+      "capabilityIds": [
+        "CAP-11-04"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N25",
+        "N26",
+        "N27",
+        "N28"
+      ]
+    },
+    {
+      "id": "B29-R7",
+      "statement": "当前业务Owner在提交时按project/revision/hash/frame/ACL/scope/cancel/generation/CAS和批准摘要重验；D04≠D10、冻结不覆写",
+      "sourceIds": [
+        "B29-S06"
+      ],
+      "fields": [
+        "owner.currentRevision",
+        "owner.currentHash",
+        "owner.currentFrame",
+        "owner.currentScopeEpoch",
+        "owner.aclAllowed",
+        "owner.cancelled",
+        "owner.lateAckAdopted",
+        "owner.approvedActionDigest",
+        "owner.d10",
+        "owner.frozenOverwrite",
+        "owner.currentGeneration"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-08-07"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37",
+        "N38",
+        "N39"
+      ]
+    },
+    {
+      "id": "B29-R8",
+      "statement": "GUI/CLI/Agent共用Port、单Babylon和左TaskPanel；未知D13/D14/D15不得签发D16",
+      "sourceIds": [
+        "B29-S06"
+      ],
+      "fields": [
+        "ux.port",
+        "ux.worlds",
+        "ux.panel",
+        "ux.d16",
+        "ux.d15",
+        "ux.channels"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-10-02"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N40",
+        "N41",
+        "N42",
+        "N43",
+        "N44",
+        "N45"
+      ]
+    }
+  ]
+}

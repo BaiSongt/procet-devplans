@@ -1,3 +1,6 @@
+## 2026-10-30｜B29 CAP-11-04 MCP2026版本漂移/工具目录隔离与MRTR
+[专项研究与阅读限制](docs/capabilities/CAP-11-04/MCP-VERSION-CACHE-B29-2026-10-30.md) → [6来源](research/sources/CAP-11-04-mcp-version-cache-b29.json) → [8规则/字段/原T5-01/T5-02](research/traces/CAP-11-04-mcp-version-cache-b29-v08.json) → [3正45反合成](docs/capabilities/CAP-11-04/mcp-version-cache-b29-fixtures-v08.json) → [只读Node工具](tools/check_cap1104_mcp_version_cache_b29_v08.cjs)。当前MCP官方版2026-07-28，2025-11-25为旧协议；本轮V8同函数48/48合成PASS，独立Node/SDK/业务Owner/17消费者NOT_RUN，正式Owner0/17、L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B28 原E3-03圆弧模态/半径病态专项
 [研究](docs/work-packages/E3-03/ARC-MODAL-B28-2026-10-30.md) → [4来源](research/sources/E3-03-arc-modal-b28.json) → [8规则](research/traces/E3-03-arc-modal-b28-v08.json) → [5正16反合成](docs/work-packages/E3-03/arc-modal-b28-fixtures-v08.json) → [只读Node校验](tools/check_e303_arc_modal_b28_v08.cjs)。中心G90.1/G91.1不能混同轴G90/G91；R近半圆未知不得升格，实际NC/消费者NOT_RUN、Owner/L3待签。规划PASS≠产品PASS。
 
