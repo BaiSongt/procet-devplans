@@ -1,3 +1,6 @@
+## 2026-10-30｜B26 CAP-06-06 Worker取消与不确定预算结算
+[专项研究](docs/capabilities/CAP-06-06/WORKER-LEASE-B26-2026-10-30.md) → [5来源](research/sources/CAP-06-06-worker-lease-b26.json) → [8规则/字段/原包](research/traces/CAP-06-06-worker-lease-b26-v08.json) → [2正31反](docs/capabilities/CAP-06-06/worker-lease-b26-fixtures-v08.json) → [只读Node](tools/check_cap0606_worker_lease_b26_v08.cjs) → [执行等级](tracking/cap0606-worker-lease-b26-verification-2026-10-30.json)。失联held不释放、重复SHA回执不重复计费、取消晚ACK不得提交；V8同函数合成33/33 PASS；独立Node/OCCT/消费者/NC/B5/OEM NOT_RUN、Owner0/17、L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-30｜B25 CAP-06-05原始BRep字节/状态双哈希
 [研究](docs/capabilities/CAP-06-05/SEAL-HASH-B25-2026-10-30.md) → [5来源](research/sources/CAP-06-05-seal-hash-b25.json) → [7规则/原包](research/traces/CAP-06-05-seal-hash-b25-v08.json) → [1正47反](docs/capabilities/CAP-06-05/seal-hash-b25-fixtures-v08.json) · [Node只读工具](tools/check_cap0605_seal_hash_b25_v08.cjs)。同函数V8合成通过，独立Node文件/真实OCCT/消费者/NC NOT_RUN，Owner0/17、L3待审，规划PASS≠产品PASS。
 

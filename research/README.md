@@ -1,3 +1,6 @@
+## 2026-10-30｜R-CAP0606-WORKER-LEASE-B26 Worker失联预算与取消Fence
+[研究阅读深度](../docs/capabilities/CAP-06-06/WORKER-LEASE-B26-2026-10-30.md) → [5来源](sources/CAP-06-06-worker-lease-b26.json) → [8规则/原包](traces/CAP-06-06-worker-lease-b26-v08.json) → [2正31反](../docs/capabilities/CAP-06-06/worker-lease-b26-fixtures-v08.json)。核阅OCCT8.0.1、Python3.14.10、Tokio1.54.1、SQLite官方章节；仅V8合成，真实Worker与产品未验。
+
 ## 2026-10-30｜B25 D07封存字节及双层摘要研究
 [实际来源深度](sources/CAP-06-05-seal-hash-b25.json) → [7规则字段/原F1-05/W2-02/03/06](traces/CAP-06-05-seal-hash-b25-v08.json) → [1正47反](../docs/capabilities/CAP-06-05/seal-hash-b25-fixtures-v08.json)。RFC8785只对合规JSON适用，不能对原始BRep规范化。Node/OCCT/D07/NC/Owner仍NOT_RUN/PENDING。
 
