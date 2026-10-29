@@ -1,3 +1,6 @@
+## 2026-10-29｜R-BREP-HISTORY-B23 OCCT布尔历史谱系与简化前后ID审查
+[OCCT8.0.1官方历史章节、API、NIST1994摘要、W3C及原固定Blob](../docs/capabilities/CAP-06-03/BREP-HISTORY-B23-2026-10-29.md) → [7登记](sources/CAP-06-03-brep-history-b23.json) → [7规则/字段/原包](traces/CAP-06-03-brep-history-b23-v08.json) → [1正40反合成](../docs/capabilities/CAP-06-03/brep-history-b23-fixtures-v08.json)。不把Generated为空当未变更、不把Plan合成当产品Boolean，独立Node/OCCT/17消费者NOT_RUN，L3待审。
+
 ## 2026-10-29｜R-PMI-001 B22 PMI源清单、Reader损失与冻结资格
 [公开来源阅读深度](../docs/capabilities/CAP-03-04/PMI-LOSS-LEDGER-B22-2026-10-29.md) → [5登记](sources/CAP-03-04-pmi-loss-b22.json) → [8规则/字段/包/验收](traces/CAP-03-04-pmi-loss-b22-v08.json)。ISO/NIST论文仅目录摘要，真实STEP和产品NOT_RUN。规划PASS≠产品PASS。
 

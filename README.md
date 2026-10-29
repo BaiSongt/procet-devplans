@@ -1,3 +1,6 @@
+## 2026-10-29｜B23 CAP-06-03 OCCT布尔历史/简化与独立D07资格
+[研究及阅读深度](docs/capabilities/CAP-06-03/BREP-HISTORY-B23-2026-10-29.md) → [7份来源](research/sources/CAP-06-03-brep-history-b23.json) → [7条规则/原编号包](research/traces/CAP-06-03-brep-history-b23-v08.json) → [1正40反](docs/capabilities/CAP-06-03/brep-history-b23-fixtures-v08.json) → [只读Node](tools/check_cap0603_brep_history_b23_v08.cjs)。Generated为空不能断言Solid无变化，Deleted/Modified不混淆，SimplifyResult必须融合最终历史；V8同函数合成PASS，独立Node/真实OCCT/D07消费者NOT_RUN；Owner0/17、L3待审，规划PASS≠产品PASS。
+
 ## 2026-10-29｜B22 CAP-03-04 PMI解析损失账本
 [专项研究与阅读限制](docs/capabilities/CAP-03-04/PMI-LOSS-LEDGER-B22-2026-10-29.md) → [5份来源登记](research/sources/CAP-03-04-pmi-loss-b22.json) → [8规则及原包](research/traces/CAP-03-04-pmi-loss-b22-v08.json) → [1正29反合成](docs/capabilities/CAP-03-04/pmi-loss-b22-fixtures-v08.json) · [只读Node](tools/check_cap0304_pmi_loss_b22_v08.cjs)。V8同函数30/30合成，独立Node/STEP/OCCT/17消费者NOT_RUN、L3待审，规划PASS≠产品PASS。
 
