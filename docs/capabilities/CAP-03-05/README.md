@@ -1,5 +1,7 @@
 # CAP-03-05｜制造特征识别——从 B-Rep 证据到可复核的 D02 候选
 
+**B31追加专项（2026-10-30）：** [装配Occurrence与Face历史重绑证据](ASSEMBLY-FACE-B31-2026-10-30.md) · [8条规则追踪](../../../research/traces/CAP-03-05-assembly-face-b31-v08.json) · [合成检查](../../../tools/check_cap0305_assembly_face_b31_v08.cjs)。原文历史状态未改；专项证据已正式在规划分支入库，但L3、真实产品、独立Owner/消费者均待审。
+
 > 2026-10-18 · V0.1 · **本地编制，远端待入库；L3方案待评审；未进行产品测试或人工批准。** 属原V0.8第03域第05项，不变更88项分母。原工作包：B0-02、F1-03、F1-04、T5-02。配套：[GUI/3D](UI.md) · [理论 R-MFR-001](../../../research/topics/R-MFR-001.md) · [研究规则追踪](../../../research/traces/CAP-03-05.json) · [20正反规格](fixtures.json)。
 
 ## 1. 业务目标、角色、Owner和反目标
