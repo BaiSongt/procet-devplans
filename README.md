@@ -1,3 +1,6 @@
+## 2026-10-30｜B43 CAP-08-04 M6配置覆盖、HAL回环与换刀证据
+[专项研究](docs/capabilities/CAP-08-04/CHANGEOVER-EVIDENCE-B43-2026-10-30.md) → [6来源](research/sources/CAP-08-04-changeover-b43.json) → [8规则/原E3-02/E3-03/U4-04](research/traces/CAP-08-04-changeover-b43-v08.json) → [1正40反4未知](docs/capabilities/CAP-08-04/changeover-b43-fixtures-v08.json) → [只读Node](tools/check_cap0804_changeover_b43_v08.cjs)。V8同函数45/45合成PASS；真实HAL/OEM/17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B42 CAP-11-02知识词表、SHACL资格与失效传播
 [专项研究](docs/capabilities/CAP-11-02/KNOWLEDGE-CONFORMANCE-B42-2026-10-30.md) → [6来源](research/sources/CAP-11-02-knowledge-conformance-b42.json) → [8规则/原T5-01/T5-02](research/traces/CAP-11-02-knowledge-conformance-b42-v08.json) → [2正40反4未知](docs/capabilities/CAP-11-02/knowledge-conformance-b42-fixtures-v08.json) → [只读Node校验](tools/check_cap1102_knowledge_conformance_b42_v08.cjs)；V8同判定函数46/46合成通过，独立Node/SHACL/Owner/17消费者NOT_RUN；148 Registry/1189登记，正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

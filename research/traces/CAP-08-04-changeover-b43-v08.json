@@ -1,0 +1,362 @@
+{
+  "schemaVersion": "procet-b43-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-08-04",
+  "sourcesPath": "research/sources/CAP-08-04-changeover-b43.json",
+  "fixturePath": "docs/capabilities/CAP-08-04/changeover-b43-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0804_changeover_b43_v08.cjs",
+  "rules": [
+    {
+      "id": "B43-R1",
+      "title": "配置版本/INI选件覆盖一般M6停主轴语义",
+      "sourceIds": [
+        "B43-S1",
+        "B43-S2",
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "profile.dialect",
+        "profile.iniHash",
+        "profile.firmware",
+        "profile.optionKnown",
+        "profile.keepSpindleOn"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M01",
+        "M02",
+        "M03"
+      ],
+      "unknownIds": [
+        "M04",
+        "M05"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B43-R2",
+      "title": "T准备/M6请求/HAL软件回环不是物理换刀",
+      "sourceIds": [
+        "B43-S1",
+        "B43-S3",
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "tool.number",
+        "tool.magazineHash",
+        "tool.prepare",
+        "tool.change",
+        "tool.ackOrigin",
+        "tool.physicalClaim"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M06",
+        "M07",
+        "M08",
+        "M09",
+        "M11"
+      ],
+      "unknownIds": [
+        "M10"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B43-R3",
+      "title": "M6主轴冷却效应按控制器Profile隔离",
+      "sourceIds": [
+        "B43-S1",
+        "B43-S2",
+        "B43-S5",
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "coolant.afterM6",
+        "spindle.afterM6",
+        "nc.reparseFinal",
+        "nc.bytesHash"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M12",
+        "M13",
+        "M14",
+        "M15"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B43-R4",
+      "title": "M19定向请求/超时与真实反馈分离",
+      "sourceIds": [
+        "B43-S1",
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "orient.qSeconds",
+        "orient.rDegrees",
+        "orient.ack",
+        "orient.physicalClaim",
+        "orient.faultClear"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M16",
+        "M17",
+        "M18",
+        "M19"
+      ],
+      "unknownIds": [
+        "M20"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B43-R5",
+      "title": "M6不自动修改G43偏置与真实Gauge",
+      "sourceIds": [
+        "B43-S1",
+        "B43-S4",
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "length.g43Separate",
+        "length.offsetHash",
+        "length.modalHash",
+        "length.provenance"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M21",
+        "M22",
+        "M23",
+        "M24"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B43-R6",
+      "title": "D04 Setup与D10实机绑定/换刀位姿分离",
+      "sourceIds": [
+        "B43-S2",
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "binding.d04",
+        "binding.d10",
+        "frame.machine",
+        "safety.poseQualification"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D04",
+        "D10",
+        "D15"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M25",
+        "M26",
+        "M27",
+        "M28"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B43-R7",
+      "title": "08域Owner通用GUI/CLI/Agent单Babylon左TaskPanel",
+      "sourceIds": [
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "ui.port",
+        "ui.channels",
+        "ui.worlds",
+        "ui.leftPanel",
+        "ui.fontMaxPx"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M29",
+        "M30",
+        "M31",
+        "M32",
+        "M33"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B43-R8",
+      "title": "CAS/ACL/代次取消与D08冻结D15D16隔离",
+      "sourceIds": [
+        "B43-S6"
+      ],
+      "origin": "INTERNAL_PROCET_POLICY_WITH_SCOPED_VENDOR_EVIDENCE",
+      "fields": [
+        "owner.casExpected",
+        "owner.casCurrent",
+        "owner.aclExpected",
+        "owner.aclCurrent",
+        "owner.generation",
+        "owner.ackGeneration",
+        "owner.cancelled",
+        "owner.lateAckAdopted",
+        "owner.d08Untouched",
+        "result.d15",
+        "result.d16Released"
+      ],
+      "capabilityIds": [
+        "CAP-08-04"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D08",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "M34",
+        "M35",
+        "M36",
+        "M37",
+        "M38",
+        "M39",
+        "M40",
+        "M41",
+        "M42",
+        "M43",
+        "M44"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

@@ -1,3 +1,6 @@
+## 2026-10-30｜B43 R-AUX-MCODE-001 INI例外与HAL回环
+[官方LinuxCNC 2.9 M/INI/HAL/ToolComp与Haas仅摘要](../docs/capabilities/CAP-08-04/CHANGEOVER-EVIDENCE-B43-2026-10-30.md) → [6来源](sources/CAP-08-04-changeover-b43.json) → [8规则](traces/CAP-08-04-changeover-b43-v08.json) → [45合成](../docs/capabilities/CAP-08-04/changeover-b43-fixtures-v08.json)。不能把M6默认动作或HAL软件回环当物理换刀/D15认证。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B42 R-PROCESS-KNOWLEDGE-001词表传递、Shapes验证与撤权
 [SKOS/SHACL/PROV-O/RFC9111定点正文及NIST摘要](../docs/capabilities/CAP-11-02/KNOWLEDGE-CONFORMANCE-B42-2026-10-30.md) → [6来源](sources/CAP-11-02-knowledge-conformance-b42.json) → [8规则字段](traces/CAP-11-02-knowledge-conformance-b42-v08.json) → [46合成验收](../docs/capabilities/CAP-11-02/knowledge-conformance-b42-fixtures-v08.json)；不宣称实际RDF/SHACL、业务Owner或NC认证。**规划PASS≠产品PASS。**
 
