@@ -1,3 +1,6 @@
+## 2026-10-31｜B54 CAP-11-08 MCP同名工具跨Server身份与批准意图
+[专项研究](docs/capabilities/CAP-11-08/APPROVAL-TOOL-IDENTITY-B54-2026-10-31.md) → [8来源](research/sources/CAP-11-08-tool-approval-b54.json) → [9规则/原T5-01/T5-02](research/traces/CAP-11-08-tool-approval-b54-v08.json) → [3正48反9未知](docs/capabilities/CAP-11-08/tool-approval-b54-fixtures-v08.json) → [只读Node](tools/check_cap1108_tool_approval_b54_v08.cjs) → [核验](tracking/cap1108-tool-approval-b54-verification-2026-10-31.json)。同名工具换Server、Schema变化、批准后ACL撤权均不复用旧权限；V8相同judge 60/60仅合成，独立Node/真实MCP/OAuth/Owner CAS/消费者NOT_RUN，正式签署0/17、L3待人审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B53 CAP-09-03双物理Joint回零与负HOME_SEQUENCE门禁
 [专项研究](docs/capabilities/CAP-09-03/HOMING-PHYSICAL-JOINT-B53-2026-10-31.md) → [6来源](research/sources/CAP-09-03-homing-b53.json) → [8规则/原包](research/traces/CAP-09-03-homing-b53-v08.json) → [4正25反11 UNKNOWN，共40合成](docs/capabilities/CAP-09-03/homing-b53-fixtures-v08.json) → [只读Node](tools/check_cap0903_homing_b53_v08.cjs) → [分级核验](tracking/cap0903-homing-b53-verification-2026-10-31.json)。LinuxCNC2.9官方公开章节已读，HOME_OFFSET不等于HOME，同序号负HOME_SEQUENCE对双驱同步与VOLATILE_HOME失效应有独立物理Joint证据；ISO230-2仅读合法目录、NIST论文仅读公开摘要。V8相同judge 40/40规划合成PASS；独立Node、真实HAL/B5/OEM/D14-D15及17消费者NOT_RUN，Owner0/17、L3待审、历史原字节与全仓GFM AST未闭。**规划PASS≠产品PASS。**
 

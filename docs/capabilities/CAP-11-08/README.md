@@ -38,3 +38,7 @@ D04名义Setup与D10实际执行绑定必须分别冻结。**中立D09 CL→D12 
 原批准意图中任一ACL、SourceHash、D04/D10 Frame、NC Hash或人类ApprovalDigest发生改变，必须将后续派生证据标`STALE`并请求重新审核；冻结D08与旧D16包保持不可变。迁移采用影子读→新增readers→独立消费者签收→人类批准切写；消费者NACK退回旧只读，撤权后的写权限不能恢复。[独立消费者验收清单](independent-consumer-handoff.md)按05/08/09/10/01域分离。
 
 规划测试入口 `node tools/check_cap1108_planning.cjs`。本轮V8等价**内存规划合成87/87**，真正Node文件运行、浏览器、身份服务、CAS事务、独立消费者、NC控制器和B5/三轴均`NOT_RUN`，L3和17资产Owner签署`PENDING_HUMAN`。**规划PASS≠产品PASS。**
+
+## B54 增量：MCP跨Server工具身份/人类批准绑定
+
+[专项证据](APPROVAL-TOOL-IDENTITY-B54-2026-10-31.md)固定Server/Tool/Schema/Catalog Epoch/参数/批准哈希与Owner CAS；本轮60为规划合成测试，原十规则与87项原验收不修改。独立Node、真实身份与17消费者NOT_RUN。

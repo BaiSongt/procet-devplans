@@ -1,3 +1,6 @@
+## 2026-10-31｜B54 R-HUMAN-AUTH-001 工具身份/批准范围/CAS
+[官方阅读范围](../docs/capabilities/CAP-11-08/APPROVAL-TOOL-IDENTITY-B54-2026-10-31.md) → [8项来源](sources/CAP-11-08-tool-approval-b54.json) → [9条字段追踪](traces/CAP-11-08-tool-approval-b54-v08.json) → [60正反未知](../docs/capabilities/CAP-11-08/tool-approval-b54-fixtures-v08.json)。MCP 2026-07-28 Tools、Authorization、Security、RFC9110公开章节实读，NIST仅摘要；独立Node/真实Owner/消费者未验，L3待审。
+
 ## 2026-10-31｜B53 R-IK-BRANCH-001双驱Joint回零、原点偏置及失效
 [LinuxCNC2.9 Homing/INI正文、ISO230-2目录/NIST摘要与阅读局限](../docs/capabilities/CAP-09-03/HOMING-PHYSICAL-JOINT-B53-2026-10-31.md) → [6来源](sources/CAP-09-03-homing-b53.json) → [8规则字段/原F1-02/E3-04/E3-05/U4-04](traces/CAP-09-03-homing-b53-v08.json) → [40正反未知用例](../docs/capabilities/CAP-09-03/homing-b53-fixtures-v08.json) → [只读Node](../tools/check_cap0903_homing_b53_v08.cjs)。V8同判定函数规划合成40/40，独立Node与实机/17消费者均NOT_RUN；L3待审。**规划PASS≠产品PASS。**
 
