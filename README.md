@@ -1,3 +1,6 @@
+## 2026-10-30｜B41 CAP-09-08重复调用实例、播放Seek与D15覆盖缺口
+[专项研究](docs/capabilities/CAP-09-08/REPLAY-INSTANCES-B41-2026-10-30.md) → [6分层来源](research/sources/CAP-09-08-replay-instances-b41.json) → [8规则/字段/原包](research/traces/CAP-09-08-replay-instances-b41-v08.json) → [4正49反3未知](docs/capabilities/CAP-09-08/replay-instances-b41-fixtures-v08.json) → [Node只读工具](tools/check_cap0908_replay_instances_b41_v08.cjs)。同判定函数56/56合成PASS；真实NC/独立Node/D15/17消费者NOT_RUN；147 Registry、1183条来源登记（非去重），正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B40 CAP-10-07现场观察代次、非因果时间窗与D17新变更
 [研究补证](docs/capabilities/CAP-10-07/EVENT-PROVENANCE-B40-2026-10-30.md) → [6项分层来源](research/sources/CAP-10-07-event-provenance-b40.json) → [8规则字段/CAP与原包](research/traces/CAP-10-07-event-provenance-b40-v08.json) → [4正69反4未知](docs/capabilities/CAP-10-07/event-provenance-b40-fixtures-v08.json) → [只读Node入口](tools/check_cap1007_event_provenance_b40_v08.cjs)。同函数77/77合成PASS；2.5目录与2.4例子分开，NIST IR8536 Final仅摘要；独立Node/MTConnect/D17消费者NOT_RUN。累计146 Registry、1177条登记（非去重），正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-10-30｜B41 R-SIM-PLAYBACK-EVIDENCE-001 重复调用实例与播放只读边界
+[LinuxCNC O-code/W3C WebAnimations WD/PROV-O/OCCT8.0.1/NIST摘要的分层研究](../docs/capabilities/CAP-09-08/REPLAY-INSTANCES-B41-2026-10-30.md) → [6来源](sources/CAP-09-08-replay-instances-b41.json) → [8规则](traces/CAP-09-08-replay-instances-b41-v08.json) → [56合成正反未知](../docs/capabilities/CAP-09-08/replay-instances-b41-fixtures-v08.json)。Seek和负速率只更改显示，微秒缺口必须显式未知；真实D13/D14/D15和独立消费者NOT_RUN。
+
 ## 2026-10-30｜B40 R-FIELD-ECN-001 D17现场观察代次/时间/来源链补证
 [MTConnect2.5目录、2.4公开示例/W3C PROV-O/NIST IR8536分层阅读与适用边界](../docs/capabilities/CAP-10-07/EVENT-PROVENANCE-B40-2026-10-30.md) → [6来源](sources/CAP-10-07-event-provenance-b40.json) → [8规则及原E3-06/T5-03](traces/CAP-10-07-event-provenance-b40-v08.json) → [77规划合成正反未知](../docs/capabilities/CAP-10-07/event-provenance-b40-fixtures-v08.json)。时间相交只是候选关联、D17更正另记、NC复验不可由报警状态代签；真实现场/Node/独立Owner消费者均NOT_RUN。
 
