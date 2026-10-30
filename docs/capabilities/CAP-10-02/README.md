@@ -41,3 +41,6 @@ T10. **独立消费交接**：CAP-10-03离线重算NC/manifest及验签，旧Sch
 [9项实际核对来源及阅读边界](../../../research/sources/CAP-10-02.json) → [10规则40字段](../../../research/traces/CAP-10-02.json) → [70个字段案例及14审批门禁](fixtures.json) → [专题](../../../research/topics/R-RELEASE-APPROVAL-001.md)。
 
 规划测试入口`node tools/check_cap1002_planning_2026_10_27.cjs`仅校验JSON映射与合成门禁；实际签名、控制器、B5、Windows离线接收、独立消费者、人工审批均`NOT_RUN/PENDING_HUMAN`。L3未审；**规划PASS≠产品PASS**。
+
+## B38｜离线吊销与时间证据专项补证（2026-10-30）
+[研究报告](OFFLINE-REVOCATION-B38-2026-10-30.md) · [合法来源](../../../research/sources/CAP-10-02-offline-revocation-b38.json) · [8规则/字段/原包](../../../research/traces/CAP-10-02-offline-revocation-b38-v08.json) · [正反UNKNOWN验收](offline-revocation-b38-fixtures-v08.json) · [只读校验工具](../../../tools/check_cap1002_offline_revocation_b38_v08.cjs)。仅规划合成，不取代原十项实施任务、业务签名、离线验证或D15，L3待人审。**规划PASS≠产品PASS。**

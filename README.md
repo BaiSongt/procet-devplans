@@ -1,3 +1,6 @@
+## 2026-10-30｜B38 CAP-10-02离线CRL、TSA与签发资格隔离
+[专项研究](docs/capabilities/CAP-10-02/OFFLINE-REVOCATION-B38-2026-10-30.md) → [5合法来源](research/sources/CAP-10-02-offline-revocation-b38.json) → [8规则字段/原包](research/traces/CAP-10-02-offline-revocation-b38-v08.json) → [1正55反4未知](docs/capabilities/CAP-10-02/offline-revocation-b38-fixtures-v08.json) → [Node只读工具](tools/check_cap1002_offline_revocation_b38_v08.cjs)。同函数60合成PASS，独立Node/实际PKI/TSA/D15/17消费者NOT_RUN；144 Registry/1164登记，正式Owner0/17，L3待人审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B37 CAP-08-03进给模态G93/G94/G95与D14物理时间隔离
 [专题研究](docs/capabilities/CAP-08-03/FEED-MODES-B37-2026-10-30.md) → [5项合法来源](research/sources/CAP-08-03-feed-modes-b37.json) → [8规则/字段/原包](research/traces/CAP-08-03-feed-modes-b37-v08.json) → [4正39反1未知](docs/capabilities/CAP-08-03/feed-modes-b37-fixtures-v08.json) → [只读Node](tools/check_cap0803_feed_modes_b37_v08.cjs)。LinuxCNC2.9公开§59与Overview§23–25定点实读、NIST仅摘要；V8同函数44/44合成，独立Node/真实NC/D14/D15/17消费者NOT_RUN。修正source-index历史汇总滞后，现143份Registry/1159条登记（非去重）。Owner0/17，L3待人审，**规划PASS≠产品PASS**。
 

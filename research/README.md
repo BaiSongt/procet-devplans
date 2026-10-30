@@ -1,3 +1,6 @@
+## 2026-10-30｜B38 R-RELEASE-APPROVAL-001 离线证书撤销与TSA时间证据资格
+[研究/阅读边界](../docs/capabilities/CAP-10-02/OFFLINE-REVOCATION-B38-2026-10-30.md) → [5项来源](sources/CAP-10-02-offline-revocation-b38.json) → [8规则字段及正反追踪](traces/CAP-10-02-offline-revocation-b38-v08.json) → [合成用例](../docs/capabilities/CAP-10-02/offline-revocation-b38-fixtures-v08.json)。RFC5280/3161/8785官方公开指定HTML实读、NIST仅摘要；真实密码学与独立消费者NOT_RUN，L3待审。
+
 ## 2026-10-30｜B37 R-WCS-MOTION-001进给模态与时间证据
 [LinuxCNC2.9§59/Overview§23–25公开正文、NIST仅摘要、RFC首页及原CAP固定Blob](../docs/capabilities/CAP-08-03/FEED-MODES-B37-2026-10-30.md) → [5来源](sources/CAP-08-03-feed-modes-b37.json) → [8规则字段](traces/CAP-08-03-feed-modes-b37-v08.json) → [4正39反1未知](../docs/capabilities/CAP-08-03/feed-modes-b37-fixtures-v08.json)。V8同判定函数44/44合成，独立Node/真实D13-D15/Owner消费者NOT_RUN，L3待审。
 
