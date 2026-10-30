@@ -1,3 +1,6 @@
+## 2026-10-30｜B39 原U4-05 Escape、IME和指针捕获与GUI焦点守门
+[专项研究](docs/work-packages/U4-05/ESC-FOCUS-B39-2026-10-30.md) → [7来源](research/sources/U4-05-esc-focus-b39.json) → [8规则/字段/原编号包](research/traces/U4-05-esc-focus-b39-v08.json) → [7正53反4未知](docs/work-packages/U4-05/esc-focus-b39-fixtures-v08.json) → [只读Node工具](tools/check_u405_esc_focus_b39_v08.cjs)。WCAG2.2与PointerEvents3官方正式正文定点阅读，APG模式、MDN isComposing兼容限制；V8同函数64/64合成，独立Node/浏览器/Owner/17消费者NOT_RUN。研究登记145 Registry/1171条（非去重），L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B38 CAP-10-02离线CRL、TSA与签发资格隔离
 [专项研究](docs/capabilities/CAP-10-02/OFFLINE-REVOCATION-B38-2026-10-30.md) → [5合法来源](research/sources/CAP-10-02-offline-revocation-b38.json) → [8规则字段/原包](research/traces/CAP-10-02-offline-revocation-b38-v08.json) → [1正55反4未知](docs/capabilities/CAP-10-02/offline-revocation-b38-fixtures-v08.json) → [Node只读工具](tools/check_cap1002_offline_revocation_b38_v08.cjs)。同函数60合成PASS，独立Node/实际PKI/TSA/D15/17消费者NOT_RUN；144 Registry/1164登记，正式Owner0/17，L3待人审。**规划PASS≠产品PASS。**
 

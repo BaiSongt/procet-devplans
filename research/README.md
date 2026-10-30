@@ -1,3 +1,6 @@
+## 2026-10-30｜B39 R-UI3D-001 U4-05输入事件优先级与可达性补证
+[正式WCAG2.2/PointerEvents3、APG、MDN及固定内部规格分层](../docs/work-packages/U4-05/ESC-FOCUS-B39-2026-10-30.md) → [7来源](sources/U4-05-esc-focus-b39.json) → [8规则字段/原包](traces/U4-05-esc-focus-b39-v08.json) → [64正反未知合成](../docs/work-packages/U4-05/esc-focus-b39-fixtures-v08.json)。12px文本上限≠12px命中区，尺寸例外UNKNOWN；真实浏览器/IME/Babylon/Owner/17消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B38 R-RELEASE-APPROVAL-001 离线证书撤销与TSA时间证据资格
 [研究/阅读边界](../docs/capabilities/CAP-10-02/OFFLINE-REVOCATION-B38-2026-10-30.md) → [5项来源](sources/CAP-10-02-offline-revocation-b38.json) → [8规则字段及正反追踪](traces/CAP-10-02-offline-revocation-b38-v08.json) → [合成用例](../docs/capabilities/CAP-10-02/offline-revocation-b38-fixtures-v08.json)。RFC5280/3161/8785官方公开指定HTML实读、NIST仅摘要；真实密码学与独立消费者NOT_RUN，L3待审。
 
