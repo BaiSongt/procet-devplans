@@ -1,3 +1,6 @@
+## 2026-10-30｜B32 CAP-02-03量规/伸出/安装TCP与D10控制器H跨域隔离
+[研究与阅读限制](docs/capabilities/CAP-02-03/GAUGE-OFFSET-B32-2026-10-30.md) → [6来源](research/sources/CAP-02-03-gauge-offset-b32.json) → [8规则](research/traces/CAP-02-03-gauge-offset-b32-v08.json) → [2正56反](docs/capabilities/CAP-02-03/gauge-offset-b32-fixtures-v08.json) → [只读Node](tools/check_cap0203_gauge_offset_b32_v08.cjs)。名义100mm不等于D10实测H、D13必须锁OEM版；V8同函数58/58合成，独立Node/OEM/实际消费者NOT_RUN，L3/Owner待审。累计138 Registry/1134登记。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B31 CAP-03-05装配实例Face重绑证据
 [专项补证及阅读限制](docs/capabilities/CAP-03-05/ASSEMBLY-FACE-B31-2026-10-30.md) → [6来源](research/sources/CAP-03-05-assembly-face-b31.json) → [8规则](research/traces/CAP-03-05-assembly-face-b31-v08.json) → [4正50反](docs/capabilities/CAP-03-05/assembly-face-b31-fixtures-v08.json) → [只读Node](tools/check_cap0305_assembly_face_b31_v08.cjs)。定义复用≠同一个制造特征实例；FaceIndex不跨Revision稳定；Split/无历史不自动采纳。V8同函数54/54合成，独立Node/OCCT/D02-D05消费者NOT_RUN，L3/17 Owner待审。累计137 Registry/1128登记。**规划PASS≠产品PASS。**
 

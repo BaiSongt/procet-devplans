@@ -1,3 +1,6 @@
+## 2026-10-30｜B32 R-TA-001 量规长、夹持、OEM刀补与双层绑定
+[ISO13399合法目录及LinuxCNC2.9/Haas/Sandvik公开正文分级](../docs/capabilities/CAP-02-03/GAUGE-OFFSET-B32-2026-10-30.md) → [6来源](sources/CAP-02-03-gauge-offset-b32.json) → [8规则字段/原包](traces/CAP-02-03-gauge-offset-b32-v08.json) → [2正56反](../docs/capabilities/CAP-02-03/gauge-offset-b32-fixtures-v08.json)。V8同函数合成58/58，独立Node/OEM实测/D10-D16消费者NOT_RUN，L3待审批。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B31 CAP-03-05装配Occurrence/Face谱系与重绑资格
 [OCCT8.0.1三份官方API实读、ISO10303-242:2025仅公开目录、NIST2015仅摘要、原CAP固定Blob](../docs/capabilities/CAP-03-05/ASSEMBLY-FACE-B31-2026-10-30.md) → [6份来源](sources/CAP-03-05-assembly-face-b31.json) → [8规则/字段/原包](traces/CAP-03-05-assembly-face-b31-v08.json) → [4正50负合成](../docs/capabilities/CAP-03-05/assembly-face-b31-fixtures-v08.json)。V8同函数54/54；独立Node、实际OCCT、D02/D05消费者、Owner和L3仍NOT_RUN/PENDING。**规划PASS≠产品PASS。**
 
