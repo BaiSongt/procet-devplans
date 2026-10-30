@@ -138,3 +138,8 @@ MET-I01盘点现有老仓/GUI/测量系统消费者（02 Owner＋质量评审）
 ## V0.8新补证与独立消费者（2026-10-28）
 
 本章节链接新的[8项来源](../../../research/sources/CAP-02-06.json)、[10条规则/40字段](../../../research/traces/CAP-02-06-v08-supplement.json)、[50正反+4数学合成+8待执行状态](research-fixtures-v08.json)、[完整研究边界](RESEARCH-TRACE-2026-10-28.md)、[独立消费和回退](independent-consumer-v08.md)。保留原MET-T01..20及SRC-MET-001..010，不覆盖旧追踪。规划静态验证不代表已实施或计量合格。
+
+
+## B52增量｜相关不确定度与D17候选判定（2026-10-31）
+
+[相关不确定度数值反例](COVARIANCE-DECISION-B52-2026-10-31.md) → [8来源](../../../research/sources/CAP-02-06-covariance-b52.json) → [9规则](../../../research/traces/CAP-02-06-covariance-b52-v08.json) → [47合成](covariance-b52-fixtures-v08.json) → [测试入口](../../../tools/check_cap0206_covariance_b52_v08.cjs)。原MET规则、资产分母与Owner职责不变；本段新增候选守护带的内生审批边界。独立消费者、校准证书、Node文件/真实机床仍NOT_RUN。

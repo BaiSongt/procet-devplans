@@ -1,3 +1,6 @@
+## 2026-10-31｜B52 R-MET-001相关测量不确定度与候选守护带
+[专项计算与适用界限](../docs/capabilities/CAP-02-06/COVARIANCE-DECISION-B52-2026-10-31.md) → [NIST公开§A.3/§5-7与ISO合法摘要，8项来源](sources/CAP-02-06-covariance-b52.json) → [9条规则](traces/CAP-02-06-covariance-b52-v08.json) → [47项合成](../docs/capabilities/CAP-02-06/covariance-b52-fixtures-v08.json)。关联分量不能按独立RSS忽略；候选规则为内生设计非ISO条文，真实D17及独立Node未执行。规划PASS≠产品PASS。
+
 ## 2026-10-31｜B51 R-FRAMEGRAPH-FK-001双分支位姿与机器校准分级
 [Modern Robotics/OCCT/LinuxCNC/NIST阅读范围](../docs/capabilities/CAP-09-02/DUAL-BRANCH-FK-B51-2026-10-31.md) → [6来源](sources/CAP-09-02-dual-branch-b51.json) → [8规则](traces/CAP-09-02-dual-branch-b51-v08.json) → [31正反未知合成](../docs/capabilities/CAP-09-02/dual-branch-b51-fixtures-v08.json)。已读OCCT/LinuxCNC具体方法，Modern Robotics公开课程章目录，NIST两份仅摘要；真实B5、Node进程与消费者NOT_RUN。
 

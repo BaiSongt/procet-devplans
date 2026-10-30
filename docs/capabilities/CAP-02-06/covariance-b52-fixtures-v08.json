@@ -1,0 +1,594 @@
+{
+  "schemaVersion": "procet-b52-fixtures-v1",
+  "purpose": "纯合成数值演示：不是实际测量或产品质量放行；判定函数不读取expected输入作判断",
+  "baseline": {
+    "identity": {
+      "owner": "D17",
+      "capability": "CAP-02-06",
+      "resourceRef": "D03:contact-cmm-01@r7",
+      "resourceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "calibrationResourceRef": "D03:contact-cmm-01@r7",
+      "calibrationHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "traceabilityChainRef": "CHAIN:SI-TEST-001@r4",
+      "calibrationScope": "length",
+      "calibrationValidFrom": "2026-10-01T00:00:00Z",
+      "calibrationValidUntil": "2026-11-01T00:00:00Z",
+      "sampleAt": "2026-10-25T11:00:00Z",
+      "measurandRef": "D01:slot-width@r4",
+      "frameRef": "FRAME:part@r4",
+      "method": "discrete_contact"
+    },
+    "measurement": {
+      "value": 9.986,
+      "unit": "mm",
+      "u1": 0.003,
+      "u2": 0.004,
+      "cov12": 0.000006,
+      "coverageFactor": 2,
+      "reportedUc": 0.00608276253029822,
+      "reportedU": 0.01216552506059644
+    },
+    "decision": {
+      "ruleId": "PROCET-GUARD-U@R1",
+      "ruleHash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "upperLimitMm": 10,
+      "reportedOutcome": "CONFORMING_CANDIDATE"
+    },
+    "bindings": {
+      "d04Ref": "D04:setup-1@r3",
+      "d10Ref": "D10:installation-1@r2",
+      "channel": "offline_cmm",
+      "d13State": "NOT_APPLICABLE",
+      "d15State": "NOT_RUN",
+      "d16State": "BLOCKED"
+    },
+    "governance": {
+      "ownerPort": "MeasurementEvidencePort",
+      "entry": "GUI",
+      "sceneCount": 1,
+      "taskPanel": "LEFT_UNIFIED",
+      "permissionFresh": true,
+      "aclScope": "measurement_write",
+      "expectedRevision": 7,
+      "actualRevision": 7,
+      "expectedHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actualHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "scopeEpoch": 4,
+      "ackScopeEpoch": 4,
+      "cancelGeneration": 2,
+      "ackCancelGeneration": 2,
+      "frozenOverwrite": false,
+      "previewOnly": false,
+      "commitRequested": true
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "patch": {},
+      "expected": {
+        "status": "CONFORMING_CANDIDATE",
+        "code": "MEASUREMENT_CANDIDATE"
+      }
+    },
+    {
+      "id": "P02",
+      "kind": "positive",
+      "patch": {
+        "measurement.value": 10.02,
+        "decision.reportedOutcome": "NONCONFORMING_CANDIDATE"
+      },
+      "expected": {
+        "status": "NONCONFORMING_CANDIDATE",
+        "code": "MEASUREMENT_CANDIDATE"
+      }
+    },
+    {
+      "id": "P03",
+      "kind": "positive",
+      "patch": {
+        "measurement.value": 9.988,
+        "decision.reportedOutcome": "INDETERMINATE"
+      },
+      "expected": {
+        "status": "INDETERMINATE",
+        "code": "MEASUREMENT_CANDIDATE"
+      }
+    },
+    {
+      "id": "P04",
+      "kind": "positive",
+      "patch": {
+        "measurement.value": 9986,
+        "measurement.unit": "um",
+        "measurement.u1": 3,
+        "measurement.u2": 4,
+        "measurement.cov12": 6,
+        "measurement.reportedUc": 6.082762530298219,
+        "measurement.reportedU": 12.165525060596439
+      },
+      "expected": {
+        "status": "CONFORMING_CANDIDATE",
+        "code": "MEASUREMENT_CANDIDATE"
+      }
+    },
+    {
+      "id": "P05",
+      "kind": "positive",
+      "patch": {
+        "measurement.value": 9.988,
+        "measurement.cov12": -0.000006,
+        "measurement.reportedUc": 0.003605551275463989,
+        "measurement.reportedU": 0.007211102550927978
+      },
+      "expected": {
+        "status": "CONFORMING_CANDIDATE",
+        "code": "MEASUREMENT_CANDIDATE"
+      }
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "patch": {
+        "identity.owner": "D03"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "OWNER_TYPE"
+      }
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "patch": {
+        "identity.capability": "CAP-02-05"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "OWNER_TYPE"
+      }
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "patch": {
+        "identity.resourceRef": "latest"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "RESOURCE_EXACT"
+      }
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "patch": {
+        "identity.resourceHash": "hash-placeholder"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "RESOURCE_EXACT"
+      }
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "patch": {
+        "identity.calibrationResourceRef": "D03:other@r3"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "CALIBRATION_IDENTITY"
+      }
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "patch": {
+        "identity.calibrationHash": "NOT_SHA"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "CALIBRATION_IDENTITY"
+      }
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "patch": {
+        "identity.measurandRef": ""
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "MEASURAND_METHOD_FRAME"
+      }
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "patch": {
+        "identity.frameRef": ""
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "MEASURAND_METHOD_FRAME"
+      }
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "patch": {
+        "identity.method": ""
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "MEASURAND_METHOD_FRAME"
+      }
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "patch": {
+        "identity.calibrationValidFrom": "2026-10-26T00:00:00Z"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "CAL_TIME_SCOPE"
+      }
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "patch": {
+        "identity.calibrationValidUntil": "2026-10-24T00:00:00Z"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "CAL_TIME_SCOPE"
+      }
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "patch": {
+        "measurement.unit": "inch"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "MEASUREMENT_UNIT"
+      }
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "patch": {
+        "measurement.u1": -0.003
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "UNCERTAINTY_DOMAIN"
+      }
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "patch": {
+        "measurement.u2": -0.004
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "UNCERTAINTY_DOMAIN"
+      }
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "patch": {
+        "measurement.cov12": 0.000013
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "COVARIANCE_PSD"
+      }
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "patch": {
+        "measurement.coverageFactor": 0
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "COVERAGE_FACTOR"
+      }
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "patch": {
+        "measurement.reportedUc": 0.005
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "UC_REPORT_MISMATCH"
+      }
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "patch": {
+        "measurement.reportedU": 0.01
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "U_REPORT_MISMATCH"
+      }
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "patch": {
+        "decision.upperLimitMm": "10"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "DECISION_RULE_ID"
+      }
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "patch": {
+        "decision.reportedOutcome": "NONCONFORMING_CANDIDATE"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "OUTCOME_MISMATCH"
+      }
+    },
+    {
+      "id": "N21",
+      "kind": "negative",
+      "patch": {
+        "decision.ruleHash": "invalid"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "DECISION_RULE_ID"
+      }
+    },
+    {
+      "id": "N22",
+      "kind": "negative",
+      "patch": {
+        "bindings.d04Ref": "D10:setup-mistyped@r3"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "D04_D10_TYPES"
+      }
+    },
+    {
+      "id": "N23",
+      "kind": "negative",
+      "patch": {
+        "bindings.d10Ref": "D04:install-mistyped@r2"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "D04_D10_TYPES"
+      }
+    },
+    {
+      "id": "N24",
+      "kind": "negative",
+      "patch": {
+        "bindings.d15State": "PASS"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "ENGINEERING_CLAIM"
+      }
+    },
+    {
+      "id": "N25",
+      "kind": "negative",
+      "patch": {
+        "bindings.d16State": "RELEASED"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "ENGINEERING_CLAIM"
+      }
+    },
+    {
+      "id": "N26",
+      "kind": "negative",
+      "patch": {
+        "governance.ownerPort": "UnauthorizedPort"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "SINGLE_ENTRY_GUI"
+      }
+    },
+    {
+      "id": "N27",
+      "kind": "negative",
+      "patch": {
+        "governance.entry": "WEB"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "SINGLE_ENTRY_GUI"
+      }
+    },
+    {
+      "id": "N28",
+      "kind": "negative",
+      "patch": {
+        "governance.sceneCount": 2
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "SINGLE_ENTRY_GUI"
+      }
+    },
+    {
+      "id": "N29",
+      "kind": "negative",
+      "patch": {
+        "governance.taskPanel": "RIGHT_DRAWER"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "SINGLE_ENTRY_GUI"
+      }
+    },
+    {
+      "id": "N30",
+      "kind": "negative",
+      "patch": {
+        "governance.permissionFresh": false
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "AUTH_RECHECK"
+      }
+    },
+    {
+      "id": "N31",
+      "kind": "negative",
+      "patch": {
+        "governance.expectedRevision": 8
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "CAS_EXACT"
+      }
+    },
+    {
+      "id": "N32",
+      "kind": "negative",
+      "patch": {
+        "governance.expectedHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "CAS_EXACT"
+      }
+    },
+    {
+      "id": "N33",
+      "kind": "negative",
+      "patch": {
+        "governance.ackScopeEpoch": 3
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "LATE_ACK_FREEZE"
+      }
+    },
+    {
+      "id": "N34",
+      "kind": "negative",
+      "patch": {
+        "governance.ackCancelGeneration": 1
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "LATE_ACK_FREEZE"
+      }
+    },
+    {
+      "id": "N35",
+      "kind": "negative",
+      "patch": {
+        "governance.frozenOverwrite": true
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "LATE_ACK_FREEZE"
+      }
+    },
+    {
+      "id": "N36",
+      "kind": "negative",
+      "patch": {
+        "governance.previewOnly": true
+      },
+      "expected": {
+        "status": "REJECTED",
+        "code": "PREVIEW_WRITE"
+      }
+    },
+    {
+      "id": "U01",
+      "kind": "unknown",
+      "patch": {
+        "identity.traceabilityChainRef": "UNKNOWN"
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "TRACEABILITY_UNKNOWN"
+      }
+    },
+    {
+      "id": "U02",
+      "kind": "unknown",
+      "patch": {
+        "identity.calibrationValidUntil": null
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "CAL_VALIDITY_UNKNOWN"
+      }
+    },
+    {
+      "id": "U03",
+      "kind": "unknown",
+      "patch": {
+        "measurement.u2": null
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "UNCERTAINTY_MISSING"
+      }
+    },
+    {
+      "id": "U04",
+      "kind": "unknown",
+      "patch": {
+        "decision.ruleId": "UNKNOWN"
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "DECISION_RULE_UNKNOWN"
+      }
+    },
+    {
+      "id": "U05",
+      "kind": "unknown",
+      "patch": {
+        "bindings.channel": "in_machine_probe",
+        "bindings.d13State": "UNKNOWN"
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "CONTROLLER_SEMANTIC_UNKNOWN"
+      }
+    },
+    {
+      "id": "U06",
+      "kind": "unknown",
+      "patch": {
+        "identity.calibrationScope": "UNKNOWN"
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "CAL_SCOPE_UNKNOWN"
+      }
+    }
+  ]
+}

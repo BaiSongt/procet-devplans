@@ -1,3 +1,6 @@
+## 2026-10-31｜B52 CAP-02-06相关不确定度与D17判定规则分级
+[专项研究](docs/capabilities/CAP-02-06/COVARIANCE-DECISION-B52-2026-10-31.md) → [8项来源](research/sources/CAP-02-06-covariance-b52.json) → [9规则字段/原F1-06/E3-04/T5-05](research/traces/CAP-02-06-covariance-b52-v08.json) → [5正36反6 UNKNOWN合成](docs/capabilities/CAP-02-06/covariance-b52-fixtures-v08.json) → [Node只读工具](tools/check_cap0206_covariance_b52_v08.cjs) → [核验等级](tracking/cap0206-covariance-b52-verification-2026-10-31.json)。NIST TN1297公开协方差项，ISO 230-10/10360-2/14253-1仅合法目录摘要；V8同函数47/47合成，**独立Node/真实校准、CMM/在机探测、D17消费者及NC工程均NOT_RUN**，正式Owner0/17、L3待审，历史原字节与全仓GFM AST未闭。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B51 CAP-09-02 双分支机床正解、双驱Joint与相对TCP Golden
 [专项研究](docs/capabilities/CAP-09-02/DUAL-BRANCH-FK-B51-2026-10-31.md) → [6来源](research/sources/CAP-09-02-dual-branch-b51.json) → [8规则/原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-02-dual-branch-b51-v08.json) → [2正26反3 UNKNOWN](docs/capabilities/CAP-09-02/dual-branch-b51-fixtures-v08.json) → [只读Node入口](tools/check_cap0902_dual_branch_b51_v08.cjs) → [核验等级](tracking/cap0902-dual-branch-b51-verification-2026-10-31.json)。当前合成相对TCP=(-10,-100,0)mm，并发冻结/GUI/CLI/Agent规则联动均属设计合同；V8同函数31/31，独立Node、原生OCCT、B5/OEM、D14/D15和17消费者均NOT_RUN，Owner 0/17、L3待审。**规划PASS≠产品PASS。**
 
