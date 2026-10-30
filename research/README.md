@@ -1,3 +1,6 @@
+## 2026-10-30｜B36 R-WH-001夹具能力与监测证据资格
+[OCCT8.0.1 API、OPC官方版本目录、NIST摘要、RFC9110及原CAP研究](../docs/capabilities/CAP-02-04/WORKHOLDING-B36-2026-10-30.md) → [5来源](sources/CAP-02-04-workholding-b36.json) → [8规则](traces/CAP-02-04-workholding-b36-v08.json) → [正反未知验收](../docs/capabilities/CAP-02-04/workholding-b36-fixtures-v08.json)。独立Node/真实消费者NOT_RUN，L3待审。
+
 ## 2026-10-30｜B35 R-SOLVER-ADOPT-001约束可比、非支配与来源冻结
 [来源/数学反例与阅读边界](../docs/capabilities/CAP-05-05/PARETO-ADOPTION-B35-2026-10-30.md) → [五份登记](sources/CAP-05-05-pareto-adoption-b35.json) → [7规则/字段/原包](traces/CAP-05-05-pareto-adoption-b35-v08.json) → [50合成用例](../docs/capabilities/CAP-05-05/pareto-adoption-b35-fixtures-v08.json)。NIST仅摘要，独立Node/实际Solver/消费者NOT_RUN，L3待审。
 

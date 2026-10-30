@@ -1,3 +1,6 @@
+## 2026-10-30｜B36 CAP-02-04夹具开口能力与实际观测隔离
+[研究](docs/capabilities/CAP-02-04/WORKHOLDING-B36-2026-10-30.md) → [5来源](research/sources/CAP-02-04-workholding-b36.json) → [8规则/原包](research/traces/CAP-02-04-workholding-b36-v08.json) → [2正45反1未知](docs/capabilities/CAP-02-04/workholding-b36-fixtures-v08.json) → [只读Node校验](tools/check_cap0204_workholding_b36_v08.cjs)。V8同函数48/48合成，真实Node/OPC/NC/夹具/消费者NOT_RUN，Owner0/17，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B35 CAP-05-05候选Pareto与局部接管资格
 [专项研究](docs/capabilities/CAP-05-05/PARETO-ADOPTION-B35-2026-10-30.md) → [5来源](research/sources/CAP-05-05-pareto-adoption-b35.json) → [7规则](research/traces/CAP-05-05-pareto-adoption-b35-v08.json) → [2正3未知45反](docs/capabilities/CAP-05-05/pareto-adoption-b35-fixtures-v08.json) → [只读校验](tools/check_cap0505_pareto_adoption_b35_v08.cjs)。OR-Tools OPTIMAL受模型/gap限制，非支配判断必须锁定单位与约束；V8同函数50/50合成PASS，Node文件/产品/真实消费者NOT_RUN，Owner0/17、L3待人审。规划PASS≠产品PASS。
 
