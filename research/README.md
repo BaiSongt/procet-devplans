@@ -1,3 +1,6 @@
+## 2026-10-30｜B34 R-CONTINUOUS-5AXIS-001 姿态双覆盖与Jacobian奇异门禁
+[来源读深与边界](../docs/capabilities/CAP-07-04/ORIENTATION-IK-B34-2026-10-30.md) → [五来源](sources/CAP-07-04-orientation-ik-b34.json) → [八规则](traces/CAP-07-04-orientation-ik-b34-v08.json) → [单字段验收](../docs/capabilities/CAP-07-04/orientation-ik-b34-fixtures-v08.json)。Modern Robotics只读官方章节简介、LinuxCNC2.9与OCCT8.0.1定点实读；合成与实机分离，L3待审。
+
 ## 2026-10-30｜B33 R-LIMIT-COLLISION-001 连续碰撞区间资格
 [固定FCL README与公开API、MoveIt、OCCT8.0.1、Rapier/内生规格](sources/CAP-09-07-ccd-interval-b33.json) → [8条可机检规则](traces/CAP-09-07-ccd-interval-b33-v08.json) → [2正30反/首碰t=0.25](../docs/capabilities/CAP-09-07/ccd-interval-b33-fixtures-v08.json)。区分端点/静态距离、真实旋转Joint和区间证据；V8同函数32/32，独立Node/FCL/OCCT/OEM/真实消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
 

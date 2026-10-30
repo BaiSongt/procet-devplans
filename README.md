@@ -1,3 +1,6 @@
+## 2026-10-30｜B34 CAP-07-04 五轴姿态与实际关节连续性边界
+[研究补证](docs/capabilities/CAP-07-04/ORIENTATION-IK-B34-2026-10-30.md) → [5来源](research/sources/CAP-07-04-orientation-ik-b34.json) → [8规则](research/traces/CAP-07-04-orientation-ik-b34-v08.json) → [2正1未知41反](docs/capabilities/CAP-07-04/orientation-ik-b34-fixtures-v08.json) → [校验工具](tools/check_cap0704_orientation_ik_b34_v08.cjs) → [执行等级](tracking/cap0704-orientation-ik-b34-verification-2026-10-30.json)。q/-q角差0°，+179°/-179°模角最短2°，均不证明D14真实Joint轨迹；V8同函数44/44规划合成，真实产品/独立Node/17消费者NOT_RUN，Owner0/17、L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B33 CAP-09-07连续干涉区间证据与解析穿透反例
 [专项补证](docs/capabilities/CAP-09-07/CCD-INTERVAL-B33-2026-10-30.md) → [5来源](research/sources/CAP-09-07-ccd-interval-b33.json) → [8条规则与字段](research/traces/CAP-09-07-ccd-interval-b33-v08.json) → [2正30反1D合成](docs/capabilities/CAP-09-07/ccd-interval-b33-fixtures-v08.json) → [只读Node](tools/check_cap0907_ccd_interval_b33_v08.cjs)。固定FCL Git commit官方README与OCCT8.0.1/MoveIt/Rapier公开正文分级；V8同函数32/32 PASS，真实Node文件/FCL/OCCT/B5/D15消费者NOT_RUN。正式Owner0/17，L3待审，**规划PASS≠产品PASS**。
 
