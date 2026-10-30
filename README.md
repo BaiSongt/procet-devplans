@@ -1,3 +1,6 @@
+## 2026-10-30｜B44 CAP-07-07中立刀轴与Post机器角隔离
+[专项研究](docs/capabilities/CAP-07-07/CL-POST-SEMANTICS-B44-2026-10-30.md) → [6来源](research/sources/CAP-07-07-cl-post-b44.json) → [8规则及F1-03/E3-01/U4-04](research/traces/CAP-07-07-cl-post-b44-v08.json) → [1正44反4未知](docs/capabilities/CAP-07-07/cl-post-b44-fixtures-v08.json) → [Node只读入口](tools/check_cap0707_cl_post_b44_v08.cjs)。同判定函数49/49合成规划通过；真实Post/NC/B5及17消费者NOT_RUN。150 Registry/1201登记，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B43 CAP-08-04 M6配置覆盖、HAL回环与换刀证据
 [专项研究](docs/capabilities/CAP-08-04/CHANGEOVER-EVIDENCE-B43-2026-10-30.md) → [6来源](research/sources/CAP-08-04-changeover-b43.json) → [8规则/原E3-02/E3-03/U4-04](research/traces/CAP-08-04-changeover-b43-v08.json) → [1正40反4未知](docs/capabilities/CAP-08-04/changeover-b43-fixtures-v08.json) → [只读Node](tools/check_cap0804_changeover_b43_v08.cjs)。V8同函数45/45合成PASS；真实HAL/OEM/17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

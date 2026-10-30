@@ -1,3 +1,6 @@
+## 2026-10-30｜B44中立CL姿态与机器角的语义证据
+[Autodesk/OCCT/LinuxCNC官方正文定点阅读、NIST仅摘要与原CAP](../docs/capabilities/CAP-07-07/CL-POST-SEMANTICS-B44-2026-10-30.md) → [来源](sources/CAP-07-07-cl-post-b44.json) → [追踪](traces/CAP-07-07-cl-post-b44-v08.json) → [合成](../docs/capabilities/CAP-07-07/cl-post-b44-fixtures-v08.json)。真实消费者NOT_RUN，L3待审。
+
 ## 2026-10-30｜B43 R-AUX-MCODE-001 INI例外与HAL回环
 [官方LinuxCNC 2.9 M/INI/HAL/ToolComp与Haas仅摘要](../docs/capabilities/CAP-08-04/CHANGEOVER-EVIDENCE-B43-2026-10-30.md) → [6来源](sources/CAP-08-04-changeover-b43.json) → [8规则](traces/CAP-08-04-changeover-b43-v08.json) → [45合成](../docs/capabilities/CAP-08-04/changeover-b43-fixtures-v08.json)。不能把M6默认动作或HAL软件回环当物理换刀/D15认证。**规划PASS≠产品PASS。**
 
