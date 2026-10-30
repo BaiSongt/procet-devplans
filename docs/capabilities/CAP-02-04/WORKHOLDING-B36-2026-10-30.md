@@ -13,7 +13,7 @@ D03夹具资源已发布开口范围 ≠ D04工艺Setup的计划夹口 ≠ D10�
 - [NIST Lee/Haynes (1987-05-29)](https://www.nist.gov/publications/finite-element-analysis-flexible-fixturing-system)论文仅核对摘要：夹具接触力、摩擦、弹性和加工载荷需模型及证据。PDF未读，不能代入默认摩擦系数或认证安全。
 - [RFC9110](https://www.rfc-editor.org/rfc/rfc9110.html)§13.1.1/§13.2公开条件请求只可类比CAS；业务权限重验/ScopeEpoch/取消晚回执属于[原CAP固定Blob](https://github.com/BaiSongt/procet-devplans/blob/7ed7aee8980a134fa5996f253ea77b6cc8cfd87f/docs/capabilities/CAP-02-04/README.md)内部设计约束。
 
-详细作者、版本、URL、访问深度与局限见[5项来源](../../../research/sources/CAP-02-04-workholding-b36.json)。[8条规则](../../../research/traces/CAP-02-04-workholding-b36-v08.json)机器追踪B36-R1至R8分别覆盖：精确资源发布闭包、刚体接口方向、额定容量区间、D03/D04/D10分离、实际状态UNKNOWN、力学证据不越级、CAS+权限重验及取消Fence、GUI/CLI/Agent单Owner Port和唯一Babylon世界/左TaskPanel/≤12px及冻结回退。各规则有sourceIds→字段→CAP-02-04/原编号工作包→正反ID；合成用例[2正45反1未知](workholding-b36-fixtures-v08.json)，每个反例只更改单字段。无sensorEvidence却收到CLOSED时只能返回UNKNOWN，不视为合格夹紧。
+详细作者、版本、URL、访问深度与局限见[5项来源](../../../research/sources/CAP-02-04-workholding-b36.json)。[8条规则](../../../research/traces/CAP-02-04-workholding-b36-v08.json)机器追踪B36-R1至R8分别覆盖：精确资源发布闭包、刚体接口方向、额定容量区间、D03/D04/D10分离、实际状态UNKNOWN、力学证据不越级、CAS+权限重验及取消Fence、GUI/CLI/Agent单Owner Port和唯一Babylon世界/左TaskPanel/≤12px及冻结回退。各规则有sourceIds→字段→CAP-02-04/原编号工作包→正反ID；合成用例[2正48反1未知](workholding-b36-fixtures-v08.json)，每个反例只更改单字段。无sensorEvidence却收到CLOSED时只能返回UNKNOWN，不视为合格夹紧。
 
 ## 失效、迁移与独立消费者
 
