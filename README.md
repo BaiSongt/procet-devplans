@@ -1,3 +1,6 @@
+## 2026-10-31｜B49 CAP-03-07共边祖先与TopoDS同一性
+[专项研究](docs/capabilities/CAP-03-07/TOPOLOGICAL-EDGE-ANCESTORS-B49-2026-10-31.md) → [6来源](research/sources/CAP-03-07-edge-ancestors-b49.json) → [8规则/原B0-02/F1-03/F1-04/T5-02](research/traces/CAP-03-07-edge-ancestors-b49-v08.json) → [1正34反5未知](docs/capabilities/CAP-03-07/edge-ancestors-b49-fixtures-v08.json) → [只读Node工具](tools/check_cap0307_edge_ancestors_b49_v08.cjs) → [分级核验](tracking/cap0307-edge-ancestors-b49-verification-2026-10-31.json)。40/40仅V8同判定函数规划合成；独立Node/OCCT/Owner/D05消费者NOT_RUN，正式Owner0/17、L3待审、历史字节与全仓GFM AST未闭。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B48 CAP-10-03 Windows离线介质路径别名与收方封闭提取
 [研究及已读章节](docs/capabilities/CAP-10-03/WINDOWS-PATH-ALIASES-B48-2026-10-31.md) → [6来源](research/sources/CAP-10-03-windows-path-b48.json) → [8规则字段/原E3-06与T5-03](research/traces/CAP-10-03-windows-path-b48-v08.json) → [1正37反5 UNKNOWN合成](docs/capabilities/CAP-10-03/windows-path-b48-fixtures-v08.json) → [Node校验器](tools/check_cap1003_windows_path_b48_v08.cjs) → [证据分级](tracking/cap1003-windows-path-b48-verification-2026-10-31.json)。Windows NUL.txt/LPT²/ADS/大小写碰撞/链接/ZIP自动改名/取消晚回执，V8固定Git Blob同判定器注入执行43/43合成PASS；独立Node进程/真实Windows收方/OEM/17消费者NOT_RUN，Owner正式签署0/17、L3待审。**规划PASS≠产品PASS。**
 
