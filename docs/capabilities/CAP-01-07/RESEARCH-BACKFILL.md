@@ -55,3 +55,8 @@ W3C Pointer Events L3 于2026-06-30成为Recommendation，本文只读取相关�
 
 ## 2026-10-29 B19 补证导航（不改原十规则）
 [WebGL上下文失效恢复及跨域回执研究](WEBGL-RECOVERY-B19-2026-10-29.md)：补充8条候选规则、1正26独立单字段反例，原10规则/20验收保留。实际Babylon/产品与L3仍待验证。
+
+
+## 2026-10-31 B50｜三维尺寸直接输入与驱动参数资格
+
+补充[测量/PMI/驱动参数分离专项研究](DIMENSION-EDIT-B50-2026-10-31.md)、[9项来源](../../../research/sources/CAP-01-07-dimension-edit-b50.json)、[10规则与独立正反未知验收](../../../research/traces/CAP-01-07-dimension-edit-b50-v08.json)。不修改原UI3D-R01..10和原AT，V8同函数规划合成56/56，独立Node/OCCT/Babylon/真实消费者仍NOT_RUN；L3待人审。
