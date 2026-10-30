@@ -27,7 +27,7 @@ function judge(x){
 function run(root=process.cwd()){
 const s=JSON.parse(fs.readFileSync(path.join(root,"research/sources/CAP-05-05-pareto-adoption-b35.json"),"utf8"))),t=JSON.parse(fs.readFileSync(path.join(root,"research/traces/CAP-05-05-pareto-adoption-b35-v08.json"),"utf8")),f=JSON.parse(fs.readFileSync(path.join(root,"docs/capabilities/CAP-05-05/pareto-adoption-b35-fixtures-v08.json"),"utf8")));
 const ids=new Set(f.cases.map(x=>x.id)),ss=new Set(s.sources.map(x=>x.id));if(ss.size!==5||s.registeredRecords!==5||t.rules.length!==7||ids.size!==f.cases.length||f.cases.length!==50)throw Error("计数/重复ID");
-for(const r of t.rules){if(!r.fields.length||r.sourceIds.some(x=>!ss.has(x))||[...r.positiveIds,...r.negativeIds,...r.unknownIds].some(x=>!ids.has(x)))throw Error("追踪缺失 "+r.id)}
+for(const r of t.rules){if(!r.fields.length||!r.sourceIds.length||!r.positiveIds.length||!r.negativeIds.length||r.sourceIds.some(x=>!ss.has(x))||[...r.positiveIds,...r.negativeIds,...r.unknownIds].some(x=>!ids.has(x)))throw Error("规则正反追踪缺失 "+r.id);for(const [key,wanted] of [["positiveIds","PLANNING_CANDIDATE"],["negativeIds","REJECT"],["unknownIds","UNKNOWN"]]){for(const id of r[key]){const c=f.cases.find(z=>z.id===id);if(!c||c.expected!==wanted)throw Error("验收期望类型错误 "+r.id+"/"+id)}}}
 for(const c of f.cases){if(!t.rules.some(r=>r.id===c.rule)||judge(c.input)!==c.expected)throw Error("样例 "+c.id+" 错误")}
 return {status:"PLANNING_SYNTHETIC_PASS",total:f.cases.length,positive:2,unknown:3,negative:45,realProduct:"NOT_RUN"};
 }
