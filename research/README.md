@@ -1,3 +1,6 @@
+## 2026-10-30｜B37 R-WCS-MOTION-001进给模态与时间证据
+[LinuxCNC2.9§59/Overview§23–25公开正文、NIST仅摘要、RFC首页及原CAP固定Blob](../docs/capabilities/CAP-08-03/FEED-MODES-B37-2026-10-30.md) → [5来源](sources/CAP-08-03-feed-modes-b37.json) → [8规则字段](traces/CAP-08-03-feed-modes-b37-v08.json) → [4正39反1未知](../docs/capabilities/CAP-08-03/feed-modes-b37-fixtures-v08.json)。V8同判定函数44/44合成，独立Node/真实D13-D15/Owner消费者NOT_RUN，L3待审。
+
 ## 2026-10-30｜B36 R-WH-001夹具能力与监测证据资格
 [OCCT8.0.1 API、OPC官方版本目录、NIST摘要、RFC9110及原CAP研究](../docs/capabilities/CAP-02-04/WORKHOLDING-B36-2026-10-30.md) → [5来源](sources/CAP-02-04-workholding-b36.json) → [8规则](traces/CAP-02-04-workholding-b36-v08.json) → [正反未知验收](../docs/capabilities/CAP-02-04/workholding-b36-fixtures-v08.json)。独立Node/真实消费者NOT_RUN，L3待审。
 

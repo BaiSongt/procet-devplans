@@ -27,3 +27,7 @@ GUI/CLI/Agent共用08域Owner Port和UseCase，不独立写D12/D13；NC Activity
 
 ## 研究和独立验收
 [7项合法公开来源与访问深度](../../../research/sources/CAP-08-03.json) → [推导专题](../../../research/topics/R-WCS-MOTION-001.md) → [10条规则/字段/原工作包映射](../../../research/traces/CAP-08-03.json) → [10正/10反/10不同字段变异](fixtures.json) → [Node规划校验器](../../../tools/check_cap0803_planning_2026_10_26.cjs)。[GUI/3D](UI.md)及[独立消费者和回退](independent-consumer-handoff.md)待产品团队实施。Owner仅候选、L3待人类评审；真实产品/NC/控制器/机床/独立消费者/独立Node文件执行均NOT_RUN。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B37 G93/G94/G95进给模态专项补证
+
+[LinuxCNC2.9公开条款与名义时间算例](FEED-MODES-B37-2026-10-30.md) → [8规则](../../../research/traces/CAP-08-03-feed-modes-b37-v08.json) → [4正39反1未知合成用例](feed-modes-b37-fixtures-v08.json) → [只读Node工具](../../../tools/check_cap0803_feed_modes_b37_v08.cjs)。G93 F的1/F分钟是**指令名义值**，G95需主轴速度反馈；**不能直接当D14轴时间或D15独立安全资格**。独立Node、真实NC/OEM/17消费者NOT_RUN，L3/Owner待审。

@@ -1,3 +1,6 @@
+## 2026-10-30｜B37 CAP-08-03进给模态G93/G94/G95与D14物理时间隔离
+[专题研究](docs/capabilities/CAP-08-03/FEED-MODES-B37-2026-10-30.md) → [5项合法来源](research/sources/CAP-08-03-feed-modes-b37.json) → [8规则/字段/原包](research/traces/CAP-08-03-feed-modes-b37-v08.json) → [4正39反1未知](docs/capabilities/CAP-08-03/feed-modes-b37-fixtures-v08.json) → [只读Node](tools/check_cap0803_feed_modes_b37_v08.cjs)。LinuxCNC2.9公开§59与Overview§23–25定点实读、NIST仅摘要；V8同函数44/44合成，独立Node/真实NC/D14/D15/17消费者NOT_RUN。修正source-index历史汇总滞后，现143份Registry/1159条登记（非去重）。Owner0/17，L3待人审，**规划PASS≠产品PASS**。
+
 ## 2026-10-30｜B36 CAP-02-04夹具开口能力与实际观测隔离
 [研究](docs/capabilities/CAP-02-04/WORKHOLDING-B36-2026-10-30.md) → [5来源](research/sources/CAP-02-04-workholding-b36.json) → [8规则/原包](research/traces/CAP-02-04-workholding-b36-v08.json) → [2正48反1未知](docs/capabilities/CAP-02-04/workholding-b36-fixtures-v08.json) → [只读Node校验](tools/check_cap0204_workholding_b36_v08.cjs)。V8同函数51/51合成，真实Node/OPC/NC/夹具/消费者NOT_RUN，Owner0/17，L3待审。规划PASS≠产品PASS。
 
