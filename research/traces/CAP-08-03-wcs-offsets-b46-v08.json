@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "procet-b46-trace-v1",
+  "date": "2026-10-30",
+  "topic": "R-WCS-MOTION-001",
+  "capability": "CAP-08-03",
+  "sourcesPath": "research/sources/CAP-08-03-wcs-offsets-b46.json",
+  "fixturePath": "docs/capabilities/CAP-08-03/wcs-offsets-b46-fixtures-v08.json",
+  "checker": "tools/check_cap0803_wcs_offsets_b46_v08.cjs",
+  "rules": [
+    {
+      "id": "B46-R1",
+      "title": "D12最终NC、D10实际绑定、Frame和Profile身份一致",
+      "sourceIds": [
+        "B46-S05"
+      ],
+      "fields": [
+        "identity.d12Hash",
+        "identity.d12Revision",
+        "identity.d04Revision",
+        "identity.d10Revision",
+        "identity.frameFrom",
+        "identity.frameTo",
+        "identity.controllerProfileHash",
+        "src.ncHash",
+        "src.controllerProfileHash"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B46-R2",
+      "title": "G53机器坐标本块有效、G54–G59.3保持模态",
+      "sourceIds": [
+        "B46-S01",
+        "B46-S02"
+      ],
+      "fields": [
+        "event.op",
+        "event.beforeWcs",
+        "event.afterWcs",
+        "event.nextBlockWcs",
+        "event.g53ThisBlock",
+        "event.motionFrame",
+        "event.motion",
+        "event.cutterComp"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14"
+      ],
+      "unknownIds": [
+        "U03"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B46-R3",
+      "title": "G10 L2/L20 P索引、活动WCS不变、G91无关及有限1D算例",
+      "sourceIds": [
+        "B46-S02"
+      ],
+      "fields": [
+        "event.p",
+        "event.targetWcs",
+        "event.requestX",
+        "event.offsetX",
+        "event.machineX",
+        "event.desiredX",
+        "event.g91Ignored",
+        "event.oldY",
+        "event.newY"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "origin": "LINUXCNC_2_9_PLUS_LIMITED_MATH",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N15",
+        "N16",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B46-R4",
+      "title": "G52/G92共享寄存器、未指定轴保留与INI持久性",
+      "sourceIds": [
+        "B46-S01"
+      ],
+      "fields": [
+        "event.sharedRegisters",
+        "event.oldX",
+        "event.newX",
+        "event.requestLocalX",
+        "event.oldY",
+        "event.newY",
+        "event.g92Persistence",
+        "event.resetWouldRetain"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N23",
+        "N24",
+        "N25",
+        "N26"
+      ],
+      "unknownIds": [
+        "U02"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B46-R5",
+      "title": "G92.1清零与G92.2暂停、G92.3恢复语义不合并",
+      "sourceIds": [
+        "B46-S02",
+        "B46-S01"
+      ],
+      "fields": [
+        "event.storedBefore",
+        "event.storedAfter",
+        "event.activeBefore",
+        "event.activeAfter",
+        "event.effectiveAfter"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B46-R6",
+      "title": "逐块模态、NC字节和帧快照必须明确",
+      "sourceIds": [
+        "B46-S03",
+        "B46-S05"
+      ],
+      "fields": [
+        "src.reparsed",
+        "src.modalSnapshot",
+        "src.byteStart",
+        "src.byteEnd",
+        "src.frameHash",
+        "event.motionFrame"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL_NIST_ABSTRACT",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N35",
+        "N36",
+        "N37",
+        "N38",
+        "N39"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B46-R7",
+      "title": "单Owner CAS/ACL/ScopeEpoch/取消代次/晚回执重验",
+      "sourceIds": [
+        "B46-S04",
+        "B46-S05"
+      ],
+      "fields": [
+        "owner.expectedRevision",
+        "owner.actualRevision",
+        "owner.expectedHash",
+        "owner.actualHash",
+        "owner.aclEpoch",
+        "owner.aclActual",
+        "owner.scopeEpoch",
+        "owner.scopeActual",
+        "owner.cancelGen",
+        "owner.ackGen",
+        "owner.cancelled",
+        "owner.lateAck",
+        "owner.cas"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL_RFC_ANALOGY",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N40",
+        "N41",
+        "N42",
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B46-R8",
+      "title": "GUI/CLI/Agent单域入口、Babylon、D15、冻结/旧Reader回退",
+      "sourceIds": [
+        "B46-S05"
+      ],
+      "fields": [
+        "ui.channels",
+        "ui.ownerPort",
+        "ui.babylonWorlds",
+        "ui.leftPanel",
+        "ui.fontMaxPx",
+        "ui.previewWrites",
+        "handoff.freezeBefore",
+        "handoff.freezeAfter",
+        "handoff.readerRollback",
+        "gate.d14",
+        "gate.d15",
+        "gate.d16"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-05",
+        "U4-04"
+      ],
+      "origin": "INTERNAL",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "negativeIds": [
+        "N48",
+        "N49",
+        "N50",
+        "N51",
+        "N52",
+        "N53",
+        "N54",
+        "N55",
+        "N56"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ]
+}

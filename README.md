@@ -1,3 +1,6 @@
+## 2026-10-30｜B46 CAP-08-03 G53/WCS与G52/G92跨重启偏置证据
+[专项研究](docs/capabilities/CAP-08-03/WCS-OFFSETS-B46-2026-10-30.md) → [5项来源](research/sources/CAP-08-03-wcs-offsets-b46.json) → [8规则/原E3-02/03/04/05与U4-04](research/traces/CAP-08-03-wcs-offsets-b46-v08.json) → [8正、56单字段反、3 UNKNOWN；合计67项V8同函数合成](docs/capabilities/CAP-08-03/wcs-offsets-b46-fixtures-v08.json) → [只读Node工具](tools/check_cap0803_wcs_offsets_b46_v08.cjs)。LinuxCNC2.9官方正文定点实读，NIST仅摘要/RFC仅元数据；独立Node/OEM/D13-D16/17消费者NOT_RUN，Owner0/17，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B45 CAP-05-06三方DAG与冻结冲突门禁
 [研究](docs/capabilities/CAP-05-06/FREEZE-MERGE-B45-2026-10-30.md) → [6来源](research/sources/CAP-05-06-freeze-merge-b45.json) → [10规则/原W2-02/03/05](research/traces/CAP-05-06-freeze-merge-b45-v08.json) → [2正27反4 UNKNOWN](docs/capabilities/CAP-05-06/freeze-merge-b45-fixtures-v08.json) → [只读工具](tools/check_cap0506_freeze_merge_b45_v08.cjs)。同函数33/33规划合成PASS，独立Node/产品/Owner/消费者NOT_RUN；151 Registry/1207登记，L3待审。**规划PASS≠产品PASS。**
 

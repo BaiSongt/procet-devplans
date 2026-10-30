@@ -31,3 +31,7 @@ GUI/CLI/Agent共用08域Owner Port和UseCase，不独立写D12/D13；NC Activity
 ## 2026-10-30｜B37 G93/G94/G95进给模态专项补证
 
 [LinuxCNC2.9公开条款与名义时间算例](FEED-MODES-B37-2026-10-30.md) → [8规则](../../../research/traces/CAP-08-03-feed-modes-b37-v08.json) → [4正39反1未知合成用例](feed-modes-b37-fixtures-v08.json) → [只读Node工具](../../../tools/check_cap0803_feed_modes_b37_v08.cjs)。G93 F的1/F分钟是**指令名义值**，G95需主轴速度反馈；**不能直接当D14轴时间或D15独立安全资格**。独立Node、真实NC/OEM/17消费者NOT_RUN，L3/Owner待审。
+
+## 2026-10-30｜B46 G53/G54-G59.3、G10及G52/G92共享寄存器专项补证
+
+[官方证据和有界算例](WCS-OFFSETS-B46-2026-10-30.md) → [5来源](../../../research/sources/CAP-08-03-wcs-offsets-b46.json) → [8规则](../../../research/traces/CAP-08-03-wcs-offsets-b46-v08.json) → [8正、56单字段反、3 UNKNOWN；合计67项V8同函数合成](wcs-offsets-b46-fixtures-v08.json) → [只读Node](../../../tools/check_cap0803_wcs_offsets_b46_v08.cjs)。INI未知、OEM方言未知均不自动PASS；独立Node、D13–D15与真实消费者NOT_RUN，L3/Owner待审。**规划PASS≠产品PASS。**

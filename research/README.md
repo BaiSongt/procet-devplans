@@ -1,3 +1,6 @@
+## 2026-10-30｜B46 R-WCS-MOTION-001 G53非模态与G52/G92持久性补证
+[LinuxCNC2.9官方§2–5、G-Codes§14/17/33/57–58及阅读边界](../docs/capabilities/CAP-08-03/WCS-OFFSETS-B46-2026-10-30.md) → [5项来源](sources/CAP-08-03-wcs-offsets-b46.json) → [8规则字段/原工作包](traces/CAP-08-03-wcs-offsets-b46-v08.json) → [8正、56单字段反、3 UNKNOWN；合计67项V8同函数合成](../docs/capabilities/CAP-08-03/wcs-offsets-b46-fixtures-v08.json)。跨重启未知返回UNKNOWN，独立Node/真实D13-D15/Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B45 R-FREEZE-001 三方合并、DAG和冻结闭包补证
 [Git官方合并/merge-base、RFC9110/W3C正文及NIST摘要](../docs/capabilities/CAP-05-06/FREEZE-MERGE-B45-2026-10-30.md) → [来源](sources/CAP-05-06-freeze-merge-b45.json) → [追踪](traces/CAP-05-06-freeze-merge-b45-v08.json) → [33项规划正反未知](../docs/capabilities/CAP-05-06/freeze-merge-b45-fixtures-v08.json)。真实Node/Owner/NC及独立消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 
