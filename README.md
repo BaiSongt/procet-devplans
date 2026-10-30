@@ -1,3 +1,6 @@
+## 2026-10-30｜B40 CAP-10-07现场观察代次、非因果时间窗与D17新变更
+[研究补证](docs/capabilities/CAP-10-07/EVENT-PROVENANCE-B40-2026-10-30.md) → [6项分层来源](research/sources/CAP-10-07-event-provenance-b40.json) → [8规则字段/CAP与原包](research/traces/CAP-10-07-event-provenance-b40-v08.json) → [4正69反4未知](docs/capabilities/CAP-10-07/event-provenance-b40-fixtures-v08.json) → [只读Node入口](tools/check_cap1007_event_provenance_b40_v08.cjs)。同函数77/77合成PASS；2.5目录与2.4例子分开，NIST IR8536 Final仅摘要；独立Node/MTConnect/D17消费者NOT_RUN。累计146 Registry、1177条登记（非去重），正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B39 原U4-05 Escape、IME和指针捕获与GUI焦点守门
 [专项研究](docs/work-packages/U4-05/ESC-FOCUS-B39-2026-10-30.md) → [7来源](research/sources/U4-05-esc-focus-b39.json) → [8规则/字段/原编号包](research/traces/U4-05-esc-focus-b39-v08.json) → [7正53反4未知](docs/work-packages/U4-05/esc-focus-b39-fixtures-v08.json) → [只读Node工具](tools/check_u405_esc_focus_b39_v08.cjs)。WCAG2.2与PointerEvents3官方正式正文定点阅读，APG模式、MDN isComposing兼容限制；V8同函数64/64合成，独立Node/浏览器/Owner/17消费者NOT_RUN。研究登记145 Registry/1171条（非去重），L3待审。**规划PASS≠产品PASS。**
 

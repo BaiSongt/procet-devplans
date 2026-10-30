@@ -34,3 +34,7 @@
 - [十域Port合同](engineering-change-contract.json)、[GUI/3D合同](UI.md)、[独立消费者和迁移/回退](independent-consumer-handoff.md)、[理论专题](../../../research/topics/R-FIELD-ECN-001.md)。
 ## 验收与未完成责任
 规划脚本只测Source→Rule→Field→Case的结构一致性及70项合成门禁；独立Node文件进程、OPC实机、厂商报警、真实机床/NC、质量系统和跨域消费者**NOT_RUN**。要求独立团队提供机器/控制器Profile的exact SHA、Frame、质量时钟/事件、授权状态及未覆盖语义清单；Owner正式会签与L3均PENDING_HUMAN。**规划PASS≠产品PASS**。
+
+## B40 事件时钟、MTConnect代次与证据非因果补证（2026-10-30）
+
+[专项研究与阅读范围](EVENT-PROVENANCE-B40-2026-10-30.md) → [来源](../../../research/sources/CAP-10-07-event-provenance-b40.json) → [8规则/字段/原工作包](../../../research/traces/CAP-10-07-event-provenance-b40-v08.json) → [正反合成](event-provenance-b40-fixtures-v08.json) → [只读检查](../../../tools/check_cap1007_event_provenance_b40_v08.cjs)。保留原R01–R10和70项原验收，不覆盖原字节/追踪。规划PASS≠产品PASS。

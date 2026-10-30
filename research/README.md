@@ -1,3 +1,6 @@
+## 2026-10-30｜B40 R-FIELD-ECN-001 D17现场观察代次/时间/来源链补证
+[MTConnect2.5目录、2.4公开示例/W3C PROV-O/NIST IR8536分层阅读与适用边界](../docs/capabilities/CAP-10-07/EVENT-PROVENANCE-B40-2026-10-30.md) → [6来源](sources/CAP-10-07-event-provenance-b40.json) → [8规则及原E3-06/T5-03](traces/CAP-10-07-event-provenance-b40-v08.json) → [77规划合成正反未知](../docs/capabilities/CAP-10-07/event-provenance-b40-fixtures-v08.json)。时间相交只是候选关联、D17更正另记、NC复验不可由报警状态代签；真实现场/Node/独立Owner消费者均NOT_RUN。
+
 ## 2026-10-30｜B39 R-UI3D-001 U4-05输入事件优先级与可达性补证
 [正式WCAG2.2/PointerEvents3、APG、MDN及固定内部规格分层](../docs/work-packages/U4-05/ESC-FOCUS-B39-2026-10-30.md) → [7来源](sources/U4-05-esc-focus-b39.json) → [8规则字段/原包](traces/U4-05-esc-focus-b39-v08.json) → [64正反未知合成](../docs/work-packages/U4-05/esc-focus-b39-fixtures-v08.json)。12px文本上限≠12px命中区，尺寸例外UNKNOWN；真实浏览器/IME/Babylon/Owner/17消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
 

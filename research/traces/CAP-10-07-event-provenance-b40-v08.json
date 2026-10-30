@@ -1,0 +1,424 @@
+{
+  "schemaVersion": "procet-b40-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-10-07",
+  "sourcesPath": "research/sources/CAP-10-07-event-provenance-b40.json",
+  "fixturePath": "docs/capabilities/CAP-10-07/event-provenance-b40-fixtures-v08.json",
+  "checkerPath": "tools/check_cap1007_event_provenance_b40_v08.cjs",
+  "rules": [
+    {
+      "id": "B40-R1",
+      "title": "MTConnect实例代次、请求窗口与序号语义",
+      "sourceIds": [
+        "B40-S01",
+        "B40-S02",
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "stream.instance",
+        "stream.expectedInstance",
+        "stream.requestSeq",
+        "stream.firstSeq",
+        "stream.lastSeq",
+        "stream.windowConfirmed",
+        "stream.perItemContinuityAsserted"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D03",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01",
+        "P04"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B40-R2",
+      "title": "观察时间/接收时间、时钟资格及非因果窗口",
+      "sourceIds": [
+        "B40-S02",
+        "B40-S04",
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "time.eventUtcMs",
+        "time.ingestUtcMs",
+        "time.clockQualified",
+        "time.errorBoundMs",
+        "time.policyMaxErrorMs",
+        "time.runStartUtcMs",
+        "time.runEndUtcMs",
+        "time.claimsCausality"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14",
+        "N15"
+      ],
+      "unknownIds": [
+        "U02"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B40-R3",
+      "title": "原始观察事件类型及Ack非维修证明",
+      "sourceIds": [
+        "B40-S02",
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "observation.eventId",
+        "observation.rawSha",
+        "observation.dataItemId",
+        "observation.category",
+        "observation.state",
+        "observation.ackMeansResolved",
+        "observation.ackStartsMachine"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D03",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01",
+        "P03"
+      ],
+      "negativeIds": [
+        "N16",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22"
+      ],
+      "unknownIds": [
+        "U03"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B40-R4",
+      "title": "现场观测与D16/D10/D12原始收方证据精确绑定",
+      "sourceIds": [
+        "B40-S04",
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "binding.d16",
+        "binding.d10",
+        "binding.expectedMachine",
+        "binding.actualMachine",
+        "binding.expectedController",
+        "binding.actualController",
+        "binding.d10Frame",
+        "binding.rawD12MatchesD16",
+        "binding.receiverProof"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D10",
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N23",
+        "N24",
+        "N25",
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31"
+      ],
+      "unknownIds": [
+        "U04"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B40-R5",
+      "title": "D17追加更正与外部质量Owner不被遥测劫持",
+      "sourceIds": [
+        "B40-S03",
+        "B40-S04",
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "feedback.d17AppendOnly",
+        "feedback.correctionAsNew",
+        "feedback.externalQualityOwner",
+        "feedback.autoRepair",
+        "feedback.manualReview"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D01",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B40-R6",
+      "title": "PROV来源关联及A/B冻结新Revision分叉",
+      "sourceIds": [
+        "B40-S03",
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "change.newDraftOnly",
+        "change.freezeBefore",
+        "change.freezeAfter",
+        "change.sourceRelationBound",
+        "change.overwritePrior",
+        "change.ncChanged",
+        "change.machineChanged"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D01",
+        "D05",
+        "D08",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B40-R7",
+      "title": "Owner exact revision/hash/frame与ACL/SCOPE/CAS取消晚回执",
+      "sourceIds": [
+        "B40-S05",
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "owner.expectedRevision",
+        "owner.currentRevision",
+        "owner.expectedHash",
+        "owner.currentHash",
+        "owner.expectedFrame",
+        "owner.currentFrame",
+        "owner.aclEpoch",
+        "owner.aclNow",
+        "owner.scopeEpoch",
+        "owner.scopeNow",
+        "owner.cancelEpoch",
+        "owner.ackEpoch",
+        "owner.cancelled",
+        "owner.lateAckAdopted"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D01",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48",
+        "N49",
+        "N50",
+        "N51",
+        "N52",
+        "N53",
+        "N54",
+        "N55",
+        "N56"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B40-R8",
+      "title": "D04与D10隔离及D13-D16阻放行、同Port单3D迁移",
+      "sourceIds": [
+        "B40-S06"
+      ],
+      "origin": "INTERNAL_DESIGN_WITH_SCOPE_LIMITED_EXTERNAL_SUPPORT",
+      "fields": [
+        "flow.d04",
+        "flow.d10",
+        "flow.d13",
+        "flow.d14",
+        "flow.d15",
+        "flow.d16AutoRelease",
+        "flow.clAsNc",
+        "ui.port",
+        "ui.channels",
+        "ui.babylonWorlds",
+        "ui.leftTaskPanel",
+        "ui.shadowReader",
+        "ui.consumerStatus"
+      ],
+      "capabilityIds": [
+        "CAP-10-07",
+        "CAP-10-08"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N57",
+        "N58",
+        "N59",
+        "N60",
+        "N61",
+        "N62",
+        "N63",
+        "N64",
+        "N65",
+        "N66",
+        "N67",
+        "N68",
+        "N69"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ]
+}
