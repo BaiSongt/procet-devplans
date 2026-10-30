@@ -26,3 +26,6 @@
 09域`InverseKinematicsPort`提供`enumerateCandidates/independentFKCheck/analyzeSingularity/chooseBranchCAS/preview/invalidate`，GUI/CLI/Agent同一Owner入口。C0仅包含身份/单位/Frame/revision/hash/scope，绝不建立巨型机床或NC领域对象。所有写入瞬间重验ACL、CAS、scopeEpoch、generation、cancel，撤权和取消晚回执不得覆盖新场景；预览只读。A/B共享事实不覆盖D08冻结。D03/D04/D10/D12/D13/算法Profile变化传播STALE并对旧Reader/schema/Profile做成套回退，不删用户数据库；详见[失效矩阵](invalidation-matrix.json)。
 [统一左TaskPanel与单Babylon](UI.md) · [合同样例](contract.example.json) · [17资产候选Owner](asset-owner-candidates.json) · [独立消费者交接](independent-consumer-handoff.md) · [专题研究](../../../research/topics/R-IK-BRANCH-001.md) · [Node规划校验入口](../../../tools/check_cap0903_planning_2026_10_27.cjs)。
 **规划PASS≠产品PASS**：独立Node文件、真实OCCT/NC、B5实机、浏览器和跨域消费者NOT_RUN；17资产会签和L3 PENDING_HUMAN。
+
+## B53专项补证｜双驱物理Joint回零与失效
+[实读研究/适用限制](HOMING-PHYSICAL-JOINT-B53-2026-10-31.md) → [6来源](../../../research/sources/CAP-09-03-homing-b53.json) → [8条规则及原包](../../../research/traces/CAP-09-03-homing-b53-v08.json) → [4正25反11未知](homing-b53-fixtures-v08.json) → [Node入口](../../../tools/check_cap0903_homing_b53_v08.cjs)。该增量与既有R01–R10并存，强调物理Joint的HOME_OFFSET/HOME区别、负序号同步及VOLATILE_HOME的证据资格，不替代真实B5/OEM、D14/D15或L3审批。**规划PASS≠产品PASS。**

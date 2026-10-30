@@ -1,3 +1,6 @@
+## 2026-10-31｜B53 CAP-09-03双物理Joint回零与负HOME_SEQUENCE门禁
+[专项研究](docs/capabilities/CAP-09-03/HOMING-PHYSICAL-JOINT-B53-2026-10-31.md) → [6来源](research/sources/CAP-09-03-homing-b53.json) → [8规则/原包](research/traces/CAP-09-03-homing-b53-v08.json) → [4正25反11 UNKNOWN，共40合成](docs/capabilities/CAP-09-03/homing-b53-fixtures-v08.json) → [只读Node](tools/check_cap0903_homing_b53_v08.cjs) → [分级核验](tracking/cap0903-homing-b53-verification-2026-10-31.json)。LinuxCNC2.9官方公开章节已读，HOME_OFFSET不等于HOME，同序号负HOME_SEQUENCE对双驱同步与VOLATILE_HOME失效应有独立物理Joint证据；ISO230-2仅读合法目录、NIST论文仅读公开摘要。V8相同judge 40/40规划合成PASS；独立Node、真实HAL/B5/OEM/D14-D15及17消费者NOT_RUN，Owner0/17、L3待审、历史原字节与全仓GFM AST未闭。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B52 CAP-02-06相关不确定度与D17判定规则分级
 [专项研究](docs/capabilities/CAP-02-06/COVARIANCE-DECISION-B52-2026-10-31.md) → [8项来源](research/sources/CAP-02-06-covariance-b52.json) → [9规则字段/原F1-06/E3-04/T5-05](research/traces/CAP-02-06-covariance-b52-v08.json) → [5正36反6 UNKNOWN合成](docs/capabilities/CAP-02-06/covariance-b52-fixtures-v08.json) → [Node只读工具](tools/check_cap0206_covariance_b52_v08.cjs) → [核验等级](tracking/cap0206-covariance-b52-verification-2026-10-31.json)。NIST TN1297公开协方差项，ISO 230-10/10360-2/14253-1仅合法目录摘要；V8同函数47/47合成，**独立Node/真实校准、CMM/在机探测、D17消费者及NC工程均NOT_RUN**，正式Owner0/17、L3待审，历史原字节与全仓GFM AST未闭。**规划PASS≠产品PASS。**
 
