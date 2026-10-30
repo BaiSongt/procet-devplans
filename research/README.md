@@ -1,5 +1,5 @@
 ## 2026-10-31｜B55 17资产独立消费者验收收件证据
-[专项研究](../docs/architecture/v0.8/CONSUMER-PROOF-GATE-B55-2026-10-31.md) → [Pact/CloudEvents/PROV-O/RFC五项官方文档加两份固定GitBlob](sources/FINAL-ASSET-CONSUMER-B55.json) → [8项规则字段和原E3-06/T5-03](traces/FINAL-ASSET-CONSUMER-B55-V08.json) → [34合成正反未知](../docs/architecture/v0.8/consumer-proof-b55-fixtures-v08.json)。真实Owner/消费者0/17，L3待人类审查。
+[专项研究](../docs/architecture/v0.8/CONSUMER-PROOF-GATE-B55-2026-10-31.md) → [Pact/CloudEvents/PROV-O/RFC五项官方文档加两份固定GitBlob](sources/FINAL-ASSET-CONSUMER-B55.json) → [8项规则字段和原E3-06/T5-03](traces/FINAL-ASSET-CONSUMER-B55-V08.json) → [44合成正反未知](../docs/architecture/v0.8/consumer-proof-b55-fixtures-v08.json)。真实Owner/消费者0/17，L3待人类审查。
 
 ## 2026-10-31｜B54 R-HUMAN-AUTH-001 工具身份/批准范围/CAS
 [官方阅读范围](../docs/capabilities/CAP-11-08/APPROVAL-TOOL-IDENTITY-B54-2026-10-31.md) → [8项来源](sources/CAP-11-08-tool-approval-b54.json) → [9条字段追踪](traces/CAP-11-08-tool-approval-b54-v08.json) → [60正反未知](../docs/capabilities/CAP-11-08/tool-approval-b54-fixtures-v08.json)。MCP 2026-07-28 Tools、Authorization、Security、RFC9110公开章节实读，NIST仅摘要；独立Node/真实Owner/消费者未验，L3待审。

@@ -15,7 +15,7 @@ B17已经核对17候选Owner Port及44条业务类型边，但**候选接口结�
 - 两份固定Git Blob的[17资产原定义](business-assets.json)及[Owner候选](owner-interface-review-v08.json)已由GitHub连接器完整读取。完整作者/版本/URL/章节深度/局限见[7来源登记](../../../research/sources/FINAL-ASSET-CONSUMER-B55.json)，[8规则→字段→CAP/原包→正反](../../../research/traces/FINAL-ASSET-CONSUMER-B55-V08.json)。
 
 ## 分级与独立消费者验收
-[固定fixture](consumer-proof-b55-fixtures-v08.json) → [只读Node校验器](../../../tools/check_final_asset_consumer_b55_v08.cjs) → [验证记录](../../../tracking/final-asset-consumer-b55-verification-2026-10-31.json)。一项结构合格的合成示例只得`PASS_SYNTHETIC_SHAPE_ONLY`；写`REAL`而无独立可验证实测与证据者只能`UNKNOWN_EXTERNAL_PROOF`，声称`SIGNED`或产品`PASS`直接拒绝。脚本可用`node tools/check_final_asset_consumer_b55_v08.cjs --self-test`独立执行，**本轮实际未在完整克隆仓库中启动Node文件进程**，只在工具V8运行相同判定函数。合成集合1正29反4 UNKNOWN共34项；这里任何一个合成成功都不能提升正式签署计数。
+[固定fixture](consumer-proof-b55-fixtures-v08.json) → [只读Node校验器](../../../tools/check_final_asset_consumer_b55_v08.cjs) → [验证记录](../../../tracking/final-asset-consumer-b55-verification-2026-10-31.json)。一项结构合格的合成示例只得`PASS_SYNTHETIC_SHAPE_ONLY`；写`REAL`而无独立可验证实测与证据者只能`UNKNOWN_EXTERNAL_PROOF`，声称`SIGNED`或产品`PASS`直接拒绝。脚本可用`node tools/check_final_asset_consumer_b55_v08.cjs --self-test`独立执行，**本轮实际未在完整克隆仓库中启动Node文件进程**，只在工具V8运行相同判定函数。合成集合1正39反4 UNKNOWN共44项；这里任何一个合成成功都不能提升正式签署计数。新增R08的10个单字段反例，覆盖D04/D10、A/B冻结、单Babylon/左TaskPanel、最大12px、CL非NC证明、D13 UNKNOWN和取消晚ACK。
 
 独立消费方必须实际测试：读exact与错误版本、撤权后不可写、取消后晚ACK、旧Schema、修订失效传播、迁移回退及D13语义未知不放行；还应独立核查真实二进制/业务对象、签署和权限。替换接口先影子读取、并行对照、独立消费者实测，再人类批准切换，失败按保留的旧Revision/Receipt回退。
 

@@ -18,7 +18,9 @@ function gate(s,ledger){
  if(!r.consumerCode||!r.providerCode||!r.environment||!r.evidence)return "REJECT_RUN_ID";
  const e=s.event||{};
  if(e.specversion!=="1.0"||!e.id||!e.source||!e.type||e.collision===true)return "REJECT_EVENT_ID";
- if(r.cancelled===true&&r.lateAckAccepted===true)return "REJECT_LATE_ACK";
+ if(r.lateAckAccepted===true)return "REJECT_LATE_ACK";
+ const g=s.context||{};
+ if(g.d04D10Separate!==true||g.immutableABFreeze!==true||g.singleBabylonWorld!==true||g.leftTaskPanel!==true||g.maxFontPx!==12||g.sameDomainPort!==true||g.clAnimationGrantsNcPass!==false||g.unknownExecutionGrantsRelease!==false||JSON.stringify(g.ncChain)!==JSON.stringify(["D09","D12","D13","D14","D15","D16"]))return "REJECT_BOUNDARY";
  const statuses=Object.values(r.cases||{});
  if(C.some(k=>!["PASS","UNKNOWN"].includes(r.cases?.[k])))return "REJECT_COVERAGE";
  if(C.some(k=>r.cases[k]==="UNKNOWN"))return "UNKNOWN_CASE";
