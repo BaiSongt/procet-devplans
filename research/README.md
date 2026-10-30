@@ -1,3 +1,6 @@
+## 2026-10-30｜B42 R-PROCESS-KNOWLEDGE-001词表传递、Shapes验证与撤权
+[SKOS/SHACL/PROV-O/RFC9111定点正文及NIST摘要](../docs/capabilities/CAP-11-02/KNOWLEDGE-CONFORMANCE-B42-2026-10-30.md) → [6来源](sources/CAP-11-02-knowledge-conformance-b42.json) → [8规则字段](traces/CAP-11-02-knowledge-conformance-b42-v08.json) → [46合成验收](../docs/capabilities/CAP-11-02/knowledge-conformance-b42-fixtures-v08.json)；不宣称实际RDF/SHACL、业务Owner或NC认证。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B41 R-SIM-PLAYBACK-EVIDENCE-001 重复调用实例与播放只读边界
 [LinuxCNC O-code/W3C WebAnimations WD/PROV-O/OCCT8.0.1/NIST摘要的分层研究](../docs/capabilities/CAP-09-08/REPLAY-INSTANCES-B41-2026-10-30.md) → [6来源](sources/CAP-09-08-replay-instances-b41.json) → [8规则](traces/CAP-09-08-replay-instances-b41-v08.json) → [56合成正反未知](../docs/capabilities/CAP-09-08/replay-instances-b41-fixtures-v08.json)。Seek和负速率只更改显示，微秒缺口必须显式未知；真实D13/D14/D15和独立消费者NOT_RUN。
 
