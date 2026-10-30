@@ -1,3 +1,5 @@
+> **B48研究增量（2026-10-31）：** [Windows ZIP成员路径别名与封闭接收](WINDOWS-PATH-ALIASES-B48-2026-10-31.md) → [6来源](../../../research/sources/CAP-10-03-windows-path-b48.json) → [8规则](../../../research/traces/CAP-10-03-windows-path-b48-v08.json) → [43正反未知合成](windows-path-b48-fixtures-v08.json)。原R05与原E3-06/T5-03不变；独立Windows/ZIP/NC消费者NOT_RUN，L3待审。
+
 # CAP-10-03｜离线介质交付（L3待审）
 
 **原目标原文**：`| CAP-10-03 | 离线介质交付 | 无网络现场的校验、签收与回传 | E3-06 / T5-03 | 基础边界与有限场景接入；完整能力需独立验证 |`，源自[固定88项清单](../../architecture/v0.8/03_三级能力映射_88项.md)，不新增第89项，也不修改L1/L2及原36包。

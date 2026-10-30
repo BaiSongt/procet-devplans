@@ -1,3 +1,6 @@
+## 2026-10-31｜B48 R-OFFLINE-MEDIA-001 Windows路径别名与离线ZIP收方研究
+[Windows官方命名/ADS/硬链接/重解析点、Python zipfile及Node fs阅读深度](../docs/capabilities/CAP-10-03/WINDOWS-PATH-ALIASES-B48-2026-10-31.md) → [6来源](sources/CAP-10-03-windows-path-b48.json) → [8规则](traces/CAP-10-03-windows-path-b48-v08.json) → [43合成](../docs/capabilities/CAP-10-03/windows-path-b48-fixtures-v08.json)。不改变CAP-10-03原R05与旧fixtures；真实NTFS/ZIP/NC/D15/消费者与Owner/L3尚未通过，规划PASS≠产品PASS。
+
 ## 2026-10-30｜B47 R-CYCLES-MACROS-001 G83啄钻独有中间退刀与快速重入
 [LinuxCNC2.9 G-Codes §47/§61公开正文，NIST仅出版页及原CAP的阅读边界](../docs/capabilities/CAP-08-05/PECK-MOTION-B47-2026-10-30.md) → [4项来源](sources/CAP-08-05-peck-motion-b47.json) → [8规则/字段](traces/CAP-08-05-peck-motion-b47-v08.json) → [46合成正反未知](../docs/capabilities/CAP-08-05/peck-motion-b47-fixtures-v08.json)。B30已覆盖G81/G98/G99/L，此轮不重复；独立Node及真实控制器/NC/D15/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

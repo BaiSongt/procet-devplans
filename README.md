@@ -1,3 +1,6 @@
+## 2026-10-31｜B48 CAP-10-03 Windows离线介质路径别名与收方封闭提取
+[研究及已读章节](docs/capabilities/CAP-10-03/WINDOWS-PATH-ALIASES-B48-2026-10-31.md) → [6来源](research/sources/CAP-10-03-windows-path-b48.json) → [8规则字段/原E3-06与T5-03](research/traces/CAP-10-03-windows-path-b48-v08.json) → [1正37反5 UNKNOWN合成](docs/capabilities/CAP-10-03/windows-path-b48-fixtures-v08.json) → [Node校验器](tools/check_cap1003_windows_path_b48_v08.cjs) → [证据分级](tracking/cap1003-windows-path-b48-verification-2026-10-31.json)。Windows NUL.txt/LPT²/ADS/大小写碰撞/链接/ZIP自动改名/取消晚回执，V8固定Git Blob同判定器注入执行43/43合成PASS；独立Node进程/真实Windows收方/OEM/17消费者NOT_RUN，Owner正式签署0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B47 CAP-08-05 G83中间退R与0.254mm重进刀
 [研究与阅读限制](docs/capabilities/CAP-08-05/PECK-MOTION-B47-2026-10-30.md) → [4来源](research/sources/CAP-08-05-peck-motion-b47.json) → [8规则与原E3-02/03/E3-04/05/U4-04](research/traces/CAP-08-05-peck-motion-b47-v08.json) → [6正37反3未知合成](docs/capabilities/CAP-08-05/peck-motion-b47-fixtures-v08.json) → [只读Node工具](tools/check_cap0805_peck_motion_b47_v08.cjs)。与B30 G81/L重复研究不重复；V8同判定函数46/46合成，独立Node/实际NC/D15/17消费者NOT_RUN，Owner0/17、L3待审。153 Registry/1216来源登记非去重。**规划PASS≠产品PASS。**
 
