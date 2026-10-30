@@ -1,3 +1,5 @@
+> **B47 G83新增专项（2026-10-30）：** [中间退R、0.254mm快速重新进刀与最终G98/G99区别](PECK-MOTION-B47-2026-10-30.md) → [4项来源](../../../research/sources/CAP-08-05-peck-motion-b47.json) → [8条字段规则](../../../research/traces/CAP-08-05-peck-motion-b47-v08.json) → [6正37反3未知结构化规划合成](peck-motion-b47-fixtures-v08.json)；真实解释器/D15/独立消费者NOT_RUN。L3待审，规划PASS≠产品PASS。
+
 # CAP-08-05｜循环宏与子程序（V0.8，L3待审）
 原始定义：**孔加工循环、宏、程序组织**；原编号工作包E3-02、E3-03、U4-04。MVP仅支持目标控制器**显式声明**的子集，绝不推定FANUC/SINUMERIK/B5通用支持。L1/L2不变，L3待人类评审。
 

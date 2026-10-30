@@ -1,3 +1,6 @@
+## 2026-10-30｜B47 R-CYCLES-MACROS-001 G83啄钻独有中间退刀与快速重入
+[LinuxCNC2.9 G-Codes §47/§61公开正文，NIST仅出版页及原CAP的阅读边界](../docs/capabilities/CAP-08-05/PECK-MOTION-B47-2026-10-30.md) → [4项来源](sources/CAP-08-05-peck-motion-b47.json) → [8规则/字段](traces/CAP-08-05-peck-motion-b47-v08.json) → [46合成正反未知](../docs/capabilities/CAP-08-05/peck-motion-b47-fixtures-v08.json)。B30已覆盖G81/G98/G99/L，此轮不重复；独立Node及真实控制器/NC/D15/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B46 R-WCS-MOTION-001 G53非模态与G52/G92持久性补证
 [LinuxCNC2.9官方§2–5、G-Codes§14/17/33/57–58及阅读边界](../docs/capabilities/CAP-08-03/WCS-OFFSETS-B46-2026-10-30.md) → [5项来源](sources/CAP-08-03-wcs-offsets-b46.json) → [8规则字段/原工作包](traces/CAP-08-03-wcs-offsets-b46-v08.json) → [8正、56单字段反、3 UNKNOWN；合计67项V8同函数合成](../docs/capabilities/CAP-08-03/wcs-offsets-b46-fixtures-v08.json)。跨重启未知返回UNKNOWN，独立Node/真实D13-D15/Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

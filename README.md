@@ -1,3 +1,6 @@
+## 2026-10-30｜B47 CAP-08-05 G83中间退R与0.254mm重进刀
+[研究与阅读限制](docs/capabilities/CAP-08-05/PECK-MOTION-B47-2026-10-30.md) → [4来源](research/sources/CAP-08-05-peck-motion-b47.json) → [8规则与原E3-02/03/E3-04/05/U4-04](research/traces/CAP-08-05-peck-motion-b47-v08.json) → [6正37反3未知合成](docs/capabilities/CAP-08-05/peck-motion-b47-fixtures-v08.json) → [只读Node工具](tools/check_cap0805_peck_motion_b47_v08.cjs)。与B30 G81/L重复研究不重复；V8同判定函数46/46合成，独立Node/实际NC/D15/17消费者NOT_RUN，Owner0/17、L3待审。153 Registry/1216来源登记非去重。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B46 CAP-08-03 G53/WCS与G52/G92跨重启偏置证据
 [专项研究](docs/capabilities/CAP-08-03/WCS-OFFSETS-B46-2026-10-30.md) → [5项来源](research/sources/CAP-08-03-wcs-offsets-b46.json) → [8规则/原E3-02/03/04/05与U4-04](research/traces/CAP-08-03-wcs-offsets-b46-v08.json) → [8正、56单字段反、3 UNKNOWN；合计67项V8同函数合成](docs/capabilities/CAP-08-03/wcs-offsets-b46-fixtures-v08.json) → [只读Node工具](tools/check_cap0803_wcs_offsets_b46_v08.cjs)。LinuxCNC2.9官方正文定点实读，NIST仅摘要/RFC仅元数据；独立Node/OEM/D13-D16/17消费者NOT_RUN，Owner0/17，L3待审。**规划PASS≠产品PASS。**
 
