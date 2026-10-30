@@ -1,0 +1,270 @@
+{
+  "schemaVersion": "procet-b55-trace-v08",
+  "researchTopic": "R-ASSET-CONSUMER-PROOF-B55",
+  "sourceRegistry": "research/sources/FINAL-ASSET-CONSUMER-B55.json",
+  "fixture": "docs/architecture/v0.8/consumer-proof-b55-fixtures-v08.json",
+  "rules": [
+    {
+      "id": "B55-R01",
+      "summary": "17候选Owner与44类型边、三入口Port一致",
+      "fields": [
+        "slots[].assetId",
+        "ownerPort",
+        "consumerEdges",
+        "gui",
+        "cli",
+        "agent"
+      ],
+      "sourceIds": [
+        "B55-S06",
+        "B55-S07"
+      ],
+      "caps": [
+        "CAP-10-08",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N01",
+        "N02",
+        "N03",
+        "N04"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B55-R02",
+      "summary": "独立消费团队不得和生产Owner相同，记录运行环境与双方代码",
+      "fields": [
+        "ownerTeam",
+        "consumerTeam",
+        "run.consumerCode",
+        "run.providerCode",
+        "run.environment",
+        "run.evidence"
+      ],
+      "sourceIds": [
+        "B55-S01",
+        "B55-S02",
+        "B55-S04"
+      ],
+      "caps": [
+        "CAP-10-08",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "T5-03",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N05",
+        "N12",
+        "N13",
+        "N14",
+        "N15"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B55-R03",
+      "summary": "固定exact revision/hash/schema/scope/frame，不能用latest或相机坐标",
+      "fields": [
+        "exact.id",
+        "revision",
+        "hash",
+        "schema",
+        "scope",
+        "frame"
+      ],
+      "sourceIds": [
+        "B55-S05",
+        "B55-S06",
+        "B55-S07"
+      ],
+      "caps": [
+        "CAP-04-02",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B55-R04",
+      "summary": "readExact/撤权/晚回执/旧Schema/失效/回退/NC unknown七项各自测",
+      "fields": [
+        "run.cases.*"
+      ],
+      "sourceIds": [
+        "B55-S01",
+        "B55-S02",
+        "B55-S07"
+      ],
+      "caps": [
+        "CAP-10-08",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "T5-03",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N16",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22"
+      ],
+      "unknown": [
+        "U03"
+      ]
+    },
+    {
+      "id": "B55-R05",
+      "summary": "CloudEvents source+id只用于事件去重，不证明人类签名",
+      "fields": [
+        "event.source",
+        "id",
+        "specversion",
+        "collision"
+      ],
+      "sourceIds": [
+        "B55-S03",
+        "B55-S04"
+      ],
+      "caps": [
+        "CAP-10-08",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N23",
+        "N24",
+        "N25",
+        "N26"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B55-R06",
+      "summary": "schema与合成测试不得晋级签署或产品PASS",
+      "fields": [
+        "claim",
+        "product",
+        "slots[].formalSignoff"
+      ],
+      "sourceIds": [
+        "B55-S02",
+        "B55-S07"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "T5-03",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N27",
+        "N28"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B55-R07",
+      "summary": "REAL字面字段不可代替外部实测和证据签名；不明为UNKNOWN",
+      "fields": [
+        "run.mode",
+        "run.isSynthetic"
+      ],
+      "sourceIds": [
+        "B55-S02",
+        "B55-S04"
+      ],
+      "caps": [
+        "CAP-10-08",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "T5-03",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N29"
+      ],
+      "unknown": [
+        "U01",
+        "U02",
+        "U03",
+        "U04"
+      ]
+    },
+    {
+      "id": "B55-R08",
+      "summary": "D04≠D10、D08冻结、NC验证全链及单Babylon/左TaskPanel保持",
+      "fields": [
+        "globalPolicies.d04D10Separate",
+        "ncChain",
+        "singleBabylonWorld",
+        "unifiedLeftTaskPanel"
+      ],
+      "sourceIds": [
+        "B55-S06",
+        "B55-S07"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [],
+      "unknown": []
+    }
+  ]
+}

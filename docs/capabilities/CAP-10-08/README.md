@@ -55,3 +55,7 @@ CAD设计D01/特征D02→D04名义Setup及D10实际机床执行绑定→D05工�
 ## GUI/接口/17资产Owner候选与独立交付
 
 [统一左TaskPanel与单Babylon](UI.md) · [领域Port契约](digital-thread-contract.json) · [17个原Owner候选](asset-owner-candidates.json) · [独立消费者和迁移回退](independent-consumer-handoff.md)。正式17资产Owner会签及L3均PENDING_HUMAN，Node独立进程、实际OPC/NC/控制器/三轴及B5机床/独立质量/跨域消费者均NOT_RUN；**规划PASS≠产品PASS**。
+
+
+## 2026-10-31｜B55 17资产消费证据门禁
+[17资产消费合同与研究](../../architecture/v0.8/CONSUMER-PROOF-GATE-B55-2026-10-31.md)补强本CAP T01、T09、T10：消费者独立实测、exact revision/hash/frame、ACL/CAS撤权及回退验收，原E3-06/T5-03不改。**正式Owner/真实消费者仍0/17，规划PASS≠产品PASS。**

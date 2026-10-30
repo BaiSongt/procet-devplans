@@ -1,3 +1,6 @@
+## 2026-10-31｜B55 CAP-10-08 17资产独立消费者证据防伪收件
+[研究及真实阅读边界](docs/architecture/v0.8/CONSUMER-PROOF-GATE-B55-2026-10-31.md) → [7来源](research/sources/FINAL-ASSET-CONSUMER-B55.json) → [8规则](research/traces/FINAL-ASSET-CONSUMER-B55-V08.json) → [17资产收件槽位](docs/architecture/v0.8/consumer-proof-b55-schema-v08.json) → [1正29反4 UNKNOWN](docs/architecture/v0.8/consumer-proof-b55-fixtures-v08.json) → [只读Node](tools/check_final_asset_consumer_b55_v08.cjs) → [分级核验](tracking/final-asset-consumer-b55-verification-2026-10-31.json)。候选Port的17/44结构不等于真实消费者，Owner签署0/17，实际独立消费者0/17；V8同一函数34/34仅合成，真实Node/Pact/OCCT/NC/B5/OEM未运行，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B54 CAP-11-08 MCP同名工具跨Server身份与批准意图
 [专项研究](docs/capabilities/CAP-11-08/APPROVAL-TOOL-IDENTITY-B54-2026-10-31.md) → [8来源](research/sources/CAP-11-08-tool-approval-b54.json) → [9规则/原T5-01/T5-02](research/traces/CAP-11-08-tool-approval-b54-v08.json) → [3正48反9未知](docs/capabilities/CAP-11-08/tool-approval-b54-fixtures-v08.json) → [只读Node](tools/check_cap1108_tool_approval_b54_v08.cjs) → [核验](tracking/cap1108-tool-approval-b54-verification-2026-10-31.json)。同名工具换Server、Schema变化、批准后ACL撤权均不复用旧权限；V8相同judge 60/60仅合成，独立Node/真实MCP/OAuth/Owner CAS/消费者NOT_RUN，正式签署0/17、L3待人审。**规划PASS≠产品PASS。**
 

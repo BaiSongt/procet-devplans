@@ -1,0 +1,233 @@
+{
+  "grade": "SYNTHETIC_ONLY",
+  "positive": {
+    "id": "P01",
+    "expected": "PASS_SYNTHETIC_SHAPE_ONLY"
+  },
+  "negatives": [
+    {
+      "id": "N01",
+      "path": "assetId",
+      "value": "D99",
+      "expected": "REJECT_ASSET"
+    },
+    {
+      "id": "N02",
+      "path": "ownerPort",
+      "value": "foo",
+      "expected": "REJECT_OWNER_PORT"
+    },
+    {
+      "id": "N03",
+      "path": "consumerAsset",
+      "value": "D17",
+      "expected": "REJECT_CONSUMER_EDGE"
+    },
+    {
+      "id": "N04",
+      "path": "consumerPort",
+      "value": "foo",
+      "expected": "REJECT_CONSUMER_PORT"
+    },
+    {
+      "id": "N05",
+      "path": "consumerTeam",
+      "value": "synthetic-domain04",
+      "expected": "REJECT_INDEPENDENCE"
+    },
+    {
+      "id": "N06",
+      "path": "exact.id",
+      "value": "",
+      "expected": "REJECT_EXACT"
+    },
+    {
+      "id": "N07",
+      "path": "exact.revision",
+      "value": "",
+      "expected": "REJECT_EXACT"
+    },
+    {
+      "id": "N08",
+      "path": "exact.hash",
+      "value": "sha256:bad",
+      "expected": "REJECT_EXACT"
+    },
+    {
+      "id": "N09",
+      "path": "exact.schema",
+      "value": "",
+      "expected": "REJECT_EXACT"
+    },
+    {
+      "id": "N10",
+      "path": "exact.scope",
+      "value": "",
+      "expected": "REJECT_EXACT"
+    },
+    {
+      "id": "N11",
+      "path": "exact.frame",
+      "value": "",
+      "expected": "REJECT_EXACT"
+    },
+    {
+      "id": "N12",
+      "path": "run.consumerCode",
+      "value": "",
+      "expected": "REJECT_RUN_ID"
+    },
+    {
+      "id": "N13",
+      "path": "run.providerCode",
+      "value": "",
+      "expected": "REJECT_RUN_ID"
+    },
+    {
+      "id": "N14",
+      "path": "run.environment",
+      "value": "",
+      "expected": "REJECT_RUN_ID"
+    },
+    {
+      "id": "N15",
+      "path": "run.evidence",
+      "value": "",
+      "expected": "REJECT_RUN_ID"
+    },
+    {
+      "id": "N16",
+      "path": "run.cases.readExact",
+      "value": "FAIL",
+      "expected": "REJECT_COVERAGE"
+    },
+    {
+      "id": "N17",
+      "path": "run.cases.revokedAcl",
+      "value": "FAIL",
+      "expected": "REJECT_COVERAGE"
+    },
+    {
+      "id": "N18",
+      "path": "run.cases.cancelLateAck",
+      "value": "FAIL",
+      "expected": "REJECT_COVERAGE"
+    },
+    {
+      "id": "N19",
+      "path": "run.cases.oldSchema",
+      "value": "FAIL",
+      "expected": "REJECT_COVERAGE"
+    },
+    {
+      "id": "N20",
+      "path": "run.cases.invalidation",
+      "value": "FAIL",
+      "expected": "REJECT_COVERAGE"
+    },
+    {
+      "id": "N21",
+      "path": "run.cases.rollback",
+      "value": "FAIL",
+      "expected": "REJECT_COVERAGE"
+    },
+    {
+      "id": "N22",
+      "path": "run.cases.ncUnknown",
+      "value": "FAIL",
+      "expected": "REJECT_COVERAGE"
+    },
+    {
+      "id": "N23",
+      "path": "event.specversion",
+      "value": "0.3",
+      "expected": "REJECT_EVENT_ID"
+    },
+    {
+      "id": "N24",
+      "path": "event.id",
+      "value": "",
+      "expected": "REJECT_EVENT_ID"
+    },
+    {
+      "id": "N25",
+      "path": "event.source",
+      "value": "",
+      "expected": "REJECT_EVENT_ID"
+    },
+    {
+      "id": "N26",
+      "path": "event.collision",
+      "value": true,
+      "expected": "REJECT_EVENT_ID"
+    },
+    {
+      "id": "N27",
+      "path": "claim",
+      "value": "SIGNED",
+      "expected": "REJECT_FALSE_PASS"
+    },
+    {
+      "id": "N28",
+      "path": "product",
+      "value": "PASS",
+      "expected": "REJECT_FALSE_PASS"
+    },
+    {
+      "id": "N29",
+      "path": "run.mode",
+      "value": "REAL",
+      "expected": "REJECT_FAKE_REAL"
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "U01",
+      "patches": [
+        [
+          "run.mode",
+          "REAL"
+        ],
+        [
+          "run.isSynthetic",
+          false
+        ]
+      ],
+      "expected": "UNKNOWN_EXTERNAL_PROOF"
+    },
+    {
+      "id": "U02",
+      "patches": [
+        [
+          "run.mode",
+          "UNKNOWN"
+        ],
+        [
+          "run.isSynthetic",
+          false
+        ]
+      ],
+      "expected": "UNKNOWN_PROVENANCE"
+    },
+    {
+      "id": "U03",
+      "patches": [
+        [
+          "run.cases.ncUnknown",
+          "UNKNOWN"
+        ]
+      ],
+      "expected": "UNKNOWN_CASE"
+    },
+    {
+      "id": "U04",
+      "patches": [
+        [
+          "run.isSynthetic",
+          false
+        ]
+      ],
+      "expected": "UNKNOWN_PROVENANCE"
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "schemaVersion": "procet-b55-evidence-intake-v08",
+  "observedOn": "2026-10-31",
+  "baseHead": "6001ac498a4d7642a51ef3558f5bf1195bb88df6",
+  "assetBlob": "dad461aec34aefa773a9a22b07b6b742be60e052",
+  "ownerBlob": "17e5dba8e767e7a9ac8f6cb0fb07b2c5ee281c22",
+  "assetCount": 17,
+  "edgeCount": 44,
+  "formalSigned": 0,
+  "actualConsumerAccepted": 0,
+  "level": "CANDIDATE_SCHEMA_ONLY",
+  "slots": [
+    {
+      "assetId": "D01",
+      "name": "设计基线与制造目标",
+      "ownerDomain": "03",
+      "ownerPort": "03.DesignBaselinePort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "03.DesignBaselinePort.readExact",
+      "cli": "03.DesignBaselinePort.readExact",
+      "agent": "03.DesignBaselinePort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D02",
+          "port": "03.ManufacturingFeaturePort"
+        },
+        {
+          "assetId": "D04",
+          "port": "04.ProcessSetupPort"
+        },
+        {
+          "assetId": "D05",
+          "port": "05.ProcessPlanPort"
+        },
+        {
+          "assetId": "D06",
+          "port": "06.SolverRunPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D02",
+      "name": "制造特征与加工要求",
+      "ownerDomain": "03",
+      "ownerPort": "03.ManufacturingFeaturePort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "03.ManufacturingFeaturePort.readExact",
+      "cli": "03.ManufacturingFeaturePort.readExact",
+      "agent": "03.ManufacturingFeaturePort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D05",
+          "port": "05.ProcessPlanPort"
+        },
+        {
+          "assetId": "D06",
+          "port": "06.SolverRunPort"
+        },
+        {
+          "assetId": "D08",
+          "port": "05.FrozenPlanPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D03",
+      "name": "制造资源能力档案",
+      "ownerDomain": "02",
+      "ownerPort": "02.ManufacturingResourcePort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "02.ManufacturingResourcePort.readExact",
+      "cli": "02.ManufacturingResourcePort.readExact",
+      "agent": "02.ManufacturingResourcePort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D04",
+          "port": "04.ProcessSetupPort"
+        },
+        {
+          "assetId": "D06",
+          "port": "06.SolverRunPort"
+        },
+        {
+          "assetId": "D09",
+          "port": "07.NeutralCLPort"
+        },
+        {
+          "assetId": "D10",
+          "port": "04.MachineExecutionBindingPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D04",
+      "name": "工艺 Setup 与毛坯",
+      "ownerDomain": "04",
+      "ownerPort": "04.ProcessSetupPort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "04.ProcessSetupPort.readExact",
+      "cli": "04.ProcessSetupPort.readExact",
+      "agent": "04.ProcessSetupPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D05",
+          "port": "05.ProcessPlanPort"
+        },
+        {
+          "assetId": "D06",
+          "port": "06.SolverRunPort"
+        },
+        {
+          "assetId": "D07",
+          "port": "06.OrderedMaterialStatePort"
+        },
+        {
+          "assetId": "D09",
+          "port": "07.NeutralCLPort"
+        },
+        {
+          "assetId": "D10",
+          "port": "04.MachineExecutionBindingPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D05",
+      "name": "工艺规划与人工决策",
+      "ownerDomain": "05",
+      "ownerPort": "05.ProcessPlanPort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "05.ProcessPlanPort.readExact",
+      "cli": "05.ProcessPlanPort.readExact",
+      "agent": "05.ProcessPlanPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D06",
+          "port": "06.SolverRunPort"
+        },
+        {
+          "assetId": "D08",
+          "port": "05.FrozenPlanPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D06",
+      "name": "求解候选与搜索结果",
+      "ownerDomain": "06",
+      "ownerPort": "06.SolverRunPort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "06.SolverRunPort.readExact",
+      "cli": "06.SolverRunPort.readExact",
+      "agent": "06.SolverRunPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D05",
+          "port": "05.ProcessPlanPort"
+        },
+        {
+          "assetId": "D07",
+          "port": "06.OrderedMaterialStatePort"
+        },
+        {
+          "assetId": "D08",
+          "port": "05.FrozenPlanPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D07",
+      "name": "有序材料状态与局部几何",
+      "ownerDomain": "06",
+      "ownerPort": "06.OrderedMaterialStatePort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "06.OrderedMaterialStatePort.readExact",
+      "cli": "06.OrderedMaterialStatePort.readExact",
+      "agent": "06.OrderedMaterialStatePort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D05",
+          "port": "05.ProcessPlanPort"
+        },
+        {
+          "assetId": "D08",
+          "port": "05.FrozenPlanPort"
+        },
+        {
+          "assetId": "D09",
+          "port": "07.NeutralCLPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D08",
+      "name": "工艺确认与冻结快照",
+      "ownerDomain": "05",
+      "ownerPort": "05.FrozenPlanPort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "05.FrozenPlanPort.readExact",
+      "cli": "05.FrozenPlanPort.readExact",
+      "agent": "05.FrozenPlanPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D09",
+          "port": "07.NeutralCLPort"
+        },
+        {
+          "assetId": "D16",
+          "port": "10.ProgramReleasePort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D09",
+      "name": "中立刀路 CL",
+      "ownerDomain": "07",
+      "ownerPort": "07.NeutralCLPort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "07.NeutralCLPort.readExact",
+      "cli": "07.NeutralCLPort.readExact",
+      "agent": "07.NeutralCLPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D11",
+          "port": "09.CLPrecheckPort"
+        },
+        {
+          "assetId": "D12",
+          "port": "08.NCProgramPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D10",
+      "name": "机床执行配置",
+      "ownerDomain": "04",
+      "ownerPort": "04.MachineExecutionBindingPort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "04.MachineExecutionBindingPort.readExact",
+      "cli": "04.MachineExecutionBindingPort.readExact",
+      "agent": "04.MachineExecutionBindingPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D11",
+          "port": "09.CLPrecheckPort"
+        },
+        {
+          "assetId": "D12",
+          "port": "08.NCProgramPort"
+        },
+        {
+          "assetId": "D13",
+          "port": "08.ControllerSemanticsPort"
+        },
+        {
+          "assetId": "D14",
+          "port": "09.AxisTimelinePort"
+        },
+        {
+          "assetId": "D15",
+          "port": "09.NCVerificationPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D11",
+      "name": "CL 级运动预验证",
+      "ownerDomain": "09",
+      "ownerPort": "09.CLPrecheckPort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "09.CLPrecheckPort.readExact",
+      "cli": "09.CLPrecheckPort.readExact",
+      "agent": "09.CLPrecheckPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D16",
+          "port": "10.ProgramReleasePort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D12",
+      "name": "NC 程序与后处理记录",
+      "ownerDomain": "08",
+      "ownerPort": "08.NCProgramPort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "08.NCProgramPort.readExact",
+      "cli": "08.NCProgramPort.readExact",
+      "agent": "08.NCProgramPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D13",
+          "port": "08.ControllerSemanticsPort"
+        },
+        {
+          "assetId": "D15",
+          "port": "09.NCVerificationPort"
+        },
+        {
+          "assetId": "D16",
+          "port": "10.ProgramReleasePort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D13",
+      "name": "NC 控制器执行语义",
+      "ownerDomain": "08",
+      "ownerPort": "08.ControllerSemanticsPort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "08.ControllerSemanticsPort.readExact",
+      "cli": "08.ControllerSemanticsPort.readExact",
+      "agent": "08.ControllerSemanticsPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D14",
+          "port": "09.AxisTimelinePort"
+        },
+        {
+          "assetId": "D15",
+          "port": "09.NCVerificationPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D14",
+      "name": "机床轴运动时序",
+      "ownerDomain": "09",
+      "ownerPort": "09.AxisTimelinePort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "09.AxisTimelinePort.readExact",
+      "cli": "09.AxisTimelinePort.readExact",
+      "agent": "09.AxisTimelinePort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D15",
+          "port": "09.NCVerificationPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D15",
+      "name": "NC 程序级仿真与验证记录",
+      "ownerDomain": "09",
+      "ownerPort": "09.NCVerificationPort",
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "gui": "09.NCVerificationPort.readExact",
+      "cli": "09.NCVerificationPort.readExact",
+      "agent": "09.NCVerificationPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D16",
+          "port": "10.ProgramReleasePort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D16",
+      "name": "程序发布与审批包",
+      "ownerDomain": "10",
+      "ownerPort": "10.ProgramReleasePort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "10.ProgramReleasePort.readExact",
+      "cli": "10.ProgramReleasePort.readExact",
+      "agent": "10.ProgramReleasePort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D17",
+          "port": "10.ShopfloorObservationPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    },
+    {
+      "assetId": "D17",
+      "name": "现场执行与检测反馈",
+      "ownerDomain": "10",
+      "ownerPort": "10.ShopfloorObservationPort",
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "gui": "10.ShopfloorObservationPort.readExact",
+      "cli": "10.ShopfloorObservationPort.readExact",
+      "agent": "10.ShopfloorObservationPort.readExact",
+      "consumerEdges": [
+        {
+          "assetId": "D05",
+          "port": "05.ProcessPlanPort"
+        },
+        {
+          "assetId": "D06",
+          "port": "06.SolverRunPort"
+        }
+      ],
+      "mustTest": [
+        "readExact",
+        "revokedAcl",
+        "cancelLateAck",
+        "oldSchema",
+        "invalidation",
+        "rollback",
+        "ncUnknown"
+      ],
+      "ownerSignoff": "PENDING_HUMAN",
+      "consumerSignoff": "PENDING_INDEPENDENT_CONSUMER",
+      "actualEvidence": "NOT_SUBMITTED"
+    }
+  ],
+  "syntheticExample": {
+    "assetId": "D04",
+    "ownerPort": "04.ProcessSetupPort",
+    "consumerAsset": "D05",
+    "consumerPort": "05.ProcessPlanPort",
+    "ownerTeam": "synthetic-domain04",
+    "consumerTeam": "synthetic-domain05",
+    "exact": {
+      "id": "example-setup",
+      "revision": "rev7",
+      "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "schema": "setup-v1",
+      "scope": "synthetic-project",
+      "frame": "Part@rev7"
+    },
+    "run": {
+      "mode": "SYNTHETIC",
+      "isSynthetic": true,
+      "consumerCode": "example:consumer-v1",
+      "providerCode": "example:provider-v1",
+      "environment": "V8-mock",
+      "evidence": "urn:procet:b55:fixture",
+      "cases": {
+        "readExact": "PASS",
+        "revokedAcl": "PASS",
+        "cancelLateAck": "PASS",
+        "oldSchema": "PASS",
+        "invalidation": "PASS",
+        "rollback": "PASS",
+        "ncUnknown": "PASS"
+      },
+      "cancelled": false,
+      "lateAckAccepted": false
+    },
+    "event": {
+      "specversion": "1.0",
+      "source": "urn:procet:b55:fixture",
+      "id": "B55-P01",
+      "type": "procet.proof.fixture",
+      "collision": false
+    },
+    "claim": "NOT_PROMOTED",
+    "product": "NOT_RUN"
+  }
+}
