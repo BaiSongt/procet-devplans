@@ -1,3 +1,6 @@
+## 2026-10-30｜B45 R-FREEZE-001 三方合并、DAG和冻结闭包补证
+[Git官方合并/merge-base、RFC9110/W3C正文及NIST摘要](../docs/capabilities/CAP-05-06/FREEZE-MERGE-B45-2026-10-30.md) → [来源](sources/CAP-05-06-freeze-merge-b45.json) → [追踪](traces/CAP-05-06-freeze-merge-b45-v08.json) → [33项规划正反未知](../docs/capabilities/CAP-05-06/freeze-merge-b45-fixtures-v08.json)。真实Node/Owner/NC及独立消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B44中立CL姿态与机器角的语义证据
 [Autodesk/OCCT/LinuxCNC官方正文定点阅读、NIST仅摘要与原CAP](../docs/capabilities/CAP-07-07/CL-POST-SEMANTICS-B44-2026-10-30.md) → [来源](sources/CAP-07-07-cl-post-b44.json) → [追踪](traces/CAP-07-07-cl-post-b44-v08.json) → [合成](../docs/capabilities/CAP-07-07/cl-post-b44-fixtures-v08.json)。真实消费者NOT_RUN，L3待审。
 

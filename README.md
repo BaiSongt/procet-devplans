@@ -1,3 +1,6 @@
+## 2026-10-30｜B45 CAP-05-06三方DAG与冻结冲突门禁
+[研究](docs/capabilities/CAP-05-06/FREEZE-MERGE-B45-2026-10-30.md) → [6来源](research/sources/CAP-05-06-freeze-merge-b45.json) → [10规则/原W2-02/03/05](research/traces/CAP-05-06-freeze-merge-b45-v08.json) → [2正27反4 UNKNOWN](docs/capabilities/CAP-05-06/freeze-merge-b45-fixtures-v08.json) → [只读工具](tools/check_cap0506_freeze_merge_b45_v08.cjs)。同函数33/33规划合成PASS，独立Node/产品/Owner/消费者NOT_RUN；151 Registry/1207登记，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-30｜B44 CAP-07-07中立刀轴与Post机器角隔离
 [专项研究](docs/capabilities/CAP-07-07/CL-POST-SEMANTICS-B44-2026-10-30.md) → [6来源](research/sources/CAP-07-07-cl-post-b44.json) → [8规则及F1-03/E3-01/U4-04](research/traces/CAP-07-07-cl-post-b44-v08.json) → [1正44反4未知](docs/capabilities/CAP-07-07/cl-post-b44-fixtures-v08.json) → [Node只读入口](tools/check_cap0707_cl_post_b44_v08.cjs)。同判定函数49/49合成规划通过；真实Post/NC/B5及17消费者NOT_RUN。150 Registry/1201登记，Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "procet-b45-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-05-06",
+  "sourcesPath": "research/sources/CAP-05-06-freeze-merge-b45.json",
+  "fixturePath": "docs/capabilities/CAP-05-06/freeze-merge-b45-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0506_freeze_merge_b45_v08.cjs",
+  "rules": [
+    {
+      "id": "B45-R1",
+      "title": "精确来源/Frame/作用域",
+      "sourceIds": [
+        "B45-S6",
+        "B45-S3"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "exact.scope",
+        "exact.frameHash",
+        "exact.sourceHash",
+        "commit.scope"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N01",
+        "N17"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R2",
+      "title": "基线须为双分支已证实共同祖先",
+      "sourceIds": [
+        "B45-S2",
+        "B45-S6"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "revisions",
+        "baseRef",
+        "currentRef",
+        "proposedRef"
+      ],
+      "assetIds": [
+        "D05"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N02"
+      ],
+      "unknownIds": [
+        "U02"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R3",
+      "title": "稳定节点三方重叠不静默覆盖",
+      "sourceIds": [
+        "B45-S1",
+        "B45-S6"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "baseNodes",
+        "currentNodes",
+        "proposedNodes"
+      ],
+      "assetIds": [
+        "D05",
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N03"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R4",
+      "title": "合成依赖DAG重新判环与悬空边",
+      "sourceIds": [
+        "B45-S1",
+        "B45-S6"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "baseEdges",
+        "currentEdges",
+        "proposedEdges"
+      ],
+      "assetIds": [
+        "D05",
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N05",
+        "N06"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R5",
+      "title": "冻结向前依赖闭包不可修改",
+      "sourceIds": [
+        "B45-S6"
+      ],
+      "origin": "INTERNAL_PROCET",
+      "fields": [
+        "freeze.targets",
+        "proposedNodes",
+        "proposedEdges"
+      ],
+      "assetIds": [
+        "D05",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N04",
+        "N07"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R6",
+      "title": "D08历史只追加且D05 Owner独立",
+      "sourceIds": [
+        "B45-S4",
+        "B45-S6"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "freeze.owner",
+        "freeze.d08Before",
+        "freeze.d08After",
+        "freeze.historyRetained"
+      ],
+      "assetIds": [
+        "D05",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N08",
+        "N09",
+        "N10"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R7",
+      "title": "CAS/ACL/scopeEpoch/取消代次/源Hash提交重验",
+      "sourceIds": [
+        "B45-S3",
+        "B45-S6"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "commit.expected",
+        "commit.actual",
+        "commit.acl",
+        "commit.cancelled",
+        "commit.generation",
+        "commit.scopeEpoch",
+        "commit.observedSourceHash"
+      ],
+      "assetIds": [
+        "D05"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N11",
+        "N12",
+        "N13",
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "unknownIds": [
+        "U03"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R8",
+      "title": "D13未知与下游失效隔离",
+      "sourceIds": [
+        "B45-S4",
+        "B45-S6"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "downstream.invalidationsComplete",
+        "downstream.d13",
+        "downstream.d16",
+        "downstream.clPreviewQualified",
+        "downstream.writesFrozen"
+      ],
+      "assetIds": [
+        "D07",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N18",
+        "N19",
+        "N20",
+        "N21"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R9",
+      "title": "GUI/CLI/Agent同Port和单Babylon左容器",
+      "sourceIds": [
+        "B45-S6"
+      ],
+      "origin": "INTERNAL_PROCET",
+      "fields": [
+        "entry.port",
+        "entry.singleBabylon",
+        "entry.taskPanel",
+        "entry.previewWrites",
+        "entry.agentDirectWrites"
+      ],
+      "assetIds": [
+        "D05"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N22",
+        "N23",
+        "N24",
+        "N25"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B45-R10",
+      "title": "旧数据缺字段UNKNOWN与只追加回退",
+      "sourceIds": [
+        "B45-S4",
+        "B45-S5",
+        "B45-S6"
+      ],
+      "origin": "PUBLIC_REFERENCE_PLUS_INTERNAL_DESIGN",
+      "fields": [
+        "migration.adapterKnown",
+        "migration.missingPolicy",
+        "migration.rollbackAppendOnly"
+      ],
+      "assetIds": [
+        "D05",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N26",
+        "N27"
+      ],
+      "unknownIds": [
+        "U04"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}
