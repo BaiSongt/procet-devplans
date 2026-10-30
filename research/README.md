@@ -1,3 +1,6 @@
+## 2026-10-31｜B51 R-FRAMEGRAPH-FK-001双分支位姿与机器校准分级
+[Modern Robotics/OCCT/LinuxCNC/NIST阅读范围](../docs/capabilities/CAP-09-02/DUAL-BRANCH-FK-B51-2026-10-31.md) → [6来源](sources/CAP-09-02-dual-branch-b51.json) → [8规则](traces/CAP-09-02-dual-branch-b51-v08.json) → [31正反未知合成](../docs/capabilities/CAP-09-02/dual-branch-b51-fixtures-v08.json)。已读OCCT/LinuxCNC具体方法，Modern Robotics公开课程章目录，NIST两份仅摘要；真实B5、Node进程与消费者NOT_RUN。
+
 ## 2026-10-31｜B50 CAP-01-07 三维尺寸编辑：测量/PMI/驱动参数分离
 [专项研究](../docs/capabilities/CAP-01-07/DIMENSION-EDIT-B50-2026-10-31.md) → [9来源](sources/CAP-01-07-dimension-edit-b50.json) → [10规则/字段与原编号工作包](traces/CAP-01-07-dimension-edit-b50-v08.json) → [3正48反5 UNKNOWN合成](../docs/capabilities/CAP-01-07/dimension-edit-b50-fixtures-v08.json) → [只读Node工具](../tools/check_cap0107_dimension_edit_b50_v08.cjs) → [核验等级](../tracking/cap0107-dimension-edit-b50-verification-2026-10-31.json)。OCCT OCAF再生与TDataStd_Real维度废弃问题已补证；V8 56/56同函数合成，不等于真实OCCT/Babylon/GUI/Owner验证，独立Node NOT_RUN。正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

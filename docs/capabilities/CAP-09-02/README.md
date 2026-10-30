@@ -1,5 +1,8 @@
 # CAP-09-02｜统一坐标与运动正解（V0.8原编号，L3待审）
 
+**B51专项补证（2026-10-31）：** [工具/工件双分支FK、双驱Joint与非交换Golden](DUAL-BRANCH-FK-B51-2026-10-31.md)；[8规则](../../../research/traces/CAP-09-02-dual-branch-b51-v08.json)、[31项合成样例](dual-branch-b51-fixtures-v08.json)。独立Node/OEM/OCCT/产品均NOT_RUN，L3待审，规划PASS≠产品PASS。
+
+
 **原目标**：基于FrameGraph求主轴、刀具、工件位姿；原工作包 F1-02、E3-04、E3-05、U4-04。11域88 CAP、36原包、17资产与L1/L2保持原样。
 
 ## 职责和数学校核

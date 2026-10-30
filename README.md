@@ -1,3 +1,6 @@
+## 2026-10-31｜B51 CAP-09-02 双分支机床正解、双驱Joint与相对TCP Golden
+[专项研究](docs/capabilities/CAP-09-02/DUAL-BRANCH-FK-B51-2026-10-31.md) → [6来源](research/sources/CAP-09-02-dual-branch-b51.json) → [8规则/原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-02-dual-branch-b51-v08.json) → [2正26反3 UNKNOWN](docs/capabilities/CAP-09-02/dual-branch-b51-fixtures-v08.json) → [只读Node入口](tools/check_cap0902_dual_branch_b51_v08.cjs) → [核验等级](tracking/cap0902-dual-branch-b51-verification-2026-10-31.json)。当前合成相对TCP=(-10,-100,0)mm，并发冻结/GUI/CLI/Agent规则联动均属设计合同；V8同函数31/31，独立Node、原生OCCT、B5/OEM、D14/D15和17消费者均NOT_RUN，Owner 0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B50 CAP-01-07 三维尺寸编辑：测量/PMI/驱动参数分离
 [专项研究](docs/capabilities/CAP-01-07/DIMENSION-EDIT-B50-2026-10-31.md) → [9来源](research/sources/CAP-01-07-dimension-edit-b50.json) → [10规则/字段与原编号工作包](research/traces/CAP-01-07-dimension-edit-b50-v08.json) → [3正48反5 UNKNOWN合成](docs/capabilities/CAP-01-07/dimension-edit-b50-fixtures-v08.json) → [只读Node工具](tools/check_cap0107_dimension_edit_b50_v08.cjs) → [核验等级](tracking/cap0107-dimension-edit-b50-verification-2026-10-31.json)。OCCT OCAF再生与TDataStd_Real维度废弃问题已补证；V8 56/56同函数合成，不等于真实OCCT/Babylon/GUI/Owner验证，独立Node NOT_RUN。正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

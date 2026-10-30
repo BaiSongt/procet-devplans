@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "procet-b51-trace-v1",
+  "date": "2026-10-31",
+  "capability": "CAP-09-02",
+  "originalTrace": "research/traces/CAP-09-02.json",
+  "workPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "sourceRegistry": "research/sources/CAP-09-02-dual-branch-b51.json",
+  "specification": "docs/capabilities/CAP-09-02/DUAL-BRANCH-FK-B51-2026-10-31.md",
+  "fixture": "docs/capabilities/CAP-09-02/dual-branch-b51-fixtures-v08.json",
+  "validator": "tools/check_cap0902_dual_branch_b51_v08.cjs",
+  "assetOwner": "D03=02制造资源；D04/D10=04装夹坐标系不同类型；D14/D15=09独立只读消费",
+  "rules": [
+    {
+      "id": "B51-R01",
+      "title": "Owner exact revision/hash/Frame及D04/D10写责任隔离",
+      "sourceIds": [
+        "B51-S06"
+      ],
+      "fields": [
+        "refs.d03.contentHash",
+        "refs.d04.contentHash",
+        "refs.d10.owner",
+        "refs.scopeEpoch"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N23"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B51-R02",
+      "title": "工具与工件双分支各有唯一父链且不跨接",
+      "sourceIds": [
+        "B51-S01",
+        "B51-S02",
+        "B51-S06"
+      ],
+      "fields": [
+        "graph.tool.1.parent",
+        "graph.work.0.parent",
+        "gantry.hasPhysicalSeparation"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N03",
+        "N04",
+        "N26"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B51-R03",
+      "title": "父系旋转影响子系偏置；使用非交换合成向量固定Golden",
+      "sourceIds": [
+        "B51-S01",
+        "B51-S02"
+      ],
+      "fields": [
+        "graph.tool.0.yawDeg",
+        "graph.work.0.yawDeg",
+        "graph.tool.1.translation",
+        "golden.relativeTcpInWork"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N05",
+        "N06",
+        "N07"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B51-R04",
+      "title": "右手列向量、单位及SE3纯刚体输入，不允许OCCT隐式容错",
+      "sourceIds": [
+        "B51-S02",
+        "B51-S06"
+      ],
+      "fields": [
+        "math.columnConvention",
+        "math.rightHanded",
+        "math.unit",
+        "math.scale"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N08",
+        "N09",
+        "N10",
+        "N22"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B51-R05",
+      "title": "同轴字母多物理Joint与回零不可合并，未确证则UNKNOWN",
+      "sourceIds": [
+        "B51-S03",
+        "B51-S06"
+      ],
+      "fields": [
+        "gantry.axisLetters",
+        "gantry.jointIds",
+        "gantry.position",
+        "gantry.homing"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N11",
+        "N12",
+        "N13"
+      ],
+      "unknownIds": [
+        "U02"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B51-R06",
+      "title": "Golden/枢轴/安装及实机标定资格分层，模拟不等于实际",
+      "sourceIds": [
+        "B51-S04",
+        "B51-S05",
+        "B51-S06"
+      ],
+      "fields": [
+        "golden.relativeTcpInWork",
+        "evidence.realMachineCalibration",
+        "evidence.pivotKnown",
+        "evidence.toolMountKnown"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N14",
+        "N21"
+      ],
+      "unknownIds": [
+        "U01",
+        "U03"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B51-R07",
+      "title": "中立CL动画、D04/D10、D13-D16最终NC解释分开",
+      "sourceIds": [
+        "B51-S03",
+        "B51-S06"
+      ],
+      "fields": [
+        "execution.d13",
+        "execution.d15",
+        "execution.finalNc",
+        "execution.d10"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N15",
+        "N25"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B51-R08",
+      "title": "同域GUI/CLI/Agent端口及单Babylon/左面板、CAS/撤权/取消、冻结回退",
+      "sourceIds": [
+        "B51-S06"
+      ],
+      "fields": [
+        "transaction.casFresh",
+        "transaction.permissionEpochCurrent",
+        "transaction.cancelled",
+        "transaction.freezePreserved",
+        "ui.singleScene",
+        "ui.allEntrypointsSharePort"
+      ],
+      "capabilityIds": [
+        "CAP-09-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N16",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N24"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}
