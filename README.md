@@ -1,3 +1,6 @@
+## 2026-10-30｜B33 CAP-09-07连续干涉区间证据与解析穿透反例
+[专项补证](docs/capabilities/CAP-09-07/CCD-INTERVAL-B33-2026-10-30.md) → [5来源](research/sources/CAP-09-07-ccd-interval-b33.json) → [8条规则与字段](research/traces/CAP-09-07-ccd-interval-b33-v08.json) → [2正30反1D合成](docs/capabilities/CAP-09-07/ccd-interval-b33-fixtures-v08.json) → [只读Node](tools/check_cap0907_ccd_interval_b33_v08.cjs)。固定FCL Git commit官方README与OCCT8.0.1/MoveIt/Rapier公开正文分级；V8同函数32/32 PASS，真实Node文件/FCL/OCCT/B5/D15消费者NOT_RUN。正式Owner0/17，L3待审，**规划PASS≠产品PASS**。
+
 ## 2026-10-30｜B32 CAP-02-03量规/伸出/安装TCP与D10控制器H跨域隔离
 [研究与阅读限制](docs/capabilities/CAP-02-03/GAUGE-OFFSET-B32-2026-10-30.md) → [6来源](research/sources/CAP-02-03-gauge-offset-b32.json) → [8规则](research/traces/CAP-02-03-gauge-offset-b32-v08.json) → [2正56反](docs/capabilities/CAP-02-03/gauge-offset-b32-fixtures-v08.json) → [只读Node](tools/check_cap0203_gauge_offset_b32_v08.cjs)。名义100mm不等于D10实测H、D13必须锁OEM版；V8同函数58/58合成，独立Node/OEM/实际消费者NOT_RUN，L3/Owner待审。累计138 Registry/1134登记。**规划PASS≠产品PASS。**
 

@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "procet-b33-ccd-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-09-07",
+  "sourceRegistry": "research/sources/CAP-09-07-ccd-interval-b33.json",
+  "fixture": "docs/capabilities/CAP-09-07/ccd-interval-b33-fixtures-v08.json",
+  "checker": "tools/check_cap0907_ccd_interval_b33_v08.cjs",
+  "originalPackages": [
+    "E3-04",
+    "E3-05",
+    "E3-06",
+    "U4-04"
+  ],
+  "rules": [
+    {
+      "id": "B33-R01",
+      "title": "最终NC/D13/D14/D10/D03逐项exact闭包、D04非执行绑定",
+      "sourceIds": [
+        "B33-S05"
+      ],
+      "fields": [
+        "source.finalNcHash",
+        "source.d13Hash",
+        "source.d14Hash",
+        "source.d03KinematicsHash",
+        "source.d10BindingHash",
+        "source.frame",
+        "source.d04NominalOnly",
+        "source.fromFinalNc"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05"
+      ],
+      "origin": "INTERNAL_DESIGN",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B33-R02",
+      "title": "碰撞几何对象、配对及Frame需与运动域同一修订",
+      "sourceIds": [
+        "B33-S01",
+        "B33-S02",
+        "B33-S05"
+      ],
+      "fields": [
+        "geometry.shapeAHash",
+        "geometry.shapeBHash",
+        "geometry.pair",
+        "geometry.frame"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N06",
+        "N07"
+      ],
+      "origin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATE",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B33-R03",
+      "title": "禁用跨域全局碰撞豁免；刀柄夹具不得视作切削许可",
+      "sourceIds": [
+        "B33-S02",
+        "B33-S05"
+      ],
+      "fields": [
+        "geometry.allowCollision",
+        "geometry.allowlistScope"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N08",
+        "N09"
+      ],
+      "origin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATE",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B33-R04",
+      "title": "时间区间全覆盖、非倒流、真实Joint路径与旋转插值必须可证",
+      "sourceIds": [
+        "B33-S01",
+        "B33-S02",
+        "B33-S04",
+        "B33-S05"
+      ],
+      "fields": [
+        "geometry.intervalsComplete",
+        "geometry.timeMonotonic",
+        "geometry.rotating",
+        "geometry.physicalJointPathProven",
+        "geometry.model"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N10",
+        "N11",
+        "N12",
+        "N13"
+      ],
+      "origin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATE",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B33-R05",
+      "title": "采样、OCCT静态距离及未经验证的CCD不得升格连续安全",
+      "sourceIds": [
+        "B33-S01",
+        "B33-S03",
+        "B33-S04"
+      ],
+      "fields": [
+        "geometry.solver",
+        "geometry.envelopeProven",
+        "geometry.onlyEndpointSampling",
+        "geometry.errorBound",
+        "geometry.margin"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N14",
+        "N15",
+        "N16",
+        "N17"
+      ],
+      "origin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATE",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B33-R06",
+      "title": "显式一维跨越时出具穿透见证，safe端点不自动PASS",
+      "sourceIds": [
+        "B33-S01",
+        "B33-S05"
+      ],
+      "fields": [
+        "geometry.startX",
+        "geometry.endX",
+        "geometry.fixedX",
+        "geometry.radiusSum"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N18"
+      ],
+      "origin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATE",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B33-R07",
+      "title": "GUI/CLI/Agent唯一09域Port；单Babylon、左TaskPanel、CAS和撤权重验",
+      "sourceIds": [
+        "B33-S05"
+      ],
+      "fields": [
+        "guard.owner",
+        "guard.channels",
+        "guard.oneBabylonScene",
+        "guard.taskPanel",
+        "guard.expectedRevision",
+        "guard.actualRevision",
+        "guard.aclEpoch",
+        "guard.aclObserved",
+        "guard.scopeEpoch",
+        "guard.scopeObserved",
+        "guard.cancelled",
+        "guard.ackGeneration"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N19",
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N24",
+        "N25",
+        "N26"
+      ],
+      "origin": "INTERNAL_DESIGN",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B33-R08",
+      "title": "冻结不覆写、版本化回退、独立D15消费者未运行不得冒充D16发布",
+      "sourceIds": [
+        "B33-S05"
+      ],
+      "fields": [
+        "guard.beforeFrozenHash",
+        "guard.afterFrozenHash",
+        "guard.rollback",
+        "guard.dependentInvalidation",
+        "guard.consumer",
+        "guard.d16"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-05",
+        "E3-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N27",
+        "N28",
+        "N29",
+        "N30"
+      ],
+      "origin": "INTERNAL_DESIGN",
+      "consumer": "NOT_RUN",
+      "approval": "L3_PENDING_HUMAN"
+    }
+  ],
+  "verificationLevel": "SYNTHETIC_ONLY",
+  "ownerSigned": "0/17",
+  "independentConsumers": "0/17"
+}

@@ -1,3 +1,6 @@
+## 2026-10-30｜B33 R-LIMIT-COLLISION-001 连续碰撞区间资格
+[固定FCL README与公开API、MoveIt、OCCT8.0.1、Rapier/内生规格](sources/CAP-09-07-ccd-interval-b33.json) → [8条可机检规则](traces/CAP-09-07-ccd-interval-b33-v08.json) → [2正30反/首碰t=0.25](../docs/capabilities/CAP-09-07/ccd-interval-b33-fixtures-v08.json)。区分端点/静态距离、真实旋转Joint和区间证据；V8同函数32/32，独立Node/FCL/OCCT/OEM/真实消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B32 R-TA-001 量规长、夹持、OEM刀补与双层绑定
 [ISO13399合法目录及LinuxCNC2.9/Haas/Sandvik公开正文分级](../docs/capabilities/CAP-02-03/GAUGE-OFFSET-B32-2026-10-30.md) → [6来源](sources/CAP-02-03-gauge-offset-b32.json) → [8规则字段/原包](traces/CAP-02-03-gauge-offset-b32-v08.json) → [2正56反](../docs/capabilities/CAP-02-03/gauge-offset-b32-fixtures-v08.json)。V8同函数合成58/58，独立Node/OEM实测/D10-D16消费者NOT_RUN，L3待审批。**规划PASS≠产品PASS。**
 
