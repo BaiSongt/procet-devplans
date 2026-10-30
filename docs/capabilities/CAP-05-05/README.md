@@ -1,3 +1,6 @@
+## B35｜求解候选多目标资格补证（2026-10-30）
+[补充研究](PARETO-ADOPTION-B35-2026-10-30.md) → [来源](../../../research/sources/CAP-05-05-pareto-adoption-b35.json) → [追踪](../../../research/traces/CAP-05-05-pareto-adoption-b35-v08.json) → [正反未知样例](pareto-adoption-b35-fixtures-v08.json) · [只读Node](../../../tools/check_cap0505_pareto_adoption_b35_v08.cjs)。仅合成，真实消费者/Owner/L3未完成。
+
 # CAP-05-05｜求解候选接管（V0.8原编号）
 > **规划候选；未获L3批准，D05/求解器/NC/机床/独立消费者测试均为NOT_RUN。** 固定11域88 CAP、36原包、17资产编号，业务契约待评审，不引入新的一级/二级能力。
 

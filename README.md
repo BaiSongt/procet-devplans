@@ -1,3 +1,6 @@
+## 2026-10-30｜B35 CAP-05-05候选Pareto与局部接管资格
+[专项研究](docs/capabilities/CAP-05-05/PARETO-ADOPTION-B35-2026-10-30.md) → [5来源](research/sources/CAP-05-05-pareto-adoption-b35.json) → [7规则](research/traces/CAP-05-05-pareto-adoption-b35-v08.json) → [2正3未知45反](docs/capabilities/CAP-05-05/pareto-adoption-b35-fixtures-v08.json) → [只读校验](tools/check_cap0505_pareto_adoption_b35_v08.cjs)。OR-Tools OPTIMAL受模型/gap限制，非支配判断必须锁定单位与约束；V8同函数50/50合成PASS，Node文件/产品/真实消费者NOT_RUN，Owner0/17、L3待人审。规划PASS≠产品PASS。
+
 ## 2026-10-30｜B34 CAP-07-04 五轴姿态与实际关节连续性边界
 [研究补证](docs/capabilities/CAP-07-04/ORIENTATION-IK-B34-2026-10-30.md) → [5来源](research/sources/CAP-07-04-orientation-ik-b34.json) → [8规则](research/traces/CAP-07-04-orientation-ik-b34-v08.json) → [2正1未知41反](docs/capabilities/CAP-07-04/orientation-ik-b34-fixtures-v08.json) → [校验工具](tools/check_cap0704_orientation_ik_b34_v08.cjs) → [执行等级](tracking/cap0704-orientation-ik-b34-verification-2026-10-30.json)。q/-q角差0°，+179°/-179°模角最短2°，均不证明D14真实Joint轨迹；V8同函数44/44规划合成，真实产品/独立Node/17消费者NOT_RUN，Owner0/17、L3待审。规划PASS≠产品PASS。
 

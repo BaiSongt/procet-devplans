@@ -1,3 +1,6 @@
+## 2026-10-30｜B35 R-SOLVER-ADOPT-001约束可比、非支配与来源冻结
+[来源/数学反例与阅读边界](../docs/capabilities/CAP-05-05/PARETO-ADOPTION-B35-2026-10-30.md) → [五份登记](sources/CAP-05-05-pareto-adoption-b35.json) → [7规则/字段/原包](traces/CAP-05-05-pareto-adoption-b35-v08.json) → [50合成用例](../docs/capabilities/CAP-05-05/pareto-adoption-b35-fixtures-v08.json)。NIST仅摘要，独立Node/实际Solver/消费者NOT_RUN，L3待审。
+
 ## 2026-10-30｜B34 R-CONTINUOUS-5AXIS-001 姿态双覆盖与Jacobian奇异门禁
 [来源读深与边界](../docs/capabilities/CAP-07-04/ORIENTATION-IK-B34-2026-10-30.md) → [五来源](sources/CAP-07-04-orientation-ik-b34.json) → [八规则](traces/CAP-07-04-orientation-ik-b34-v08.json) → [单字段验收](../docs/capabilities/CAP-07-04/orientation-ik-b34-fixtures-v08.json)。Modern Robotics只读官方章节简介、LinuxCNC2.9与OCCT8.0.1定点实读；合成与实机分离，L3待审。
 
