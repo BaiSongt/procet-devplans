@@ -1,3 +1,6 @@
+## 2026-10-31｜B67 R-AUX-MCODE-001 M62/M63运动同步、M64/M65即时及M66真实观测
+[专项研究及阅读分级](../docs/capabilities/CAP-08-04/AUX-IO-FENCES-B67-2026-10-31.md) → [8项来源](sources/CAP-08-04-io-fences-b67.json) → [8条规则/原E3-02/E3-03/U4-04](traces/CAP-08-04-io-fences-b67-v08.json) → [53个显式正反/UNKNOWN/STALE样例](../docs/capabilities/CAP-08-04/io-fences-b67-fixtures-v08.json) → [Node只读脚本](../tools/check_cap0804_io_fences_b67_v08.cjs)。LinuxCNC2.9公开§15—18/HAL实读；ISO6983-1与NIST仅目录摘要，正式Owner0/17，真实独立消费者/L3/NC/OEM NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B66 R-ROUTEEDIT-001 显式边来源、拓扑排序与传递约简
 [研究](../docs/capabilities/CAP-05-03/EXPLICIT-EDGES-B66-2026-10-31.md) → [9项分级来源](sources/CAP-05-03-explicit-edges-b66.json) → [8规则](traces/CAP-05-03-explicit-edges-b66-v08.json) → [56规划合成](../docs/capabilities/CAP-05-03/explicit-edges-b66-fixtures-v08.json)。NetworkX3.6/Python3.12/W3C PROV-O/RFC9110正文定点阅读，NIST1994只读摘要；真实NC及独立消费者NOT_RUN。**规划PASS≠产品PASS。**
 

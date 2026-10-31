@@ -32,3 +32,8 @@ GUI、CLI、Agent均调用同一08域Owner UseCase，不可各自实现M代码�
 - 机器追踪： [8项来源](../../../research/sources/CAP-08-04.json) → [技术推导](../../../research/topics/R-AUX-MCODE-001.md) → [10规则/字段/原包](../../../research/traces/CAP-08-04.json) → [30正反与不同字段变异＋8条语义序列](fixtures.json) → [Node规划校验器](../../../tools/check_cap0804_planning_2026_10_26.cjs)。[合成契约](contract.example.json)；[17资产候选Owner](asset-owner-candidates.json)；[GUI/3D](UI.md)；[独立消费者/迁移与回退](independent-consumer-handoff.md)。
 - 风险：LinuxCNC与Haas M6冷却行为差异不得掩盖；Haas详细M06/M08目前仅官方搜索摘要（直接访问失败），不能据此宣称已确认具体选件。公开仓不得提交客户机床真实参数、安装编码/刀库映射与私有NC。B5控制器实际规则、主轴定向、ATC/人工换刀、机床动作回执均`NOT_RUN`或`UNKNOWN`。
 - 规划与验收状态：仅原创新编规划，非历史原件恢复；L3及17 Owner签署`PENDING_HUMAN`。规划合成通过不等于独立Node文件、真实控制器、工厂机床或消费者测试通过。**规划PASS≠产品PASS**。
+
+
+## B67专项研究：运动同步I/O、输入等待及不可冒充的设备回执
+
+[研究与阅读分级](AUX-IO-FENCES-B67-2026-10-31.md) → [8项来源](../../../research/sources/CAP-08-04-io-fences-b67.json) → [8条规则/原编号包](../../../research/traces/CAP-08-04-io-fences-b67-v08.json) → [53项显式预期正反样例](io-fences-b67-fixtures-v08.json) → [只读Node校验器](../../../tools/check_cap0804_io_fences_b67_v08.cjs)。M62/63排队至下一运动，M64/65即时；M66超时/未接HAL为UNKNOWN，意图不等于设备真实完成；L3待审、实机NOT_RUN。**规划PASS≠产品PASS。**
