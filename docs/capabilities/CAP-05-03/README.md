@@ -1,3 +1,7 @@
+## 2026-10-31｜B66 显式前置边不能被传递约简覆盖
+
+[数学反例与来源层级](EXPLICIT-EDGES-B66-2026-10-31.md) → [9来源](../../../research/sources/CAP-05-03-explicit-edges-b66.json) → [8规则](../../../research/traces/CAP-05-03-explicit-edges-b66-v08.json) → [56规划合成](explicit-edges-b66-fixtures-v08.json)。Owner签署、L3、独立消费者均待审，规划PASS≠产品PASS。
+
 # CAP-05-03｜人工编辑与重排（V0.8原编号）
 > **新增规划，不是产品实现。L3与资产Owner会签PENDING；Rust/TS/OCCT/NC、Babylon与独立消费者NOT_RUN。** 11域、88 CAP、36原编号工作包及17资产不变。
 

@@ -1,3 +1,6 @@
+## 2026-10-31｜B66 CAP-05-03 显式人工工序前置边与只读约简
+[专项研究](docs/capabilities/CAP-05-03/EXPLICIT-EDGES-B66-2026-10-31.md) → [9来源](research/sources/CAP-05-03-explicit-edges-b66.json) → [8规则及W2-02/03/05](research/traces/CAP-05-03-explicit-edges-b66-v08.json) → [56规划合成](docs/capabilities/CAP-05-03/explicit-edges-b66-fixtures-v08.json) → [校验器](tools/check_cap0503_explicit_edges_b66_v08.cjs) → [执行级别](tracking/cap0503-explicit-edges-b66-verification-2026-10-31.json)。DAG可达性等价不保人工直接约束边来源；V8同judge规划合成通过，独立Node/真实D05/NC/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B65 CAP-10-05 MTConnect uint64游标/Agent代次/筛选稀疏流
 [研究与数学反例](docs/capabilities/CAP-10-05/MTCONNECT-U64-FILTER-B65-2026-10-31.md) → [6来源](research/sources/CAP-10-05-mtconnect-u64-b65.json) → [8规则及原E3-06/T5-03](research/traces/CAP-10-05-mtconnect-u64-b65-v08.json) → [74合成](docs/capabilities/CAP-10-05/mtconnect-u64-b65-fixtures-v08.json) → [Node只读验证器](tools/check_cap1005_mtconnect_u64_b65_v08.cjs) → [分级验收](tracking/cap1005-mtconnect-u64-b65-verification-2026-10-31.json)。2^53+1不能用JS Number，筛选后稀疏序列≠流GAP，heartbeat≠观测/NC验证。74/74同判定函数规划合成，独立Node/Agent/17消费者NOT_RUN、Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

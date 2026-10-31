@@ -1,3 +1,6 @@
+## 2026-10-31｜B66 R-ROUTEEDIT-001 显式边来源、拓扑排序与传递约简
+[研究](../docs/capabilities/CAP-05-03/EXPLICIT-EDGES-B66-2026-10-31.md) → [9项分级来源](sources/CAP-05-03-explicit-edges-b66.json) → [8规则](traces/CAP-05-03-explicit-edges-b66-v08.json) → [56规划合成](../docs/capabilities/CAP-05-03/explicit-edges-b66-fixtures-v08.json)。NetworkX3.6/Python3.12/W3C PROV-O/RFC9110正文定点阅读，NIST1994只读摘要；真实NC及独立消费者NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B65 R-MDC-OBSERVABILITY-001 MTConnect V2.5官方Agent/Streams uint64
 [官方Version2.5网页具体段落与适用限制](../docs/capabilities/CAP-10-05/MTCONNECT-U64-FILTER-B65-2026-10-31.md) → [6来源分级](sources/CAP-10-05-mtconnect-u64-b65.json) → [8规则/字段](traces/CAP-10-05-mtconnect-u64-b65-v08.json) → [74独立正反/过期/未知合成](../docs/capabilities/CAP-10-05/mtconnect-u64-b65-fixtures-v08.json)。规划同函数合成；独立Node/真实Agent/D17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
 
