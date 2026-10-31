@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "procet-b75-trace-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-04-02",
+  "sourcesPath": "research/sources/CAP-04-02-offset-evidence-b75.json",
+  "fixturePath": "docs/capabilities/CAP-04-02/offset-evidence-b75-fixtures-v08.json",
+  "checker": "tools/check_cap0402_offset_evidence_b75_v08.cjs",
+  "rules": [
+    {
+      "id": "B75-R1",
+      "title": "确切配准来源与测量证据层级，不用低残差冒充目标精度",
+      "fields": [
+        "sources.cadRev",
+        "sources.cadHash",
+        "sources.stockHash",
+        "sources.occurrence",
+        "sources.unit"
+      ],
+      "sourceIds": [
+        "B75-S04",
+        "B75-S05",
+        "B75-S06"
+      ],
+      "capabilityIds": [
+        "CAP-04-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "W2-05"
+      ],
+      "caseIds": [
+        "B75-001",
+        "B75-002",
+        "B75-003"
+      ],
+      "origin": "PUBLIC_ABSTRACT_PLUS_INTERNAL_QUALIFICATION",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B75-R2",
+      "title": "G10 L2 P/R不自动选G54；旋转后的G52/G92与先叠加不可交换",
+      "fields": [
+        "execution.g10P",
+        "execution.wcsSelected",
+        "execution.g10WritesButDoesNotSelect",
+        "execution.offsetAppliedAfterRotation",
+        "math.reported"
+      ],
+      "sourceIds": [
+        "B75-S01",
+        "B75-S03"
+      ],
+      "capabilityIds": [
+        "CAP-04-02",
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-03"
+      ],
+      "caseIds": [
+        "B75-004",
+        "B75-005",
+        "B75-006"
+      ],
+      "origin": "PUBLIC_MANUAL_WITH_INTERNAL_GATE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B75-R3",
+      "title": "G52/G92共寄存器、恢复持久性须有D10快照，双标签混合拒绝",
+      "fields": [
+        "execution.g52",
+        "execution.g92",
+        "execution.offsetRegistersKnown",
+        "execution.persistenceKnown"
+      ],
+      "sourceIds": [
+        "B75-S02"
+      ],
+      "capabilityIds": [
+        "CAP-04-02",
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "E3-03"
+      ],
+      "caseIds": [
+        "B75-007",
+        "B75-008",
+        "B75-009"
+      ],
+      "origin": "PUBLIC_MANUAL_WITH_INTERNAL_GATE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B75-R4",
+      "title": "D04名义Setup不得写G54，D10负责控制器执行绑定与证据",
+      "fields": [
+        "chain.d04WroteControllerOffset",
+        "chain.d10BindingOwner",
+        "execution.owner",
+        "execution.toolMeasureEvidence"
+      ],
+      "sourceIds": [
+        "B75-S05"
+      ],
+      "capabilityIds": [
+        "CAP-04-02",
+        "CAP-04-01"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "E3-04"
+      ],
+      "caseIds": [
+        "B75-010",
+        "B75-011",
+        "B75-012"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B75-R5",
+      "title": "D13精确方言/版本与G53非模态，D14/15/16不得由CL动画升格",
+      "fields": [
+        "execution.dialect",
+        "execution.version",
+        "execution.g53OnlyCurrentBlock",
+        "chain.d13",
+        "chain.d15",
+        "chain.d16"
+      ],
+      "sourceIds": [
+        "B75-S01",
+        "B75-S02",
+        "B75-S05"
+      ],
+      "capabilityIds": [
+        "CAP-04-02",
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "caseIds": [
+        "B75-013",
+        "B75-014",
+        "B75-015"
+      ],
+      "origin": "PUBLIC_MANUAL_WITH_INTERNAL_GATE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B75-R6",
+      "title": "D01/stock/D04/D10各自revision/hash/frame和实测凭证不能跨证据升格",
+      "fields": [
+        "sources.setupHash",
+        "execution.hash",
+        "gate.expectedExecRev",
+        "execution.toolMeasureEvidence"
+      ],
+      "sourceIds": [
+        "B75-S05",
+        "B75-S04"
+      ],
+      "capabilityIds": [
+        "CAP-04-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "F1-06"
+      ],
+      "caseIds": [
+        "B75-016",
+        "B75-017",
+        "B75-018"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B75-R7",
+      "title": "ACL/CAS/permissionEpoch/scopeEpoch取消晚回执零写入",
+      "fields": [
+        "gate.acl",
+        "gate.cas",
+        "gate.scopeEpoch",
+        "gate.receiptEpoch",
+        "gate.permissionEpoch",
+        "gate.receiptPermissionEpoch",
+        "gate.cancelled"
+      ],
+      "sourceIds": [
+        "B75-S05"
+      ],
+      "capabilityIds": [
+        "CAP-04-02"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "U4-03"
+      ],
+      "caseIds": [
+        "B75-019",
+        "B75-020",
+        "B75-021"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B75-R8",
+      "title": "GUI/CLI/Agent同领域、唯一Babylon和左TaskPanel、A/B冻结回退",
+      "fields": [
+        "ui.channels",
+        "ui.engines",
+        "ui.scenes",
+        "ui.canvases",
+        "ui.panel",
+        "migration.freezeUnchanged",
+        "migration.rollbackRef"
+      ],
+      "sourceIds": [
+        "B75-S05"
+      ],
+      "capabilityIds": [
+        "CAP-04-02"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "T5-01"
+      ],
+      "caseIds": [
+        "B75-022",
+        "B75-023",
+        "B75-024"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

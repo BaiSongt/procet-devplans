@@ -1,3 +1,6 @@
+## 2026-11-01｜B75 CAP-04-02 D04配准与D10机器WCS偏置证据分离
+[研究与后叠加反例](docs/capabilities/CAP-04-02/WCS-EVIDENCE-B75-2026-11-01.md) → [6来源](research/sources/CAP-04-02-offset-evidence-b75.json) → [8规则/字段](research/traces/CAP-04-02-offset-evidence-b75-v08.json) → [24独立预期合成](docs/capabilities/CAP-04-02/offset-evidence-b75-fixtures-v08.json) → [Node只读工具](tools/check_cap0402_offset_evidence_b75_v08.cjs) → [分级验收](tracking/cap0402-offset-evidence-b75-verification-2026-11-01.json)。G10 L2 P1不会自动选择G54，G52/G92持久寄存器和旋转后偏移不能由D04名义Frame推测。V8同judge 24/24；独立Node/真实NC/OEM/Owner/消费者均未验，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B74 CAP-02-02车床刀尖半径与跨方言偏置
 [数学及来源](docs/capabilities/CAP-02-02/LATHE-NOSE-COMPENSATION-B74-2026-11-01.md) → [7项来源](research/sources/CAP-02-02-lathe-tnc-b74.json) → [8规则/字段/原包](research/traces/CAP-02-02-lathe-tnc-b74-v08.json) → [26项合成样例](docs/capabilities/CAP-02-02/lathe-tnc-b74-fixtures-v08.json) → [只读Node](tools/check_cap0202_lathe_tnc_b74_v08.cjs) → [验收等级](tracking/cap0202-lathe-tnc-b74-verification-2026-11-01.json)。LinuxCNC工具表D为直径，但G41 Dn为工具号，Haas Tnnxx为另一方言偏置号；同judge合成26/26，真实独立Node/NC/消费者NOT_RUN，Owner0/17且L3待审。**规划PASS≠产品PASS。**
 

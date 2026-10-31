@@ -1,3 +1,6 @@
+## 2026-11-01｜B75 R-STOCKREG-001 D04注册与D10现场WCS非交换证据
+[6项来源和访问深度](sources/CAP-04-02-offset-evidence-b75.json) → [8字段规则](traces/CAP-04-02-offset-evidence-b75-v08.json) → [24正反未知过期样例](../docs/capabilities/CAP-04-02/offset-evidence-b75-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-04-02/WCS-EVIDENCE-B75-2026-11-01.md)。LinuxCNC 2.9公开HTML实读、OCCT8.0.1 API文本实读、NIST 2016/2017仅摘要；真实D10/NC/Owner/独立消费者未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B74 R-CUT-001车刀刀尖半径、Q取向与跨控制器偏置证据
 [7项分级来源](sources/CAP-02-02-lathe-tnc-b74.json) → [8规则](traces/CAP-02-02-lathe-tnc-b74-v08.json) → [26合成](../docs/capabilities/CAP-02-02/lathe-tnc-b74-fixtures-v08.json) → [报告](../docs/capabilities/CAP-02-02/LATHE-NOSE-COMPENSATION-B74-2026-11-01.md)。LinuxCNC2.9/Haas公开HTML定点实读、ISO13399目录/摘要、Gao2015出版摘要；产品未验。**规划PASS≠产品PASS。**
 
