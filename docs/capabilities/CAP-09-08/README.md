@@ -1,3 +1,5 @@
+> **B70（2026-10-31）新增：** [Joint整圈旋转与Babylon端点姿态不可混同](ROTARY-WINDING-B70-2026-10-31.md) → [7来源](../../../research/sources/CAP-09-08-joint-winding-b70.json) → [8规则](../../../research/traces/CAP-09-08-joint-winding-b70-v08.json) → [55条规划合成](joint-winding-b70-fixtures-v08.json)。真实D15/D16及B5/OEM未验，L3待审。
+
 # CAP-09-08｜仿真播放与校验报告（L3待审）
 
 **原目标**：| CAP-09-08 | 仿真播放与校验报告 | 统一3D播放、事件证据、可追溯结论 | F1-02 / E3-04 / E3-05 / U4-04 | 基础边界与有限场景接入；完整能力需独立验证 |  

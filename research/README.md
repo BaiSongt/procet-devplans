@@ -1,3 +1,6 @@
+## 2026-10-31｜B70 R-SIM-PLAYBACK-EVIDENCE-001 Joint累积角与Quaternion呈现分离
+[公开阅读与数学](../docs/capabilities/CAP-09-08/ROTARY-WINDING-B70-2026-10-31.md) → [7来源](sources/CAP-09-08-joint-winding-b70.json) → [8字段规则](traces/CAP-09-08-joint-winding-b70-v08.json) → [55规划合成](../docs/capabilities/CAP-09-08/joint-winding-b70-fixtures-v08.json)。官方LinuxCNC2.9/Babylon/OCCT8.0.1/W3C章节实读；ISO841仅目录、NIST仅摘要，真实消费者与Owner未验。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B69 R-TMPL-APPLICABILITY-003 模板适用三值、量纲及Owner事务
 [研究边界](../docs/capabilities/CAP-05-04/APPLICABILITY-THREE-VALUED-B69-2026-10-31.md) → [6来源](sources/CAP-05-04-applicability-b69.json) → [8规则](traces/CAP-05-04-applicability-b69-v08.json) → [40合成](../docs/capabilities/CAP-05-04/applicability-b69-fixtures-v08.json)。JSON Schema 2020-12公开§6/§9及Core §10定点实读、NIST inch 1959精确定义、ISO14649-10仅公开摘要、W3C PROV-O公开指定章节；三值与CAS为Procet内生工程决议。合成不证明真实D05/NC/17消费者。**规划PASS≠产品PASS。**
 

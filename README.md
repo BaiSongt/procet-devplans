@@ -1,3 +1,6 @@
+## 2026-10-31｜B70 CAP-09-08 旋转Joint完整圈数与显示插值资格
+[数学反例及阅读分级](docs/capabilities/CAP-09-08/ROTARY-WINDING-B70-2026-10-31.md) → [7来源](research/sources/CAP-09-08-joint-winding-b70.json) → [8规则/原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-08-joint-winding-b70-v08.json) → [55合成正反/未知](docs/capabilities/CAP-09-08/joint-winding-b70-fixtures-v08.json) → [Node只读检查器](tools/check_cap0908_joint_winding_b70_v08.cjs) → [执行等级](tracking/cap0908-joint-winding-b70-verification-2026-10-31.json)。0°和360°同姿态不代表同一Joint运动，Babylon Slerp不能恢复累计圈数。V8同函数55/55合成；独立Node/实机/D15/D16/17消费者NOT_RUN、Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B69 CAP-05-04 工艺模板缺失事实三值适用性及英寸单位
 [来源与数学反例](docs/capabilities/CAP-05-04/APPLICABILITY-THREE-VALUED-B69-2026-10-31.md) → [6来源](research/sources/CAP-05-04-applicability-b69.json) → [8规则/原W2-02/03/05](research/traces/CAP-05-04-applicability-b69-v08.json) → [40项五态合成](docs/capabilities/CAP-05-04/applicability-b69-fixtures-v08.json) → [只读Node](tools/check_cap0504_applicability_b69_v08.cjs) → [等级](tracking/cap0504-applicability-b69-verification-2026-10-31.json)。1in=25.4mm为NIST官方定义，JSON Schema default不是制造事实；UNKNOWN不被视为PASS。V8同函数规划合成40/40，真实Node/D05/17消费者/NC均NOT_RUN；正式Owner0/17，L3待审、历史原件与全仓GFM AST未闭。**规划PASS≠产品PASS。**
 
