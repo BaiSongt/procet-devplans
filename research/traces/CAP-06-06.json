@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-06",
+  "researchTopic": "R-MULTIPATH-BUDGET-001",
+  "sourceRegistry": "research/sources/CAP-06-06.json",
+  "specification": "docs/capabilities/CAP-06-06/README.md",
+  "ui": "docs/capabilities/CAP-06-06/UI.md",
+  "fixtures": "docs/capabilities/CAP-06-06/fixtures.json",
+  "validator": "tools/check_cap0606_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0606-R01",
+      "capabilityId": "CAP-06-06",
+      "summary": "工程/Setup和输入状态均须持有Owner签发的exact修订、哈希和Frame",
+      "fields": [
+        "exact.project",
+        "exact.setup",
+        "exact.revision",
+        "exact.hash",
+        "exact.frameHash",
+        "exact.scope",
+        "exact.owner"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S05",
+        "SRC-C0606-S06",
+        "SRC-C0606-S08"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-06-T01",
+      "negativeTestId": "CAP-06-06-T02",
+      "negativeReason": "REJECT_EXACT_SCOPE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R02",
+      "capabilityId": "CAP-06-06",
+      "summary": "Beam/Boolean次数/展开数/墙钟/内存/Worker并发均设置有限正整数硬预算",
+      "fields": [
+        "budget.beamWidth",
+        "budget.maxBooleanCalls",
+        "budget.maxExpansions",
+        "budget.maxWallMs",
+        "budget.maxBytes",
+        "budget.workers"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S01",
+        "SRC-C0606-S02",
+        "SRC-C0606-S03"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-06-T03",
+      "negativeTestId": "CAP-06-06-T04",
+      "negativeReason": "REJECT_UNBOUNDED_BUDGET",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R03",
+      "capabilityId": "CAP-06-06",
+      "summary": "并发Worker预算令牌必须原子预留且不得重复计费或超额",
+      "fields": [
+        "ledger.limit",
+        "ledger.used",
+        "ledger.inflight[].cost",
+        "ledger.inflight[].token",
+        "ledger.atomicReservation"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S01",
+        "SRC-C0606-S03",
+        "SRC-C0606-S04"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-06-T05",
+      "negativeTestId": "CAP-06-06-T06",
+      "negativeReason": "REJECT_BUDGET_LEDGER",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R04",
+      "capabilityId": "CAP-06-06",
+      "summary": "Frontier有稳定键、seed、快照hash与并发回执顺序无关的归并规则；不宣称数值内核必然可重现",
+      "fields": [
+        "frontier.seed",
+        "frontier.tiePolicy",
+        "frontier.items[].key",
+        "frontier.items[].uid",
+        "frontier.snapshotHash",
+        "frontier.workerOrderIndependent"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S01",
+        "SRC-C0606-S02",
+        "SRC-C0606-S04",
+        "SRC-C0606-S06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-06-T07",
+      "negativeTestId": "CAP-06-06-T08",
+      "negativeReason": "REJECT_UNSTABLE_FRONTIER",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R05",
+      "capabilityId": "CAP-06-06",
+      "summary": "仅exact Stock、保护区、任务、Frame、容差与作用域一致且成本不劣时允许路径支配",
+      "fields": [
+        "dominance.a.stockBytesHash",
+        "dominance.b.stockBytesHash",
+        "dominance.a.protectionHash",
+        "dominance.a.remainingHash",
+        "dominance.a.frameHash",
+        "dominance.a.toleranceHash",
+        "dominance.a.cost",
+        "dominance.b.cost"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S01",
+        "SRC-C0606-S03",
+        "SRC-C0606-S05"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-06-T09",
+      "negativeTestId": "CAP-06-06-T10",
+      "negativeReason": "REJECT_UNSAFE_DOMINANCE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R06",
+      "capabilityId": "CAP-06-06",
+      "summary": "A/B多分支共享父D07但不修改父状态或D08冻结，分支状态hash不同",
+      "fields": [
+        "fork.parentHash",
+        "fork.parentPreserved",
+        "fork.d08Before",
+        "fork.d08After",
+        "fork.children[].parentHash",
+        "fork.children[].hash"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S05",
+        "SRC-C0606-S07"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-06-T11",
+      "negativeTestId": "CAP-06-06-T12",
+      "negativeReason": "REJECT_FROZEN_FORK",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R07",
+      "capabilityId": "CAP-06-06",
+      "summary": "取消代次高于返回代次时不论Worker是否完成均忽略晚回执且不新增Owner修订",
+      "fields": [
+        "cancel.cancelGeneration",
+        "cancel.receiptGeneration",
+        "cancel.receiptDisposition",
+        "cancel.newOwnerRevision"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S04",
+        "SRC-C0606-S06",
+        "SRC-C0606-S07"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-06-T13",
+      "negativeTestId": "CAP-06-06-T14",
+      "negativeReason": "REJECT_LATE_RECEIPT",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R08",
+      "capabilityId": "CAP-06-06",
+      "summary": "中断恢复必须核实 sealed checkpoint、算法/config/scope/input及frontier哈希；缺Worker记录隔离而非补造成功",
+      "fields": [
+        "replay.schema",
+        "replay.algorithmVersion",
+        "replay.configHash",
+        "replay.scopeHash",
+        "replay.inputHash",
+        "replay.persistedHash",
+        "replay.observedHash",
+        "replay.missingWorkerOutputs"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S05",
+        "SRC-C0606-S07",
+        "SRC-C0606-S08",
+        "SRC-C0606-S09"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-06-T15",
+      "negativeTestId": "CAP-06-06-T16",
+      "negativeReason": "REJECT_UNTRUSTED_CHECKPOINT",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R09",
+      "capabilityId": "CAP-06-06",
+      "summary": "06域受管提交瞬时重查HEAD-CAS、ACL、任务代次、取消和幂等唯一终态",
+      "fields": [
+        "commit.port",
+        "commit.expectedHead",
+        "commit.observedHead",
+        "commit.aclEpoch",
+        "commit.observedAclEpoch",
+        "commit.taskGeneration",
+        "commit.observedTaskGeneration",
+        "commit.idempotencyKey",
+        "commit.receipt"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S06",
+        "SRC-C0606-S07",
+        "SRC-C0606-S08"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-06-T17",
+      "negativeTestId": "CAP-06-06-T18",
+      "negativeReason": "REJECT_OWNER_COMMIT",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0606-R10",
+      "capabilityId": "CAP-06-06",
+      "summary": "预算终止只给UNKNOWN候选，不授D07真实验证、D08冻结、NC或D16发布资格",
+      "fields": [
+        "qualification.status",
+        "qualification.d07",
+        "qualification.d05",
+        "qualification.d08FrozenUnchanged",
+        "qualification.d13",
+        "qualification.d15",
+        "qualification.d16",
+        "qualification.clPreviewAsNcProof",
+        "qualification.materialSweepSimulated"
+      ],
+      "sourceIds": [
+        "SRC-C0606-S01",
+        "SRC-C0606-S02",
+        "SRC-C0606-S03",
+        "SRC-C0606-S09"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-06-T19",
+      "negativeTestId": "CAP-06-06-T20",
+      "negativeReason": "REJECT_FALSE_QUALIFICATION",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

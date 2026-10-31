@@ -1,0 +1,345 @@
+{
+  "schemaVersion": "procet-b70-rotary-winding-trace-v1",
+  "capabilityId": "CAP-09-08",
+  "sourceRegistry": "research/sources/CAP-09-08-joint-winding-b70.json",
+  "fixtures": "docs/capabilities/CAP-09-08/joint-winding-b70-fixtures-v08.json",
+  "validator": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+  "report": "docs/capabilities/CAP-09-08/ROTARY-WINDING-B70-2026-10-31.md",
+  "status": "PLANNING_ONLY_L3_PENDING",
+  "rules": [
+    {
+      "id": "B70-R01",
+      "title": "D12/D13/D14/D10/D03权威版本闭包",
+      "fields": [
+        "run.d12Hash",
+        "run.d13Hash",
+        "run.d14Hash",
+        "run.d10Hash",
+        "run.d03Hash",
+        "run.d14RevisionExact"
+      ],
+      "sourceIds": [
+        "B70-S04",
+        "B70-S06"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P01",
+        "B70-N01",
+        "B70-S01",
+        "B70-S02",
+        "B70-S03",
+        "B70-S04",
+        "B70-S05",
+        "B70-U03",
+        "B70-D01"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B70-R02",
+      "title": "Joint累计角与Quaternion不同质",
+      "fields": [
+        "joints.samples",
+        "joints.expectedAccumulatedDeltaDeg",
+        "joints.mode",
+        "ui.endpointQuaternionSlerp",
+        "ui.inferShortestPath"
+      ],
+      "sourceIds": [
+        "B70-S01",
+        "B70-S02",
+        "B70-S03"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P02",
+        "B70-P09",
+        "B70-N06",
+        "B70-N07",
+        "B70-N08",
+        "B70-N11",
+        "B70-U05",
+        "B70-U08"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B70-R03",
+      "title": "真实时基、连续覆盖及未知段",
+      "fields": [
+        "joints.timebase",
+        "joints.intervalCoverage",
+        "joints.interpolationAuthority",
+        "ui.allowGapFill"
+      ],
+      "sourceIds": [
+        "B70-S02",
+        "B70-S04"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P03",
+        "B70-N05",
+        "B70-N09",
+        "B70-N12",
+        "B70-U04",
+        "B70-U06",
+        "B70-U07",
+        "B70-U09"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B70-R04",
+      "title": "Profile/Frame及D04-D10分离",
+      "fields": [
+        "run.controllerProfileKnown",
+        "run.machineAxisTopologyKnown",
+        "run.frameProofExact",
+        "run.d04SeparateFromD10",
+        "run.angularUnit"
+      ],
+      "sourceIds": [
+        "B70-S01",
+        "B70-S03",
+        "B70-S07"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P04",
+        "B70-N02",
+        "B70-N03",
+        "B70-N04",
+        "B70-U01",
+        "B70-U02",
+        "B70-U11"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B70-R05",
+      "title": "单Babylon世界/左TaskPanel/三入口同Port",
+      "fields": [
+        "ui.sceneCount",
+        "ui.panel",
+        "ui.port",
+        "ui.writesD14",
+        "ui.writesD15"
+      ],
+      "sourceIds": [
+        "B70-S02",
+        "B70-S06"
+      ],
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P05",
+        "B70-N10",
+        "B70-N13",
+        "B70-N14",
+        "B70-N15",
+        "B70-N16",
+        "B70-N17"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B70-R06",
+      "title": "视觉回放不授D15工程结论",
+      "fields": [
+        "evidence.d15Status",
+        "evidence.claimsPassFromPlayback",
+        "evidence.syntheticAsProduct"
+      ],
+      "sourceIds": [
+        "B70-S04",
+        "B70-S05",
+        "B70-S06"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P06",
+        "B70-N18",
+        "B70-N20",
+        "B70-U10",
+        "B70-D02"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B70-R07",
+      "title": "ACL/CAS/代次/取消晚ACK重验",
+      "fields": [
+        "tx.actorAuthorized",
+        "tx.casExact",
+        "tx.epochExact",
+        "tx.generationExact",
+        "tx.cancelled",
+        "tx.lateAck"
+      ],
+      "sourceIds": [
+        "B70-S05",
+        "B70-S06"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P07",
+        "B70-N22",
+        "B70-N23",
+        "B70-S06",
+        "B70-S07",
+        "B70-S08",
+        "B70-S09"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B70-R08",
+      "title": "D08冻结/双Reader回退与D16独立消费",
+      "fields": [
+        "evidence.d16ReleaseApproved",
+        "evidence.frozenHistoryPreserved",
+        "evidence.independentConsumerResult",
+        "tx.rollbackReadersPaired"
+      ],
+      "sourceIds": [
+        "B70-S04",
+        "B70-S05",
+        "B70-S06"
+      ],
+      "assets": [
+        "D08",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilities": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "acceptanceIds": [
+        "B70-P08",
+        "B70-N19",
+        "B70-N21",
+        "B70-N24"
+      ],
+      "testEntry": "tools/check_cap0908_joint_winding_b70_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    }
+  ]
+}

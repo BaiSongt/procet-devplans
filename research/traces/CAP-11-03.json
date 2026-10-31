@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-03",
+  "researchTopic": "R-RAG-EVIDENCE-001",
+  "sourceRegistry": "research/sources/CAP-11-03.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-03-R01",
+      "capabilityId": "CAP-11-03",
+      "summary": "调用者及Owner授权",
+      "engineeringRule": "业务Owner Port必须按principal、Project及ScopeEpoch检查，每个索引请求不可跨租户",
+      "fields": [
+        "request.principal",
+        "request.ownerPort",
+        "request.scopeEpoch",
+        "request.assetAcl"
+      ],
+      "sourceIds": [
+        "C1103-S02",
+        "C1103-S09"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "request.principal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "request.ownerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "request.scopeEpoch",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "request.assetAcl",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R02",
+      "capabilityId": "CAP-11-03",
+      "summary": "索引模型可复现",
+      "engineeringRule": "向量索引必须有Corpus、Embedding和Chunker的不可变精确修订，召回分数只是排序",
+      "fields": [
+        "index.corpusRevision",
+        "index.embeddingRevision",
+        "index.chunkerRevision",
+        "index.snapshotId"
+      ],
+      "sourceIds": [
+        "C1103-S01",
+        "C1103-S08"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "index.corpusRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "index.embeddingRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "index.chunkerRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "index.snapshotId",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R03",
+      "capabilityId": "CAP-11-03",
+      "summary": "原件/块来源定位",
+      "engineeringRule": "Chunk绑定Owner exact Revision、原字节Hash、Selector以及合法引用许可",
+      "fields": [
+        "chunk.ownerRevision",
+        "chunk.rawHash",
+        "chunk.selector",
+        "chunk.licenseChecked"
+      ],
+      "sourceIds": [
+        "C1103-S04",
+        "C1103-S05"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D05"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "chunk.ownerRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "chunk.rawHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "chunk.selector",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "chunk.licenseChecked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R04",
+      "capabilityId": "CAP-11-03",
+      "summary": "召回后再鉴权",
+      "engineeringRule": "召回不等于可展示；每次候选命中必须按当前Owner ACL、Project/tenant、ScopeEpoch和缓存重验",
+      "fields": [
+        "hit.ownerPostAcl",
+        "hit.projectIsolation",
+        "hit.scopeEpochCurrent",
+        "hit.cachePermissionRechecked"
+      ],
+      "sourceIds": [
+        "C1103-S02",
+        "C1103-S09"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "hit.ownerPostAcl",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hit.projectIsolation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hit.scopeEpochCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hit.cachePermissionRechecked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R05",
+      "capabilityId": "CAP-11-03",
+      "summary": "索引撤权与失效",
+      "engineeringRule": "原件修订、源Hash、索引Snapshot失配必须STALE，撤权后索引与缓存撤销",
+      "fields": [
+        "fresh.revisionEqual",
+        "fresh.rawHashEqual",
+        "fresh.snapshotCurrent",
+        "fresh.revocationApplied"
+      ],
+      "sourceIds": [
+        "C1103-S02",
+        "C1103-S05",
+        "C1103-S06"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "fresh.revisionEqual",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fresh.rawHashEqual",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fresh.snapshotCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fresh.revocationApplied",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R06",
+      "capabilityId": "CAP-11-03",
+      "summary": "逐结论引用复核",
+      "engineeringRule": "每项答案结论需要Source URI、有效Selector、claim→chunk关联与如实的章节访问深度",
+      "fields": [
+        "citation.sourceUri",
+        "citation.selectorVerified",
+        "citation.claimToChunk",
+        "citation.accessDepthHonest"
+      ],
+      "sourceIds": [
+        "C1103-S04",
+        "C1103-S05",
+        "C1103-S07"
+      ],
+      "assets": [
+        "D02",
+        "D05",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "citation.sourceUri",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "citation.selectorVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "citation.claimToChunk",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "citation.accessDepthHonest",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R07",
+      "capabilityId": "CAP-11-03",
+      "summary": "间接注入与写权限隔离",
+      "engineeringRule": "检索文本只当不可信数据；不得按片段文本发工具指令、授予业务写入或D16签发",
+      "fields": [
+        "security.dataOnly",
+        "security.promptInjectionGate",
+        "security.noToolInvocation",
+        "security.noOwnerWrite"
+      ],
+      "sourceIds": [
+        "C1103-S03",
+        "C1103-S09"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "security.dataOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "security.promptInjectionGate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "security.noToolInvocation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "security.noOwnerWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R08",
+      "capabilityId": "CAP-11-03",
+      "summary": "未知证据与冲突",
+      "engineeringRule": "覆盖不足为UNKNOWN，来源抵触为CONFLICT，向量相似度不等于来源可信和制造验证",
+      "fields": [
+        "quality.coverageMeasured",
+        "quality.conflictShown",
+        "quality.unknownExplicit",
+        "quality.scoreNotSafety"
+      ],
+      "sourceIds": [
+        "C1103-S01",
+        "C1103-S07"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D15"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "quality.coverageMeasured",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quality.conflictShown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quality.unknownExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quality.scoreNotSafety",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R09",
+      "capabilityId": "CAP-11-03",
+      "summary": "NC与冻结证据保护",
+      "engineeringRule": "D04 Setup≠D10执行绑定；CL预览≠D12→D13→D14→D15独立验证；UNKNOWN不能放行D16、D08不被覆盖",
+      "fields": [
+        "guard.d04NotD10",
+        "guard.clNotD15",
+        "guard.unknownBlocksD16",
+        "guard.frozenD08Immutable"
+      ],
+      "sourceIds": [
+        "C1103-S01",
+        "C1103-S07",
+        "C1103-S09"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "guard.d04NotD10",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "guard.clNotD15",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "guard.unknownBlocksD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "guard.frozenD08Immutable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-03-R10",
+      "capabilityId": "CAP-11-03",
+      "summary": "统一入口与无损回退",
+      "engineeringRule": "GUI/CLI/Agent共享EvidenceRetrievalPort与审计；单Babylon/左TaskPanel；CAS、撤权、取消晚回执校验及影子回退",
+      "fields": [
+        "delivery.sharedPort",
+        "delivery.oneBabylonLeftPanel",
+        "delivery.casAclCancel",
+        "delivery.shadowRollback"
+      ],
+      "sourceIds": [
+        "C1103-S06",
+        "C1103-S08",
+        "C1103-S09"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D05",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "delivery.sharedPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.oneBabylonLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.casAclCancel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.shadowRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+四个独立逐字段负例；真实消费者NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "approval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

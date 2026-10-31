@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "procet-w206-headless-contract-v1",
+  "evidenceKind": "SYNTHETIC_SCHEMA_EXAMPLE_NOT_RUNTIME",
+  "executionMode": "headless_independent_consumer_required",
+  "runId": "SYNTHETIC_RUN",
+  "context": {
+    "projectId": "SYNTHETIC_PROJECT",
+    "documentId": "SYNTHETIC_DOC",
+    "branchId": "a",
+    "setupId": "SETUP_A",
+    "d01": {
+      "revision": "D01-r1",
+      "hash": "sha256:SYNTHETIC_D01"
+    },
+    "d04": {
+      "revision": "D04-r2",
+      "hash": "sha256:SYNTHETIC_D04",
+      "frame": "PART_TO_SETUP_A",
+      "unit": "mm"
+    }
+  },
+  "commands": [
+    {
+      "command": "D06.solve",
+      "expects": [
+        "D01",
+        "D04"
+      ],
+      "output": "D06"
+    },
+    {
+      "command": "D07.check",
+      "expects": [
+        "D04",
+        "D06"
+      ],
+      "output": "D07"
+    },
+    {
+      "command": "D05.adopt",
+      "expects": [
+        "D06",
+        "D07"
+      ],
+      "output": "D05"
+    },
+    {
+      "command": "D08.freeze",
+      "expects": [
+        "D05",
+        "D07"
+      ],
+      "output": "D08"
+    },
+    {
+      "command": "D05.enrich",
+      "expects": [
+        "D08"
+      ],
+      "output": "D05_NEW_REVISION"
+    }
+  ],
+  "guards": {
+    "aclNow": true,
+    "expectedHead": "rev-7",
+    "currentHead": "rev-7",
+    "expectedEpoch": 3,
+    "currentEpoch": 3,
+    "generation": 5,
+    "currentGeneration": 5,
+    "cancelled": false,
+    "lateReceipt": false
+  },
+  "qualification": {
+    "d09": "NEUTRAL_CL",
+    "d11": "CL_PREVIEW",
+    "d12": "NC_BYTES",
+    "d13": "UNKNOWN",
+    "d15": "NOT_RUN",
+    "d16": "BLOCKED",
+    "materialSweep": false
+  },
+  "expectedResults": {
+    "planning": "SYNTHETIC_ONLY",
+    "product": "NOT_RUN",
+    "independentConsumer": "NOT_RUN"
+  }
+}

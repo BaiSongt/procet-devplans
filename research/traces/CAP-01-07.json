@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-01-07",
+  "topic": "R-UI3D-001",
+  "status": "research_backfill_compiled_pending_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "originalSpec": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-07_工作台与3D交互.md",
+    "backfill": "docs/capabilities/CAP-01-07/RESEARCH-BACKFILL.md",
+    "fixtures": "docs/capabilities/CAP-01-07/fixtures.json",
+    "topic": "research/topics/R-UI3D-001.md",
+    "sourceRegister": "research/sources/CAP-01-07.json"
+  },
+  "registeredSources": [
+    "SRC-UI3D-001",
+    "SRC-UI3D-002",
+    "SRC-UI3D-003",
+    "SRC-UI3D-004",
+    "SRC-UI3D-005",
+    "SRC-UI3D-006",
+    "SRC-UI3D-007"
+  ],
+  "codeEvidence": "NOT_READ_THIS_ITERATION",
+  "rules": [
+    {
+      "id": "UI3D-R01",
+      "capabilityId": "CAP-01-07",
+      "description": "项目与资源空间只切活动根/相机：唯一Engine、Scene、Canvas且非活跃根不可拾取",
+      "sourceIds": [
+        "SRC-UI3D-004",
+        "SRC-UI3D-005"
+      ],
+      "fields": [
+        "spatialSessionId",
+        "rendererHostId",
+        "activeRootId",
+        "sceneRevision"
+      ],
+      "tests": [
+        "CAP-01-07-AT-01",
+        "CAP-01-07-AT-09"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "内部架构决策，比Babylon允许的多场景实现更严格",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R02",
+      "capabilityId": "CAP-01-07",
+      "description": "轴树/几何列表/3D拾取双向映射到具备CAD来源和实例路径的ExactRef，焦点不冒充业务选择",
+      "sourceIds": [
+        "SRC-UI3D-002",
+        "SRC-UI3D-004"
+      ],
+      "fields": [
+        "selectionRef",
+        "documentInstanceId",
+        "topologyRevision",
+        "semanticKind"
+      ],
+      "tests": [
+        "CAP-01-07-AT-02",
+        "CAP-01-07-AT-10"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "树焦点原则来自APG；制造身份和二次验证是Procet设计",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R03",
+      "capabilityId": "CAP-01-07",
+      "description": "关闭/隐藏统一任务容器不产生领域提交；按scope处理dirty Draft、失效草稿及回退",
+      "sourceIds": [
+        "SRC-UI3D-003",
+        "SRC-UI3D-007"
+      ],
+      "fields": [
+        "taskHostVisible",
+        "editSessionId",
+        "baseRevision",
+        "dirtyDecision"
+      ],
+      "tests": [
+        "CAP-01-07-AT-03",
+        "CAP-01-07-AT-11"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "确认对话框焦点由APG指导；领域持久化由Procet独立约束",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R04",
+      "capabilityId": "CAP-01-07",
+      "description": "资源空间选择保留原Setup、发起修订和相机，回执经Host许可及领域CAS确认后才能回填",
+      "sourceIds": [
+        "SRC-UI3D-001",
+        "SRC-UI3D-004"
+      ],
+      "fields": [
+        "originSetupExactRef",
+        "expectedRevision",
+        "returnCameraState",
+        "requestId"
+      ],
+      "tests": [
+        "CAP-01-07-AT-04",
+        "CAP-01-07-AT-12"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "指针事件只支持输入处理，不证明Host CAS；业务提交要求为内部方案",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R05",
+      "capabilityId": "CAP-01-07",
+      "description": "发起范围的scopeEpoch或exact revision变化时拒绝迟到资源回执，不会写当前别的Setup",
+      "sourceIds": [
+        "SRC-UI3D-001"
+      ],
+      "fields": [
+        "originScopeKey",
+        "scopeEpoch",
+        "expectedRevision",
+        "receiptScopeKey"
+      ],
+      "tests": [
+        "CAP-01-07-AT-13",
+        "CAP-01-07-AT-05"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "W3C只证明事件生命周期；并发防污染来自领域设计",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R06",
+      "capabilityId": "CAP-01-07",
+      "description": "场景版本、几何来源、handedness与单位显式校核，过期pick和无ExactRef的Mesh均不能提交制造选择",
+      "sourceIds": [
+        "SRC-UI3D-004",
+        "SRC-UI3D-006"
+      ],
+      "fields": [
+        "sceneRevision",
+        "geometryExactRef",
+        "renderFrame",
+        "sourceFrame",
+        "units"
+      ],
+      "tests": [
+        "CAP-01-07-AT-14",
+        "CAP-01-07-AT-06"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "glTF坐标语义只针对glTF文件；OCCT制造几何需自己验证",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R07",
+      "capabilityId": "CAP-01-07",
+      "description": "Focus3D只切布局，不更换引擎或取消任务；重复导航/ESC不生成幽灵Panel/Preview",
+      "sourceIds": [
+        "SRC-UI3D-003",
+        "SRC-UI3D-005"
+      ],
+      "fields": [
+        "presentationMode",
+        "taskHostVisible",
+        "taskContributionId",
+        "previewLeaseId"
+      ],
+      "tests": [
+        "CAP-01-07-AT-07",
+        "CAP-01-07-AT-15"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "Escape规则仅适用模态；Focus3D键位是应用级设计",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R08",
+      "capabilityId": "CAP-01-07",
+      "description": "树导航、参数提交、错误恢复支持完整键盘路径和清晰焦点；缩放后按钮不被遮挡",
+      "sourceIds": [
+        "SRC-UI3D-002",
+        "SRC-UI3D-007"
+      ],
+      "fields": [
+        "focusTarget",
+        "a11yAction",
+        "viewportBounds",
+        "zoomRatio"
+      ],
+      "tests": [
+        "CAP-01-07-AT-08",
+        "CAP-01-07-AT-16"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "未验证产品符合WCAG任何等级；需真实桌面环境检测",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R09",
+      "capabilityId": "CAP-01-07",
+      "description": "PreviewLease仅影响渲染，失焦/取消/切范围必须释放；指针取消也不能落成业务事实",
+      "sourceIds": [
+        "SRC-UI3D-001",
+        "SRC-UI3D-004"
+      ],
+      "fields": [
+        "previewLeaseId",
+        "scopeEpoch",
+        "pointerCaptureState",
+        "businessRevision"
+      ],
+      "tests": [
+        "CAP-01-07-AT-17",
+        "CAP-01-07-AT-18"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "Preview与Owner写入隔离是内部业务选择，不是浏览器规范赋予",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-R10",
+      "capabilityId": "CAP-01-07",
+      "description": "GUI、CLI、Agent通过同一领域命令与Host授权回执；渲染坐标不替代D04/D10 Frame，不认识的控制器语义为unknown",
+      "sourceIds": [
+        "SRC-UI3D-006",
+        "SRC-UI3D-007"
+      ],
+      "fields": [
+        "consumerKind",
+        "hostActor",
+        "ownerExactRevision",
+        "frameRef",
+        "semanticStatus"
+      ],
+      "tests": [
+        "CAP-01-07-AT-19",
+        "CAP-01-07-AT-20"
+      ],
+      "workPackages": [
+        "U4-01",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "derivation": "权限/NC行为非所引标准定义；本条是跨域集成契约",
+      "status": "planned_only",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-01-07-AT-01",
+    "CAP-01-07-AT-02",
+    "CAP-01-07-AT-03",
+    "CAP-01-07-AT-04",
+    "CAP-01-07-AT-05",
+    "CAP-01-07-AT-06",
+    "CAP-01-07-AT-07",
+    "CAP-01-07-AT-08",
+    "CAP-01-07-AT-09",
+    "CAP-01-07-AT-10",
+    "CAP-01-07-AT-11",
+    "CAP-01-07-AT-12",
+    "CAP-01-07-AT-13",
+    "CAP-01-07-AT-14",
+    "CAP-01-07-AT-15",
+    "CAP-01-07-AT-16",
+    "CAP-01-07-AT-17",
+    "CAP-01-07-AT-18",
+    "CAP-01-07-AT-19",
+    "CAP-01-07-AT-20"
+  ],
+  "relatedWorkPackages": [
+    "B0-01",
+    "F1-06",
+    "W2-01",
+    "W2-04",
+    "U4-01",
+    "U4-02",
+    "U4-03",
+    "U4-05",
+    "U4-06"
+  ],
+  "humanApproval": "pending",
+  "productTestEntry": "TODO_EXACT_PRODUCT_HEAD"
+}

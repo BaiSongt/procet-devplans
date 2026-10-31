@@ -1,0 +1,542 @@
+{
+  "schemaVersion": "procet-cap0908-trace-v1",
+  "capabilityId": "CAP-09-08",
+  "researchTopic": "R-SIM-PLAYBACK-EVIDENCE-001",
+  "sourceRegistry": "research/sources/CAP-09-08.json",
+  "specification": "docs/capabilities/CAP-09-08/README.md",
+  "ui": "docs/capabilities/CAP-09-08/UI.md",
+  "fixtures": "docs/capabilities/CAP-09-08/fixtures.json",
+  "validator": "tools/check_cap0908_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-09-08-R01",
+      "capabilityId": "CAP-09-08",
+      "summary": "NC输入闭包只读",
+      "engineeringRule": "仅D12最终NC字节和D13执行实例、D14时序、D10绑定的精确引用允许进入播放；D11 CL_ONLY不得被提升为工程验证。",
+      "fields": [
+        "closure.finalNcShaExact",
+        "closure.d13CallInstancesExact",
+        "closure.d14JointTimelineExact",
+        "closure.d10ExecutionBindingExact"
+      ],
+      "sourceIds": [
+        "C0908-S01",
+        "C0908-S02",
+        "C0908-S09"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "closure.finalNcShaExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "closure.d13CallInstancesExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "closure.d14JointTimelineExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "closure.d10ExecutionBindingExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R02",
+      "capabilityId": "CAP-09-08",
+      "summary": "合法时基与未知区间",
+      "engineeringRule": "D14提供时间单位、基准、t0/t1与缺失片段；固定FPS/插值不能推断控制器真实时间。",
+      "fields": [
+        "timeline.timebaseExact",
+        "timeline.segmentMonotonic",
+        "timeline.timeUnitKnown",
+        "timeline.unknownIntervalsPreserved"
+      ],
+      "sourceIds": [
+        "C0908-S02",
+        "C0908-S03",
+        "C0908-S04"
+      ],
+      "assets": [
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "timeline.timebaseExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "timeline.segmentMonotonic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "timeline.timeUnitKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "timeline.unknownIntervalsPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R03",
+      "capabilityId": "CAP-09-08",
+      "summary": "NC行与调用实例一对多定位",
+      "engineeringRule": "保留NC字节区间、重复子程序callInstanceId、D14 jointEventId、D15 findingId；同一文本行的多次调用不能合并。",
+      "fields": [
+        "mapping.ncByteRangePinned",
+        "mapping.callInstanceExact",
+        "mapping.jointEventExact",
+        "mapping.findingReverseLink"
+      ],
+      "sourceIds": [
+        "C0908-S02",
+        "C0908-S07",
+        "C0908-S09"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "mapping.ncByteRangePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.callInstanceExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.jointEventExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.findingReverseLink",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R04",
+      "capabilityId": "CAP-09-08",
+      "summary": "Frame与机床几何独立核对",
+      "engineeringRule": "02域D03机床轴树、04域D04名义Setup和D10实装绑定不同；Babylon姿态变换保存修订、单位/手系，不补造B5枢轴。",
+      "fields": [
+        "kinematics.machineRevisionPinned",
+        "kinematics.nominalActualSeparated",
+        "kinematics.transformUnitsPinned",
+        "kinematics.missingGeometryUnknown"
+      ],
+      "sourceIds": [
+        "C0908-S02",
+        "C0908-S05",
+        "C0908-S06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "kinematics.machineRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematics.nominalActualSeparated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematics.transformUnitsPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematics.missingGeometryUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R05",
+      "capabilityId": "CAP-09-08",
+      "summary": "播放不生成工程证据",
+      "engineeringRule": "seek、暂停、单步、快慢放与倒回只修改本地视口时间游标，保留换刀/停顿；不可写D12/D14/D15。",
+      "fields": [
+        "playback.seekReadOnly",
+        "playback.dwellAndToolChangeVisible",
+        "playback.speedDisplayOnly",
+        "playback.reverseNoEngineeringWrite"
+      ],
+      "sourceIds": [
+        "C0908-S02",
+        "C0908-S03",
+        "C0908-S04"
+      ],
+      "assets": [
+        "D12",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "playback.seekReadOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "playback.dwellAndToolChangeVisible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "playback.speedDisplayOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "playback.reverseNoEngineeringWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R06",
+      "capabilityId": "CAP-09-08",
+      "summary": "独立D15结果仅原样呈现",
+      "engineeringRule": "独立Oracle、碰撞/限位、验证覆盖及UNKNOWN/STALE来自D15；视觉颜色、帧率或静态采样不得成为PASS。",
+      "fields": [
+        "evidence.d15OracleSeparate",
+        "evidence.findingHashExact",
+        "evidence.coverageGapsVisible",
+        "evidence.visualGreenNeverPass"
+      ],
+      "sourceIds": [
+        "C0908-S05",
+        "C0908-S06",
+        "C0908-S07"
+      ],
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "evidence.d15OracleSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.findingHashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.coverageGapsVisible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.visualGreenNeverPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R07",
+      "capabilityId": "CAP-09-08",
+      "summary": "报告源证据闭包",
+      "engineeringRule": "报告应含D12字节hash、调用实例、时间区间、Frame、独立Oracle版本和真实测试入口，合成示例水印不可发布。",
+      "fields": [
+        "report.provenanceClosure",
+        "report.timeSourceAndFrame",
+        "report.oracleScopeRecorded",
+        "report.syntheticWatermark"
+      ],
+      "sourceIds": [
+        "C0908-S01",
+        "C0908-S06",
+        "C0908-S07",
+        "C0908-S09"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "report.provenanceClosure",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "report.timeSourceAndFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "report.oracleScopeRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "report.syntheticWatermark",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R08",
+      "capabilityId": "CAP-09-08",
+      "summary": "统一GUI/CLI/Agent及单Scene",
+      "engineeringRule": "三入口共用09域PlaybackEvidencePort，唯一Babylon世界/统一左TaskPanel，3D选择只读不作批准。",
+      "fields": [
+        "ui.sameOwnerPort",
+        "ui.oneBabylonScene",
+        "ui.oneLeftTaskPanel",
+        "ui.selectionCannotApprove"
+      ],
+      "sourceIds": [
+        "C0908-S02",
+        "C0908-S03",
+        "C0908-S05"
+      ],
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "ui.sameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.oneBabylonScene",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.oneLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.selectionCannotApprove",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R09",
+      "capabilityId": "CAP-09-08",
+      "summary": "CAS权限与取消晚回执",
+      "engineeringRule": "导出/保存前再次校验ACL、expectedRevision/Frame CAS、scopeEpoch、取消Token；晚ACK不得写D15/D16。",
+      "fields": [
+        "tx.aclRecheck",
+        "tx.revisionFrameCas",
+        "tx.epochCancelChecked",
+        "tx.lateAckNoCommit"
+      ],
+      "sourceIds": [
+        "C0908-S07",
+        "C0908-S08"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "tx.aclRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tx.revisionFrameCas",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tx.epochCancelChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tx.lateAckNoCommit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-08-R10",
+      "capabilityId": "CAP-09-08",
+      "summary": "失效传播与独立消费者",
+      "engineeringRule": "D03/D10/D12/D13/D14/D15变化报告STALE，双Reader灰度迁移与回退保留A/B冻结；10域独立消费真实D15证据。",
+      "fields": [
+        "migration.exactInvalidation",
+        "migration.pairedReaderRollback",
+        "migration.independentD16Negative",
+        "migration.frozenHistoryUnchanged"
+      ],
+      "sourceIds": [
+        "C0908-S06",
+        "C0908-S07",
+        "C0908-S08",
+        "C0908-S09"
+      ],
+      "assets": [
+        "D03",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "migration.exactInvalidation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.pairedReaderRollback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.independentD16Negative",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.frozenHistoryUnchanged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每个字段独立反例失败，UNKNOWN/STALE不准当工程PASS；独立消费者NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,543 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-06",
+  "researchTopic": "R-NC-SOURCE-EDIT-001",
+  "sourceRegistry": "research/sources/CAP-08-06.json",
+  "specification": "docs/capabilities/CAP-08-06/README.md",
+  "ui": "docs/capabilities/CAP-08-06/UI.md",
+  "fixtures": "docs/capabilities/CAP-08-06/fixtures.json",
+  "validator": "tools/check_cap0806_planning_2026_10_26.cjs",
+  "status": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-08-06-R01",
+      "capabilityId": "CAP-08-06",
+      "summary": "原NC字节与编码保真",
+      "sourceIds": [
+        "C086-S2",
+        "C086-S1"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "bytes.rawHashPinned",
+        "bytes.encodingDeclared",
+        "bytes.bomPreserved",
+        "bytes.eolPreserved"
+      ],
+      "criteria": [
+        {
+          "path": "bytes.rawHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "bytes.encodingDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "bytes.bomPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "bytes.eolPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P01",
+      "negativeTestId": "CAP-08-06-T-N01",
+      "mutationTestId": "CAP-08-06-M01"
+    },
+    {
+      "id": "CAP-08-06-R02",
+      "capabilityId": "CAP-08-06",
+      "summary": "行身份不依赖N号且覆盖空行",
+      "sourceIds": [
+        "C086-S2",
+        "C086-S3"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "line.physicalOrdinal",
+        "line.repeatedNAllowed",
+        "line.blankLinesTracked",
+        "line.sourceSpansStable"
+      ],
+      "criteria": [
+        {
+          "path": "line.physicalOrdinal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "line.repeatedNAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "line.blankLinesTracked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "line.sourceSpansStable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P02",
+      "negativeTestId": "CAP-08-06-T-N02",
+      "mutationTestId": "CAP-08-06-M02"
+    },
+    {
+      "id": "CAP-08-06-R03",
+      "capabilityId": "CAP-08-06",
+      "summary": "注释/块删除/有效指令分层",
+      "sourceIds": [
+        "C086-S2",
+        "C086-S8"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "lex.commentsPreserved",
+        "lex.activeCommentsNotAssumedInert",
+        "lex.blockDeleteProfiled",
+        "lex.noBlindRewrite"
+      ],
+      "criteria": [
+        {
+          "path": "lex.commentsPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lex.activeCommentsNotAssumedInert",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lex.blockDeleteProfiled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lex.noBlindRewrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P03",
+      "negativeTestId": "CAP-08-06-T-N03",
+      "mutationTestId": "CAP-08-06-M03"
+    },
+    {
+      "id": "CAP-08-06-R04",
+      "capabilityId": "CAP-08-06",
+      "summary": "编辑快照与外部子程序闭包",
+      "sourceIds": [
+        "C086-S3",
+        "C086-S4"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "closure.subfilesHashed",
+        "closure.manifestPinned",
+        "closure.noTraversal",
+        "closure.revisionImmutable"
+      ],
+      "criteria": [
+        {
+          "path": "closure.subfilesHashed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "closure.manifestPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "closure.noTraversal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "closure.revisionImmutable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P04",
+      "negativeTestId": "CAP-08-06-T-N04",
+      "mutationTestId": "CAP-08-06-M04"
+    },
+    {
+      "id": "CAP-08-06-R05",
+      "capabilityId": "CAP-08-06",
+      "summary": "控制器配置决定静态诊断范围",
+      "sourceIds": [
+        "C086-S1",
+        "C086-S2",
+        "C086-S6"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "dialect.profileExact",
+        "dialect.syntaxOnlyLabeled",
+        "dialect.unsupportedUnknown",
+        "dialect.noUniversalGcode"
+      ],
+      "criteria": [
+        {
+          "path": "dialect.profileExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dialect.syntaxOnlyLabeled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dialect.unsupportedUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dialect.noUniversalGcode",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P05",
+      "negativeTestId": "CAP-08-06-T-N05",
+      "mutationTestId": "CAP-08-06-M05"
+    },
+    {
+      "id": "CAP-08-06-R06",
+      "capabilityId": "CAP-08-06",
+      "summary": "差异/编辑补丁的行级溯源",
+      "sourceIds": [
+        "C086-S2",
+        "C086-S4"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "diff.byteSpanAnchored",
+        "diff.editorIdentityTraced",
+        "diff.semanticImpactNotGuessed",
+        "diff.oldRevisionPreserved"
+      ],
+      "criteria": [
+        {
+          "path": "diff.byteSpanAnchored",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "diff.editorIdentityTraced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "diff.semanticImpactNotGuessed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "diff.oldRevisionPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P06",
+      "negativeTestId": "CAP-08-06-T-N06",
+      "mutationTestId": "CAP-08-06-M06"
+    },
+    {
+      "id": "CAP-08-06-R07",
+      "capabilityId": "CAP-08-06",
+      "summary": "手工编辑与重新后处理明确分支",
+      "sourceIds": [
+        "C086-S3",
+        "C086-S4"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "branch.manualAndGeneratedSeparate",
+        "branch.repostNoSilentOverwrite",
+        "branch.overlayConflictExplicit",
+        "branch.d08Frozen"
+      ],
+      "criteria": [
+        {
+          "path": "branch.manualAndGeneratedSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "branch.repostNoSilentOverwrite",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "branch.overlayConflictExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "branch.d08Frozen",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P07",
+      "negativeTestId": "CAP-08-06-T-N07",
+      "mutationTestId": "CAP-08-06-M07"
+    },
+    {
+      "id": "CAP-08-06-R08",
+      "capabilityId": "CAP-08-06",
+      "summary": "编辑令执行证据全部失效待重检",
+      "sourceIds": [
+        "C086-S3",
+        "C086-S6",
+        "C086-S8"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "invalidate.d13ReparseRaw",
+        "invalidate.d14Stale",
+        "invalidate.d15Stale",
+        "invalidate.d16Blocked"
+      ],
+      "criteria": [
+        {
+          "path": "invalidate.d13ReparseRaw",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.d14Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.d15Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.d16Blocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P08",
+      "negativeTestId": "CAP-08-06-T-N08",
+      "mutationTestId": "CAP-08-06-M08"
+    },
+    {
+      "id": "CAP-08-06-R09",
+      "capabilityId": "CAP-08-06",
+      "summary": "GUI/CLI/Agent单入口及可取消提交",
+      "sourceIds": [
+        "C086-S4",
+        "C086-S5"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "commit.singleOwnerPort",
+        "commit.casAclRechecked",
+        "commit.frameScopeExact",
+        "commit.cancelLateAckBlocked"
+      ],
+      "criteria": [
+        {
+          "path": "commit.singleOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.frameScopeExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelLateAckBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P09",
+      "negativeTestId": "CAP-08-06-T-N09",
+      "mutationTestId": "CAP-08-06-M09"
+    },
+    {
+      "id": "CAP-08-06-R10",
+      "capabilityId": "CAP-08-06",
+      "summary": "独立消费者/迁移回退与发布门禁",
+      "sourceIds": [
+        "C086-S3",
+        "C086-S4",
+        "C086-S5"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "release.independentConsumerPlanned",
+        "release.unknownBlocksPublish",
+        "release.expandMigrateContract",
+        "release.historyUnchanged"
+      ],
+      "criteria": [
+        {
+          "path": "release.independentConsumerPlanned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.unknownBlocksPublish",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.expandMigrateContract",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.historyUnchanged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键字段失败或语义未建模则REJECT/UNKNOWN；源码编辑引起D13–D16旧证据STALE，不得放行",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-06-T-P10",
+      "negativeTestId": "CAP-08-06-T-N10",
+      "mutationTestId": "CAP-08-06-M10"
+    }
+  ]
+}

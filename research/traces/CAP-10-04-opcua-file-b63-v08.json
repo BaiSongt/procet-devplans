@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-10-04",
+  "researchTopic": "R-DNC-TRANSFER-001",
+  "sourceRegistry": "research/sources/CAP-10-04-opcua-file-b63.json",
+  "specification": "docs/capabilities/CAP-10-04/OPCUA-SESSION-SHORTREAD-B63-2026-10-31.md",
+  "fixtures": "docs/capabilities/CAP-10-04/opcua-file-b63-fixtures-v08.json",
+  "validator": "tools/check_cap1004_opcua_file_b63_v08.cjs",
+  "status": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "B63-R01",
+      "engineeringRule": "FileType能力与目标固件Profile独立发现",
+      "sourceIds": [
+        "B63-S01",
+        "B63-S02",
+        "B63-S06"
+      ],
+      "fields": [
+        "capability.fileTypeConfirmed",
+        "capability.filePortConfirmed",
+        "capability.targetProfileExact"
+      ],
+      "assets": [
+        "D03",
+        "D13",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R01-P"
+      ],
+      "negativeTestIds": [
+        "B63-R01-REJECT-1",
+        "B63-R01-REJECT-2",
+        "B63-R01-REJECT-3"
+      ],
+      "unknownTestIds": [
+        "B63-R01-UNKNOWN-4"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B63-R02",
+      "engineeringRule": "Open文件句柄Session独占、回执代次与取消Fence",
+      "sourceIds": [
+        "B63-S01",
+        "B63-S05",
+        "B63-S06"
+      ],
+      "fields": [
+        "session.activeSession",
+        "session.handleSession",
+        "session.currentEpoch",
+        "session.handleEpoch",
+        "session.ackEpoch",
+        "session.lateAck"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R02-P"
+      ],
+      "negativeTestIds": [
+        "B63-R02-STALE-1",
+        "B63-R02-STALE-2",
+        "B63-R02-STALE-3",
+        "B63-R02-STALE-4"
+      ],
+      "unknownTestIds": [
+        "B63-R02-UNKNOWN-5"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B63-R03",
+      "engineeringRule": "Read可短读、按实际字节推进且仅空ByteString结束",
+      "sourceIds": [
+        "B63-S01",
+        "B63-S06"
+      ],
+      "fields": [
+        "read.requests",
+        "read.parts",
+        "read.observedPositions",
+        "read.terminatedOnShortRead",
+        "read.expectedLength"
+      ],
+      "assets": [
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R03-P",
+        "B63-BOUNDARY-EXACT-READ"
+      ],
+      "negativeTestIds": [
+        "B63-R03-REJECT-1",
+        "B63-R03-REJECT-2",
+        "B63-R03-REJECT-3",
+        "B63-R03-REJECT-4"
+      ],
+      "unknownTestIds": [
+        "B63-R03-UNKNOWN-5"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B63-R04",
+      "engineeringRule": "断点SetPosition越界钳到EOF且须GetPosition复核",
+      "sourceIds": [
+        "B63-S01",
+        "B63-S06"
+      ],
+      "fields": [
+        "resume.requestedOffset",
+        "resume.confirmedOffset",
+        "resume.fileSize",
+        "resume.getPositionObserved"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R04-P",
+        "B63-BOUNDARY-SEEK-ZERO"
+      ],
+      "negativeTestIds": [
+        "B63-R04-REJECT-1",
+        "B63-R04-REJECT-2",
+        "B63-R04-REJECT-3"
+      ],
+      "unknownTestIds": [
+        "B63-R04-UNKNOWN-4"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B63-R05",
+      "engineeringRule": "Writable不代表UserWritable，提交ACL和active保护另验",
+      "sourceIds": [
+        "B63-S01",
+        "B63-S04",
+        "B63-S06"
+      ],
+      "fields": [
+        "access.writable",
+        "access.userWritable",
+        "access.aclRechecked",
+        "access.activeFileProtected"
+      ],
+      "assets": [
+        "D01",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R05-P"
+      ],
+      "negativeTestIds": [
+        "B63-R05-REJECT-1",
+        "B63-R05-REJECT-2",
+        "B63-R05-REJECT-3",
+        "B63-R05-REJECT-4"
+      ],
+      "unknownTestIds": [
+        "B63-R05-UNKNOWN-5"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B63-R06",
+      "engineeringRule": "收方原字节重组哈希与子程序闭包独立核算",
+      "sourceIds": [
+        "B63-S01",
+        "B63-S03",
+        "B63-S04",
+        "B63-S06"
+      ],
+      "fields": [
+        "digest.sourceHex",
+        "digest.receiverHex",
+        "digest.expectedHash",
+        "digest.receiverClosureHash",
+        "digest.expectedClosureHash",
+        "digest.independentlyReadBack"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R06-P"
+      ],
+      "negativeTestIds": [
+        "B63-R06-REJECT-1",
+        "B63-R06-REJECT-2",
+        "B63-R06-REJECT-3"
+      ],
+      "unknownTestIds": [
+        "B63-R06-UNKNOWN-4",
+        "B63-R06-UNKNOWN-5"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B63-R07",
+      "engineeringRule": "Owner exact CAS/Frame/Scope权限及取消晚回执",
+      "sourceIds": [
+        "B63-S05",
+        "B63-S06"
+      ],
+      "fields": [
+        "owner.revision",
+        "owner.expectedRevision",
+        "owner.hash",
+        "owner.expectedHash",
+        "owner.frame",
+        "owner.expectedFrame",
+        "owner.scopeEpoch",
+        "owner.expectedScopeEpoch",
+        "owner.taskGeneration",
+        "owner.expectedTaskGeneration",
+        "owner.aclRechecked",
+        "owner.cancelled"
+      ],
+      "assets": [
+        "D01",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R07-P"
+      ],
+      "negativeTestIds": [
+        "B63-R07-STALE-1",
+        "B63-R07-STALE-2",
+        "B63-R07-STALE-3",
+        "B63-R07-STALE-4",
+        "B63-R07-STALE-5",
+        "B63-R07-STALE-6",
+        "B63-R07-REJECT-7"
+      ],
+      "unknownTestIds": [
+        "B63-R07-UNKNOWN-8"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B63-R08",
+      "engineeringRule": "只读候选绝不自动执行，GUI/CLI/Agent同Owner Port",
+      "sourceIds": [
+        "B63-S02",
+        "B63-S05",
+        "B63-S06"
+      ],
+      "fields": [
+        "flow.stageOnly",
+        "flow.noCycleStart",
+        "flow.noProgramActivate",
+        "flow.noPublishPassClaim",
+        "ui.singleBabylonWorld",
+        "ui.unifiedTaskPanel",
+        "ui.sameOwnerPort"
+      ],
+      "assets": [
+        "D10",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B63-R08-P"
+      ],
+      "negativeTestIds": [
+        "B63-R08-REJECT-1",
+        "B63-R08-REJECT-2",
+        "B63-R08-REJECT-3",
+        "B63-R08-REJECT-4",
+        "B63-R08-REJECT-5",
+        "B63-R08-REJECT-6",
+        "B63-R08-REJECT-7"
+      ],
+      "unknownTestIds": [
+        "B63-R08-UNKNOWN-8"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-01",
+  "researchTopic": "R-AUTOSOLVE-001",
+  "sourceRegistry": "research/sources/CAP-06-01.json",
+  "fixtures": "docs/capabilities/CAP-06-01/fixtures.json",
+  "validator": "tools/check_cap_06_01.py",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "C0601-R01",
+      "capabilityId": "CAP-06-01",
+      "summary": "无D05可以探索但D01制造目标和D04初始毛坯必须具备",
+      "field": "inputs.targetAndStock",
+      "operator": "present",
+      "passValue": true,
+      "failureCode": "INPUT_MISSING",
+      "assets": [
+        "D01",
+        "D04",
+        "D06"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S05",
+        "SRC-C0601-S06",
+        "SRC-C0601-S09"
+      ],
+      "positiveTestId": "CAP-06-01-T01",
+      "negativeTestId": "CAP-06-01-T02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R02",
+      "capabilityId": "CAP-06-01",
+      "summary": "所有输入引用必须明确revision/hash/frame/unit/scope，禁止latest",
+      "field": "inputs.exactRefs",
+      "operator": "present",
+      "passValue": true,
+      "failureCode": "SOURCE_UNPINNED",
+      "assets": [
+        "D01",
+        "D02",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S07",
+        "SRC-C0601-S08",
+        "SRC-C0601-S10"
+      ],
+      "positiveTestId": "CAP-06-01-T03",
+      "negativeTestId": "CAP-06-01-T04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R03",
+      "capabilityId": "CAP-06-01",
+      "summary": "毛坯包含与去料证据必须是BRep布尔而非bbox",
+      "field": "geometry.brepContainment",
+      "operator": "equals",
+      "passValue": "CERTIFIED_LOCAL",
+      "failureCode": "BBOX_ONLY",
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S01",
+        "SRC-C0601-S02"
+      ],
+      "positiveTestId": "CAP-06-01-T05",
+      "negativeTestId": "CAP-06-01-T06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R04",
+      "capabilityId": "CAP-06-01",
+      "summary": "保护区/余量和坐标必须明示不可默认无约束",
+      "field": "geometry.protectedZonesVerified",
+      "operator": "equals",
+      "passValue": true,
+      "failureCode": "PROTECTION_UNKNOWN",
+      "assets": [
+        "D02",
+        "D04",
+        "D06"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S01",
+        "SRC-C0601-S03"
+      ],
+      "positiveTestId": "CAP-06-01-T07",
+      "negativeTestId": "CAP-06-01-T08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R05",
+      "capabilityId": "CAP-06-01",
+      "summary": "布尔形状有效且fuzzy预算内，错误Fail Closed",
+      "field": "geometry.occtCheck",
+      "operator": "equals",
+      "passValue": "VALID_WITHIN_BUDGET",
+      "failureCode": "BOOLEAN_INVALID",
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S01",
+        "SRC-C0601-S02",
+        "SRC-C0601-S03"
+      ],
+      "positiveTestId": "CAP-06-01-T09",
+      "negativeTestId": "CAP-06-01-T10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R06",
+      "capabilityId": "CAP-06-01",
+      "summary": "搜索Beam/Boolean/时限受控，超时UNKNOWN非INFEASIBLE",
+      "field": "search.budgetStatus",
+      "operator": "equals",
+      "passValue": "WITHIN_LIMIT",
+      "failureCode": "SEARCH_TIMEOUT_UNKNOWN",
+      "assets": [
+        "D06"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S04",
+        "SRC-C0601-S05",
+        "SRC-C0601-S06"
+      ],
+      "positiveTestId": "CAP-06-01-T11",
+      "negativeTestId": "CAP-06-01-T12",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R07",
+      "capabilityId": "CAP-06-01",
+      "summary": "D06候选不可变且无Solver直接写D05",
+      "field": "candidate.ownerBoundary",
+      "operator": "equals",
+      "passValue": "D06_ONLY",
+      "failureCode": "SOLVER_WRITES_PLAN",
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S05",
+        "SRC-C0601-S07"
+      ],
+      "positiveTestId": "CAP-06-01-T13",
+      "negativeTestId": "CAP-06-01-T14",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R08",
+      "capabilityId": "CAP-06-01",
+      "summary": "D08冻结不能被A/B覆盖，只能在05域产生新修订",
+      "field": "freeze.integrity",
+      "operator": "equals",
+      "passValue": "IMMUTABLE",
+      "failureCode": "FROZEN_MUTATION",
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S07",
+        "SRC-C0601-S08"
+      ],
+      "positiveTestId": "CAP-06-01-T15",
+      "negativeTestId": "CAP-06-01-T16",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R09",
+      "capabilityId": "CAP-06-01",
+      "summary": "GUI/CLI/Agent共用Port并在提交当刻重验ACL/CAS/代次",
+      "field": "commit.guard",
+      "operator": "equals",
+      "passValue": "CURRENT_APPROVED",
+      "failureCode": "LATE_OR_REVOKED",
+      "assets": [
+        "D01",
+        "D06"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S07",
+        "SRC-C0601-S08"
+      ],
+      "positiveTestId": "CAP-06-01-T17",
+      "negativeTestId": "CAP-06-01-T18",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0601-R10",
+      "capabilityId": "CAP-06-01",
+      "summary": "D06候选不得绕过D07+D08生成D09或继承D15/D16资格",
+      "field": "handoff.downstream",
+      "operator": "equals",
+      "passValue": "CANDIDATE_ONLY",
+      "failureCode": "FALSE_VERIFICATION",
+      "assets": [
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0601-S02",
+        "SRC-C0601-S04",
+        "SRC-C0601-S09"
+      ],
+      "positiveTestId": "CAP-06-01-T19",
+      "negativeTestId": "CAP-06-01-T20",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

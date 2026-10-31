@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "procet-e303-b28-trace-v1",
+  "date": "2026-10-30",
+  "workPackageId": "E3-03",
+  "rules": [
+    {
+      "id": "B28-R1",
+      "statement": "绑定D12字节、D04名义、D10实际与控制器方言ExactHash，未经认证不可声明OEM合格",
+      "sourceIds": [
+        "B28-S04"
+      ],
+      "fields": [
+        "refs.nc",
+        "refs.d04",
+        "refs.d10",
+        "refs.frame",
+        "refs.profile"
+      ],
+      "capabilityIds": [
+        "CAP-08-02"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "id": "B28-R2",
+      "statement": "显式区分终点G90/G91与圆心G90.1/G91.1，限定合成G21/G94正进给/三平面",
+      "sourceIds": [
+        "B28-S01",
+        "B28-S02"
+      ],
+      "fields": [
+        "modal.center",
+        "modal.distance",
+        "modal.plane",
+        "modal.feed"
+      ],
+      "capabilityIds": [
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N03",
+        "N04"
+      ]
+    },
+    {
+      "id": "B28-R3",
+      "statement": "按G17/G18/G19配置IJK中心平面并独立验证起终半径，不把合成容差当厂商公差",
+      "sourceIds": [
+        "B28-S01"
+      ],
+      "fields": [
+        "arc.ijk",
+        "arc.start",
+        "arc.end"
+      ],
+      "capabilityIds": [
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N05",
+        "N06"
+      ]
+    },
+    {
+      "id": "B28-R4",
+      "statement": "Center允许全圆/有限圈，R格式同点全圆拒绝；圈数上限仅规划合成预算",
+      "sourceIds": [
+        "B28-S01",
+        "B28-S04"
+      ],
+      "fields": [
+        "arc.format",
+        "arc.turns"
+      ],
+      "capabilityIds": [
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N07",
+        "N08"
+      ]
+    },
+    {
+      "id": "B28-R5",
+      "statement": "R格式弦长不可超直径，近半圆病态合成UNKNOWN，R格式未求控制器圆心",
+      "sourceIds": [
+        "B28-S01"
+      ],
+      "fields": [
+        "arc.radius",
+        "arc.end"
+      ],
+      "capabilityIds": [
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N09",
+        "N10"
+      ]
+    },
+    {
+      "id": "B28-R6",
+      "statement": "正交螺旋位移一致；宏、刀补、同步旋转等未适配语义不升格",
+      "sourceIds": [
+        "B28-S01",
+        "B28-S04"
+      ],
+      "fields": [
+        "arc.helixDisplacement",
+        "arc.cutterComp",
+        "arc.rotary"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-08-05"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N11",
+        "N12"
+      ]
+    },
+    {
+      "id": "B28-R7",
+      "statement": "D12行号与blockHash/块前后模态Hash逐事件可追溯",
+      "sourceIds": [
+        "B28-S02",
+        "B28-S04"
+      ],
+      "fields": [
+        "arc.sourceLine",
+        "arc.blockHash",
+        "modal.preHash",
+        "modal.postHash"
+      ],
+      "capabilityIds": [
+        "CAP-08-06",
+        "CAP-08-07"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N13",
+        "N14"
+      ]
+    },
+    {
+      "id": "B28-R8",
+      "statement": "唯一D13 Owner Port和Babylon+左TaskPanel，CAS/ACL/scope/取消重验，D14/D15/D16未验不放行",
+      "sourceIds": [
+        "B28-S04"
+      ],
+      "fields": [
+        "gate.port",
+        "gate.channels",
+        "gate.observedRevision",
+        "gate.d15"
+      ],
+      "capabilityIds": [
+        "CAP-08-02",
+        "CAP-08-07"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N15",
+        "N16"
+      ]
+    }
+  ]
+}

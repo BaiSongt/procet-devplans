@@ -1,0 +1,400 @@
+{
+  "schemaVersion": "procet-b51-fixtures-v1",
+  "date": "2026-10-31",
+  "scope": "二维Z旋转的SE(3)严格子集，合成尺寸单位mm，数值1e-8仅为测试阈值非工业公差",
+  "base": {
+    "refs": {
+      "scope": "project-demo/setup-1",
+      "scopeEpoch": 8,
+      "d03": {
+        "asset": "D03",
+        "owner": "D03",
+        "revision": 3,
+        "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameRef": "M"
+      },
+      "d04": {
+        "asset": "D04",
+        "owner": "D04",
+        "revision": 7,
+        "contentHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frameRef": "M"
+      },
+      "d10": {
+        "asset": "D10",
+        "owner": "D10",
+        "revision": 2,
+        "contentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "frameRef": "M"
+      }
+    },
+    "math": {
+      "unit": "mm",
+      "columnConvention": "T_A_B*p_B",
+      "rightHanded": true,
+      "scale": 1
+    },
+    "graph": {
+      "tool": [
+        {
+          "id": "spindle",
+          "parent": "M",
+          "translation": [
+            100,
+            0,
+            0
+          ],
+          "yawDeg": 90
+        },
+        {
+          "id": "tcp",
+          "parent": "spindle",
+          "translation": [
+            10,
+            0,
+            0
+          ],
+          "yawDeg": 0
+        }
+      ],
+      "work": [
+        {
+          "id": "work",
+          "parent": "M",
+          "translation": [
+            0,
+            20,
+            0
+          ],
+          "yawDeg": 90
+        }
+      ]
+    },
+    "gantry": {
+      "jointIds": [
+        "JY1",
+        "JY2"
+      ],
+      "axisLetters": [
+        "Y",
+        "Y"
+      ],
+      "hasPhysicalSeparation": true,
+      "position": [
+        15,
+        15
+      ],
+      "homing": "SYNTHETIC"
+    },
+    "evidence": {
+      "provenance": "SYNTHETIC",
+      "realMachineCalibration": "NOT_RUN",
+      "pivotKnown": "SYNTHETIC",
+      "toolMountKnown": "SYNTHETIC"
+    },
+    "execution": {
+      "d04": "DESIGN_SETUP",
+      "d10": "PHYSICAL_BINDING_SEPARATE",
+      "finalNc": "NOT_PRESENT",
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED",
+      "clAnimation": "PREVIEW_ONLY"
+    },
+    "transaction": {
+      "casFresh": true,
+      "permissionEpochCurrent": true,
+      "scopeEpochCurrent": true,
+      "cancelled": false,
+      "lateReceipt": false,
+      "freezePreserved": true,
+      "rollbackRef": "old-revision"
+    },
+    "ui": {
+      "singleScene": true,
+      "leftUnifiedTaskPanel": true,
+      "allEntrypointsSharePort": true
+    },
+    "golden": {
+      "relativeTcpInWork": [
+        -10,
+        -100,
+        0,
+        0
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "ACCEPT_SYNTHETIC",
+      "overrides": {},
+      "description": "两分支绕Z90°；TCP在工件系(-10,-100,0)，角度相对0"
+    },
+    {
+      "id": "P02",
+      "expected": "ACCEPT_SYNTHETIC",
+      "overrides": {
+        "graph.tool.0.yawDeg": 0,
+        "graph.work.0.yawDeg": 0,
+        "golden.relativeTcpInWork": [
+          110,
+          -20,
+          0,
+          0
+        ]
+      },
+      "description": "零角度对照；移动/旋转组合不应交换"
+    },
+    {
+      "id": "N01",
+      "expected": "REJECT",
+      "overrides": {
+        "refs.d03.contentHash": "abc"
+      },
+      "description": "D03内容SHA缺失"
+    },
+    {
+      "id": "N02",
+      "expected": "REJECT",
+      "overrides": {
+        "refs.d10.owner": "D04"
+      },
+      "description": "D10写Owner混同D04"
+    },
+    {
+      "id": "N03",
+      "expected": "REJECT",
+      "overrides": {
+        "graph.tool.1.parent": "M"
+      },
+      "description": "刀具父链断裂"
+    },
+    {
+      "id": "N04",
+      "expected": "REJECT",
+      "overrides": {
+        "graph.work.0.parent": "tcp"
+      },
+      "description": "工件分支错误接到刀具端"
+    },
+    {
+      "id": "N05",
+      "expected": "REJECT",
+      "overrides": {
+        "graph.tool.0.yawDeg": 0
+      },
+      "description": "忽略主轴旋转导致Golden不闭合"
+    },
+    {
+      "id": "N06",
+      "expected": "REJECT",
+      "overrides": {
+        "graph.work.0.yawDeg": 0
+      },
+      "description": "漏掉工件旋转导致Golden不闭合"
+    },
+    {
+      "id": "N07",
+      "expected": "REJECT",
+      "overrides": {
+        "graph.tool.1.translation": [
+          10,
+          0,
+          1
+        ]
+      },
+      "description": "TCP z偏置改变未更新向量"
+    },
+    {
+      "id": "N08",
+      "expected": "REJECT",
+      "overrides": {
+        "math.columnConvention": "row"
+      },
+      "description": "列向量约定错误"
+    },
+    {
+      "id": "N09",
+      "expected": "REJECT",
+      "overrides": {
+        "math.rightHanded": false
+      },
+      "description": "镜像左手输入"
+    },
+    {
+      "id": "N10",
+      "expected": "REJECT",
+      "overrides": {
+        "math.unit": "inch"
+      },
+      "description": "单位不同但未显式换算"
+    },
+    {
+      "id": "N11",
+      "expected": "REJECT",
+      "overrides": {
+        "gantry.axisLetters": [
+          "Y"
+        ]
+      },
+      "description": "双关节压成单轴记录"
+    },
+    {
+      "id": "N12",
+      "expected": "REJECT",
+      "overrides": {
+        "gantry.jointIds": [
+          "JY1",
+          "JY1"
+        ]
+      },
+      "description": "物理Joint ID冲突"
+    },
+    {
+      "id": "N13",
+      "expected": "REJECT",
+      "overrides": {
+        "gantry.position": [
+          15,
+          16
+        ]
+      },
+      "description": "合成耦合轴不同步"
+    },
+    {
+      "id": "N14",
+      "expected": "REJECT",
+      "overrides": {
+        "golden.relativeTcpInWork": [
+          0,
+          -100,
+          0,
+          0
+        ]
+      },
+      "description": "独立Golden被错误覆盖"
+    },
+    {
+      "id": "N15",
+      "expected": "REJECT",
+      "overrides": {
+        "execution.d15": "PASS"
+      },
+      "description": "无最终NC仍假称D15 PASS"
+    },
+    {
+      "id": "N16",
+      "expected": "REJECT",
+      "overrides": {
+        "transaction.casFresh": false
+      },
+      "description": "CAS陈旧"
+    },
+    {
+      "id": "N17",
+      "expected": "REJECT",
+      "overrides": {
+        "transaction.cancelled": true
+      },
+      "description": "取消后仍带回执"
+    },
+    {
+      "id": "N18",
+      "expected": "REJECT",
+      "overrides": {
+        "ui.singleScene": false
+      },
+      "description": "多Babylon世界"
+    },
+    {
+      "id": "N19",
+      "expected": "REJECT",
+      "overrides": {
+        "ui.allEntrypointsSharePort": false
+      },
+      "description": "GUI/CLI/Agent规则分叉"
+    },
+    {
+      "id": "N20",
+      "expected": "REJECT",
+      "overrides": {
+        "transaction.freezePreserved": false
+      },
+      "description": "冻结成果被覆盖"
+    },
+    {
+      "id": "N21",
+      "expected": "REJECT",
+      "overrides": {
+        "evidence.realMachineCalibration": "PASS"
+      },
+      "description": "以合成标定冒称实机"
+    },
+    {
+      "id": "N22",
+      "expected": "REJECT",
+      "overrides": {
+        "math.scale": 1.01
+      },
+      "description": "非SE3缩放"
+    },
+    {
+      "id": "N23",
+      "expected": "REJECT",
+      "overrides": {
+        "refs.d04.contentHash": ""
+      },
+      "description": "D04源修订hash缺失"
+    },
+    {
+      "id": "N24",
+      "expected": "REJECT",
+      "overrides": {
+        "transaction.permissionEpochCurrent": false
+      },
+      "description": "授权已撤销"
+    },
+    {
+      "id": "N25",
+      "expected": "REJECT",
+      "overrides": {
+        "execution.d13": "PASS"
+      },
+      "description": "未提供NC却晋升D13"
+    },
+    {
+      "id": "N26",
+      "expected": "REJECT",
+      "overrides": {
+        "gantry.hasPhysicalSeparation": false
+      },
+      "description": "物理双驱不分开"
+    },
+    {
+      "id": "U01",
+      "expected": "UNKNOWN",
+      "overrides": {
+        "evidence.pivotKnown": "UNKNOWN"
+      },
+      "description": "枢轴来源缺失"
+    },
+    {
+      "id": "U02",
+      "expected": "UNKNOWN",
+      "overrides": {
+        "gantry.homing": "UNKNOWN"
+      },
+      "description": "双关节回零未知"
+    },
+    {
+      "id": "U03",
+      "expected": "UNKNOWN",
+      "overrides": {
+        "evidence.toolMountKnown": "UNKNOWN"
+      },
+      "description": "刀具安装点未知"
+    }
+  ]
+}

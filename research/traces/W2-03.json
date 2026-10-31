@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "W2-03",
+  "researchTopic": "R-DEPENDENCY-INVALIDATION-001",
+  "sourceRegistry": "research/sources/W2-03.json",
+  "implementation": "docs/work-packages/W2-03.md",
+  "ui": "docs/work-packages/W2-03/UI.md",
+  "fixtures": "docs/work-packages/W2-03/fixtures.json",
+  "validator": "tools/check_w203_planning_2026_10_25.mjs",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "W203-R01",
+      "workPackageId": "W2-03",
+      "summary": "精确revision/hash/frame引用",
+      "sourceIds": [
+        "SRC-W203-S01",
+        "SRC-W203-S02",
+        "SRC-W203-S04"
+      ],
+      "fields": [
+        "context.sourceRef.id",
+        "context.sourceRef.revision",
+        "context.sourceRef.hash",
+        "context.sourceRef.frame",
+        "context.sourceRef.unit"
+      ],
+      "assets": [
+        "D12"
+      ],
+      "positiveTestId": "W2-03-T01",
+      "negativeTestId": "W2-03-T02",
+      "negativeReason": "REJECT_EXACT_REF",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R02",
+      "workPackageId": "W2-03",
+      "summary": "规则版本与图版本必须一致",
+      "sourceIds": [
+        "SRC-W203-S02",
+        "SRC-W203-S04",
+        "SRC-W203-S05"
+      ],
+      "fields": [
+        "context.graphVersion",
+        "context.expectedGraphVersion"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "positiveTestId": "W2-03-T03",
+      "negativeTestId": "W2-03-T04",
+      "negativeReason": "REJECT_GRAPH_VERSION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R03",
+      "workPackageId": "W2-03",
+      "summary": "实例修订图应为DAG",
+      "sourceIds": [
+        "SRC-W203-S02",
+        "SRC-W203-S08"
+      ],
+      "fields": [
+        "graph.edges[].from",
+        "graph.edges[].to"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D16"
+      ],
+      "positiveTestId": "W2-03-T05",
+      "negativeTestId": "W2-03-T06",
+      "negativeReason": "REJECT_GRAPH_CYCLE",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R04",
+      "workPackageId": "W2-03",
+      "summary": "NC编辑仅传播至已依赖执行链",
+      "sourceIds": [
+        "SRC-W203-S01",
+        "SRC-W203-S02",
+        "SRC-W203-S05"
+      ],
+      "fields": [
+        "change.kind",
+        "change.requestedImpacts",
+        "graph.edges[].scopeId"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-03-T07",
+      "negativeTestId": "W2-03-T08",
+      "negativeReason": "REJECT_OVERBROAD_OR_MISSING_IMPACT",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R05",
+      "workPackageId": "W2-03",
+      "summary": "主题变化不得触发制造失效",
+      "sourceIds": [
+        "SRC-W203-S02",
+        "SRC-W203-S05"
+      ],
+      "fields": [
+        "change.kind",
+        "change.requestedImpacts"
+      ],
+      "assets": [
+        "D09",
+        "D11"
+      ],
+      "positiveTestId": "W2-03-T09",
+      "negativeTestId": "W2-03-T10",
+      "negativeReason": "REJECT_OVERBROAD_OR_MISSING_IMPACT",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R06",
+      "workPackageId": "W2-03",
+      "summary": "资源可用性与内容完整性分开",
+      "sourceIds": [
+        "SRC-W203-S06",
+        "SRC-W203-S09"
+      ],
+      "fields": [
+        "change.resourceAvailability",
+        "change.contentIntegrity"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "positiveTestId": "W2-03-T11",
+      "negativeTestId": "W2-03-T12",
+      "negativeReason": "QUARANTINE_CONTENT_INTEGRITY",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R07",
+      "workPackageId": "W2-03",
+      "summary": "冻结D08只读且保留历史",
+      "sourceIds": [
+        "SRC-W203-S02",
+        "SRC-W203-S03"
+      ],
+      "fields": [
+        "change.freezeMutation",
+        "context.sourceRef.revision"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-03-T13",
+      "negativeTestId": "W2-03-T14",
+      "negativeReason": "REJECT_FROZEN_WRITE",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R08",
+      "workPackageId": "W2-03",
+      "summary": "未知D13不得自动授予D15/D16发布资格",
+      "sourceIds": [
+        "SRC-W203-S01",
+        "SRC-W203-S07"
+      ],
+      "fields": [
+        "change.d13Status",
+        "change.claimPublished"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-03-T15",
+      "negativeTestId": "W2-03-T16",
+      "negativeReason": "REJECT_UNVERIFIED_PUBLICATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R09",
+      "workPackageId": "W2-03",
+      "summary": "提交时CAS与权限重新检查",
+      "sourceIds": [
+        "SRC-W203-S03",
+        "SRC-W203-S04"
+      ],
+      "fields": [
+        "guard.currentHead",
+        "guard.expectedHead",
+        "guard.permission",
+        "guard.taskGeneration"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-03-T17",
+      "negativeTestId": "W2-03-T18",
+      "negativeReason": "REJECT_CAS_ACL",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W203-R10",
+      "workPackageId": "W2-03",
+      "summary": "独立消费者须重新核对来源闭包",
+      "sourceIds": [
+        "SRC-W203-S02",
+        "SRC-W203-S06",
+        "SRC-W203-S07"
+      ],
+      "fields": [
+        "consumer.independentRecheck",
+        "consumer.sourceClosed"
+      ],
+      "assets": [
+        "D12",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-03-T19",
+      "negativeTestId": "W2-03-T20",
+      "negativeReason": "REJECT_CONSUMER_RECHECK",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

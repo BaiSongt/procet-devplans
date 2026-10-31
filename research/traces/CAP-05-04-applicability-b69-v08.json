@@ -1,0 +1,274 @@
+{
+  "schemaVersion": "procet-b69-trace-v1",
+  "topic": "R-TMPL-APPLICABILITY-003",
+  "capabilityId": "CAP-05-04",
+  "sourceRegistry": "research/sources/CAP-05-04-applicability-b69.json",
+  "originalWorkPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "businessOwner": "Domain05.ProcessTemplateDomainPort",
+  "ruleCount": 8,
+  "rules": [
+    {
+      "id": "B69-R01",
+      "rule": "模板版本Hash及Project作用域必须精确，批准版本才是候选",
+      "fields": [
+        "template.scope",
+        "template.revision",
+        "template.hash",
+        "template.lifecycle"
+      ],
+      "sourceIds": [
+        "B69-S06",
+        "B69-S05"
+      ],
+      "caseIds": [
+        "B69-P01",
+        "B69-N01",
+        "B69-N02",
+        "B69-N03",
+        "B69-N04"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "PROCET_DERIVED_CONSTRAINT_NOT_EXTERNAL_STANDARD_CLAUSE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B69-R02",
+      "rule": "JSON Schema required/default不能代替材料/特征/工艺实际观测",
+      "fields": [
+        "context.material",
+        "context.featureClass",
+        "context.processKind"
+      ],
+      "sourceIds": [
+        "B69-S01",
+        "B69-S02",
+        "B69-S06"
+      ],
+      "caseIds": [
+        "B69-P01",
+        "B69-A01",
+        "B69-A02",
+        "B69-A03",
+        "B69-U01"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "PROCET_DERIVED_CONSTRAINT_NOT_EXTERNAL_STANDARD_CLAUSE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B69-R03",
+      "rule": "Slot与机床能力匹配以显式观测域区分失配和未知",
+      "fields": [
+        "context.slotId",
+        "context.machineCapabilities",
+        "context.occurrencePath"
+      ],
+      "sourceIds": [
+        "B69-S04",
+        "B69-S06"
+      ],
+      "caseIds": [
+        "B69-A04",
+        "B69-A05",
+        "B69-U02",
+        "B69-U05"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "PROCET_DERIVED_CONSTRAINT_NOT_EXTERNAL_STANDARD_CLAUSE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B69-R04",
+      "rule": "量纲与精确英寸转换后执行闭区间判断，不允许隐式单位猜测",
+      "fields": [
+        "context.diameter.value/unit/dimension",
+        "context.stepOver.value/unit/dimension",
+        "template.diameterRangeMm",
+        "template.maxStepOverMm"
+      ],
+      "sourceIds": [
+        "B69-S03",
+        "B69-S06"
+      ],
+      "caseIds": [
+        "B69-P02",
+        "B69-P03",
+        "B69-P04",
+        "B69-A06",
+        "B69-A07",
+        "B69-U03",
+        "B69-U07"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "NIST_UNIT_FACT_PLUS_PROCET_DERIVED_RANGE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B69-R05",
+      "rule": "D01/D02/D03/D04真实来源与FrameGraph单独证明，D04不等于D10",
+      "fields": [
+        "context.d01Exact",
+        "context.d02Exact",
+        "context.d03Exact",
+        "context.d04Exact",
+        "context.frameGraphProof",
+        "execution.d10PhysicalBindingInherited"
+      ],
+      "sourceIds": [
+        "B69-S05",
+        "B69-S06"
+      ],
+      "caseIds": [
+        "B69-P01",
+        "B69-N11",
+        "B69-U04",
+        "B69-U06"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "PROCET_DERIVED_CONSTRAINT_NOT_EXTERNAL_STANDARD_CLAUSE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B69-R06",
+      "rule": "D05 Owner提交瞬间CAS+ACL+scopeEpoch+generation重验并取消晚回执",
+      "fields": [
+        "owner.aclWrite",
+        "owner.expectedHead/currentHead",
+        "owner.scopeEpoch/currentScopeEpoch",
+        "owner.taskGeneration/ackGeneration",
+        "owner.cancelled"
+      ],
+      "sourceIds": [
+        "B69-S06"
+      ],
+      "caseIds": [
+        "B69-P01",
+        "B69-N05",
+        "B69-N06",
+        "B69-S01",
+        "B69-S02",
+        "B69-S03",
+        "B69-S04"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "PROCET_DERIVED_CONSTRAINT_NOT_EXTERNAL_STANDARD_CLAUSE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B69-R07",
+      "rule": "GUI CLI Agent同一Owner Port和单Babylon左TaskPanel，预览不提交",
+      "fields": [
+        "owner.uiPort/cliPort/agentPort",
+        "view.babylonSceneCount",
+        "view.leftUnifiedTaskPanel",
+        "view.maxFontPx",
+        "view.previewOnly"
+      ],
+      "sourceIds": [
+        "B69-S06"
+      ],
+      "caseIds": [
+        "B69-P01",
+        "B69-N07",
+        "B69-N08",
+        "B69-N09",
+        "B69-N10",
+        "B69-N15"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "PROCET_DERIVED_CONSTRAINT_NOT_EXTERNAL_STANDARD_CLAUSE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B69-R08",
+      "rule": "模板只生成新D05候选，不继承D08冻结、D12 NC、D15工程验证或D16发布",
+      "fields": [
+        "context.originalD12NcInherited",
+        "context.frozenD08Preserved",
+        "execution.d13UnknownMayPass",
+        "execution.d15ValidationInherited",
+        "execution.d16ReleaseInherited"
+      ],
+      "sourceIds": [
+        "B69-S04",
+        "B69-S05",
+        "B69-S06"
+      ],
+      "caseIds": [
+        "B69-P01",
+        "B69-N12",
+        "B69-N13",
+        "B69-N14",
+        "B69-N17",
+        "B69-N18"
+      ],
+      "capabilityId": "CAP-05-04",
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "businessOwner": "Domain05.ProcessTemplateDomainPort",
+      "ruleOrigin": "PROCET_DERIVED_CONSTRAINT_NOT_EXTERNAL_STANDARD_CLAUSE",
+      "approval": "L3_PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    }
+  ],
+  "fixturePath": "docs/capabilities/CAP-05-04/applicability-b69-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0504_applicability_b69_v08.cjs",
+  "sourceDepthsIndependentOfApproval": true,
+  "planningPassNotProductPass": true
+}

@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "procet-research-register-v1",
+  "checkedOn": "2026-10-25",
+  "registeredRecords": 8,
+  "sources": [
+    {
+      "id": "SRC-W204-S01",
+      "title": "RFC9110",
+      "authors": [
+        "R. Fielding",
+        "M. Nottingham",
+        "J. Reschke"
+      ],
+      "publisher": "RFC Editor",
+      "edition": "2022-06",
+      "published": "2022-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "§13 条件请求/If-Match",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "只能类比CAS，不能证明跨独立SQLite库原子性",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-W204-S02",
+      "title": "SQLite Isolation",
+      "authors": [
+        "SQLite Development Team"
+      ],
+      "publisher": "SQLite",
+      "edition": "unknown",
+      "published": "unknown",
+      "url": "https://www.sqlite.org/isolation.html",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "Isolation Between Database Connections",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "单库隔离不等于分布式事务",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-W204-S03",
+      "title": "SQLite Atomic Commit",
+      "authors": [
+        "SQLite Development Team"
+      ],
+      "publisher": "SQLite",
+      "edition": "unknown",
+      "published": "unknown",
+      "url": "https://www.sqlite.org/atomiccommit.html",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "§1、§4 Hot Journal",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "正文明确仅讨论rollback journal模式",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-W204-S04",
+      "title": "SQLite WAL",
+      "authors": [
+        "SQLite Development Team"
+      ],
+      "publisher": "SQLite",
+      "edition": "unknown",
+      "published": "unknown",
+      "url": "https://www.sqlite.org/wal.html",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "§1 WAL Overview",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "WAL不能直接应用于多机网络文件系统共享场景",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-W204-S05",
+      "title": "SQLite PRAGMA synchronous",
+      "authors": [
+        "SQLite Development Team"
+      ],
+      "publisher": "SQLite",
+      "edition": "unknown",
+      "published": "unknown",
+      "url": "https://www.sqlite.org/pragma.html",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "synchronous FULL/NORMAL/EXTRA",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "WAL NORMAL掉电可能丢失最近已提交事务",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-W204-S06",
+      "title": "DOM Standard AbortSignal",
+      "authors": [
+        "WHATWG contributors"
+      ],
+      "publisher": "WHATWG",
+      "edition": "living",
+      "published": "living",
+      "url": "https://dom.spec.whatwg.org/",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "§3 Aborting ongoing activities",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "取消仅是协作通知，不可自动回滚已落库事实",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-W204-S07",
+      "title": "W3C PROV-O",
+      "authors": [
+        "W3C Provenance Working Group"
+      ],
+      "publisher": "W3C",
+      "edition": "2013-04-30",
+      "published": "2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "recommendation_sections",
+      "locator": "Abstract与wasDerivedFrom",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "本体不提供领域ACL、CAS或机床认证",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-W204-S08",
+      "title": "NIST IR 8536 Final",
+      "authors": [
+        "Michael Pease",
+        "Evan Wallace",
+        "Harvey Reed",
+        "Vivian Martin",
+        "Steve Granata"
+      ],
+      "publisher": "NIST",
+      "edition": "2026-09",
+      "published": "2026-09",
+      "url": "https://csrc.nist.gov/pubs/ir/8536/final",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "metadata_abstract",
+      "locator": "2026年9月最终版官网出版与摘要",
+      "supports": "W2-04可追踪设计依据及适用边界",
+      "limits": "报告PDF正文未读，不外推为Procet的强制算法",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "procet-w2-01-workflow-state-v1",
+  "recordType": "HandoffRecord",
+  "statuses": [
+    "DRAFT_PREVIEW",
+    "PENDING_REVALIDATION",
+    "COMMITTED_DRAFT",
+    "REJECTED",
+    "CANCELLED",
+    "UNKNOWN"
+  ],
+  "transitions": [
+    {
+      "from": "DRAFT_PREVIEW",
+      "event": "requestCommit",
+      "to": "PENDING_REVALIDATION",
+      "require": [
+        "exactRefs",
+        "planTargetExistsOrNewDraft",
+        "scope"
+      ]
+    },
+    {
+      "from": "PENDING_REVALIDATION",
+      "event": "commitSuccess",
+      "to": "COMMITTED_DRAFT",
+      "require": [
+        "acl",
+        "cas",
+        "sourceHashes",
+        "generation",
+        "notCancelled",
+        "freezeUnchanged"
+      ]
+    },
+    {
+      "from": "PENDING_REVALIDATION",
+      "event": "staleOrDenied",
+      "to": "REJECTED"
+    },
+    {
+      "from": "DRAFT_PREVIEW",
+      "event": "cancel",
+      "to": "CANCELLED"
+    },
+    {
+      "from": "PENDING_REVALIDATION",
+      "event": "cancelWins",
+      "to": "CANCELLED"
+    },
+    {
+      "from": "DRAFT_PREVIEW",
+      "event": "unknownRequiredInput",
+      "to": "UNKNOWN"
+    }
+  ],
+  "forbidden": [
+    "CANCELLED->COMMITTED_DRAFT",
+    "REJECTED->COMMITTED_DRAFT",
+    "COMMITTED_DRAFT->D15_PASS",
+    "COMMITTED_DRAFT->D16_RELEASED"
+  ],
+  "appendOnly": true,
+  "lateReceiptDisposition": "QUARANTINE_AUDIT_ONLY"
+}

@@ -1,0 +1,555 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-07",
+  "researchTopic": "R-CL-NC-PROVENANCE-001",
+  "sourceRegistry": "research/sources/CAP-08-07.json",
+  "specification": "docs/capabilities/CAP-08-07/README.md",
+  "ui": "docs/capabilities/CAP-08-07/UI.md",
+  "fixtures": "docs/capabilities/CAP-08-07/fixtures.json",
+  "validator": "tools/check_cap0807_planning_2026_10_26.cjs",
+  "status": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-08-07-R01",
+      "capabilityId": "CAP-08-07",
+      "summary": "D09原段不可变精确定位",
+      "sourceIds": [
+        "C087-S1",
+        "C087-S5"
+      ],
+      "assets": [
+        "D08",
+        "D09"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "origin.d09RevisionPinned",
+        "origin.d09HashPinned",
+        "origin.d08FreezeRefPinned",
+        "origin.d04FramePinned"
+      ],
+      "criteria": [
+        {
+          "path": "origin.d09RevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "origin.d09HashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "origin.d08FreezeRefPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "origin.d04FramePinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P01",
+      "negativeTestId": "CAP-08-07-T-N01",
+      "mutationTestId": "CAP-08-07-M01"
+    },
+    {
+      "id": "CAP-08-07-R02",
+      "capabilityId": "CAP-08-07",
+      "summary": "D12最终字节位置锚",
+      "sourceIds": [
+        "C087-S1",
+        "C087-S2",
+        "C087-S5"
+      ],
+      "assets": [
+        "D09",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "nc.finalBytesHashPinned",
+        "nc.physicalByteSpanExact",
+        "nc.subprogramClosureHashPinned",
+        "nc.postConfigRevisionPinned"
+      ],
+      "criteria": [
+        {
+          "path": "nc.finalBytesHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.physicalByteSpanExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.subprogramClosureHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.postConfigRevisionPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P02",
+      "negativeTestId": "CAP-08-07-T-N02",
+      "mutationTestId": "CAP-08-07-M02"
+    },
+    {
+      "id": "CAP-08-07-R03",
+      "capabilityId": "CAP-08-07",
+      "summary": "双向多对多映射而非行号猜测",
+      "sourceIds": [
+        "C087-S2",
+        "C087-S4",
+        "C087-S5"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "map.multiToMultiTyped",
+        "map.generatedNoOriginReason",
+        "map.unmappedExplicit",
+        "map.confidenceNotPass"
+      ],
+      "criteria": [
+        {
+          "path": "map.multiToMultiTyped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "map.generatedNoOriginReason",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "map.unmappedExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "map.confidenceNotPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P03",
+      "negativeTestId": "CAP-08-07-T-N03",
+      "mutationTestId": "CAP-08-07-M03"
+    },
+    {
+      "id": "CAP-08-07-R04",
+      "capabilityId": "CAP-08-07",
+      "summary": "生成、复制与手工差异的血缘",
+      "sourceIds": [
+        "C087-S5",
+        "C087-S6"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "provenance.generatedActivityId",
+        "provenance.revisionChainAcyclic",
+        "provenance.manualEditBreaksCertainty",
+        "provenance.oldMappingImmutable"
+      ],
+      "criteria": [
+        {
+          "path": "provenance.generatedActivityId",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.revisionChainAcyclic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.manualEditBreaksCertainty",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.oldMappingImmutable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P04",
+      "negativeTestId": "CAP-08-07-T-N04",
+      "mutationTestId": "CAP-08-07-M04"
+    },
+    {
+      "id": "CAP-08-07-R05",
+      "capabilityId": "CAP-08-07",
+      "summary": "D13重读最终NC与循环展开",
+      "sourceIds": [
+        "C087-S2",
+        "C087-S3",
+        "C087-S7",
+        "C087-S8"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "exec.finalNcReadIndependent",
+        "exec.callStackOccurrenceTyped",
+        "exec.modalSnapshotLinked",
+        "exec.unknownSemanticsPreserved"
+      ],
+      "criteria": [
+        {
+          "path": "exec.finalNcReadIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "exec.callStackOccurrenceTyped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "exec.modalSnapshotLinked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "exec.unknownSemanticsPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P05",
+      "negativeTestId": "CAP-08-07-T-N05",
+      "mutationTestId": "CAP-08-07-M05"
+    },
+    {
+      "id": "CAP-08-07-R06",
+      "capabilityId": "CAP-08-07",
+      "summary": "Setup、资源与执行绑定严格分离",
+      "sourceIds": [
+        "C087-S1",
+        "C087-S5"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "frame.d04SetupExact",
+        "frame.d10ExecutionBindingExact",
+        "frame.d03ResourceRefExact",
+        "frame.noInferredAxisFromCL"
+      ],
+      "criteria": [
+        {
+          "path": "frame.d04SetupExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.d10ExecutionBindingExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.d03ResourceRefExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.noInferredAxisFromCL",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P06",
+      "negativeTestId": "CAP-08-07-T-N06",
+      "mutationTestId": "CAP-08-07-M06"
+    },
+    {
+      "id": "CAP-08-07-R07",
+      "capabilityId": "CAP-08-07",
+      "summary": "重后处理/源码编辑全链失效",
+      "sourceIds": [
+        "C087-S5",
+        "C087-S6"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "invalidate.repostInvalidatesMapping",
+        "invalidate.manualEditReevaluatesSource",
+        "invalidate.profileChangeStalesD13ToD16",
+        "invalidate.historyNotOverwritten"
+      ],
+      "criteria": [
+        {
+          "path": "invalidate.repostInvalidatesMapping",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.manualEditReevaluatesSource",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.profileChangeStalesD13ToD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.historyNotOverwritten",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P07",
+      "negativeTestId": "CAP-08-07-T-N07",
+      "mutationTestId": "CAP-08-07-M07"
+    },
+    {
+      "id": "CAP-08-07-R08",
+      "capabilityId": "CAP-08-07",
+      "summary": "执行映射不等于工程验收",
+      "sourceIds": [
+        "C087-S3",
+        "C087-S4",
+        "C087-S7"
+      ],
+      "assets": [
+        "D11",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "verify.d14NeedsRealAxisEvidence",
+        "verify.d15IndependentGate",
+        "verify.clPreviewLabeled",
+        "verify.unknownBlocksD16"
+      ],
+      "criteria": [
+        {
+          "path": "verify.d14NeedsRealAxisEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "verify.d15IndependentGate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "verify.clPreviewLabeled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "verify.unknownBlocksD16",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P08",
+      "negativeTestId": "CAP-08-07-T-N08",
+      "mutationTestId": "CAP-08-07-M08"
+    },
+    {
+      "id": "CAP-08-07-R09",
+      "capabilityId": "CAP-08-07",
+      "summary": "Owner事务权限与取消回执",
+      "sourceIds": [
+        "C087-S5",
+        "C087-S6"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "commit.casAclRechecked",
+        "commit.revisionHashFrameExact",
+        "commit.taskGenerationRechecked",
+        "commit.cancelLateAckIgnored"
+      ],
+      "criteria": [
+        {
+          "path": "commit.casAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.revisionHashFrameExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.taskGenerationRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelLateAckIgnored",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P09",
+      "negativeTestId": "CAP-08-07-T-N09",
+      "mutationTestId": "CAP-08-07-M09"
+    },
+    {
+      "id": "CAP-08-07-R10",
+      "capabilityId": "CAP-08-07",
+      "summary": "GUI/CLI/Agent同域入口与交接",
+      "sourceIds": [
+        "C087-S4",
+        "C087-S5",
+        "C087-S6"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "ui.singleBabylonRenderer",
+        "ui.leftUnifiedTaskPanel",
+        "ui.sameDomainUseCase",
+        "ui.independentConsumerPlanned"
+      ],
+      "criteria": [
+        {
+          "path": "ui.singleBabylonRenderer",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftUnifiedTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.sameDomainUseCase",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.independentConsumerPlanned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "校验不满足返回REJECT/UNKNOWN/STALE；映射记录只证明来源关联，不自动授予D15工程验证或D16发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-07-T-P10",
+      "negativeTestId": "CAP-08-07-T-N10",
+      "mutationTestId": "CAP-08-07-M10"
+    }
+  ]
+}

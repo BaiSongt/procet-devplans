@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "procet-cap0705-synthetic-fixtures-v1",
+  "capabilityId": "CAP-07-05",
+  "syntheticOnly": true,
+  "notActualOcct": true,
+  "notActualMachine": true,
+  "cases": [
+    {
+      "id": "CAP-07-05-T01",
+      "ruleId": "C0705-R01",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frameHandedness": "RIGHT",
+        "frozenUnchanged": true
+      },
+      "scenario": "冻结来源与右手Frame精确绑定：正例"
+    },
+    {
+      "id": "CAP-07-05-T02",
+      "ruleId": "C0705-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frameHash",
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "expired",
+        "frameHandedness": "RIGHT",
+        "frozenUnchanged": true
+      },
+      "scenario": "冻结来源与右手Frame精确绑定：反例"
+    },
+    {
+      "id": "CAP-07-05-M01",
+      "ruleId": "C0705-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frozenUnchanged",
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frameHandedness": "RIGHT",
+        "frozenUnchanged": false
+      },
+      "scenario": "冻结来源与右手Frame精确绑定：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T03",
+      "ruleId": "C0705-R02",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "phaseOrder": "ROUGH_SEMI_FINISH",
+        "phaseSequenceUnique": true,
+        "transitionEdgesRecorded": true,
+        "setupSameRevision": true
+      },
+      "scenario": "粗半精精阶段有序且不跨阶段偷换资产：正例"
+    },
+    {
+      "id": "CAP-07-05-T04",
+      "ruleId": "C0705-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "phaseOrder",
+      "input": {
+        "phaseOrder": "FINISH_ROUGH_SEMI",
+        "phaseSequenceUnique": true,
+        "transitionEdgesRecorded": true,
+        "setupSameRevision": true
+      },
+      "scenario": "粗半精精阶段有序且不跨阶段偷换资产：反例"
+    },
+    {
+      "id": "CAP-07-05-M02",
+      "ruleId": "C0705-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "transitionEdgesRecorded",
+      "input": {
+        "phaseOrder": "ROUGH_SEMI_FINISH",
+        "phaseSequenceUnique": true,
+        "transitionEdgesRecorded": false,
+        "setupSameRevision": true
+      },
+      "scenario": "粗半精精阶段有序且不跨阶段偷换资产：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T05",
+      "ruleId": "C0705-R03",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "roughRadialAllowanceMm": 1.2,
+        "semiRadialAllowanceMm": 0.4,
+        "finishRadialAllowanceMm": 0,
+        "roughAxialAllowanceMm": 0.8,
+        "semiAxialAllowanceMm": 0.2,
+        "finishAxialAllowanceMm": 0
+      },
+      "scenario": "径向轴向与阶段余量单调但非固定值：正例"
+    },
+    {
+      "id": "CAP-07-05-T06",
+      "ruleId": "C0705-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "semiRadialAllowanceMm",
+      "input": {
+        "roughRadialAllowanceMm": 1.2,
+        "semiRadialAllowanceMm": 2,
+        "finishRadialAllowanceMm": 0,
+        "roughAxialAllowanceMm": 0.8,
+        "semiAxialAllowanceMm": 0.2,
+        "finishAxialAllowanceMm": 0
+      },
+      "scenario": "径向轴向与阶段余量单调但非固定值：反例"
+    },
+    {
+      "id": "CAP-07-05-M03",
+      "ruleId": "C0705-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "finishAxialAllowanceMm",
+      "input": {
+        "roughRadialAllowanceMm": 1.2,
+        "semiRadialAllowanceMm": 0.4,
+        "finishRadialAllowanceMm": 0,
+        "roughAxialAllowanceMm": 0.8,
+        "semiAxialAllowanceMm": 0.2,
+        "finishAxialAllowanceMm": -0.1
+      },
+      "scenario": "径向轴向与阶段余量单调但非固定值：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T07",
+      "ruleId": "C0705-R04",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "stockBeforeRevision": 4,
+        "stockBeforeHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "previousStageCommitted": true,
+        "usesInitialStockForRest": false
+      },
+      "scenario": "残料来源采用有序D07前态而非初始毛坯代替：正例"
+    },
+    {
+      "id": "CAP-07-05-T08",
+      "ruleId": "C0705-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "previousStageCommitted",
+      "input": {
+        "stockBeforeRevision": 4,
+        "stockBeforeHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "previousStageCommitted": false,
+        "usesInitialStockForRest": false
+      },
+      "scenario": "残料来源采用有序D07前态而非初始毛坯代替：反例"
+    },
+    {
+      "id": "CAP-07-05-M04",
+      "ruleId": "C0705-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "usesInitialStockForRest",
+      "input": {
+        "stockBeforeRevision": 4,
+        "stockBeforeHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "previousStageCommitted": true,
+        "usesInitialStockForRest": true
+      },
+      "scenario": "残料来源采用有序D07前态而非初始毛坯代替：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T09",
+      "ruleId": "C0705-R05",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "protectedZoneUnchanged": true,
+        "trimmedDomainCertified": true,
+        "localGougeOracle": "PASS_LOCAL_BREP",
+        "screenProxyIsEvidence": false
+      },
+      "scenario": "岛屿保护区和修剪几何保守校核：正例"
+    },
+    {
+      "id": "CAP-07-05-T10",
+      "ruleId": "C0705-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "localGougeOracle",
+      "input": {
+        "protectedZoneUnchanged": true,
+        "trimmedDomainCertified": true,
+        "localGougeOracle": "UNKNOWN",
+        "screenProxyIsEvidence": false
+      },
+      "scenario": "岛屿保护区和修剪几何保守校核：反例"
+    },
+    {
+      "id": "CAP-07-05-M05",
+      "ruleId": "C0705-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "protectedZoneUnchanged",
+      "input": {
+        "protectedZoneUnchanged": false,
+        "trimmedDomainCertified": true,
+        "localGougeOracle": "PASS_LOCAL_BREP",
+        "screenProxyIsEvidence": false
+      },
+      "scenario": "岛屿保护区和修剪几何保守校核：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T11",
+      "ruleId": "C0705-R06",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "qualityTargetRevision": 3,
+        "roughnessTargetUm": 3.2,
+        "roughnessTargetUnit": "um",
+        "measurementStatus": "NOT_MEASURED",
+        "qualityClaimCertified": false
+      },
+      "scenario": "质量目标与实际测量状态保持隔离：正例"
+    },
+    {
+      "id": "CAP-07-05-T12",
+      "ruleId": "C0705-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "measurementStatus",
+      "input": {
+        "qualityTargetRevision": 3,
+        "roughnessTargetUm": 3.2,
+        "roughnessTargetUnit": "um",
+        "measurementStatus": "PASS",
+        "qualityClaimCertified": false
+      },
+      "scenario": "质量目标与实际测量状态保持隔离：反例"
+    },
+    {
+      "id": "CAP-07-05-M06",
+      "ruleId": "C0705-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "qualityClaimCertified",
+      "input": {
+        "qualityTargetRevision": 3,
+        "roughnessTargetUm": 3.2,
+        "roughnessTargetUnit": "um",
+        "measurementStatus": "NOT_MEASURED",
+        "qualityClaimCertified": true
+      },
+      "scenario": "质量目标与实际测量状态保持隔离：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T13",
+      "ruleId": "C0705-R07",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "toolRevision": 9,
+        "toolGeometryHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "holderGeometryHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "resourceStageCompatible": true,
+        "holderLocalCheck": "PASS_LOCAL_ONLY"
+      },
+      "scenario": "刀具与刀柄按阶段冻结资源修订：正例"
+    },
+    {
+      "id": "CAP-07-05-T14",
+      "ruleId": "C0705-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "holderGeometryHash",
+      "input": {
+        "toolRevision": 9,
+        "toolGeometryHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "holderGeometryHash": "unknown",
+        "resourceStageCompatible": true,
+        "holderLocalCheck": "PASS_LOCAL_ONLY"
+      },
+      "scenario": "刀具与刀柄按阶段冻结资源修订：反例"
+    },
+    {
+      "id": "CAP-07-05-M07",
+      "ruleId": "C0705-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "resourceStageCompatible",
+      "input": {
+        "toolRevision": 9,
+        "toolGeometryHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "holderGeometryHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "resourceStageCompatible": false,
+        "holderLocalCheck": "PASS_LOCAL_ONLY"
+      },
+      "scenario": "刀具与刀柄按阶段冻结资源修订：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T15",
+      "ruleId": "C0705-R08",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "clHasToolTipAxisFeed": true,
+        "clCoordinateFrameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "clNeutral": true,
+        "hasControllerWords": false,
+        "d10BindingState": "SEPARATE_NOT_BOUND"
+      },
+      "scenario": "各阶段输出统一D09中立CL而非机床轴代码：正例"
+    },
+    {
+      "id": "CAP-07-05-T16",
+      "ruleId": "C0705-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "hasControllerWords",
+      "input": {
+        "clHasToolTipAxisFeed": true,
+        "clCoordinateFrameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "clNeutral": true,
+        "hasControllerWords": true,
+        "d10BindingState": "SEPARATE_NOT_BOUND"
+      },
+      "scenario": "各阶段输出统一D09中立CL而非机床轴代码：反例"
+    },
+    {
+      "id": "CAP-07-05-M08",
+      "ruleId": "C0705-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "clNeutral",
+      "input": {
+        "clHasToolTipAxisFeed": true,
+        "clCoordinateFrameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "clNeutral": false,
+        "hasControllerWords": false,
+        "d10BindingState": "SEPARATE_NOT_BOUND"
+      },
+      "scenario": "各阶段输出统一D09中立CL而非机床轴代码：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T17",
+      "ruleId": "C0705-R09",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "d12PostStatus": "NOT_RUN",
+        "d13SemanticStatus": "UNKNOWN",
+        "d14TimingStatus": "NOT_RUN",
+        "d15VerificationStatus": "NOT_RUN",
+        "d16Release": "BLOCKED",
+        "materialSweepSimulated": false
+      },
+      "scenario": "最终NC执行链UNKNOWN时D16发布阻断：正例"
+    },
+    {
+      "id": "CAP-07-05-T18",
+      "ruleId": "C0705-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "d16Release",
+      "input": {
+        "d12PostStatus": "NOT_RUN",
+        "d13SemanticStatus": "UNKNOWN",
+        "d14TimingStatus": "NOT_RUN",
+        "d15VerificationStatus": "NOT_RUN",
+        "d16Release": "APPROVED",
+        "materialSweepSimulated": false
+      },
+      "scenario": "最终NC执行链UNKNOWN时D16发布阻断：反例"
+    },
+    {
+      "id": "CAP-07-05-M09",
+      "ruleId": "C0705-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "d13SemanticStatus",
+      "input": {
+        "d12PostStatus": "NOT_RUN",
+        "d13SemanticStatus": "PASS",
+        "d14TimingStatus": "NOT_RUN",
+        "d15VerificationStatus": "NOT_RUN",
+        "d16Release": "BLOCKED",
+        "materialSweepSimulated": false
+      },
+      "scenario": "最终NC执行链UNKNOWN时D16发布阻断：独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-05-T19",
+      "ruleId": "C0705-R10",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": false,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS ACL取消代次重验及非破坏回退：正例"
+    },
+    {
+      "id": "CAP-07-05-T20",
+      "ruleId": "C0705-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "actualHead",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": false,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS ACL取消代次重验及非破坏回退：反例"
+    },
+    {
+      "id": "CAP-07-05-M10",
+      "ruleId": "C0705-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "receiptGeneration",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 4,
+        "cancelled": false,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS ACL取消代次重验及非破坏回退：独立字段错误变异"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "procet-planning-fixture-backfill-v2",
+  "workPackageId": "B0-02",
+  "origin": "NEWLY_AUTHORED_FROM_SUBMITTED_RULES_NOT_HISTORICAL_BYTES",
+  "productExecution": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "B0-02-AT01",
+      "ruleId": "B002-R01",
+      "polarity": "positive",
+      "title": "接受：11域/88 CAP原始编号不可暗改；新需求进入提案空间",
+      "given": "有精确Owner与版本的domainId、capabilityId、baselineId、proposalId",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R01后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT02",
+      "ruleId": "B002-R01",
+      "polarity": "negative",
+      "title": "拒绝：11域/88 CAP原始编号不可暗改；新需求进入提案空间",
+      "given": "domainId、capabilityId、baselineId、proposalId中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R01必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT03",
+      "ruleId": "B002-R02",
+      "polarity": "positive",
+      "title": "接受：17个D类资产与唯一写入Owner逐项可核对",
+      "given": "有精确Owner与版本的assetId、ownerDomain、authorityState",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R02后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT04",
+      "ruleId": "B002-R02",
+      "polarity": "negative",
+      "title": "拒绝：17个D类资产与唯一写入Owner逐项可核对",
+      "given": "assetId、ownerDomain、authorityState中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R02必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT05",
+      "ruleId": "B002-R03",
+      "polarity": "positive",
+      "title": "接受：C0只统一精确引用与协议，C1字段由各域持有",
+      "given": "有精确Owner与版本的domainRef、schemaVersion、artifactDescriptor",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R03后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT06",
+      "ruleId": "B002-R03",
+      "polarity": "negative",
+      "title": "拒绝：C0只统一精确引用与协议，C1字段由各域持有",
+      "given": "domainRef、schemaVersion、artifactDescriptor中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R03必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT07",
+      "ruleId": "B002-R04",
+      "polarity": "positive",
+      "title": "接受：版本化来源DAG不可环，业务反馈经新修订/明确变更事件",
+      "given": "有精确Owner与版本的sourceRefs、generationId、changeRequestRef",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R04后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT08",
+      "ruleId": "B002-R04",
+      "polarity": "negative",
+      "title": "拒绝：版本化来源DAG不可环，业务反馈经新修订/明确变更事件",
+      "given": "sourceRefs、generationId、changeRequestRef中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R04必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT09",
+      "ruleId": "B002-R05",
+      "polarity": "positive",
+      "title": "接受：Producer与Consumer双方评审接口；未评审不可标冻结",
+      "given": "有精确Owner与版本的producerRole、consumerReviewRoles、reviewStatus",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R05后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT10",
+      "ruleId": "B002-R05",
+      "polarity": "negative",
+      "title": "拒绝：Producer与Consumer双方评审接口；未评审不可标冻结",
+      "given": "producerRole、consumerReviewRoles、reviewStatus中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R05必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT11",
+      "ruleId": "B002-R06",
+      "polarity": "positive",
+      "title": "接受：每次写入提交点复核actor/范围/exact revision+hash，不因能力登记授权",
+      "given": "有精确Owner与版本的expectedRevision、expectedHash、actor、policyRef",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R06后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT12",
+      "ruleId": "B002-R06",
+      "polarity": "negative",
+      "title": "拒绝：每次写入提交点复核actor/范围/exact revision+hash，不因能力登记授权",
+      "given": "expectedRevision、expectedHash、actor、policyRef中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R06必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT13",
+      "ruleId": "B002-R07",
+      "polarity": "positive",
+      "title": "接受：D04 ProcessSetup与D10 MachineExecutionBinding独立建模",
+      "given": "有精确Owner与版本的processSetupRef、machineBindingRef",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R07后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT14",
+      "ruleId": "B002-R07",
+      "polarity": "negative",
+      "title": "拒绝：D04 ProcessSetup与D10 MachineExecutionBinding独立建模",
+      "given": "processSetupRef、machineBindingRef中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R07必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT15",
+      "ruleId": "B002-R08",
+      "polarity": "positive",
+      "title": "接受：D09中立CL不等于D12最终NC，更不等于D13→D14→D15实际程序验证",
+      "given": "有精确Owner与版本的neutralClRef、ncBytesHash、ncExecutionSemanticsRef、axisTraceRef、ncVerificationRef",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R08后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT16",
+      "ruleId": "B002-R08",
+      "polarity": "negative",
+      "title": "拒绝：D09中立CL不等于D12最终NC，更不等于D13→D14→D15实际程序验证",
+      "given": "neutralClRef、ncBytesHash、ncExecutionSemanticsRef、axisTraceRef、ncVerificationRef中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R08必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT17",
+      "ruleId": "B002-R09",
+      "polarity": "positive",
+      "title": "接受：跨域采纳不可回写冻结成果；派生与批准角色分开",
+      "given": "有精确Owner与版本的candidateRef、freezeRevisionRef、approvalRef、sourceRefs",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R09后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT18",
+      "ruleId": "B002-R09",
+      "polarity": "negative",
+      "title": "拒绝：跨域采纳不可回写冻结成果；派生与批准角色分开",
+      "given": "candidateRef、freezeRevisionRef、approvalRef、sourceRefs中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R09必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT19",
+      "ruleId": "B002-R10",
+      "polarity": "positive",
+      "title": "接受：旧版兼容/未知语义/撤销回退与来源保全需记录风险",
+      "given": "有精确Owner与版本的migrationPlanRef、unknownSemantics、rollbackPlanRef",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "满足B002-R10后允许按Host领域服务提交",
+      "expectedDisposition": "ALLOW_WHEN_AUTHORIZED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    },
+    {
+      "id": "B0-02-AT20",
+      "ruleId": "B002-R10",
+      "polarity": "negative",
+      "title": "拒绝：旧版兼容/未知语义/撤销回退与来源保全需记录风险",
+      "given": "migrationPlanRef、unknownSemantics、rollbackPlanRef中存在源版本/Owner冲突",
+      "when": "查询业务数据Owner、提交点版本/权限和消息回执；产品测试入口待建立",
+      "then": "违反B002-R10必须保守拒绝并保留旧修订",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "exact source revision",
+        "Owner sign-off",
+        "domain receipt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,570 @@
+{
+  "schemaVersion": "procet-b53-fixtures-v1",
+  "kind": "SYNTHETIC_ONLY",
+  "base": {
+    "schemaVersion": "procet-b53-homing-v1",
+    "syntheticOnly": true,
+    "refs": {
+      "d03": {
+        "id": "D03-SYN",
+        "rev": "r7",
+        "hash": "SHA-D03-SYN",
+        "frame": "MACHINE",
+        "owner": "02"
+      },
+      "d04": {
+        "role": "NOMINAL_SETUP",
+        "rev": "r3"
+      },
+      "d10": {
+        "id": "D10-SYN",
+        "rev": "r5",
+        "hash": "SHA-D10-SYN",
+        "frame": "MACHINE",
+        "owner": "04"
+      },
+      "controller": {
+        "dialect": "LinuxCNC",
+        "version": "2.9",
+        "hash": "SHA-PROFILE-SYN"
+      }
+    },
+    "mapping": {
+      "axis": "Y",
+      "jointIds": [
+        "J1",
+        "J2"
+      ],
+      "jointCount": 2,
+      "coupled": true
+    },
+    "home": {
+      "mode": "SWITCH_INDEX",
+      "search": 10,
+      "latch": -2,
+      "useIndex": true,
+      "indexWired": true,
+      "syncFinal": true,
+      "evidence": "SYNTHETIC"
+    },
+    "joints": [
+      {
+        "id": "J1",
+        "axis": "Y",
+        "homed": true,
+        "epoch": "H001",
+        "offset": -2.3,
+        "latchCoordinate": -2.3,
+        "home": 0,
+        "nominalDifference": 2.3,
+        "sequence": -1,
+        "min": -3,
+        "max": 7,
+        "current": 0,
+        "volatile": true,
+        "powerLost": false,
+        "estop": false
+      },
+      {
+        "id": "J2",
+        "axis": "Y",
+        "homed": true,
+        "epoch": "H001",
+        "offset": -2.1,
+        "latchCoordinate": -2.1,
+        "home": 0,
+        "nominalDifference": 2.1,
+        "sequence": -1,
+        "min": -3,
+        "max": 7,
+        "current": 0,
+        "volatile": true,
+        "powerLost": false,
+        "estop": false
+      }
+    ],
+    "write": {
+      "owner": "InverseKinematicsPort",
+      "acl": true,
+      "casRevision": true,
+      "casHash": true,
+      "scope": true,
+      "generation": true,
+      "cancelFence": true,
+      "freezePreserved": true,
+      "previewOnly": true
+    },
+    "nc": {
+      "finalNc": false,
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED",
+      "clAsProof": false
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PLANNING_VALID",
+      "rule": null,
+      "changes": []
+    },
+    {
+      "id": "P02",
+      "expected": "PLANNING_VALID",
+      "rule": null,
+      "changes": [
+        [
+          "joints.0.offset",
+          -3.5
+        ],
+        [
+          "joints.0.latchCoordinate",
+          -3.5
+        ],
+        [
+          "joints.0.nominalDifference",
+          3.5
+        ]
+      ]
+    },
+    {
+      "id": "P03",
+      "expected": "PLANNING_VALID",
+      "rule": null,
+      "changes": [
+        [
+          "home.mode",
+          "INDEX_ONLY"
+        ],
+        [
+          "home.search",
+          0
+        ],
+        [
+          "home.latch",
+          -1
+        ]
+      ]
+    },
+    {
+      "id": "P04",
+      "expected": "PLANNING_VALID",
+      "rule": null,
+      "changes": [
+        [
+          "home.mode",
+          "SWITCH_ONLY"
+        ],
+        [
+          "home.useIndex",
+          false
+        ],
+        [
+          "home.indexWired",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "U01",
+      "expected": "UNKNOWN",
+      "rule": "B53-R01",
+      "changes": [
+        [
+          "refs.d03.hash",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N02",
+      "expected": "REJECT",
+      "rule": "B53-R01",
+      "changes": [
+        [
+          "refs.d10.frame",
+          "WORK"
+        ]
+      ]
+    },
+    {
+      "id": "N03",
+      "expected": "REJECT",
+      "rule": "B53-R01",
+      "changes": [
+        [
+          "refs.d04.role",
+          "PHYSICAL_BINDING"
+        ]
+      ]
+    },
+    {
+      "id": "U04",
+      "expected": "UNKNOWN",
+      "rule": "B53-R01",
+      "changes": [
+        [
+          "refs.controller.version",
+          "UNKNOWN"
+        ]
+      ]
+    },
+    {
+      "id": "N05",
+      "expected": "REJECT",
+      "rule": "B53-R02",
+      "changes": [
+        [
+          "mapping.jointCount",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "N06",
+      "expected": "REJECT",
+      "rule": "B53-R02",
+      "changes": [
+        [
+          "mapping.jointIds",
+          [
+            "J1",
+            "J1"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "N07",
+      "expected": "REJECT",
+      "rule": "B53-R02",
+      "changes": [
+        [
+          "joints.1.axis",
+          "X"
+        ]
+      ]
+    },
+    {
+      "id": "U08",
+      "expected": "UNKNOWN",
+      "rule": "B53-R02",
+      "changes": [
+        [
+          "joints.1.homed",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N09",
+      "expected": "REJECT",
+      "rule": "B53-R03",
+      "changes": [
+        [
+          "joints.0.nominalDifference",
+          2.4
+        ]
+      ]
+    },
+    {
+      "id": "N10",
+      "expected": "REJECT",
+      "rule": "B53-R03",
+      "changes": [
+        [
+          "joints.1.latchCoordinate",
+          -2
+        ]
+      ]
+    },
+    {
+      "id": "U11",
+      "expected": "UNKNOWN",
+      "rule": "B53-R03",
+      "changes": [
+        [
+          "joints.0.home",
+          "0"
+        ]
+      ]
+    },
+    {
+      "id": "U12",
+      "expected": "UNKNOWN",
+      "rule": "B53-R03",
+      "changes": [
+        [
+          "joints.0.offset",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N13",
+      "expected": "REJECT",
+      "rule": "B53-R04",
+      "changes": [
+        [
+          "joints.0.sequence",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "N14",
+      "expected": "REJECT",
+      "rule": "B53-R04",
+      "changes": [
+        [
+          "joints.1.sequence",
+          -2
+        ]
+      ]
+    },
+    {
+      "id": "N15",
+      "expected": "REJECT",
+      "rule": "B53-R04",
+      "changes": [
+        [
+          "home.syncFinal",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "U16",
+      "expected": "UNKNOWN",
+      "rule": "B53-R04",
+      "changes": [
+        [
+          "joints.1.sequence",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "U17",
+      "expected": "UNKNOWN",
+      "rule": "B53-R05",
+      "changes": [
+        [
+          "home.indexWired",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N18",
+      "expected": "REJECT",
+      "rule": "B53-R05",
+      "changes": [
+        [
+          "home.latch",
+          0
+        ]
+      ]
+    },
+    {
+      "id": "N19",
+      "expected": "REJECT",
+      "rule": "B53-R05",
+      "changes": [
+        [
+          "home.search",
+          0
+        ]
+      ]
+    },
+    {
+      "id": "N20",
+      "expected": "REJECT",
+      "rule": "B53-R05",
+      "changes": [
+        [
+          "home.useIndex",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N21",
+      "expected": "REJECT",
+      "rule": "B53-R06",
+      "changes": [
+        [
+          "joints.0.powerLost",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "N22",
+      "expected": "REJECT",
+      "rule": "B53-R06",
+      "changes": [
+        [
+          "joints.1.estop",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "U23",
+      "expected": "UNKNOWN",
+      "rule": "B53-R06",
+      "changes": [
+        [
+          "joints.0.volatile",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "U24",
+      "expected": "UNKNOWN",
+      "rule": "B53-R06",
+      "changes": [
+        [
+          "joints.1.powerLost",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N25",
+      "expected": "REJECT",
+      "rule": "B53-R07",
+      "changes": [
+        [
+          "joints.0.current",
+          8
+        ]
+      ]
+    },
+    {
+      "id": "N26",
+      "expected": "REJECT",
+      "rule": "B53-R07",
+      "changes": [
+        [
+          "joints.1.min",
+          8
+        ]
+      ]
+    },
+    {
+      "id": "U27",
+      "expected": "UNKNOWN",
+      "rule": "B53-R07",
+      "changes": [
+        [
+          "joints.0.max",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N28",
+      "expected": "REJECT",
+      "rule": "B53-R07",
+      "changes": [
+        [
+          "joints.1.current",
+          -3.2
+        ]
+      ]
+    },
+    {
+      "id": "N29",
+      "expected": "REJECT",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "write.acl",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N30",
+      "expected": "REJECT",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "write.cancelFence",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N31",
+      "expected": "REJECT",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "write.casHash",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N32",
+      "expected": "REJECT",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "write.freezePreserved",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N33",
+      "expected": "REJECT",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "nc.d15",
+          "PASS"
+        ]
+      ]
+    },
+    {
+      "id": "N34",
+      "expected": "REJECT",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "nc.d16",
+          "PUBLISHED"
+        ]
+      ]
+    },
+    {
+      "id": "N35",
+      "expected": "REJECT",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "nc.clAsProof",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "U36",
+      "expected": "UNKNOWN",
+      "rule": "B53-R08",
+      "changes": [
+        [
+          "write.owner",
+          null
+        ]
+      ]
+    }
+  ]
+}

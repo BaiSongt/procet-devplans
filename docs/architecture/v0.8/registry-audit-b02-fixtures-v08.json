@@ -1,0 +1,1978 @@
+{
+  "schemaVersion": "procet-registry-audit-fixtures-v08",
+  "audit": "research/audits/REGISTRY-AUDIT-B02-2026-10-28.json",
+  "trace": "research/traces/REGISTRY-AUDIT-B02-V08.json",
+  "summary": {
+    "positive": 10,
+    "independentSingleFieldNegative": 90,
+    "gates": 8,
+    "total": 108
+  },
+  "cases": [
+    {
+      "id": "RA2-P01",
+      "ruleId": "RA2-R01",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N01-sourceId",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-registryBlobSha",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-sourceUrl",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-readDepth",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-capabilityId",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-originalWorkPackageId",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-fieldPath",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-L3",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N01-product",
+      "ruleId": "RA2-R01",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-WFLOW-001",
+        "registryPath": "research/sources/CAP-01-05.json",
+        "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+        "sourceUrl": "https://www.sqlite.org/isolation.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "workflow.frozenRevisionHash",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P02",
+      "ruleId": "RA2-R02",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N02-sourceId",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-registryBlobSha",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-sourceUrl",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-readDepth",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-capabilityId",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-originalWorkPackageId",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-fieldPath",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-L3",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N02-product",
+      "ruleId": "RA2-R02",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-PROJ-002",
+        "registryPath": "research/sources/CAP-01-01.json",
+        "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+        "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "project.revisionProvenanceRef",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P03",
+      "ruleId": "RA2-R03",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N03-sourceId",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-registryBlobSha",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-sourceUrl",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-readDepth",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-capabilityId",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-originalWorkPackageId",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-fieldPath",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-L3",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N03-product",
+      "ruleId": "RA2-R03",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-OBJ-001",
+        "registryPath": "research/sources/CAP-01-02.json",
+        "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+        "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-02",
+        "originalWorkPackageId": "F1-01",
+        "fieldPath": "annotation.targetExactRevisionRef",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P04",
+      "ruleId": "RA2-R04",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N04-sourceId",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-registryBlobSha",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-sourceUrl",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-readDepth",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-capabilityId",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-originalWorkPackageId",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-fieldPath",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-L3",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N04-product",
+      "ruleId": "RA2-R04",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-REV-002",
+        "registryPath": "research/sources/CAP-01-03.json",
+        "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+        "sourceUrl": "https://www.sqlite.org/wal.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-03",
+        "originalWorkPackageId": "F1-06",
+        "fieldPath": "revision.checkpointRecoveryProof",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P05",
+      "ruleId": "RA2-R05",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N05-sourceId",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-registryBlobSha",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-sourceUrl",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-readDepth",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-capabilityId",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-originalWorkPackageId",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-fieldPath",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-L3",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N05-product",
+      "ruleId": "RA2-R05",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-SOL-001",
+        "registryPath": "research/sources/F1-05.json",
+        "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+        "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-01-05",
+        "originalWorkPackageId": "F1-05",
+        "fieldPath": "solver.buildFeatureFingerprint",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P06",
+      "ruleId": "RA2-R06",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N06-sourceId",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-registryBlobSha",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-sourceUrl",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-readDepth",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-capabilityId",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-originalWorkPackageId",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-fieldPath",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-L3",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N06-product",
+      "ruleId": "RA2-R06",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-FEDIT-002",
+        "registryPath": "research/sources/CAP-03-06.json",
+        "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+        "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-06",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.editHistoryRelation",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P07",
+      "ruleId": "RA2-R07",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N07-sourceId",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-registryBlobSha",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-sourceUrl",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-readDepth",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-capabilityId",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-originalWorkPackageId",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-fieldPath",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-L3",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N07-product",
+      "ruleId": "RA2-R07",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-SEM-001",
+        "registryPath": "research/sources/CAP-03-08.json",
+        "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+        "sourceUrl": "https://www.w3.org/TR/prov-o/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-08",
+        "originalWorkPackageId": "F1-03",
+        "fieldPath": "feature.semanticDerivationChain",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P08",
+      "ruleId": "RA2-R08",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N08-sourceId",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-registryBlobSha",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-sourceUrl",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-readDepth",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-capabilityId",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-originalWorkPackageId",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-fieldPath",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-L3",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N08-product",
+      "ruleId": "RA2-R08",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-SET-003",
+        "registryPath": "research/sources/CAP-04-01.json",
+        "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+        "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-04-01",
+        "originalWorkPackageId": "F1-02",
+        "fieldPath": "setup.designFrameTransformRef",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P09",
+      "ruleId": "RA2-R09",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N09-sourceId",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-registryBlobSha",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-sourceUrl",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-readDepth",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-capabilityId",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-originalWorkPackageId",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-fieldPath",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-L3",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N09-product",
+      "ruleId": "RA2-R09",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-B001-005",
+        "registryPath": "research/sources/B0-01.json",
+        "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+        "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+        "readDepth": "catalog_abstract",
+        "capabilityId": "CAP-01-01",
+        "originalWorkPackageId": "B0-01",
+        "fieldPath": "release.securityEvidenceStatus",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-P10",
+      "ruleId": "RA2-R10",
+      "kind": "POS",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "PLANNING_PASS"
+    },
+    {
+      "id": "RA2-N10-sourceId",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "sourceId",
+      "claim": {
+        "sourceId": "SRC-NOT-REAL",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-registryBlobSha",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "registryBlobSha",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "0000000000000000000000000000000000000000",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-sourceUrl",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "sourceUrl",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://invalid.example.test/",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-readDepth",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "readDepth",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "unread_full_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-capabilityId",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "capabilityId",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-99-99",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-originalWorkPackageId",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "originalWorkPackageId",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "T5-99",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-fieldPath",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "fieldPath",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "unrelated.field",
+        "L3": "PENDING_HUMAN",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-L3",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "L3",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "APPROVED",
+        "product": "NOT_RUN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "RA2-N10-product",
+      "ruleId": "RA2-R10",
+      "kind": "NEG",
+      "field": "product",
+      "claim": {
+        "sourceId": "SRC-B002-001",
+        "registryPath": "research/sources/B0-02.json",
+        "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+        "readDepth": "section_text",
+        "capabilityId": "CAP-03-01",
+        "originalWorkPackageId": "B0-02",
+        "fieldPath": "architecture.boundaryOwnerPort",
+        "L3": "PENDING_HUMAN",
+        "product": "PASS"
+      },
+      "expected": "REJECT"
+    }
+  ],
+  "gates": [
+    {
+      "id": "RA2-G-CAS_STALE",
+      "input": {
+        "cas": false,
+        "acl": true,
+        "cancelled": false
+      },
+      "expected": "DENY"
+    },
+    {
+      "id": "RA2-G-ACL_REVOKED",
+      "input": {
+        "cas": true,
+        "acl": false,
+        "cancelled": false
+      },
+      "expected": "DENY"
+    },
+    {
+      "id": "RA2-G-CANCEL_LATE_ACK",
+      "input": {
+        "cas": true,
+        "acl": true,
+        "cancelled": true
+      },
+      "expected": "DENY"
+    },
+    {
+      "id": "RA2-G-DOMAIN_ELIGIBLE",
+      "input": {
+        "cas": true,
+        "acl": true,
+        "cancelled": false
+      },
+      "expected": "DOMAIN_REVALIDATE"
+    },
+    {
+      "id": "RA2-G-CL_ONLY",
+      "input": {
+        "nc": false,
+        "known": true,
+        "validated": true
+      },
+      "expected": "BLOCK_RELEASE"
+    },
+    {
+      "id": "RA2-G-UNKNOWN_SEMANTICS",
+      "input": {
+        "nc": true,
+        "known": false,
+        "validated": true
+      },
+      "expected": "BLOCK_RELEASE"
+    },
+    {
+      "id": "RA2-G-MISSING_INDEPENDENT_CONSUMER",
+      "input": {
+        "nc": true,
+        "known": true,
+        "validated": false
+      },
+      "expected": "BLOCK_RELEASE"
+    },
+    {
+      "id": "RA2-G-NC_REVIEW_ELIGIBLE",
+      "input": {
+        "nc": true,
+        "known": true,
+        "validated": true
+      },
+      "expected": "HUMAN_REVIEW_REQUIRED"
+    }
+  ],
+  "limits": "仅静态规则合成；不是Node文件进程和产品PASS"
+}

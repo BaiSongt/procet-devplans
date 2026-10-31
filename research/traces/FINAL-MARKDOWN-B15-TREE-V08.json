@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "procet-final-md-b15-tree-erratum-v08",
+  "date": "2026-10-29",
+  "baselineCommit": "252cfc7759a668036862de20e62c81817fffd974",
+  "auditedCommit": "e591be97249c74e2a6a8252ca03709be9f3cbbb1",
+  "verifiedTreeSha": "3f215b6a3ae7ebe0a82c0c3889bd5e6a5b0cd552",
+  "scope": "CORRECT_PROVEN_GIT_OBJECT_TYPE_MISMATCH_PENDING_L3",
+  "sources": [
+    {
+      "id": "B15-S01",
+      "issuer": "GitHub",
+      "title": "REST API endpoints for Git commits",
+      "version": "GitHub REST 在线版（无固定修订）",
+      "published": "页面未标注",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/rest/git/commits",
+      "readingDepth": "Get a commit object；Create a commit的tree字段",
+      "limits": "GitHub文档说明Git对象身份关系，不提供本仓独立Node运行证明"
+    },
+    {
+      "id": "B15-S02",
+      "issuer": "GitHub",
+      "title": "REST API endpoints for Git trees",
+      "version": "GitHub REST 在线版（无固定修订）",
+      "published": "页面未标注",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/rest/git/trees",
+      "readingDepth": "About Git trees、Get a tree、truncated及递归上限",
+      "limits": "树中路径与SHA可证明存储身份，不能证明Markdown可点击或通过GFM AST"
+    },
+    {
+      "id": "B15-S03",
+      "issuer": "BaiSongt/procet-devplans 原GitHub连接器",
+      "title": "B13提交对象与固定Git Tree现场查询",
+      "version": "exact commit e591be97249c74e2a6a8252ca03709be9f3cbbb1；tree 3f215b6a3ae7ebe0a82c0c3889bd5e6a5b0cd552",
+      "published": "2026-10-29T05:31:50Z（Git提交时间）",
+      "accessed": "2026-10-29",
+      "url": "https://api.github.com/repos/BaiSongt/procet-devplans/git/commits/e591be97249c74e2a6a8252ca03709be9f3cbbb1",
+      "readingDepth": "读取完整Git commit对象tree.sha；读取对应recursive Git Tree：1615条、truncated=false、541 Markdown",
+      "limits": "仓库事实证据；本轮不重读全部Markdown正文、不执行完整checkout"
+    },
+    {
+      "id": "B15-S04",
+      "issuer": "GitHub Docs",
+      "title": "Basic writing and formatting syntax",
+      "version": "在线版（无固定修订）",
+      "published": "页面未标注",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax",
+      "readingDepth": "Section links、Relative links、Custom anchors",
+      "limits": "标题锚点须以后续GFM AST/实际渲染验证，不因修复Tree字段自动判PASS"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B15-R01",
+      "summary": "固定提交对象SHA与其指向的Git Tree对象SHA须分别保留且原对象类型一致；不得复制commit SHA填入tree字段",
+      "sourceIds": [
+        "B15-S01",
+        "B15-S03"
+      ],
+      "fields": [
+        "sourceExactHead",
+        "gitTreeSha",
+        "resolvedCommitSha",
+        "resolvedTreeSha"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-04",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N01",
+        "N02",
+        "N03",
+        "N04"
+      ]
+    },
+    {
+      "id": "B15-R02",
+      "summary": "SHA清单必须与该提交的完整本地Git树Markdown路径及原Blob SHA逐项对应；缺项、重复、同路径错SHA拒绝",
+      "sourceIds": [
+        "B15-S02",
+        "B15-S03"
+      ],
+      "fields": [
+        "summary.markdownTotal",
+        "markdownManifest[].path",
+        "markdownManifest[].gitBlobSha",
+        "observation.mdEntries"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-04",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N15"
+      ]
+    },
+    {
+      "id": "B15-R03",
+      "summary": "来源证明等级不得提升：不可信proof、截断树或历史原始附件虚假恢复必须拒绝",
+      "sourceIds": [
+        "B15-S02",
+        "B15-S03"
+      ],
+      "fields": [
+        "markdownManifest[].proof",
+        "treeTruncated",
+        "historicalOriginalMissing[].recovered"
+      ],
+      "caps": [
+        "CAP-01-02",
+        "CAP-01-03"
+      ],
+      "workPackages": [
+        "B0-05",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N09",
+        "N10",
+        "N16"
+      ]
+    },
+    {
+      "id": "B15-R04",
+      "summary": "Owner正式签署、真实独立消费者与L3审批不可由修复审计身份记录推断",
+      "sourceIds": [
+        "B15-S03"
+      ],
+      "fields": [
+        "gates.ownerFormalSigned",
+        "gates.consumerRealPass",
+        "gates.l3"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-04",
+        "T5-06"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N11",
+        "N12",
+        "N13"
+      ]
+    },
+    {
+      "id": "B15-R05",
+      "summary": "修复Git对象身份仅解除B14本地全量校验的错误阻断；GFM AST/HTML/锚点及真实NC产品结果继续NOT_RUN",
+      "sourceIds": [
+        "B15-S04",
+        "B15-S03"
+      ],
+      "fields": [
+        "parserGates.gfmAst",
+        "parserGates.completeHtmlHref",
+        "parserGates.githubHeadingAnchors"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "U4-03",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N14"
+      ]
+    }
+  ],
+  "fixturePath": "docs/architecture/v0.8/final-markdown-b15-tree-fixtures-v08.json",
+  "machineChecker": "tools/check_final_md_b15_tree_v08.cjs",
+  "ownerFormalSignatures": 0,
+  "independentConsumersPassed": 0,
+  "l3": "PENDING_HUMAN",
+  "fullGfmAst": "NOT_RUN",
+  "productTests": "NOT_RUN"
+}

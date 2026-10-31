@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "U4-01",
+  "researchTopic": "R-WORKCTX-001",
+  "sourceRegistry": "research/sources/U4-01.json",
+  "specification": "docs/work-packages/U4-01.md",
+  "ui": "docs/work-packages/U4-01/UI.md",
+  "fixtures": "docs/work-packages/U4-01/fixtures.json",
+  "validator": "tools/check_u401_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "U4-01-R01",
+      "workPackageId": "U4-01",
+      "summary": "上下文必须封闭project/document revision/hash、Setup及Frame",
+      "fields": [
+        "ctx.projectId",
+        "ctx.documentId",
+        "ctx.documentRevision",
+        "ctx.documentHash",
+        "ctx.setupId",
+        "ctx.frame.hash"
+      ],
+      "sourceIds": [
+        "SRC-U401-S08",
+        "SRC-U401-S07"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "positiveTestId": "U4-01-T01",
+      "negativeTestId": "U4-01-T02",
+      "negativeReason": "REJECT_INCOMPLETE_CONTEXT",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R02",
+      "workPackageId": "U4-01",
+      "summary": "跨工程/文档异步返回不得污染当前投影",
+      "fields": [
+        "scope.projectId",
+        "scope.documentId",
+        "scope.scopeEpoch",
+        "result.documentId"
+      ],
+      "sourceIds": [
+        "SRC-U401-S08",
+        "SRC-U401-S04"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "positiveTestId": "U4-01-T03",
+      "negativeTestId": "U4-01-T04",
+      "negativeReason": "REJECT_CROSS_DOCUMENT_LEAK",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R03",
+      "workPackageId": "U4-01",
+      "summary": "工作模式A/B与显示模式正交，Focus3D不是业务提交",
+      "fields": [
+        "action",
+        "before.workMode",
+        "after.workMode",
+        "after.displayMode",
+        "businessWrites"
+      ],
+      "sourceIds": [
+        "SRC-U401-S02",
+        "SRC-U401-S03",
+        "SRC-U401-S05"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "U4-01-T05",
+      "negativeTestId": "U4-01-T06",
+      "negativeReason": "REJECT_MODE_COUPLING",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R04",
+      "workPackageId": "U4-01",
+      "summary": "跨作用域脏草稿必须明确保存/丢弃/取消",
+      "fields": [
+        "dirty",
+        "resolution",
+        "persistedDraft"
+      ],
+      "sourceIds": [
+        "SRC-U401-S05",
+        "SRC-U401-S04"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "U4-01-T07",
+      "negativeTestId": "U4-01-T08",
+      "negativeReason": "REJECT_DIRTY_DRAFT_LOSS",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R05",
+      "workPackageId": "U4-01",
+      "summary": "多Setup恢复须同身份同修订，不默认落到首个Setup",
+      "fields": [
+        "request.setupId",
+        "request.setupRevision",
+        "request.setupHash",
+        "restored.setupHash"
+      ],
+      "sourceIds": [
+        "SRC-U401-S08",
+        "SRC-U401-S05"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "U4-01-T09",
+      "negativeTestId": "U4-01-T10",
+      "negativeReason": "REJECT_WRONG_SETUP_RESTORE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R06",
+      "workPackageId": "U4-01",
+      "summary": "任务代次和上下文签名重验，晚回执应丢弃",
+      "fields": [
+        "expected.scopeEpoch",
+        "expected.generation",
+        "expected.documentHash",
+        "reply.generation"
+      ],
+      "sourceIds": [
+        "SRC-U401-S09",
+        "SRC-U401-S05"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "U4-01-T11",
+      "negativeTestId": "U4-01-T12",
+      "negativeReason": "REJECT_STALE_ASYNC_REPLY",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R07",
+      "workPackageId": "U4-01",
+      "summary": "业务Owner写入重验CAS和权限epoch，不以导航权限替代",
+      "fields": [
+        "commit.expectedHead",
+        "commit.currentHead",
+        "commit.aclEpochCurrent",
+        "commit.hasWritePermission"
+      ],
+      "sourceIds": [
+        "SRC-U401-S07",
+        "SRC-U401-S05"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "U4-01-T13",
+      "negativeTestId": "U4-01-T14",
+      "negativeReason": "REJECT_STALE_OR_UNAUTHORIZED_COMMIT",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R08",
+      "workPackageId": "U4-01",
+      "summary": "一个Babylon Scene、预览租约清理和资源释放",
+      "fields": [
+        "scene.sceneCount",
+        "scene.sceneId",
+        "scene.activeLeases",
+        "scene.disposedOldOverlay"
+      ],
+      "sourceIds": [
+        "SRC-U401-S06",
+        "SRC-U401-S03"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "U4-01-T15",
+      "negativeTestId": "U4-01-T16",
+      "negativeReason": "REJECT_SECOND_SCENE_LEASE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R09",
+      "workPackageId": "U4-01",
+      "summary": "A/B共用事实引用，不允许覆盖冻结修订",
+      "fields": [
+        "edit.frozenHashBefore",
+        "edit.frozenHashAfter",
+        "edit.proposedRevision",
+        "edit.mutatesFrozen"
+      ],
+      "sourceIds": [
+        "SRC-U401-S08",
+        "SRC-U401-S07"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "U4-01-T17",
+      "negativeTestId": "U4-01-T18",
+      "negativeReason": "REJECT_FROZEN_OVERWRITE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-01-R10",
+      "workPackageId": "U4-01",
+      "summary": "缺失/失效引用显式阻断，不能回退成表面成功",
+      "fields": [
+        "restoration.exists",
+        "restoration.status",
+        "restoration.fallbackSelected"
+      ],
+      "sourceIds": [
+        "SRC-U401-S04",
+        "SRC-U401-S09"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "U4-01-T19",
+      "negativeTestId": "U4-01-T20",
+      "negativeReason": "REJECT_SILENT_STALE_FALLBACK",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

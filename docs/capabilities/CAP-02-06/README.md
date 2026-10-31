@@ -1,5 +1,8 @@
 # CAP-02-06｜测量与检测资源
 
+**B71专项（2026-10-31）：** [扩展不确定度与保守区间判定](UNCERTAINTY-GUARD-B71-2026-10-31.md)、[6来源](../../../research/sources/CAP-02-06-uncertainty-guard-b71.json)、[8规则](../../../research/traces/CAP-02-06-uncertainty-guard-b71-v08.json)、[58正反/未知规格](uncertainty-guard-b71-fixtures-v08.json)。D03设备校准不等于D17本件测量，仍为L3待审和产品NOT_RUN。
+
+
 版本：0.1（2026-10-17）；状态：**规划编制完成／待人类评审；产品实现与验收均未执行**。沿用[原88项编号](../../architecture/v0.8/03_三级能力映射_88项.md)，本项为长期扩展能力，不列入3轴＋B5 MVP已实现范围。关联：[界面规格](UI.md)、[理论专题R-MET-001](../../../research/topics/R-MET-001.md)、[机器追踪](../../../research/traces/CAP-02-06.json)、[F1-01](../../work-packages/F1-01.md)、[F1-02](../../work-packages/F1-02.md)，F1-06尚待细分。
 
 ## 一、目标、用户与明确边界
@@ -134,3 +137,12 @@ MET-I01盘点现有老仓/GUI/测量系统消费者（02 Owner＋质量评审）
 2. 具体测头、接收器、控制器、测针和量块资料是否齐全？无资料不能填接线/探测宏语义。
 3. 标准全文、实际不确定度模型、反射面/温度/夹持影响是否获得并核验？只读目录不能冻结工程准入。
 4. 新测量kind的资源存储与D17检测结果的schema/生命周期及QIF适配，尚需跨域L3评审；不自行冻结L4 API。
+
+## V0.8新补证与独立消费者（2026-10-28）
+
+本章节链接新的[8项来源](../../../research/sources/CAP-02-06.json)、[10条规则/40字段](../../../research/traces/CAP-02-06-v08-supplement.json)、[50正反+4数学合成+8待执行状态](research-fixtures-v08.json)、[完整研究边界](RESEARCH-TRACE-2026-10-28.md)、[独立消费和回退](independent-consumer-v08.md)。保留原MET-T01..20及SRC-MET-001..010，不覆盖旧追踪。规划静态验证不代表已实施或计量合格。
+
+
+## B52增量｜相关不确定度与D17候选判定（2026-10-31）
+
+[相关不确定度数值反例](COVARIANCE-DECISION-B52-2026-10-31.md) → [8来源](../../../research/sources/CAP-02-06-covariance-b52.json) → [9规则](../../../research/traces/CAP-02-06-covariance-b52-v08.json) → [47合成](covariance-b52-fixtures-v08.json) → [测试入口](../../../tools/check_cap0206_covariance_b52_v08.cjs)。原MET规则、资产分母与Owner职责不变；本段新增候选守护带的内生审批边界。独立消费者、校准证书、Node文件/真实机床仍NOT_RUN。

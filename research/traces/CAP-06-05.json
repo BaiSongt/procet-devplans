@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-05",
+  "researchTopic": "R-IMMSTATE-001",
+  "sourceRegistry": "research/sources/CAP-06-05.json",
+  "specification": "docs/capabilities/CAP-06-05/README.md",
+  "ui": "docs/capabilities/CAP-06-05/UI.md",
+  "fixtures": "docs/capabilities/CAP-06-05/fixtures.json",
+  "validator": "tools/check_cap0605_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0605-R01",
+      "capabilityId": "CAP-06-05",
+      "summary": "封存状态的域Owner exact修订/hash/frame/scope闭包",
+      "fields": [
+        "refs[].assetId",
+        "refs[].revision",
+        "refs[].hash",
+        "refs[].hashKind",
+        "refs[].frame",
+        "refs[].scope"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S06",
+        "SRC-C0605-S07",
+        "SRC-C0605-S09"
+      ],
+      "assets": [
+        "D04",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-05-T01",
+      "negativeTestId": "CAP-06-05-T02",
+      "negativeReason": "REJECT_REFERENCE_CLOSURE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R02",
+      "capabilityId": "CAP-06-05",
+      "summary": "修订父子DAG无环且父哈希一致",
+      "fields": [
+        "graph.nodes[].parents",
+        "graph.parentHash",
+        "graph.childParentHash"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S06",
+        "SRC-C0605-S09"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-05-T03",
+      "negativeTestId": "CAP-06-05-T04",
+      "negativeReason": "REJECT_PROVENANCE_DAG",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R03",
+      "capabilityId": "CAP-06-05",
+      "summary": "材料有序单调差集与保护区隔离",
+      "fields": [
+        "material.stockBefore",
+        "material.removed",
+        "material.stockAfter",
+        "material.protected"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S01",
+        "SRC-C0605-S02",
+        "SRC-C0605-S03"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-05-T05",
+      "negativeTestId": "CAP-06-05-T06",
+      "negativeReason": "REJECT_MATERIAL_TRANSITION",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R04",
+      "capabilityId": "CAP-06-05",
+      "summary": "A/B分叉不得覆写父快照及D08冻结",
+      "fields": [
+        "fork.children[].hash",
+        "fork.parentHash",
+        "fork.frozenHashBefore",
+        "fork.frozenHashAfter"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S06",
+        "SRC-C0605-S08"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-05-T07",
+      "negativeTestId": "CAP-06-05-T08",
+      "negativeReason": "REJECT_FROZEN_OVERWRITE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R05",
+      "capabilityId": "CAP-06-05",
+      "summary": "实际存储B-Rep字节哈希与序列化来源分开",
+      "fields": [
+        "bytes.expectedSha",
+        "bytes.observedSha",
+        "bytes.hashKind",
+        "bytes.formatVersion",
+        "bytes.serializerVersion"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S04",
+        "SRC-C0605-S05",
+        "SRC-C0605-S07"
+      ],
+      "assets": [
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-05-T09",
+      "negativeTestId": "CAP-06-05-T10",
+      "negativeReason": "REJECT_BYTES_PROVENANCE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R06",
+      "capabilityId": "CAP-06-05",
+      "summary": "工件/Setup有向Frame变换，显示转换不写回",
+      "fields": [
+        "transform.from",
+        "transform.to",
+        "transform.hash",
+        "transform.appliedOnce"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S03",
+        "SRC-C0605-S06"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07",
+        "D10"
+      ],
+      "positiveTestId": "CAP-06-05-T11",
+      "negativeTestId": "CAP-06-05-T12",
+      "negativeReason": "REJECT_FRAME_COMPOSITION",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R07",
+      "capabilityId": "CAP-06-05",
+      "summary": "OCCT前后拓扑有效性与独立消费者的证据门禁",
+      "fields": [
+        "evidence.occtVersion",
+        "evidence.preValid",
+        "evidence.postValid",
+        "evidence.productExecution"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S01",
+        "SRC-C0605-S02",
+        "SRC-C0605-S03"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-05-T13",
+      "negativeTestId": "CAP-06-05-T14",
+      "negativeReason": "REJECT_GEOMETRY_EVIDENCE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R08",
+      "capabilityId": "CAP-06-05",
+      "summary": "Staging Seal、Owner CAS/ACL/代次、取消晚回执与唯一终态",
+      "fields": [
+        "commit.seal",
+        "commit.expectedHead",
+        "commit.aclEpoch",
+        "commit.taskGeneration",
+        "commit.cancelled",
+        "commit.receiptState"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S06",
+        "SRC-C0605-S08",
+        "SRC-C0605-S09"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-05-T15",
+      "negativeTestId": "CAP-06-05-T16",
+      "negativeReason": "REJECT_COMMIT_PRECONDITION",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R09",
+      "capabilityId": "CAP-06-05",
+      "summary": "局部有序状态变更只失效受影响Setup的后代",
+      "fields": [
+        "invalidation.changed",
+        "invalidation.actual",
+        "invalidation.expected",
+        "invalidation.kept"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S06",
+        "SRC-C0605-S08",
+        "SRC-C0605-S09"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-05-T17",
+      "negativeTestId": "CAP-06-05-T18",
+      "negativeReason": "REJECT_INVALIDATION_SCOPE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0605-R10",
+      "capabilityId": "CAP-06-05",
+      "summary": "独立D07/冻结和NC语义资格分层，合成不授产品PASS",
+      "fields": [
+        "qualification.d07Gate",
+        "qualification.d08ExactFrozen",
+        "qualification.d13",
+        "qualification.d15",
+        "qualification.d16"
+      ],
+      "sourceIds": [
+        "SRC-C0605-S01",
+        "SRC-C0605-S06",
+        "SRC-C0605-S09",
+        "SRC-C0605-S10"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-05-T19",
+      "negativeTestId": "CAP-06-05-T20",
+      "negativeReason": "REJECT_FALSE_QUALIFICATION",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

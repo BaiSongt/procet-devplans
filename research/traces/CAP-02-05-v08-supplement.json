@@ -1,0 +1,636 @@
+{
+  "schemaVersion": "procet-cap0205-research-supplement-v08",
+  "capabilityId": "CAP-02-05",
+  "researchTopic": "R-MS-001",
+  "legacyTrace": "research/traces/CAP-02-05.json",
+  "registry": "research/sources/CAP-02-05.json",
+  "verification": "tracking/cap0205-research-verification-2026-10-28.json",
+  "traceStatus": "COMPILED_PENDING_HUMAN",
+  "originalBaselineDirectWorkPackages": [
+    "F1-02",
+    "F1-06",
+    "E3-04"
+  ],
+  "evidenceBoundary": "official metadata/abstracts and limited public APIs; design rules are internal proposals",
+  "engineeringGates": {
+    "c0Minimal": true,
+    "d04D10Separate": true,
+    "oneBabylonEngineSceneCanvas": true,
+    "unifiedLeftPanel": true,
+    "guiCliAgentSameOwnerPort": true,
+    "aclScopeCasCancel": true,
+    "immutableAB": true,
+    "ncChain": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "clNotNcVerification": true,
+    "unknownNotPublishable": true,
+    "noMaterialSweptSimulation": true
+  },
+  "rules": [
+    {
+      "id": "MS05-V08-R01",
+      "capabilityId": "CAP-02-05",
+      "summary": "材料规格与实际来料分离",
+      "engineeringRule": "同名材料但规范/状态不同不得自动合并；D03定义与D04当前来料分属不同真值。",
+      "fields": [
+        "material.exactSpecRevision",
+        "material.heatCondition",
+        "material.lotSeparate",
+        "material.noNameMerge"
+      ],
+      "sourceIds": [
+        "MS05-S03",
+        "MS05-S08"
+      ],
+      "capTests": [
+        "MS-T01",
+        "MS-T02",
+        "MS-T04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "material.exactSpecRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.heatCondition",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.lotSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.noNameMerge",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R02",
+      "capabilityId": "CAP-02-05",
+      "summary": "物性条件及不确定度",
+      "engineeringRule": "物性数值须记录单位、试验/计算方法、工况、来源与不确定性。",
+      "fields": [
+        "property.unit",
+        "property.methodCondition",
+        "property.sourceRevision",
+        "property.uncertaintyOrUnknown"
+      ],
+      "sourceIds": [
+        "MS05-S01",
+        "MS05-S02"
+      ],
+      "capTests": [
+        "MS-T05",
+        "MS-T06"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "property.unit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "property.methodCondition",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "property.sourceRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "property.uncertaintyOrUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R03",
+      "capabilityId": "CAP-02-05",
+      "summary": "硬度量表禁止静默换算",
+      "engineeringRule": "HRC/HBW/HV带独立量表与方法；无适用依据只能unknown，不推断切速。",
+      "fields": [
+        "hardness.scale",
+        "hardness.method",
+        "hardness.noSilentConversion",
+        "hardness.unknownBlocksCuttingAdvice"
+      ],
+      "sourceIds": [
+        "MS05-S06",
+        "MS05-S01"
+      ],
+      "capTests": [
+        "MS-T05",
+        "MS-T06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "hardness.scale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hardness.method",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hardness.noSilentConversion",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hardness.unknownBlocksCuttingAdvice",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R04",
+      "capabilityId": "CAP-02-05",
+      "summary": "ISO513分类边界",
+      "engineeringRule": "ISO513硬质刀具材料应用分类不得直接作为工件牌号或切速保证。",
+      "fields": [
+        "classification.toolMaterialScope",
+        "classification.workpieceSchemeEvidence",
+        "classification.noImplicitIsoProof",
+        "classification.noUnsupportedSpeed"
+      ],
+      "sourceIds": [
+        "MS05-S07",
+        "MS05-S02"
+      ],
+      "capTests": [
+        "MS-T01",
+        "MS-T05"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "classification.toolMaterialScope",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "classification.workpieceSchemeEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "classification.noImplicitIsoProof",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "classification.noUnsupportedSpeed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R05",
+      "capabilityId": "CAP-02-05",
+      "summary": "毛坯明确采用且不自动扩大",
+      "engineeringRule": "毛坯从未配置开始；bbox/偏置只产生候选，须人工采用并经Owner写入。",
+      "fields": [
+        "stock.unconfiguredDefault",
+        "stock.explicitAdopt",
+        "stock.noAutoExpand",
+        "stock.previewNoWrite"
+      ],
+      "sourceIds": [
+        "MS05-S04",
+        "MS05-S09"
+      ],
+      "capTests": [
+        "MS-T07",
+        "MS-T08",
+        "MS-T09",
+        "MS-T11"
+      ],
+      "workPackages": [
+        "F1-06",
+        "E3-04"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "stock.unconfiguredDefault",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stock.explicitAdopt",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stock.noAutoExpand",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stock.previewNoWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R06",
+      "capabilityId": "CAP-02-05",
+      "summary": "BBox与渲染网格不等于精确实体",
+      "engineeringRule": "BRepBndLib仅候选/诊断；精确Fit需要合法封闭Solid和独立计算。",
+      "fields": [
+        "geometry.bboxCandidate",
+        "geometry.meshOnlyCannotPass",
+        "geometry.validSolid",
+        "geometry.invalidUnknown"
+      ],
+      "sourceIds": [
+        "MS05-S04",
+        "MS05-S05"
+      ],
+      "capTests": [
+        "MS-T10",
+        "MS-T13",
+        "MS-T14"
+      ],
+      "workPackages": [
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "geometry.bboxCandidate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.meshOnlyCannotPass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.validSolid",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.invalidUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R07",
+      "capabilityId": "CAP-02-05",
+      "summary": "具名Frame下几何残差",
+      "engineeringRule": "P减S0需统一具名Frame与公差并核对Cut状态/残差/拓扑，不能按AABB断定。",
+      "fields": [
+        "fit.frameRevision",
+        "fit.cutAndResidual",
+        "fit.toleranceEvidence",
+        "fit.independentVerifier"
+      ],
+      "sourceIds": [
+        "MS05-S04",
+        "MS05-S05"
+      ],
+      "capTests": [
+        "MS-T10",
+        "MS-T11",
+        "MS-T12",
+        "MS-T13"
+      ],
+      "workPackages": [
+        "F1-06",
+        "E3-04"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "fit.frameRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fit.cutAndResidual",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fit.toleranceEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fit.independentVerifier",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R08",
+      "capabilityId": "CAP-02-05",
+      "summary": "Owner提交权限和异步取消",
+      "engineeringRule": "每次写入ACL/ScopeEpoch/exact hash&Frame/CAS/cancelGeneration重验；晚ACK不能恢复权限。",
+      "fields": [
+        "owner.aclScopeRecheck",
+        "owner.exactRevHashFrame",
+        "owner.casCancelRecheck",
+        "owner.lateAckNoRegrant"
+      ],
+      "sourceIds": [
+        "MS05-S09",
+        "MS05-S10"
+      ],
+      "capTests": [
+        "MS-T14",
+        "MS-T17",
+        "MS-T18"
+      ],
+      "workPackages": [
+        "F1-06",
+        "E3-04"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "owner.aclScopeRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.exactRevHashFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.casCancelRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.lateAckNoRegrant",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R09",
+      "capabilityId": "CAP-02-05",
+      "summary": "历史revision无损回退和范围化失效",
+      "engineeringRule": "历史material_id无法定位revision时unknown；材料属性变化不必废弃几何，改变Stock/Frame才失效依赖几何的NC证据。",
+      "fields": [
+        "migration.legacyUnknown",
+        "migration.immutableAB",
+        "migration.scopedStale",
+        "migration.rollbackPreservesReceipt"
+      ],
+      "sourceIds": [
+        "MS05-S10",
+        "MS05-S03"
+      ],
+      "capTests": [
+        "MS-T03",
+        "MS-T04",
+        "MS-T15",
+        "MS-T16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "migration.legacyUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.immutableAB",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.scopedStale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.rollbackPreservesReceipt",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-R10",
+      "capabilityId": "CAP-02-05",
+      "summary": "统一入口与独立NC验收",
+      "engineeringRule": "GUI/CLI/Agent同Port、单Babylon世界左TaskPanel；D04 Setup≠D10实装，CL不可替代D13-16。",
+      "fields": [
+        "entry.sameOwnerPort",
+        "entry.singleWorldLeftPanel",
+        "entry.d04D10Separated",
+        "entry.ncUnknownBlocksD16"
+      ],
+      "sourceIds": [
+        "MS05-S08",
+        "MS05-S09"
+      ],
+      "capTests": [
+        "MS-T16",
+        "MS-T17",
+        "MS-T18"
+      ],
+      "workPackages": [
+        "F1-06",
+        "E3-04"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_BASELINE_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MS-R01",
+        "MS-R02",
+        "MS-R03",
+        "MS-R04",
+        "MS-R05",
+        "MS-R06",
+        "MS-R07",
+        "MS-R08"
+      ],
+      "claimBoundary": "Procet内部设计规则，外部来源只支持登记的公开阅读范围，非实机认证。",
+      "criteria": [
+        {
+          "path": "entry.sameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "entry.singleWorldLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "entry.d04D10Separated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "entry.ncUnknownBlocksD16",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN"
+}

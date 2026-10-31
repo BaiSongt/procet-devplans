@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-05-05",
+  "scope": "synthetic_not_product_test",
+  "cases": [
+    {
+      "id": "SOLV505-AT01-P",
+      "ruleId": "SOLV505-R01",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "projectScope": "project-A",
+        "sourceRefs": [
+          {
+            "id": "cad",
+            "revision": "r1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "project-A"
+          },
+          {
+            "id": "feat",
+            "revision": "r1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "project-A"
+          },
+          {
+            "id": "setup",
+            "revision": "r1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "project-A"
+          }
+        ],
+        "candidateRef": {
+          "id": "candidate",
+          "revision": "r1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "SOLVER",
+          "schemaVersion": "v0.8",
+          "scope": "project-A"
+        }
+      }
+    },
+    {
+      "id": "SOLV505-AT01-N",
+      "ruleId": "SOLV505-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "projectScope": "project-A",
+        "sourceRefs": [
+          {
+            "id": "cad",
+            "revision": "r1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "project-A"
+          },
+          {
+            "id": "feat",
+            "revision": "r1",
+            "hash": "bad-hash",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "project-A"
+          },
+          {
+            "id": "setup",
+            "revision": "r1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "project-A"
+          }
+        ],
+        "candidateRef": {
+          "id": "candidate",
+          "revision": "r1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "SOLVER",
+          "schemaVersion": "v0.8",
+          "scope": "project-A"
+        }
+      }
+    },
+    {
+      "id": "SOLV505-AT02-P",
+      "ruleId": "SOLV505-R02",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "solverStatus": "FEASIBLE",
+        "candidateIds": [
+          "b1",
+          "b2"
+        ],
+        "selectedCandidateId": "b1",
+        "statusEvidence": "solver-run-exact"
+      }
+    },
+    {
+      "id": "SOLV505-AT02-N",
+      "ruleId": "SOLV505-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "solverStatus": "UNKNOWN",
+        "candidateIds": [
+          "b1",
+          "b2"
+        ],
+        "selectedCandidateId": "b1",
+        "statusEvidence": "solver-run-exact"
+      }
+    },
+    {
+      "id": "SOLV505-AT03-P",
+      "ruleId": "SOLV505-R03",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "alternatives": [
+          {
+            "id": "b1",
+            "score": {
+              "value": 0.8,
+              "unit": "dimensionless",
+              "provenance": "metric-v1"
+            }
+          },
+          {
+            "id": "b2",
+            "score": {
+              "value": 0.6,
+              "unit": "dimensionless",
+              "provenance": "metric-v1"
+            }
+          }
+        ],
+        "hiddenGlobalRank": false,
+        "autoCertified": false,
+        "reviewedWeights": true
+      }
+    },
+    {
+      "id": "SOLV505-AT03-N",
+      "ruleId": "SOLV505-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "alternatives": [
+          {
+            "id": "b1",
+            "score": {
+              "value": 0.8,
+              "unit": "dimensionless",
+              "provenance": "metric-v1"
+            }
+          },
+          {
+            "id": "b2",
+            "score": {
+              "value": 0.6,
+              "unit": "dimensionless",
+              "provenance": "metric-v1"
+            }
+          }
+        ],
+        "hiddenGlobalRank": true,
+        "autoCertified": false,
+        "reviewedWeights": true
+      }
+    },
+    {
+      "id": "SOLV505-AT04-P",
+      "ruleId": "SOLV505-R04",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "brepValidation": "VALID",
+        "orderedBooleanEvidence": "INDEPENDENT_CHECKED",
+        "protectedRegionStatus": "CLEAR",
+        "sweptMaterialClaim": false
+      }
+    },
+    {
+      "id": "SOLV505-AT04-N",
+      "ruleId": "SOLV505-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "brepValidation": "VALID",
+        "orderedBooleanEvidence": "INDEPENDENT_CHECKED",
+        "protectedRegionStatus": "INTERSECT",
+        "sweptMaterialClaim": false
+      }
+    },
+    {
+      "id": "SOLV505-AT05-P",
+      "ruleId": "SOLV505-R05",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "setupRef": {
+          "id": "setup",
+          "revision": "r1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "SETUP",
+          "schemaVersion": "v0.8",
+          "scope": "project-A"
+        },
+        "frameProofStatus": "VERIFIED",
+        "executionBindingReusedAsSetup": false
+      }
+    },
+    {
+      "id": "SOLV505-AT05-N",
+      "ruleId": "SOLV505-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "setupRef": {
+          "id": "setup",
+          "revision": "r1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "SETUP",
+          "schemaVersion": "v0.8",
+          "scope": "project-A"
+        },
+        "frameProofStatus": "UNKNOWN",
+        "executionBindingReusedAsSetup": false
+      }
+    },
+    {
+      "id": "SOLV505-AT06-P",
+      "ruleId": "SOLV505-R06",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "selectedNodeIds": [
+          "cut1",
+          "cut2"
+        ],
+        "writeNodeIds": [
+          "cut1",
+          "cut2"
+        ],
+        "nodes": [
+          "cut1",
+          "cut2",
+          "inspect"
+        ],
+        "edges": [
+          [
+            "cut1",
+            "cut2"
+          ]
+        ],
+        "dependencyClosed": true
+      }
+    },
+    {
+      "id": "SOLV505-AT06-N",
+      "ruleId": "SOLV505-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "selectedNodeIds": [
+          "cut1",
+          "cut2"
+        ],
+        "writeNodeIds": [
+          "cut1",
+          "cut2",
+          "inspect"
+        ],
+        "nodes": [
+          "cut1",
+          "cut2",
+          "inspect"
+        ],
+        "edges": [
+          [
+            "cut1",
+            "cut2"
+          ]
+        ],
+        "dependencyClosed": true
+      }
+    },
+    {
+      "id": "SOLV505-AT07-P",
+      "ruleId": "SOLV505-R07",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "branchA": {
+          "id": "manual-A",
+          "frozen": true
+        },
+        "branchB": {
+          "id": "solver-B",
+          "immutable": true
+        },
+        "adoptionMode": "FORK_NEW_D05_REVISION",
+        "overwriteFrozen": false,
+        "overwriteHistory": false
+      }
+    },
+    {
+      "id": "SOLV505-AT07-N",
+      "ruleId": "SOLV505-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "branchA": {
+          "id": "manual-A",
+          "frozen": true
+        },
+        "branchB": {
+          "id": "solver-B",
+          "immutable": true
+        },
+        "adoptionMode": "FORK_NEW_D05_REVISION",
+        "overwriteFrozen": true,
+        "overwriteHistory": false
+      }
+    },
+    {
+      "id": "SOLV505-AT08-P",
+      "ruleId": "SOLV505-R08",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "mode": "PREVIEW",
+        "persistentWrites": 0,
+        "taskGeneration": 9,
+        "replyGeneration": 9,
+        "cancelled": false,
+        "lateReceipt": false,
+        "worldCount": 1,
+        "panel": "LEFT_TASK_PANEL"
+      }
+    },
+    {
+      "id": "SOLV505-AT08-N",
+      "ruleId": "SOLV505-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "mode": "PREVIEW",
+        "persistentWrites": 0,
+        "taskGeneration": 9,
+        "replyGeneration": 8,
+        "cancelled": false,
+        "lateReceipt": false,
+        "worldCount": 1,
+        "panel": "LEFT_TASK_PANEL"
+      }
+    },
+    {
+      "id": "SOLV505-AT09-P",
+      "ruleId": "SOLV505-R09",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "actorAuthorized": true,
+        "permissionRechecked": true,
+        "expectedRevision": "plan-r4",
+        "currentRevision": "plan-r4",
+        "sourceHashesMatch": true,
+        "auditAppendOnly": true,
+        "frozenTargetMutation": false
+      }
+    },
+    {
+      "id": "SOLV505-AT09-N",
+      "ruleId": "SOLV505-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "actorAuthorized": true,
+        "permissionRechecked": false,
+        "expectedRevision": "plan-r4",
+        "currentRevision": "plan-r4",
+        "sourceHashesMatch": true,
+        "auditAppendOnly": true,
+        "frozenTargetMutation": false
+      }
+    },
+    {
+      "id": "SOLV505-AT10-P",
+      "ruleId": "SOLV505-R10",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "affected": [
+          "cut1",
+          "cut2"
+        ],
+        "stale": [
+          "cut1",
+          "cut2"
+        ],
+        "unaffected": [
+          "inspect"
+        ],
+        "d09Status": "STALE",
+        "d12Status": "REPOST_REQUIRED",
+        "d13Status": "UNKNOWN",
+        "d14Status": "NOT_RUN",
+        "d15Status": "NOT_RUN",
+        "d16Status": "BLOCKED",
+        "clAnimationCertified": false,
+        "sweptMaterialSimulation": false
+      }
+    },
+    {
+      "id": "SOLV505-AT10-N",
+      "ruleId": "SOLV505-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "input": {
+        "affected": [
+          "cut1",
+          "cut2"
+        ],
+        "stale": [
+          "cut1",
+          "cut2"
+        ],
+        "unaffected": [
+          "inspect"
+        ],
+        "d09Status": "STALE",
+        "d12Status": "REPOST_REQUIRED",
+        "d13Status": "UNKNOWN",
+        "d14Status": "NOT_RUN",
+        "d15Status": "NOT_RUN",
+        "d16Status": "RELEASED",
+        "clAnimationCertified": false,
+        "sweptMaterialSimulation": false
+      }
+    }
+  ]
+}

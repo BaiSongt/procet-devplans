@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "procet-b59-field-trace-v1",
+  "capabilityId": "CAP-02-07",
+  "researchTopic": "R-RG-001",
+  "sourceRegistry": "research/sources/CAP-02-07-render-pick-b59.json",
+  "specification": "docs/capabilities/CAP-02-07/RENDER-PICK-IDENTITY-B59-2026-10-31.md",
+  "fixtures": "docs/capabilities/CAP-02-07/render-pick-b59-fixtures-v08.json",
+  "validator": "tools/check_cap0207_render_pick_b59_v08.cjs",
+  "approval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "B59-R01",
+      "summary": "D03 Owner精确引用和权限",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S02",
+        "B59-S06"
+      ],
+      "fields": [
+        "owner.acl",
+        "owner.revision",
+        "owner.assetHash",
+        "owner.frameHash",
+        "owner.scopeEpoch"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N01",
+        "B59-N02"
+      ],
+      "unknownOrDegradedTestId": "B59-U01",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B59-R02",
+      "summary": "毫米到米与SE(3)刚体转换",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S03",
+        "B59-S06"
+      ],
+      "fields": [
+        "render.cadUnit",
+        "render.exportUnit",
+        "render.metersPerCadMm",
+        "hit.transformMm",
+        "hit.worldPointM"
+      ],
+      "workPackages": [
+        "F1-02",
+        "U4-02"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N17",
+        "B59-N23"
+      ],
+      "unknownOrDegradedTestId": "B59-U02",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B59-R03",
+      "summary": "Mesher来源/参数/修订代次",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S01",
+        "B59-S06"
+      ],
+      "fields": [
+        "render.cadAssetHash",
+        "render.geometryHash",
+        "render.meshEpoch",
+        "render.linearDeflectionMm",
+        "render.angularDeflectionRad"
+      ],
+      "workPackages": [
+        "F1-03",
+        "F1-06",
+        "U4-02"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N06",
+        "B59-N19"
+      ],
+      "unknownOrDegradedTestId": "B59-U03",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B59-R04",
+      "summary": "共享Mesh与实例身份分离",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S03",
+        "B59-S04",
+        "B59-S06"
+      ],
+      "fields": [
+        "hit.meshId",
+        "hit.thinInstanceIndex",
+        "hit.instanceRegistry",
+        "hit.instanceRegistryEpoch",
+        "hit.instanceKey"
+      ],
+      "workPackages": [
+        "F1-06",
+        "U4-02",
+        "U4-03"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N13",
+        "B59-N14"
+      ],
+      "unknownOrDegradedTestId": "B59-U04",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B59-R05",
+      "summary": "三角面片到原Face证据链",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S01",
+        "B59-S02",
+        "B59-S05",
+        "B59-S06"
+      ],
+      "fields": [
+        "hit.triangleId",
+        "hit.triangleToFace",
+        "hit.faceProof",
+        "hit.faceRef",
+        "hit.mapStatus"
+      ],
+      "workPackages": [
+        "F1-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N15",
+        "B59-N34"
+      ],
+      "unknownOrDegradedTestId": "B59-U05",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B59-R06",
+      "summary": "场景重载和取消晚回执",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S04",
+        "B59-S06"
+      ],
+      "fields": [
+        "render.sceneEpoch",
+        "hit.sceneEpoch",
+        "ui.taskGeneration",
+        "ui.cancelled"
+      ],
+      "workPackages": [
+        "U4-02",
+        "U4-03"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N05",
+        "B59-N24"
+      ],
+      "unknownOrDegradedTestId": "B59-N24",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B59-R07",
+      "summary": "单Babylon/左侧容器/多入口同端口",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S04",
+        "B59-S06"
+      ],
+      "fields": [
+        "ui.rendererCount",
+        "ui.canvasCount",
+        "ui.panel",
+        "ui.domainPort",
+        "ui.fontMaxPx"
+      ],
+      "workPackages": [
+        "U4-02",
+        "U4-03"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N26",
+        "B59-N28"
+      ],
+      "unknownOrDegradedTestId": "B59-N26",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B59-R08",
+      "summary": "D04与D10分离，冻结与NC验证不越级",
+      "capabilityId": "CAP-02-07",
+      "sourceIds": [
+        "B59-S05",
+        "B59-S06"
+      ],
+      "fields": [
+        "downstream.d04Owner",
+        "downstream.d10Owner",
+        "downstream.d08FrozenUntouched",
+        "downstream.ncEngineeringPassInferred"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "U4-03"
+      ],
+      "positiveTestId": "B59-P01",
+      "negativeTestIds": [
+        "B59-N30",
+        "B59-N32"
+      ],
+      "unknownOrDegradedTestId": "B59-N30",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

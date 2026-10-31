@@ -1,0 +1,402 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-04-02",
+  "topic": "R-STOCKREG-001",
+  "status": "drafted_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "capability": "docs/capabilities/CAP-04-02/README.md",
+    "ui": "docs/capabilities/CAP-04-02/UI.md",
+    "topic": "research/topics/R-STOCKREG-001.md",
+    "fixtures": "docs/capabilities/CAP-04-02/fixtures.json",
+    "mathExamples": "docs/capabilities/CAP-04-02/math-examples.json",
+    "sources": "research/sources/CAP-04-02.json"
+  },
+  "registeredSources": [
+    "SRC-REG-001",
+    "SRC-REG-002",
+    "SRC-REG-003",
+    "SRC-REG-004",
+    "SRC-REG-005",
+    "SRC-REG-006",
+    "SRC-REG-007"
+  ],
+  "workPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "assetOwner": "04 装夹与坐标系 / D04 (D01由03域提供；D10为独立执行绑定)",
+  "rules": [
+    {
+      "id": "REG-R01",
+      "capabilityId": "CAP-04-02",
+      "description": "目标CAD D01和毛坯D04的独立来源、revision/hash、实例路径与唯一写入Owner必须可审计；同形状不同实例不得混用",
+      "sourceIds": [
+        "SRC-REG-001",
+        "SRC-REG-005"
+      ],
+      "fields": [
+        "projectId",
+        "documentInstanceId",
+        "setupId",
+        "targetCadRef",
+        "cadOccurrencePath",
+        "stockRef",
+        "stockSourceKind",
+        "ownerDomain"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T01",
+        "CAP-04-02-T02"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R02",
+      "capabilityId": "CAP-04-02",
+      "description": "Part和Stock分别显式写成T^S_P、T^S_K（列向量左乘）；复合T^K_P=(T^S_K)^-1*T^S_P；不接受缩放、镜像、NaN或非法手系",
+      "sourceIds": [
+        "SRC-REG-002",
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "fields": [
+        "partToSetupTransform",
+        "stockToSetupTransform",
+        "partToStockTransform",
+        "unitCode",
+        "frameConvention",
+        "frameNumericPolicyRef"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T03",
+        "CAP-04-02-T04"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R03",
+      "capabilityId": "CAP-04-02",
+      "description": "居中/落座/配准从锁定的输入修订及约束求绝对候选；少约束或互相矛盾时返回unknown/ambiguous而不是选任意0矩阵",
+      "sourceIds": [
+        "SRC-REG-001",
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "fields": [
+        "alignmentInputHash",
+        "registrationConstraintRefs",
+        "solverAlgorithmRef",
+        "candidateTransform",
+        "solutionMultiplicity",
+        "registrationStatus"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T05",
+        "CAP-04-02-T06"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R04",
+      "capabilityId": "CAP-04-02",
+      "description": "新建Setup和导入CAD不触发毛坯尺寸重算；必须用户显式请求、检查和采用；禁自扩展库存毛坯/自动拉伸尺寸",
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-004"
+      ],
+      "fields": [
+        "stockGeometryRef",
+        "requestedBoundsFrameRef",
+        "stockNominalDimensions",
+        "proposalBounds",
+        "stockDimensionChangeIntent",
+        "stockAdoptionDecision"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T07",
+        "CAP-04-02-T08"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R05",
+      "capabilityId": "CAP-04-02",
+      "description": "在统一目标Frame和声明的几何精度政策下分别核对零件与stock的包含/局部余量；bbox只能先验筛查，不能凭8角推断凹腔或实际精密余量",
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-004"
+      ],
+      "fields": [
+        "stockBoundaryRef",
+        "targetBoundaryRef",
+        "boundingAlgorithmRef",
+        "tolerancePolicyRef",
+        "containmentAssessment",
+        "localAllowanceEvidence"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T09",
+        "CAP-04-02-T10"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R06",
+      "capabilityId": "CAP-04-02",
+      "description": "GUI/CLI/Agent复用同域Evaluate/Propose/Commit接口；单一Babylon世界仅ghost预览且拾取含CAD实例与拓扑来源，左侧UnifiedTaskPanel不建立第二真值",
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "fields": [
+        "viewportSelectionRef",
+        "proposalId",
+        "scopeEpoch",
+        "previewOnly",
+        "entrySurface",
+        "topologySnapshotRef"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T11",
+        "CAP-04-02-T12"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R07",
+      "capabilityId": "CAP-04-02",
+      "description": "提交点重新核查scope授权、expectedRevision、当前CAD/stock hash和requestId幂等；取消、切Setup、权限撤销均使晚回执不可应用",
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "fields": [
+        "requestId",
+        "expectedRevision",
+        "expectedCadHash",
+        "expectedStockHash",
+        "scopeEpoch",
+        "permissionProofRef",
+        "commitReceipt"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T13",
+        "CAP-04-02-T14"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R08",
+      "capabilityId": "CAP-04-02",
+      "description": "D04配准修订引发仅依赖旧exact revision的D05/D06/D07/D09重新评估；D08/D16冻结保留旧内容并标需重验，不后台覆盖",
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "fields": [
+        "dependencyExactRefs",
+        "impactGraph",
+        "staleReasons",
+        "approvedSnapshotRef",
+        "replanDecisionRef"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T15",
+        "CAP-04-02-T16"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R09",
+      "capabilityId": "CAP-04-02",
+      "description": "CAP配准仅形成D04计划工艺关系，具体机床WCS偏置/刀长/控制器行为由D10与D13解释；D09 CL播放不是D15实际NC级验证",
+      "sourceIds": [
+        "SRC-REG-002",
+        "SRC-REG-006",
+        "SRC-REG-007"
+      ],
+      "fields": [
+        "plannedWorkFrameRef",
+        "executionBindingRef",
+        "controllerDialectRef",
+        "ncProgramRef",
+        "executionSemanticsCoverage",
+        "validationEvidenceRef"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T17",
+        "CAP-04-02-T18"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "REG-R10",
+      "capabilityId": "CAP-04-02",
+      "description": "旧快照/离线工作保留raw与模式标识；缺关键source/hash/frame、版本未知或映射二义性时只读/阻断，迁移失败保持原工程且可回滚",
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "fields": [
+        "schemaVersion",
+        "sourceClosureRefs",
+        "migrationDecision",
+        "rollbackRef",
+        "legacyRawPayloadRef",
+        "unknownFieldBag"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-02-T19",
+        "CAP-04-02-T20"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    }
+  ]
+}

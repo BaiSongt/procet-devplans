@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "procet-b62-field-trace-v1",
+  "capabilityId": "CAP-07-05",
+  "sourceRegistry": "research/sources/CAP-07-05-scallop-b62.json",
+  "specification": "docs/capabilities/CAP-07-05/SCALLOP-QUALIFICATION-B62-2026-10-31.md",
+  "fixtures": "docs/capabilities/CAP-07-05/scallop-b62-fixtures-v08.json",
+  "validator": "tools/check_cap0705_scallop_b62_v08.cjs",
+  "researchTopic": "R-STAGE-MACHINING-001",
+  "rules": [
+    {
+      "id": "B62-R01",
+      "summary": "精确球冠几何、数值域、单位和目标",
+      "fields": [
+        "geometry.radiusMm",
+        "geometry.stepoverMm",
+        "geometry.targetCuspMm",
+        "geometry.unit"
+      ],
+      "sourceIds": [
+        "B62-S03",
+        "B62-S07"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [
+        "B62-N01",
+        "B62-N02",
+        "B62-N03",
+        "B62-N04",
+        "B62-N05"
+      ],
+      "unknownTestIds": [],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B62-R02",
+      "summary": "自由曲面和真实刀刃接触资格不足返回UNKNOWN",
+      "fields": [
+        "geometry.contactModel",
+        "geometry.contactEvidence",
+        "geometry.toolType"
+      ],
+      "sourceIds": [
+        "B62-S03",
+        "B62-S04"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [],
+      "unknownTestIds": [
+        "B62-U01",
+        "B62-U02",
+        "B62-U03"
+      ],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B62-R03",
+      "summary": "h不等于Ra/GD&T/实际测量",
+      "fields": [
+        "quality.raPassClaim",
+        "quality.dimensionalPassClaim",
+        "quality.cuspAsMeasuredPass"
+      ],
+      "sourceIds": [
+        "B62-S01",
+        "B62-S02",
+        "B62-S05",
+        "B62-S06"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [
+        "B62-N06",
+        "B62-N07",
+        "B62-N08"
+      ],
+      "unknownTestIds": [],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B62-R04",
+      "summary": "Owner CAS/ACL/Frame/Scope、取消及冻结",
+      "fields": [
+        "owner.rev",
+        "owner.hash",
+        "owner.frame",
+        "owner.scopeEpoch",
+        "owner.receiptGeneration",
+        "owner.cancelled",
+        "owner.acl",
+        "stage.d08FrozenUnchanged"
+      ],
+      "sourceIds": [
+        "B62-S07"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [
+        "B62-S01",
+        "B62-S02",
+        "B62-S03",
+        "B62-S04",
+        "B62-S05",
+        "B62-S06",
+        "B62-N09",
+        "B62-N10",
+        "B62-N11"
+      ],
+      "unknownTestIds": [],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B62-R05",
+      "summary": "切向物理步距和法向资格",
+      "fields": [
+        "geometry.metricCertified",
+        "geometry.normalDefined",
+        "geometry.stepoverBasis"
+      ],
+      "sourceIds": [
+        "B62-S04",
+        "B62-S07"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [
+        "B62-N12"
+      ],
+      "unknownTestIds": [
+        "B62-U04",
+        "B62-U05"
+      ],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B62-R06",
+      "summary": "阶段D07封存、保护区和不可冒充材料扫掠",
+      "fields": [
+        "stage.stockSealed",
+        "stage.protectedKnown",
+        "stage.d07Hash",
+        "stage.previousOutputHash",
+        "stage.materialSweepClaim"
+      ],
+      "sourceIds": [
+        "B62-S07"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [
+        "B62-S07",
+        "B62-N13"
+      ],
+      "unknownTestIds": [
+        "B62-U06",
+        "B62-U07"
+      ],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B62-R07",
+      "summary": "GUI/CLI/Agent同Port、单Babylon和左TaskPanel",
+      "fields": [
+        "ui.engineCount",
+        "ui.sceneCount",
+        "ui.canvasCount",
+        "ui.panel",
+        "ui.fontMaxPx",
+        "ui.port",
+        "ui.entries"
+      ],
+      "sourceIds": [
+        "B62-S07"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "U4-04",
+        "F1-03"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [
+        "B62-N14",
+        "B62-N15",
+        "B62-N16",
+        "B62-N17",
+        "B62-N18",
+        "B62-N19",
+        "B62-N20"
+      ],
+      "unknownTestIds": [],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B62-R08",
+      "summary": "D04≠D10，中立CL、NC语义/轴时序/独立验证/发布分层",
+      "fields": [
+        "stage.d10CopiedToD04",
+        "stage.d09Neutral",
+        "execution.clAsD15",
+        "execution.d15PassClaim",
+        "execution.d16ReleaseClaim",
+        "execution.unknownPassClaim",
+        "execution.controllerUnknown"
+      ],
+      "sourceIds": [
+        "B62-S06",
+        "B62-S07"
+      ],
+      "capabilityId": "CAP-07-05",
+      "originalWorkPackages": [
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveTestIds": [
+        "B62-P01",
+        "B62-P02"
+      ],
+      "negativeTestIds": [
+        "B62-N21",
+        "B62-N22",
+        "B62-N23",
+        "B62-N24",
+        "B62-N25",
+        "B62-N26"
+      ],
+      "unknownTestIds": [
+        "B62-U08"
+      ],
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

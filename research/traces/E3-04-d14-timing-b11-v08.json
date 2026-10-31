@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "procet-e304-d14-timing-b11-v1",
+  "topic": "R-D14-TIMING-B11",
+  "created": "2026-10-29",
+  "sourceHead": "70cdd44ae46216658527a513a9f6406bcf58f259",
+  "sourcePaths": [
+    "docs/work-packages/E3-04.md",
+    "docs/capabilities/CAP-09-07/README.md",
+    "docs/work-packages/E3-05.md",
+    "research/traces/CAP-09-07-d13-modal-b10-v08.json"
+  ],
+  "planningOnly": true,
+  "l3": "PENDING_HUMAN",
+  "ownerSigned": 0,
+  "independentConsumers": 0,
+  "product": "NOT_RUN",
+  "actualD14": "NOT_RUN",
+  "actualD15": "NOT_RUN",
+  "actualD16": "BLOCKED",
+  "sources": [
+    {
+      "id": "B11-LC-GCODE",
+      "publisher": "LinuxCNC",
+      "author": "LinuxCNC documentation team",
+      "version": "2.9 documentation branch",
+      "published": "exact document revision date not displayed",
+      "accessed": "2026-10-29",
+      "url": "https://linuxcnc.org/docs/2.9/html/gcode/g-code.html",
+      "sectionsRead": [
+        "§3 G0 Rapid Move",
+        "§35–37 G61/G61.1/G64",
+        "§59 G93/G94/G95"
+      ],
+      "depth": "OFFICIAL_PUBLIC_HTML_SELECTED_PARAGRAPHS",
+      "limits": "只证明LinuxCNC 2.9公共说明；具体控制器插件、实时规划器、OEM和B5未经核验；不是物理节拍证明"
+    },
+    {
+      "id": "B11-LC-CONCEPT",
+      "publisher": "LinuxCNC",
+      "author": "LinuxCNC documentation team",
+      "version": "2.9 documentation branch",
+      "published": "exact document revision date not displayed",
+      "accessed": "2026-10-29",
+      "url": "https://linuxcnc.org/docs/2.9/html/user/user-concepts.html",
+      "sectionsRead": [
+        "§1.1 Trajectory Planning",
+        "§1.2 Path Following",
+        "§1.3 Programming the Planner"
+      ],
+      "depth": "OFFICIAL_PUBLIC_HTML_SELECTED_PARAGRAPHS",
+      "limits": "非Procet规划器实测、非OEM具体实现，不保证任何估算时间等于实机节拍"
+    },
+    {
+      "id": "B11-LC-KIN",
+      "publisher": "LinuxCNC",
+      "author": "LinuxCNC documentation team",
+      "version": "2.9 documentation branch",
+      "published": "exact document revision date not displayed",
+      "accessed": "2026-10-29",
+      "url": "https://linuxcnc.org/docs/2.9/html/motion/kinematics.html",
+      "sectionsRead": [
+        "§1 Introduction",
+        "§1.1 Joints vs Axes"
+      ],
+      "depth": "OFFICIAL_PUBLIC_HTML_SELECTED_PARAGRAPHS",
+      "limits": "仅用于区别编程轴/物理关节的概念，不能推出真实B5轴树、安装方向或伺服控制运动"
+    },
+    {
+      "id": "B11-ISO841",
+      "publisher": "ISO",
+      "author": "ISO/TC 184/SC 1",
+      "version": "ISO 841:2001 edition 2",
+      "published": "2001-10; official site records confirmation in 2023",
+      "accessed": "2026-10-29",
+      "url": "https://www.iso.org/standard/23949.html",
+      "sectionsRead": [
+        "公开目录/Reference number/Edition/Publication status",
+        "Abstract"
+      ],
+      "depth": "OFFICIAL_CATALOG_AND_ABSTRACT_ONLY",
+      "limits": "未读收费正文，不引用ISO的未见条款，也不声称本规划或B5经标准认证"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B11-D14-R01",
+      "text": "最终NC与跨域证据闭包；仅作为Procet拟议的可机检规划门禁，不将所引外部资料外推为全部实现强制行为。",
+      "fields": [
+        "d12FinalNcHashPinned",
+        "d13EventAndInterpreterHashPinned",
+        "d10ExecutionBindingHashFramePinned",
+        "d03KinematicTreeHashFramePinned",
+        "controllerDialectProfilePinned"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "sourceRefs": [
+        "B11-LC-GCODE",
+        "B11-LC-KIN"
+      ],
+      "acceptance": [
+        "B11-P01",
+        "B11-N01",
+        "B11-N02",
+        "B11-N03",
+        "B11-N04",
+        "B11-N05"
+      ]
+    },
+    {
+      "id": "B11-D14-R02",
+      "text": "G93/G94/G95多进给模式及单位、主轴可用性；仅作为Procet拟议的可机检规划门禁，不将所引外部资料外推为全部实现强制行为。",
+      "fields": [
+        "feedModePerBlockKnown",
+        "g93RequiresFOnEveryFeedBlock",
+        "g94LengthUnitsAndFeedPinned",
+        "g95SpindleSpeedInputProvenancePinned",
+        "g0NeverEstimatedFromG93F"
+      ],
+      "caps": [
+        "CAP-09-07"
+      ],
+      "packages": [
+        "E3-04"
+      ],
+      "sourceRefs": [
+        "B11-LC-GCODE"
+      ],
+      "acceptance": [
+        "B11-P01",
+        "B11-N06",
+        "B11-N07",
+        "B11-N08",
+        "B11-N09",
+        "B11-N10",
+        "B11-M01",
+        "B11-M02",
+        "B11-M03",
+        "B11-M04",
+        "B11-M05",
+        "B11-M06"
+      ]
+    },
+    {
+      "id": "B11-D14-R03",
+      "text": "轨迹时长与动力学预算的证据等级；仅作为Procet拟议的可机检规划门禁，不将所引外部资料外推为全部实现强制行为。",
+      "fields": [
+        "maxVelocityAccelerationPinned",
+        "timingEstimateNotActualCycleTime",
+        "rapidAndFeedTimingDistinguished",
+        "feedOverrideAndPauseUnknownBlocked"
+      ],
+      "caps": [
+        "CAP-09-07"
+      ],
+      "packages": [
+        "E3-04"
+      ],
+      "sourceRefs": [
+        "B11-LC-CONCEPT",
+        "B11-LC-GCODE"
+      ],
+      "acceptance": [
+        "B11-P01",
+        "B11-N11",
+        "B11-N12",
+        "B11-N13",
+        "B11-N14"
+      ]
+    },
+    {
+      "id": "B11-D14-R04",
+      "text": "G61/G61.1/G64控制器路径规划与覆盖；仅作为Procet拟议的可机检规划门禁，不将所引外部资料外推为全部实现强制行为。",
+      "fields": [
+        "plannerModeAndTolerancePinned",
+        "g64NoToleranceNeverContinuousSafe",
+        "g61VersusG611Differentiated",
+        "trajectorySegmentCoveragePinned"
+      ],
+      "caps": [
+        "CAP-09-07"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "sourceRefs": [
+        "B11-LC-GCODE",
+        "B11-LC-CONCEPT"
+      ],
+      "acceptance": [
+        "B11-P01",
+        "B11-N15",
+        "B11-N16",
+        "B11-N17",
+        "B11-N18"
+      ]
+    },
+    {
+      "id": "B11-D14-R05",
+      "text": "编程轴与物理关节不得无证据同一化；仅作为Procet拟议的可机检规划门禁，不将所引外部资料外推为全部实现强制行为。",
+      "fields": [
+        "axisAndJointSemanticsSeparated",
+        "trivialKinematicsMappingVerified",
+        "nontrivialMappingUnknownBlocked",
+        "jointUnitsAndFrameExact"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-04-02"
+      ],
+      "packages": [
+        "E3-04",
+        "B0-05"
+      ],
+      "sourceRefs": [
+        "B11-LC-KIN",
+        "B11-ISO841"
+      ],
+      "acceptance": [
+        "B11-P01",
+        "B11-N19",
+        "B11-N20",
+        "B11-N21",
+        "B11-N22"
+      ]
+    },
+    {
+      "id": "B11-D14-R06",
+      "text": "轴时序严格单调、事件和异常完整性；仅作为Procet拟议的可机检规划门禁，不将所引外部资料外推为全部实现强制行为。",
+      "fields": [
+        "eventLineAndBlockHashPinned",
+        "timelineNondecreasingAndFinite",
+        "dwellToolchangeStopCoveragePinned",
+        "continuousGapsExplicitUnknown",
+        "physicalLimitsSourcePinned"
+      ],
+      "caps": [
+        "CAP-09-07"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "sourceRefs": [
+        "B11-LC-CONCEPT",
+        "B11-LC-KIN"
+      ],
+      "acceptance": [
+        "B11-P01",
+        "B11-N23",
+        "B11-N24",
+        "B11-N25",
+        "B11-N26",
+        "B11-N27"
+      ]
+    },
+    {
+      "id": "B11-D14-R07",
+      "text": "UI/Owner事务与D15独立资格隔离；仅作为Procet拟议的可机检规划门禁，不将所引外部资料外推为全部实现强制行为。",
+      "fields": [
+        "singleBabylonAndLeftTaskPanel",
+        "guiCliAgentSameOwnerPort",
+        "casAclPermissionEpochRevalidated",
+        "lateAckCanCommit",
+        "frozenABRollbackPreserved",
+        "clPlaybackGrantsD15Pass",
+        "d16ReleasedWithoutIndependentD15"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "sourceRefs": [
+        "B11-LC-CONCEPT"
+      ],
+      "acceptance": [
+        "B11-P01",
+        "B11-N28",
+        "B11-N29",
+        "B11-N30",
+        "B11-N31",
+        "B11-N32",
+        "B11-N33",
+        "B11-N34"
+      ]
+    }
+  ]
+}

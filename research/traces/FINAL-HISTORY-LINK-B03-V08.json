@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "procet-v08-research-trace-v1",
+  "researchTopic": "R-FINAL-HISTORY-LINK-B03",
+  "audit": "research/audits/FINAL-HISTORY-LINK-B03-2026-10-29.json",
+  "sourceReferenceType": "OFFICIAL_PUBLIC_WEB_VERIFIED_READ_DEPTH",
+  "rules": [
+    {
+      "id": "H03-R01",
+      "rule": "以同一exact HEAD和未截断Git Tree固定全仓文件分母、原路径存在性与文件Blob SHA；不是全文或产品通过证据。",
+      "sourceRefs": [
+        "B03-GH",
+        "B03-GIT"
+      ],
+      "fields": [
+        "observedExactHead",
+        "observedGitTreeSha",
+        "treeTruncated",
+        "gitTreeEntries",
+        "markdown.treeTotal"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05"
+      ]
+    },
+    {
+      "id": "H03-R02",
+      "rule": "Markdown行内/参考式链接遵从完整语法；正则样本0缺失只能记PARTIAL，必须补AST、锚点和剩余文件，外链单独处理。",
+      "sourceRefs": [
+        "B03-CM",
+        "B03-GH"
+      ],
+      "fields": [
+        "markdown.scanRanges",
+        "markdown.parserMode",
+        "markdown.anchorsChecked",
+        "markdown.fullRepoMarkdownScan"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "U4-02",
+        "T5-05"
+      ]
+    },
+    {
+      "id": "H03-R03",
+      "rule": "缺失历史文件不能通过目标路径或新编文件伪造原始字节、Blob SHA/修订；恢复必须保存来源、合法访问和逐字节哈希。",
+      "sourceRefs": [
+        "B03-GIT",
+        "B03-PROV"
+      ],
+      "fields": [
+        "historicOriginalPaths[].status",
+        "historicOriginalPaths[].originalBlobSha",
+        "unlocatedHistoricalOriginals[].status"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-01-04"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-03"
+      ]
+    },
+    {
+      "id": "H03-R04",
+      "rule": "NEWLY_AUTHORED与RECOVERED_ORIGINAL是两个独立来源类型；迁移必须可失效、可回退并保留原证据链。",
+      "sourceRefs": [
+        "B03-PROV",
+        "B03-GIT"
+      ],
+      "fields": [
+        "historicOriginalPaths[].handling",
+        "unlocatedHistoricalOriginals[].handling",
+        "missingBytesHumanDisposition"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "T5-03",
+        "T5-06"
+      ]
+    },
+    {
+      "id": "H03-R05",
+      "rule": "登记、结构和局部链接通过不授予L3批准、Owner签署、真实消费者、OCCT/NC/B5验证或D16发布资格。",
+      "sourceRefs": [
+        "B03-NIST",
+        "B03-PROV"
+      ],
+      "fields": [
+        "status.ownerSigned",
+        "status.independentConsumers",
+        "status.occtNcB5",
+        "status.productPass"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "T5-05",
+        "T5-06"
+      ]
+    },
+    {
+      "id": "H03-R06",
+      "rule": "终核期间保持L1/L2冻结和L3人审；单Babylon/左TaskPanel、A/B冻结、D04与D10分离、CL→NC→D13→D14→D15→D16及unknown阻断不被文档修订放宽。",
+      "sourceRefs": [
+        "B03-PROV",
+        "B03-NIST"
+      ],
+      "fields": [
+        "status.l1l2",
+        "status.l3",
+        "status.planningReady",
+        "status.productPass"
+      ],
+      "caps": [
+        "CAP-01-05",
+        "CAP-01-07",
+        "CAP-09-07"
+      ],
+      "packages": [
+        "U4-02",
+        "T5-05"
+      ]
+    }
+  ]
+}

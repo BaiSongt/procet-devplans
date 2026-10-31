@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "procet-b27-trace-v1",
+  "capabilityId": "CAP-06-07",
+  "sourceRegistry": "research/sources/CAP-06-07-oracle-options-b27.json",
+  "fixtures": "docs/capabilities/CAP-06-07/oracle-options-b27-fixtures-v08.json",
+  "validator": "tools/check_cap0607_oracle_options_b27_v08.cjs",
+  "originalWorkPackages": [
+    "F1-05",
+    "W2-02",
+    "W2-03",
+    "W2-06"
+  ],
+  "evidenceLevel": "SYNTHETIC_PLANNING_ONLY",
+  "rules": [
+    {
+      "id": "B27-R1",
+      "statement": "固定D01/D04/D07及Frame/Scope的exact修订与SHA闭包；拒绝跨Scope读写",
+      "sourceIds": [
+        "B27-S06"
+      ],
+      "fields": [
+        "refs.D01.revision",
+        "refs.D04.hash",
+        "refs.D07.hash",
+        "refs.frameHash",
+        "refs.scope"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "F1-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N01",
+        "B27-N02",
+        "B27-N03",
+        "B27-N04"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B27-R2",
+      "statement": "合成Oracle必须登记生成/校验进程和内核版本；同内核独立进程仅PROCESS_ONLY，公开共因失效风险，不冒充产品独立认证",
+      "sourceIds": [
+        "B27-S05",
+        "B27-S06"
+      ],
+      "fields": [
+        "oracle.generatorPid",
+        "oracle.verifierPid",
+        "oracle.recomputed",
+        "oracle.independence",
+        "oracle.commonModeRisk"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "W2-06",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N05",
+        "B27-N06",
+        "B27-N07",
+        "B27-N08"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B27-R3",
+      "statement": "记录BRepCheck GeomControls/ExactMethod与全部Solid/自交状态；单IsValid不替代几何结果证据",
+      "sourceIds": [
+        "B27-S01",
+        "B27-S04",
+        "B27-S06"
+      ],
+      "fields": [
+        "brep.geomControls",
+        "brep.exactMethod",
+        "brep.checkedCount",
+        "brep.selfInterferenceChecked"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "W2-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N09",
+        "B27-N10",
+        "B27-N11",
+        "B27-N12",
+        "B27-N13"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B27-R4",
+      "statement": "调用BRepGProp VolumePropertiesGK时锁定OnlyClosed、SkipShared、Eps及误差回报；不构造GK不存在的UseTriangulation入参",
+      "sourceIds": [
+        "B27-S02",
+        "B27-S06"
+      ],
+      "fields": [
+        "volume.algorithm",
+        "volume.onlyClosed",
+        "volume.skipShared",
+        "volume.eps",
+        "volume.reportedRelError"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "W2-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N14",
+        "B27-N15",
+        "B27-N16",
+        "B27-N17",
+        "B27-N18"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B27-R5",
+      "statement": "体积守恒仅是必要条件；固定mm3和内部容差策略版本，数值与残差均有限且阈值有界",
+      "sourceIds": [
+        "B27-S02",
+        "B27-S06"
+      ],
+      "fields": [
+        "volume.before",
+        "volume.removed",
+        "volume.after",
+        "policy.absTol",
+        "policy.relTol",
+        "policy.volumeUnit"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "W2-06",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N19",
+        "B27-N20",
+        "B27-N21",
+        "B27-N22",
+        "B27-N23"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B27-R6",
+      "statement": "距离为0不能认定无穿透；另需保护区交集、目标错差与岛屿数量的独立Boolean证据",
+      "sourceIds": [
+        "B27-S03",
+        "B27-S06"
+      ],
+      "fields": [
+        "topology.independentBoolean",
+        "topology.protectedIntersectionVolume",
+        "topology.targetMismatchVolume",
+        "topology.distanceZeroIsNoOverlapProof"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "W2-06",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N24",
+        "B27-N25",
+        "B27-N26",
+        "B27-N27"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B27-R7",
+      "statement": "06域Owner单入口且GUI/CLI/Agent共用、唯一Babylon/左TaskPanel；Seal后重验CAS、ACL、ScopeEpoch、任务代次与取消",
+      "sourceIds": [
+        "B27-S06"
+      ],
+      "fields": [
+        "owner.port",
+        "owner.channels",
+        "owner.babylonWorlds",
+        "owner.taskPanel",
+        "owner.aclEpoch",
+        "owner.observedAclEpoch",
+        "owner.cancelled"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "F1-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N28",
+        "B27-N29",
+        "B27-N30",
+        "B27-N31",
+        "B27-N32"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B27-R8",
+      "statement": "合成Oracle结果不是D05采纳/D08覆盖/D10绑定或D15 NC工程验证；UNKNOWN阻D16，CL动画不作NC证明，无材料扫掠",
+      "sourceIds": [
+        "B27-S06",
+        "B27-S05"
+      ],
+      "fields": [
+        "downstream.D05",
+        "downstream.D08FrozenUnchanged",
+        "downstream.D13",
+        "downstream.D15",
+        "downstream.D16"
+      ],
+      "capabilityId": "CAP-06-07",
+      "primaryPackage": "W2-02",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B27-P01",
+        "B27-P02"
+      ],
+      "negativeIds": [
+        "B27-N33",
+        "B27-N34",
+        "B27-N35",
+        "B27-N36",
+        "B27-N37"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}

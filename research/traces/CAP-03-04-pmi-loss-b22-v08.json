@@ -1,0 +1,253 @@
+{
+  "schemaVersion": "procet-b22-pmi-loss-trace-v1",
+  "capabilityId": "CAP-03-04",
+  "date": "2026-10-29",
+  "sources": [
+    "PMI22-S01",
+    "PMI22-S02",
+    "PMI22-S03",
+    "PMI22-S04",
+    "PMI22-S05"
+  ],
+  "workPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "PMI22-R1",
+      "statement": "源实体清单分母必须独立记录并去重",
+      "sourceIds": [
+        "PMI22-S01",
+        "PMI22-S05"
+      ],
+      "fields": [
+        "source.declaredCount",
+        "inventory"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "B0-02",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N01",
+        "B22-N02"
+      ]
+    },
+    {
+      "id": "PMI22-R2",
+      "statement": "每个源ID必须有分类结果、原因和可复算计数，不静默丢失",
+      "sourceIds": [
+        "PMI22-S01",
+        "PMI22-S04"
+      ],
+      "fields": [
+        "outcomes",
+        "summary"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N03",
+        "B22-N04",
+        "B22-N05",
+        "B22-N06"
+      ]
+    },
+    {
+      "id": "PMI22-R3",
+      "statement": "graphic-only无法冒充semantic PMI或被批准为制造约束",
+      "sourceIds": [
+        "PMI22-S01",
+        "PMI22-S02"
+      ],
+      "fields": [
+        "outcomes",
+        "approvedIds"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "T5-02",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N07",
+        "B22-N08"
+      ]
+    },
+    {
+      "id": "PMI22-R4",
+      "statement": "语义锚点要匹配D01确切Revision、Occurrence和物理Frame",
+      "sourceIds": [
+        "PMI22-S01",
+        "PMI22-S05"
+      ],
+      "fields": [
+        "source.revision",
+        "source.occurrence",
+        "source.frame",
+        "outcomes"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "B0-02",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N09",
+        "B22-N10",
+        "B22-N11"
+      ]
+    },
+    {
+      "id": "PMI22-R5",
+      "statement": "未知修改符、Parser不支持的类型必须失败封闭",
+      "sourceIds": [
+        "PMI22-S01",
+        "PMI22-S03"
+      ],
+      "fields": [
+        "reader.supported",
+        "outcomes"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "T5-02",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N12",
+        "B22-N13"
+      ]
+    },
+    {
+      "id": "PMI22-R6",
+      "statement": "Reader版本/配置与STEP源哈希必须固定并绑定审批",
+      "sourceIds": [
+        "PMI22-S03",
+        "PMI22-S05"
+      ],
+      "fields": [
+        "source.sha",
+        "reader.version",
+        "reader.profile",
+        "approval"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N14",
+        "B22-N15",
+        "B22-N16",
+        "B22-N17",
+        "B22-N18"
+      ]
+    },
+    {
+      "id": "PMI22-R7",
+      "statement": "03域PMI Owner签署、GUI/CLI/Agent同端口并提交点CAS/ACL/取消重验",
+      "sourceIds": [
+        "PMI22-S05"
+      ],
+      "fields": [
+        "approval",
+        "command"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-04",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N19",
+        "B22-N20",
+        "B22-N21",
+        "B22-N22",
+        "B22-N23",
+        "B22-N24"
+      ]
+    },
+    {
+      "id": "PMI22-R8",
+      "statement": "D04与D10分离，CL不冒充D15，NC解释未知阻断发布",
+      "sourceIds": [
+        "PMI22-S05"
+      ],
+      "fields": [
+        "boundary"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-04",
+      "positiveIds": [
+        "B22-P01"
+      ],
+      "negativeIds": [
+        "B22-N25",
+        "B22-N26",
+        "B22-N27",
+        "B22-N28",
+        "B22-N29"
+      ]
+    }
+  ],
+  "approval": "PENDING_HUMAN_L3",
+  "product": "NOT_RUN",
+  "independentConsumers": "NOT_RUN"
+}

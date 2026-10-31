@@ -1,0 +1,679 @@
+{
+  "schemaVersion": "procet-b26-fixtures-v1",
+  "syntheticOnly": true,
+  "scenarioInputs": {
+    "loss": {
+      "schemaVersion": "procet-b26-worker-ledger-v1",
+      "owner": {
+        "port": "06.SolverCandidatePort",
+        "taskPanel": "UnifiedTaskPanel.left",
+        "renderWorlds": 1,
+        "channels": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclEpoch": 3,
+        "observedAclEpoch": 3,
+        "scopeEpoch": 2,
+        "observedScopeEpoch": 2,
+        "taskGeneration": 4,
+        "observedTaskGeneration": 4,
+        "cancelled": true,
+        "cancelGeneration": 5,
+        "receiptGeneration": 4,
+        "cancelIssuedAfterSeq": 6,
+        "ownerCommit": false
+      },
+      "refs": {
+        "D01": {
+          "hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "owner": "01"
+        },
+        "D04": {
+          "hash": "2222222222222222222222222222222222222222222222222222222222222222",
+          "owner": "04"
+        },
+        "D07": {
+          "hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "owner": "06"
+        },
+        "frameHash": "4444444444444444444444444444444444444444444444444444444444444444",
+        "scope": "SYN/P/A/S1",
+        "unit": "mm"
+      },
+      "budget": {
+        "limit": 5,
+        "maxWorkers": 2,
+        "unit": "boolean_credit",
+        "atomicReservation": true
+      },
+      "events": [
+        {
+          "seq": 1,
+          "kind": "RESERVE",
+          "token": "t1",
+          "credit": 2
+        },
+        {
+          "seq": 2,
+          "kind": "DISPATCH",
+          "token": "t1",
+          "worker": "w1",
+          "generation": 4
+        },
+        {
+          "seq": 3,
+          "kind": "SETTLE",
+          "token": "t1",
+          "worker": "w1",
+          "creditUsed": 2,
+          "receiptHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "generation": 4
+        },
+        {
+          "seq": 4,
+          "kind": "DUP_ACK",
+          "token": "t1",
+          "receiptHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "generation": 4
+        },
+        {
+          "seq": 5,
+          "kind": "RESERVE",
+          "token": "t2",
+          "credit": 2
+        },
+        {
+          "seq": 6,
+          "kind": "DISPATCH",
+          "token": "t2",
+          "worker": "w2",
+          "generation": 4
+        },
+        {
+          "seq": 7,
+          "kind": "LOSS",
+          "token": "t2",
+          "worker": "w2",
+          "lossReason": "WORKER_EXIT_UNCONFIRMED"
+        },
+        {
+          "seq": 8,
+          "kind": "LATE_ACK",
+          "token": "t2",
+          "generation": 4,
+          "disposition": "IGNORED_NO_COMMIT"
+        }
+      ],
+      "summary": {
+        "used": 2,
+        "held": 2,
+        "uncertain": 2,
+        "free": 1,
+        "status": "UNKNOWN_SETTLEMENT",
+        "newOwnerRevision": null,
+        "persistedReceipt": false
+      },
+      "downstream": {
+        "d07Consumer": "NOT_RUN",
+        "d05": "NOT_APPROVED",
+        "d08FrozenUnchanged": true,
+        "d10ExecutionBound": false,
+        "d13": "UNKNOWN",
+        "d15": "NOT_RUN",
+        "d16": "BLOCKED",
+        "clAnimationIsNcProof": false,
+        "materialSweepSimulated": false
+      }
+    },
+    "clean": {
+      "schemaVersion": "procet-b26-worker-ledger-v1",
+      "owner": {
+        "port": "06.SolverCandidatePort",
+        "taskPanel": "UnifiedTaskPanel.left",
+        "renderWorlds": 1,
+        "channels": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclEpoch": 3,
+        "observedAclEpoch": 3,
+        "scopeEpoch": 2,
+        "observedScopeEpoch": 2,
+        "taskGeneration": 4,
+        "observedTaskGeneration": 4,
+        "cancelled": false,
+        "cancelGeneration": 0,
+        "receiptGeneration": 4,
+        "cancelIssuedAfterSeq": null,
+        "ownerCommit": false
+      },
+      "refs": {
+        "D01": {
+          "hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "owner": "01"
+        },
+        "D04": {
+          "hash": "2222222222222222222222222222222222222222222222222222222222222222",
+          "owner": "04"
+        },
+        "D07": {
+          "hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "owner": "06"
+        },
+        "frameHash": "4444444444444444444444444444444444444444444444444444444444444444",
+        "scope": "SYN/P/A/S1",
+        "unit": "mm"
+      },
+      "budget": {
+        "limit": 5,
+        "maxWorkers": 2,
+        "unit": "boolean_credit",
+        "atomicReservation": true
+      },
+      "events": [
+        {
+          "seq": 1,
+          "kind": "RESERVE",
+          "token": "t1",
+          "credit": 2
+        },
+        {
+          "seq": 2,
+          "kind": "DISPATCH",
+          "token": "t1",
+          "worker": "w1",
+          "generation": 4
+        },
+        {
+          "seq": 3,
+          "kind": "SETTLE",
+          "token": "t1",
+          "worker": "w1",
+          "creditUsed": 2,
+          "receiptHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "generation": 4
+        },
+        {
+          "seq": 4,
+          "kind": "DUP_ACK",
+          "token": "t1",
+          "receiptHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "generation": 4
+        },
+        {
+          "seq": 5,
+          "kind": "RESERVE",
+          "token": "t2",
+          "credit": 2
+        },
+        {
+          "seq": 6,
+          "kind": "DISPATCH",
+          "token": "t2",
+          "worker": "w2",
+          "generation": 4
+        },
+        {
+          "seq": 7,
+          "kind": "SETTLE",
+          "token": "t2",
+          "worker": "w2",
+          "creditUsed": 2,
+          "receiptHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "generation": 4
+        }
+      ],
+      "summary": {
+        "used": 4,
+        "held": 0,
+        "uncertain": 0,
+        "free": 1,
+        "status": "LEDGER_SETTLED",
+        "newOwnerRevision": null,
+        "persistedReceipt": false
+      },
+      "downstream": {
+        "d07Consumer": "NOT_RUN",
+        "d05": "NOT_APPROVED",
+        "d08FrozenUnchanged": true,
+        "d10ExecutionBound": false,
+        "d13": "UNKNOWN",
+        "d15": "NOT_RUN",
+        "d16": "BLOCKED",
+        "clAnimationIsNcProof": false,
+        "materialSweepSimulated": false
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "B26-P01",
+      "ruleId": "B26-R7",
+      "base": "loss",
+      "changes": [],
+      "expected": "PASS",
+      "scenario": "Worker退出保留预算且取消晚回执忽略"
+    },
+    {
+      "id": "B26-P02",
+      "ruleId": "B26-R4",
+      "base": "clean",
+      "changes": [],
+      "expected": "PASS",
+      "scenario": "两个任务结算、同SHA重复ACK不多计费"
+    },
+    {
+      "id": "B26-N01",
+      "ruleId": "B26-R1",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "owner.observedHead",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ],
+      "expected": "B26-R1",
+      "scenario": "单字段/事件破坏 owner.observedHead"
+    },
+    {
+      "id": "B26-N02",
+      "ruleId": "B26-R1",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "owner.channels",
+          "value": [
+            "GUI",
+            "Agent"
+          ]
+        }
+      ],
+      "expected": "B26-R1",
+      "scenario": "单字段/事件破坏 owner.channels"
+    },
+    {
+      "id": "B26-N03",
+      "ruleId": "B26-R1",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "owner.renderWorlds",
+          "value": 2
+        }
+      ],
+      "expected": "B26-R1",
+      "scenario": "单字段/事件破坏 owner.renderWorlds"
+    },
+    {
+      "id": "B26-N04",
+      "ruleId": "B26-R1",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "refs.frameHash",
+          "value": "missing"
+        }
+      ],
+      "expected": "B26-R1",
+      "scenario": "单字段/事件破坏 refs.frameHash"
+    },
+    {
+      "id": "B26-N05",
+      "ruleId": "B26-R2",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "budget.limit",
+          "value": 0
+        }
+      ],
+      "expected": "B26-R2",
+      "scenario": "单字段/事件破坏 budget.limit"
+    },
+    {
+      "id": "B26-N06",
+      "ruleId": "B26-R2",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "budget.atomicReservation",
+          "value": false
+        }
+      ],
+      "expected": "B26-R2",
+      "scenario": "单字段/事件破坏 budget.atomicReservation"
+    },
+    {
+      "id": "B26-N07",
+      "ruleId": "B26-R2",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "budget.maxWorkers",
+          "value": 0
+        }
+      ],
+      "expected": "B26-R2",
+      "scenario": "单字段/事件破坏 budget.maxWorkers"
+    },
+    {
+      "id": "B26-N08",
+      "ruleId": "B26-R3",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[4].token",
+          "value": "t1"
+        }
+      ],
+      "expected": "B26-R3",
+      "scenario": "单字段/事件破坏 events[4].token"
+    },
+    {
+      "id": "B26-N09",
+      "ruleId": "B26-R3",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[5].token",
+          "value": "t999"
+        }
+      ],
+      "expected": "B26-R3",
+      "scenario": "单字段/事件破坏 events[5].token"
+    },
+    {
+      "id": "B26-N10",
+      "ruleId": "B26-R3",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[1].worker",
+          "value": "invalid worker"
+        }
+      ],
+      "expected": "B26-R3",
+      "scenario": "单字段/事件破坏 events[1].worker"
+    },
+    {
+      "id": "B26-N11",
+      "ruleId": "B26-R3",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[0].credit",
+          "value": 6
+        }
+      ],
+      "expected": "B26-R3",
+      "scenario": "单字段/事件破坏 events[0].credit"
+    },
+    {
+      "id": "B26-N12",
+      "ruleId": "B26-R4",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[2].creditUsed",
+          "value": 3
+        }
+      ],
+      "expected": "B26-R4",
+      "scenario": "单字段/事件破坏 events[2].creditUsed"
+    },
+    {
+      "id": "B26-N13",
+      "ruleId": "B26-R4",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[2].receiptHash",
+          "value": "bad"
+        }
+      ],
+      "expected": "B26-R4",
+      "scenario": "单字段/事件破坏 events[2].receiptHash"
+    },
+    {
+      "id": "B26-N14",
+      "ruleId": "B26-R4",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[3].receiptHash",
+          "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      ],
+      "expected": "B26-R4",
+      "scenario": "单字段/事件破坏 events[3].receiptHash"
+    },
+    {
+      "id": "B26-N15",
+      "ruleId": "B26-R4",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[2].generation",
+          "value": 3
+        }
+      ],
+      "expected": "B26-R4",
+      "scenario": "单字段/事件破坏 events[2].generation"
+    },
+    {
+      "id": "B26-N16",
+      "ruleId": "B26-R5",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[6].worker",
+          "value": "w99"
+        }
+      ],
+      "expected": "B26-R5",
+      "scenario": "单字段/事件破坏 events[6].worker"
+    },
+    {
+      "id": "B26-N17",
+      "ruleId": "B26-R5",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[6].lossReason",
+          "value": "UNCONFIRMED_BUT_RELEASED"
+        }
+      ],
+      "expected": "B26-R5",
+      "scenario": "单字段/事件破坏 events[6].lossReason"
+    },
+    {
+      "id": "B26-N18",
+      "ruleId": "B26-R5",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[6].token",
+          "value": "t1"
+        }
+      ],
+      "expected": "B26-R5",
+      "scenario": "单字段/事件破坏 events[6].token"
+    },
+    {
+      "id": "B26-N19",
+      "ruleId": "B26-R6",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "owner.cancelGeneration",
+          "value": 4
+        }
+      ],
+      "expected": "B26-R6",
+      "scenario": "单字段/事件破坏 owner.cancelGeneration"
+    },
+    {
+      "id": "B26-N20",
+      "ruleId": "B26-R6",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "owner.cancelIssuedAfterSeq",
+          "value": 2
+        }
+      ],
+      "expected": "B26-R6",
+      "scenario": "单字段/事件破坏 owner.cancelIssuedAfterSeq"
+    },
+    {
+      "id": "B26-N21",
+      "ruleId": "B26-R6",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "events[7].disposition",
+          "value": "COMMITTED"
+        }
+      ],
+      "expected": "B26-R6",
+      "scenario": "单字段/事件破坏 events[7].disposition"
+    },
+    {
+      "id": "B26-N22",
+      "ruleId": "B26-R6",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "owner.cancelled",
+          "value": false
+        }
+      ],
+      "expected": "B26-R6",
+      "scenario": "单字段/事件破坏 owner.cancelled"
+    },
+    {
+      "id": "B26-N23",
+      "ruleId": "B26-R7",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "summary.used",
+          "value": 4
+        }
+      ],
+      "expected": "B26-R7",
+      "scenario": "单字段/事件破坏 summary.used"
+    },
+    {
+      "id": "B26-N24",
+      "ruleId": "B26-R7",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "summary.held",
+          "value": 0
+        }
+      ],
+      "expected": "B26-R7",
+      "scenario": "单字段/事件破坏 summary.held"
+    },
+    {
+      "id": "B26-N25",
+      "ruleId": "B26-R7",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "summary.uncertain",
+          "value": 0
+        }
+      ],
+      "expected": "B26-R7",
+      "scenario": "单字段/事件破坏 summary.uncertain"
+    },
+    {
+      "id": "B26-N26",
+      "ruleId": "B26-R7",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "summary.free",
+          "value": 2
+        }
+      ],
+      "expected": "B26-R7",
+      "scenario": "单字段/事件破坏 summary.free"
+    },
+    {
+      "id": "B26-N27",
+      "ruleId": "B26-R7",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "summary.status",
+          "value": "PROVEN_INFEASIBLE"
+        }
+      ],
+      "expected": "B26-R7",
+      "scenario": "单字段/事件破坏 summary.status"
+    },
+    {
+      "id": "B26-N28",
+      "ruleId": "B26-R8",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "downstream.d16",
+          "value": "READY"
+        }
+      ],
+      "expected": "B26-R8",
+      "scenario": "单字段/事件破坏 downstream.d16"
+    },
+    {
+      "id": "B26-N29",
+      "ruleId": "B26-R8",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "downstream.d07Consumer",
+          "value": "PASS"
+        }
+      ],
+      "expected": "B26-R8",
+      "scenario": "单字段/事件破坏 downstream.d07Consumer"
+    },
+    {
+      "id": "B26-N30",
+      "ruleId": "B26-R8",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "downstream.materialSweepSimulated",
+          "value": true
+        }
+      ],
+      "expected": "B26-R8",
+      "scenario": "单字段/事件破坏 downstream.materialSweepSimulated"
+    },
+    {
+      "id": "B26-N31",
+      "ruleId": "B26-R8",
+      "base": "loss",
+      "changes": [
+        {
+          "path": "owner.ownerCommit",
+          "value": true
+        }
+      ],
+      "expected": "B26-R8",
+      "scenario": "单字段/事件破坏 owner.ownerCommit"
+    }
+  ]
+}

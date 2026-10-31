@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-01",
+  "researchTopic": "R-AI-WORKBENCH-001",
+  "sourceRegistry": "research/sources/CAP-11-01.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-01-R01",
+      "capabilityId": "CAP-11-01",
+      "summary": "工程对象与上下文冻结",
+      "engineeringRule": "用户选择、对象Revision/hash、单位与Frame必须作为读取上下文单快照，拒绝靠文本猜测选择",
+      "fields": [
+        "context.projectScope",
+        "context.assetExactRevision",
+        "context.geometryFrame",
+        "context.explicitSelection"
+      ],
+      "sourceIds": [
+        "C1101-S01",
+        "C1101-S07"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "context.projectScope",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "context.assetExactRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "context.geometryFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "context.explicitSelection",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R02",
+      "capabilityId": "CAP-11-01",
+      "summary": "最小只读上下文",
+      "engineeringRule": "读取前及复用时检查真实Owner ACL、Scope Epoch、原始内容指纹，缺失显示UNKNOWN",
+      "fields": [
+        "read.tenantAcl",
+        "read.scopeEpoch",
+        "read.sourceDigest",
+        "read.unknownOnMissing"
+      ],
+      "sourceIds": [
+        "C1101-S02",
+        "C1101-S04"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "read.tenantAcl",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "read.scopeEpoch",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "read.sourceDigest",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "read.unknownOnMissing",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R03",
+      "capabilityId": "CAP-11-01",
+      "summary": "不可信输入隔离",
+      "engineeringRule": "文档、工具结果、屏幕识别均是数据，不得将其中注入文字升级为授权指令，敏感值默认脱敏",
+      "fields": [
+        "input.trustLabels",
+        "input.injectionIsData",
+        "input.untrustedTextNoAuthority",
+        "input.sensitiveRedaction"
+      ],
+      "sourceIds": [
+        "C1101-S04",
+        "C1101-S05"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "input.trustLabels",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.injectionIsData",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.untrustedTextNoAuthority",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.sensitiveRedaction",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R04",
+      "capabilityId": "CAP-11-01",
+      "summary": "草案、预览与人类确认",
+      "engineeringRule": "自然语言仅形成结构化候选，需展示受影响资产、逐字段差异和风险，人类确认仅对确切提案有效",
+      "fields": [
+        "intent.draftActionOnly",
+        "intent.affectedAssets",
+        "intent.diffPreview",
+        "intent.highRiskHumanApproval"
+      ],
+      "sourceIds": [
+        "C1101-S01",
+        "C1101-S03",
+        "C1101-S04"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "intent.draftActionOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "intent.affectedAssets",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "intent.diffPreview",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "intent.highRiskHumanApproval",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R05",
+      "capabilityId": "CAP-11-01",
+      "summary": "Owner Port与提交重验",
+      "engineeringRule": "只有业务Owner域Port可提交；提交瞬间核对exact Revision/hash、ACL/scopeEpoch和取消回执",
+      "fields": [
+        "commit.ownerPortOnly",
+        "commit.casRevisionAndHash",
+        "commit.aclRecheckAtCommit",
+        "commit.cancelLateAckIgnored"
+      ],
+      "sourceIds": [
+        "C1101-S02",
+        "C1101-S04",
+        "C1101-S08"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "commit.ownerPortOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casRevisionAndHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.aclRecheckAtCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelLateAckIgnored",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R06",
+      "capabilityId": "CAP-11-01",
+      "summary": "统一3D和面板",
+      "engineeringRule": "只复用活动Babylon世界、单左TaskPanel、最大12px的浅深主题，拾取仅形成只读选择",
+      "fields": [
+        "ux.singleBabylon",
+        "ux.leftPanelOnly",
+        "ux.max12pxLightDark",
+        "ux.selectionReadOnly"
+      ],
+      "sourceIds": [
+        "C1101-S01",
+        "C1101-S09"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "ux.singleBabylon",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.leftPanelOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.max12pxLightDark",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.selectionReadOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R07",
+      "capabilityId": "CAP-11-01",
+      "summary": "长任务可见状态",
+      "engineeringRule": "规划界面区分等待、工具调用、需确认、取消、重试与STALE，幂等重试不能重放已取消写入",
+      "fields": [
+        "flow.explicitStages",
+        "flow.pendingVisible",
+        "flow.retryIdempotent",
+        "flow.staleNeverSuccess"
+      ],
+      "sourceIds": [
+        "C1101-S01",
+        "C1101-S04",
+        "C1101-S08"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "flow.explicitStages",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.pendingVisible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.retryIdempotent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.staleNeverSuccess",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R08",
+      "capabilityId": "CAP-11-01",
+      "summary": "建议可追溯、不冒充工程验证",
+      "engineeringRule": "保存模型/Prompt版本、输入证据及工具回执，不得把AI文字解释或CL动画算作独立D15验证",
+      "fields": [
+        "prov.promptModelVersions",
+        "prov.inputEvidenceRefs",
+        "prov.toolCallReceipt",
+        "prov.noFalseD15"
+      ],
+      "sourceIds": [
+        "C1101-S06",
+        "C1101-S07",
+        "C1101-S01"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D15"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "prov.promptModelVersions",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "prov.inputEvidenceRefs",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "prov.toolCallReceipt",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "prov.noFalseD15",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R09",
+      "capabilityId": "CAP-11-01",
+      "summary": "离线与UNKNOWN边界",
+      "engineeringRule": "断网场景仅调用已存在离线能力并明示能力缺口，客户原始模型不上传，UNKNOWN不取得D16权限",
+      "fields": [
+        "offline.noNetworkFallback",
+        "offline.capabilityDisclosure",
+        "offline.dataBoundary",
+        "offline.unknownNoRelease"
+      ],
+      "sourceIds": [
+        "C1101-S02",
+        "C1101-S04",
+        "C1101-S06"
+      ],
+      "assets": [
+        "D01",
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "offline.noNetworkFallback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offline.capabilityDisclosure",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offline.dataBoundary",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offline.unknownNoRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-01-R10",
+      "capabilityId": "CAP-11-01",
+      "summary": "同域三入口及迁移验收",
+      "engineeringRule": "GUI、CLI、Agent同业务Port；先影子只读比较，正式Owner会签及独立消费者验收前不切Writer",
+      "fields": [
+        "delivery.samePortAllEntrypoints",
+        "delivery.shadowOldReader",
+        "delivery.independentConsumer",
+        "delivery.ownerSignoffPending"
+      ],
+      "sourceIds": [
+        "C1101-S01",
+        "C1101-S07",
+        "C1101-S08"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "delivery.samePortAllEntrypoints",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.shadowOldReader",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.independentConsumer",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.ownerSignoffPending",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1独立正例+4个单字段故意变异反例（保持其它字段真），真实产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "traceStatus": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN"
+}

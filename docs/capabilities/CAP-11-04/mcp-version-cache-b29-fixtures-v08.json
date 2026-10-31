@@ -1,0 +1,645 @@
+{
+  "schemaVersion": "procet-cap1104-b29-fixtures-v1",
+  "syntheticOnly": true,
+  "note": "全部示例为自编协议适配器断言，不连接真实MCP、Owner、控制器或数据库",
+  "base": {
+    "schema": "procet-b29-mcp-adapter-synthetic-v1",
+    "protocol": {
+      "version": "2026-07-28",
+      "requestMeta": {
+        "version": "2026-07-28",
+        "clientInfo": true,
+        "clientCapabilities": true
+      },
+      "headerVersion": "2026-07-28",
+      "methodHeader": "tools/call",
+      "methodBody": "tools/call",
+      "nameHeader": "orchestrate.plan",
+      "nameBody": "orchestrate.plan",
+      "usedInitialize": false,
+      "sessionId": null,
+      "serverDiscoverSupported": true,
+      "clientDiscoverMandatory": false
+    },
+    "catalog": {
+      "providerId": "procet.owner.11",
+      "authorizedProviders": [
+        "procet.owner.11"
+      ],
+      "toolName": "orchestrate.plan",
+      "qualifiedName": "procet.owner.11::orchestrate.plan",
+      "inputSchemaDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "selectedSchemaDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "outputSchemaDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "cache": {
+      "scope": "private",
+      "authorizationHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "observedAuthorizationHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "ttlMs": 30000,
+      "remainingMs": 12000,
+      "allPages": true,
+      "revision": 4,
+      "selectedRevision": 4
+    },
+    "trust": {
+      "trustedServer": true,
+      "annotationsAreAuthority": false,
+      "descriptionGrantsWrite": false,
+      "toolHasWriteCapability": false,
+      "allowedOperations": [
+        "READ",
+        "PROPOSE"
+      ]
+    },
+    "mrtr": {
+      "state": "NONE",
+      "initialRpcId": 4,
+      "retryRpcId": null,
+      "requestStateBound": true,
+      "responseTreatedAsData": true,
+      "approvalRevalidated": true
+    },
+    "result": {
+      "resultType": "complete",
+      "isError": false,
+      "outputSchemaValidated": true,
+      "structuredContentRole": "UNTRUSTED_DATA",
+      "ownerReceiptFromResultText": false
+    },
+    "owner": {
+      "projectId": "P-DEMO",
+      "expectedRevision": 12,
+      "currentRevision": 12,
+      "contentHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "currentHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "frameId": "MCS:machine-1",
+      "currentFrame": "MCS:machine-1",
+      "scopeEpoch": 2,
+      "currentScopeEpoch": 2,
+      "aclAllowed": true,
+      "cancelled": false,
+      "lateAckAdopted": false,
+      "generation": 4,
+      "currentGeneration": 4,
+      "actionDigest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "approvedActionDigest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "approvalValid": true,
+      "d04": "1111111111111111111111111111111111111111111111111111111111111111",
+      "d10": "2222222222222222222222222222222222222222222222222222222222222222",
+      "frozenOverwrite": false
+    },
+    "ux": {
+      "port": "11.AgentOrchestrationPort.plan",
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "worlds": 1,
+      "panel": "UnifiedTaskPanel.left",
+      "fontMaxPx": 12,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED"
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PASS",
+      "patches": []
+    },
+    {
+      "id": "P02",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "mrtr.state",
+          "value": "RETRIED"
+        },
+        {
+          "path": "mrtr.retryRpcId",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "cache.ttlMs",
+          "value": 0
+        },
+        {
+          "path": "cache.remainingMs",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N01",
+      "expected": "B29-R1",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "protocol.version",
+          "value": "2025-11-25"
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "expected": "B29-R1",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "protocol.requestMeta.version",
+          "value": "2025-11-25"
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "expected": "B29-R1",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "protocol.headerVersion",
+          "value": "2025-11-25"
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "expected": "B29-R1",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "protocol.usedInitialize",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "expected": "B29-R1",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "protocol.serverDiscoverSupported",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "expected": "B29-R1",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "protocol.clientDiscoverMandatory",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "expected": "B29-R2",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "catalog.providerId",
+          "value": "untrusted.same-name"
+        }
+      ]
+    },
+    {
+      "id": "N08",
+      "expected": "B29-R2",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "catalog.qualifiedName",
+          "value": "other::orchestrate.plan"
+        }
+      ]
+    },
+    {
+      "id": "N09",
+      "expected": "B29-R2",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "catalog.inputSchemaDigest",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "expected": "B29-R2",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "catalog.selectedSchemaDigest",
+          "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      ]
+    },
+    {
+      "id": "N11",
+      "expected": "B29-R3",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "cache.scope",
+          "value": "public"
+        }
+      ]
+    },
+    {
+      "id": "N12",
+      "expected": "B29-R3",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "cache.authorizationHash",
+          "value": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "id": "N13",
+      "expected": "B29-R3",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "cache.remainingMs",
+          "value": 30001
+        }
+      ]
+    },
+    {
+      "id": "N14",
+      "expected": "B29-R3",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "cache.allPages",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N15",
+      "expected": "B29-R3",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "cache.selectedRevision",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "N16",
+      "expected": "B29-R4",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "trust.annotationsAreAuthority",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N17",
+      "expected": "B29-R4",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "trust.descriptionGrantsWrite",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N18",
+      "expected": "B29-R4",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "trust.toolHasWriteCapability",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N19",
+      "expected": "B29-R4",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "trust.trustedServer",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N20",
+      "expected": "B29-R5",
+      "baseCase": "P02",
+      "patches": [
+        {
+          "path": "mrtr.retryRpcId",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "N21",
+      "expected": "B29-R5",
+      "baseCase": "P02",
+      "patches": [
+        {
+          "path": "mrtr.requestStateBound",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N22",
+      "expected": "B29-R5",
+      "baseCase": "P02",
+      "patches": [
+        {
+          "path": "mrtr.responseTreatedAsData",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N23",
+      "expected": "B29-R5",
+      "baseCase": "P02",
+      "patches": [
+        {
+          "path": "mrtr.approvalRevalidated",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N24",
+      "expected": "B29-R5",
+      "baseCase": "P02",
+      "patches": [
+        {
+          "path": "mrtr.state",
+          "value": "IN_PROGRESS"
+        }
+      ]
+    },
+    {
+      "id": "N25",
+      "expected": "B29-R6",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "result.isError",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N26",
+      "expected": "B29-R6",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "result.outputSchemaValidated",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N27",
+      "expected": "B29-R6",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "result.structuredContentRole",
+          "value": "TRUSTED_INSTRUCTION"
+        }
+      ]
+    },
+    {
+      "id": "N28",
+      "expected": "B29-R6",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "result.ownerReceiptFromResultText",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N29",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.currentRevision",
+          "value": 99
+        }
+      ]
+    },
+    {
+      "id": "N30",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.currentHash",
+          "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      ]
+    },
+    {
+      "id": "N31",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.currentFrame",
+          "value": "wrong-frame"
+        }
+      ]
+    },
+    {
+      "id": "N32",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.currentScopeEpoch",
+          "value": 99
+        }
+      ]
+    },
+    {
+      "id": "N33",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.aclAllowed",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N34",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N35",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.lateAckAdopted",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N36",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.approvedActionDigest",
+          "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      ]
+    },
+    {
+      "id": "N37",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.d10",
+          "value": "1111111111111111111111111111111111111111111111111111111111111111"
+        }
+      ]
+    },
+    {
+      "id": "N38",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.frozenOverwrite",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N39",
+      "expected": "B29-R7",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "owner.currentGeneration",
+          "value": 99
+        }
+      ]
+    },
+    {
+      "id": "N40",
+      "expected": "B29-R8",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "ux.port",
+          "value": "Agent.shadow.write"
+        }
+      ]
+    },
+    {
+      "id": "N41",
+      "expected": "B29-R8",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "ux.worlds",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "N42",
+      "expected": "B29-R8",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "ux.panel",
+          "value": "right.Drawer"
+        }
+      ]
+    },
+    {
+      "id": "N43",
+      "expected": "B29-R8",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "ux.d16",
+          "value": "PUBLISHED"
+        }
+      ]
+    },
+    {
+      "id": "N44",
+      "expected": "B29-R8",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "ux.d15",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "N45",
+      "expected": "B29-R8",
+      "baseCase": "P01",
+      "patches": [
+        {
+          "path": "ux.channels",
+          "value": [
+            "GUI",
+            "Agent"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "schemaVersion": "procet-b31-trace-v1",
+  "date": "2026-10-30",
+  "rules": [
+    {
+      "id": "B31-R1",
+      "title": "装配定义与实例Label/Location分离",
+      "sourceIds": [
+        "B31-S01",
+        "B31-S04",
+        "B31-S06"
+      ],
+      "fields": [
+        "d01.hash",
+        "d01.unit",
+        "d01.definition",
+        "d01.snapshot",
+        "occ.path",
+        "occ.component",
+        "occ.refDefinition",
+        "occ.locationHash",
+        "occ.frame",
+        "occ.resolved"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "B0-02",
+        "F1-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B31-R2",
+      "title": "Face的Occurrence/Frame/cumLoc/cumOri身份",
+      "sourceIds": [
+        "B31-S01",
+        "B31-S02",
+        "B31-S06"
+      ],
+      "fields": [
+        "face.ref",
+        "face.index",
+        "face.hash",
+        "face.occPath",
+        "face.frame",
+        "face.cumLoc",
+        "face.cumOri"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "F1-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N11",
+        "N12",
+        "N13",
+        "N14",
+        "N15",
+        "N16",
+        "N17"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B31-R3",
+      "title": "OCCT历史有效性与源-目标D01绑定",
+      "sourceIds": [
+        "B31-S03",
+        "B31-S06"
+      ],
+      "fields": [
+        "history.from",
+        "history.to",
+        "history.oldFace",
+        "history.removed",
+        "history.kind",
+        "history.successors"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "F1-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N50"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B31-R4",
+      "title": "Split/Merge/缺历史不得自动重绑",
+      "sourceIds": [
+        "B31-S03",
+        "B31-S06"
+      ],
+      "fields": [
+        "history.from",
+        "history.to",
+        "history.oldFace",
+        "history.removed",
+        "history.kind",
+        "history.successors",
+        "candidate.ref",
+        "candidate.inputFaces",
+        "candidate.outputFaces",
+        "candidate.state",
+        "candidate.autoApproved",
+        "candidate.solverWrites",
+        "candidate.owner",
+        "candidate.consumerTest"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "F1-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N24",
+        "N25",
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N50"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B31-R5",
+      "title": "Solver候选不越权写03域D02",
+      "sourceIds": [
+        "B31-S05",
+        "B31-S06"
+      ],
+      "fields": [
+        "candidate.ref",
+        "candidate.inputFaces",
+        "candidate.outputFaces",
+        "candidate.state",
+        "candidate.autoApproved",
+        "candidate.solverWrites",
+        "candidate.owner",
+        "candidate.consumerTest"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "B0-02",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N24",
+        "N25",
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B31-R6",
+      "title": "GUI/CLI/Agent同一03域入口与单Babylon",
+      "sourceIds": [
+        "B31-S06"
+      ],
+      "fields": [
+        "ui.channels",
+        "ui.port",
+        "ui.worlds",
+        "ui.panel",
+        "ui.maxFont",
+        "ui.previewWrites"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B31-R7",
+      "title": "提交CAS权限scope取消代次及冻结",
+      "sourceIds": [
+        "B31-S06"
+      ],
+      "fields": [
+        "commit.actualRevision",
+        "commit.aclObserved",
+        "commit.scopeObserved",
+        "commit.observedGeneration",
+        "commit.cancelled",
+        "commit.lateAck",
+        "commit.authorized",
+        "commit.afterFrozenHash",
+        "commit.d04",
+        "commit.d10",
+        "commit.fallbackReadOnly",
+        "commit.consumerAcceptance"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "B0-02",
+        "F1-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42",
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48",
+        "N49"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B31-R8",
+      "title": "D04/D10不混同；兼容只读与独立验收",
+      "sourceIds": [
+        "B31-S06",
+        "B31-S05"
+      ],
+      "fields": [
+        "candidate.ref",
+        "candidate.inputFaces",
+        "candidate.outputFaces",
+        "candidate.state",
+        "candidate.autoApproved",
+        "candidate.solverWrites",
+        "candidate.owner",
+        "candidate.consumerTest",
+        "commit.actualRevision",
+        "commit.aclObserved",
+        "commit.scopeObserved",
+        "commit.observedGeneration",
+        "commit.cancelled",
+        "commit.lateAck",
+        "commit.authorized",
+        "commit.afterFrozenHash",
+        "commit.d04",
+        "commit.d10",
+        "commit.fallbackReadOnly",
+        "commit.consumerAcceptance"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N24",
+        "N25",
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42",
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48",
+        "N49"
+      ],
+      "approval": "L3_PENDING_HUMAN"
+    }
+  ]
+}

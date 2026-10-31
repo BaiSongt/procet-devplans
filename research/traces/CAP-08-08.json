@@ -1,0 +1,551 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-08",
+  "researchTopic": "R-POST-CONFIG-CONSISTENCY-001",
+  "sourceRegistry": "research/sources/CAP-08-08.json",
+  "specification": "docs/capabilities/CAP-08-08/README.md",
+  "ui": "docs/capabilities/CAP-08-08/UI.md",
+  "fixtures": "docs/capabilities/CAP-08-08/fixtures.json",
+  "validator": "tools/check_cap0808_planning_2026_10_26.cjs",
+  "status": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-08-08-R01",
+      "capabilityId": "CAP-08-08",
+      "summary": "输入精确冻结与帧域一致",
+      "sourceIds": [
+        "C088-S6",
+        "C088-S7"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D04"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "input.d09RevisionExact",
+        "input.d09HashExact",
+        "input.d08FreezePinned",
+        "input.setupFrameScopeExact"
+      ],
+      "criteria": [
+        {
+          "path": "input.d09RevisionExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.d09HashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.d08FreezePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.setupFrameScopeExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P01",
+      "negativeTestId": "CAP-08-08-T-N01",
+      "mutationTestId": "CAP-08-08-M01"
+    },
+    {
+      "id": "CAP-08-08-R02",
+      "capabilityId": "CAP-08-08",
+      "summary": "后处理制品锁定",
+      "sourceIds": [
+        "C088-S2",
+        "C088-S3",
+        "C088-S6"
+      ],
+      "assets": [
+        "D09",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "post.pluginDigestExact",
+        "post.pluginVersionPinned",
+        "post.templateDigestExact",
+        "post.runtimeDigestPinned"
+      ],
+      "criteria": [
+        {
+          "path": "post.pluginDigestExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "post.pluginVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "post.templateDigestExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "post.runtimeDigestPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P02",
+      "negativeTestId": "CAP-08-08-T-N02",
+      "mutationTestId": "CAP-08-08-M02"
+    },
+    {
+      "id": "CAP-08-08-R03",
+      "capabilityId": "CAP-08-08",
+      "summary": "属性白名单与单位规范化",
+      "sourceIds": [
+        "C088-S2",
+        "C088-S5"
+      ],
+      "assets": [
+        "D03",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "properties.schemaRevisionPinned",
+        "properties.unknownKeyRejected",
+        "properties.unitNormalized",
+        "properties.effectiveSetHashed"
+      ],
+      "criteria": [
+        {
+          "path": "properties.schemaRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "properties.unknownKeyRejected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "properties.unitNormalized",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "properties.effectiveSetHashed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P03",
+      "negativeTestId": "CAP-08-08-T-N03",
+      "mutationTestId": "CAP-08-08-M03"
+    },
+    {
+      "id": "CAP-08-08-R04",
+      "capabilityId": "CAP-08-08",
+      "summary": "机床和控制器Profile兼容",
+      "sourceIds": [
+        "C088-S1",
+        "C088-S4",
+        "C088-S8"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "profile.d03CapabilityExact",
+        "profile.d10BindingExact",
+        "profile.controllerFirmwareOptionsExact",
+        "profile.unknownCompatibilityBlocked"
+      ],
+      "criteria": [
+        {
+          "path": "profile.d03CapabilityExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "profile.d10BindingExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "profile.controllerFirmwareOptionsExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "profile.unknownCompatibilityBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P04",
+      "negativeTestId": "CAP-08-08-T-N04",
+      "mutationTestId": "CAP-08-08-M04"
+    },
+    {
+      "id": "CAP-08-08-R05",
+      "capabilityId": "CAP-08-08",
+      "summary": "语法静态检查与闭包",
+      "sourceIds": [
+        "C088-S1",
+        "C088-S4",
+        "C088-S5"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "static.dialectParserVersionPinned",
+        "static.subprogramClosureHashed",
+        "static.blockSyntaxChecked",
+        "static.unknownTokenNotPass"
+      ],
+      "criteria": [
+        {
+          "path": "static.dialectParserVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "static.subprogramClosureHashed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "static.blockSyntaxChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "static.unknownTokenNotPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P05",
+      "negativeTestId": "CAP-08-08-T-N05",
+      "mutationTestId": "CAP-08-08-M05"
+    },
+    {
+      "id": "CAP-08-08-R06",
+      "capabilityId": "CAP-08-08",
+      "summary": "可重复生成与差异解释",
+      "sourceIds": [
+        "C088-S2",
+        "C088-S6"
+      ],
+      "assets": [
+        "D09",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "repro.manifestPinned",
+        "repro.byteComparisonRecorded",
+        "repro.nondeterminismDeclared",
+        "repro.diffNoFalsePass"
+      ],
+      "criteria": [
+        {
+          "path": "repro.manifestPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "repro.byteComparisonRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "repro.nondeterminismDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "repro.diffNoFalsePass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P06",
+      "negativeTestId": "CAP-08-08-T-N06",
+      "mutationTestId": "CAP-08-08-M06"
+    },
+    {
+      "id": "CAP-08-08-R07",
+      "capabilityId": "CAP-08-08",
+      "summary": "来源映射和字节身份",
+      "sourceIds": [
+        "C088-S4",
+        "C088-S6"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "provenance.generationActivityId",
+        "provenance.finalNcBytesHash",
+        "provenance.mappingRevisionExact",
+        "provenance.manualEditCreatesRevision"
+      ],
+      "criteria": [
+        {
+          "path": "provenance.generationActivityId",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.finalNcBytesHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.mappingRevisionExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.manualEditCreatesRevision",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P07",
+      "negativeTestId": "CAP-08-08-T-N07",
+      "mutationTestId": "CAP-08-08-M07"
+    },
+    {
+      "id": "CAP-08-08-R08",
+      "capabilityId": "CAP-08-08",
+      "summary": "D13独立执行侧重读",
+      "sourceIds": [
+        "C088-S4",
+        "C088-S5",
+        "C088-S8"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "execution.d13IndependentBytesRead",
+        "execution.d13ProfilePinned",
+        "execution.unknownRemainsUnknown",
+        "execution.noStaticToReleaseShortcut"
+      ],
+      "criteria": [
+        {
+          "path": "execution.d13IndependentBytesRead",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.d13ProfilePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.unknownRemainsUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.noStaticToReleaseShortcut",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P08",
+      "negativeTestId": "CAP-08-08-T-N08",
+      "mutationTestId": "CAP-08-08-M08"
+    },
+    {
+      "id": "CAP-08-08-R09",
+      "capabilityId": "CAP-08-08",
+      "summary": "级联失效与可回退",
+      "sourceIds": [
+        "C088-S6",
+        "C088-S7"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "invalidate.dependencyClosureChecked",
+        "invalidate.downstreamStaleMarked",
+        "invalidate.historyImmutable",
+        "invalidate.rollbackPairVerified"
+      ],
+      "criteria": [
+        {
+          "path": "invalidate.dependencyClosureChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.downstreamStaleMarked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.historyImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "invalidate.rollbackPairVerified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P09",
+      "negativeTestId": "CAP-08-08-T-N09",
+      "mutationTestId": "CAP-08-08-M09"
+    },
+    {
+      "id": "CAP-08-08-R10",
+      "capabilityId": "CAP-08-08",
+      "summary": "唯一Owner与GUI事务",
+      "sourceIds": [
+        "C088-S6",
+        "C088-S7"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "ui.oneBabylonWorld",
+        "ui.unifiedLeftTaskPanel",
+        "commit.ownerAclCasRechecked",
+        "commit.cancelLateAckRejected"
+      ],
+      "criteria": [
+        {
+          "path": "ui.oneBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.unifiedLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.ownerAclCasRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelLateAckRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺字段或false=>REJECT；证据不足或未建模语义=>UNKNOWN；上游变更=>STALE；静态语法PASS不授予发布资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-08-T-P10",
+      "negativeTestId": "CAP-08-08-T-N10",
+      "mutationTestId": "CAP-08-08-M10"
+    }
+  ]
+}

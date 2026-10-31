@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "procet-b23-brep-history-trace-v1",
+  "capabilityId": "CAP-06-03",
+  "date": "2026-10-29",
+  "sources": [
+    "H23-S01",
+    "H23-S02",
+    "H23-S03",
+    "H23-S04",
+    "H23-S05",
+    "H23-S06",
+    "H23-S07"
+  ],
+  "workPackages": [
+    "F1-05",
+    "W2-02",
+    "W2-03",
+    "W2-06"
+  ],
+  "rules": [
+    {
+      "id": "H23-R1",
+      "statement": "输入、候选和结果精确字节/修订/单位/Frame/Scope同一物理上下文，结果不得复用旧身份",
+      "sourceIds": [
+        "H23-S07",
+        "H23-S06"
+      ],
+      "fields": [
+        "refs.stock.sha",
+        "refs.candidate.frame",
+        "refs.result.revision",
+        "refs.result.scope"
+      ],
+      "capabilityId": "CAP-06-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "F1-05",
+      "positiveIds": [
+        "B23-P01"
+      ],
+      "negativeIds": [
+        "B23-N01",
+        "B23-N02",
+        "B23-N03",
+        "B23-N04",
+        "B23-N05"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "H23-R2",
+      "statement": "OCCT Boolean算法、历史采集、告警、non-destructive和批准fuzzy预算必须显式固定",
+      "sourceIds": [
+        "H23-S01",
+        "H23-S02",
+        "H23-S07"
+      ],
+      "fields": [
+        "operator.version",
+        "operator.fillHistory",
+        "operator.hasHistory",
+        "operator.fuzzy"
+      ],
+      "capabilityId": "CAP-06-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "F1-05",
+      "positiveIds": [
+        "B23-P01"
+      ],
+      "negativeIds": [
+        "B23-N06",
+        "B23-N07",
+        "B23-N08",
+        "B23-N09",
+        "B23-N10",
+        "B23-N11"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "H23-R3",
+      "statement": "SimplifyResult历史须并入源映射，全部指定输入有记录；Deleted不能同时声称Modified非空",
+      "sourceIds": [
+        "H23-S01",
+        "H23-S02"
+      ],
+      "fields": [
+        "operator.simplificationHistoryMerged",
+        "history.requestedInputUids",
+        "history.origins[].deleted",
+        "history.origins[].modified"
+      ],
+      "capabilityId": "CAP-06-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-03",
+      "positiveIds": [
+        "B23-P01"
+      ],
+      "negativeIds": [
+        "B23-N12",
+        "B23-N13",
+        "B23-N14",
+        "B23-N15"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "H23-R4",
+      "statement": "Generated历史只允许当前OCCT文档的FACE→EDGE/VERTEX或EDGE→VERTEX，结果UID必须可解析；Generated空不代表无修改",
+      "sourceIds": [
+        "H23-S01",
+        "H23-S02"
+      ],
+      "fields": [
+        "history.origins[].generated",
+        "history.outputUids"
+      ],
+      "capabilityId": "CAP-06-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-03",
+      "positiveIds": [
+        "B23-P01"
+      ],
+      "negativeIds": [
+        "B23-N16",
+        "B23-N17",
+        "B23-N18"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "H23-R5",
+      "statement": "输入输出BRepCheck、封闭实体体积守恒及保护区必须分别有审查记录，合成体积等式不得冒充OCCT真值",
+      "sourceIds": [
+        "H23-S03",
+        "H23-S04",
+        "H23-S07"
+      ],
+      "fields": [
+        "audit.beforeValid",
+        "audit.afterValid",
+        "audit.volume",
+        "audit.protectedIntersection"
+      ],
+      "capabilityId": "CAP-06-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-06",
+      "positiveIds": [
+        "B23-P01"
+      ],
+      "negativeIds": [
+        "B23-N19",
+        "B23-N20",
+        "B23-N21",
+        "B23-N22",
+        "B23-N23",
+        "B23-N24"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "H23-R6",
+      "statement": "GUI/CLI/Agent同一06域Port，提交时重验ACL/CAS/任务代次并拒绝取消晚回执",
+      "sourceIds": [
+        "H23-S07",
+        "H23-S06"
+      ],
+      "fields": [
+        "command.owner",
+        "command.routes",
+        "command.casRechecked",
+        "command.aclRechecked",
+        "command.jobGeneration"
+      ],
+      "capabilityId": "CAP-06-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-02",
+      "positiveIds": [
+        "B23-P01"
+      ],
+      "negativeIds": [
+        "B23-N25",
+        "B23-N26",
+        "B23-N27",
+        "B23-N28",
+        "B23-N29",
+        "B23-N30",
+        "B23-N31"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "H23-R7",
+      "statement": "仅标记候选，禁止虚构D07独立消费者通过；D04≠D10且CL/未知NC语义不授予D15/D16，唯一Babylon和左TaskPanel",
+      "sourceIds": [
+        "H23-S07"
+      ],
+      "fields": [
+        "handoff.status",
+        "handoff.independentD07",
+        "handoff.d13",
+        "handoff.d15",
+        "handoff.d16",
+        "handoff.singleBabylon"
+      ],
+      "capabilityId": "CAP-06-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-06",
+      "positiveIds": [
+        "B23-P01"
+      ],
+      "negativeIds": [
+        "B23-N32",
+        "B23-N33",
+        "B23-N34",
+        "B23-N35",
+        "B23-N36",
+        "B23-N37",
+        "B23-N38",
+        "B23-N39",
+        "B23-N40"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}

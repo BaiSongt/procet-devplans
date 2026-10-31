@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-03-06",
+  "status": "local_drafted_pending_remote_l3_review",
+  "owner": "03 CAD / PMI 与制造特征",
+  "assetIds": [
+    "D01",
+    "D02",
+    "D05",
+    "D06",
+    "D08",
+    "D16"
+  ],
+  "ruleCount": 10,
+  "acceptanceCount": 20,
+  "workPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "FEDIT-R01",
+      "statement": "精确Project/Document/Occurrence/Frame/Revision+Hash锁定，不用index永久跨版引用",
+      "sourceIds": [
+        "SRC-FEDIT-001",
+        "SRC-FEDIT-002"
+      ],
+      "fieldPaths": [
+        "projectId",
+        "documentId",
+        "occurrencePath",
+        "designRevision",
+        "sourceGeometryHash",
+        "frameRef"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "B0-02",
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T01",
+      "negativeAcceptanceId": "CAP-03-06-T02",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R02",
+      "statement": "无Solver可人工创建草案，mesh/无BRep只能unresolved意图",
+      "sourceIds": [
+        "SRC-FEDIT-003"
+      ],
+      "fieldPaths": [
+        "featureKind",
+        "sourceCandidateRef",
+        "topologyClaimState"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "B0-02",
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T03",
+      "negativeAcceptanceId": "CAP-03-06-T04",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R03",
+      "statement": "3D selection/overlay与草案preview完全不写D02",
+      "sourceIds": [
+        "SRC-FEDIT-001"
+      ],
+      "fieldPaths": [
+        "viewEpoch",
+        "selectionProjection",
+        "d02Revision"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T05",
+      "negativeAcceptanceId": "CAP-03-06-T06",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R04",
+      "statement": "人工参数与几何只读测量分离，单位/unknown/unsupported显式",
+      "sourceIds": [
+        "SRC-FEDIT-004",
+        "SRC-FEDIT-001"
+      ],
+      "fieldPaths": [
+        "parameterClaims",
+        "measuredGeometry",
+        "unitRef",
+        "axisFrameRef"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "B0-02",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T07",
+      "negativeAcceptanceId": "CAP-03-06-T08",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R05",
+      "statement": "分裂合并保留多对多lineage和拓扑歧义，不偷复用旧immutable revision",
+      "sourceIds": [
+        "SRC-FEDIT-002",
+        "SRC-FEDIT-003"
+      ],
+      "fieldPaths": [
+        "derivedFrom",
+        "supersedes",
+        "conflictRefs",
+        "topologyRef"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "B0-02",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T09",
+      "negativeAcceptanceId": "CAP-03-06-T10",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R06",
+      "statement": "PMI exact绑定与设计来源不可被人工特征编辑隐式覆盖",
+      "sourceIds": [
+        "SRC-FEDIT-003",
+        "SRC-FEDIT-004"
+      ],
+      "fieldPaths": [
+        "frozenPmiRef",
+        "requirementLinks",
+        "reviewReason"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T11",
+      "negativeAcceptanceId": "CAP-03-06-T12",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R07",
+      "statement": "confirmed/approved D02与D05/D08/D16生产资格分别判定",
+      "sourceIds": [
+        "SRC-FEDIT-004",
+        "SRC-FEDIT-003"
+      ],
+      "fieldPaths": [
+        "decision",
+        "approvalRef",
+        "downstreamSnapshotRefs"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "B0-02",
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T13",
+      "negativeAcceptanceId": "CAP-03-06-T14",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R08",
+      "statement": "提交点校验Actor、policy、hash、expectedRevision；幂等请求不能覆盖并发更新",
+      "sourceIds": [
+        "SRC-FEDIT-003"
+      ],
+      "fieldPaths": [
+        "actor",
+        "policyRef",
+        "requestId",
+        "expectedD02Revision",
+        "committedRevision"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "B0-02",
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T15",
+      "negativeAcceptanceId": "CAP-03-06-T16",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R09",
+      "statement": "取消/超时/晚回执/切Project按旧scope与requestId恢复，未知不得假失败",
+      "sourceIds": [
+        "SRC-FEDIT-001",
+        "SRC-FEDIT-003"
+      ],
+      "fieldPaths": [
+        "scopeEpoch",
+        "requestId",
+        "receiptRef",
+        "status"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T17",
+      "negativeAcceptanceId": "CAP-03-06-T18",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    },
+    {
+      "id": "FEDIT-R10",
+      "statement": "CAD更新导致stale及局部失效，冻结不静默覆写；旧Reader能受控迁移回退",
+      "sourceIds": [
+        "SRC-FEDIT-002",
+        "SRC-FEDIT-003"
+      ],
+      "fieldPaths": [
+        "designRevision",
+        "invalidationPlan",
+        "legacyReadStatus",
+        "frozenD08Ref"
+      ],
+      "target": "CAP-03-06",
+      "workPackageIds": [
+        "B0-02",
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveAcceptanceId": "CAP-03-06-T19",
+      "negativeAcceptanceId": "CAP-03-06-T20",
+      "evidenceType": "design_rule_supported_by_external_source_not_product_test"
+    }
+  ]
+}

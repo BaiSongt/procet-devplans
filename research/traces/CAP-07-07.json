@@ -1,0 +1,522 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-07",
+  "researchTopic": "R-NEUTRAL-CL-CONTRACT-001",
+  "sourceRegistry": "research/sources/CAP-07-07.json",
+  "specification": "docs/capabilities/CAP-07-07/README.md",
+  "ui": "docs/capabilities/CAP-07-07/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-07/fixtures.json",
+  "validator": "tools/check_cap0707_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "C0707-R01",
+      "capabilityId": "CAP-07-07",
+      "title": "精确修订与冻结前提",
+      "summary": "精确修订与冻结前提；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "sourceRevision",
+        "geometryHash",
+        "frozenHead",
+        "currentFrozenHead",
+        "frozenUnchanged"
+      ],
+      "assets": [
+        "D01",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S07",
+        "SRC-C0707-S09"
+      ],
+      "criteria": [
+        {
+          "path": "sourceRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "geometryHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frozenHead",
+          "op": "sameField",
+          "other": "currentFrozenHead"
+        },
+        {
+          "path": "currentFrozenHead",
+          "op": "sha256"
+        },
+        {
+          "path": "frozenUnchanged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T01",
+      "negativeTestId": "CAP-07-07-T02",
+      "mutationTestId": "CAP-07-07-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R02",
+      "capabilityId": "CAP-07-07",
+      "title": "显式右手Frame和坐标单位",
+      "summary": "显式右手Frame和坐标单位；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "frameHandedness",
+        "frameRigid",
+        "frameHash",
+        "lengthUnit",
+        "inverseRoundTrip"
+      ],
+      "assets": [
+        "D04",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S03",
+        "SRC-C0707-S04"
+      ],
+      "criteria": [
+        {
+          "path": "frameHandedness",
+          "op": "eq",
+          "value": "RIGHT"
+        },
+        {
+          "path": "frameRigid",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "lengthUnit",
+          "op": "eq",
+          "value": "MM"
+        },
+        {
+          "path": "inverseRoundTrip",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T03",
+      "negativeTestId": "CAP-07-07-T04",
+      "mutationTestId": "CAP-07-07-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R03",
+      "capabilityId": "CAP-07-07",
+      "title": "刀尖TCP与刀轴约定",
+      "summary": "刀尖TCP与刀轴约定；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "tcpRole",
+        "toolAxisNormalized",
+        "gaugeReferenceKnown",
+        "ccSeparateFromTcp"
+      ],
+      "assets": [
+        "D03",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S03",
+        "SRC-C0707-S04"
+      ],
+      "criteria": [
+        {
+          "path": "tcpRole",
+          "op": "eq",
+          "value": "TOOL_TIP"
+        },
+        {
+          "path": "toolAxisNormalized",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gaugeReferenceKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ccSeparateFromTcp",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T05",
+      "negativeTestId": "CAP-07-07-T06",
+      "mutationTestId": "CAP-07-07-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R04",
+      "capabilityId": "CAP-07-07",
+      "title": "有序typed运动段及端点连续性",
+      "summary": "有序typed运动段及端点连续性；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "sequenceContiguous",
+        "motionKindsKnown",
+        "endpointContinuity",
+        "segmentIdsUnique"
+      ],
+      "assets": [
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S01",
+        "SRC-C0707-S05"
+      ],
+      "criteria": [
+        {
+          "path": "sequenceContiguous",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motionKindsKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "endpointContinuity",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "segmentIdsUnique",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T07",
+      "negativeTestId": "CAP-07-07-T08",
+      "mutationTestId": "CAP-07-07-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R05",
+      "capabilityId": "CAP-07-07",
+      "title": "进给意图与NC模态解耦",
+      "summary": "进给意图与NC模态解耦；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "feedIntentMode",
+        "feedPositive",
+        "feedUnit",
+        "controllerWordsExcluded"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S02",
+        "SRC-C0707-S05",
+        "SRC-C0707-S06"
+      ],
+      "criteria": [
+        {
+          "path": "feedIntentMode",
+          "op": "eq",
+          "value": "CUT_FEED"
+        },
+        {
+          "path": "feedPositive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "feedUnit",
+          "op": "eq",
+          "value": "MM_MIN"
+        },
+        {
+          "path": "controllerWordsExcluded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T09",
+      "negativeTestId": "CAP-07-07-T10",
+      "mutationTestId": "CAP-07-07-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R06",
+      "capabilityId": "CAP-07-07",
+      "title": "圆弧与螺旋的几何自洽",
+      "summary": "圆弧与螺旋的几何自洽；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "arcPlaneDefined",
+        "arcRadiusPositive",
+        "arcEndsOnCircle",
+        "toleranceExplicit"
+      ],
+      "assets": [
+        "D04",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S03",
+        "SRC-C0707-S04"
+      ],
+      "criteria": [
+        {
+          "path": "arcPlaneDefined",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arcRadiusPositive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arcEndsOnCircle",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toleranceExplicit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T11",
+      "negativeTestId": "CAP-07-07-T12",
+      "mutationTestId": "CAP-07-07-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R07",
+      "capabilityId": "CAP-07-07",
+      "title": "3轴/3+2/连续五轴与D10分离",
+      "summary": "3轴/3+2/连续五轴与D10分离；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "cutMode",
+        "indexedAxisConstant",
+        "machineAxesEmbedded",
+        "executionBindingAttached"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S02",
+        "SRC-C0707-S03",
+        "SRC-C0707-S05"
+      ],
+      "criteria": [
+        {
+          "path": "cutMode",
+          "op": "eq",
+          "value": "INDEXED_3_PLUS_2"
+        },
+        {
+          "path": "indexedAxisConstant",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machineAxesEmbedded",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "executionBindingAttached",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T13",
+      "negativeTestId": "CAP-07-07-T14",
+      "mutationTestId": "CAP-07-07-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R08",
+      "capabilityId": "CAP-07-07",
+      "title": "段级来源链、材料前态与冻结版本",
+      "summary": "段级来源链、材料前态与冻结版本；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "operationRevision",
+        "orderedMaterialHash",
+        "segmentLineageClosed",
+        "sourceSnapshotCurrent"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S01",
+        "SRC-C0707-S07",
+        "SRC-C0707-S09"
+      ],
+      "criteria": [
+        {
+          "path": "operationRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "orderedMaterialHash",
+          "op": "sha256"
+        },
+        {
+          "path": "segmentLineageClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sourceSnapshotCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T15",
+      "negativeTestId": "CAP-07-07-T16",
+      "mutationTestId": "CAP-07-07-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R09",
+      "capabilityId": "CAP-07-07",
+      "title": "CL预览与NC工程验证严格隔离",
+      "summary": "CL预览与NC工程验证严格隔离；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "d13Semantic",
+        "d15Evidence",
+        "d16Allowed",
+        "previewOnly"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S05",
+        "SRC-C0707-S06",
+        "SRC-C0707-S09"
+      ],
+      "criteria": [
+        {
+          "path": "d13Semantic",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "d15Evidence",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d16Allowed",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "previewOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T17",
+      "negativeTestId": "CAP-07-07-T18",
+      "mutationTestId": "CAP-07-07-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0707-R10",
+      "capabilityId": "CAP-07-07",
+      "title": "Owner CAS权限代次与无损回退",
+      "summary": "Owner CAS权限代次与无损回退；项目工程规则，非直接引述任何未读标准条款",
+      "fields": [
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "taskGeneration",
+        "receiptGeneration",
+        "cancelled",
+        "rollbackMode"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D17"
+      ],
+      "sourceIds": [
+        "SRC-C0707-S07",
+        "SRC-C0707-S08"
+      ],
+      "criteria": [
+        {
+          "path": "expectedHead",
+          "op": "sameField",
+          "other": "actualHead"
+        },
+        {
+          "path": "actualHead",
+          "op": "sha256"
+        },
+        {
+          "path": "aclAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taskGeneration",
+          "op": "sameField",
+          "other": "receiptGeneration"
+        },
+        {
+          "path": "cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rollbackMode",
+          "op": "eq",
+          "value": "NON_DESTRUCTIVE"
+        },
+        {
+          "path": "receiptGeneration",
+          "op": "gt",
+          "value": 0
+        }
+      ],
+      "positiveTestId": "CAP-07-07-T19",
+      "negativeTestId": "CAP-07-07-T20",
+      "mutationTestId": "CAP-07-07-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

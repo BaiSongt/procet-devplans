@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-08",
+  "researchTopic": "R-TOOLPATH-LOCAL-REGEN-001",
+  "sourceRegistry": "research/sources/CAP-07-08.json",
+  "specification": "docs/capabilities/CAP-07-08/README.md",
+  "ui": "docs/capabilities/CAP-07-08/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-08/fixtures.json",
+  "validator": "tools/check_cap0708_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "C0708-R01",
+      "capabilityId": "CAP-07-08",
+      "title": "精确源和D08冻结绑定",
+      "summary": "旧D09必须通过revision/hash引用且D08不可修改，不能使用最新默认。",
+      "sourceIds": [
+        "SRC-C0708-S06",
+        "SRC-C0708-S07",
+        "SRC-C0708-S08"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "fields": [
+        "baseRevision",
+        "baseHash",
+        "d08FrozenHash",
+        "sourceScopeExact"
+      ],
+      "criteria": [
+        {
+          "path": "baseRevision",
+          "op": "eq",
+          "value": 8
+        },
+        {
+          "path": "baseHash",
+          "op": "sha256"
+        },
+        {
+          "path": "d08FrozenHash",
+          "op": "sha256"
+        },
+        {
+          "path": "sourceScopeExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T01",
+      "negativeTestId": "CAP-07-08-T02",
+      "mutationTestId": "CAP-07-08-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R02",
+      "capabilityId": "CAP-07-08",
+      "title": "局部编辑段和坐标锚点",
+      "summary": "编辑仅作用于稳定段ID，左右手Frame或端点未知不得局部提交。",
+      "sourceIds": [
+        "SRC-C0708-S04",
+        "SRC-C0708-S05"
+      ],
+      "assets": [
+        "D04",
+        "D09"
+      ],
+      "fields": [
+        "editKind",
+        "stableSegmentId",
+        "anchorsContinuous",
+        "frameKnown"
+      ],
+      "criteria": [
+        {
+          "path": "editKind",
+          "op": "eq",
+          "value": "REPLACE_SEGMENT"
+        },
+        {
+          "path": "stableSegmentId",
+          "op": "eq",
+          "value": "seg-002"
+        },
+        {
+          "path": "anchorsContinuous",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frameKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T03",
+      "negativeTestId": "CAP-07-08-T04",
+      "mutationTestId": "CAP-07-08-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R03",
+      "capabilityId": "CAP-07-08",
+      "title": "typed运动与中立语义",
+      "summary": "不以G代码取代中立CL，圆弧/连续性/进给必须验证。",
+      "sourceIds": [
+        "SRC-C0708-S02",
+        "SRC-C0708-S04"
+      ],
+      "assets": [
+        "D03",
+        "D09"
+      ],
+      "fields": [
+        "orderedSegments",
+        "arcGeometryConsistent",
+        "feedUnitKnown",
+        "noGcodeInCL"
+      ],
+      "criteria": [
+        {
+          "path": "orderedSegments",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arcGeometryConsistent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "feedUnitKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "noGcodeInCL",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T05",
+      "negativeTestId": "CAP-07-08-T06",
+      "mutationTestId": "CAP-07-08-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R04",
+      "capabilityId": "CAP-07-08",
+      "title": "有向依赖闭包和保守再生",
+      "summary": "按段依赖传播脏标记，缺边或环则升级整工序或UNKNOWN。",
+      "sourceIds": [
+        "SRC-C0708-S01",
+        "SRC-C0708-S02",
+        "SRC-C0708-S03"
+      ],
+      "assets": [
+        "D07",
+        "D09",
+        "D11"
+      ],
+      "fields": [
+        "dagAcyclic",
+        "dirtyClosureComplete",
+        "unaffectedCertified",
+        "affectedSegmentCount"
+      ],
+      "criteria": [
+        {
+          "path": "dagAcyclic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dirtyClosureComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "unaffectedCertified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "affectedSegmentCount",
+          "op": "eq",
+          "value": 3
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T07",
+      "negativeTestId": "CAP-07-08-T08",
+      "mutationTestId": "CAP-07-08-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R05",
+      "capabilityId": "CAP-07-08",
+      "title": "冻结及已执行的不可变性",
+      "summary": "保护历史操作并不赋予新几何的安全验证资格。",
+      "sourceIds": [
+        "SRC-C0708-S01",
+        "SRC-C0708-S06"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D16"
+      ],
+      "fields": [
+        "frozenUnchanged",
+        "oldExecutedRevisionRetained",
+        "newRevisionCreated",
+        "protectedMeansVerified"
+      ],
+      "criteria": [
+        {
+          "path": "frozenUnchanged",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oldExecutedRevisionRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "newRevisionCreated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "protectedMeansVerified",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T09",
+      "negativeTestId": "CAP-07-08-T10",
+      "mutationTestId": "CAP-07-08-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R06",
+      "capabilityId": "CAP-07-08",
+      "title": "唯一Babylon预览与左TaskPanel",
+      "summary": "GUI/CLI/Agent同Port，预览租约不是持久业务提交。",
+      "sourceIds": [
+        "SRC-C0708-S03",
+        "SRC-C0708-S06"
+      ],
+      "assets": [
+        "D09",
+        "D11"
+      ],
+      "fields": [
+        "babylonSceneCount",
+        "taskPanelSide",
+        "previewMutatesOwner",
+        "leaseCancelImplemented"
+      ],
+      "criteria": [
+        {
+          "path": "babylonSceneCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "taskPanelSide",
+          "op": "eq",
+          "value": "LEFT"
+        },
+        {
+          "path": "previewMutatesOwner",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "leaseCancelImplemented",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T11",
+      "negativeTestId": "CAP-07-08-T12",
+      "mutationTestId": "CAP-07-08-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R07",
+      "capabilityId": "CAP-07-08",
+      "title": "新D09及old-new段血缘",
+      "summary": "新D09保留真实来源和旧→新段映射，不能覆盖旧快照。",
+      "sourceIds": [
+        "SRC-C0708-S04",
+        "SRC-C0708-S05",
+        "SRC-C0708-S06"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "fields": [
+        "newD09Hash",
+        "segmentLineageComplete",
+        "oldRevisionRetained",
+        "originHashExact"
+      ],
+      "criteria": [
+        {
+          "path": "newD09Hash",
+          "op": "sha256"
+        },
+        {
+          "path": "segmentLineageComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oldRevisionRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "originHashExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T13",
+      "negativeTestId": "CAP-07-08-T14",
+      "mutationTestId": "CAP-07-08-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R08",
+      "capabilityId": "CAP-07-08",
+      "title": "CAS权限代次和取消晚回执",
+      "summary": "提交时重新校验权限、Frame、scope与任务代次。",
+      "sourceIds": [
+        "SRC-C0708-S07"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09"
+      ],
+      "fields": [
+        "aclCurrent",
+        "expectedHeadMatch",
+        "scopeEpochMatch",
+        "receiptGenerationCurrent",
+        "cancelRequested"
+      ],
+      "criteria": [
+        {
+          "path": "aclCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "expectedHeadMatch",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scopeEpochMatch",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "receiptGenerationCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cancelRequested",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T15",
+      "negativeTestId": "CAP-07-08-T16",
+      "mutationTestId": "CAP-07-08-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R09",
+      "capabilityId": "CAP-07-08",
+      "title": "NC证据链按新D09失效",
+      "summary": "CL动画不得提升为D15 NC工程验证，UNKNOWN阻断发布。",
+      "sourceIds": [
+        "SRC-C0708-S02",
+        "SRC-C0708-S06",
+        "SRC-C0708-S08"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "fields": [
+        "d11Stale",
+        "d12Stale",
+        "d13Stale",
+        "d14Stale",
+        "d15Stale",
+        "d16Blocked",
+        "unknownSemanticsBlocked"
+      ],
+      "criteria": [
+        {
+          "path": "d11Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "d12Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "d13Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "d14Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "d15Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "d16Blocked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "unknownSemanticsBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T17",
+      "negativeTestId": "CAP-07-08-T18",
+      "mutationTestId": "CAP-07-08-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0708-R10",
+      "capabilityId": "CAP-07-08",
+      "title": "Reader兼容与非破坏回退",
+      "summary": "恢复保留用户库、旧golden、D08冻结和历史NC，未测试的Consumer不能作PASS。",
+      "sourceIds": [
+        "SRC-C0708-S01",
+        "SRC-C0708-S06",
+        "SRC-C0708-S08"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "fields": [
+        "oldReaderRetained",
+        "rollbackNonDestructive",
+        "independentConsumer",
+        "publishEligible"
+      ],
+      "criteria": [
+        {
+          "path": "oldReaderRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rollbackNonDestructive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "independentConsumer",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "publishEligible",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-08-T19",
+      "negativeTestId": "CAP-07-08-T20",
+      "mutationTestId": "CAP-07-08-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

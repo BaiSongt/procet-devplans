@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "procet-cap-06-05-mutation-fixtures-v1",
+  "syntheticOnly": true,
+  "cases": [
+    {
+      "id": "C0605-M01",
+      "ruleId": "C0605-R01",
+      "input": {
+        "refs": [
+          {
+            "assetId": "D04",
+            "revision": "r5",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hashKind": "",
+            "frame": "SETUP-A",
+            "unit": "mm",
+            "scope": "SYN/A/S1",
+            "owner": "04"
+          },
+          {
+            "assetId": "D07",
+            "revision": "r7",
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "hashKind": "SYNTHETIC_SHA256",
+            "frame": "SETUP-A",
+            "unit": "mm",
+            "scope": "SYN/A/S1",
+            "owner": "06"
+          }
+        ],
+        "scope": "SYN/A/S1"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M02",
+      "ruleId": "C0605-R02",
+      "input": {
+        "graph": {
+          "parentHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "childParentHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "nodes": [
+            {
+              "id": "S0",
+              "parents": []
+            },
+            {
+              "id": "S1",
+              "parents": [
+                "S0",
+                "S2"
+              ]
+            },
+            {
+              "id": "S2",
+              "parents": [
+                "S1"
+              ]
+            }
+          ]
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M03",
+      "ruleId": "C0605-R03",
+      "input": {
+        "material": {
+          "stockBefore": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "removed": [
+            "c"
+          ],
+          "stockAfter": [
+            "a",
+            "b",
+            "d",
+            "z"
+          ],
+          "protected": [
+            "a"
+          ]
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M04",
+      "ruleId": "C0605-R04",
+      "input": {
+        "fork": {
+          "parentHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "parentPreserved": true,
+          "frozenHashBefore": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "frozenHashAfter": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "children": [
+            {
+              "branch": "A",
+              "revision": "r1",
+              "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "parentHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            {
+              "branch": "B",
+              "revision": "r2",
+              "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "parentHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }
+          ]
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M05",
+      "ruleId": "C0605-R05",
+      "input": {
+        "bytes": {
+          "algorithm": "SHA-256",
+          "hashKind": "RAW_PERSISTED_BREP_BYTES",
+          "formatVersion": "",
+          "serializerVersion": "OCCT 8.0.1",
+          "observedSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "expectedSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "geometryEquivalenceClaimed": false
+        },
+        "syntheticOnly": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M06",
+      "ruleId": "C0605-R06",
+      "input": {
+        "transform": {
+          "from": "PART",
+          "to": "SETUP-A",
+          "hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "unit": "mm",
+          "rightHanded": true,
+          "approved": false,
+          "appliedOnce": true,
+          "displayOnlyConversionExcluded": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M07",
+      "ruleId": "C0605-R07",
+      "input": {
+        "evidence": {
+          "occtVersion": "8.0.1",
+          "preValid": true,
+          "postValid": true,
+          "hasErrors": false,
+          "warningsReviewed": false,
+          "independentReviewPlanned": true,
+          "productExecution": "NOT_RUN"
+        },
+        "syntheticOnly": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M08",
+      "ruleId": "C0605-R08",
+      "input": {
+        "commit": {
+          "seal": "SEALED",
+          "expectedHead": "r5",
+          "observedHead": "r5",
+          "aclEpoch": 3,
+          "observedAclEpoch": 3,
+          "taskGeneration": 8,
+          "observedTaskGeneration": 9,
+          "cancelled": false,
+          "lateReceiptAccepted": false,
+          "idempotencyKey": "SYN-OP1",
+          "uniqueTerminal": true,
+          "receiptState": "COMMITTED"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M09",
+      "ruleId": "C0605-R09",
+      "input": {
+        "invalidation": {
+          "changed": "D07:S1",
+          "actual": [
+            "D09:S1",
+            "D12:S1",
+            "D13:S1",
+            "D14:S1",
+            "D15:S1",
+            "D16:S1"
+          ],
+          "expected": [
+            "D09:S1",
+            "D12:S1",
+            "D13:S1",
+            "D14:S1",
+            "D15:S1",
+            "D16:S1"
+          ],
+          "kept": [
+            "D04:S2",
+            "D08:S2"
+          ],
+          "frozenUntouched": false,
+          "setupIsolation": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "C0605-M10",
+      "ruleId": "C0605-R10",
+      "input": {
+        "qualification": {
+          "claimedTier": "PLANNING_ONLY",
+          "d07Gate": "REQUIRED_NOT_RUN",
+          "d08ExactFrozen": true,
+          "d13": "UNKNOWN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED",
+          "fromClPreview": true
+        },
+        "syntheticOnly": true
+      },
+      "expected": "REJECT"
+    }
+  ]
+}

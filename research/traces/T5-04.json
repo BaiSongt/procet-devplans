@@ -1,0 +1,601 @@
+{
+  "schemaVersion": "procet-t504-trace-v1",
+  "workPackageId": "T5-04",
+  "researchTopic": "R-CONTROLLED-MIGRATION-001",
+  "sourceRegistry": "research/sources/T5-04.json",
+  "specification": "docs/work-packages/T5-04.md",
+  "ui": "docs/work-packages/T5-04/UI.md",
+  "fixtures": "docs/work-packages/T5-04/fixtures.json",
+  "validator": "tools/check_t504_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "T5-04-R01",
+      "workPackageId": "T5-04",
+      "summary": "旧入口、版本和历史证据清点",
+      "sourceIds": [
+        "SRC-T504-BRANCH",
+        "SRC-T504-PROV",
+        "SRC-T504-NIST"
+      ],
+      "fields": [
+        "inventory.exactLegacyRef",
+        "inventory.exactNewRef",
+        "inventory.oldGoldenRetained",
+        "inventory.readOnlySurvey",
+        "inventory.inventedPrivateHead"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D08",
+        "D17"
+      ],
+      "criteria": [
+        {
+          "path": "inventory.exactLegacyRef",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "inventory.exactNewRef",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "inventory.oldGoldenRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "inventory.readOnlySurvey",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "inventory.inventedPrivateHead",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T01",
+      "negativeTestId": "T5-04-T02",
+      "mutationTestId": "T5-04-M01",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R02",
+      "workPackageId": "T5-04",
+      "summary": "单领域Owner与最小C0",
+      "sourceIds": [
+        "SRC-T504-BRANCH",
+        "SRC-T504-RFC",
+        "SRC-T504-PROV"
+      ],
+      "fields": [
+        "ownership.singleWriterByDomain",
+        "ownership.sharedC0Minimal",
+        "ownership.portsVersioned",
+        "ownership.ownerRevisionHashFrame",
+        "ownership.dualDomainWrites"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05"
+      ],
+      "criteria": [
+        {
+          "path": "ownership.singleWriterByDomain",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ownership.sharedC0Minimal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ownership.portsVersioned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ownership.ownerRevisionHashFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ownership.dualDomainWrites",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T03",
+      "negativeTestId": "T5-04-T04",
+      "mutationTestId": "T5-04-M02",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R03",
+      "workPackageId": "T5-04",
+      "summary": "Expand在前、兼容旧Reader",
+      "sourceIds": [
+        "SRC-T504-FOWLER",
+        "SRC-T504-STRANGLER",
+        "SRC-T504-ALTER"
+      ],
+      "fields": [
+        "expand.newReaderIntroduced",
+        "expand.oldReaderRetained",
+        "expand.consumerVersionPinned",
+        "expand.migrationBeforeContract",
+        "expand.destructiveEarlyDrop"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04"
+      ],
+      "criteria": [
+        {
+          "path": "expand.newReaderIntroduced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "expand.oldReaderRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "expand.consumerVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "expand.migrationBeforeContract",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "expand.destructiveEarlyDrop",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T05",
+      "negativeTestId": "T5-04-T06",
+      "mutationTestId": "T5-04-M03",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R04",
+      "workPackageId": "T5-04",
+      "summary": "备份hash与实际恢复演练",
+      "sourceIds": [
+        "SRC-T504-BACKUP",
+        "SRC-T504-PRAGMA",
+        "SRC-T504-NIST"
+      ],
+      "fields": [
+        "recovery.consistentBackup",
+        "recovery.backupChecksumRecorded",
+        "recovery.restoreRehearsed",
+        "recovery.userDbPreserved",
+        "recovery.crossStoreAtomicAssumed"
+      ],
+      "assets": [
+        "D01",
+        "D07",
+        "D08"
+      ],
+      "criteria": [
+        {
+          "path": "recovery.consistentBackup",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "recovery.backupChecksumRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "recovery.restoreRehearsed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "recovery.userDbPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "recovery.crossStoreAtomicAssumed",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T07",
+      "negativeTestId": "T5-04-T08",
+      "mutationTestId": "T5-04-M04",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R05",
+      "workPackageId": "T5-04",
+      "summary": "A/B共享事实且D08冻结不被覆盖",
+      "sourceIds": [
+        "SRC-T504-PROV",
+        "SRC-T504-FOWLER",
+        "SRC-T504-RFC"
+      ],
+      "fields": [
+        "freeze.sameAssetFact",
+        "freeze.frozenD08Preserved",
+        "freeze.decisionAuditLinked",
+        "freeze.staleDerivedInvalidated",
+        "freeze.candidateOverwritesFrozen"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "criteria": [
+        {
+          "path": "freeze.sameAssetFact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.frozenD08Preserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.decisionAuditLinked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.staleDerivedInvalidated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.candidateOverwritesFrozen",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T09",
+      "negativeTestId": "T5-04-T10",
+      "mutationTestId": "T5-04-M05",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R06",
+      "workPackageId": "T5-04",
+      "summary": "Setup与执行绑定及NC链分离",
+      "sourceIds": [
+        "SRC-T504-BRANCH",
+        "SRC-T504-PROV",
+        "SRC-T504-NIST"
+      ],
+      "fields": [
+        "nc.setupSeparateBinding",
+        "nc.neutralCLPreserved",
+        "nc.finalNCReparsed",
+        "nc.d14TimelineIndependent",
+        "nc.d15VerificationIndependent",
+        "nc.unknownD13Releases",
+        "nc.clPreviewAsNCValidation"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "nc.setupSeparateBinding",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.neutralCLPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.finalNCReparsed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d14TimelineIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d15VerificationIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.unknownD13Releases",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "nc.clPreviewAsNCValidation",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T11",
+      "negativeTestId": "T5-04-T12",
+      "mutationTestId": "T5-04-M06",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R07",
+      "workPackageId": "T5-04",
+      "summary": "单Babylon/左TaskPanel/三入口共Port",
+      "sourceIds": [
+        "SRC-T504-BRANCH",
+        "SRC-T504-FOWLER"
+      ],
+      "fields": [
+        "gui.singleBabylonScene",
+        "gui.leftUnifiedTaskPanel",
+        "gui.allEntrypointsSameOwner",
+        "gui.fontMax12",
+        "gui.overlayLeaseReleased",
+        "gui.previewWritesBusiness"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "gui.singleBabylonScene",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gui.leftUnifiedTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gui.allEntrypointsSameOwner",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gui.fontMax12",
+          "op": "eq",
+          "value": 12
+        },
+        {
+          "path": "gui.overlayLeaseReleased",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gui.previewWritesBusiness",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T13",
+      "negativeTestId": "T5-04-T14",
+      "mutationTestId": "T5-04-M07",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R08",
+      "workPackageId": "T5-04",
+      "summary": "Owner提交CAS/ACL/Frame/取消重验",
+      "sourceIds": [
+        "SRC-T504-RFC",
+        "SRC-T504-PROV",
+        "SRC-T504-NIST"
+      ],
+      "fields": [
+        "auth.expectedRevisionHashChecked",
+        "auth.aclEpochChecked",
+        "auth.frameScopeChecked",
+        "auth.taskGenerationChecked",
+        "auth.cancelTokenChecked",
+        "auth.lateReceiptCommits"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "auth.expectedRevisionHashChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.aclEpochChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.frameScopeChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.taskGenerationChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.cancelTokenChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.lateReceiptCommits",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T15",
+      "negativeTestId": "T5-04-T16",
+      "mutationTestId": "T5-04-M08",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R09",
+      "workPackageId": "T5-04",
+      "summary": "Contract必须独立消费者和双锁回退",
+      "sourceIds": [
+        "SRC-T504-FOWLER",
+        "SRC-T504-STRANGLER",
+        "SRC-T504-ALTER"
+      ],
+      "fields": [
+        "contract.oldReaderTestPass",
+        "contract.newConsumerStandalonePass",
+        "contract.rollbackCompositionPinned",
+        "contract.legacyGoldenRetained",
+        "contract.humanCutoverDecision",
+        "contract.unknownAcceptedAsPass"
+      ],
+      "assets": [
+        "D03",
+        "D09",
+        "D12",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "contract.oldReaderTestPass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contract.newConsumerStandalonePass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contract.rollbackCompositionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contract.legacyGoldenRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contract.humanCutoverDecision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contract.unknownAcceptedAsPass",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T17",
+      "negativeTestId": "T5-04-T18",
+      "mutationTestId": "T5-04-M09",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-04-R10",
+      "workPackageId": "T5-04",
+      "summary": "迁移台账审计和可恢复交接",
+      "sourceIds": [
+        "SRC-T504-NIST",
+        "SRC-T504-PROV",
+        "SRC-T504-BACKUP"
+      ],
+      "fields": [
+        "handoff.migrationLedgerComplete",
+        "handoff.migrationHashTraceable",
+        "handoff.isolatedRollbackCase",
+        "handoff.notRunClearlyMarked",
+        "handoff.humanSignoffPending",
+        "handoff.productPassClaimed"
+      ],
+      "assets": [
+        "D01",
+        "D08",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "criteria": [
+        {
+          "path": "handoff.migrationLedgerComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.migrationHashTraceable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.isolatedRollbackCase",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.notRunClearlyMarked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.humanSignoffPending",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.productPassClaimed",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-04-T19",
+      "negativeTestId": "T5-04-T20",
+      "mutationTestId": "T5-04-M10",
+      "independentConsumer": "NOT_RUN",
+      "approval": "PENDING_HUMAN"
+    }
+  ]
+}

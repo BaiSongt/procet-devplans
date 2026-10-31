@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "procet-cap0907-contract-v1",
+  "status": "PLANNING_DTO_UNFROZEN",
+  "domainOwner": "09机床运动与工程验证·D15独立验证",
+  "C0Minimal": [
+    "objectId",
+    "schemaVersion",
+    "revision",
+    "sha256",
+    "frameId",
+    "unit",
+    "ownerDomain",
+    "scopeEpoch"
+  ],
+  "inputReferences": [
+    {
+      "asset": "D03",
+      "producer": "02制造资源",
+      "port": "ResourceProfileReadPort",
+      "fields": [
+        "machineModelRevision",
+        "kinematicLinksHash",
+        "jointSoftHardwareLimitEvidence"
+      ],
+      "exact": true
+    },
+    {
+      "asset": "D04",
+      "producer": "04装夹与坐标系",
+      "port": "NominalSetupReadPort",
+      "fields": [
+        "setupRevision",
+        "stockFixtureFrames",
+        "nominalOffsets"
+      ],
+      "exact": true
+    },
+    {
+      "asset": "D10",
+      "producer": "04装夹与坐标系",
+      "port": "MachineExecutionBindingReadPort",
+      "fields": [
+        "bindingRevision",
+        "controllerFirmwareHash",
+        "toolAssemblyHash",
+        "actualWcsFrame",
+        "homingEvidence"
+      ],
+      "exact": true
+    },
+    {
+      "asset": "D12",
+      "producer": "08NC与后处理",
+      "port": "FinalNcReadPort",
+      "fields": [
+        "finalNcRevision",
+        "byteSHA256",
+        "subprogramClosureHash"
+      ],
+      "exact": true
+    },
+    {
+      "asset": "D13",
+      "producer": "08NC与后处理",
+      "port": "ControllerSemanticReadPort",
+      "fields": [
+        "executionEventStreamHash",
+        "modalKnownness",
+        "callInstance"
+      ],
+      "exact": true
+    },
+    {
+      "asset": "D14",
+      "producer": "09轴时序Owner子域",
+      "port": "AxisTimelineReadPort",
+      "fields": [
+        "jointTimelineHash",
+        "jointId",
+        "timeFrame",
+        "ikBranch",
+        "wrapState"
+      ],
+      "exact": true
+    }
+  ],
+  "output": {
+    "asset": "D15",
+    "port": "SafetyVerificationPort",
+    "writeOwner": "09独立工程验证",
+    "fields": [
+      "resultRevision",
+      "inputClosureHash",
+      "collisionPairs",
+      "jointLimitFindings",
+      "axisLimitFindings",
+      "coverageIntervals",
+      "coverageGaps",
+      "intervalWitness",
+      "staticDistanceObservations",
+      "continuousCertificateStatus",
+      "oracleImplementationHash",
+      "unknownReasons",
+      "status"
+    ]
+  },
+  "statuses": [
+    "REJECT_ENGINEERING",
+    "UNKNOWN",
+    "STALE",
+    "REVIEW_READY_UNAPPROVED"
+  ],
+  "syntheticOnlyStatus": "REVIEW_READY_SYNTHETIC_ONLY",
+  "invariants": [
+    "D11_CL_ONLY_NEVER_D15_PASS",
+    "D13_INTERPRETS_FINAL_D12_BYTES",
+    "D14_EXPANDS_PHYSICAL_JOINT_EVENTS",
+    "D15_ORACLE_INDEPENDENT",
+    "D16_RELEASE_PERMISSION_RECHECK",
+    "NO_MATERIAL_SWEEP_SIMULATION"
+  ],
+  "contractConsumers": [
+    "09-GUI",
+    "09-CLI",
+    "09-Agent",
+    "10-D16"
+  ],
+  "notProductImplementation": true
+}

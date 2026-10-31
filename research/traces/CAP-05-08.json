@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "procet-rule-trace-v1",
+  "capabilityId": "CAP-05-08",
+  "topic": "R-PLAN-GATE-001",
+  "status": "compiled_pending_L3",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "PG508-S01",
+    "PG508-S02",
+    "PG508-S03",
+    "PG508-S04",
+    "PG508-S05",
+    "PG508-S06",
+    "PG508-S07",
+    "PG508-S08"
+  ],
+  "assetOwner": "05域D05规划校核读写口；03域D01/D02、02域D03、04域D04/D10、06域D06/D07、07域D09、08域D12/D13、09域D14/D15、10域D16/D17保持原Owner；全部会签PENDING",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "rules": [
+    {
+      "id": "PG508-R01",
+      "capabilityId": "CAP-05-08",
+      "description": "精确输入闭包：D01/D02/D03/D04/D05/D08及scope/revision/hash/frame一致，不允许latest回退",
+      "sourceIds": [
+        "PG508-S03",
+        "PG508-S04",
+        "PG508-S08"
+      ],
+      "fields": [
+        "refs[]",
+        "scope"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT01-P",
+        "PG508-AT01-N"
+      ],
+      "failureCode": "EXACT_REF_UNKNOWN",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R02",
+      "capabilityId": "CAP-05-08",
+      "description": "D05工序stableId唯一、依赖DAG无环、前驱均在同修订中",
+      "sourceIds": [
+        "PG508-S01"
+      ],
+      "fields": [
+        "operations[].id",
+        "dependencies[][]"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT02-P",
+        "PG508-AT02-N"
+      ],
+      "failureCode": "PLAN_DAG_INVALID",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R03",
+      "capabilityId": "CAP-05-08",
+      "description": "D02特征occurrence具精确几何来源，工艺余量单位明确且绑定不遗漏",
+      "sourceIds": [
+        "PG508-S02",
+        "PG508-S07"
+      ],
+      "fields": [
+        "requiredFeatureIds[]",
+        "boundFeatureIds[]",
+        "occurrenceRefs[]",
+        "allowanceMm",
+        "unit"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT03-P",
+        "PG508-AT03-N"
+      ],
+      "failureCode": "FEATURE_BINDING_INCOMPLETE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R04",
+      "capabilityId": "CAP-05-08",
+      "description": "D03资源能力及刀具装配有可复核证据，能力unknown不能用默认值补齐",
+      "sourceIds": [
+        "PG508-S05",
+        "PG508-S02"
+      ],
+      "fields": [
+        "resourceRef",
+        "resourceCapabilityState",
+        "toolAssemblyComplete"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT04-P",
+        "PG508-AT04-N"
+      ],
+      "failureCode": "RESOURCE_CAPABILITY_UNKNOWN",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R05",
+      "capabilityId": "CAP-05-08",
+      "description": "D04名义Setup与D10执行绑定分离，Frame/夹具证据不存在则阻断",
+      "sourceIds": [
+        "PG508-S01",
+        "PG508-S07"
+      ],
+      "fields": [
+        "setupRef",
+        "executionRef",
+        "frameProofHash",
+        "fixtureConstraintChecked"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT05-P",
+        "PG508-AT05-N"
+      ],
+      "failureCode": "SETUP_FRAME_PROOF_MISSING",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R06",
+      "capabilityId": "CAP-05-08",
+      "description": "A/B共享精确来源但不覆盖另一分支/D08冻结，计划采纳需人工决定",
+      "sourceIds": [
+        "PG508-S04",
+        "PG508-S03"
+      ],
+      "fields": [
+        "mode",
+        "heads",
+        "changedIds[]",
+        "frozenIds[]",
+        "decisionStatus"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT06-P",
+        "PG508-AT06-N"
+      ],
+      "failureCode": "FROZEN_OR_MODE_CONFLICT",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R07",
+      "capabilityId": "CAP-05-08",
+      "description": "局部失效D06/D07及D09→D12→D13→D14→D15→D16逐级闭锁；D13未知不得获NC PASS",
+      "sourceIds": [
+        "PG508-S05",
+        "PG508-S06"
+      ],
+      "fields": [
+        "affectedIds[]",
+        "staleAssets[]",
+        "d13",
+        "d15",
+        "d16"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT07-P",
+        "PG508-AT07-N"
+      ],
+      "failureCode": "DOWNSTREAM_STALE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R08",
+      "capabilityId": "CAP-05-08",
+      "description": "D05提交时重新检查权限+CAS+scopeEpoch+taskGeneration，并拒绝取消及晚回执",
+      "sourceIds": [
+        "PG508-S03"
+      ],
+      "fields": [
+        "authorized",
+        "permissionRechecked",
+        "expectedRevision",
+        "replyGeneration",
+        "scopeEpoch",
+        "cancelled"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT08-P",
+        "PG508-AT08-N"
+      ],
+      "failureCode": "CAS_OR_STALE_REPLY",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R09",
+      "capabilityId": "CAP-05-08",
+      "description": "D06首先独立接收D05计划输入；D09必须等待D07有序材料与D08冻结的exact引用，不得从D05直接跳过两者授予CL/NC资格",
+      "sourceIds": [
+        "PG508-S01",
+        "PG508-S06"
+      ],
+      "fields": [
+        "consumer",
+        "planGate",
+        "consumerStatus",
+        "d09Gate",
+        "d15Verified",
+        "d16Released"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT09-P",
+        "PG508-AT09-N"
+      ],
+      "failureCode": "BYPASS_D07_D08_CONSUMER_GATE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "PG508-R10",
+      "capabilityId": "CAP-05-08",
+      "description": "GUI/CLI/Agent只走05域Port；唯一Babylon世界左TaskPanel；预览只读、回退新修订、缺证未知",
+      "sourceIds": [
+        "PG508-S04",
+        "PG508-S08"
+      ],
+      "fields": [
+        "entries[]",
+        "singleDomainPort",
+        "babylonWorldCount",
+        "taskPanel",
+        "rollback",
+        "migrationMissingEvidence"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "PG508-AT10-P",
+        "PG508-AT10-N"
+      ],
+      "failureCode": "BYPASS_OR_FAKE_MIGRATION",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

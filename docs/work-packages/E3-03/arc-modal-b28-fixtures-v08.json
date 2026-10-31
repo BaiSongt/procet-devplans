@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "procet-e303-b28-fixtures-v1",
+  "syntheticOnly": true,
+  "base": {
+    "schema": "procet-b28-arc-synthetic-v1",
+    "refs": {
+      "nc": "1111111111111111111111111111111111111111111111111111111111111111",
+      "d04": "2222222222222222222222222222222222222222222222222222222222222222",
+      "d10": "3333333333333333333333333333333333333333333333333333333333333333",
+      "frame": "4444444444444444444444444444444444444444444444444444444444444444",
+      "profile": "5555555555555555555555555555555555555555555555555555555555555555",
+      "profileId": "LinuxCNC-2.9-doc-only",
+      "controllerApproved": false
+    },
+    "modal": {
+      "plane": "G17",
+      "distance": "G90",
+      "center": "G91.1",
+      "unit": "G21",
+      "feedMode": "G94",
+      "feed": 100,
+      "preHash": "6666666666666666666666666666666666666666666666666666666666666666",
+      "postHash": "7777777777777777777777777777777777777777777777777777777777777777"
+    },
+    "arc": {
+      "mode": "G3",
+      "format": "CENTER",
+      "start": [
+        1,
+        0,
+        0
+      ],
+      "end": [
+        0,
+        1,
+        -1
+      ],
+      "ijk": {
+        "I": -1,
+        "J": 0
+      },
+      "radius": null,
+      "turns": 1,
+      "helixDisplacement": -1,
+      "cutterComp": "G40",
+      "macro": false,
+      "rotary": false,
+      "sourceLine": 10,
+      "blockHash": "8888888888888888888888888888888888888888888888888888888888888888"
+    },
+    "gate": {
+      "port": "08.NcExecutionPort.interpret",
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "worlds": 1,
+      "panel": "UnifiedTaskPanel.left",
+      "expectedRevision": 4,
+      "observedRevision": 4,
+      "aclEpoch": 2,
+      "aclObserved": 2,
+      "scopeEpoch": 3,
+      "scopeObserved": 3,
+      "generation": 5,
+      "generationObserved": 5,
+      "cancelled": false,
+      "lateAckAdopted": false,
+      "d13": "SYNTHETIC_ONLY",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED"
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PASS",
+      "patches": []
+    },
+    {
+      "id": "P02",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "modal.plane",
+          "value": "G18"
+        },
+        {
+          "path": "modal.center",
+          "value": "G90.1"
+        },
+        {
+          "path": "arc.end",
+          "value": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "path": "arc.ijk",
+          "value": {
+            "I": 0,
+            "K": 0
+          }
+        },
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "modal.plane",
+          "value": "G19"
+        },
+        {
+          "path": "arc.start",
+          "value": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "path": "arc.end",
+          "value": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "path": "arc.ijk",
+          "value": {
+            "J": -1,
+            "K": 0
+          }
+        },
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "arc.format",
+          "value": "RADIUS"
+        },
+        {
+          "path": "arc.ijk",
+          "value": null
+        },
+        {
+          "path": "arc.radius",
+          "value": 1
+        },
+        {
+          "path": "arc.end",
+          "value": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "arc.end",
+          "value": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "path": "arc.turns",
+          "value": 2
+        },
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N01",
+      "expected": "B28-R1",
+      "patches": [
+        {
+          "path": "refs.nc",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "expected": "B28-R1",
+      "patches": [
+        {
+          "path": "refs.d04",
+          "value": "3333333333333333333333333333333333333333333333333333333333333333"
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "expected": "B28-R2",
+      "patches": [
+        {
+          "path": "modal.center",
+          "value": "UNDECLARED"
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "expected": "B28-R2",
+      "patches": [
+        {
+          "path": "modal.feed",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "expected": "B28-R3",
+      "patches": [
+        {
+          "path": "arc.ijk",
+          "value": {
+            "I": -0.6,
+            "J": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "expected": "B28-R3",
+      "patches": [
+        {
+          "path": "arc.ijk",
+          "value": {
+            "K": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "expected": "B28-R4",
+      "patches": [
+        {
+          "path": "arc.turns",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N08",
+      "expected": "B28-R4",
+      "patches": [
+        {
+          "path": "arc.format",
+          "value": "RADIUS"
+        },
+        {
+          "path": "arc.ijk",
+          "value": null
+        },
+        {
+          "path": "arc.radius",
+          "value": 1
+        },
+        {
+          "path": "arc.end",
+          "value": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N09",
+      "expected": "B28-R5",
+      "patches": [
+        {
+          "path": "arc.format",
+          "value": "RADIUS"
+        },
+        {
+          "path": "arc.ijk",
+          "value": null
+        },
+        {
+          "path": "arc.radius",
+          "value": 0.5
+        },
+        {
+          "path": "arc.end",
+          "value": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "expected": "B28-R5-UNKNOWN",
+      "patches": [
+        {
+          "path": "arc.format",
+          "value": "RADIUS"
+        },
+        {
+          "path": "arc.ijk",
+          "value": null
+        },
+        {
+          "path": "arc.radius",
+          "value": 0.7071067811865476
+        },
+        {
+          "path": "arc.end",
+          "value": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N11",
+      "expected": "B28-R6",
+      "patches": [
+        {
+          "path": "arc.helixDisplacement",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N12",
+      "expected": "B28-R6",
+      "patches": [
+        {
+          "path": "arc.rotary",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N13",
+      "expected": "B28-R7",
+      "patches": [
+        {
+          "path": "arc.sourceLine",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N14",
+      "expected": "B28-R7",
+      "patches": [
+        {
+          "path": "arc.blockHash",
+          "value": "bogus"
+        }
+      ]
+    },
+    {
+      "id": "N15",
+      "expected": "B28-R8",
+      "patches": [
+        {
+          "path": "gate.observedRevision",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "N16",
+      "expected": "B28-R8",
+      "patches": [
+        {
+          "path": "gate.d15",
+          "value": "PASS"
+        }
+      ]
+    }
+  ]
+}

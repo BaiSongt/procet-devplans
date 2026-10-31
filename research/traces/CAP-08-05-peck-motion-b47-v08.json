@@ -1,0 +1,344 @@
+{
+  "schemaVersion": "procet-b47-trace-v1",
+  "date": "2026-10-30",
+  "topic": "R-CYCLES-MACROS-001",
+  "capability": "CAP-08-05",
+  "sourcesPath": "research/sources/CAP-08-05-peck-motion-b47.json",
+  "fixturePath": "docs/capabilities/CAP-08-05/peck-motion-b47-fixtures-v08.json",
+  "checker": "tools/check_cap0805_peck_motion_b47_v08.cjs",
+  "rules": [
+    {
+      "id": "B47-R1",
+      "title": "锁定D12 NC字节、D04/D10不同修订和Frame",
+      "sourceIds": [
+        "B47-S04"
+      ],
+      "fields": [
+        "identity.d12Hash",
+        "identity.controllerProfileHash",
+        "identity.d04Revision",
+        "identity.d10Revision",
+        "identity.frame"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "INTERNAL",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B47-R2",
+      "title": "LinuxCNC2.9/G17/G90/G94/G40 G83明确白名单；未知方言 UNKNOWN",
+      "sourceIds": [
+        "B47-S01",
+        "B47-S02"
+      ],
+      "fields": [
+        "profile.dialect",
+        "profile.verified",
+        "cycle.kind",
+        "cycle.plane",
+        "cycle.feedMode",
+        "cycle.cutterComp",
+        "cycle.rotaryWords"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "LINUXCNC_2_9_AND_INTERNAL",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N04",
+        "N05",
+        "N06",
+        "N07"
+      ],
+      "unknownIds": [
+        "U01",
+        "U02",
+        "U03"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B47-R3",
+      "title": "Q>0、R>Z与本地展开预算；每次啄入目标数学展开",
+      "sourceIds": [
+        "B47-S01"
+      ],
+      "fields": [
+        "cycle.q",
+        "cycle.r",
+        "cycle.z",
+        "cycle.l",
+        "observed.feedTargetZ",
+        "observed.pecksPerHole"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B47-R4",
+      "title": "G83沿深度逐段feed，最终深度截断",
+      "sourceIds": [
+        "B47-S01"
+      ],
+      "fields": [
+        "observed.feedTargetZ",
+        "observed.pecksPerHole"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B47-R5",
+      "title": "中间退刀必须到R、再快进至前次底+0.254mm；最终G98/G99仅末次生效",
+      "sourceIds": [
+        "B47-S01"
+      ],
+      "fields": [
+        "observed.intermediateRetractZ",
+        "observed.restartRapidTargetZ",
+        "observed.finalRetractZ",
+        "observed.preliminaryRMove"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N17",
+        "N18",
+        "N19",
+        "N20"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B47-R6",
+      "title": "G80与modal group1退出后不能把下一行轴字继续当循环",
+      "sourceIds": [
+        "B47-S01",
+        "B47-S02"
+      ],
+      "fields": [
+        "cycle.hasG80",
+        "observed.cycleActiveAfter",
+        "observed.nextBlockAxisWithoutMotion"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N21",
+        "N22",
+        "N23"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B47-R7",
+      "title": "物理NC字节/调用重复实例；Owner CAS、授权、epoch、取消晚回执；三入口单世界",
+      "sourceIds": [
+        "B47-S04"
+      ],
+      "fields": [
+        "trace.ncHash",
+        "trace.byteStart",
+        "trace.byteEnd",
+        "trace.iterationIds",
+        "owner.casSucceeded",
+        "owner.aclGranted",
+        "ui.entries",
+        "ui.babylonWorlds"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "INTERNAL",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N24",
+        "N25",
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B47-R8",
+      "title": "A/B冻结、迁移回退、D14/D15实测与D16发布独立",
+      "sourceIds": [
+        "B47-S04",
+        "B47-S03"
+      ],
+      "fields": [
+        "gate.d14",
+        "gate.d15",
+        "gate.d16",
+        "owner.freezeBefore",
+        "owner.freezeAfter",
+        "owner.oldReaderReadOnlyRollback"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "origin": "INTERNAL",
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "negativeIds": [
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

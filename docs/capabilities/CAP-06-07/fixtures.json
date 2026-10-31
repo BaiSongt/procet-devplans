@@ -1,0 +1,426 @@
+{
+  "schemaVersion": "procet-cap0607-fixtures-v1",
+  "capabilityId": "CAP-06-07",
+  "syntheticOnly": true,
+  "notOcctExecution": true,
+  "cases": [
+    {
+      "id": "CAP-06-07-T01",
+      "ruleId": "C0607-R01",
+      "expected": "PASS",
+      "input": {
+        "revision": 2,
+        "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "headHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "observedHead": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T02",
+      "ruleId": "C0607-R01",
+      "expected": "REJECT_EXACT",
+      "input": {
+        "revision": 0,
+        "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "headHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "observedHead": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T03",
+      "ruleId": "C0607-R02",
+      "expected": "PASS",
+      "input": {
+        "processId": "oracle",
+        "generatorProcessId": "solver",
+        "binaryHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "generatorBinaryHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "recomputed": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T04",
+      "ruleId": "C0607-R02",
+      "expected": "REJECT_NOT_INDEPENDENT",
+      "input": {
+        "processId": "oracle",
+        "generatorProcessId": "oracle",
+        "binaryHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "generatorBinaryHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "recomputed": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T05",
+      "ruleId": "C0607-R03",
+      "expected": "PASS",
+      "input": {
+        "valid": true,
+        "closed": true,
+        "solidCount": 2,
+        "checkedCount": 2
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T06",
+      "ruleId": "C0607-R03",
+      "expected": "REJECT_TOPOLOGY",
+      "input": {
+        "valid": false,
+        "closed": true,
+        "solidCount": 2,
+        "checkedCount": 2
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T07",
+      "ruleId": "C0607-R04",
+      "expected": "PASS",
+      "input": {
+        "before": 100,
+        "removed": 40,
+        "after": 60,
+        "absTol": 0.001,
+        "relTol": 0.00001
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T08",
+      "ruleId": "C0607-R04",
+      "expected": "REJECT_VOLUME",
+      "input": {
+        "before": 100,
+        "removed": 40,
+        "after": 63,
+        "absTol": 0.001,
+        "relTol": 0.00001
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T09",
+      "ruleId": "C0607-R05",
+      "expected": "PASS",
+      "input": {
+        "intersection": 0,
+        "maxIntersection": 0.00001,
+        "islandsBefore": 2,
+        "islandsAfter": 2
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T10",
+      "ruleId": "C0607-R05",
+      "expected": "REJECT_PROTECT",
+      "input": {
+        "intersection": 10,
+        "maxIntersection": 0.00001,
+        "islandsBefore": 2,
+        "islandsAfter": 2
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T11",
+      "ruleId": "C0607-R06",
+      "expected": "PASS",
+      "input": {
+        "unit": "mm",
+        "sourceUnit": "mm",
+        "epsilon": 0.01,
+        "minEpsilon": 0.000001,
+        "maxEpsilon": 1,
+        "policyVersion": "candidate-v1"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T12",
+      "ruleId": "C0607-R06",
+      "expected": "REJECT_TOLERANCE",
+      "input": {
+        "unit": "mm",
+        "sourceUnit": "mm",
+        "epsilon": -0.1,
+        "minEpsilon": 0.000001,
+        "maxEpsilon": 1,
+        "policyVersion": "candidate-v1"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T13",
+      "ruleId": "C0607-R07",
+      "expected": "PASS",
+      "input": {
+        "holdoutDisjoint": true,
+        "n": 40,
+        "minN": 20,
+        "trainHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "holdoutHash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "ece": 0.08,
+        "maxEce": 0.1
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T14",
+      "ruleId": "C0607-R07",
+      "expected": "REJECT_UNCALIBRATED",
+      "input": {
+        "holdoutDisjoint": false,
+        "n": 40,
+        "minN": 20,
+        "trainHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "holdoutHash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "ece": 0.08,
+        "maxEce": 0.1
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T15",
+      "ruleId": "C0607-R08",
+      "expected": "PASS",
+      "input": {
+        "raw": [
+          0.5,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "iterations": 4,
+        "stableSteps": 3,
+        "oraclePass": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T16",
+      "ruleId": "C0607-R08",
+      "expected": "REJECT_FALSE_CONVERGENCE",
+      "input": {
+        "raw": [
+          0.5,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "iterations": 4,
+        "stableSteps": 0,
+        "oraclePass": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T17",
+      "ruleId": "C0607-R09",
+      "expected": "PASS",
+      "input": {
+        "budgetExhausted": true,
+        "status": "UNKNOWN",
+        "publishAllowed": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T18",
+      "ruleId": "C0607-R09",
+      "expected": "REJECT_UNKNOWN_AS_PASS",
+      "input": {
+        "budgetExhausted": true,
+        "status": "PROVEN_INFEASIBLE",
+        "publishAllowed": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T19",
+      "ruleId": "C0607-R10",
+      "expected": "PASS",
+      "input": {
+        "stageSealed": true,
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "acl": true,
+        "generation": 3,
+        "receiptGeneration": 3,
+        "cancelGeneration": 0,
+        "d08Preserved": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-07-T20",
+      "ruleId": "C0607-R10",
+      "expected": "REJECT_STALE_COMMIT",
+      "input": {
+        "stageSealed": true,
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "acl": true,
+        "generation": 3,
+        "receiptGeneration": 3,
+        "cancelGeneration": 0,
+        "d08Preserved": true
+      },
+      "synthetic": true
+    }
+  ],
+  "mutationCases": [
+    {
+      "id": "CAP-06-07-M01",
+      "ruleId": "C0607-R01",
+      "expected": "REJECT_EXACT",
+      "input": {
+        "revision": 2,
+        "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "",
+        "headHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "observedHead": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M02",
+      "ruleId": "C0607-R02",
+      "expected": "REJECT_NOT_INDEPENDENT",
+      "input": {
+        "processId": "oracle",
+        "generatorProcessId": "solver",
+        "binaryHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "generatorBinaryHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "recomputed": true
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M03",
+      "ruleId": "C0607-R03",
+      "expected": "REJECT_TOPOLOGY",
+      "input": {
+        "valid": true,
+        "closed": true,
+        "solidCount": 2,
+        "checkedCount": 1
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M04",
+      "ruleId": "C0607-R04",
+      "expected": "REJECT_VOLUME",
+      "input": {
+        "before": 100,
+        "removed": 40,
+        "after": 60,
+        "absTol": -1,
+        "relTol": 0.00001
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M05",
+      "ruleId": "C0607-R05",
+      "expected": "REJECT_PROTECT",
+      "input": {
+        "intersection": 0,
+        "maxIntersection": 0.00001,
+        "islandsBefore": 2,
+        "islandsAfter": 1
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M06",
+      "ruleId": "C0607-R06",
+      "expected": "REJECT_TOLERANCE",
+      "input": {
+        "unit": "mm",
+        "sourceUnit": "inch",
+        "epsilon": 0.01,
+        "minEpsilon": 0.000001,
+        "maxEpsilon": 1,
+        "policyVersion": "candidate-v1"
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M07",
+      "ruleId": "C0607-R07",
+      "expected": "REJECT_UNCALIBRATED",
+      "input": {
+        "holdoutDisjoint": true,
+        "n": 2,
+        "minN": 20,
+        "trainHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "holdoutHash": "1111111111111111111111111111111111111111111111111111111111111111",
+        "ece": 0.08,
+        "maxEce": 0.1
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M08",
+      "ruleId": "C0607-R08",
+      "expected": "REJECT_FALSE_CONVERGENCE",
+      "input": {
+        "raw": [
+          0.3,
+          0.3
+        ],
+        "iterations": 4,
+        "stableSteps": 3,
+        "oraclePass": true
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M09",
+      "ruleId": "C0607-R09",
+      "expected": "REJECT_UNKNOWN_AS_PASS",
+      "input": {
+        "budgetExhausted": true,
+        "status": "UNKNOWN",
+        "publishAllowed": true
+      },
+      "synthetic": true,
+      "differentDefect": true
+    },
+    {
+      "id": "CAP-06-07-M10",
+      "ruleId": "C0607-R10",
+      "expected": "REJECT_STALE_COMMIT",
+      "input": {
+        "stageSealed": true,
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "acl": false,
+        "generation": 3,
+        "receiptGeneration": 3,
+        "cancelGeneration": 0,
+        "d08Preserved": true
+      },
+      "synthetic": true,
+      "differentDefect": true
+    }
+  ]
+}

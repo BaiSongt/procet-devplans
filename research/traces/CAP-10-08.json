@@ -1,0 +1,532 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-10-08",
+  "researchTopic": "R-DIGITAL-THREAD-AUDIT-001",
+  "sourceRegistry": "research/sources/CAP-10-08.json",
+  "workPackageIds": [
+    "E3-06",
+    "T5-03"
+  ],
+  "rules": [
+    {
+      "id": "CAP-10-08-R01",
+      "capabilityId": "CAP-10-08",
+      "summary": "精确资产身份和Frame",
+      "engineeringRule": "每个审计对象引用必须带原Owner、exact revision/content hash及Frame或显式不适用",
+      "fields": [
+        "identity.assetOwner",
+        "identity.exactRevision",
+        "identity.contentHash",
+        "identity.frameOrNA"
+      ],
+      "sourceIds": [
+        "C1008-S01",
+        "C1008-S02",
+        "C1008-S03"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "identity.assetOwner",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.exactRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.contentHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.frameOrNA",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R02",
+      "capabilityId": "CAP-10-08",
+      "summary": "数字主线来源关系",
+      "engineeringRule": "设计、工艺、刀路、NC、机床、执行之间必须显式有向类型与证据",
+      "fields": [
+        "link.typedRelation",
+        "link.direction",
+        "link.producerIdentity",
+        "link.evidenceRef"
+      ],
+      "sourceIds": [
+        "C1008-S01",
+        "C1008-S02",
+        "C1008-S03"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D09",
+        "D12",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "link.typedRelation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "link.direction",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "link.producerIdentity",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "link.evidenceRef",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R03",
+      "capabilityId": "CAP-10-08",
+      "summary": "业务回流与来源DAG分离",
+      "engineeringRule": "业务D17回流D05/D06允许环，冻结实例Revision/derivedFrom图禁止环及覆写A/B",
+      "fields": [
+        "graph.businessFeedbackTyped",
+        "graph.instanceProvenanceAcyclic",
+        "graph.frozenABImmutable",
+        "graph.newRevisionOnFeedback"
+      ],
+      "sourceIds": [
+        "C1008-S02",
+        "C1008-S03",
+        "C1008-S06"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "graph.businessFeedbackTyped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.instanceProvenanceAcyclic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.frozenABImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.newRevisionOnFeedback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R04",
+      "capabilityId": "CAP-10-08",
+      "summary": "只追加审计及时间质量",
+      "engineeringRule": "原始事件、时间来源、纠错和哈希链只追加，不重写事件历史",
+      "fields": [
+        "audit.monotonicSequence",
+        "audit.rawDigest",
+        "audit.timeQuality",
+        "audit.correctionAppend"
+      ],
+      "sourceIds": [
+        "C1008-S03",
+        "C1008-S05",
+        "C1008-S06"
+      ],
+      "assets": [
+        "D01",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "audit.monotonicSequence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.rawDigest",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.timeQuality",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.correctionAppend",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R05",
+      "capabilityId": "CAP-10-08",
+      "summary": "OPC服务事件非物理事实",
+      "engineeringRule": "审计服务器Profile/字段能力探测，明确服务事件与机床运动非等价",
+      "fields": [
+        "opc.capabilityProbed",
+        "opc.actionTimestampAndStatus",
+        "opc.serverClientIdentity",
+        "opc.noNcExecutionInference"
+      ],
+      "sourceIds": [
+        "C1008-S04",
+        "C1008-S10"
+      ],
+      "assets": [
+        "D03",
+        "D12",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "opc.capabilityProbed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "opc.actionTimestampAndStatus",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "opc.serverClientIdentity",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "opc.noNcExecutionInference",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R06",
+      "capabilityId": "CAP-10-08",
+      "summary": "CL与最终NC验证分离",
+      "engineeringRule": "D09中立CL和D11预检不能代替D12原始NC→D13→D14→D15独立验证→D16签发",
+      "fields": [
+        "nc.finalRawBytes",
+        "nc.controllerAndJointTrace",
+        "nc.independentD15",
+        "nc.humanD16Separate"
+      ],
+      "sourceIds": [
+        "C1008-S01",
+        "C1008-S02",
+        "C1008-S05"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "nc.finalRawBytes",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.controllerAndJointTrace",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.independentD15",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.humanD16Separate",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R07",
+      "capabilityId": "CAP-10-08",
+      "summary": "D04名义与D10实装分离",
+      "engineeringRule": "实际机床、刀具、装夹及Frame以D10独立revision/hash精确引用",
+      "fields": [
+        "binding.nominalD04Separated",
+        "binding.actualD10Frame",
+        "binding.machineToolRevision",
+        "binding.invalidationPropagated"
+      ],
+      "sourceIds": [
+        "C1008-S01",
+        "C1008-S02",
+        "C1008-S09"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "binding.nominalD04Separated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.actualD10Frame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.machineToolRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.invalidationPropagated",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R08",
+      "capabilityId": "CAP-10-08",
+      "summary": "签发与现场观察/质检分离",
+      "engineeringRule": "D16签发、D17现场观测与独立质量证明不能相互推断或给机床启动许可",
+      "fields": [
+        "release.d16SignatureExact",
+        "release.d17ReceiptDistinct",
+        "release.qualityExternalOwner",
+        "release.noCycleStartInference"
+      ],
+      "sourceIds": [
+        "C1008-S03",
+        "C1008-S04",
+        "C1008-S09"
+      ],
+      "assets": [
+        "D12",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "release.d16SignatureExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.d17ReceiptDistinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.qualityExternalOwner",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.noCycleStartInference",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R09",
+      "capabilityId": "CAP-10-08",
+      "summary": "ACL/CAS/取消迟到回执",
+      "engineeringRule": "受管边写入提交时检查Owner ACL/scopeEpoch及revision/hash CAS，取消晚回执不得复活",
+      "fields": [
+        "commit.ownerAclRechecked",
+        "commit.scopeCasExact",
+        "commit.cancelLateAckRejected",
+        "commit.unknownNotPass"
+      ],
+      "sourceIds": [
+        "C1008-S06",
+        "C1008-S07"
+      ],
+      "assets": [
+        "D01",
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "commit.ownerAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.scopeCasExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelLateAckRejected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.unknownNotPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-08-R10",
+      "capabilityId": "CAP-10-08",
+      "summary": "统一入口与可回退消费",
+      "engineeringRule": "GUI/CLI/Agent用同一域Port，单Babylon左TaskPanel、影子Reader和独立消费者回归",
+      "fields": [
+        "ux.sameDomainPort",
+        "ux.singleBabylonLeftPanel",
+        "ux.shadowReadRollback",
+        "ux.independentConsumerRequired"
+      ],
+      "sourceIds": [
+        "C1008-S01",
+        "C1008-S02",
+        "C1008-S05"
+      ],
+      "assets": [
+        "D01",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "ux.sameDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.singleBabylonLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.shadowReadRollback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ux.independentConsumerRequired",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一项正例与四项独立字段变异负例，产品NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

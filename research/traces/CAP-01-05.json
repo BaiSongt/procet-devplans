@@ -1,0 +1,361 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-01-05",
+  "topic": "R-WFLOW-001",
+  "updatedOn": "2026-10-18",
+  "status": "research_backfill_drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "legacyCapability": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-05_A-B 工作模式编排.md",
+    "backfill": "docs/capabilities/CAP-01-05/RESEARCH-BACKFILL.md",
+    "fixtures": "docs/capabilities/CAP-01-05/fixtures.json",
+    "topic": "research/topics/R-WFLOW-001.md",
+    "sourceRegister": "research/sources/CAP-01-05.json"
+  },
+  "registeredSources": [
+    "SRC-WFLOW-001",
+    "SRC-WFLOW-002",
+    "SRC-WFLOW-003"
+  ],
+  "reusedSourceIds": [
+    "SRC-REF-003",
+    "SRC-REF-005"
+  ],
+  "codeEvidence": [
+    {
+      "id": "E-WFLOW-01",
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "path": "apps/desktop/src/modules/cam/stageStore.ts",
+      "observation": "currentStage全局内存变量；注释表示per-document/持久化不在此轮",
+      "kind": "read_only_source_observation"
+    },
+    {
+      "id": "E-WFLOW-02",
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "path": "apps/desktop/src/modules/cam/index.tsx",
+      "observation": "cam.model.open以CAM job.create ready作为旧入口条件，stage命令独立",
+      "kind": "read_only_source_observation"
+    },
+    {
+      "id": "E-WFLOW-03",
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "path": "apps/desktop/src/modules/registry.ts",
+      "observation": "已提供动态ModuleRegistry命令/贡献边界",
+      "kind": "read_only_source_observation"
+    },
+    {
+      "id": "E-WFLOW-04",
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "path": "crates/procet-host-runtime/src/policy.rs",
+      "observation": "ControlMode为Manual/SemiAuto/FullAuto，不等同A/B业务模式",
+      "kind": "read_only_source_observation"
+    }
+  ],
+  "rules": [
+    {
+      "id": "WFLOW-R01",
+      "capabilityId": "CAP-01-05",
+      "kind": "source_plus_design",
+      "description": "探索按目标能力最低输入检查，不以生产Plan/全局Setup批准作门槛；未知能力fail-closed",
+      "sourceIds": [
+        "SRC-WFLOW-003"
+      ],
+      "fields": [
+        "workflowMode",
+        "capabilityId",
+        "requirements.state"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-01"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-09"
+      ],
+      "tests": [
+        "CAP-01-05-AT-01",
+        "CAP-01-05-AT-09"
+      ],
+      "codeEvidenceIds": [
+        "E-WFLOW-02"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R02",
+      "capabilityId": "CAP-01-05",
+      "kind": "internal_design_decision",
+      "description": "需要材料求解时Stock和Frame是按能力声明的真实必需输入；无Stock不能自动扩毛坯",
+      "sourceIds": [],
+      "fields": [
+        "processSetupRef",
+        "stockRef",
+        "frameRef"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-10"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-02"
+      ],
+      "tests": [
+        "CAP-01-05-AT-10",
+        "CAP-01-05-AT-02"
+      ],
+      "codeEvidenceIds": [],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R03",
+      "capabilityId": "CAP-01-05",
+      "kind": "source_plus_design",
+      "description": "B允许直接创建未批准Plan Draft，不推导NC可发布",
+      "sourceIds": [
+        "SRC-WFLOW-003"
+      ],
+      "fields": [
+        "workflowMode",
+        "draftRef",
+        "executionBindingRef"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-03"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-11"
+      ],
+      "tests": [
+        "CAP-01-05-AT-03",
+        "CAP-01-05-AT-11"
+      ],
+      "codeEvidenceIds": [],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R04",
+      "capabilityId": "CAP-01-05",
+      "kind": "source_plus_design",
+      "description": "按候选exact来源采纳，已冻结范围不可静默写覆盖",
+      "sourceIds": [
+        "SRC-REF-005",
+        "SRC-WFLOW-002"
+      ],
+      "fields": [
+        "candidateRefs",
+        "frozenScopeRefs",
+        "handoffRecord.provenance"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-04"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-12"
+      ],
+      "tests": [
+        "CAP-01-05-AT-04",
+        "CAP-01-05-AT-12"
+      ],
+      "codeEvidenceIds": [],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R05",
+      "capabilityId": "CAP-01-05",
+      "kind": "source_plus_design",
+      "description": "B局部返回A保留受保护工序，新求解结果仅待显式采纳",
+      "sourceIds": [
+        "SRC-REF-005"
+      ],
+      "fields": [
+        "exploreScopeRef",
+        "frozenScopeRefs",
+        "adoptionStatus"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-05"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-13"
+      ],
+      "tests": [
+        "CAP-01-05-AT-05",
+        "CAP-01-05-AT-13"
+      ],
+      "codeEvidenceIds": [],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R06",
+      "capabilityId": "CAP-01-05",
+      "kind": "source_plus_design",
+      "description": "预览确认必须使用expectedRevision与digest在服务端重验，旧预览拒绝",
+      "sourceIds": [
+        "SRC-REF-003",
+        "SRC-WFLOW-001"
+      ],
+      "fields": [
+        "sourceSnapshotRef",
+        "targetExpectedRevision",
+        "handoffPreviewDigest"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-14"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-06"
+      ],
+      "tests": [
+        "CAP-01-05-AT-14",
+        "CAP-01-05-AT-06"
+      ],
+      "codeEvidenceIds": [],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R07",
+      "capabilityId": "CAP-01-05",
+      "kind": "source_plus_design",
+      "description": "多Setup/多文档有独立WorkContext，异步迟到回执按scopeEpoch过滤",
+      "sourceIds": [
+        "SRC-WFLOW-003"
+      ],
+      "fields": [
+        "activeSetupRef",
+        "documentInstanceId",
+        "scopeEpoch"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-07"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-15"
+      ],
+      "tests": [
+        "CAP-01-05-AT-07",
+        "CAP-01-05-AT-15"
+      ],
+      "codeEvidenceIds": [
+        "E-WFLOW-01"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R08",
+      "capabilityId": "CAP-01-05",
+      "kind": "internal_design_decision",
+      "description": "A/B workflowMode与Host ControlMode/能力ready/权限及NC批准相互正交",
+      "sourceIds": [],
+      "fields": [
+        "workflowMode",
+        "controlMode",
+        "approvalRef",
+        "verificationStatus"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-16"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-08"
+      ],
+      "tests": [
+        "CAP-01-05-AT-16",
+        "CAP-01-05-AT-08"
+      ],
+      "codeEvidenceIds": [
+        "E-WFLOW-04"
+      ],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R09",
+      "capabilityId": "CAP-01-05",
+      "kind": "internal_design_decision",
+      "description": "提交幂等、取消终态不可逆，重复请求用requestId同payload查询旧回执",
+      "sourceIds": [],
+      "fields": [
+        "requestId",
+        "idempotencyKey",
+        "payloadHash",
+        "receipt"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-17"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-18"
+      ],
+      "tests": [
+        "CAP-01-05-AT-17",
+        "CAP-01-05-AT-18"
+      ],
+      "codeEvidenceIds": [],
+      "status": "planned_only"
+    },
+    {
+      "id": "WFLOW-R10",
+      "capabilityId": "CAP-01-05",
+      "kind": "source_plus_design",
+      "description": "断电恢复以Host/Project及领域实际提交对账，不能把独立多存储当单事务",
+      "sourceIds": [
+        "SRC-WFLOW-001",
+        "SRC-WFLOW-002",
+        "SRC-REF-005"
+      ],
+      "fields": [
+        "committedGeneration",
+        "handoffRecordRef",
+        "reconcileStatus"
+      ],
+      "positiveTests": [
+        "CAP-01-05-AT-19"
+      ],
+      "negativeTests": [
+        "CAP-01-05-AT-20"
+      ],
+      "tests": [
+        "CAP-01-05-AT-19",
+        "CAP-01-05-AT-20"
+      ],
+      "codeEvidenceIds": [],
+      "status": "planned_only"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-01-05-AT-01",
+    "CAP-01-05-AT-02",
+    "CAP-01-05-AT-03",
+    "CAP-01-05-AT-04",
+    "CAP-01-05-AT-05",
+    "CAP-01-05-AT-06",
+    "CAP-01-05-AT-07",
+    "CAP-01-05-AT-08",
+    "CAP-01-05-AT-09",
+    "CAP-01-05-AT-10",
+    "CAP-01-05-AT-11",
+    "CAP-01-05-AT-12",
+    "CAP-01-05-AT-13",
+    "CAP-01-05-AT-14",
+    "CAP-01-05-AT-15",
+    "CAP-01-05-AT-16",
+    "CAP-01-05-AT-17",
+    "CAP-01-05-AT-18",
+    "CAP-01-05-AT-19",
+    "CAP-01-05-AT-20"
+  ],
+  "relatedWorkPackages": [
+    "F1-04",
+    "F1-05",
+    "W2-01",
+    "W2-02",
+    "W2-05",
+    "W2-06",
+    "U4-01",
+    "F1-06"
+  ],
+  "engineeringStatus": "planned_not_implemented",
+  "humanApproval": "pending",
+  "historicalAcceptancePreservedCount": 8
+}

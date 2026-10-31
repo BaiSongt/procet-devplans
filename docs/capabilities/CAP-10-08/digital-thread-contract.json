@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "procet-cap1008-digital-thread-contract-v1",
+  "capabilityId": "CAP-10-08",
+  "ownerDomain": "10",
+  "port": "DigitalThreadAuditPort",
+  "status": "PLANNING_ONLY",
+  "scope": "Digital thread append-only index, NOT owning D01..D17",
+  "edges": [
+    "DERIVED_FROM",
+    "REVISED_FROM",
+    "FEEDBACK"
+  ],
+  "provenanceInstanceGraph": "IMMUTABLE_ACYCLIC_DAG",
+  "businessTypeFeedback": "TYPED_FEEDBACK_CYCLE_ALLOWED",
+  "assetEnvelope": [
+    "assetId",
+    "objectId",
+    "exactRevision",
+    "rawOrCanonicalHash",
+    "frameOrNA",
+    "unit",
+    "ownerScope",
+    "sourceEvidence",
+    "timeQuality"
+  ],
+  "claimRules": {
+    "auditLogMeansNCExecuted": false,
+    "clAnimationCountsAsD15": false,
+    "unknownD13MeansPass": false,
+    "signatureMeansNCIsSafe": false,
+    "remoteCycleStart": false
+  },
+  "chain": {
+    "D04": "NOMINAL_SETUP",
+    "D10": "ACTUAL_EXECUTION_FRAME",
+    "D09": "NEUTRAL_CL",
+    "D11": "CL_ONLY",
+    "D12": "RAW_FINAL_NC",
+    "D13": "CONTROLLER_SEMANTICS",
+    "D14": "PHYSICAL_JOINT_TIMELINE",
+    "D15": "INDEPENDENT_ENGINEERING_ORACLE",
+    "D16": "HUMAN_SIGNED_RELEASE",
+    "D17": "FIELD_OBSERVATION_APPEND_ONLY",
+    "materialSweepSimulation": false
+  },
+  "writeGate": {
+    "ownerACLAtCommit": "RECHECK",
+    "scopeEpoch": "RECHECK",
+    "expectedRevisionAndHashCAS": "REQUIRED",
+    "cancelOrLateReceipt": "STALE",
+    "unknown": "BLOCK_RELEASE",
+    "idempotencyKey": "SCOPE_BOUND"
+  },
+  "ux": {
+    "entrypoints": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "singleBabylonWorld": true,
+    "leftTaskPanelOnly": true,
+    "maxFontPx": 12
+  },
+  "migration": {
+    "oldReader": "SHADOW_COMPARE_AND_ROLLBACK",
+    "switchNewWriter": "AFTER_HUMAN_OWNER_AND_INDEPENDENT_CONSUMER",
+    "preserveHistoricalFrozenAndEvents": true
+  },
+  "formalOwnerSignoff": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

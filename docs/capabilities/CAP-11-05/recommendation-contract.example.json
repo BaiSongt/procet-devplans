@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "procet-process-recommendation-v0.8-draft",
+  "capabilityId": "CAP-11-05",
+  "planningOnly": true,
+  "ownerSignoff": "PENDING_HUMAN",
+  "request": {
+    "requestId": "synthetic-req-001",
+    "principal": "example-principal",
+    "projectId": "example-project",
+    "scopeEpoch": 4,
+    "sourceRefs": [
+      {
+        "assetKind": "D01",
+        "assetId": "example-part",
+        "exactRevision": "r1",
+        "contentSha256": "sha256:EXAMPLE_NOT_REAL",
+        "frameId": "PART",
+        "unit": "mm"
+      },
+      {
+        "assetKind": "D03",
+        "assetId": "example-tool-assembly",
+        "exactRevision": "r2",
+        "contentSha256": "sha256:EXAMPLE_NOT_REAL",
+        "frameNotApplicable": true
+      },
+      {
+        "assetKind": "D04",
+        "assetId": "example-setup",
+        "exactRevision": "r3",
+        "contentSha256": "sha256:EXAMPLE_NOT_REAL",
+        "frameId": "SETUP",
+        "unit": "mm"
+      },
+      {
+        "assetKind": "D10",
+        "assetId": "example-machine-binding",
+        "exactRevision": "r4",
+        "contentSha256": "sha256:EXAMPLE_NOT_REAL",
+        "frameId": "MACHINE",
+        "unit": "mm"
+      }
+    ],
+    "constraints": {
+      "materialGrade": "UNKNOWN_NOT_INPUT",
+      "heatTreatment": "UNKNOWN",
+      "targetFeatureId": "synthetic-feature",
+      "feedMode": "UNKNOWN_UNTIL_D13"
+    },
+    "guard": {
+      "expectedRevision": "draft-r0",
+      "cancelEpoch": 3,
+      "idempotencyKey": "synthetic-idempotency-001",
+      "actionDigest": "sha256:EXAMPLE_ACTION"
+    }
+  },
+  "response": {
+    "status": "UNKNOWN",
+    "recommendations": [
+      {
+        "candidateId": "SYNTHETIC_MATH_NOT_PRODUCTION",
+        "parameters": {
+          "fz_mm_per_tooth": 0.08,
+          "n_rpm": 2000,
+          "zeff": 4,
+          "feed_mm_per_min": 640,
+          "diameter_mm": 20,
+          "vc_m_per_min": 125.6637061436
+        },
+        "evidenceRefs": [
+          "C1105-S03"
+        ],
+        "applicability": "NOT_PROVEN",
+        "uncertainty": [
+          "materialGrade",
+          "toolLife",
+          "specificMachineLimits"
+        ],
+        "recommendationType": "ADVISORY_ONLY"
+      }
+    ],
+    "ownerReceipt": null,
+    "explainRefs": [],
+    "risks": [
+      "No certified material/tool/machine profile"
+    ],
+    "d16ReleaseEligibility": false
+  },
+  "boundary": {
+    "d04NotD10": true,
+    "d08FrozenImmutable": true,
+    "ncEvidenceChain": [
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "unknownMustBlock": true,
+    "clAnimationNotNcValidation": true,
+    "materialSweep": "OUT_OF_SCOPE"
+  }
+}

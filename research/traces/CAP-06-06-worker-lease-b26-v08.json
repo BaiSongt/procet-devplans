@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "procet-b26-trace-v1",
+  "capabilityId": "CAP-06-06",
+  "sourceRegistry": "research/sources/CAP-06-06-worker-lease-b26.json",
+  "fixtures": "docs/capabilities/CAP-06-06/worker-lease-b26-fixtures-v08.json",
+  "validator": "tools/check_cap0606_worker_lease_b26_v08.cjs",
+  "originalWorkPackages": [
+    "F1-05",
+    "W2-02",
+    "W2-03",
+    "W2-06"
+  ],
+  "evidenceLevel": "SYNTHETIC_PLANNING_ONLY",
+  "rules": [
+    {
+      "id": "B26-R1",
+      "statement": "Owner exact修订/Frame/Head-CAS/ACL/ScopeEpoch、GUI CLI Agent同端口、单3D左Panel",
+      "sourceIds": [
+        "B26-S05"
+      ],
+      "fields": [
+        "owner.expectedHead",
+        "owner.aclEpoch",
+        "owner.scopeEpoch",
+        "refs.D04.hash",
+        "refs.frameHash",
+        "owner.channels",
+        "owner.renderWorlds"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "F1-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N01",
+        "B26-N02",
+        "B26-N03",
+        "B26-N04"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B26-R2",
+      "statement": "明确单位、有限预算与单Owner原子预留",
+      "sourceIds": [
+        "B26-S01",
+        "B26-S05"
+      ],
+      "fields": [
+        "budget.limit",
+        "budget.unit",
+        "budget.maxWorkers",
+        "budget.atomicReservation"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "W2-02",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N05",
+        "B26-N06",
+        "B26-N07"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B26-R3",
+      "statement": "唯一Token预留与Worker派发状态机，超额和双派拒绝",
+      "sourceIds": [
+        "B26-S01",
+        "B26-S05"
+      ],
+      "fields": [
+        "events[].seq",
+        "events[].token",
+        "events[].credit",
+        "events[].worker"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "W2-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N08",
+        "B26-N09",
+        "B26-N10",
+        "B26-N11"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B26-R4",
+      "statement": "同token/generation/receiptHash结算，重复ACK只读不增加used",
+      "sourceIds": [
+        "B26-S02",
+        "B26-S03",
+        "B26-S05"
+      ],
+      "fields": [
+        "events[].creditUsed",
+        "events[].receiptHash",
+        "events[].generation",
+        "summary.used"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "W2-03",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N12",
+        "B26-N13",
+        "B26-N14",
+        "B26-N15"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B26-R5",
+      "statement": "Worker失联不能释放预留，必须UNKNOWN_SETTLEMENT且保持held",
+      "sourceIds": [
+        "B26-S02",
+        "B26-S03",
+        "B26-S05"
+      ],
+      "fields": [
+        "events[].lossReason",
+        "events[].worker",
+        "summary.uncertain",
+        "summary.held"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "W2-06",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N16",
+        "B26-N17",
+        "B26-N18"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B26-R6",
+      "statement": "取消后旧代ACK禁止提交，运行中任务不能假定被取消",
+      "sourceIds": [
+        "B26-S02",
+        "B26-S03",
+        "B26-S05"
+      ],
+      "fields": [
+        "owner.cancelGeneration",
+        "owner.cancelIssuedAfterSeq",
+        "events[].disposition"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "F1-05",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N19",
+        "B26-N20",
+        "B26-N21",
+        "B26-N22"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B26-R7",
+      "statement": "逐事件重算used/held/uncertain/free，未知不冒充已证明无解",
+      "sourceIds": [
+        "B26-S04",
+        "B26-S05"
+      ],
+      "fields": [
+        "summary.used",
+        "summary.held",
+        "summary.uncertain",
+        "summary.free",
+        "summary.status"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "W2-02",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N23",
+        "B26-N24",
+        "B26-N25",
+        "B26-N26",
+        "B26-N27"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B26-R8",
+      "statement": "D07消费者/D13-D15未运行不提交或开放D16，中立CL动画不能冒充NC",
+      "sourceIds": [
+        "B26-S05"
+      ],
+      "fields": [
+        "owner.ownerCommit",
+        "downstream.d07Consumer",
+        "downstream.d13",
+        "downstream.d15",
+        "downstream.d16"
+      ],
+      "capabilityId": "CAP-06-06",
+      "primaryPackage": "W2-06",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B26-P01",
+        "B26-P02"
+      ],
+      "negativeIds": [
+        "B26-N28",
+        "B26-N29",
+        "B26-N30",
+        "B26-N31"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,458 @@
+{
+  "schemaVersion": "procet-cap0701-synthetic-v1",
+  "capabilityId": "CAP-07-01",
+  "syntheticOnly": true,
+  "notOcctExecution": true,
+  "notGcodeInterpreter": true,
+  "cases": [
+    {
+      "id": "CAP-07-01-T01",
+      "ruleId": "C0701-R01",
+      "expected": "PASS",
+      "input": {
+        "assetId": "D08",
+        "revision": 5,
+        "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "setupRevision": 3
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T02",
+      "ruleId": "C0701-R01",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R1",
+      "input": {
+        "assetId": "D08",
+        "revision": 5,
+        "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "invalid-frame",
+        "setupRevision": 3
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T03",
+      "ruleId": "C0701-R02",
+      "expected": "PASS",
+      "input": {
+        "wireClosed": true,
+        "selfIntersection": false,
+        "offsetStatus": "VALIDATED",
+        "islandCount": 2,
+        "protectedIslands": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T04",
+      "ruleId": "C0701-R02",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R2",
+      "input": {
+        "wireClosed": true,
+        "selfIntersection": false,
+        "offsetStatus": "UNKNOWN",
+        "islandCount": 2,
+        "protectedIslands": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T05",
+      "ruleId": "C0701-R03",
+      "expected": "PASS",
+      "input": {
+        "toolDiameterMm": 10,
+        "stepoverMm": 4,
+        "stepdownMm": 2,
+        "radialAllowanceMm": 0.2,
+        "axialAllowanceMm": 0.3,
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T06",
+      "ruleId": "C0701-R03",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R3",
+      "input": {
+        "toolDiameterMm": 10,
+        "stepoverMm": 15,
+        "stepdownMm": 2,
+        "radialAllowanceMm": 0.2,
+        "axialAllowanceMm": 0.3,
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T07",
+      "ruleId": "C0701-R04",
+      "expected": "PASS",
+      "input": {
+        "stockStateHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "containerCheck": "PASS",
+        "remainingIslandCount": 0,
+        "overcutCount": 0,
+        "coverageVerified": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T08",
+      "ruleId": "C0701-R04",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R4",
+      "input": {
+        "stockStateHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "containerCheck": "PASS",
+        "remainingIslandCount": 0,
+        "overcutCount": 1,
+        "coverageVerified": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T09",
+      "ruleId": "C0701-R05",
+      "expected": "PASS",
+      "input": {
+        "strategy": "FACE",
+        "floorPassEnabled": true,
+        "finalDepthReached": true,
+        "liftEveryRow": false,
+        "linkSafetyCertified": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T10",
+      "ruleId": "C0701-R05",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R5",
+      "input": {
+        "strategy": "FACE",
+        "floorPassEnabled": true,
+        "finalDepthReached": false,
+        "liftEveryRow": false,
+        "linkSafetyCertified": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T11",
+      "ruleId": "C0701-R06",
+      "expected": "PASS",
+      "input": {
+        "holeCount": 5,
+        "allHoleFramesExact": true,
+        "safeRetract": true,
+        "tipDepthMm": -18,
+        "targetDepthMm": -18,
+        "precheckCollision": "NONE",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T12",
+      "ruleId": "C0701-R06",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R6",
+      "input": {
+        "holeCount": 5,
+        "allHoleFramesExact": true,
+        "safeRetract": false,
+        "tipDepthMm": -18,
+        "targetDepthMm": -18,
+        "precheckCollision": "NONE",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T13",
+      "ruleId": "C0701-R07",
+      "expected": "PASS",
+      "input": {
+        "entryEnvelopeVerified": true,
+        "linkClearanceVerified": true,
+        "protectedZoneIntersections": 0,
+        "redundantLiftCount": 0
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T14",
+      "ruleId": "C0701-R07",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R7",
+      "input": {
+        "entryEnvelopeVerified": true,
+        "linkClearanceVerified": true,
+        "protectedZoneIntersections": 1,
+        "redundantLiftCount": 0
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T15",
+      "ruleId": "C0701-R08",
+      "expected": "PASS",
+      "input": {
+        "primitive": "ARC",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "sourceHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "controllerId": null,
+        "arcSweepDeg": 90,
+        "feedMmMin": 450
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T16",
+      "ruleId": "C0701-R08",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R8",
+      "input": {
+        "primitive": "ARC",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "sourceHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "controllerId": null,
+        "arcSweepDeg": 0,
+        "feedMmMin": 450
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T17",
+      "ruleId": "C0701-R09",
+      "expected": "PASS",
+      "input": {
+        "clOwner": "07",
+        "sourceD08Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "freezeBytesPreserved": true,
+        "clPreviewEngineeringPass": false,
+        "controllerStatus": "UNKNOWN",
+        "d15Status": "NOT_RUN",
+        "releaseEligible": false,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T18",
+      "ruleId": "C0701-R09",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R9",
+      "input": {
+        "clOwner": "07",
+        "sourceD08Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "freezeBytesPreserved": true,
+        "clPreviewEngineeringPass": false,
+        "controllerStatus": "UNKNOWN",
+        "d15Status": "NOT_RUN",
+        "releaseEligible": true,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T19",
+      "ruleId": "C0701-R10",
+      "expected": "PASS",
+      "input": {
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actualHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": false,
+        "lateReceiptAction": "IGNORE_OLD",
+        "rollbackNonDestructive": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-T20",
+      "ruleId": "C0701-R10",
+      "expected": "REJECT",
+      "rejectionReason": "REJECT_C0701_R10",
+      "input": {
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actualHead": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": false,
+        "lateReceiptAction": "IGNORE_OLD",
+        "rollbackNonDestructive": true
+      },
+      "synthetic": true
+    }
+  ],
+  "mutationCases": [
+    {
+      "id": "CAP-07-01-M01",
+      "ruleId": "C0701-R01",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R1",
+      "mutationField": "revision",
+      "input": {
+        "assetId": "D08",
+        "revision": 0,
+        "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "setupRevision": 3
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M02",
+      "ruleId": "C0701-R02",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R2",
+      "mutationField": "selfIntersection",
+      "input": {
+        "wireClosed": true,
+        "selfIntersection": true,
+        "offsetStatus": "VALIDATED",
+        "islandCount": 2,
+        "protectedIslands": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M03",
+      "ruleId": "C0701-R03",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R3",
+      "mutationField": "unit",
+      "input": {
+        "toolDiameterMm": 10,
+        "stepoverMm": 4,
+        "stepdownMm": 2,
+        "radialAllowanceMm": 0.2,
+        "axialAllowanceMm": 0.3,
+        "unit": "inch"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M04",
+      "ruleId": "C0701-R04",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R4",
+      "mutationField": "remainingIslandCount",
+      "input": {
+        "stockStateHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "containerCheck": "PASS",
+        "remainingIslandCount": 1,
+        "overcutCount": 0,
+        "coverageVerified": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M05",
+      "ruleId": "C0701-R05",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R5",
+      "mutationField": "liftEveryRow",
+      "input": {
+        "strategy": "FACE",
+        "floorPassEnabled": true,
+        "finalDepthReached": true,
+        "liftEveryRow": true,
+        "linkSafetyCertified": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M06",
+      "ruleId": "C0701-R06",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R6",
+      "mutationField": "allHoleFramesExact",
+      "input": {
+        "holeCount": 5,
+        "allHoleFramesExact": false,
+        "safeRetract": true,
+        "tipDepthMm": -18,
+        "targetDepthMm": -18,
+        "precheckCollision": "NONE",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M07",
+      "ruleId": "C0701-R07",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R7",
+      "mutationField": "redundantLiftCount",
+      "input": {
+        "entryEnvelopeVerified": true,
+        "linkClearanceVerified": true,
+        "protectedZoneIntersections": 0,
+        "redundantLiftCount": 2
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M08",
+      "ruleId": "C0701-R08",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R8",
+      "mutationField": "controllerId",
+      "input": {
+        "primitive": "ARC",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "sourceHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "controllerId": "linuxcnc",
+        "arcSweepDeg": 90,
+        "feedMmMin": 450
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M09",
+      "ruleId": "C0701-R09",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R9",
+      "mutationField": "materialSweepSimulated",
+      "input": {
+        "clOwner": "07",
+        "sourceD08Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "freezeBytesPreserved": true,
+        "clPreviewEngineeringPass": false,
+        "controllerStatus": "UNKNOWN",
+        "d15Status": "NOT_RUN",
+        "releaseEligible": false,
+        "materialSweepSimulated": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-07-01-M10",
+      "ruleId": "C0701-R10",
+      "expected": "REJECT",
+      "rejectionReason": "MUTATION_C0701_R10",
+      "mutationField": "cancelled",
+      "input": {
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actualHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": true,
+        "lateReceiptAction": "IGNORE_OLD",
+        "rollbackNonDestructive": true
+      },
+      "synthetic": true
+    }
+  ]
+}

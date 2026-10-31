@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "procet-cap-06-03-fixtures-v1",
+  "syntheticOnly": true,
+  "basedOnHead": "3ba5ded57498f8337f1a27e91a44167344a43767",
+  "scope": "逻辑集合/报文字段合成；没有STEP实体、OCCT执行或产品认证",
+  "cases": [
+    {
+      "id": "CAP-06-03-T01",
+      "ruleId": "C0603-R01",
+      "expected": "PASS",
+      "input": {
+        "sourceRefs": [
+          {
+            "id": "D01",
+            "revision": "r8",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "unit": "mm",
+            "scope": "synthetic-A"
+          },
+          {
+            "id": "D04",
+            "revision": "r2",
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "frame": "SETUP-A",
+            "unit": "mm",
+            "scope": "synthetic-A"
+          }
+        ],
+        "sameScope": true,
+        "frameTransformApproved": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T02",
+      "ruleId": "C0603-R01",
+      "expected": "REJECT_SOURCE_CLOSURE",
+      "input": {
+        "sourceRefs": [
+          {
+            "id": "D01",
+            "revision": "r8",
+            "hash": "not-a-hash",
+            "frame": "PART",
+            "unit": "mm",
+            "scope": "synthetic-A"
+          },
+          {
+            "id": "D04",
+            "revision": "r2",
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "frame": "SETUP-A",
+            "unit": "mm",
+            "scope": "synthetic-A"
+          }
+        ],
+        "sameScope": true,
+        "frameTransformApproved": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T03",
+      "ruleId": "C0603-R02",
+      "expected": "PASS",
+      "input": {
+        "cellsA": [
+          "u1",
+          "u2"
+        ],
+        "cellsB": [
+          "u2",
+          "u3"
+        ],
+        "disjointParts": {
+          "onlyA": [
+            "u1"
+          ],
+          "both": [
+            "u2"
+          ],
+          "onlyB": [
+            "u3"
+          ]
+        },
+        "resultUnion": [
+          "u1",
+          "u2",
+          "u3"
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T04",
+      "ruleId": "C0603-R02",
+      "expected": "REJECT_OVERLAP_IDENTITY",
+      "input": {
+        "cellsA": [
+          "u1",
+          "u2"
+        ],
+        "cellsB": [
+          "u2",
+          "u3"
+        ],
+        "disjointParts": {
+          "onlyA": [
+            "u1",
+            "u2"
+          ],
+          "both": [
+            "u2"
+          ],
+          "onlyB": [
+            "u3"
+          ]
+        },
+        "resultUnion": [
+          "u1",
+          "u2",
+          "u3"
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T05",
+      "ruleId": "C0603-R03",
+      "expected": "PASS",
+      "input": {
+        "booleanReport": {
+          "hasErrors": false,
+          "warningsReviewed": true,
+          "nonDestructive": true,
+          "historyAvailable": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T06",
+      "ruleId": "C0603-R03",
+      "expected": "REJECT_BOOLEAN_REPORT",
+      "input": {
+        "booleanReport": {
+          "hasErrors": true,
+          "warningsReviewed": true,
+          "nonDestructive": true,
+          "historyAvailable": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T07",
+      "ruleId": "C0603-R04",
+      "expected": "PASS",
+      "input": {
+        "preCheck": {
+          "valid": true,
+          "checkMode": "GEOMETRY_AND_TOPOLOGY"
+        },
+        "postCheck": {
+          "valid": true,
+          "checkMode": "GEOMETRY_AND_TOPOLOGY"
+        },
+        "independentD07": "PENDING"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T08",
+      "ruleId": "C0603-R04",
+      "expected": "REJECT_BREP_CHECK",
+      "input": {
+        "preCheck": {
+          "valid": true,
+          "checkMode": "GEOMETRY_AND_TOPOLOGY"
+        },
+        "postCheck": {
+          "valid": false,
+          "checkMode": "GEOMETRY_AND_TOPOLOGY"
+        },
+        "independentD07": "PENDING"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T09",
+      "ruleId": "C0603-R05",
+      "expected": "PASS",
+      "input": {
+        "tolerance": {
+          "fuzzy": 0.005,
+          "approvedMax": 0.01,
+          "unit": "mm",
+          "approvalRef": "POLICY-SYNTHETIC",
+          "noAutoGrowth": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T10",
+      "ruleId": "C0603-R05",
+      "expected": "REJECT_TOLERANCE_BUDGET",
+      "input": {
+        "tolerance": {
+          "fuzzy": 0.05,
+          "approvedMax": 0.01,
+          "unit": "mm",
+          "approvalRef": "POLICY-SYNTHETIC",
+          "noAutoGrowth": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T11",
+      "ruleId": "C0603-R06",
+      "expected": "PASS",
+      "input": {
+        "topology": {
+          "closedLoops": true,
+          "islandIdsBefore": [
+            "I-1",
+            "I-2"
+          ],
+          "islandIdsAfter": [
+            "I-1",
+            "I-2"
+          ],
+          "nestedWiresVerified": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T12",
+      "ruleId": "C0603-R06",
+      "expected": "REJECT_ISLAND_LOSS",
+      "input": {
+        "topology": {
+          "closedLoops": true,
+          "islandIdsBefore": [
+            "I-1",
+            "I-2"
+          ],
+          "islandIdsAfter": [
+            "I-1"
+          ],
+          "nestedWiresVerified": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T13",
+      "ruleId": "C0603-R07",
+      "expected": "PASS",
+      "input": {
+        "guard": {
+          "protectedIntersection": false,
+          "allowanceCertified": true,
+          "resultInsideStock": true,
+          "protectionFrame": "SETUP-A"
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T14",
+      "ruleId": "C0603-R07",
+      "expected": "REJECT_PROTECTED_ZONE",
+      "input": {
+        "guard": {
+          "protectedIntersection": true,
+          "allowanceCertified": true,
+          "resultInsideStock": true,
+          "protectionFrame": "SETUP-A"
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T15",
+      "ruleId": "C0603-R08",
+      "expected": "PASS",
+      "input": {
+        "multisolid": {
+          "before": [
+            "SOLID-1",
+            "SOLID-2"
+          ],
+          "after": [
+            "SOLID-1",
+            "SOLID-2"
+          ],
+          "implicitFuse": false,
+          "historyPerSolid": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T16",
+      "ruleId": "C0603-R08",
+      "expected": "REJECT_MULTISOLID",
+      "input": {
+        "multisolid": {
+          "before": [
+            "SOLID-1",
+            "SOLID-2"
+          ],
+          "after": [
+            "SOLID-1",
+            "SOLID-2"
+          ],
+          "implicitFuse": true,
+          "historyPerSolid": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T17",
+      "ruleId": "C0603-R09",
+      "expected": "PASS",
+      "input": {
+        "repair": {
+          "oldHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "newRevision": true,
+          "historyLogged": true,
+          "rechecked": true,
+          "frozenUntouched": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T18",
+      "ruleId": "C0603-R09",
+      "expected": "REJECT_SILENT_REPAIR",
+      "input": {
+        "repair": {
+          "oldHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newRevision": true,
+          "historyLogged": true,
+          "rechecked": true,
+          "frozenUntouched": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T19",
+      "ruleId": "C0603-R10",
+      "expected": "PASS",
+      "input": {
+        "commit": {
+          "expectedHead": "r12",
+          "currentHead": "r12",
+          "scopeEpoch": 3,
+          "authorizedEpoch": 3,
+          "generation": 8,
+          "currentGeneration": 8,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "downstream": {
+          "d07Independent": "PASS",
+          "d08Frozen": true,
+          "d09Eligible": true,
+          "d13Semantic": "UNKNOWN",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED"
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-03-T20",
+      "ruleId": "C0603-R10",
+      "expected": "REJECT_STALE_OR_UNCERTIFIED",
+      "input": {
+        "commit": {
+          "expectedHead": "r12",
+          "currentHead": "r12",
+          "scopeEpoch": 3,
+          "authorizedEpoch": 3,
+          "generation": 8,
+          "currentGeneration": 9,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "downstream": {
+          "d07Independent": "PASS",
+          "d08Frozen": true,
+          "d09Eligible": true,
+          "d13Semantic": "UNKNOWN",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED"
+        }
+      },
+      "synthetic": true
+    }
+  ]
+}

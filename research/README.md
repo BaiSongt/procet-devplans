@@ -1,57 +1,653 @@
+## 2026-11-01｜B75 R-STOCKREG-001 D04注册与D10现场WCS非交换证据
+[6项来源和访问深度](sources/CAP-04-02-offset-evidence-b75.json) → [8字段规则](traces/CAP-04-02-offset-evidence-b75-v08.json) → [24正反未知过期样例](../docs/capabilities/CAP-04-02/offset-evidence-b75-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-04-02/WCS-EVIDENCE-B75-2026-11-01.md)。LinuxCNC 2.9公开HTML实读、OCCT8.0.1 API文本实读、NIST 2016/2017仅摘要；真实D10/NC/Owner/独立消费者未验。**规划PASS≠产品PASS。**
+
+## 2026-11-01｜B74 R-CUT-001车刀刀尖半径、Q取向与跨控制器偏置证据
+[7项分级来源](sources/CAP-02-02-lathe-tnc-b74.json) → [8规则](traces/CAP-02-02-lathe-tnc-b74-v08.json) → [26合成](../docs/capabilities/CAP-02-02/lathe-tnc-b74-fixtures-v08.json) → [报告](../docs/capabilities/CAP-02-02/LATHE-NOSE-COMPENSATION-B74-2026-11-01.md)。LinuxCNC2.9/Haas公开HTML定点实读、ISO13399目录/摘要、Gao2015出版摘要；产品未验。**规划PASS≠产品PASS。**
+
+## 2026-11-01｜B73 R-WORKORDER-EXECUTION-001 离线工单事件身份与重放缺口
+[研究/阅读分级](../docs/capabilities/CAP-10-06/OFFLINE-EVENT-REPLAY-B73-2026-11-01.md) → [7项来源](sources/CAP-10-06-offline-events-b73.json) → [8项规则/字段/原E3-06、T5-03](traces/CAP-10-06-offline-events-b73-v08.json) → [48规划合成](../docs/capabilities/CAP-10-06/offline-events-b73-fixtures-v08.json)。CloudEvents v1.0.2、OPC 10031-4 v2.00.0与RFC 9110指定公开正文、NIST仅出版摘要；Owner/真实消费者、独立Node文件进程及OEM/NC未验。**规划PASS≠产品PASS。**
+
+## 2026-11-01｜B72 R-WCS-MOTION-001 两轴车床直径/半径、G码碰撞与恒线速限幅
+
+[公开阅读深度与保守算例](../docs/capabilities/CAP-08-03/LATHE-CSS-DIALECT-B72-2026-11-01.md) → [8项来源](sources/CAP-08-03-lathe-css-b72.json) → [8规则字段](traces/CAP-08-03-lathe-css-b72-v08.json) → [46独立预期合成](../docs/capabilities/CAP-08-03/lathe-css-b72-fixtures-v08.json)。2026-11-01官方LinuxCNC2.9指定章节和Haas车床清单/G50正文实读；Haas G96专页仅摘要、NIST仅出版摘要、ISO仅合法目录。真实Node进程、OEM/NC、正式Owner与独立消费者未验。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B71 R-MET-UNCERTAINTY-003 D03资源能力与D17不确定度决策
+[数学与Owner边界](../docs/capabilities/CAP-02-06/UNCERTAINTY-GUARD-B71-2026-10-31.md) → [6项分级来源](sources/CAP-02-06-uncertainty-guard-b71.json) → [8规则字段/原包](traces/CAP-02-06-uncertainty-guard-b71-v08.json) → [58项三区/拒绝/未知合成](../docs/capabilities/CAP-02-06/uncertainty-guard-b71-fixtures-v08.json)。NIST TN1297 §6/7公开HTML实读，ISO14253-1和BIPM106仅合法摘要、NIST2014文章仅官方摘要，内生区间策略非ISO默认规则；产品、Owner及独立消费者待验。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B70 R-SIM-PLAYBACK-EVIDENCE-001 Joint累积角与Quaternion呈现分离
+[公开阅读与数学](../docs/capabilities/CAP-09-08/ROTARY-WINDING-B70-2026-10-31.md) → [7来源](sources/CAP-09-08-joint-winding-b70.json) → [8字段规则](traces/CAP-09-08-joint-winding-b70-v08.json) → [55规划合成](../docs/capabilities/CAP-09-08/joint-winding-b70-fixtures-v08.json)。官方LinuxCNC2.9/Babylon/OCCT8.0.1/W3C章节实读；ISO841仅目录、NIST仅摘要，真实消费者与Owner未验。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B69 R-TMPL-APPLICABILITY-003 模板适用三值、量纲及Owner事务
+[研究边界](../docs/capabilities/CAP-05-04/APPLICABILITY-THREE-VALUED-B69-2026-10-31.md) → [6来源](sources/CAP-05-04-applicability-b69.json) → [8规则](traces/CAP-05-04-applicability-b69-v08.json) → [40合成](../docs/capabilities/CAP-05-04/applicability-b69-fixtures-v08.json)。JSON Schema 2020-12公开§6/§9及Core §10定点实读、NIST inch 1959精确定义、ISO14649-10仅公开摘要、W3C PROV-O公开指定章节；三值与CAS为Procet内生工程决议。合成不证明真实D05/NC/17消费者。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B68 R-KNOWLEDGE-POISON-GATE-001 RAG不可信数据写回晋级
+[原CAP补证](../docs/capabilities/CAP-11-07/POISON-PROMOTION-B68-2026-10-31.md) → [7来源](sources/CAP-11-07-poison-gate-b68.json) → [8规则/原T5-01/02/03/04](traces/CAP-11-07-poison-gate-b68-v08.json) → [49合成](../docs/capabilities/CAP-11-07/poison-gate-b68-fixtures-v08.json)。OWASP检索/工具权限公开章节及W3C PROV-O §4实读；NIST AI600-1/SP800-53仅出版摘要/版本，GFM仅§4.7，不外推未读标准正文。V8同函数规划合成，独立Node/真实向量索引/Owner/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B67 R-AUX-MCODE-001 M62/M63运动同步、M64/M65即时及M66真实观测
+[专项研究及阅读分级](../docs/capabilities/CAP-08-04/AUX-IO-FENCES-B67-2026-10-31.md) → [8项来源](sources/CAP-08-04-io-fences-b67.json) → [8条规则/原E3-02/E3-03/U4-04](traces/CAP-08-04-io-fences-b67-v08.json) → [53个显式正反/UNKNOWN/STALE样例](../docs/capabilities/CAP-08-04/io-fences-b67-fixtures-v08.json) → [Node只读脚本](../tools/check_cap0804_io_fences_b67_v08.cjs)。LinuxCNC2.9公开§15—18/HAL实读；ISO6983-1与NIST仅目录摘要，正式Owner0/17，真实独立消费者/L3/NC/OEM NOT_RUN。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B66 R-ROUTEEDIT-001 显式边来源、拓扑排序与传递约简
+[研究](../docs/capabilities/CAP-05-03/EXPLICIT-EDGES-B66-2026-10-31.md) → [9项分级来源](sources/CAP-05-03-explicit-edges-b66.json) → [8规则](traces/CAP-05-03-explicit-edges-b66-v08.json) → [56规划合成](../docs/capabilities/CAP-05-03/explicit-edges-b66-fixtures-v08.json)。NetworkX3.6/Python3.12/W3C PROV-O/RFC9110正文定点阅读，NIST1994只读摘要；真实NC及独立消费者NOT_RUN。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B65 R-MDC-OBSERVABILITY-001 MTConnect V2.5官方Agent/Streams uint64
+[官方Version2.5网页具体段落与适用限制](../docs/capabilities/CAP-10-05/MTCONNECT-U64-FILTER-B65-2026-10-31.md) → [6来源分级](sources/CAP-10-05-mtconnect-u64-b65.json) → [8规则/字段](traces/CAP-10-05-mtconnect-u64-b65-v08.json) → [74独立正反/过期/未知合成](../docs/capabilities/CAP-10-05/mtconnect-u64-b65-fixtures-v08.json)。规划同函数合成；独立Node/真实Agent/D17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B64 R-MDC-OBSERVABILITY-001 OPC订阅通知、ACK与断线追踪
+[OPC官方§5.14/6.7实读与来源限制](../docs/capabilities/CAP-10-05/OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md) → [6来源登记](sources/CAP-10-05-opcua-subscription-b64.json) → [8规则字段](traces/CAP-10-05-opcua-subscription-b64-v08.json) → [68规划合成](../docs/capabilities/CAP-10-05/opcua-subscription-b64-fixtures-v08.json)；仅同函数V8，独立Node和真实D17/OPC/消费者NOT_RUN。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B63 R-DNC-TRANSFER-001 OPC UA FileType精准短读及Session恢复证据
+[官方实读和限制](../docs/capabilities/CAP-10-04/OPCUA-SESSION-SHORTREAD-B63-2026-10-31.md) → [6项来源登记](sources/CAP-10-04-opcua-file-b63.json) → [8规则/字段/原E3-06/T5-03](traces/CAP-10-04-opcua-file-b63-v08.json) → [54项规划合成](../docs/capabilities/CAP-10-04/opcua-file-b63-fixtures-v08.json)。实测OPC UA服务、D15及独立收方均未执行，Owner/L3待人类审批。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B62 R-STAGE-MACHINING-001 残高与表面纹理/实测分层
+[专项研究](../docs/capabilities/CAP-07-05/SCALLOP-QUALIFICATION-B62-2026-10-31.md) → [7项分级来源](sources/CAP-07-05-scallop-b62.json) → [8规则](traces/CAP-07-05-scallop-b62-v08.json) → [43合成](../docs/capabilities/CAP-07-05/scallop-b62-fixtures-v08.json)。ISO21920目录摘要、Sandvik、OCCT8.0.1镜像与NIST两篇官方摘要均严格区分阅读深度；实际产品/Owner签署/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B61 R-CONTINUOUS-5AXIS-001 逆时间与真实运动时序隔离
+[研究与访问深度](../docs/capabilities/CAP-07-04/INVERSE-TIME-FEED-B61-2026-10-31.md) → [5来源](sources/CAP-07-04-inverse-time-b61.json) → [8规则](traces/CAP-07-04-inverse-time-b61-v08.json) → [47合成](../docs/capabilities/CAP-07-04/inverse-time-b61-fixtures-v08.json)。LinuxCNC2.9官方§59/§5实读，NIST仅出版页；独立Node/D13/D14/B5/OEM/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B60 R-INDEXED-POSE-001 面内roll/控制器隔离
+[数学与阅读范围](../docs/capabilities/CAP-07-03/INDEXED-ROLL-B60-2026-10-31.md) → [6来源](sources/CAP-07-03-indexed-roll-b60.json) → [8规则](traces/CAP-07-03-indexed-roll-b60-v08.json) → [41合成](../docs/capabilities/CAP-07-03/indexed-roll-b60-fixtures-v08.json)。OCCT8.0.1及LinuxCNC2.9公开API/章节定点读，ISO841仅目录、NIST论文仅官方摘要；17独立消费者及Owner签署均0/17。**规划PASS≠产品PASS**。
+
+## 2026-10-31｜B59 R-RG-001 共享Mesh实例、Face谱系及GPU拾取代次
+[专门研究](../docs/capabilities/CAP-02-07/RENDER-PICK-IDENTITY-B59-2026-10-31.md) → [6项官方/内部来源及访问限制](sources/CAP-02-07-render-pick-b59.json) → [8规则、字段、原F1-02/F1-03/F1-06/E3-04/U4-02/U4-03](traces/CAP-02-07-render-pick-b59-v08.json) → [2正34反5未知3仅显示，44例](../docs/capabilities/CAP-02-07/render-pick-b59-fixtures-v08.json)。OCCT8.0.1/API、glTF2.0.1、Babylon公开定点正文已读，NISTIR7796仅官方摘要；本地等价Node 44/44，真实GPU/OCCT/Node远端完整Blob/独立消费者NOT_RUN，正式Owner0/17、L3待审。
+
+## 2026-10-31｜B58 R-NC-TRAJECTORY-MODES-001 NC轨迹前瞻与D14时序补证
+[官方章节与数学边界](../docs/capabilities/CAP-09-06/TRAJECTORY-MODES-B58-2026-10-31.md) → [5来源分层](sources/CAP-09-06-trajectory-modes-b58.json) → [8规则](traces/CAP-09-06-trajectory-modes-b58-v08.json) → [61合成正反未知](../docs/capabilities/CAP-09-06/trajectory-modes-b58-fixtures-v08.json)。真实控制器/OEM/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS**。
+
+## 2026-10-31｜B57 R-LEAD-LINK-001 区间几何保守下界补证
+[专项推导](../docs/capabilities/CAP-07-06/CONTINUOUS-LINK-CERT-B57-2026-10-31.md) → [5项来源](sources/CAP-07-06-continuous-b57.json) → [8规则/字段/原包](traces/CAP-07-06-continuous-b57-v08.json) → [49合成正反未知](../docs/capabilities/CAP-07-06/continuous-link-b57-fixtures-v08.json)。OMPL离散采样、OCCT静态距离与FCL连续API边界分开；NIST只读摘要；实际OCCT/机床/17消费者NOT_RUN，L3待审。
+
+## 2026-10-31｜B56 R-NC-SOURCE-EDIT-001 NC字节补丁、UTF-16/OCTET错位及严格UTF-8边界
+[原NC字节补丁算法/来源限制](../docs/capabilities/CAP-08-06/BYTE-EDIT-B56-2026-10-31.md) → [5来源](sources/CAP-08-06-byte-edit-b56.json) → [8规则/字段/原E3-02/E3-03/U4-04等工作包](traces/CAP-08-06-byte-edit-b56-v08.json) → [5正62反5未知合成](../docs/capabilities/CAP-08-06/byte-edit-b56-fixtures-v08.json) → [只读Node工具](../tools/check_cap0806_byte_edit_b56_v08.cjs)。本轮V8同一判定函数72/72规划合成PASS；独立Node文件进程、D13/NC/B5/OEM/17真实消费者NOT_RUN、正式签署0/17及L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B55 17资产独立消费者验收收件证据
+[专项研究](../docs/architecture/v0.8/CONSUMER-PROOF-GATE-B55-2026-10-31.md) → [Pact/CloudEvents/PROV-O/RFC五项官方文档加两份固定GitBlob](sources/FINAL-ASSET-CONSUMER-B55.json) → [8项规则字段和原E3-06/T5-03](traces/FINAL-ASSET-CONSUMER-B55-V08.json) → [44合成正反未知](../docs/architecture/v0.8/consumer-proof-b55-fixtures-v08.json)。真实Owner/消费者0/17，L3待人类审查。
+
+## 2026-10-31｜B54 R-HUMAN-AUTH-001 工具身份/批准范围/CAS
+[官方阅读范围](../docs/capabilities/CAP-11-08/APPROVAL-TOOL-IDENTITY-B54-2026-10-31.md) → [8项来源](sources/CAP-11-08-tool-approval-b54.json) → [9条字段追踪](traces/CAP-11-08-tool-approval-b54-v08.json) → [60正反未知](../docs/capabilities/CAP-11-08/tool-approval-b54-fixtures-v08.json)。MCP 2026-07-28 Tools、Authorization、Security、RFC9110公开章节实读，NIST仅摘要；独立Node/真实Owner/消费者未验，L3待审。
+
+## 2026-10-31｜B53 R-IK-BRANCH-001双驱Joint回零、原点偏置及失效
+[LinuxCNC2.9 Homing/INI正文、ISO230-2目录/NIST摘要与阅读局限](../docs/capabilities/CAP-09-03/HOMING-PHYSICAL-JOINT-B53-2026-10-31.md) → [6来源](sources/CAP-09-03-homing-b53.json) → [8规则字段/原F1-02/E3-04/E3-05/U4-04](traces/CAP-09-03-homing-b53-v08.json) → [40正反未知用例](../docs/capabilities/CAP-09-03/homing-b53-fixtures-v08.json) → [只读Node](../tools/check_cap0903_homing_b53_v08.cjs)。V8同判定函数规划合成40/40，独立Node与实机/17消费者均NOT_RUN；L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B52 R-MET-001相关测量不确定度与候选守护带
+[专项计算与适用界限](../docs/capabilities/CAP-02-06/COVARIANCE-DECISION-B52-2026-10-31.md) → [NIST公开§A.3/§5-7与ISO合法摘要，8项来源](sources/CAP-02-06-covariance-b52.json) → [9条规则](traces/CAP-02-06-covariance-b52-v08.json) → [47项合成](../docs/capabilities/CAP-02-06/covariance-b52-fixtures-v08.json)。关联分量不能按独立RSS忽略；候选规则为内生设计非ISO条文，真实D17及独立Node未执行。规划PASS≠产品PASS。
+
+## 2026-10-31｜B51 R-FRAMEGRAPH-FK-001双分支位姿与机器校准分级
+[Modern Robotics/OCCT/LinuxCNC/NIST阅读范围](../docs/capabilities/CAP-09-02/DUAL-BRANCH-FK-B51-2026-10-31.md) → [6来源](sources/CAP-09-02-dual-branch-b51.json) → [8规则](traces/CAP-09-02-dual-branch-b51-v08.json) → [31正反未知合成](../docs/capabilities/CAP-09-02/dual-branch-b51-fixtures-v08.json)。已读OCCT/LinuxCNC具体方法，Modern Robotics公开课程章目录，NIST两份仅摘要；真实B5、Node进程与消费者NOT_RUN。
+
+## 2026-10-31｜B50 CAP-01-07 三维尺寸编辑：测量/PMI/驱动参数分离
+[专项研究](../docs/capabilities/CAP-01-07/DIMENSION-EDIT-B50-2026-10-31.md) → [9来源](sources/CAP-01-07-dimension-edit-b50.json) → [10规则/字段与原编号工作包](traces/CAP-01-07-dimension-edit-b50-v08.json) → [3正48反5 UNKNOWN合成](../docs/capabilities/CAP-01-07/dimension-edit-b50-fixtures-v08.json) → [只读Node工具](../tools/check_cap0107_dimension_edit_b50_v08.cjs) → [核验等级](../tracking/cap0107-dimension-edit-b50-verification-2026-10-31.json)。OCCT OCAF再生与TDataStd_Real维度废弃问题已补证；V8 56/56同函数合成，不等于真实OCCT/Babylon/GUI/Owner验证，独立Node NOT_RUN。正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B49 R-FREL-001共边祖先与同一性研究
+[OCCT8.0.1/NIST摘要/W3C PROV-O及阅读边界](../docs/capabilities/CAP-03-07/TOPOLOGICAL-EDGE-ANCESTORS-B49-2026-10-31.md) → [6来源](sources/CAP-03-07-edge-ancestors-b49.json) → [8规则](traces/CAP-03-07-edge-ancestors-b49-v08.json) → [40合成正反未知](../docs/capabilities/CAP-03-07/edge-ancestors-b49-fixtures-v08.json)。真实OCCT、Node、17消费者NOT_RUN；L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-31｜B48 R-OFFLINE-MEDIA-001 Windows路径别名与离线ZIP收方研究
+[Windows官方命名/ADS/硬链接/重解析点、Python zipfile及Node fs阅读深度](../docs/capabilities/CAP-10-03/WINDOWS-PATH-ALIASES-B48-2026-10-31.md) → [6来源](sources/CAP-10-03-windows-path-b48.json) → [8规则](traces/CAP-10-03-windows-path-b48-v08.json) → [43合成](../docs/capabilities/CAP-10-03/windows-path-b48-fixtures-v08.json)。不改变CAP-10-03原R05与旧fixtures；真实NTFS/ZIP/NC/D15/消费者与Owner/L3尚未通过，规划PASS≠产品PASS。
+
+## 2026-10-30｜B47 R-CYCLES-MACROS-001 G83啄钻独有中间退刀与快速重入
+[LinuxCNC2.9 G-Codes §47/§61公开正文，NIST仅出版页及原CAP的阅读边界](../docs/capabilities/CAP-08-05/PECK-MOTION-B47-2026-10-30.md) → [4项来源](sources/CAP-08-05-peck-motion-b47.json) → [8规则/字段](traces/CAP-08-05-peck-motion-b47-v08.json) → [46合成正反未知](../docs/capabilities/CAP-08-05/peck-motion-b47-fixtures-v08.json)。B30已覆盖G81/G98/G99/L，此轮不重复；独立Node及真实控制器/NC/D15/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B46 R-WCS-MOTION-001 G53非模态与G52/G92持久性补证
+[LinuxCNC2.9官方§2–5、G-Codes§14/17/33/57–58及阅读边界](../docs/capabilities/CAP-08-03/WCS-OFFSETS-B46-2026-10-30.md) → [5项来源](sources/CAP-08-03-wcs-offsets-b46.json) → [8规则字段/原工作包](traces/CAP-08-03-wcs-offsets-b46-v08.json) → [8正、56单字段反、3 UNKNOWN；合计67项V8同函数合成](../docs/capabilities/CAP-08-03/wcs-offsets-b46-fixtures-v08.json)。跨重启未知返回UNKNOWN，独立Node/真实D13-D15/Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B45 R-FREEZE-001 三方合并、DAG和冻结闭包补证
+[Git官方合并/merge-base、RFC9110/W3C正文及NIST摘要](../docs/capabilities/CAP-05-06/FREEZE-MERGE-B45-2026-10-30.md) → [来源](sources/CAP-05-06-freeze-merge-b45.json) → [追踪](traces/CAP-05-06-freeze-merge-b45-v08.json) → [33项规划正反未知](../docs/capabilities/CAP-05-06/freeze-merge-b45-fixtures-v08.json)。真实Node/Owner/NC及独立消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B44中立CL姿态与机器角的语义证据
+[Autodesk/OCCT/LinuxCNC官方正文定点阅读、NIST仅摘要与原CAP](../docs/capabilities/CAP-07-07/CL-POST-SEMANTICS-B44-2026-10-30.md) → [来源](sources/CAP-07-07-cl-post-b44.json) → [追踪](traces/CAP-07-07-cl-post-b44-v08.json) → [合成](../docs/capabilities/CAP-07-07/cl-post-b44-fixtures-v08.json)。真实消费者NOT_RUN，L3待审。
+
+## 2026-10-30｜B43 R-AUX-MCODE-001 INI例外与HAL回环
+[官方LinuxCNC 2.9 M/INI/HAL/ToolComp与Haas仅摘要](../docs/capabilities/CAP-08-04/CHANGEOVER-EVIDENCE-B43-2026-10-30.md) → [6来源](sources/CAP-08-04-changeover-b43.json) → [8规则](traces/CAP-08-04-changeover-b43-v08.json) → [45合成](../docs/capabilities/CAP-08-04/changeover-b43-fixtures-v08.json)。不能把M6默认动作或HAL软件回环当物理换刀/D15认证。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B42 R-PROCESS-KNOWLEDGE-001词表传递、Shapes验证与撤权
+[SKOS/SHACL/PROV-O/RFC9111定点正文及NIST摘要](../docs/capabilities/CAP-11-02/KNOWLEDGE-CONFORMANCE-B42-2026-10-30.md) → [6来源](sources/CAP-11-02-knowledge-conformance-b42.json) → [8规则字段](traces/CAP-11-02-knowledge-conformance-b42-v08.json) → [46合成验收](../docs/capabilities/CAP-11-02/knowledge-conformance-b42-fixtures-v08.json)；不宣称实际RDF/SHACL、业务Owner或NC认证。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B41 R-SIM-PLAYBACK-EVIDENCE-001 重复调用实例与播放只读边界
+[LinuxCNC O-code/W3C WebAnimations WD/PROV-O/OCCT8.0.1/NIST摘要的分层研究](../docs/capabilities/CAP-09-08/REPLAY-INSTANCES-B41-2026-10-30.md) → [6来源](sources/CAP-09-08-replay-instances-b41.json) → [8规则](traces/CAP-09-08-replay-instances-b41-v08.json) → [56合成正反未知](../docs/capabilities/CAP-09-08/replay-instances-b41-fixtures-v08.json)。Seek和负速率只更改显示，微秒缺口必须显式未知；真实D13/D14/D15和独立消费者NOT_RUN。
+
+## 2026-10-30｜B40 R-FIELD-ECN-001 D17现场观察代次/时间/来源链补证
+[MTConnect2.5目录、2.4公开示例/W3C PROV-O/NIST IR8536分层阅读与适用边界](../docs/capabilities/CAP-10-07/EVENT-PROVENANCE-B40-2026-10-30.md) → [6来源](sources/CAP-10-07-event-provenance-b40.json) → [8规则及原E3-06/T5-03](traces/CAP-10-07-event-provenance-b40-v08.json) → [77规划合成正反未知](../docs/capabilities/CAP-10-07/event-provenance-b40-fixtures-v08.json)。时间相交只是候选关联、D17更正另记、NC复验不可由报警状态代签；真实现场/Node/独立Owner消费者均NOT_RUN。
+
+## 2026-10-30｜B39 R-UI3D-001 U4-05输入事件优先级与可达性补证
+[正式WCAG2.2/PointerEvents3、APG、MDN及固定内部规格分层](../docs/work-packages/U4-05/ESC-FOCUS-B39-2026-10-30.md) → [7来源](sources/U4-05-esc-focus-b39.json) → [8规则字段/原包](traces/U4-05-esc-focus-b39-v08.json) → [64正反未知合成](../docs/work-packages/U4-05/esc-focus-b39-fixtures-v08.json)。12px文本上限≠12px命中区，尺寸例外UNKNOWN；真实浏览器/IME/Babylon/Owner/17消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
+## 2026-10-30｜B38 R-RELEASE-APPROVAL-001 离线证书撤销与TSA时间证据资格
+[研究/阅读边界](../docs/capabilities/CAP-10-02/OFFLINE-REVOCATION-B38-2026-10-30.md) → [5项来源](sources/CAP-10-02-offline-revocation-b38.json) → [8规则字段及正反追踪](traces/CAP-10-02-offline-revocation-b38-v08.json) → [合成用例](../docs/capabilities/CAP-10-02/offline-revocation-b38-fixtures-v08.json)。RFC5280/3161/8785官方公开指定HTML实读、NIST仅摘要；真实密码学与独立消费者NOT_RUN，L3待审。
+
+## 2026-10-30｜B37 R-WCS-MOTION-001进给模态与时间证据
+[LinuxCNC2.9§59/Overview§23–25公开正文、NIST仅摘要、RFC首页及原CAP固定Blob](../docs/capabilities/CAP-08-03/FEED-MODES-B37-2026-10-30.md) → [5来源](sources/CAP-08-03-feed-modes-b37.json) → [8规则字段](traces/CAP-08-03-feed-modes-b37-v08.json) → [4正39反1未知](../docs/capabilities/CAP-08-03/feed-modes-b37-fixtures-v08.json)。V8同判定函数44/44合成，独立Node/真实D13-D15/Owner消费者NOT_RUN，L3待审。
+
+## 2026-10-30｜B36 R-WH-001夹具能力与监测证据资格
+[OCCT8.0.1 API、OPC官方版本目录、NIST摘要、RFC9110及原CAP研究](../docs/capabilities/CAP-02-04/WORKHOLDING-B36-2026-10-30.md) → [5来源](sources/CAP-02-04-workholding-b36.json) → [8规则](traces/CAP-02-04-workholding-b36-v08.json) → [正反未知验收](../docs/capabilities/CAP-02-04/workholding-b36-fixtures-v08.json)。独立Node/真实消费者NOT_RUN，L3待审。
+
+## 2026-10-30｜B35 R-SOLVER-ADOPT-001约束可比、非支配与来源冻结
+[来源/数学反例与阅读边界](../docs/capabilities/CAP-05-05/PARETO-ADOPTION-B35-2026-10-30.md) → [五份登记](sources/CAP-05-05-pareto-adoption-b35.json) → [7规则/字段/原包](traces/CAP-05-05-pareto-adoption-b35-v08.json) → [50合成用例](../docs/capabilities/CAP-05-05/pareto-adoption-b35-fixtures-v08.json)。NIST仅摘要，独立Node/实际Solver/消费者NOT_RUN，L3待审。
+
+## 2026-10-30｜B34 R-CONTINUOUS-5AXIS-001 姿态双覆盖与Jacobian奇异门禁
+[来源读深与边界](../docs/capabilities/CAP-07-04/ORIENTATION-IK-B34-2026-10-30.md) → [五来源](sources/CAP-07-04-orientation-ik-b34.json) → [八规则](traces/CAP-07-04-orientation-ik-b34-v08.json) → [单字段验收](../docs/capabilities/CAP-07-04/orientation-ik-b34-fixtures-v08.json)。Modern Robotics只读官方章节简介、LinuxCNC2.9与OCCT8.0.1定点实读；合成与实机分离，L3待审。
+
+## 2026-10-30｜B33 R-LIMIT-COLLISION-001 连续碰撞区间资格
+[固定FCL README与公开API、MoveIt、OCCT8.0.1、Rapier/内生规格](sources/CAP-09-07-ccd-interval-b33.json) → [8条可机检规则](traces/CAP-09-07-ccd-interval-b33-v08.json) → [2正30反/首碰t=0.25](../docs/capabilities/CAP-09-07/ccd-interval-b33-fixtures-v08.json)。区分端点/静态距离、真实旋转Joint和区间证据；V8同函数32/32，独立Node/FCL/OCCT/OEM/真实消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
+## 2026-10-30｜B32 R-TA-001 量规长、夹持、OEM刀补与双层绑定
+[ISO13399合法目录及LinuxCNC2.9/Haas/Sandvik公开正文分级](../docs/capabilities/CAP-02-03/GAUGE-OFFSET-B32-2026-10-30.md) → [6来源](sources/CAP-02-03-gauge-offset-b32.json) → [8规则字段/原包](traces/CAP-02-03-gauge-offset-b32-v08.json) → [2正56反](../docs/capabilities/CAP-02-03/gauge-offset-b32-fixtures-v08.json)。V8同函数合成58/58，独立Node/OEM实测/D10-D16消费者NOT_RUN，L3待审批。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B31 CAP-03-05装配Occurrence/Face谱系与重绑资格
+[OCCT8.0.1三份官方API实读、ISO10303-242:2025仅公开目录、NIST2015仅摘要、原CAP固定Blob](../docs/capabilities/CAP-03-05/ASSEMBLY-FACE-B31-2026-10-30.md) → [6份来源](sources/CAP-03-05-assembly-face-b31.json) → [8规则/字段/原包](traces/CAP-03-05-assembly-face-b31-v08.json) → [4正50负合成](../docs/capabilities/CAP-03-05/assembly-face-b31-fixtures-v08.json)。V8同函数54/54；独立Node、实际OCCT、D02/D05消费者、Owner和L3仍NOT_RUN/PENDING。**规划PASS≠产品PASS。**
+
+## 2026-10-30｜B30 R-NCEXEC-001 G81返回平面与增量循环
+[LinuxCNC2.9 §43–45/61实读及NIST仅目录的局限](../docs/work-packages/E3-03/CANNED-RETRACT-B30-2026-10-30.md) → [5来源](sources/E3-03-canned-retract-b30.json) → [8规则字段](traces/E3-03-canned-retract-b30-v08.json) → [55合成正反未知](../docs/work-packages/E3-03/canned-retract-b30-fixtures-v08.json)。独立Node及真实D13/D14/D15/OEM均NOT_RUN，L3待审。
+
+## 2026-10-30｜R-AGENT-ORCHESTRATION-001 B29 MCP版本迁移/授权目录缓存
+[2026-07-28官方Versioning、Tools、Authorization、2025-11-25旧Tools与发布说明的读深](../docs/capabilities/CAP-11-04/MCP-VERSION-CACHE-B29-2026-10-30.md) → [6来源](sources/CAP-11-04-mcp-version-cache-b29.json) → [8规则到字段/原T5-01/T5-02/机器验收](traces/CAP-11-04-mcp-version-cache-b29-v08.json) → [3正45反](../docs/capabilities/CAP-11-04/mcp-version-cache-b29-fixtures-v08.json)。最新2026协议引入逐请求元数据/缓存/MRTR，不能复用旧初始化假设；仅合成规划，SDK/Owner真实验收NOT_RUN，L3待审。
+
+## 2026-10-30｜R-NCEXEC-001 B28 D13圆弧语义补证
+[LinuxCNC2.9公开章节、NIST元数据及内生规则](../docs/work-packages/E3-03/ARC-MODAL-B28-2026-10-30.md) → [4来源](sources/E3-03-arc-modal-b28.json) → [8规则](traces/E3-03-arc-modal-b28-v08.json) → [5正16反](../docs/work-packages/E3-03/arc-modal-b28-fixtures-v08.json)。独立NC/Node/机床NOT_RUN，L3待审。
+
+## 2026-10-30｜B27 R-ORACLE-CONVERGENCE-001 OCCT积分/独立Oracle补证
+[实读API和NIST仅摘要](../docs/capabilities/CAP-06-07/ORACLE-OPTIONS-B27-2026-10-30.md) → [6来源](sources/CAP-06-07-oracle-options-b27.json) → [8可证伪规则](traces/CAP-06-07-oracle-options-b27-v08.json) → [合成反例](../docs/capabilities/CAP-06-07/oracle-options-b27-fixtures-v08.json)；BRepCheck参数、VolumePropertiesGK真实重载、零距离非无穿透，Node/OCCT/消费者NOT_RUN。
+
+## 2026-10-30｜R-CAP0606-WORKER-LEASE-B26 Worker失联预算与取消Fence
+[研究阅读深度](../docs/capabilities/CAP-06-06/WORKER-LEASE-B26-2026-10-30.md) → [5来源](sources/CAP-06-06-worker-lease-b26.json) → [8规则/原包](traces/CAP-06-06-worker-lease-b26-v08.json) → [2正31反](../docs/capabilities/CAP-06-06/worker-lease-b26-fixtures-v08.json)。核阅OCCT8.0.1、Python3.14.10、Tokio1.54.1、SQLite官方章节；仅V8合成，真实Worker与产品未验。
+
+## 2026-10-30｜B25 D07封存字节及双层摘要研究
+[实际来源深度](sources/CAP-06-05-seal-hash-b25.json) → [7规则字段/原F1-05/W2-02/03/06](traces/CAP-06-05-seal-hash-b25-v08.json) → [1正47反](../docs/capabilities/CAP-06-05/seal-hash-b25-fixtures-v08.json)。RFC8785只对合规JSON适用，不能对原始BRep规范化。Node/OCCT/D07/NC/Owner仍NOT_RUN/PENDING。
+
+## 2026-10-30｜R-CAP0604-B24：保护区余料/OCCT Glue
+[OCCT8.0.1与W3C选读/数学推导](../docs/capabilities/CAP-06-04/RESIDUAL-GLUE-B24-2026-10-30.md) → [4项来源](sources/CAP-06-04-residual-glue-b24.json) → [7规则](traces/CAP-06-04-residual-glue-b24-v08.json) → [2正30反](../docs/capabilities/CAP-06-04/residual-glue-b24-fixtures-v08.json)。实际Node/OCCT/产品NOT_RUN，L3待审。
+
+## 2026-10-29｜R-BREP-HISTORY-B23 OCCT布尔历史谱系与简化前后ID审查
+[OCCT8.0.1官方历史章节、API、NIST1994摘要、W3C及原固定Blob](../docs/capabilities/CAP-06-03/BREP-HISTORY-B23-2026-10-29.md) → [7登记](sources/CAP-06-03-brep-history-b23.json) → [7规则/字段/原包](traces/CAP-06-03-brep-history-b23-v08.json) → [1正40反合成](../docs/capabilities/CAP-06-03/brep-history-b23-fixtures-v08.json)。不把Generated为空当未变更、不把Plan合成当产品Boolean，独立Node/OCCT/17消费者NOT_RUN，L3待审。
+
+## 2026-10-29｜R-PMI-001 B22 PMI源清单、Reader损失与冻结资格
+[公开来源阅读深度](../docs/capabilities/CAP-03-04/PMI-LOSS-LEDGER-B22-2026-10-29.md) → [5登记](sources/CAP-03-04-pmi-loss-b22.json) → [8规则/字段/包/验收](traces/CAP-03-04-pmi-loss-b22-v08.json)。ISO/NIST论文仅目录摘要，真实STEP和产品NOT_RUN。规划PASS≠产品PASS。
+
+## 2026-10-29｜R-FIX-001 B21 unilateral rank与接触形闭合资格
+[Modern Robotics §12.1.7/§12.2.3、Carr Lane、NIST摘要、ISO目录/内生CAP源深度](../docs/capabilities/CAP-04-03/UNILATERAL-CONTACT-B21-2026-10-29.md) → [7条来源→规则→字段→原CAP/工作包](traces/CAP-04-03-unilateral-b21-v08.json) → [2正29反合成](../docs/capabilities/CAP-04-03/unilateral-b21-fixtures-v08.json)。六条3-2-1接触rank6仍有x/z非穿透分离Twist；只验证给定见证，不求通用LP。V8 31/31合成、真实独立Node/物理稳定/NC/17消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
+## 2026-10-29｜B20 R-STOCKREG-001可辨识性与刚体资格研究增量
+[六项公开来源与一项内生规格、阅读局限](../docs/capabilities/CAP-04-02/ROBUST-REGISTRATION-B20-2026-10-29.md) → [9条来源→字段→CAP-04-02/原F1/U4包→独立验收](traces/CAP-04-02-robust-b20-v08.json)；ISO5459仅摘要、Umeyama原论文未读，合成39/39不证明产品配准/测量合格，Owner/消费者0/17、L3待审。
+
+## 2026-10-29｜R-UI3D-B19 WebGL恢复与领域状态隔离
+[WebGL1.0.3/Khronos扩展/MDN/Babylon官方合法正文与阅读局限](../docs/capabilities/CAP-01-07/WEBGL-RECOVERY-B19-2026-10-29.md) → [4来源、8规则→字段/CAP-01-07/原U4包](traces/CAP-01-07-webgl-recovery-b19-v08.json) → [1正26单字段反例](../docs/capabilities/CAP-01-07/webgl-recovery-b19-fixtures-v08.json)；原7项UI3D研究来源不覆盖，新增只在本补证追踪。V8合成已执行；独立Node/浏览器/17消费者NOT_RUN，L3待人审。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜R-FINAL-MD-B18 Git mode/symlink/gitlink与本地AST可信等级
+[GitHub官方Tree/GFM/相对链接合法来源与局限](../docs/architecture/v0.8/第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则/字段/CAP/原包](traces/FINAL-MD-B18-GITMODE-V08.json) → [13项合成正反](../docs/architecture/v0.8/final-md-b18-gitmode-fixtures-v08.json) · [只读Git模式检查器](../tools/check_final_md_b18_gitmode_v08.py)。本地合成及真实临时Git对象PASS；当前仓0个gitlink/symlink，真实全仓AST未运行，Owner与L3未批准；不改127 Registry原记录。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜R-FINAL-OWNER-EDGE-B17 业务类型边、实例revision与独立回执
+[合法来源/已读章节与局限](../docs/architecture/v0.8/第十七轮17资产44关系边准入与撤权回执交接_2026-10-29.md) → [复用ASOWN-S01/S03/S04/S06/S07的8条可追踪规则](traces/FINAL-ASSET-B17-EDGE-HANDOFF-V08.json) → [1正39反样例](../docs/architecture/v0.8/final-asset-b17-edge-fixtures-v08.json)。不更改127注册表/1075旧来源登记，独立Node未执行，正式签署及真实消费者0/17。
+
+## 2026-10-29｜R-FINAL-MD-B16 GFM解析Token/HTML锚点/根路径与UNKNOWN资格
+[公开官方规范及实读深度](../docs/architecture/v0.8/第十六轮GFM-AST链接与锚点初审_2026-10-29.md) → [六来源六规则→字段/CAP/原包](traces/FINAL-MARKDOWN-B16-AST-V08.json) → [18独立合成+2代码惰性](../docs/architecture/v0.8/final-markdown-b16-ast-fixtures-v08.json) · [Python只读AST检查器](../tools/check_final_md_b16_ast_v08.py)。本地合成PASS，543份固定HEAD全仓AST实际NOT_RUN，Unicode/复杂slug待GitHub渲染复核、Owner/L3/产品待验收。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜R-FINAL-MD-B15 Git提交与Tree对象身份勘误
+[实际对象SHA和GitHub官方文档深度](../docs/architecture/v0.8/第十五轮Git提交与Tree身份勘误_2026-10-29.md) → [5条证据规则](traces/FINAL-MARKDOWN-B15-TREE-V08.json) → [1正16反](../docs/architecture/v0.8/final-markdown-b15-tree-fixtures-v08.json) · [只读Node](../tools/check_final_md_b15_tree_v08.cjs)。只纠正B14 audit tree字段，GFM AST与产品NOT_RUN。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜E3-06 B13跨平台离线ZIP路径与目标文件身份
+[Microsoft Win32、Python zipfile、TUF 1.0.36与RFC8785实际阅读范围](../docs/work-packages/E3-06/OFFLINE-PORTABLE-B13-2026-10-29.md) → [7规则来源/字段/原包](traces/E3-06-offline-portable-b13-trace-v08.json) → [31项规划合成案例](../docs/work-packages/E3-06/offline-portable-b13-fixtures-v08.json)。不把Node预检当真实ZIP解包/验签/NC发布验证。L3待审批、17 Owner和17消费者仍0。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜R-D15-INTERVAL-B12：连续区间保守界证据等级
+[OCCT8.0.1/LinuxCNC2.9/W3C/NIST来源深度与数学反例](../docs/work-packages/E3-05/D15-INTERVAL-B12-2026-10-29.md) → [来源/6规则/字段/原编号包](traces/E3-05-d15-interval-b12-v08.json) → [端点漏碰撞及浮点边界反例](../docs/work-packages/E3-05/d15-interval-b12-fixtures-v08.json)。NIST仅元数据、产品/独立消费者未运行。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜R-D14-TIMING-B11：D13→D14多进给时序与物理Joint映射资格
+[LinuxCNC 2.9三个HTML公开章节、ISO841官方摘要与范围](../docs/work-packages/E3-04/D14-TIMING-B11-2026-10-29.md) → [7规则到字段/CAP/原工作包](traces/E3-04-d14-timing-b11-v08.json) → [41合成正反及名义时间案例](../docs/work-packages/E3-04/d14-timing-b11-fixtures-v08.json)。G93 F2名义30秒不能认证控制器实际运行；G64无容差不升格D15。V8同逻辑41/41；独立Node/产品/真实消费者NOT_RUN、Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜R-D13-MODAL-B10 控制器模态与已装载刀长证据
+[官方LinuxCNC 2.9公开章节和NIST仅元数据范围](../docs/capabilities/CAP-09-07/D13-MODAL-B10-2026-10-29.md) → [6规则与作者/版本/日期/局限](traces/CAP-09-07-d13-modal-b10-v08.json) → [28项单字段正反](../docs/capabilities/CAP-09-07/d13-modal-b10-fixtures-v08.json)。不替代控制器实测或独立D15，Owner/L3待签。规划PASS≠产品PASS。
+
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B08：CAD/资源/Setup 56份SHA证据
+[56份Git原Blob/SHA与247项已识别行内相对链接](audits/FINAL-HISTORY-LINK-B08-2026-10-29.json) → [六条来源/规则/字段/CAP/原包](traces/FINAL-HISTORY-LINK-B08-V08.json) → [27条正反场景](../docs/architecture/v0.8/final-history-link-b08-fixtures-v08.json) · [Node只读](../tools/check_final_history_link_b08_v08.cjs) · [研究局限](../docs/architecture/v0.8/第八轮跨域规格链接冻结与追踪门禁_2026-10-29.md)。同HEAD累计288/535份路径SHA，247份待验；全仓AST、完整Node进程、真实产品/消费者仍NOT_RUN，Owner0/17、L3待人审，规划PASS≠产品PASS。
+
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B07：B0-04缺件修复与36份工作包证据
+[36份Git原Blob与130项行内路径](audits/FINAL-HISTORY-LINK-B07-2026-10-29.json) → [10项新编原编号包子任务](../docs/work-packages/B0-04/subtasks.json) → [六条研究规则](traces/FINAL-HISTORY-LINK-B07-V08.json) → [25项正反设计验收](../docs/architecture/v0.8/final-history-link-b07-fixtures-v08.json) · [Node只读](../tools/check_final_history_link_b07_v08.cjs) · [原文/来源与局限](../docs/architecture/v0.8/第七轮B0-04缺失子任务与链接补证_2026-10-29.md)。确实发现B0-04/02到subtasks.json断链并用NEWLY_AUTHORED规划规格补齐，非恢复历史附件；四批路径SHA合计232/534（同快照），剩302尚未冻结，AST/全仓/真实Node/产品NOT_RUN，17正式Owner与独立消费者0、L3待审。规划PASS≠产品PASS。
+
+## 2026-10-29｜第六轮终核：AI/早期规格Markdown路径解码与SHA链
+[50份逐原Blob/SHA、403行内链接、1条%20误报修正](audits/FINAL-HISTORY-LINK-B06-2026-10-29.json) → [6规则](traces/FINAL-HISTORY-LINK-B06-V08.json) → [20项V8正反及8 URI、4设计门禁](../docs/architecture/v0.8/final-history-link-b06-fixtures-v08.json) · [只读Node](../tools/check_final_history_link_b06_v08.cjs) · [研究边界](../docs/architecture/v0.8/第六轮AI与历史规格链接审计_2026-10-29.md)。当前HEAD旧B05索引移动已避重，B04+B05+B06在基线533份中**196份逐SHA清单**，其余337；尚非全仓AST或产品PASS，Node/NC/B5/17消费者NOT_RUN，17 Owner、L3待人审。
+
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B05：NC文档静态证据与D13–D16工程语义隔离
+[50份Git Blob/283行内链接/旧B04 96份未变](audits/FINAL-HISTORY-LINK-B05-2026-10-29.json) → [6条来源→字段→CAP/原包规则](traces/FINAL-HISTORY-LINK-B05-V08.json) → [18规划正反+5待运行状态门禁](../docs/architecture/v0.8/final-history-link-b05-fixtures-v08.json) · [只读Node](../tools/check_final_history_link_b05_v08.cjs) · [研究局限](../docs/architecture/v0.8/第五轮NC与发布证据链接审计_2026-10-29.md)。不把静态链接、CL预览冒充NC解释/独立消费者/L3/OEM，未运行产品；历史原附件未恢复。规划PASS≠产品PASS。
+
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B04：冻结96文件路径SHA与链接增量复查
+[96份Git Blob/290项相对目的地及前轮样本失效分级](audits/FINAL-HISTORY-LINK-B04-2026-10-29.json) → [五条来源/字段/CAP/原包规则](traces/FINAL-HISTORY-LINK-B04-V08.json) → [25项规划正反门禁](../docs/architecture/v0.8/final-history-link-b04-fixtures-v08.json) → [只读Node](../tools/check_final_history_link_b04_v08.cjs) · [来源深度和后续交接](../docs/architecture/v0.8/第四轮Markdown链接审计与跨HEAD失效_2026-10-29.md)。**仅本轮96份明确清单校验、290项启发式路径0缺失；531份快照未全读，旧快照150份未给路径清单，不能拼成全仓PASS。** Owner/L3/NC/B5/独立消费者仍未通过。规划PASS≠产品PASS。
+
+## 2026-10-29｜R-FINAL-HISTORY-LINK-B03：文件引用与原字节真实性
+[150份Git Blob的1273项相对目的地样本和5类历史原件缺口](audits/FINAL-HISTORY-LINK-B03-2026-10-29.json) → [6条规则与字段/CAP/包](traces/FINAL-HISTORY-LINK-B03-V08.json) → [17项合成正反门禁](../docs/architecture/v0.8/final-history-link-b03-fixtures-v08.json) · [只读Node](../tools/check_final_history_link_b03_v08.cjs) · [来源深度与交接](../docs/architecture/v0.8/最终附件原字节与链接闭环第三轮_2026-10-29.md)。**380份MD待扫、原字节未恢复，完全终核不通过；L3/Owner/产品未验收。**
+
+## 2026-10-29｜R-FINAL-HANDOFF-B02 17资产风险与交接独立门禁
+[17资产/11域/10零边包风险数据](audits/FINAL-RISK-HANDOFF-B02-2026-10-29.json) → [6条规则与来源](traces/FINAL-RISK-HANDOFF-B02-V08.json) → [204项合成门禁](../docs/architecture/v0.8/final-risk-handoff-b02-fixtures-v08.json) → [独立Node只读工具](../tools/check_final_risk_handoff_b02_v08.cjs) · [研究局限、风险及正式交接](../docs/architecture/v0.8/V08最终风险与交接第二轮_2026-10-29.md)。外部网页本轮定点3项，Owner0/17、独立消费者0/17、Node/NC/OCCT/B5 NOT_RUN，L3 PENDING_HUMAN；规划PASS≠产品PASS。
+
+## 2026-10-29｜R-FINAL-CROSS-COVERAGE-B01来源成熟度与跨域静态终核
+[精确HEAD的88 CAP/36包/17Owner/127Registry证据](audits/FINAL-CROSS-COVERAGE-B01-2026-10-29.json) → [6条规则](traces/FINAL-CROSS-COVERAGE-B01-V08.json) → [6正10单字段反](../docs/architecture/v0.8/final-cross-coverage-b01-fixtures-v08.json) · [SSDF Final/Draft及局限报告](../docs/architecture/v0.8/跨域终核首轮与证据升级_2026-10-29.md)。复核PROV-O、RFC8785与NIST 1.1 Final/1.2 Draft官网指定HTML，均不冒称产品验收/未读PDF条款。528份MD全仓扫描、历史原始附件、Owner/消费者与风险终核仍待。
+
+## 2026-10-29｜最后7份Registry及跨资源资格
+[本批55来源](audits/REGISTRY-AUDIT-B13-2026-10-29.json) → [4规则](traces/REGISTRY-AUDIT-B13-CROSSRESOURCE-V08.json) → [35合成案例](../docs/architecture/v0.8/registry-audit-b13-fixtures-v08.json) · [研究限制](../docs/architecture/v0.8/研究注册第十三批证据审计_2026-10-29.md)。结构127/127、1075/1075已遍历，外部正文重访111登记，非去重；真实Node/产品/消费者NOT_RUN，Owner0/17，L3待审，历史附件和最终风险交接未闭。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B12机床测试与NC执行证据边界
+[111—120份研究原Blob及7外部页](audits/REGISTRY-AUDIT-B12-2026-10-28.json) → [CAP-04-06两来源缺口新增3条工程规则](traces/CAP-04-06-b12-evidence-supplement-v08.json) → [35机器可检规划用例](../docs/architecture/v0.8/registry-audit-b12-fixtures-v08.json) · [局限/交接](../docs/architecture/v0.8/研究注册第十二批证据审计_2026-10-28.md)。累计120/127、1020/1075登记，ISO/NIST均未读付费/PDF正文；独立Node/产品/Owner/L3未通过。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B11 工单/离线交付/AI引用新规则
+[第101—110份研究Blob与8项外页定点复核](audits/REGISTRY-AUDIT-B11-2026-10-28.json) → [四条跨域规则](traces/REGISTRY-AUDIT-B11-CROSSDOMAIN-V08.json) → [58个机器可检规划用例](../docs/architecture/v0.8/registry-audit-b11-fixtures-v08.json) → [研究解释及边界](../docs/architecture/v0.8/研究注册第十一批证据审计_2026-10-28.md)。原同名Trace90/90，累计110/127 Registry与933/1075登记（非去重文献），Node/产品/Owner待验收；规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B10 ISO机床几何测试范围研究
+[91—100原Blob/8外部公开页](audits/REGISTRY-AUDIT-B10-2026-10-28.json) → [CAP-09-07新增三规则](traces/CAP-09-07-iso10791-scope-supplement-v08.json) → [46规划正反/门禁](../docs/architecture/v0.8/registry-audit-b10-fixtures-v08.json) · [研究边界](../docs/architecture/v0.8/研究注册第十批证据审计_2026-10-28.md) · [Node只读校验器](../tools/check_registry_audit_b10_v08.cjs)。累计100/127 Registry、843/1075条，独立Node/产品与Owner/L3未验收；ISO未读正文，不外推B5。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B09 原NC/工具表文件与已加载状态分离
+
+[十份原Git Blob、84来源及7项实读公开页](audits/REGISTRY-AUDIT-B09-2026-10-28.json) → [CAP-08-06增量三规则](traces/CAP-08-06-tooltable-loaded-state-supplement-v08.json) → [41正反/发布门禁](../docs/architecture/v0.8/registry-audit-b09-fixtures-v08.json) · [研究及局限](../docs/architecture/v0.8/研究注册第九批证据审计_2026-10-28.md) · [Node只读验证](../tools/check_registry_audit_b09_v08.cjs)。累计90/127份、754/1075条登记（非去重出版物）；独立Node文件进程、产品/消费者NOT_RUN，Owner/L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-28｜第八批Registry与T5-05消费者证据边界
+[10份原Registry/Trace SHA和9项官方公开页](audits/REGISTRY-AUDIT-B08-2026-10-28.json) → [T5-05追加研究规则](traces/T5-05-independent-consumer-supplement-v08.json) → [36项验收](../docs/architecture/v0.8/registry-audit-b08-fixtures-v08.json)。累计80/127、670/1075（均非去重文献）；Schema不代表独立消费者运行，CL动画不代表最终NC验证。Node/产品与正式签署NOT_RUN。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B07 第七批原同名Trace与U4-02 WCAG补证
+[10份91登记及10项官方实读范围](audits/REGISTRY-AUDIT-B07-2026-10-28.json) → [U4-02唯一同名显式来源缺口增量规则](traces/U4-02-accessibility-supplement-v08.json) → [34规划案例](../docs/architecture/v0.8/registry-audit-b07-fixtures-v08.json) → [Node只读工具](../tools/check_registry_audit_b07_v08.cjs) · [专题、局限及交接](../docs/architecture/v0.8/研究注册第七批证据审计_2026-10-28.md)。累计70/127、576/1075，外部定点复核66项登记而非独立论文；独立Node/产品/消费者NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B06 跨Trace原始显式ID核验
+[第51—60份/92条与原Blob](audits/REGISTRY-AUDIT-B06-2026-10-28.json) → [唯一缺失SRC-U401-S01增量研究](traces/U4-01-accessibility-supplement-v08.json) → [29规划案例](../docs/architecture/v0.8/registry-audit-b06-fixtures-v08.json) · [独立校验](../tools/check_registry_audit_b06_v08.cjs)。本批无内联rules但原同名Trace91/92显式；补证不改历史。累计60/127、485/1075，产品NOT_RUN。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B05 第五批研究来源与规则
+[41—50份原Registry/十项外部网页](audits/REGISTRY-AUDIT-B05-2026-10-28.json) → [142正反和门禁的机器可检数据](audits/REGISTRY-AUDIT-B05-2026-10-28.json) → [Node只读工具](../tools/check_registry_audit_b05_v08.cjs) → [局限与交接](../docs/architecture/v0.8/研究注册第五批证据审计_2026-10-28.md)。累计50/127 Registry、393/1075记录，实际产品NOT_RUN。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B04第四批来源追踪
+[31—40份原Blob/84条结构登记/10个公开网页定点核阅](audits/REGISTRY-AUDIT-B04-2026-10-28.json) → [10条规则与CAP/原编号包](traces/REGISTRY-AUDIT-B04-V08.json) → [148项独立正反与门禁](../docs/architecture/v0.8/registry-audit-b04-fixtures-v08.json) → [局限和跨Trace待办](../docs/architecture/v0.8/研究注册第四批证据审计_2026-10-28.md)。累计40/127份、309/1075条，原来源字节不变。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B03第三批原Blob与来源字段追踪
+[第21—30份/71条结构记录/10条公开HTML实读](audits/REGISTRY-AUDIT-B03-2026-10-28.json) → [10条CAP及原包规则](traces/REGISTRY-AUDIT-B03-V08.json) → [10正100独立反8门禁](../docs/architecture/v0.8/registry-audit-b03-fixtures-v08.json) → [局限与待消歧](../docs/architecture/v0.8/研究注册第三批证据审计_2026-10-28.md)。累计30/127份、225/1075登记；22条无内联规则不等于无研究。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B02 研究注册第二批来源与规则审计
+[第11—20份/37登记/十份官方原页选读](audits/REGISTRY-AUDIT-B02-2026-10-28.json) → [10规则/字段/CAP/原编号包](traces/REGISTRY-AUDIT-B02-V08.json) → [100正反及8门禁](../docs/architecture/v0.8/registry-audit-b02-fixtures-v08.json) → [本批解释和限制](../docs/architecture/v0.8/研究注册第二批证据审计_2026-10-28.md)。累计20/127与154/1075，重复URL不可当作去重论文；独立Node/产品/消费者NOT_RUN，L3待审。
+
+## 2026-10-28｜R-REGISTRY-AUDIT-B01 注册表结构与来源推论第一批终核
+[10份117登记/6官方公开原始网页](audits/REGISTRY-AUDIT-B01-2026-10-28.json) → [6项工程规则+字段/CAP/原工作包](traces/REGISTRY-AUDIT-B01-V08.json) → [54合成正反案例](../docs/architecture/v0.8/registry-audit-b01-fixtures-v08.json) → [审计解释与限制](../docs/architecture/v0.8/研究注册第一批证据审计_2026-10-28.md)。旧10个Registry原字节保留，117条未逐篇重查仅6项当轮公开官方页已核；无内联rules 34条须后续跨Trace排查。127 Registry/1075登记仍不是去重论文，Node/产品/消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-ZERO-EDGE-001 横向质量包零直接边治理
+[5份来源](sources/ZERO-EDGE-WORKPACKAGES-V08.json) → [6规则](traces/ZERO-EDGE-WORKPACKAGES-V08.json) → [10包矩阵](../docs/architecture/v0.8/zero-edge-workpackage-review-v08.json)。NIST仅著录摘要，W3C/RFC/LinuxCNC公开选读；不改原312边/10零边。62/62仅V8规划合成、Node与真实消费者NOT_RUN。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-RC-001资源兼容性及控制器语义研究增量
+[10份合法公开来源](sources/CAP-02-08.json) → [12条规则、48字段、F1-02/F1-06/E3-04](traces/CAP-02-08-v08-supplement.json) → [68个规划正反与数学案例](../docs/capabilities/CAP-02-08/research-fixtures-v08.json) → [独立消费者及禁用推论](../docs/capabilities/CAP-02-08/RESEARCH-TRACE-2026-10-28.md)。ISO只读目录摘要、NIST两论文只读官方摘要，LinuxCNC/OCCT/W3C/RFC公开章节有限阅读；不可据此认证B5/NC。累计1070登记/126 Registry（非去重），L3/产品/独立消费者NOT_RUN。规划PASS≠产品PASS。
+
+## 2026-10-28｜CAP-02-07资源几何与参数化研究补证
+[8项官方/论文登记](sources/CAP-02-07.json) → [10规则40字段](traces/CAP-02-07-v08-supplement.json) → [55正反与算术合成](../docs/capabilities/CAP-02-07/research-fixtures-v08.json) → [研究/禁用推论](../docs/capabilities/CAP-02-07/RESEARCH-TRACE-2026-10-28.md)。来源累计1060条/125 Registry非去重；BRep合法性、Solid、Mesh、AABB、OEM与NC资格分开，V8规划合成55/55，独立Node与真实产品NOT_RUN。CAP-02-08研究Registry仍待补。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-MET-001公开来源到计量验收的二次补证
+[来源及版本/作者/阅读限制](sources/CAP-02-06.json) → [10规则40字段](traces/CAP-02-06-v08-supplement.json) → [正反/数学合成样例](../docs/capabilities/CAP-02-06/research-fixtures-v08.json) → [研究推导](../docs/capabilities/CAP-02-06/RESEARCH-TRACE-2026-10-28.md)。ISO仅目录摘要、BIPM仅DOI摘要，NIST/LinuxCNC/W3C读取公开限定章节；1052登记/124 Registry，不是去重论文。规划合成54/54，Node与产品/消费者NOT_RUN，L3待审。
+
+## 2026-10-28｜R-MS-001材料与毛坯来源、真实Solid残差研究补证
+[10官方/论文来源及阅读范围](sources/CAP-02-05.json) → [10规则40字段/原MS-T](traces/CAP-02-05-v08-supplement.json) → [54静态正反/数学样例](../docs/capabilities/CAP-02-05/research-fixtures-v08.json) → [独立消费者与回退](../docs/capabilities/CAP-02-05/independent-consumer-v08.md)。bbox≠精确Solid包含，ISO513≠工件认证，历史revision不解析latest。原R-MS和references原字节不动；1044登记/123 Registry不代表去重或全文核验，Native/产品消费者未测，L3待审。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-WH-001 夹具研究来源及单边/有限载荷工程追踪补证
+[新增官方/论文8登记](sources/CAP-02-04.json) → [增量10规则/40字段](traces/CAP-02-04-v08-supplement.json) → [50正反及6独立数学合成](../docs/capabilities/CAP-02-04/research-fixtures-v08.json) → [证据与产品边界](../docs/capabilities/CAP-02-04/RESEARCH-TRACE-2026-10-28.md)。原research/references.json、R-WH-001及历史CAP-02-04 Trace不改。双边矩阵满秩≠单边不能脱离，摩擦与载荷缺证则UNKNOWN；没有B5/NC/消费者实测。来源累计1034/122 Registry，非去重且非逐篇终核，规划PASS≠产品PASS。
+
+## 2026-10-28｜R-TA-001 工具总成历史研究的机器追踪补证
+[保留原R-TA-001](topics/R-TA-001.md) 与旧references.json中SRC-TA-001..008，新增[6条重新核阅官方登记](sources/CAP-02-03.json) → [10条工程规则/40字段/原包/TA-AC](traces/CAP-02-03.json) → [10正40独立负+8个未执行状态设计](../docs/capabilities/CAP-02-03/research-fixtures-v08.json) → [证据阅读局限与机床UNKNOWN](../docs/capabilities/CAP-02-03/RESEARCH-TRACE-2026-10-28.md)。Index上一轮登记总数误写1016而120份声明合计1020，已修正后累积**1026登记/121 Registry（非去重）**；不等于逐份外部原文审校。Node/Owner/NC/B5/消费者NOT_RUN，L3待审，规划PASS≠产品PASS。
+
+## 2026-10-28｜R-CROSS-COVERAGE-001 88 CAP×36包×17资产显式关系复核
+[全量矩阵](../docs/architecture/v0.8/全仓交叉覆盖首轮_2026-10-28.md) · [4项来源及真实阅读层级](sources/CROSS-COVERAGE-V08.json) → [8条规则](traces/CROSS-COVERAGE-V08.json) → [8正12负案例](../docs/architecture/v0.8/cross-coverage-fixtures-v08.json) → [专题推导](topics/R-CROSS-COVERAGE-001.md)。原88CAP表312条包边中10原包无直接CAP边；17资产候选Port33条生产CAP边，55 CAP无显式生产边（不等于无消费）；旧02域6项同名source及1个同名trace未标准化，旧研究不能丢。V8静态规划检查，独立产品/Node/真实消费者NOT_RUN，L3待人类。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-11DOMAIN-CROSSCHECK-001 11域跨域研究首轮证据补证
+[研究](topics/R-11DOMAIN-CROSSCHECK-001.md) · [6项公开来源/真实深度](sources/DOMAIN-CROSSCHECK-V08.json) → [11条规则/字段/原包/正反ID](traces/DOMAIN-CROSSCHECK-V08.json) → [11域研究锚点矩阵及门禁](../docs/architecture/v0.8/11域研究交叉复核_2026-10-28.md)。**逐域锚点11/11但不是全Registry终核**。远端V8合成43/43通过，独立Node文件进程NOT_RUN；11域首轮静态映射与研究补证不替代最终逐Registry终核。来源1016登记/119 Registry非去重，Owner/L3/实际消费者/历史附件/全仓矩阵仍待办，规划PASS≠产品PASS。
+
+## 2026-10-28｜R-ASSET-OWNER-INTERFACE-001 17资产Owner与端口跨域终核（候选）
+[来源/版本/章节/阅读局限](sources/ASSET-OWNERS-V08.json) → [10规则与字段/原包](traces/ASSET-OWNERS-V08.json) → [17资产候选接口及79项静态正反/图合成](../docs/architecture/v0.8/17资产Owner接口交叉核验_2026-10-28.md) → [研究](topics/R-ASSET-OWNER-INTERFACE-001.md)。1010来源登记/118 Registry非去重；人类Owner/L3与真实消费者NOT_RUN，历史附件/11域终核/全仓审计待补。规划PASS≠产品PASS。
+
+## 2026-10-28｜R-TOOL-MOUNT-001 主轴刀具安装、Gauge/TCP与控制器刀长分离
+[合法来源与阅读深度](sources/CAP-04-07.json) → [10规则40字段](traces/CAP-04-07.json) → [50单字段正反+24状态+6算术](../docs/capabilities/CAP-04-07/fixtures.json) → [专题推导](topics/R-TOOL-MOUNT-001.md)。ISO四项仅官网目录，LinuxCNC2.9/OCCT/RFC/W3C限公开章节；1003登记/117 Registry非去重，17Owner/L3待审，真实产品/消费者NOT_RUN。
+
+## 2026-10-28｜R-MACHINE-BIND-001 机床执行绑定与坐标链
+[10来源及阅读局限](sources/CAP-04-06.json) → [10规则40字段](traces/CAP-04-06.json) → [74正反/状态/数学案例](../docs/capabilities/CAP-04-06/fixtures.json) → [理论推导](topics/R-MACHINE-BIND-001.md)。ISO仅读目录，NIST仅著录，LinuxCNC2.9/OCCT/RFC/W3C只引用公开章节；真实产品/Owner及机床NOT_RUN。
+
+## 2026-10-27｜R-HUMAN-AUTH-001 人机授权、审批与Owner职责
+[来源作者/版本/访问深度和限制](sources/CAP-11-08.json) → [10规则40字段/T5-01/T5-02](traces/CAP-11-08.json) → [87项字段/状态/NC隔离合成](../docs/capabilities/CAP-11-08/fixtures.json) → [工程推导](topics/R-HUMAN-AUTH-001.md)。NIST仅官方出版摘要、OWASP仅资源页介绍、MCP 2026-07-28仅公开授权/安全章节；983登记/115 Registry（非去重）。实际Owner、Node、消费者、机床NOT_RUN，Owner/L3待人类，规划PASS≠产品PASS。
+
+## 2026-10-27｜R-KNOWLEDGE-FEEDBACK-001 知识反馈、来源血缘与受控回退
+[十项来源/作者版本/访问层级/未读局限](sources/CAP-11-07.json) → [十规则40字段/T5-01及T5-02](traces/CAP-11-07.json) → [50正反+24状态+6血缘DAG](../docs/capabilities/CAP-11-07/fixtures.json) → [理论推导与禁用假设](topics/R-KNOWLEDGE-FEEDBACK-001.md)。ISO10007仅读官方目录、NIST只出版摘要，非标准全文；973登记/114 Registry（非去重）。Owner/L3待人类、实际消费者/NC NOT_RUN，规划PASS≠产品PASS。
+
+## 2026-10-27｜R-DURABLE-AI-TASKS-001 异步状态、恢复、幂等与取消竞争
+[10份合法来源/版本/章节深度/未读局限](sources/CAP-11-06.json) → [十规则/40字段/T5-01、T5-02](traces/CAP-11-06.json) → [50字段正反+28状态+4 DAG合成](../docs/capabilities/CAP-11-06/fixtures.json) → [理论推导及禁用假设](topics/R-DURABLE-AI-TASKS-001.md)。MCP2025实验Tasks与SEP-2663 Extension协议未默认兼容；Temporal仅参考设计、RFC9110§9.2.2可查，NIST仅出版摘要。累计963条登记/113 Registry，非去重论文；独立Node/真实产品/消费者NOT_RUN，Owner/L3待审。**规划PASS≠产品PASS**。
+
+## 2026-10-27｜R-PROCESS-RECOMMENDATION-001 工艺推荐参数适用性、解释与风险
+[10份官方/厂商/规范来源及合法读取深度](sources/CAP-11-05.json) → [10规则40字段/T5-01、T5-02](traces/CAP-11-05.json) → [50正反+24状态+2算术](../docs/capabilities/CAP-11-05/fixtures.json) → [研究推导与边界](topics/R-PROCESS-RECOMMENDATION-001.md)。ISO13399/3002仅官网目录，NIST仅官方著录摘要；Sandvik公式是单位算术而非机床许可，LinuxCNC模态仅限2.9。累计953登记/112 Registry非去重；真实NC/B5/独立消费NOT_RUN，17Owner与L3待审。**规划PASS≠产品PASS。**
+
+## 2026-10-27｜R-AGENT-ORCHESTRATION-001 Agent最小权限、取消与Owner边界
+[10份合法来源/阅读局限](sources/CAP-11-04.json) → [10规则40字段](traces/CAP-11-04.json) → [50正反+24枚举门禁](../docs/capabilities/CAP-11-04/fixtures.json) → [研究推导](topics/R-AGENT-ORCHESTRATION-001.md)。MCP Tasks在2025-11-25实验性；NIST AI600-1仅读出版摘要。943登记/111 Registry非去重；Node/Owner/NC/消费者NOT_RUN，17Owner/L3待审。规划PASS≠产品PASS。
+
+## 2026-10-27｜R-RAG-EVIDENCE-001 受控检索与可复核证据
+[9份权威来源及读文深度](sources/CAP-11-03.json) → [10规则40字段](traces/CAP-11-03.json) → [50正反字段+28门禁](../docs/capabilities/CAP-11-03/fixtures.json) → [理论边界](topics/R-RAG-EVIDENCE-001.md)。OWASP三主题、W3C Annotation/PROV、RFC9110指定公开章节已核；论文仅摘要/引言、NIST仅著录摘要、JSON Schema是到期Internet-Draft。933登记/110 Registry非去重，独立产品与消费者NOT_RUN、17Owner/L3待审。规划PASS≠产品PASS。
+
+## 2026-10-27｜R-PROCESS-KNOWLEDGE-001 材料设备知识、版本适用域和来源证据
+[10来源及实读局限](sources/CAP-11-02.json) → [10规则40字段](traces/CAP-11-02.json) → [50正反+24门禁](../docs/capabilities/CAP-11-02/fixtures.json) → [研究推导](topics/R-PROCESS-KNOWLEDGE-001.md)。W3C SKOS/SHACL/PROV-O、JSON Schema/RFC/OWASP已读限定公开章节；ISO仅合法目录、NIST仅著录摘要。924登记/109 Registry非去重；17Owner/L3 PENDING_HUMAN，Node/实际材料与机床/消费者NOT_RUN。规划PASS≠产品PASS。
+
+## 2026-10-27｜R-AI-WORKBENCH-001 AI工作台人机授权和3D上下文
+[9项官方来源/阅读限制](sources/CAP-11-01.json) → [10规则40字段/T5-01/T5-02](traces/CAP-11-01.json) → [70合成案例](../docs/capabilities/CAP-11-01/fixtures.json) → [逐项推导及未读限制](topics/R-AI-WORKBENCH-001.md)。MCP 2025-11-25工具/Prompt/Auth、OWASP LLM06、W3C PROV-O、RFC9110、Babylon公开页面已读；NIST AI600-1仅官方著录摘要。914登记/108 Registry非去重，17Owner/L3待会签，Node/真实LLM/NC/机床/独立消费者NOT_RUN；规划PASS≠产品PASS。
+
+## 2026-10-27｜R-DIGITAL-THREAD-AUDIT-001 数字主线、来源DAG与审计
+[10合法来源和真实访问深度](sources/CAP-10-08.json) → [10规则40字段与原工作包](traces/CAP-10-08.json) → [50正反+8图+19状态门禁](../docs/capabilities/CAP-10-08/fixtures.json) → [理论适用限制](topics/R-DIGITAL-THREAD-AUDIT-001.md)。W3C PROV-O/OPC 10000-5/RFC8785/9162/9110公开章节查证；NIST IR8536 Final和Hedberg 2019仅官网摘要、ISO 23247-1/-4仅合法目录。905条来源登记/107 Registry非去重，产品与独立消费者NOT_RUN，Owner及L3待人类；规划PASS≠产品PASS。
+
+## 2026-10-27｜R-FIELD-ECN-001 现场异常与工程变更
+[8来源/合法阅读范围](sources/CAP-10-07.json) → [10规则40字段](traces/CAP-10-07.json) → [50正反+20合成门禁](../docs/capabilities/CAP-10-07/fixtures.json) → [理论及适用边界](topics/R-FIELD-ECN-001.md)。OPC 10000-9 v1.05.06 §4.3与OPC40501-1公开正文可核；ISO10007仅目录、NIST2019仅摘要、MTConnect仅官网文件列表。累计895登记/106 Registry非去重；17Owner/L3待审，真实OPC/NC/质检/消费者NOT_RUN，规划PASS≠产品PASS。
+
+## 2026-10-27｜R-WORKORDER-EXECUTION-001 工单/作业指导与现场实际执行
+[8合法来源及版本/章节/限制](sources/CAP-10-06.json) → [10规则40字段](traces/CAP-10-06.json) → [72正反门禁](../docs/capabilities/CAP-10-06/fixtures.json) → [研究推导与未读限制](topics/R-WORKORDER-EXECUTION-001.md)。OPC40001-3 1.0.1和OPC10031-4 2.00.0公开正文，旧OPC40501 Job节点弃用；ISO22400-2:2014仅合法目录摘要，NIST仅论文摘要。累计887条登记/105 Registry非去重；17Owner/L3待审，真实ERP/MES、质量、机床、独立消费者NOT_RUN；**规划PASS≠产品PASS**。
+
+## 2026-10-27｜R-MDC-OBSERVABILITY-001 MDC数据质量与时间序列
+[8来源及阅读深度](sources/CAP-10-05.json) → [10规则40字段](traces/CAP-10-05.json) → [68合成案例](../docs/capabilities/CAP-10-05/fixtures.json) → [研究与局限](topics/R-MDC-OBSERVABILITY-001.md)。MTConnect官方2.5.0 PDF第37/40/54页截图与正文、OPC MachineTools 1.02.0及Services 1.05.07公开章节已读，NIST论文仅著录摘要；累计879登记/104Registry非去重。实际设备/消费者NOT_RUN，17Owner/L3待审，规划PASS≠产品PASS。
+
+## 2026-10-27｜R-DNC-TRANSFER-001 机床文件传输与执行授权隔离
+[10项官方与论文来源/阅读层级](sources/CAP-10-04.json) → [10规则40字段及原包](traces/CAP-10-04.json) → [68项规划合成](../docs/capabilities/CAP-10-04/fixtures.json) → [专题推导与局限](topics/R-DNC-TRANSFER-001.md)。OPC-40501-1 v1.02.0 §8.1 FileSystem可选，旧ProductionProgramType弃用；MTConnect观测不能冒充DNC上传，文件上传不能授权CycleStart。871来源登记/103 Registry非去重，真实机床/消费者NOT_RUN、Owner/L3待审。规划PASS≠产品PASS。
+
+## 2026-10-27｜R-OFFLINE-MEDIA-001 无网络NC签收与可验证信任
+[9项来源和真实访问深度](sources/CAP-10-03.json) → [10条规则/40字段](traces/CAP-10-03.json) → [75项正反/离线门禁](../docs/capabilities/CAP-10-03/fixtures.json) → [独立收方研究及风险](topics/R-OFFLINE-MEDIA-001.md)。NIST两份仅官网摘要、RFC公开正文、TUF v1.0.36已读页面与既有v1.0.37分开登记；真实离线信任根、接收进程、时钟、机床NOT_RUN。累计861登记/102Registry（非去重），17Owner/L3待人类；规划PASS≠产品PASS。
+
+## 2026-10-27｜R-RELEASE-APPROVAL-001 审签、密钥与离线信任
+[理论与局限](topics/R-RELEASE-APPROVAL-001.md) → [9官方来源](sources/CAP-10-02.json) → [10条逐字段规则](traces/CAP-10-02.json) → [70字段+14状态](../docs/capabilities/CAP-10-02/fixtures.json)。累计852登记/101 Registry非去重；NIST仅官方著录摘要、ISO仅目录，RFC/TUF/W3C读取公开正文；未做真实签名/独立验签。17资产Owner/L3待人类。规划PASS≠产品PASS。
+
+## 2026-10-27｜R-RELEASE-PACK-001 NC发布包、指纹与离线可信边界
+[理论/局限](topics/R-RELEASE-PACK-001.md) → [9来源/合法访问深度](sources/CAP-10-01.json) → [10条逐字段规则](traces/CAP-10-01.json) → [30固定正反+40独立变异+18状态](../docs/capabilities/CAP-10-01/fixtures.json)。累计843登记/100 Registry非去重；ISO目录、NIST摘要不能代替未读正文，TUF/SLSA仅作为发布威胁模型参考；L3/17Owner待审、独立Node和真实消费者NOT_RUN。规划PASS≠产品PASS。
+
+## 2026-10-27｜R-SIM-PLAYBACK-EVIDENCE-001播放与可审计报告
+[理论与阅读边界](topics/R-SIM-PLAYBACK-EVIDENCE-001.md) · [9来源](sources/CAP-09-08.json) → [10规则40字段](traces/CAP-09-08.json) → [30正反变异+14状态](../docs/capabilities/CAP-09-08/fixtures.json)。累计834登记/99 Registry非去重；ISO仅读目录、NIST仅摘要/著录、Babylon Lite不冒称完整版API；Node/NC/B5/消费方NOT_RUN，Owner/L3待审。规划PASS≠产品PASS。
+
+## 2026-10-27｜R-LIMIT-COLLISION-001 机床限位与连续碰撞验证边界
+[理论与未读限制](topics/R-LIMIT-COLLISION-001.md) · [10合法来源](sources/CAP-09-07.json) → [10规则/40字段/原包](traces/CAP-09-07.json) → [30字段正反变异+20门禁+6数学合成](../docs/capabilities/CAP-09-07/fixtures.json)。累计**825条登记/98 Registry**非去重；ISO仅公开摘要、NIST与arXiv仅官方摘要，OCCT仅静态距API。真实Node/NC/OCCT/B5/独立消费者NOT_RUN；17Owner/L3待人类，规划PASS≠产品PASS。
+
+## 2026-10-27｜R-NC-PROGRAM-VERIFY-001 最终NC程序驱动的独立工程验证
+[理论及阅读限制](topics/R-NC-PROGRAM-VERIFY-001.md) · [10来源：ISO目录、LinuxCNC2.9公开章节、NIST著录、OCCT API、RFC、W3C](sources/CAP-09-06.json) → [10规则/字段与原包](traces/CAP-09-06.json) → [30正反独立字段变异+16合成门禁](../docs/capabilities/CAP-09-06/fixtures.json)。815登记/97 Registry非去重。真实NC语义/轴时序/机床碰撞/独立消费者NOT_RUN；D11 CL_ONLY不授D15/D16，未知阻发布，17Owner及L3待签，**规划PASS≠产品PASS**。
+
+## 2026-10-27｜R-CL-PRECHECK-001 中立CL机床运动预检查
+[理论推导与严格边界](topics/R-CL-PRECHECK-001.md) · [8合法来源与读文限制](sources/CAP-09-05.json) → [10规则、字段/原包](traces/CAP-09-05.json) → [30布尔正反/独立变异+10运动状态合成](../docs/capabilities/CAP-09-05/fixtures.json)。累计**805登记/96 Registry**非去重。LinuxCNC限位与Joint分层不是B5认证，OCCT静态距离不是连续无碰保证；D11只可CL_ONLY/UNKNOWN/REJECT/STALE，NC工程验证必须D12→D13→D14→D15→D16。实际产品/消费者NOT_RUN，Owner/L3待审，规划PASS≠产品PASS。
+
+## 2026-10-27｜原B0-03独立黄金Oracle研究补证（36/36原包研究追踪）
+[原包正文保持不变](../docs/work-packages/B0-03.md) · [补证与原S01-S08映射](../docs/work-packages/B0-03/RESEARCH-BACKFILL.md) · [8来源与访问限制](sources/B0-03.json) → [10逐字段规则](traces/B0-03.json) → [30规则正反/12对黄金案例](../docs/work-packages/B0-03/golden-cases.json) · [独立交接](../docs/work-packages/B0-03/independent-consumer-handoff.md)。797来源登记/95 Registry，非去重；66/88 CAP不变，36/36原工作包研究追踪。真实产品/消费者NOT_RUN；L3/Owner PENDING_HUMAN，规划PASS≠产品PASS。
+
+## 2026-10-27｜原F1-02 Frame、单位与安装变换理论追踪补证
+[研究推导](topics/R-FRAME-OWNER-F1-02-001.md) · [8来源/阅读限制](sources/F1-02.json) → [原10项验收映射/10规则](traces/F1-02.json) → [30正反独立变异与6解析案例](../docs/work-packages/F1-02/fixtures.json)。F1-02原8子任务及10产品验收不改，规划合成≠产品PASS。累积789条登记/94Registry非去重；B0-03研究待补。
+
+## 2026-10-27｜R-TOOL-ASSEMBLY-TCP-001工具装配与TCP
+[专题推导](topics/R-TOOL-ASSEMBLY-TCP-001.md) → [九来源版本与访问边界](sources/CAP-09-04.json) → [十规则字段和原包](traces/CAP-09-04.json) → [30正反变异/8合成数学状态案例](../docs/capabilities/CAP-09-04/fixtures.json)。ISO 13399/26623仅读公开目录，NIST仅著录摘要；LinuxCNC2.9/Haas、OCCT API按各自文档适用。累计781登记/93Registry非去重；真实产品/消费者NOT_RUN，L3/Owner待签。
+
+## 2026-10-27｜R-IK-BRANCH-001逆解多支路与Jacobian奇异
+[专题推导/阅读局限](topics/R-IK-BRANCH-001.md) → [9来源、版本与访问章节](sources/CAP-09-03.json) → [10字段规则、原工作包与正反变异](traces/CAP-09-03.json) → [30合成门禁/5个2R数学向量](../docs/capabilities/CAP-09-03/fixtures.json)。ISO仅官网摘要、NIST仅官方著录摘要、Modern Robotics仅教学网页，LinuxCNC2.9/OCCT8.0.1/RFC/W3C为相应公开章节；绝不推断B5实机。累计772条登记/92 Registry（非去重），17资产Owner/L3待审，规划PASS≠产品PASS。
+
+## 2026-10-27｜R-FRAMEGRAPH-FK-001统一Frame与正解
+[理论及局限](topics/R-FRAMEGRAPH-FK-001.md) → [9来源版本、访问深度、章节](sources/CAP-09-02.json) → [10规则、字段、CAP/原包、正反变异](traces/CAP-09-02.json) → [30+8合成向量](../docs/capabilities/CAP-09-02/fixtures.json)。ISO仅目录、NIST仅著录摘要、Lynch/Park只读公开视频简介；实际B5、产品、消费者NOT_RUN。累计763登记/91 Registry非去重，L3/Owner待审。规划PASS≠产品PASS。
+
+## 2026-10-26｜R-MACHINE-KINEMATICS-GRAPH-001运动学模型与标定证据
+[研究推导及局限](topics/R-MACHINE-KINEMATICS-GRAPH-001.md) → [10权威/论文来源及阅读深度](sources/CAP-09-01.json) → [十规则字段](traces/CAP-09-01.json) → [30正反变异与5数学向量](../docs/capabilities/CAP-09-01/fixtures.json)。ISO仅合法摘要，NIST仅出版摘要，She论文仅摘要片段；LinuxCNC2.9与OCCT8.0.1对应章节已读。754来源登记/90 Registry不等于去重论文，真实机床/消费者NOT_RUN。
+
+## 2026-10-26｜R-POST-CONFIG-CONSISTENCY-001 后处理配置与一致性
+[理论推导及未读限制](topics/R-POST-CONFIG-CONSISTENCY-001.md) → [8来源作者/版本/章节/局限](sources/CAP-08-08.json) → [10字段规则](traces/CAP-08-08.json) → [30正反变异](../docs/capabilities/CAP-08-08/fixtures.json)。累计744登记/89 Registry非去重；ISO仅合法目录、NIST仅出版著录；静态规划合成与真实控制器执行/机床验证明确分离。
+
+## 2026-10-26｜R-CL-NC-PROVENANCE-001 CL与NC映射溯源
+[推导与OCCT未读限制](topics/R-CL-NC-PROVENANCE-001.md) → [8份来源作者版本与深度](sources/CAP-08-07.json) → [十规则与字段](traces/CAP-08-07.json) → [30规则+12门禁+5映射合成](../docs/capabilities/CAP-08-07/fixtures.json)。累计736登记/88 registry非去重，ISO/NIST只读目录或著录，产品/消费者NOT_RUN。
+
+## 2026-10-26｜R-NC-SOURCE-EDIT-001：NC源码版本、字节保真与编辑失效
+[专题推导](topics/R-NC-SOURCE-EDIT-001.md) → [8来源及阅读深度](sources/CAP-08-06.json) → [十规则](traces/CAP-08-06.json) → [30正反变异+9合成语义](../docs/capabilities/CAP-08-06/fixtures.json)。ISO/NIST均未读完整正文；728登记/87 Registry非去重；真实产品/消费者NOT_RUN。
+
+## 2026-10-26｜R-CYCLES-MACROS-001循环宏与子程序
+[理论阅读与限制](topics/R-CYCLES-MACROS-001.md) · [8来源作者/时间/阅读章节](sources/CAP-08-05.json) → [10规则/字段](traces/CAP-08-05.json) → [30正反独立变异+8语义](../docs/capabilities/CAP-08-05/fixtures.json)。720条登记/86 Registry非去重，NIST仅著录，真实控制器、消费者NOT_RUN，L3/Owner待签。CAP-08-03资产编号误用列风险待纠偏。
+
+## 2026-10-26｜R-AUX-MCODE-001 主轴换刀与辅助动作
+[研究推导与D06资产纠错](topics/R-AUX-MCODE-001.md) · [8来源与真实阅读深度](sources/CAP-08-04.json) · [10规则/字段/38合成正反与异构语义](traces/CAP-08-04.json) → [业务规划](../docs/capabilities/CAP-08-04/README.md)。ISO只读目录，NIST只读著录，Haas M06/M08专页只读官方搜索摘要；真实产品与消费者NOT_RUN。累计712登记/85 Registry非去重，L3/Owner待审。
+
+## 2026-10-26｜R-WCS-MOTION-001：坐标与运动指令
+
+[研究专题](topics/R-WCS-MOTION-001.md) · [7项来源含版本、访问深度与局限](sources/CAP-08-03.json) · [十规则及30合成验收](traces/CAP-08-03.json)。ISO仅合法目录、NIST仅出版著录；LinuxCNC和OCCT只支持其文档范围，真实产品/消费者NOT_RUN。累计704条登记/84 Registry（非去重）。
+
+## 2026-10-26｜R-DIALECT-PROFILE-001 控制器方言与UNKNOWN门禁
+[理论阅读层级与局限](topics/R-DIALECT-PROFILE-001.md) → [10条ISO目录/厂商/NIST/OCCT/协议来源](sources/CAP-08-02.json) → [10规则字段映射](traces/CAP-08-02.json) → [CAP-08-02实施](../docs/capabilities/CAP-08-02/README.md)。Siemens仅检索目录且正文打开失败；任何FANUC/SINUMERIK/真实B5实际支持均未认证。**697条登记/83 registry**非去重论文；30/30仅合成规划，产品/消费者NOT_RUN，17Owner/L3 PENDING。
+
+## 2026-10-26｜R-QUALITY-BASELINE-001
+[质量基线理论与局限](topics/R-QUALITY-BASELINE-001.md) · [9官方合法资料/阅读深度](sources/T5-06.json) → [10工程规则、字段及正反验收](traces/T5-06.json) → [原T5-06](../docs/work-packages/T5-06.md)。ISO25010仅目录摘要，NIST仅出版摘要，OCCT API非NC验证、LinuxCNC非B5控制器认证。687登记/82 registry并非去重论文，V8合成30/30≠产品PASS。
+
+## 2026-10-26｜R-TOOLPATH-LOCAL-REGEN-001
+[逐项理论及适用边界](topics/R-TOOLPATH-LOCAL-REGEN-001.md) · [8来源](sources/CAP-07-08.json) · [十规则和30合成](traces/CAP-07-08.json) · [CAP实施](../docs/capabilities/CAP-07-08/README.md)。678来源登记/81 registry非去重，厂商保护态≠新路径安全，OCCT拓扑哈希≠稳定制造段ID，产品/Consumer NOT_RUN。历史统计以下仅快照。
+
+## 2026-10-26｜R-INDEPENDENT-SLICES-001
+[理论及限制](topics/R-INDEPENDENT-SLICES-001.md) · [9来源深度](sources/T5-05.json) · [10规则30合成](traces/T5-05.json) · [原T5-05](../docs/work-packages/T5-05.md)。累计670登记/80 registry，非去重。NIST仅摘要、ISO仅目录、OCCT仅API，真实消费者NOT_RUN，规划PASS≠产品PASS。
+
+## 2026-10-26｜R-NEUTRAL-CL-CONTRACT-001中立CL契约与NC解耦
+[理论及读文限制](topics/R-NEUTRAL-CL-CONTRACT-001.md) → [9条合法来源](sources/CAP-07-07.json) → [10规则字段及30合成场景](traces/CAP-07-07.json) → [CAP-07-07实施](../docs/capabilities/CAP-07-07/README.md)。ISO只公开目录摘要；OCCT仅API；NIST仅官方著录摘要；RFC/W3C与LinuxCNC公开章节有限范围。累计661登记/79 registry，规划PASS≠产品PASS。
+
+## 2026-10-26｜R-CONTROLLED-MIGRATION-001迁移规划理论
+[理论适用边界](topics/R-CONTROLLED-MIGRATION-001.md) → [9原作者及官方来源](sources/T5-04.json) → [10可机检规则](traces/T5-04.json) → [原T5-04实施](../docs/work-packages/T5-04.md)。Fowler Expand/Migrate/Contract、AWS抽象枝与渐进替换、SQLite备份、RFC条件写、PROV-O谱系；NIST只读摘要。652登记/78 registry非去重。合成30/30，真实产品/独立消费者未执行。
+
+## 2026-10-26｜R-LEAD-LINK-001 链接、退让与连续安全证据
+[理论边界](topics/R-LEAD-LINK-001.md) · [9官方/厂商来源与深度](sources/CAP-07-06.json) · [规则/字段/30合成场景](traces/CAP-07-06.json) · [CAP原业务规划](../docs/capabilities/CAP-07-06/README.md)。643登记/77 registry（非去重）；局部静态最近距不证明连续路径无碰，产品/独立消费者NOT_RUN。
+
+## 2026-10-26｜R-RELEASE-TRAIN-001 发布组合与离线兼容
+[理论与边界](topics/R-RELEASE-TRAIN-001.md) · [十来源及访问深度](sources/T5-03.json) · [规则字段/正反变异](traces/T5-03.json) · [原T5-03实施](../docs/work-packages/T5-03.md)。NIST、SPDX只目录；RFC8785仅摘要；SLSA/TUF/Tauri/通用规范只作规划支持，不冒充已实施。634登记/76 registry（非去重文献），真实产品、消费者、离线签名NOT_RUN。
+
+## 2026-10-26｜R-STAGE-MACHINING-001 粗半精精阶段有序材料与余量
+[理论与适用限制](topics/R-STAGE-MACHINING-001.md) · [9来源及访问层级](sources/CAP-07-05.json) · [10规则+30合成场景](traces/CAP-07-05.json) · [CAP规格](../docs/capabilities/CAP-07-05/README.md)。ISO仅目录摘要；NIST2023仅出版摘要；OCCT8.0.1为API；Autodesk示例非通用数值标准。共624条来源登记/75 registry，非去重。V8合成30/30，产品与独立消费者NOT_RUN。
+
+## 2026-10-26｜R-2D-DOC-EVIDENCE-001
+[推导与限制](topics/R-2D-DOC-EVIDENCE-001.md) · [11份公开合法资料及阅读深度](sources/T5-02.json) · [10规则及字段/正反/变异](traces/T5-02.json) · [原T5-02实施规划](../docs/work-packages/T5-02.md)。ISO32000-2只读目录、PDF Association只读索引、NISTIR7796只读摘要；OCR不等于权威PMI。累计615来源登记/74 registry非去重；仅合成规划PASS，实际消费者及产品NOT_RUN。
+
+## 2026-10-26｜R-CONTINUOUS-5AXIS-001：四/五轴刀轴场、刀触与奇异性
+[研究推导](topics/R-CONTINUOUS-5AXIS-001.md) → [9项官方与论文摘要来源/阅读深度](sources/CAP-07-04.json) → [10规则与字段/正反/差异变异](traces/CAP-07-04.json) → [CAP-07-04业务与消费者验收](../docs/capabilities/CAP-07-04/README.md)。ISO14649-11仅目录摘要，2019论文仅第三方著录摘要，LinuxCNC2.9与OCCT8.0.1只代表相应文档能力。共604来源登记/73 registry（非去重）；30/30规划合成≠真实产品、控制器或实机PASS。以下为历史研究快照。
+
+## 2026-10-26｜R-AIKB-001 AI/知识受控能力规划正式入库（L3待审）
+[原T5-01实施与十任务](../docs/work-packages/T5-01.md) · [10份官方/组织公开来源及具体阅读深度](sources/T5-01.json) · [理论研究](topics/R-AIKB-001.md) · [10规则、20正反、10差异变异](traces/T5-01.json)。研究来源合计**595条登记/72 registry**，工作包研究追踪29项，**不是595篇去重论文**。NIST两份仅合法出版元数据与摘要，MCP/OWASP/W3C/RFC/OTel及JSON Schema为公开章节；2022 JSON Schema文档明确Internet-Draft到期。仅规划合成30/30，Node独立执行、真实LLM、Owner/消费者和产品NOT_RUN，17Owner/L3待人类。规划PASS≠产品PASS；以下均为历史状态快照。
+
+## 2026-10-26｜R-INDEXED-32-001：3+2定位Frame及控制器证据
+[研究推导](topics/R-INDEXED-32-001.md) → [9项原始资料登记与阅读边界](sources/CAP-07-03.json) → [10条规则与20正反/10差异变异](traces/CAP-07-03.json) → [CAP-07-03规格](../docs/capabilities/CAP-07-03/README.md)。ISO841只读目录；Siemens CYCLE800仅搜索摘要，不能由此生成控制器参数；OCCT 8.0.1 API与LinuxCNC2.9具体章节已核。合计585登记/71 registry（非去重）；规划30/30合成≠产品PASS。
+
+## 2026-10-26｜R-MODULE-SDK-001 受控模块贡献与注销
+[逐项理论](topics/R-MODULE-SDK-001.md) → [11项官方来源与深度](sources/U4-06.json) → [规则/字段/正反变异](traces/U4-06.json) → [原U4-06实施](../docs/work-packages/U4-06.md)。NIST仅摘要，类型/exports不构成授权，Tauri不替代Owner CAS。累计576条登记/70 registry，规划合成30/30≠产品PASS。
+
+## 2026-10-26｜R-3AXIS-SURFACE-001三轴曲面理论依据
+[研究推导](topics/R-3AXIS-SURFACE-001.md) → [10份合法来源、阅读章节与局限](sources/CAP-07-02.json) → [10规则及机器可检映射](traces/CAP-07-02.json) → [20正反与10差异变异](../docs/capabilities/CAP-07-02/fixtures.json) → [独立消费者合同](../docs/capabilities/CAP-07-02/independent-consumer-handoff.md)。ISO仅目录，OCCT仅API，Suresh/Yang论文仅摘要，NIST Final仅出版摘要；真实产品NOT_RUN。登记累计**565条/69 registry**，非去重论文；规划PASS≠产品PASS。以下为历史研究快照。
+
+## 2026-10-25｜R-UI-QA-001：原U4-05回归证据
+[研究专题](topics/R-UI-QA-001.md) → [9条合法公开来源及读取限制](sources/U4-05.json) → [10条规则与30个规划合成场景](traces/U4-05.json) → [原编号实施](../docs/work-packages/U4-05.md)。当前累计**555登记条/68 registry**；不代表去重论文或实际WCAG/GPU通过。以下为历史研究快照。
+
+## 2026-10-25｜R-25D-TOOLPATH-001（2.5D中立CL）
+[专题与推导](topics/R-25D-TOOLPATH-001.md) · [8份官网/标准目录与阅读局限](sources/CAP-07-01.json) · [字段→10规则→20正反+10变异](traces/CAP-07-01.json)。ISO14649-11仅合法目录、NIST IR5416仅出版著录、OCCT 8.0.1为API、LinuxCNC2.9不能推广实机；546条来源登记/67 registry非去重论文。仅规划合成验证；真实产品/消费者NOT_RUN。
+
+## 2026-10-25｜U4-04执行诊断专题（规划证据）
+[研究推导](topics/R-DIAGNOSTIC-001.md) · [9项合法来源/实际访问深度](sources/U4-04.json) · [10规则/字段/20正反+10变异](traces/U4-04.json)。ISO 14649-10:2004只核对目录摘要；NIST IR 6556只读著录；NIST IR 8536 2026-09最终版仅读官方公告；OpenTelemetry 1.62.0公开API/SDK章节不可替代Owner权威审计，LinuxCNC N号不唯一。**累计538登记记录/66 registry，非去重论文。** 真实NC/产品/独立Node与17资产会签均未完成，规划PASS≠产品PASS。以下为历史研究快照。
+
+## 2026-10-25｜R-INCREMENTAL-FREEZE-001 冻结约束局部重算
+[理论与边界](topics/R-INCREMENTAL-FREEZE-001.md) · [8项来源](sources/CAP-06-08.json) · [逐项规则及正反变异](traces/CAP-06-08.json)。LPA*摘要适用图搜索，OCCT历史不保证稳定面ID，NIST仅摘要、ISO仅目录；规划合成30/30≠产品PASS。修复索引前序512→521登记偏差后新增8合计529登记/65 registry。
+
+## 2026-10-25｜R-SELECTION-LEASE-001唯一世界选择/预览生命周期
+[理论与限制](topics/R-SELECTION-LEASE-001.md) · [9项官方公开来源](sources/U4-03.json) · [规则/字段/20正反/10变异](traces/U4-03.json)。官方Babylon确实支持多Scene，W3C PointerEvents4目前为2026-10-08 Working Draft；统一单Scene为内部设计，取消不是撤回已提交业务事实。累计521登记/64 registry（非去重论文），真实GPU/Owner/消费者NOT_RUN。
+
+## 2026-10-25｜R-ORACLE-CONVERGENCE-001独立验证
+[专题](topics/R-ORACLE-CONVERGENCE-001.md) · [10合法来源](sources/CAP-06-07.json) · [规则及正反](traces/CAP-06-07.json)。512条登记/63 registry；ISO只读目录、NIST只读摘要；真实Oracle/校准与产品NOT_RUN。
+
+## 2026-10-25｜R-TASK-EDIT-001任务贡献、脏草稿与回执
+[专题](topics/R-TASK-EDIT-001.md) · [8份官方来源](sources/U4-02.json) · [10规则20正反+10变异](traces/U4-02.json)。W3C/Vue/WHATWG/RFC只能支持交互、取消与条件提交设计，不直接保证制造业务Owner事实。合计502来源登记/62 registry，实际Owner/GUI NOT_RUN。
+
+## 2026-10-25｜R-MULTIPATH-BUDGET-001 多路径预算/并行/恢复/安全支配
+[研究推导](topics/R-MULTIPATH-BUDGET-001.md) · [9项来源与实际阅读范围](sources/CAP-06-06.json) · [10规则20正反+10变异](traces/CAP-06-06.json)。OR-Tools官方限制/状态不等于Procet Beam完备性；OCCT8.0.1仅API，不等于线程安全与重复稳定；NIST8536只读摘要。累计494来源记录/61 registry，产品/真实消费者NOT_RUN。
+
+## 2026-10-25｜R-WORKCTX-001 WorkContext作用域/导航/键盘交互
+[专题](topics/R-WORKCTX-001.md) · [9项官方来源/阅读局限](sources/U4-01.json) · [10规则20正反及10变异](traces/U4-01.json)。WCAG2.2按2024-12-12推荐版正文、APG键盘指导、WHATWG HTML/DOM、Vue Router守卫、BabylonJS多Scene文档、RFC9110及PROV-O的公开章节登记；单Scene是Procet架构决策，不是厂商要求。累计485登记/60 registry，真实GUI/Owner NOT_RUN。
+
+## 2026-10-25｜R-IMMSTATE-001 不可变制造状态/父子谱系与封存指纹
+[专题推导](topics/R-IMMSTATE-001.md) · [10份官方来源与阅读深度](sources/CAP-06-05.json) · [10条规则和20正反](traces/CAP-06-05.json)。OCCT8.0.1为官方API/算法章节，PROV-O/RFC/SQLite为公开正文，NIST IR8536仅Final官方摘要；版权正文未复制。状态字节指纹不等于语义几何等价；实际内核及消费者NOT_RUN。累计476登记/59 registry。
+
+## 2026-10-25｜R-AB-E2E-001真实无界面A/B工艺闭环
+[专题与权威资料阅读边界](topics/R-AB-E2E-001.md) · [10来源](sources/W2-06.json) · [10规则20正反+10变异](traces/W2-06.json)。合计466登记记录/58 registry（非466份论文）。ISO只公开摘要、NIST最终版只读出版摘要、OCCT仅API；跨库原子性不能臆造，真实Owner/进程/恢复/独立消费者NOT_RUN。
+
+## 2026-10-25｜R-EFFECTIVE-DOMAIN-001 有效加工域
+[证据深度与限制](topics/R-EFFECTIVE-DOMAIN-001.md) · [10项权威来源](sources/CAP-06-04.json) · [10规则20正反合成](traces/CAP-06-04.json)。OCCT8.0.1 API与PROV/RFC公开章节已读，ISO仅合法目录、NIST仅最终版摘要；非产品认证。累计456登记记录/57 registry，Owner/L3/消费者未验证。
+
+## 2026-10-25｜R-MULTISETUP-QUERY-001多Setup可寻址查询
+[专题](topics/R-MULTISETUP-QUERY-001.md) · [来源深度/限制](sources/W2-05.json) · [10规则与20正反](traces/W2-05.json)。ISO仅目录，OCCT仅API，NIST8536 Final仅摘要；不把规划当产品PASS。累计446登记/56 registry。
+
+## 2026-10-25｜R-LOCAL-BREP-001 局部B-Rep去料、修补与证据
+[专题](topics/R-LOCAL-BREP-001.md) · [OCCT/ISO等10项来源](sources/CAP-06-03.json) · [10规则/20正反](traces/CAP-06-03.json)。已读OCCT 8.0.1 API/布尔文档，ISO仅目录、NIST 2026-09最终版仅摘要，不能冒充真实内核/产品验证。累计438条登记/55 registry。
+
+## 2026-10-25｜R-ACK-RECOVERY-001并发提交、回执与恢复
+[理论专题](topics/R-ACK-RECOVERY-001.md) · [8份合法来源与阅读深度](sources/W2-04.json) · [10规则20正反](traces/W2-04.json)。SQLite只承诺相应单库事务，不具跨库天然分布式ACID；Abort不能回滚既成事实。NIST2026-09最终版只读官方摘要。累计428登记/54 registry，产品/消费者NOT_RUN。
+
+## 2026-10-25｜R-JOINT-SEARCH-001 工序与几何联合搜索
+[研究适用边界](topics/R-JOINT-SEARCH-001.md) · [10份公开登记](sources/CAP-06-02.json) · [10规则20正反](traces/CAP-06-02.json)。超预算UNKNOWN、支配无证据不可删候选；ISO仅目录、2019论文仅摘要、NIST2026最终版仅官方摘要，OCCT8.0.1为API参考。累计420/53登记，真实产品与独立消费者NOT_RUN。
+
+## 2026-10-25｜R-DEPENDENCY-INVALIDATION-001版本化资产图与最小失效
+[专题](topics/R-DEPENDENCY-INVALIDATION-001.md) · [9来源](sources/W2-03.json) · [10规则20正反](traces/W2-03.json)。版本实例DAG与可有反馈的业务类型图严格分离；NC编辑限定相关执行链、UI主题不污染制造资产、资源可用状态与内容完整性区分。NIST IR8536已采用2026-09最终版的官网摘要，正文未读；来源登记410/52，产品/消费者NOT_RUN。
+
+## 2026-10-25｜R-ADOPT-FREEZE-001候选采纳与冻结研究
+[理论专题](topics/R-ADOPT-FREEZE-001.md) · [8登记来源及阅读边界](sources/W2-02.json) · [10规则/20正反](traces/W2-02.json)。当前登记401条/51 registry；ISO仅公开目录/摘要，Git文本冲突、RFC条件提交、W3C谱系均不可替代工艺几何/正式批准，产品与独立消费者NOT_RUN。
+
+## 2026-10-25｜R-AUTOSOLVE-001无规划自主求解
+[研究边界](topics/R-AUTOSOLVE-001.md) · [10官方来源](sources/CAP-06-01.json) · [规则→字段→20正反](traces/CAP-06-01.json)。ISO仅读公开目录、NIST只读官方摘要；393登记/50 registry（非去重），产品/05域消费者/07域消费者NOT_RUN。
+
+## 2026-10-25｜R-ABHANDOFF-001 A/B分阶段接管
+[研究边界](topics/R-ABHANDOFF-001.md) · [8合法来源](sources/W2-01.json) · [规则/20正反](traces/W2-01.json)。ISO14649官方公开Abstract未读正文、NIST仅摘要，实际产品/Consumer/Owner/L3未测；合计383登记/49 registry（非去重）。
+
+## 2026-10-25｜R-PLAN-GATE-001 规划校核与D06首消费者／D09前置闭包
+[研究边界](topics/R-PLAN-GATE-001.md) · [8来源](sources/CAP-05-08.json) · [10规则20正反](traces/CAP-05-08.json)。ISO仅读目录、NIST只读摘要；375登记/48 registry，不代表375篇独立文献。产品/消费者/Owner/L3 NOT_RUN/PENDING。
+
+## 2026-10-25｜R-PLANDIFF-001 计划修订与三方语义差异
+[专题](topics/R-PLANDIFF-001.md) · [8来源](sources/CAP-05-07.json) · [10规则20合成正反](traces/CAP-05-07.json)。当前来源登记367条/47 registry；NIST仅读官方Abstract、ISO目录未读付费正文；真实产品/独立消费者NOT_RUN，L3待审。
+
+## 2026-10-25｜R-D12-POST-001 后处理版本与NC谱系
+[专题](topics/R-D12-POST-001.md) · [9合法来源](sources/E3-02.json) · [10规则20正反](traces/E3-02.json)。359条登记/46 registry，标准仅读目录，产品NOT_RUN。
+
+## 2026-10-25｜R-CLLINK-001中立CL、圆弧/螺旋与端面连续链接
+[专题](topics/R-CLLINK-001.md) · [来源登记8条](sources/E3-01.json) · [10规则20正反](traces/E3-01.json) · [6几何4链接数学向量](../docs/work-packages/E3-01/geometry-vectors.json)。累计350来源登记/45 registry；ISO仅目录、NIST仅书目、真实NC/OCCT和独立消费者NOT_RUN。以下为历史快照。
+
+## 2026-10-24｜R-FREEZE-001 局部冻结与冲突管理
+[专题](topics/R-FREEZE-001.md) · [8合法来源](sources/CAP-05-06.json) · [10规则与20正反](traces/CAP-05-06.json)。累计342条登记/44 registry；ISO仅目录、NIST论文仅摘要；RFC9110/8785/W3C与Git合并语义均明确适用界限，产品/独立消费者NOT_RUN。
+
+## 2026-10-24｜R-SOLVER-ADOPT-001 多解求解候选与受控采纳
+[专题](topics/R-SOLVER-ADOPT-001.md) · [7合法公开来源](sources/CAP-05-05.json) · [10规则20正反](traces/CAP-05-05.json)。334登记/43 registry；ISO仅公开目录、CP-SAT状态不代表真实几何可行、OCCT Shape有效不代表NC安全。所有产品/独立消费者NOT_RUN，L3待审。
+
+## 2026-10-24｜R-RELEASE-001 D16发布与离线信任链
+[专题](topics/R-RELEASE-001.md) · [10官方/开源规范来源](sources/E3-06.json) · [10规则20正反](traces/E3-06.json)。ISO公开目录≠付费正文，SLSA/in-toto的借鉴≠NC安全认证，离线验签/实机NOT_RUN。合计327登记/42 registry，以下均旧快照。
+
+## 2026-10-24｜R-TMPL-001 工艺模板精确绑定与版本复用
+[专题](topics/R-TMPL-001.md) · [8来源](sources/CAP-05-04.json) · [10规则/20正反](traces/CAP-05-04.json)。ISO仅合法官方目录；Autodesk Support仅检索摘要；模板参数/槽位跨项目需要显式重绑定。累计来源317条/41 registry（非去重）；产品/独立消费者NOT_RUN。
+
+## 2026-10-24｜R-NCVERIFY-001 独立NC程序验证与离散干涉边界
+[研究专题](topics/R-NCVERIFY-001.md) · [9来源](sources/E3-05.json) · [10规则/20正反](traces/E3-05.json)。研究登记309条/40 registry；ISO目录和NIST出版页均非全文，OCCT静态几何非连续安全证明；产品/独立D16 NOT_RUN。
+
+## 2026-10-24｜R-D14-KIN-001机床轴时序与运动学
+[专题](topics/R-D14-KIN-001.md) · [9来源](sources/E3-04.json) · [规则/20正反](traces/E3-04.json)。正式来源300条/39 registry；ISO841目录不等于正文；LinuxCNC不外推实际B5；产品/独立D15 NOT_RUN。以下为历史快照。
+
+## 2026-10-24｜R-ROUTEEDIT-001人工编辑与工艺约束研究
+[专题](topics/R-ROUTEEDIT-001.md) · [9来源](sources/CAP-05-03.json) · [10规则20正反](traces/CAP-05-03.json)。来源291条/38 registry；ISO仅目录，产品NOT_RUN。
+
+## 2026-10-24｜R-NCEXEC-001 D13执行语义研究
+
+[9项官方/研究来源](sources/E3-03.json) · [10规则20正反](traces/E3-03.json) · [原E3-03工作包](../docs/work-packages/E3-03.md)。来源282条/37 registry；NIST、ISO目录不作全文；LinuxCNC手册不外推实际控制器；产品/独立消费者NOT_RUN。
+
+## 2026-10-24｜R-TEAM-GOV-001 团队治理与真实验收证据
+
+[专题](topics/R-TEAM-GOV-001.md) · [B0-06 9条官方/论文来源](sources/B0-06.json) · [10规则20正反追踪](traces/B0-06.json)。来源登记**273条/36 registry**；ISO仅目录、NIST仅出版摘要，arXiv仅读摘要；旧R-GOV-001属于B0-02，保持不变。产品与独立消费者均NOT_RUN。
+
+## 2026-10-24｜R-STRAT-001策略与工艺参数
+
+[专题](topics/R-STRAT-001.md) · [9来源](sources/CAP-05-02.json) · [10规则20验收](traces/CAP-05-02.json)。累计264条/35registry；ISO目录、NIST摘要与Sandvik公式均注明适用限制，实际产品NOT_RUN。
+
+## 2026-10-24｜R-ROUTE-001工艺路线与工序依赖
+
+[研究专题](topics/R-ROUTE-001.md) · [8来源](sources/CAP-05-01.json) · [10规则20正反验收](traces/CAP-05-01.json)。累计255登记/34registry；ISO目录≠正文，OR-Tools排程范例≠产品排程，D05计划≠D15验证；产品/消费者NOT_RUN。
+
+## 2026-10-24｜R-POST-001后处理链研究
+
+[专题](topics/R-POST-001.md) · [8来源](sources/CAP-08-01.json) · [10规则](traces/CAP-08-01.json) · [20验收](../docs/capabilities/CAP-08-01/fixtures.json)。ISO仅官方目录，NIST仅出版记录；累计247登记记录/33registry。产品NOT_RUN。
+
+## 2026-10-20｜R-FIMP-001装夹影响与依赖传播
+
+[研究边界](topics/R-FIMP-001.md) · [七项公开来源](sources/CAP-04-08.json) · [十规则](traces/CAP-04-08.json) · [20项独立正反验收](../docs/capabilities/CAP-04-08/fixtures.json)。来源登记239条/32 registry，CAP研究追踪30项；标准全文未读、实际OCCT产品运行及NC验证均NOT_RUN。
+
+## 2026-10-20｜R-MACH-001机床构型证据闭环
+
+[专题](topics/R-MACH-001.md) · [来源](sources/CAP-02-01.json) · [规则](traces/CAP-02-01.json) · [20验收](../docs/capabilities/CAP-02-01/fixtures.json)。来源232条/31 registry；标准目录≠全文，规划≠产品PASS。以下为历史快照。
+
+## 2026-10-19｜R-TASK-001任务/事件/采纳追踪（最新）
+
+[专题](topics/R-TASK-001.md) · [8项来源](sources/CAP-01-06.json) · [10条规则](traces/CAP-01-06.json) · [20验收](../docs/capabilities/CAP-01-06/fixtures.json)。累计来源225条/30 registry，CAP追踪28项。NIST仅出版摘要，OTel为Development，Host Journal/CAS/NC验证分层是Procet设计决策而非外部标准要求；产品NOT_RUN。
+
+## 2026-10-19｜R-FRAME-001坐标与变换图研究补证（最新）
+[专题](topics/R-FRAME-001.md) · [7来源](sources/CAP-04-04.json) · [10规则](traces/CAP-04-04.json) · [20正反验收](../docs/capabilities/CAP-04-04/fixtures.json)。总来源217条/29份registry，CAP追踪27项。ISO841仅官方摘要、OCCT8.0.1公开API、LinuxCNC稳定手册和NIST出版元数据；不声称已阅读付费正文，不将规划校验冒充产品验证。
+
+## 2026-10-19｜R-MSET-001 多Setup与转序（最新入库）
+
+[专题](topics/R-MSET-001.md) · [8项公开来源](sources/CAP-04-05.json) · [10规则与20正反验收](traces/CAP-04-05.json)；CAP追踪26项，研究登记**210条/28 registry**。ISO 841/5459只读合法目录；OCCT公开8.0.1 API、LinuxCNC稳定版手册、NIST出版摘要、Springer2026开放章节分别注明范围，不构成通用控制器或五轴机床认证。CAP-04-04先期FrameGraph计划仍未正式入库；产品和独立消费者NOT_RUN。
+
+## 2026-10-19｜B0-05逐SHA证据规划入库（最新）
+
+[研究专题](topics/R-PR-001.md) · [七项来源](sources/B0-05.json) · [十规则与二十正反验收](traces/B0-05.json)。来源**202条登记/27 registry**，工作包追踪**9项**、详细工作包**11/36**；标准正文未读不编造，产品与独立QA仍NOT_RUN。以下数字为历史快照。
+
+## 2026-10-19｜CAP-02-02刀具与切削参数补证（规划状态）
+
+[原业务规格](../docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-02-02_刀具与切削参数.md) · [研究补证](../docs/capabilities/CAP-02-02/RESEARCH-BACKFILL.md) · [7项官方来源](sources/CAP-02-02.json) · [10规则及20项正反验收](traces/CAP-02-02.json)。来源登记**195条/26 registry**，CAP研究追踪**25项**；详细CAP仍27/88、工作包10/36。ISO标准只读官方公开目录，Sandvik公式读取公开网页，NIST仅出版摘要。真实产品、独立消费者、L3均未通过，不作生产参数认证。
+
+## 2026-10-19｜CAP-04-03夹具与工件约束（仅规划）
+
+[业务规格](../docs/capabilities/CAP-04-03/README.md) · [UI/3D](../docs/capabilities/CAP-04-03/UI.md) · [研究专题](topics/R-FIX-001.md) · [7来源](sources/CAP-04-03.json) · [10规则/20正反验收](traces/CAP-04-03.json)。来源登记更新为**188条/25 registry**，CAP研究追踪**24项**；详细CAP **27/88**、工作包**10/36**。3-2-1约束秩仅是局部线性定位证据，不代表夹紧力、结构变形或NC级安全验证。L3/独立消费者/产品测试未执行，旧快照数据以tracking/progress.json为准。
+
+## 2026-10-19｜CAP-01-07工作台与3D交互补证（仅规划）
+
+新增[研究专题](topics/R-UI3D-001.md)、[官方7来源](sources/CAP-01-07.json)、[10规则追踪](traces/CAP-01-07.json)和[20正反验收](../docs/capabilities/CAP-01-07/fixtures.json)，保留原8个验收业务语义。总来源登记**174条/23 registry**，CAP研究追踪**22项**。产品/Babylon运行/独立消费者测试NOT_RUN。单一世界为内部设计约束，不把Babylon多Scene能力误解为强制单Scene。
+
+# 研究工作台｜2026-10-19补证更新
+
+当前来源索引按21个registries登记**160条记录**（非160篇去重论文），兼容旧sources/records不同schema；CAP01-02为新补证，CAP03-06恢复原附件。已补CAP研究追踪20项、工作包追踪8项，未等于11域全部研究完成。产品NOT_RUN。详情见[来源索引](source-index.json)与[本轮交叉校验范围](../tracking/backfill-verification-2026-10-19.json)。
+
+## 以下为历史研究状态
+
+# 研究工作台｜2026-10-19更新
+
+来源索引已枚举11个注册文件，按记录合计**120条**，无重复来源ID；并非120篇独立原文。新增R-PS-001、R-ASM-001、R-TOP-001、R-PMI-001、R-MFR-001、R-FREL-001、R-AUTH-001、R-WFLOW-001等专题。仅入库了来源/规则/验收闭合的项目才统计为完整研究追踪；未取得标准付费正文不编造条款。下文保留此前内容作为历史研究状态。
+
+---
+
 # 理论、标准与参考证据工作台
 
-版本：0.4，2026-10-17。目的不是文献堆积，而是让每个工程设计决定能够被追溯、质疑和验证。
+版本0.7，2026-10-18。来源不是装饰性书目：必须解释具体支持的规则、前提与失败边界。
 
-## 阅读入口
+## 来源与专题导航
 
-- [来源注册表](references.json)：现登记45项，访问深度分列。
-- [刀具总成、坐标链与长度补偿](topics/R-TA-001.md) → [CAP-02-03](../docs/capabilities/CAP-02-03/README.md)。
-- [夹具定位、单边接触与有限载荷](topics/R-WH-001.md) → [CAP-02-04](../docs/capabilities/CAP-02-04/README.md) → [机器可读规则追踪](traces/CAP-02-04.json)。
-- [毛坯、材料属性与初始几何](topics/R-MS-001.md) → [CAP-02-05](../docs/capabilities/CAP-02-05/README.md) → [规则追踪](traces/CAP-02-05.json)。
-- [测量资源、在机探测与计量证据](topics/R-MET-001.md) → [CAP-02-06](../docs/capabilities/CAP-02-06/README.md) → [规则追踪](traces/CAP-02-06.json)。
-- [跨域公共精确引用与一致性](topics/R-REF-001.md) → [F1-01](../docs/work-packages/F1-01.md) → [机器可读追踪](traces/F1-01.json)。
-- [离线快照、依赖闭包与故障恢复](topics/R-SNAP-001.md) → [F1-06](../docs/work-packages/F1-06.md) → [规则追踪](traces/F1-06.json)。
-- [B0-03业务黄金样例与规范追踪](../docs/work-packages/B0-03.md)、[F1-02单位与安装数学](../docs/work-packages/F1-02.md)。
+[统一来源索引](source-index.json)枚举登记文件。旧[references.json](references.json)61条记录保持原字节、ID和访问日期；[F1-03补充登记](sources/F1-03.json)8条及[CAP-03-01新增登记](sources/CAP-03-01.json)7条，合计76条登记记录，不等于69篇去重原文。新追踪检查必须同时读取两个登记文件；只读旧表不能据此判断新引用不存在。
 
-## 证据分层
-
-| 类型 | 可以证明 | 不可以证明 |
+| 专题 | 对应任务 | 入口 |
 |---|---|---|
-| 标准目录/摘要 | 标准身份、版次和适用主题 | 未读条款、具体尺寸、软件已合规 |
-| 标准正文/原始论文 | 已读取范围内的定义、算法和前提 | 超出试验范围的普适效果 |
-| 官方设备/控制器手册 | 指定型号与版本的接口、行为和限制 | 所有厂商、所有固件的行为 |
-| 官方实现文档/源码 | 指定提交的实际结构和能力线索 | 产品组合已消费或已验收 |
-| Procet设计推导 | 在声明前提下选择的规则和实现方案 | 文献作者已经验证Procet |
-| 可重放测试证据 | 精确版本、输入与环境下的测试结果 | 未测型号、拓扑、容差和安全资格 |
+| R-TA-001 | CAP-02-03 | [总成与长度补偿](topics/R-TA-001.md) |
+| R-WH-001 | CAP-02-04、F1-02 | [定位与有限载荷](topics/R-WH-001.md) |
+| R-MS-001 | CAP-02-05 | [材料与初始毛坯](topics/R-MS-001.md) |
+| R-REF-001 | F1-01 | [公共精确引用](topics/R-REF-001.md) |
+| R-MET-001 | CAP-02-06 | [测量与计量证据](topics/R-MET-001.md) |
+| R-SNAP-001 | F1-06 | [快照闭包与恢复](topics/R-SNAP-001.md) |
+| R-RG-001 | CAP-02-07 | [资源几何与参数化](topics/R-RG-001.md) |
+| R-RC-001 | CAP-02-08 | [资源能力与兼容](topics/R-RC-001.md) |
+| R-BOUND-001 | F1-03 | [跨域公共面与渐进迁移](topics/R-BOUND-001.md)、[追踪](traces/F1-03.json) |
 
-访问深度枚举：catalog_abstract、section_text、full_text、not_obtained。标准全文需合法获得，禁止第三方盗版替代。来源权威不能补偿没有读取相关内容的问题。
+## 证据方法
 
-每个来源记录标题、作者/机构、版次/日期、URL或DOI、访问日期、读取位置、支持结论、适用范围及未覆盖内容。未知日期写未标注，不以爬取日期代替。参考当前官方版本须核对替代版和修订；历史手册仅用于其特定版本或原理反例。原有来源除SRC-TA-001本轮复核外，本轮不声称重新读取。
+访问深度分catalog_abstract、section_text、full_text、not_obtained。登记标题、作者/机构、版次、发表或更新日期、URL/DOI、访问日期、读取章节、支持结论与局限。未知日期不以爬取时间代替。标准仅读目录不能编造正文条款或尺寸；当前官方网页不等于产品锁定依赖版本。不得上传标准、书籍、手册的未授权全文。
 
-## 必须形成的追踪关系
+来源→规则→字段/公式→CAP/工作包→正反验收必须可追踪。源码观察、外部理论、内部设计选择、真实测试是四类证据；内部选择没有外部强制标准时明确标识，不能冒称行业规定。纯数学和文档校验不代替产品验收。
 
-来源ID → 规则ID → 字段/公式/状态变化 → CAP/工作包 → 正向/反向验收ID。没有外部来源的内部架构选择可以存在，但须标为设计决策并给出理由、代码观察与验收，不伪称行业标准。
+本轮重新核对8个F1-03来源网页，不声称重读全部历史61条。重点修正能力声明和请求许可的区别，说明Rust/TS编译边界不是运行权限；SQLite事务不能自动代表全部工程原子激活，亦不泛称所有跨库事务均不原子。
 
-来源冲突需比较坐标约定、术语口径、控制器版本和实验前提。本轮例子：工程手册按正负方向分别计数，不等于数学上12个独立刚体自由度；双边定位秩与单边封闭、有限载荷不互相替代。详见R-WH-001。
+## 11域研究队列
 
-## 11域研究队列（研究方向，不代表完成）
+| 域 | 必须回答的问题 | 当前覆盖 |
+|---|---|---|
+| 01 工程与宿主 | 保存、谱系、幂等、权限、恢复 | 引用/快照/公共面局部覆盖，前8项CAP追踪待补 |
+| 02 制造资源 | 身份、接口、装配、材料、测量、能力 | 6个专题局部覆盖；机床与刀具前2项CAP仍待补证 |
+| 03 CAD/PMI/特征 | 设计语义、精度、拓扑身份与特征 | 仅GPS/Frame/Owner局部内容；下一项CAD导入 |
+| 04 Setup与坐标 | 基准、安装、装夹、偏置与执行绑定 | 安装数学和资源边界局部覆盖 |
+| 05 工艺规划 | 顺序、人工决策、冻结与增量变化 | 基线及公共面边界，待逐项研究 |
+| 06 几何求解 | 布尔、容差、搜索、收敛与独立核验 | 待逐项研究 |
+| 07 刀路 | 偏置、圆弧、连接、接触和余量 | 待逐项研究 |
+| 08 NC与后处理 | 方言、模态、刀补、宏、子程序 | 补偿/测量语义及接口局部覆盖 |
+| 09 运动与验证 | FK/IK、奇异、碰撞与工程证据 | 安装/接触/能力局部覆盖，非产品认证 |
+| 10 发布与现场 | 配置闭包、受控发布、审计与反馈 | 快照和检测数据边界局部覆盖 |
+| 11 AI与知识 | 工具权限、批准、检索与来源 | 公共入口边界局部覆盖，待专题研究 |
 
-| 域 | 必须回答的问题 | 优先原始资料方向 | 当前状态 |
-|---|---|---|---|
-| 01 工程与宿主 | 原子保存、版本谱系、幂等、撤销和恢复 | 架构描述标准、数据库官方文档、并发原论文 | C0/C1、快照闭包与故障恢复专题已编制，跨域真实一致性仍待产品补证 |
-| 02 制造资源 | 身份、接口、装配、几何与物理能力 | ISO 13399系列、接口标准、厂商手册 | 总成/夹具/毛坯与材料/测量资源专题已编制，计量正文与实物证据需补证 |
-| 03 CAD/PMI/特征 | 设计语义、精度、拓扑身份与特征证据 | STEP/AP242、GPS/GD&T、OCCT、识别原论文 | GPS目录和Frame局部覆盖，未读标准正文 |
-| 04 Setup/坐标 | 基准、安装链、装夹约束与偏置 | ISO 841、刚体变换、夹具定位理论 | R-TA-001/R-WH-001局部覆盖 |
-| 05 工艺规划 | 顺序、前置约束、冻结和增量计划 | 规划原论文、约束规划、数字链研究 | 待逐项补证 |
-| 06 几何求解 | 布尔、容差、搜索、收敛与独立核验 | OCCT、计算几何/搜索原论文、基准 | 待逐项补证 |
-| 07 刀路 | 偏置、圆弧、连接、残料与接触点 | 刀路原论文、中立轨迹定义 | 待逐项补证 |
-| 08 NC/后处理 | 方言、模态、刀补、宏、子程序 | 实际控制器手册、解释器官方文档 | 补偿及测量NC语义边界局部覆盖，专有探测循环待真实控制器证据 |
-| 09 运动/验证 | FK/IK、奇异、约束、碰撞与独立证据 | 运动学、控制器模式、验证原论文 | 安装数学与接触边界局部覆盖，非产品认证 |
-| 10 发布/现场 | 程序版本、配置闭包、审计与反馈 | 制造互联规范、数字链资料 | 检测反馈模型局部覆盖，D17测量结果尚未实施评审 |
-| 11 AI/知识 | 工具调用、批准、来源及经验边界 | 官方工具协议、检索/代理评估原论文 | 待逐项补证 |
+目录不是完成声明。CAP研究追踪6项、工作包追踪3项；前10项CAP的新版映射仍待回补。专题编制可保留工程资料缺口，但必须写出补证责任、适用限制和阻断条件。
 
-上表是队列，不表示已读取所有列出资料。前10项业务规格的逐项研究追踪仍待回补；新增专题不让整个域自动完成。
+- [R-CAD-001｜STEP/AP242/OCCT几何导入与来源资格](topics/R-CAD-001.md) → [CAP-03-01](../docs/capabilities/CAP-03-01/README.md) → [规则追踪](traces/CAP-03-01.json)。本专题只确认实际阅读范围，ISO 10303-242:2025取代2022版，产品SDK锁需独立补证。
 
-## 编制完成口径
+### 2026-10-19｜R-STOCKREG-001 毛坯/零件定位配准
 
-专题需要原理、已核对来源、适用规则、失败边界、字段映射和验证设计。正文或设备资料缺失须注明责任与冻结限制。最终规划可保留人类批准和实机测试待办，但不能藏起关键未知计算语义。纯数学测试与产品验收分开计数。
+[理论与限制](topics/R-STOCKREG-001.md) → [7条来源](sources/CAP-04-02.json) → [10条规则追踪](traces/CAP-04-02.json) → [20条正反验收](../docs/capabilities/CAP-04-02/fixtures.json)。ISO标准仅读合法官方摘要，NIST报告仅出版元数据，OCCT按官网8.0.1 API，不冒称产品Native或真实控制器已验收。
+
+### 2026-10-19 R-EXT-001 扩展与集成入口研究补证
+
+[专题](topics/R-EXT-001.md) · [7项来源](sources/CAP-01-08.json) · [10规则及20正反验收](traces/CAP-01-08.json)。累计181条来源、24份registry、23项CAP追踪；产品NOT_RUN。

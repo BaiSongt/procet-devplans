@@ -1,0 +1,603 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-03",
+  "researchTopic": "R-WCS-MOTION-001",
+  "sourceRegistry": "research/sources/CAP-08-03.json",
+  "specification": "docs/capabilities/CAP-08-03/README.md",
+  "ui": "docs/capabilities/CAP-08-03/UI.md",
+  "fixtures": "docs/capabilities/CAP-08-03/fixtures.json",
+  "validator": "tools/check_cap0803_planning_2026_10_26.cjs",
+  "status": "compiled_pending_human_review_product_not_run",
+  "rules": [
+    {
+      "id": "CAP-08-03-R01",
+      "capabilityId": "CAP-08-03",
+      "summary": "D04 Setup与D10执行机床配置独立锁定",
+      "sourceIds": [
+        "C083-S4",
+        "C083-S2"
+      ],
+      "assets": [
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "binding.d04Exact",
+        "binding.d10Exact",
+        "binding.frameHashKnown",
+        "binding.profilePinned",
+        "binding.noFrameGuess"
+      ],
+      "criteria": [
+        {
+          "path": "binding.d04Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.d10Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.frameHashKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.profilePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.noFrameGuess",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T01",
+      "negativeTestId": "CAP-08-03-T02",
+      "mutationTestId": "CAP-08-03-M01"
+    },
+    {
+      "id": "CAP-08-03-R02",
+      "capabilityId": "CAP-08-03",
+      "summary": "WCS与G53机器坐标、G52/G92临时偏置分离",
+      "sourceIds": [
+        "C083-S2",
+        "C083-S4"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "wcs.selectedKnown",
+        "wcs.snapshotHashed",
+        "wcs.g53Separate",
+        "wcs.temporaryOffsetsKnown",
+        "wcs.frameInverseChecked"
+      ],
+      "criteria": [
+        {
+          "path": "wcs.selectedKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "wcs.snapshotHashed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "wcs.g53Separate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "wcs.temporaryOffsetsKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "wcs.frameInverseChecked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T03",
+      "negativeTestId": "CAP-08-03-T04",
+      "mutationTestId": "CAP-08-03-M02"
+    },
+    {
+      "id": "CAP-08-03-R03",
+      "capabilityId": "CAP-08-03",
+      "summary": "G90/G91、弧心和单位模态各自跟踪",
+      "sourceIds": [
+        "C083-S2",
+        "C083-S3"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "modal.linearKnown",
+        "modal.arcCenterKnown",
+        "modal.unitsKnown",
+        "modal.initialStatePinned",
+        "modal.transitionLogged"
+      ],
+      "criteria": [
+        {
+          "path": "modal.linearKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.arcCenterKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.unitsKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.initialStatePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.transitionLogged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T05",
+      "negativeTestId": "CAP-08-03-T06",
+      "mutationTestId": "CAP-08-03-M03"
+    },
+    {
+      "id": "CAP-08-03-R04",
+      "capabilityId": "CAP-08-03",
+      "summary": "G2/G3圆弧/螺旋的平面半径方向校核",
+      "sourceIds": [
+        "C083-S1",
+        "C083-S2"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "arc.planeKnown",
+        "arc.radiusConsistent",
+        "arc.directionKnown",
+        "arc.helicalIntentKnown",
+        "arc.profilePinned"
+      ],
+      "criteria": [
+        {
+          "path": "arc.planeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arc.radiusConsistent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arc.directionKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arc.helicalIntentKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arc.profilePinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T07",
+      "negativeTestId": "CAP-08-03-T08",
+      "mutationTestId": "CAP-08-03-M04"
+    },
+    {
+      "id": "CAP-08-03-R05",
+      "capabilityId": "CAP-08-03",
+      "summary": "G43刀长与D03刀柄Gauge和刀具表精确绑定",
+      "sourceIds": [
+        "C083-S2",
+        "C083-S3"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "toolLength.d03Exact",
+        "toolLength.gaugeKnown",
+        "toolLength.tableHashKnown",
+        "toolLength.compModeKnown",
+        "toolLength.unknownBlocked"
+      ],
+      "criteria": [
+        {
+          "path": "toolLength.d03Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolLength.gaugeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolLength.tableHashKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolLength.compModeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolLength.unknownBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T09",
+      "negativeTestId": "CAP-08-03-T10",
+      "mutationTestId": "CAP-08-03-M05"
+    },
+    {
+      "id": "CAP-08-03-R06",
+      "capabilityId": "CAP-08-03",
+      "summary": "G40/G41/G42刀具半径补偿进入与退出",
+      "sourceIds": [
+        "C083-S2",
+        "C083-S3"
+      ],
+      "assets": [
+        "D03",
+        "D09",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "toolRadius.radiusExact",
+        "toolRadius.leadInChecked",
+        "toolRadius.leadOutChecked",
+        "toolRadius.cancelTracked",
+        "toolRadius.controllerSpecific"
+      ],
+      "criteria": [
+        {
+          "path": "toolRadius.radiusExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolRadius.leadInChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolRadius.leadOutChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolRadius.cancelTracked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolRadius.controllerSpecific",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T11",
+      "negativeTestId": "CAP-08-03-T12",
+      "mutationTestId": "CAP-08-03-M06"
+    },
+    {
+      "id": "CAP-08-03-R07",
+      "capabilityId": "CAP-08-03",
+      "summary": "G0/G1、进给和轨迹控制与碰撞结论分离",
+      "sourceIds": [
+        "C083-S2",
+        "C083-S3"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "motion.g0Distinct",
+        "motion.feedModeKnown",
+        "motion.pathControlPinned",
+        "motion.unknownBlocks",
+        "motion.noFakeCollisionProof"
+      ],
+      "criteria": [
+        {
+          "path": "motion.g0Distinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.feedModeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.pathControlPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.unknownBlocks",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.noFakeCollisionProof",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T13",
+      "negativeTestId": "CAP-08-03-T14",
+      "mutationTestId": "CAP-08-03-M07"
+    },
+    {
+      "id": "CAP-08-03-R08",
+      "capabilityId": "CAP-08-03",
+      "summary": "机床轴与回转方向须以D10+D14证明",
+      "sourceIds": [
+        "C083-S2",
+        "C083-S4"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "axes.axisSetKnown",
+        "axes.rotarySignKnown",
+        "axes.travelBoundKnown",
+        "axes.d14Independent",
+        "axes.noFakeFiveAxis"
+      ],
+      "criteria": [
+        {
+          "path": "axes.axisSetKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "axes.rotarySignKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "axes.travelBoundKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "axes.d14Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "axes.noFakeFiveAxis",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T15",
+      "negativeTestId": "CAP-08-03-T16",
+      "mutationTestId": "CAP-08-03-M08"
+    },
+    {
+      "id": "CAP-08-03-R09",
+      "capabilityId": "CAP-08-03",
+      "summary": "D13独立重读最终NC字节并生成可追溯动作",
+      "sourceIds": [
+        "C083-S5",
+        "C083-S7"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "lineage.ncHashExact",
+        "lineage.reparsedIndependently",
+        "lineage.lineMapped",
+        "lineage.d14ConsumesEvents",
+        "lineage.editsForked"
+      ],
+      "criteria": [
+        {
+          "path": "lineage.ncHashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.reparsedIndependently",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.lineMapped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.d14ConsumesEvents",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.editsForked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T17",
+      "negativeTestId": "CAP-08-03-T18",
+      "mutationTestId": "CAP-08-03-M09"
+    },
+    {
+      "id": "CAP-08-03-R10",
+      "capabilityId": "CAP-08-03",
+      "summary": "同一Owner入口CAS/ACL/取消晚回执及UNKNOWN阻发布",
+      "sourceIds": [
+        "C083-S6",
+        "C083-S7"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "gate.singlePort",
+        "gate.casAclRechecked",
+        "gate.generationRechecked",
+        "gate.unknownBlocksD16",
+        "gate.d15Independent"
+      ],
+      "criteria": [
+        {
+          "path": "gate.singlePort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.casAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.generationRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.unknownBlocksD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.d15Independent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一关键条件缺失/失效返回REJECT或UNKNOWN，不可发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-03-T19",
+      "negativeTestId": "CAP-08-03-T20",
+      "mutationTestId": "CAP-08-03-M10"
+    }
+  ]
+}

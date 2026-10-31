@@ -1,0 +1,588 @@
+{
+  "schemaVersion": "procet-w2-01-synthetic-fixtures-v1",
+  "workPackageId": "W2-01",
+  "note": "合成规则门禁，独立产品领域逻辑未执行；布尔值仅供检查设计追踪结构",
+  "cases": [
+    {
+      "id": "W2-01-T01",
+      "ruleId": "W201-R01",
+      "polarity": "positive",
+      "description": "正例：A/B共用一套工程事实和D01-D17权威引用，不创建双项目/双库/双Babylon",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T02",
+      "ruleId": "W201-R01",
+      "polarity": "negative",
+      "description": "反例：A/B共用一套工程事实和D01-D17权威引用，不创建双项目/双库/双Babylon",
+      "input": {
+        "gates": {
+          "sameProjectTruth": false,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "MODE_PROJECT_FORK",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T03",
+      "ruleId": "W201-R02",
+      "polarity": "positive",
+      "description": "正例：A可无批准D05，但CAD目标/允许的算法条件必须逐项存在；缺少必需毛坯的材料求解仍阻断",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T04",
+      "ruleId": "W201-R02",
+      "polarity": "negative",
+      "description": "反例：A可无批准D05，但CAD目标/允许的算法条件必须逐项存在；缺少必需毛坯的材料求解仍阻断",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": false,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "reason": "A_MINIMUM_UNKNOWN",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T05",
+      "ruleId": "W201-R03",
+      "polarity": "positive",
+      "description": "正例：B可直接创建D05 Draft，不要求先完成D06、D07或全局特征识别",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T06",
+      "ruleId": "W201-R03",
+      "polarity": "negative",
+      "description": "反例：B可直接创建D05 Draft，不要求先完成D06、D07或全局特征识别",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": false,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "B_DEPENDS_ON_SOLVER",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T07",
+      "ruleId": "W201-R04",
+      "polarity": "positive",
+      "description": "正例：requirements按操作与阶段返回SATISFIED/MISSING/UNKNOWN/BLOCKED及nextAction，禁止全局生产门禁复用",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T08",
+      "ruleId": "W201-R04",
+      "polarity": "negative",
+      "description": "反例：requirements按操作与阶段返回SATISFIED/MISSING/UNKNOWN/BLOCKED及nextAction，禁止全局生产门禁复用",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": false,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "GLOBAL_GATE_MISAPPLIED",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T09",
+      "ruleId": "W201-R05",
+      "polarity": "positive",
+      "description": "正例：A→B只预览稳定身份/目标D05范围/冲突，D06候选不能直接写已批准计划",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T10",
+      "ruleId": "W201-R05",
+      "polarity": "negative",
+      "description": "反例：A→B只预览稳定身份/目标D05范围/冲突，D06候选不能直接写已批准计划",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": false,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "HANDOFF_MAPPING_UNRESOLVED",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T11",
+      "ruleId": "W201-R06",
+      "polarity": "positive",
+      "description": "正例：D08冻结只读，接管与B→A回流生成新修订，不能暗改旧冻结成果",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T12",
+      "ruleId": "W201-R06",
+      "polarity": "negative",
+      "description": "反例：D08冻结只读，接管与B→A回流生成新修订，不能暗改旧冻结成果",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": false,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "FROZEN_ASSET_OVERWRITE",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T13",
+      "ruleId": "W201-R07",
+      "polarity": "positive",
+      "description": "正例：D01/D04/D05/D06按id/revision/hash/frame/单位精确引用，禁止latest和跨Setup错Frame",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T14",
+      "ruleId": "W201-R07",
+      "polarity": "negative",
+      "description": "反例：D01/D04/D05/D06按id/revision/hash/frame/单位精确引用，禁止latest和跨Setup错Frame",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": false,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "EXACT_SOURCE_DRIFT",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T15",
+      "ruleId": "W201-R08",
+      "polarity": "positive",
+      "description": "正例：提交当刻统一域Port做项目scope、ACL、CAS、任务代次及源指纹重验",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T16",
+      "ruleId": "W201-R08",
+      "polarity": "negative",
+      "description": "反例：提交当刻统一域Port做项目scope、ACL、CAS、任务代次及源指纹重验",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": false,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "CAS_OR_PERMISSION_REVOKED",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T17",
+      "ruleId": "W201-R09",
+      "polarity": "positive",
+      "description": "正例：取消与晚回执唯一终态，隔离旧代次结果；界面关闭不等于领域结果采纳",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T18",
+      "ruleId": "W201-R09",
+      "polarity": "negative",
+      "description": "反例：取消与晚回执唯一终态，隔离旧代次结果；界面关闭不等于领域结果采纳",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": false,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "LATE_RESULT_ADOPTED",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T19",
+      "ruleId": "W201-R10",
+      "polarity": "positive",
+      "description": "正例：W2接管只获得草稿资格；D09需D07/D08，D13未知不能PASS，D15/D16独立审批，CL动画不得等同NC验证",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": true
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "DRAFT_HANDOFF_ONLY",
+        "reason": "HANDOFF_DRAFT_ONLY",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-01-T20",
+      "ruleId": "W201-R10",
+      "polarity": "negative",
+      "description": "反例：W2接管只获得草稿资格；D09需D07/D08，D13未知不能PASS，D15/D16独立审批，CL动画不得等同NC验证",
+      "input": {
+        "gates": {
+          "sameProjectTruth": true,
+          "aMinimalInputs": true,
+          "bDirectDraft": true,
+          "perActionRequirements": true,
+          "previewMapping": true,
+          "freezePreservation": true,
+          "exactSnapshot": true,
+          "commitRevalidation": true,
+          "cancelLate": true,
+          "noFalseQualification": false
+        },
+        "domainCommand": "A_B_HANDOFF_SYNTHETIC",
+        "targetPlanStatus": "DRAFT",
+        "mode": "A_TO_B"
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "FALSE_ENGINEERING_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    }
+  ],
+  "count": 20
+}

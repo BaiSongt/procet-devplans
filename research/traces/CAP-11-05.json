@@ -1,0 +1,580 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-05",
+  "researchTopic": "R-PROCESS-RECOMMENDATION-001",
+  "sourceRegistry": "research/sources/CAP-11-05.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-05-R01",
+      "capabilityId": "CAP-11-05",
+      "summary": "精确设计/材料/Frame上下文",
+      "engineeringRule": "推荐必须绑定目标和材料状态精确修订及Setup坐标，不使用过期缓存",
+      "fields": [
+        "scope.designRevisionExact",
+        "scope.materialStateHashExact",
+        "scope.setupFrameExact",
+        "scope.unitsExplicit"
+      ],
+      "sourceIds": [
+        "C1105-S07",
+        "C1105-S09"
+      ],
+      "relatedDomains": [
+        "03",
+        "04",
+        "06",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "scope.designRevisionExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.materialStateHashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.setupFrameExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.unitsExplicit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R02",
+      "capabilityId": "CAP-11-05",
+      "summary": "机床适用能力",
+      "engineeringRule": "从D03受控Port读取构型能力并验证D10实际执行上下文，不能把资源目录当实装",
+      "fields": [
+        "machine.d03CapabilityRevision",
+        "machine.d10ExecutionBinding",
+        "machine.axesReachEnvelope",
+        "machine.ownerPortRead"
+      ],
+      "sourceIds": [
+        "C1105-S04",
+        "C1105-S05",
+        "C1105-S07"
+      ],
+      "relatedDomains": [
+        "02",
+        "04",
+        "09",
+        "11"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "machine.d03CapabilityRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.d10ExecutionBinding",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.axesReachEnvelope",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.ownerPortRead",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R03",
+      "capabilityId": "CAP-11-05",
+      "summary": "刀具装配与有效切削直径",
+      "engineeringRule": "候选必须有刀具总装修订、实际伸出量、有效切径、刀具用途来源",
+      "fields": [
+        "tool.assemblyRevision",
+        "tool.actualGaugeLengthKnown",
+        "tool.effectiveDiameterKnown",
+        "tool.sourceApplicable"
+      ],
+      "sourceIds": [
+        "C1105-S01",
+        "C1105-S03"
+      ],
+      "relatedDomains": [
+        "02",
+        "04",
+        "11"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "tool.assemblyRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.actualGaugeLengthKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.effectiveDiameterKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.sourceApplicable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R04",
+      "capabilityId": "CAP-11-05",
+      "summary": "材料与工况匹配",
+      "engineeringRule": "不确定牌号/热处理/硬度/工况时不生成伪确定参数",
+      "fields": [
+        "material.gradeProvenance",
+        "material.heatTreatmentKnown",
+        "material.hardnessRangeKnown",
+        "material.operationCompatibility"
+      ],
+      "sourceIds": [
+        "C1105-S01",
+        "C1105-S02",
+        "C1105-S08"
+      ],
+      "relatedDomains": [
+        "02",
+        "03",
+        "04",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "material.gradeProvenance",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.heatTreatmentKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.hardnessRangeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.operationCompatibility",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R05",
+      "capabilityId": "CAP-11-05",
+      "summary": "铣削公式、单位与进给模式",
+      "engineeringRule": "校验Dcap>0、有效齿数>0、vc/fz单位，明确G93/G94/G95不可混推",
+      "fields": [
+        "calc.effectiveDiameterPositive",
+        "calc.effectiveTeethPositive",
+        "calc.unitConsistent",
+        "calc.feedModeExplicit"
+      ],
+      "sourceIds": [
+        "C1105-S02",
+        "C1105-S03",
+        "C1105-S04",
+        "C1105-S05"
+      ],
+      "relatedDomains": [
+        "02",
+        "07",
+        "08",
+        "11"
+      ],
+      "assets": [
+        "D03",
+        "D09",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "calc.effectiveDiameterPositive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "calc.effectiveTeethPositive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "calc.unitConsistent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "calc.feedModeExplicit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R06",
+      "capabilityId": "CAP-11-05",
+      "summary": "参数边界与不确定",
+      "engineeringRule": "建议值不得超出现时能力Profile；功率/刀具负荷缺证则UNKNOWN或人工待审",
+      "fields": [
+        "limits.rpmEnvelopeChecked",
+        "limits.feedEnvelopeChecked",
+        "limits.engagementChecked",
+        "limits.powerEvidenceKnown"
+      ],
+      "sourceIds": [
+        "C1105-S03",
+        "C1105-S04",
+        "C1105-S05",
+        "C1105-S06"
+      ],
+      "relatedDomains": [
+        "02",
+        "09",
+        "11"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "limits.rpmEnvelopeChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.feedEnvelopeChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.engagementChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.powerEvidenceKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R07",
+      "capabilityId": "CAP-11-05",
+      "summary": "替代方案与风险",
+      "engineeringRule": "至少解释一个替代/不适用原因，指标必须可比，未校核项目显式显示",
+      "fields": [
+        "alternatives.distinctStrategies",
+        "alternatives.comparableMetrics",
+        "alternatives.constraintTrace",
+        "alternatives.rejectionReason"
+      ],
+      "sourceIds": [
+        "C1105-S06",
+        "C1105-S07",
+        "C1105-S08"
+      ],
+      "relatedDomains": [
+        "05",
+        "06",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "alternatives.distinctStrategies",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alternatives.comparableMetrics",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alternatives.constraintTrace",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alternatives.rejectionReason",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R08",
+      "capabilityId": "CAP-11-05",
+      "summary": "证据可定位和逐结论解释",
+      "engineeringRule": "每个参数引用可定位来源/公式版本和单位，未知信息不可伪称已验证",
+      "fields": [
+        "explain.claimSourceLocator",
+        "explain.ruleVersion",
+        "explain.formulaUnitTrace",
+        "explain.gapsExplicit"
+      ],
+      "sourceIds": [
+        "C1105-S03",
+        "C1105-S06",
+        "C1105-S07",
+        "C1105-S08"
+      ],
+      "relatedDomains": [
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "explain.claimSourceLocator",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "explain.ruleVersion",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "explain.formulaUnitTrace",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "explain.gapsExplicit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R09",
+      "capabilityId": "CAP-11-05",
+      "summary": "人工采纳与冻结安全",
+      "engineeringRule": "Agent仅提交D05候选草案，D08冻结不覆写，最终业务Owner ACL/CAS/取消重验",
+      "fields": [
+        "adopt.d05DraftOnly",
+        "adopt.d08FrozenProtected",
+        "adopt.ownerAclCurrent",
+        "adopt.casCancelEpochCurrent"
+      ],
+      "sourceIds": [
+        "C1105-S06",
+        "C1105-S07",
+        "C1105-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "adopt.d05DraftOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "adopt.d08FrozenProtected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "adopt.ownerAclCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "adopt.casCancelEpochCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-05-R10",
+      "capabilityId": "CAP-11-05",
+      "summary": "NC资格与独立消费",
+      "engineeringRule": "CL预览非NC验证，D12→D13→D14→D15独立PASS前不能自动签发D16",
+      "fields": [
+        "safety.clOnlyDistinct",
+        "safety.ncChainIndependent",
+        "safety.unknownBlocksRelease",
+        "safety.consumerReceiptReviewed"
+      ],
+      "sourceIds": [
+        "C1105-S04",
+        "C1105-S06",
+        "C1105-S08",
+        "C1105-S09"
+      ],
+      "relatedDomains": [
+        "07",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "safety.clOnlyDistinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.ncChainIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.unknownBlocksRelease",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.consumerReceiptReviewed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条1正+4逐字段独立反例；其余状态门禁与算术独立检查",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

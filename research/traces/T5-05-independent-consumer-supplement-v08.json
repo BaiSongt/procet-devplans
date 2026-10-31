@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "procet-t505-independent-consumer-supplement-v08",
+  "recordedOn": "2026-10-28",
+  "status": "ADDITIVE_RESEARCH_NO_ORIGINAL_REWRITE",
+  "originalRegistry": "research/sources/T5-05.json",
+  "originalRegistryBlobSha": "63262394475db51d0e0d90f900a6f0d476890166",
+  "originalTrace": "research/traces/T5-05.json",
+  "originalTraceBlobSha": "2b6f08619fc61422f4e849e3122bb412d7e7d678",
+  "sourceReadDepth": "7个定点官方公开页，非全量原文审计",
+  "rules": [
+    {
+      "id": "B08-T505-R01",
+      "sourceIds": [
+        "SRC-T505-OPENAPI",
+        "SRC-T505-PACT"
+      ],
+      "summary": "Schema结构可检不等于Provider/Consumer端到端执行；独立消费者需固定真实生产者结果和反向拒绝案例",
+      "fields": [
+        "contract.schemaValidated",
+        "contract.consumerExecuted",
+        "contract.consumerEvidenceHash",
+        "contract.sourceEvidenceHash",
+        "contract.consumerSuiteIndependent"
+      ],
+      "workPackage": "T5-05",
+      "candidateCapabilities": [
+        "CAP-07-07",
+        "CAP-08-01"
+      ],
+      "assetOwnerCandidates": [
+        "D09",
+        "D13",
+        "D15"
+      ],
+      "machineCheck": "tools/check_registry_audit_b08_v08.cjs"
+    },
+    {
+      "id": "B08-T505-R02",
+      "sourceIds": [
+        "SRC-T505-PROV",
+        "SRC-C0703-S02"
+      ],
+      "summary": "生产者和消费者须固定exact revision/hash/frame/units与独立Owner身份；freeze A/B成果只读引用，迁移失效降级不覆盖",
+      "fields": [
+        "contract.producerRevision",
+        "contract.consumerExpectedRevision",
+        "contract.producerHash",
+        "contract.consumerExpectedHash",
+        "contract.producerFrame",
+        "contract.consumerExpectedFrame",
+        "contract.units",
+        "contract.consumerUnits",
+        "contract.ownerPort",
+        "contract.ownerAuthorized",
+        "workflow.casRechecked",
+        "workflow.aclRechecked",
+        "workflow.scopeEpoch",
+        "workflow.currentEpoch"
+      ],
+      "workPackage": "T5-05",
+      "candidateCapabilities": [
+        "CAP-07-03",
+        "CAP-07-07"
+      ],
+      "assetOwnerCandidates": [
+        "D04",
+        "D09"
+      ],
+      "machineCheck": "tools/check_registry_audit_b08_v08.cjs"
+    },
+    {
+      "id": "B08-T505-R03",
+      "sourceIds": [
+        "SRC-T505-ISO",
+        "SRC-C0707-S02",
+        "SRC-T505-LNC",
+        "SRC-T505-OPENAPI",
+        "SRC-T505-PACT"
+      ],
+      "summary": "中立CL仅D09预览；D04 Setup不替代D10执行绑定，最终NC须逐级D12后处理→D13解释→D14轴时序→D15独立验证→D16人工发布；未知语义拒绝，不模拟材料扫掠",
+      "fields": [
+        "workflow.finalArtifact",
+        "workflow.setupId",
+        "workflow.executionBindingId",
+        "workflow.d12Postprocessed",
+        "workflow.d13Known",
+        "workflow.d14AxisTime",
+        "workflow.d15IndependentValidated",
+        "workflow.d16Review",
+        "workflow.cancelled",
+        "workflow.lateReceipt",
+        "workflow.activeWorlds",
+        "workflow.taskPanelCount",
+        "workflow.guiSamePort",
+        "workflow.cliSamePort",
+        "workflow.agentSamePort",
+        "workflow.fontMaxPx"
+      ],
+      "workPackage": "T5-05",
+      "candidateCapabilities": [
+        "CAP-07-07",
+        "CAP-08-01",
+        "CAP-08-02"
+      ],
+      "assetOwnerCandidates": [
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "machineCheck": "tools/check_registry_audit_b08_v08.cjs"
+    }
+  ],
+  "integrity": {
+    "originalWorkPackageNumberPreserved": true,
+    "original312DirectEdgesUnchanged": true,
+    "l1l2Unchanged": true,
+    "l3": "PENDING_HUMAN",
+    "c0": "MINIMAL_COMMON",
+    "freezeAB": "PRESERVED",
+    "domainOwnersSignatures": "0/17"
+  },
+  "limitations": "这三条是研究推导的补充工程规则，不是Pact/ISO/OCCT直接规定Procet字段，更非产品验收。"
+}

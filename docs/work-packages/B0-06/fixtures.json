@@ -1,0 +1,391 @@
+{
+  "schemaVersion": "procet-synthetic-acceptance-v1",
+  "workPackageId": "B0-06",
+  "kind": "PLANNING_SYNTHETIC_ONLY",
+  "cases": [
+    {
+      "caseId": "B0-06-T01",
+      "ruleId": "GOV6-R01",
+      "polarity": "positive",
+      "input": {
+        "ownerMap": {
+          "D01": "03 CAD / PMI 与制造特征",
+          "D02": "03 CAD / PMI 与制造特征",
+          "D03": "02 制造资源",
+          "D04": "04 装夹与坐标系",
+          "D05": "05 工艺规划",
+          "D06": "06 工艺与几何求解",
+          "D07": "06 工艺与几何求解",
+          "D08": "05 工艺规划",
+          "D09": "07 CAM 刀路",
+          "D10": "04 装夹与坐标系（引用 02 制造资源）",
+          "D11": "09 机床运动与工程验证",
+          "D12": "08 NC 与后处理 · NC 生成",
+          "D13": "08 NC 与后处理 · NC 执行适配",
+          "D14": "09 机床运动与工程验证 · 运动学展开",
+          "D15": "09 机床运动与工程验证 · 程序验证",
+          "D16": "10 程序发布与现场协同",
+          "D17": "10 程序发布与现场协同"
+        },
+        "assetBlobSha": "dad461aec34aefa773a9a22b07b6b742be60e052",
+        "githubCodeOwner": null
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T02",
+      "ruleId": "GOV6-R01",
+      "polarity": "negative",
+      "input": {
+        "ownerMap": {
+          "D01": "03 CAD / PMI 与制造特征",
+          "D02": "03 CAD / PMI 与制造特征",
+          "D03": "02 制造资源",
+          "D04": "04 装夹与坐标系",
+          "D05": "05 工艺规划",
+          "D06": "06 工艺与几何求解",
+          "D07": "06 工艺与几何求解",
+          "D08": "05 工艺规划",
+          "D09": "07 CAM 刀路",
+          "D10": "04 装夹与坐标系（引用 02 制造资源）",
+          "D11": "09 机床运动与工程验证",
+          "D12": "08 NC 与后处理 · NC 生成",
+          "D13": "未获认可的域",
+          "D14": "09 机床运动与工程验证 · 运动学展开",
+          "D15": "09 机床运动与工程验证 · 程序验证",
+          "D16": "10 程序发布与现场协同",
+          "D17": "10 程序发布与现场协同"
+        },
+        "assetBlobSha": "dad461aec34aefa773a9a22b07b6b742be60e052",
+        "githubCodeOwner": null
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "ASSET_OWNER_MISMATCH",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T03",
+      "ruleId": "GOV6-R02",
+      "polarity": "positive",
+      "input": {
+        "assigneeStatus": "UNASSIGNED_PENDING_HUMAN",
+        "account": null,
+        "signatures": [],
+        "claimedApproved": false
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T04",
+      "ruleId": "GOV6-R02",
+      "polarity": "negative",
+      "input": {
+        "assigneeStatus": "UNASSIGNED_PENDING_HUMAN",
+        "account": null,
+        "signatures": [],
+        "claimedApproved": true
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "FAKE_APPROVAL",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T05",
+      "ruleId": "GOV6-R03",
+      "polarity": "positive",
+      "input": {
+        "author": "role-dev",
+        "consumerReviewer": "role-domain",
+        "qaReviewer": "role-qa",
+        "reviewEvidence": "SYNTHETIC_ONLY",
+        "productAcceptance": "NOT_RUN"
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T06",
+      "ruleId": "GOV6-R03",
+      "polarity": "negative",
+      "input": {
+        "author": "role-dev",
+        "consumerReviewer": "role-domain",
+        "qaReviewer": "role-dev",
+        "reviewEvidence": "SYNTHETIC_ONLY",
+        "productAcceptance": "NOT_RUN"
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "INDEPENDENCE_MISSING",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T07",
+      "ruleId": "GOV6-R04",
+      "polarity": "positive",
+      "input": {
+        "adrId": "ADR-B006-001",
+        "status": "proposed",
+        "context": "团队职责",
+        "alternatives": [
+          "分域责任表",
+          "单文件责任表"
+        ],
+        "decision": "按D资产Owner定位责任",
+        "consequences": "需维护变更清单",
+        "previousImmutable": true
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T08",
+      "ruleId": "GOV6-R04",
+      "polarity": "negative",
+      "input": {
+        "adrId": "ADR-B006-001",
+        "status": "proposed",
+        "context": "团队职责",
+        "alternatives": [
+          "分域责任表",
+          "单文件责任表"
+        ],
+        "decision": "按D资产Owner定位责任",
+        "consequences": "需维护变更清单",
+        "previousImmutable": false
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "ADR_HISTORY_MUTATED",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T09",
+      "ruleId": "GOV6-R05",
+      "polarity": "positive",
+      "input": {
+        "workPackageId": "B0-06",
+        "inputRevision": "r7",
+        "inputHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameId": "PART",
+        "negativeCaseIds": [
+          "B0-06-T10"
+        ],
+        "rollbackPlan": "versioned-template-rollback"
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T10",
+      "ruleId": "GOV6-R05",
+      "polarity": "negative",
+      "input": {
+        "workPackageId": "B0-06",
+        "inputRevision": "latest",
+        "inputHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameId": "PART",
+        "negativeCaseIds": [
+          "B0-06-T10"
+        ],
+        "rollbackPlan": "versioned-template-rollback"
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "TASK_PROVENANCE_INCOMPLETE",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T11",
+      "ruleId": "GOV6-R06",
+      "polarity": "positive",
+      "input": {
+        "isDraft": true,
+        "reviewApproved": false,
+        "businessSigned": false,
+        "protectionObserved": "UNKNOWN"
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T12",
+      "ruleId": "GOV6-R06",
+      "polarity": "negative",
+      "input": {
+        "isDraft": true,
+        "reviewApproved": true,
+        "businessSigned": false,
+        "protectionObserved": "UNKNOWN"
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "PR_REVIEW_MISREPRESENTED",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T13",
+      "ruleId": "GOV6-R07",
+      "polarity": "positive",
+      "input": {
+        "commitSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sourceHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "binaryHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "frameId": "PART",
+        "testCommand": "PLANNED_NOT_EXECUTED",
+        "outputHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "productAcceptance": "NOT_RUN",
+        "synthetic": true
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T14",
+      "ruleId": "GOV6-R07",
+      "polarity": "negative",
+      "input": {
+        "commitSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sourceHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "binaryHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "frameId": "PART",
+        "testCommand": "PLANNED_NOT_EXECUTED",
+        "outputHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "productAcceptance": "PASS",
+        "synthetic": true
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "ACCEPTANCE_PROVENANCE_INVALID",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T15",
+      "ruleId": "GOV6-R08",
+      "polarity": "positive",
+      "input": {
+        "expectedRevision": "r7",
+        "actualRevision": "r7",
+        "authorizedAtCommit": true,
+        "scopeEpoch": 7,
+        "receiptScopeEpoch": 7,
+        "frozenUnchanged": true,
+        "cancelled": false
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T16",
+      "ruleId": "GOV6-R08",
+      "polarity": "negative",
+      "input": {
+        "expectedRevision": "r7",
+        "actualRevision": "r7",
+        "authorizedAtCommit": true,
+        "scopeEpoch": 7,
+        "receiptScopeEpoch": 6,
+        "frozenUnchanged": true,
+        "cancelled": false
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "CAS_OR_SCOPE_REJECTED",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T17",
+      "ruleId": "GOV6-R09",
+      "polarity": "positive",
+      "input": {
+        "entrypoints": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "domainPort": "GovernanceReviewPort@v1",
+        "babylonWorldCount": 1,
+        "leftTaskPanelCount": 1,
+        "previewWrites": false
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T18",
+      "ruleId": "GOV6-R09",
+      "polarity": "negative",
+      "input": {
+        "entrypoints": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "domainPort": "GovernanceReviewPort@v1",
+        "babylonWorldCount": 2,
+        "leftTaskPanelCount": 1,
+        "previewWrites": false
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "ENTRYPOINT_OR_SCENE_SPLIT",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T19",
+      "ruleId": "GOV6-R10",
+      "polarity": "positive",
+      "input": {
+        "clStatus": "PREVIEW_ONLY",
+        "d13Status": "UNKNOWN",
+        "d14Status": "NOT_RUN",
+        "d15Status": "NOT_RUN",
+        "d16Status": "BLOCKED",
+        "materialSweepClaim": false
+      },
+      "expectedEligible": true,
+      "expectedFailureCode": null,
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    },
+    {
+      "caseId": "B0-06-T20",
+      "ruleId": "GOV6-R10",
+      "polarity": "negative",
+      "input": {
+        "clStatus": "PREVIEW_ONLY",
+        "d13Status": "UNKNOWN",
+        "d14Status": "NOT_RUN",
+        "d15Status": "NOT_RUN",
+        "d16Status": "APPROVED",
+        "materialSweepClaim": false
+      },
+      "expectedEligible": false,
+      "expectedFailureCode": "NC_RELEASE_GATE_BYPASSED",
+      "productAcceptance": "NOT_RUN",
+      "testType": "SYNTHETIC_CONTRACT_ONLY"
+    }
+  ]
+}

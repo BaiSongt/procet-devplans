@@ -1,0 +1,1421 @@
+{
+  "schemaVersion": "procet-cap1007-fixtures-v1",
+  "capabilityId": "CAP-10-07",
+  "syntheticOnly": true,
+  "caseMeaning": "10正+40互不耦合独立字段负例+20状态门禁，均非实际产品/控制器测试；门禁expected由独立人工枚举表指定，不由被测gate函数回填",
+  "cases": [
+    {
+      "id": "CAP-10-07-R01-P",
+      "ruleId": "CAP-10-07-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "report": {
+          "rawEventIdAndDigest": true,
+          "sourceTimeQuality": true,
+          "machineProfileRevision": true,
+          "unverifiedMarkedUnknown": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R01-N-report-rawEventIdAndDigest",
+      "ruleId": "CAP-10-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "report.rawEventIdAndDigest",
+      "input": {
+        "report": {
+          "rawEventIdAndDigest": false,
+          "sourceTimeQuality": true,
+          "machineProfileRevision": true,
+          "unverifiedMarkedUnknown": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R01-N-report-sourceTimeQuality",
+      "ruleId": "CAP-10-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "report.sourceTimeQuality",
+      "input": {
+        "report": {
+          "rawEventIdAndDigest": true,
+          "sourceTimeQuality": false,
+          "machineProfileRevision": true,
+          "unverifiedMarkedUnknown": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R01-N-report-machineProfileRevision",
+      "ruleId": "CAP-10-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "report.machineProfileRevision",
+      "input": {
+        "report": {
+          "rawEventIdAndDigest": true,
+          "sourceTimeQuality": true,
+          "machineProfileRevision": false,
+          "unverifiedMarkedUnknown": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R01-N-report-unverifiedMarkedUnknown",
+      "ruleId": "CAP-10-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "report.unverifiedMarkedUnknown",
+      "input": {
+        "report": {
+          "rawEventIdAndDigest": true,
+          "sourceTimeQuality": true,
+          "machineProfileRevision": true,
+          "unverifiedMarkedUnknown": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R02-P",
+      "ruleId": "CAP-10-07-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "alarm": {
+          "ackNotResolution": true,
+          "confirmOptionalProbed": true,
+          "eventIdExact": true,
+          "noCycleStartFromAck": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R02-N-alarm-ackNotResolution",
+      "ruleId": "CAP-10-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "alarm.ackNotResolution",
+      "input": {
+        "alarm": {
+          "ackNotResolution": false,
+          "confirmOptionalProbed": true,
+          "eventIdExact": true,
+          "noCycleStartFromAck": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R02-N-alarm-confirmOptionalProbed",
+      "ruleId": "CAP-10-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "alarm.confirmOptionalProbed",
+      "input": {
+        "alarm": {
+          "ackNotResolution": true,
+          "confirmOptionalProbed": false,
+          "eventIdExact": true,
+          "noCycleStartFromAck": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R02-N-alarm-eventIdExact",
+      "ruleId": "CAP-10-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "alarm.eventIdExact",
+      "input": {
+        "alarm": {
+          "ackNotResolution": true,
+          "confirmOptionalProbed": true,
+          "eventIdExact": false,
+          "noCycleStartFromAck": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R02-N-alarm-noCycleStartFromAck",
+      "ruleId": "CAP-10-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "alarm.noCycleStartFromAck",
+      "input": {
+        "alarm": {
+          "ackNotResolution": true,
+          "confirmOptionalProbed": true,
+          "eventIdExact": true,
+          "noCycleStartFromAck": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R03-P",
+      "ruleId": "CAP-10-07-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "incident": {
+          "d17AppendOnly": true,
+          "externalOwnerPreserved": true,
+          "evidenceHashPinned": true,
+          "correctionsAsNewEvent": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R03-N-incident-d17AppendOnly",
+      "ruleId": "CAP-10-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "incident.d17AppendOnly",
+      "input": {
+        "incident": {
+          "d17AppendOnly": false,
+          "externalOwnerPreserved": true,
+          "evidenceHashPinned": true,
+          "correctionsAsNewEvent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R03-N-incident-externalOwnerPreserved",
+      "ruleId": "CAP-10-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "incident.externalOwnerPreserved",
+      "input": {
+        "incident": {
+          "d17AppendOnly": true,
+          "externalOwnerPreserved": false,
+          "evidenceHashPinned": true,
+          "correctionsAsNewEvent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R03-N-incident-evidenceHashPinned",
+      "ruleId": "CAP-10-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "incident.evidenceHashPinned",
+      "input": {
+        "incident": {
+          "d17AppendOnly": true,
+          "externalOwnerPreserved": true,
+          "evidenceHashPinned": false,
+          "correctionsAsNewEvent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R03-N-incident-correctionsAsNewEvent",
+      "ruleId": "CAP-10-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "incident.correctionsAsNewEvent",
+      "input": {
+        "incident": {
+          "d17AppendOnly": true,
+          "externalOwnerPreserved": true,
+          "evidenceHashPinned": true,
+          "correctionsAsNewEvent": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R04-P",
+      "ruleId": "CAP-10-07-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "triage": {
+          "safetyOwnerAssigned": true,
+          "qualityOwnerIndependent": true,
+          "unknownBlocksResumption": true,
+          "noUnapprovedControllerCommand": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R04-N-triage-safetyOwnerAssigned",
+      "ruleId": "CAP-10-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "triage.safetyOwnerAssigned",
+      "input": {
+        "triage": {
+          "safetyOwnerAssigned": false,
+          "qualityOwnerIndependent": true,
+          "unknownBlocksResumption": true,
+          "noUnapprovedControllerCommand": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R04-N-triage-qualityOwnerIndependent",
+      "ruleId": "CAP-10-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "triage.qualityOwnerIndependent",
+      "input": {
+        "triage": {
+          "safetyOwnerAssigned": true,
+          "qualityOwnerIndependent": false,
+          "unknownBlocksResumption": true,
+          "noUnapprovedControllerCommand": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R04-N-triage-unknownBlocksResumption",
+      "ruleId": "CAP-10-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "triage.unknownBlocksResumption",
+      "input": {
+        "triage": {
+          "safetyOwnerAssigned": true,
+          "qualityOwnerIndependent": true,
+          "unknownBlocksResumption": false,
+          "noUnapprovedControllerCommand": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R04-N-triage-noUnapprovedControllerCommand",
+      "ruleId": "CAP-10-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "triage.noUnapprovedControllerCommand",
+      "input": {
+        "triage": {
+          "safetyOwnerAssigned": true,
+          "qualityOwnerIndependent": true,
+          "unknownBlocksResumption": true,
+          "noUnapprovedControllerCommand": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R05-P",
+      "ruleId": "CAP-10-07-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "impact": {
+          "exactRevisionHashFrame": true,
+          "dependenciesListed": true,
+          "d04d10Distinguished": true,
+          "d15RevalidationScope": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R05-N-impact-exactRevisionHashFrame",
+      "ruleId": "CAP-10-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.exactRevisionHashFrame",
+      "input": {
+        "impact": {
+          "exactRevisionHashFrame": false,
+          "dependenciesListed": true,
+          "d04d10Distinguished": true,
+          "d15RevalidationScope": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R05-N-impact-dependenciesListed",
+      "ruleId": "CAP-10-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.dependenciesListed",
+      "input": {
+        "impact": {
+          "exactRevisionHashFrame": true,
+          "dependenciesListed": false,
+          "d04d10Distinguished": true,
+          "d15RevalidationScope": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R05-N-impact-d04d10Distinguished",
+      "ruleId": "CAP-10-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.d04d10Distinguished",
+      "input": {
+        "impact": {
+          "exactRevisionHashFrame": true,
+          "dependenciesListed": true,
+          "d04d10Distinguished": false,
+          "d15RevalidationScope": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R05-N-impact-d15RevalidationScope",
+      "ruleId": "CAP-10-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.d15RevalidationScope",
+      "input": {
+        "impact": {
+          "exactRevisionHashFrame": true,
+          "dependenciesListed": true,
+          "d04d10Distinguished": true,
+          "d15RevalidationScope": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R06-P",
+      "ruleId": "CAP-10-07-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "revision": {
+          "forksNewDraft": true,
+          "abFrozenReadOnly": true,
+          "wasRevisionOfBound": true,
+          "noHistoricalOverwrite": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R06-N-revision-forksNewDraft",
+      "ruleId": "CAP-10-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "revision.forksNewDraft",
+      "input": {
+        "revision": {
+          "forksNewDraft": false,
+          "abFrozenReadOnly": true,
+          "wasRevisionOfBound": true,
+          "noHistoricalOverwrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R06-N-revision-abFrozenReadOnly",
+      "ruleId": "CAP-10-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "revision.abFrozenReadOnly",
+      "input": {
+        "revision": {
+          "forksNewDraft": true,
+          "abFrozenReadOnly": false,
+          "wasRevisionOfBound": true,
+          "noHistoricalOverwrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R06-N-revision-wasRevisionOfBound",
+      "ruleId": "CAP-10-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "revision.wasRevisionOfBound",
+      "input": {
+        "revision": {
+          "forksNewDraft": true,
+          "abFrozenReadOnly": true,
+          "wasRevisionOfBound": false,
+          "noHistoricalOverwrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R06-N-revision-noHistoricalOverwrite",
+      "ruleId": "CAP-10-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "revision.noHistoricalOverwrite",
+      "input": {
+        "revision": {
+          "forksNewDraft": true,
+          "abFrozenReadOnly": true,
+          "wasRevisionOfBound": true,
+          "noHistoricalOverwrite": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R07-P",
+      "ruleId": "CAP-10-07-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "setup": {
+          "d04NominalOnly": true,
+          "d10ActualRevisionHashFrame": true,
+          "machineToolFixtureProfilePinned": true,
+          "unknownActualBlocksRelease": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R07-N-setup-d04NominalOnly",
+      "ruleId": "CAP-10-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "setup.d04NominalOnly",
+      "input": {
+        "setup": {
+          "d04NominalOnly": false,
+          "d10ActualRevisionHashFrame": true,
+          "machineToolFixtureProfilePinned": true,
+          "unknownActualBlocksRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R07-N-setup-d10ActualRevisionHashFrame",
+      "ruleId": "CAP-10-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "setup.d10ActualRevisionHashFrame",
+      "input": {
+        "setup": {
+          "d04NominalOnly": true,
+          "d10ActualRevisionHashFrame": false,
+          "machineToolFixtureProfilePinned": true,
+          "unknownActualBlocksRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R07-N-setup-machineToolFixtureProfilePinned",
+      "ruleId": "CAP-10-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "setup.machineToolFixtureProfilePinned",
+      "input": {
+        "setup": {
+          "d04NominalOnly": true,
+          "d10ActualRevisionHashFrame": true,
+          "machineToolFixtureProfilePinned": false,
+          "unknownActualBlocksRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R07-N-setup-unknownActualBlocksRelease",
+      "ruleId": "CAP-10-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "setup.unknownActualBlocksRelease",
+      "input": {
+        "setup": {
+          "d04NominalOnly": true,
+          "d10ActualRevisionHashFrame": true,
+          "machineToolFixtureProfilePinned": true,
+          "unknownActualBlocksRelease": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R08-P",
+      "ruleId": "CAP-10-07-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "reverify": {
+          "d12ByteDigestExact": true,
+          "d13d14Reexecuted": true,
+          "d15IndependentOracle": true,
+          "d16NewHumanRelease": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R08-N-reverify-d12ByteDigestExact",
+      "ruleId": "CAP-10-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "reverify.d12ByteDigestExact",
+      "input": {
+        "reverify": {
+          "d12ByteDigestExact": false,
+          "d13d14Reexecuted": true,
+          "d15IndependentOracle": true,
+          "d16NewHumanRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R08-N-reverify-d13d14Reexecuted",
+      "ruleId": "CAP-10-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "reverify.d13d14Reexecuted",
+      "input": {
+        "reverify": {
+          "d12ByteDigestExact": true,
+          "d13d14Reexecuted": false,
+          "d15IndependentOracle": true,
+          "d16NewHumanRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R08-N-reverify-d15IndependentOracle",
+      "ruleId": "CAP-10-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "reverify.d15IndependentOracle",
+      "input": {
+        "reverify": {
+          "d12ByteDigestExact": true,
+          "d13d14Reexecuted": true,
+          "d15IndependentOracle": false,
+          "d16NewHumanRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R08-N-reverify-d16NewHumanRelease",
+      "ruleId": "CAP-10-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "reverify.d16NewHumanRelease",
+      "input": {
+        "reverify": {
+          "d12ByteDigestExact": true,
+          "d13d14Reexecuted": true,
+          "d15IndependentOracle": true,
+          "d16NewHumanRelease": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R09-P",
+      "ruleId": "CAP-10-07-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "guard": {
+          "aclScopeEpochRechecked": true,
+          "revisionHashCAS": true,
+          "cancelLateAckRejected": true,
+          "idempotencyKeyScoped": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R09-N-guard-aclScopeEpochRechecked",
+      "ruleId": "CAP-10-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.aclScopeEpochRechecked",
+      "input": {
+        "guard": {
+          "aclScopeEpochRechecked": false,
+          "revisionHashCAS": true,
+          "cancelLateAckRejected": true,
+          "idempotencyKeyScoped": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R09-N-guard-revisionHashCAS",
+      "ruleId": "CAP-10-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.revisionHashCAS",
+      "input": {
+        "guard": {
+          "aclScopeEpochRechecked": true,
+          "revisionHashCAS": false,
+          "cancelLateAckRejected": true,
+          "idempotencyKeyScoped": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R09-N-guard-cancelLateAckRejected",
+      "ruleId": "CAP-10-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.cancelLateAckRejected",
+      "input": {
+        "guard": {
+          "aclScopeEpochRechecked": true,
+          "revisionHashCAS": true,
+          "cancelLateAckRejected": false,
+          "idempotencyKeyScoped": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R09-N-guard-idempotencyKeyScoped",
+      "ruleId": "CAP-10-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.idempotencyKeyScoped",
+      "input": {
+        "guard": {
+          "aclScopeEpochRechecked": true,
+          "revisionHashCAS": true,
+          "cancelLateAckRejected": true,
+          "idempotencyKeyScoped": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R10-P",
+      "ruleId": "CAP-10-07-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "ux": {
+          "sameDomainPort": true,
+          "singleBabylonLeftPanel": true,
+          "shadowReadRollback": true,
+          "independentConsumerPending": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R10-N-ux-sameDomainPort",
+      "ruleId": "CAP-10-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ux.sameDomainPort",
+      "input": {
+        "ux": {
+          "sameDomainPort": false,
+          "singleBabylonLeftPanel": true,
+          "shadowReadRollback": true,
+          "independentConsumerPending": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R10-N-ux-singleBabylonLeftPanel",
+      "ruleId": "CAP-10-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ux.singleBabylonLeftPanel",
+      "input": {
+        "ux": {
+          "sameDomainPort": true,
+          "singleBabylonLeftPanel": false,
+          "shadowReadRollback": true,
+          "independentConsumerPending": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R10-N-ux-shadowReadRollback",
+      "ruleId": "CAP-10-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ux.shadowReadRollback",
+      "input": {
+        "ux": {
+          "sameDomainPort": true,
+          "singleBabylonLeftPanel": true,
+          "shadowReadRollback": false,
+          "independentConsumerPending": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-R10-N-ux-independentConsumerPending",
+      "ruleId": "CAP-10-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ux.independentConsumerPending",
+      "input": {
+        "ux": {
+          "sameDomainPort": true,
+          "singleBabylonLeftPanel": true,
+          "shadowReadRollback": true,
+          "independentConsumerPending": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "gateCases": [
+    {
+      "id": "CAP-10-07-G-GOOD",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": null,
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "CHANGE_EVIDENCE_READY_NOT_CYCLESTART",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-DENY_ACL",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "acl",
+      "input": {
+        "acl": false,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-DENY_OWNER",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "ownerAuthorized",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": false,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-DENY_REMOTE_START",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "requestRemoteStart",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": true,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-DENY_FREEZE",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "rewriteFrozen",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": true,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-DENY_FABRICATION",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "provenanceFabricated",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": true,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-STALE_SCOPE",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "scopeEpochCurrent",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": false,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-STALE_CAS",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "casExact",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": false,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-CANCELLED",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "cancelled",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": true,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-LATE_ACK",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "lateAck",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": true,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-STALE_REF",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "staleRevision",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": true,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-BLOCK_D17",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "d17EventAppendOnly",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": false,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "BLOCK_CHANGE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-BLOCK_ALARM_ACK",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "noAlarmAckAsRepair",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": false,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "BLOCK_CHANGE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-BLOCK_BRANCH",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "newBranchCreated",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": false,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "BLOCK_CHANGE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-UNKNOWN_SOURCE",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "sourceVerified",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": false,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-UNKNOWN_FRAME",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "d10FrameExact",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": false,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-UNKNOWN_IMPACT",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "impactClosureComplete",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": false,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-BLOCK_ORACLE",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "d15IndependentPass",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": false,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": true
+      },
+      "expected": "BLOCK_RELEASE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-PENDING_QUALITY",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "independentQualityAccepted",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": false,
+        "localMachineAuthority": true
+      },
+      "expected": "PENDING_QUALITY",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-10-07-G-PENDING_MACHINE_AUTH",
+      "scenario": "GATE_MUTATION",
+      "mutatedField": "localMachineAuthority",
+      "input": {
+        "acl": true,
+        "ownerAuthorized": true,
+        "requestRemoteStart": false,
+        "rewriteFrozen": false,
+        "provenanceFabricated": false,
+        "scopeEpochCurrent": true,
+        "casExact": true,
+        "cancelled": false,
+        "lateAck": false,
+        "staleRevision": false,
+        "d17EventAppendOnly": true,
+        "noAlarmAckAsRepair": true,
+        "newBranchCreated": true,
+        "sourceVerified": true,
+        "d10FrameExact": true,
+        "machineProfileExact": true,
+        "impactClosureComplete": true,
+        "d15IndependentPass": true,
+        "d16NewHumanSigned": true,
+        "d13d14FromFinalNc": true,
+        "independentQualityAccepted": true,
+        "localMachineAuthority": false
+      },
+      "expected": "PENDING_LOCAL_AUTH",
+      "synthetic": true
+    }
+  ],
+  "independentConsumerProductTest": "NOT_RUN"
+}

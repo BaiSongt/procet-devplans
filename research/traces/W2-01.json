@@ -1,0 +1,274 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "W2-01",
+  "researchTopic": "R-ABHANDOFF-001",
+  "sourceRegistry": "research/sources/W2-01.json",
+  "implementation": "docs/work-packages/W2-01.md",
+  "ui": "docs/work-packages/W2-01/UI.md",
+  "fixtures": "docs/work-packages/W2-01/fixtures.json",
+  "validator": "tools/check_w201_planning_2026_10_25.py",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "W201-R01",
+      "workPackageId": "W2-01",
+      "summary": "A/B共用一套工程事实和D01-D17权威引用，不创建双项目/双库/双Babylon",
+      "fixtureGate": "sameProjectTruth",
+      "failureCode": "MODE_PROJECT_FORK",
+      "sourceIds": [
+        "SRC-W201-S02",
+        "SRC-W201-S03"
+      ],
+      "fields": [
+        "w201.projectScope",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-01-T01",
+      "negativeTestId": "W2-01-T02",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R02",
+      "workPackageId": "W2-01",
+      "summary": "A可无批准D05，但CAD目标/允许的算法条件必须逐项存在；缺少必需毛坯的材料求解仍阻断",
+      "fixtureGate": "aMinimalInputs",
+      "failureCode": "A_MINIMUM_UNKNOWN",
+      "sourceIds": [
+        "SRC-W201-S01",
+        "SRC-W201-S06",
+        "SRC-W201-S07"
+      ],
+      "fields": [
+        "w201.requirements.a",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D06"
+      ],
+      "positiveTestId": "W2-01-T03",
+      "negativeTestId": "W2-01-T04",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R03",
+      "workPackageId": "W2-01",
+      "summary": "B可直接创建D05 Draft，不要求先完成D06、D07或全局特征识别",
+      "fixtureGate": "bDirectDraft",
+      "failureCode": "B_DEPENDS_ON_SOLVER",
+      "sourceIds": [
+        "SRC-W201-S01",
+        "SRC-W201-S03"
+      ],
+      "fields": [
+        "w201.requirements.b",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D02",
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-01-T05",
+      "negativeTestId": "W2-01-T06",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R04",
+      "workPackageId": "W2-01",
+      "summary": "requirements按操作与阶段返回SATISFIED/MISSING/UNKNOWN/BLOCKED及nextAction，禁止全局生产门禁复用",
+      "fixtureGate": "perActionRequirements",
+      "failureCode": "GLOBAL_GATE_MISAPPLIED",
+      "sourceIds": [
+        "SRC-W201-S01",
+        "SRC-W201-S06",
+        "SRC-W201-S08"
+      ],
+      "fields": [
+        "w201.requirements.matrix",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-01-T07",
+      "negativeTestId": "W2-01-T08",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R05",
+      "workPackageId": "W2-01",
+      "summary": "A→B只预览稳定身份/目标D05范围/冲突，D06候选不能直接写已批准计划",
+      "fixtureGate": "previewMapping",
+      "failureCode": "HANDOFF_MAPPING_UNRESOLVED",
+      "sourceIds": [
+        "SRC-W201-S02",
+        "SRC-W201-S03",
+        "SRC-W201-S07"
+      ],
+      "fields": [
+        "w201.handoff.preview",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "W2-01-T09",
+      "negativeTestId": "W2-01-T10",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R06",
+      "workPackageId": "W2-01",
+      "summary": "D08冻结只读，接管与B→A回流生成新修订，不能暗改旧冻结成果",
+      "fixtureGate": "freezePreservation",
+      "failureCode": "FROZEN_ASSET_OVERWRITE",
+      "sourceIds": [
+        "SRC-W201-S03",
+        "SRC-W201-S04"
+      ],
+      "fields": [
+        "w201.handoff.freeze",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-01-T11",
+      "negativeTestId": "W2-01-T12",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R07",
+      "workPackageId": "W2-01",
+      "summary": "D01/D04/D05/D06按id/revision/hash/frame/单位精确引用，禁止latest和跨Setup错Frame",
+      "fixtureGate": "exactSnapshot",
+      "failureCode": "EXACT_SOURCE_DRIFT",
+      "sourceIds": [
+        "SRC-W201-S03",
+        "SRC-W201-S05"
+      ],
+      "fields": [
+        "w201.exactRefs",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-01-T13",
+      "negativeTestId": "W2-01-T14",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R08",
+      "workPackageId": "W2-01",
+      "summary": "提交当刻统一域Port做项目scope、ACL、CAS、任务代次及源指纹重验",
+      "fixtureGate": "commitRevalidation",
+      "failureCode": "CAS_OR_PERMISSION_REVOKED",
+      "sourceIds": [
+        "SRC-W201-S03",
+        "SRC-W201-S04",
+        "SRC-W201-S05"
+      ],
+      "fields": [
+        "w201.commit.guard",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-01-T15",
+      "negativeTestId": "W2-01-T16",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R09",
+      "workPackageId": "W2-01",
+      "summary": "取消与晚回执唯一终态，隔离旧代次结果；界面关闭不等于领域结果采纳",
+      "fixtureGate": "cancelLate",
+      "failureCode": "LATE_RESULT_ADOPTED",
+      "sourceIds": [
+        "SRC-W201-S03",
+        "SRC-W201-S04"
+      ],
+      "fields": [
+        "w201.task.receipt",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "W2-01-T17",
+      "negativeTestId": "W2-01-T18",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W201-R10",
+      "workPackageId": "W2-01",
+      "summary": "W2接管只获得草稿资格；D09需D07/D08，D13未知不能PASS，D15/D16独立审批，CL动画不得等同NC验证",
+      "fixtureGate": "noFalseQualification",
+      "failureCode": "FALSE_ENGINEERING_QUALIFICATION",
+      "sourceIds": [
+        "SRC-W201-S01",
+        "SRC-W201-S07",
+        "SRC-W201-S08"
+      ],
+      "fields": [
+        "w201.qualification",
+        "w201.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-01-T19",
+      "negativeTestId": "W2-01-T20",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D06_D05_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

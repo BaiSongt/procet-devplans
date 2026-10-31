@@ -1,0 +1,734 @@
+{
+  "schemaVersion": "procet-acceptance-fixtures-v1",
+  "capabilityId": "CAP-04-04",
+  "status": "drafted_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "CAP-04-04-T01",
+      "ruleIds": [
+        "FRAME-R01"
+      ],
+      "polarity": "positive",
+      "given": "Part/Setup/Fixture/Stock节点唯一且owner=04",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "frameId",
+        "sourceFrame",
+        "targetFrame",
+        "ownerDomain"
+      ],
+      "sourceIds": [
+        "FRAME-S01",
+        "FRAME-S03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T01",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T02",
+      "ruleIds": [
+        "FRAME-R01"
+      ],
+      "polarity": "negative",
+      "given": "存在同名不同实例或缺失owner时禁止自动猜测",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "FRAME_AMBIGUOUS",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "frameId",
+        "sourceFrame",
+        "targetFrame",
+        "ownerDomain"
+      ],
+      "sourceIds": [
+        "FRAME-S01",
+        "FRAME-S03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T02",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T03",
+      "ruleIds": [
+        "FRAME-R02"
+      ],
+      "polarity": "positive",
+      "given": "实例路径及资源hash与固定修订一致",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "cadExactRef",
+        "fixtureExactRef",
+        "occurrencePath",
+        "setupHash"
+      ],
+      "sourceIds": [
+        "FRAME-S04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T03",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T04",
+      "ruleIds": [
+        "FRAME-R02"
+      ],
+      "polarity": "negative",
+      "given": "CAD拓扑修订变更仍复用旧Frame边",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "SOURCE_STALE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "cadExactRef",
+        "fixtureExactRef",
+        "occurrencePath",
+        "setupHash"
+      ],
+      "sourceIds": [
+        "FRAME-S04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T04",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T05",
+      "ruleIds": [
+        "FRAME-R03"
+      ],
+      "polarity": "positive",
+      "given": "Rz90°和mm平移满足RᵀR=I且det=+1",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "matrix4x4",
+        "unitSystem",
+        "handedness",
+        "rigidity"
+      ],
+      "sourceIds": [
+        "FRAME-S02",
+        "FRAME-S03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T05",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T06",
+      "ruleIds": [
+        "FRAME-R03"
+      ],
+      "polarity": "negative",
+      "given": "镜像、缩放、奇异、NaN或末行错误",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "NON_RIGID_MATRIX",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "matrix4x4",
+        "unitSystem",
+        "handedness",
+        "rigidity"
+      ],
+      "sourceIds": [
+        "FRAME-S02",
+        "FRAME-S03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T06",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T07",
+      "ruleIds": [
+        "FRAME-R04"
+      ],
+      "polarity": "positive",
+      "given": "^S T_C=^S T_P×^P T_C且往返还原",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "T_S_P",
+        "T_P_C",
+        "T_S_C",
+        "roundTripResidual"
+      ],
+      "sourceIds": [
+        "FRAME-S02",
+        "FRAME-S04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T07",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T08",
+      "ruleIds": [
+        "FRAME-R04"
+      ],
+      "polarity": "negative",
+      "given": "不同路径到同Frame产生不一致结果却静默选第一条",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "FRAME_CYCLE_CONFLICT",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "T_S_P",
+        "T_P_C",
+        "T_S_C",
+        "roundTripResidual"
+      ],
+      "sourceIds": [
+        "FRAME-S02",
+        "FRAME-S04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T08",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T09",
+      "ruleIds": [
+        "FRAME-R05"
+      ],
+      "polarity": "positive",
+      "given": "同一锚点重复落座候选hash相同并标nominal",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "anchorExactRef",
+        "proposalHash",
+        "measurementEvidence"
+      ],
+      "sourceIds": [
+        "FRAME-S06",
+        "FRAME-S07"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T09",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T10",
+      "ruleIds": [
+        "FRAME-R05"
+      ],
+      "polarity": "negative",
+      "given": "缺测量记录却将人工对中写为MEASURED",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "EVIDENCE_NOT_MEASURED",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "anchorExactRef",
+        "proposalHash",
+        "measurementEvidence"
+      ],
+      "sourceIds": [
+        "FRAME-S06",
+        "FRAME-S07"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T10",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T11",
+      "ruleIds": [
+        "FRAME-R06"
+      ],
+      "polarity": "positive",
+      "given": "D04可供工艺读取但执行仍检查独立D10绑定",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "setupRevision",
+        "D10BindingRef",
+        "controllerSemanticRef"
+      ],
+      "sourceIds": [
+        "FRAME-S01",
+        "FRAME-S05"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T11",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T12",
+      "ruleIds": [
+        "FRAME-R06"
+      ],
+      "polarity": "negative",
+      "given": "只凭D04图直接宣称真实机床坐标验证成功",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "D10_BINDING_REQUIRED",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "setupRevision",
+        "D10BindingRef",
+        "controllerSemanticRef"
+      ],
+      "sourceIds": [
+        "FRAME-S01",
+        "FRAME-S05"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T12",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T13",
+      "ruleIds": [
+        "FRAME-R07"
+      ],
+      "polarity": "positive",
+      "given": "视口轴向显示转换不改变业务hash",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "renderTransform",
+        "businessFrameHash",
+        "topologyRef"
+      ],
+      "sourceIds": [
+        "FRAME-S03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T13",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T14",
+      "ruleIds": [
+        "FRAME-R07"
+      ],
+      "polarity": "negative",
+      "given": "反向手系矩阵从渲染层流入D04持久化",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "RENDER_FRAME_LEAK",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "renderTransform",
+        "businessFrameHash",
+        "topologyRef"
+      ],
+      "sourceIds": [
+        "FRAME-S03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T14",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T15",
+      "ruleIds": [
+        "FRAME-R08"
+      ],
+      "polarity": "positive",
+      "given": "权限和expectedRevision/hash均匹配时由Host提交",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "expectedRevision",
+        "expectedHash",
+        "requestId",
+        "approvalRef"
+      ],
+      "sourceIds": [
+        "FRAME-S07"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T15",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T16",
+      "ruleIds": [
+        "FRAME-R08"
+      ],
+      "polarity": "negative",
+      "given": "撤权、取消、换Setup或旧epoch回执仍写入",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "STALE_SCOPE_OR_CAS",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "expectedRevision",
+        "expectedHash",
+        "requestId",
+        "approvalRef"
+      ],
+      "sourceIds": [
+        "FRAME-S07"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T16",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T17",
+      "ruleIds": [
+        "FRAME-R09"
+      ],
+      "polarity": "positive",
+      "given": "新Frame图失效下游候选但冻结对象保持旧hash",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "invalidationManifest",
+        "frozenD08Ref",
+        "frozenD16Ref"
+      ],
+      "sourceIds": [
+        "FRAME-S06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T17",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T18",
+      "ruleIds": [
+        "FRAME-R09"
+      ],
+      "polarity": "negative",
+      "given": "更新Setup时覆写旧A/B冻结NC或发布记录",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "FROZEN_REVISION_CONFLICT",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "invalidationManifest",
+        "frozenD08Ref",
+        "frozenD16Ref"
+      ],
+      "sourceIds": [
+        "FRAME-S06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T18",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T19",
+      "ruleIds": [
+        "FRAME-R10"
+      ],
+      "polarity": "positive",
+      "given": "最终NC经D13已知语义→D14轴时序→D15独立验证",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ACCEPT_WITH_EXACT_REVISION_EVIDENCE",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "neutralCLRef",
+        "ncExactRef",
+        "D13SemanticState",
+        "D14TimelineRef",
+        "D15EvidenceRef"
+      ],
+      "sourceIds": [
+        "FRAME-S05"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T19",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-04-T20",
+      "ruleIds": [
+        "FRAME-R10"
+      ],
+      "polarity": "negative",
+      "given": "D13缺失宏/刀补却用CL动画代替实际NC验证",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "NC_SEMANTIC_UNKNOWN",
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "fields": [
+        "neutralCLRef",
+        "ncExactRef",
+        "D13SemanticState",
+        "D14TimelineRef",
+        "D15EvidenceRef"
+      ],
+      "sourceIds": [
+        "FRAME-S05"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-04/T20",
+      "acceptanceOwner": "04域业务Owner + 独立03/05/06/07/08/09/10域消费者 + QA",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    }
+  ]
+}

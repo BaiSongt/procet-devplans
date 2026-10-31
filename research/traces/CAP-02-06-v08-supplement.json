@@ -1,0 +1,543 @@
+{
+  "schemaVersion": "procet-cap0206-research-supplement-v08",
+  "capabilityId": "CAP-02-06",
+  "researchTopic": "R-MET-001",
+  "legacyTrace": "research/traces/CAP-02-06.json",
+  "registry": "research/sources/CAP-02-06.json",
+  "verification": "tracking/cap0206-research-verification-2026-10-28.json",
+  "traceStatus": "COMPILED_PENDING_HUMAN",
+  "engineeringGates": {
+    "c0Minimal": true,
+    "d04D10Separate": true,
+    "oneBabylonWorld": true,
+    "unifiedLeftPanel": true,
+    "guiCliAgentSameOwnerPort": true,
+    "aclScopeCasCancel": true,
+    "immutableAB": true,
+    "ncChain": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "clNotNcVerification": true,
+    "unknownBlocksRelease": true,
+    "noMaterialSweptSimulation": true
+  },
+  "rules": [
+    {
+      "id": "MET06-V08-R01",
+      "capabilityId": "CAP-02-06",
+      "summary": "类别和目的不串用",
+      "engineeringRule": "资源Released不能说明已取得现场测量资格",
+      "fields": [
+        "resource.kind",
+        "resource.purpose",
+        "resource.interfaceRevision",
+        "resource.lifecycle"
+      ],
+      "sourceIds": [
+        "MET06-S01",
+        "MET06-S08"
+      ],
+      "capTests": [
+        "MET-T01",
+        "MET-T10"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R01"
+      ],
+      "criteria": [
+        {
+          "path": "resource.kind",
+          "op": "eq",
+          "value": "SPINDLE_TOUCH_PROBE"
+        },
+        {
+          "path": "resource.purpose",
+          "op": "eq",
+          "value": "WORKPIECE_LOCATION"
+        },
+        {
+          "path": "resource.interfaceRevision",
+          "op": "eq",
+          "value": "interface@r1"
+        },
+        {
+          "path": "resource.lifecycle",
+          "op": "eq",
+          "value": "RELEASED"
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R02",
+      "capabilityId": "CAP-02-06",
+      "summary": "性能量纲和统计口径",
+      "engineeringRule": "厂商重复性不能取代某次测量不确定度",
+      "fields": [
+        "performance.metric",
+        "performance.unit",
+        "performance.statistic",
+        "performance.conditionsRef"
+      ],
+      "sourceIds": [
+        "MET06-S01",
+        "MET06-S05"
+      ],
+      "capTests": [
+        "MET-T05",
+        "MET-T06"
+      ],
+      "workPackages": [
+        "F1-01"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R02"
+      ],
+      "criteria": [
+        {
+          "path": "performance.metric",
+          "op": "eq",
+          "value": "REPEATABILITY"
+        },
+        {
+          "path": "performance.unit",
+          "op": "eq",
+          "value": "um"
+        },
+        {
+          "path": "performance.statistic",
+          "op": "eq",
+          "value": "2SIGMA"
+        },
+        {
+          "path": "performance.conditionsRef",
+          "op": "eq",
+          "value": "conditions@r1"
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R03",
+      "capabilityId": "CAP-02-06",
+      "summary": "校准链与组件一致",
+      "engineeringRule": "证书/校准链/组件版本和用途须分别核验",
+      "fields": [
+        "calibration.certificateHash",
+        "calibration.componentRevision",
+        "calibration.chainRef",
+        "calibration.applicability"
+      ],
+      "sourceIds": [
+        "MET06-S03",
+        "MET06-S08"
+      ],
+      "capTests": [
+        "MET-T07",
+        "MET-T08",
+        "MET-T09"
+      ],
+      "workPackages": [
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R03"
+      ],
+      "criteria": [
+        {
+          "path": "calibration.certificateHash",
+          "op": "eq",
+          "value": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "path": "calibration.componentRevision",
+          "op": "eq",
+          "value": "stylus@r2"
+        },
+        {
+          "path": "calibration.chainRef",
+          "op": "eq",
+          "value": "chain@r3"
+        },
+        {
+          "path": "calibration.applicability",
+          "op": "eq",
+          "value": "MATCHED_FOR_INTENT"
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R04",
+      "capabilityId": "CAP-02-06",
+      "summary": "临界判定不可擅自PASS",
+      "engineeringRule": "结果处在上限且无不确定度/规则时INDETERMINATE",
+      "fields": [
+        "decision.characteristicRef",
+        "decision.uncertaintyRef",
+        "decision.decisionRuleRef",
+        "decision.outcome"
+      ],
+      "sourceIds": [
+        "MET06-S02",
+        "MET06-S04",
+        "MET06-S05"
+      ],
+      "capTests": [
+        "MET-T14"
+      ],
+      "workPackages": [
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R04"
+      ],
+      "criteria": [
+        {
+          "path": "decision.characteristicRef",
+          "op": "eq",
+          "value": "pmi@r2"
+        },
+        {
+          "path": "decision.uncertaintyRef",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "decision.decisionRuleRef",
+          "op": "eq",
+          "value": "UNRESOLVED"
+        },
+        {
+          "path": "decision.outcome",
+          "op": "eq",
+          "value": "INDETERMINATE"
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R05",
+      "capabilityId": "CAP-02-06",
+      "summary": "资源与质量结果Owner独立",
+      "engineeringRule": "D03目录、D17检测计划和原始结果为不同受控事实",
+      "fields": [
+        "ownership.resourceOwner",
+        "ownership.planOwner",
+        "ownership.resultOwner",
+        "ownership.implicitOverwrite"
+      ],
+      "sourceIds": [
+        "MET06-S07"
+      ],
+      "capTests": [
+        "MET-T16"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R05"
+      ],
+      "criteria": [
+        {
+          "path": "ownership.resourceOwner",
+          "op": "eq",
+          "value": "D03"
+        },
+        {
+          "path": "ownership.planOwner",
+          "op": "eq",
+          "value": "D17"
+        },
+        {
+          "path": "ownership.resultOwner",
+          "op": "eq",
+          "value": "D17"
+        },
+        {
+          "path": "ownership.implicitOverwrite",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R06",
+      "capabilityId": "CAP-02-06",
+      "summary": "资格按条件及时间评估",
+      "engineeringRule": "目录生命周期、证书有效性、用途资格分别判定",
+      "fields": [
+        "eligibility.assessedAt",
+        "eligibility.calibrationStatus",
+        "eligibility.controllerExactRef",
+        "eligibility.releaseEqualsQualified"
+      ],
+      "sourceIds": [
+        "MET06-S03",
+        "MET06-S08"
+      ],
+      "capTests": [
+        "MET-T03",
+        "MET-T17",
+        "MET-T18"
+      ],
+      "workPackages": [
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R06"
+      ],
+      "criteria": [
+        {
+          "path": "eligibility.assessedAt",
+          "op": "eq",
+          "value": "2026-10-28T00:00:00Z"
+        },
+        {
+          "path": "eligibility.calibrationStatus",
+          "op": "eq",
+          "value": "VALID_FOR_INTENT"
+        },
+        {
+          "path": "eligibility.controllerExactRef",
+          "op": "eq",
+          "value": "controller@r1"
+        },
+        {
+          "path": "eligibility.releaseEqualsQualified",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R07",
+      "capabilityId": "CAP-02-06",
+      "summary": "具名测针局部Frame链",
+      "engineeringRule": "球心半径与帧转换必须来自明确资料/标定",
+      "fields": [
+        "frame.chain",
+        "frame.unit",
+        "frame.radiusEvidenceHash",
+        "frame.frameRevision"
+      ],
+      "sourceIds": [
+        "MET06-S01",
+        "MET06-S06"
+      ],
+      "capTests": [
+        "MET-T04",
+        "MET-T11",
+        "MET-T12"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R07"
+      ],
+      "criteria": [
+        {
+          "path": "frame.chain",
+          "op": "eq",
+          "value": "spindle>probe>stylus>tip"
+        },
+        {
+          "path": "frame.unit",
+          "op": "eq",
+          "value": "mm"
+        },
+        {
+          "path": "frame.radiusEvidenceHash",
+          "op": "eq",
+          "value": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "path": "frame.frameRevision",
+          "op": "eq",
+          "value": "mount@r3"
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R08",
+      "capabilityId": "CAP-02-06",
+      "summary": "未知控制器语义阻发布",
+      "engineeringRule": "D09 CL动画不能冒充D13-D15 NC工程验证",
+      "fields": [
+        "nc.finalNcHash",
+        "nc.d13Semantic",
+        "nc.d14Timeline",
+        "nc.d16Gate"
+      ],
+      "sourceIds": [
+        "MET06-S06"
+      ],
+      "capTests": [
+        "MET-T10",
+        "MET-T19"
+      ],
+      "workPackages": [
+        "E3-03"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R08"
+      ],
+      "criteria": [
+        {
+          "path": "nc.finalNcHash",
+          "op": "eq",
+          "value": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "path": "nc.d13Semantic",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "nc.d14Timeline",
+          "op": "eq",
+          "value": "NOT_GENERATED"
+        },
+        {
+          "path": "nc.d16Gate",
+          "op": "eq",
+          "value": "BLOCKED"
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R09",
+      "capabilityId": "CAP-02-06",
+      "summary": "Owner提交重新授权/CAS",
+      "engineeringRule": "GUI CLI Agent同Port，取消后晚ACK不恢复资格",
+      "fields": [
+        "transaction.expectedRevision",
+        "transaction.scopeEpoch",
+        "transaction.cancelGeneration",
+        "transaction.commitGate"
+      ],
+      "sourceIds": [
+        "MET06-S07"
+      ],
+      "capTests": [
+        "MET-T03",
+        "MET-T13"
+      ],
+      "workPackages": [
+        "F1-01"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R09"
+      ],
+      "criteria": [
+        {
+          "path": "transaction.expectedRevision",
+          "op": "eq",
+          "value": 17
+        },
+        {
+          "path": "transaction.scopeEpoch",
+          "op": "eq",
+          "value": 3
+        },
+        {
+          "path": "transaction.cancelGeneration",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "transaction.commitGate",
+          "op": "eq",
+          "value": "ACL_SCOPE_CAS_CANCEL_RECHECK"
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MET06-V08-R10",
+      "capabilityId": "CAP-02-06",
+      "summary": "单Babylon/左TaskPanel/预览隔离",
+      "engineeringRule": "唯一3D世界、唯一左容器；预览不能修改业务资产",
+      "fields": [
+        "ui.canvasCount",
+        "ui.taskPanel",
+        "ui.sharedOwnerPort",
+        "ui.previewCommit"
+      ],
+      "sourceIds": [
+        "MET06-S07"
+      ],
+      "capTests": [
+        "MET-T02",
+        "MET-T20"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ],
+      "workPackageMappingType": "RESEARCH_RELEVANCE_DOES_NOT_REWRITE_ORIGINAL_DIRECT_EDGE",
+      "originalRuleReferences": [
+        "MET-R10"
+      ],
+      "criteria": [
+        {
+          "path": "ui.canvasCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.taskPanel",
+          "op": "eq",
+          "value": "UNIFIED_LEFT"
+        },
+        {
+          "path": "ui.sharedOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.previewCommit",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "claimBoundary": "外部公开来源为背景与范围证据，字段及事务门禁是Procet内部拟议设计，非认证。",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN"
+}

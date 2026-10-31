@@ -1,0 +1,804 @@
+{
+  "schemaVersion": "procet-e303-b30-fixtures-v1",
+  "syntheticOnly": true,
+  "warning": "输入为结构化数值，不读NC源码；相同函数V8合成，不是控制器或D14/D15工程验证",
+  "base": {
+    "schema": "B30-G81-SYNTH-1",
+    "refs": {
+      "nc": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d04": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "d10": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "profile": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "frame": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "source": "D12_FINAL_NC",
+      "d04Revision": 2,
+      "d10Revision": 3
+    },
+    "cycle": {
+      "mode": "G81",
+      "plane": "G17",
+      "distance": "G91",
+      "retract": "G98",
+      "feed": "G94",
+      "comp": "G40",
+      "rotary": false,
+      "macro": false,
+      "start": [
+        1,
+        2,
+        3
+      ],
+      "oldZ": 3,
+      "word": {
+        "x": 4,
+        "y": 5,
+        "z": -0.6,
+        "r": 1.8,
+        "l": 3
+      },
+      "expect": {
+        "xy": [
+          [
+            5,
+            7
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            13,
+            17
+          ]
+        ],
+        "r": 4.8,
+        "z": 4.2,
+        "clear": 4.8,
+        "preRapid": true
+      },
+      "exit": "CONTINUE",
+      "afterOldZ": 3
+    },
+    "lineage": {
+      "line": 12,
+      "block": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "modalBefore": "1111111111111111111111111111111111111111111111111111111111111111",
+      "modalAfter": "2222222222222222222222222222222222222222222222222222222222222222",
+      "epoch": "cycle-001",
+      "count": 3
+    },
+    "gate": {
+      "port": "08.NcExecutionPort.interpret",
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "worlds": 1,
+      "panel": "UnifiedTaskPanel.left",
+      "revision": 4,
+      "observed": 4,
+      "acl": 2,
+      "aclObserved": 2,
+      "scope": 3,
+      "scopeObserved": 3,
+      "generation": 5,
+      "generationObserved": 5,
+      "cancel": false,
+      "lateAck": false,
+      "frozen": true,
+      "frozenChanged": false,
+      "d13": "SYNTHETIC_ONLY",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED"
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PASS",
+      "patches": []
+    },
+    {
+      "id": "P02",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "cycle.distance",
+          "value": "G90"
+        },
+        {
+          "path": "cycle.word",
+          "value": {
+            "x": 4,
+            "y": 5,
+            "z": 1.5,
+            "r": 2.8,
+            "l": 1
+          }
+        },
+        {
+          "path": "cycle.expect",
+          "value": {
+            "xy": [
+              [
+                4,
+                5
+              ]
+            ],
+            "r": 2.8,
+            "z": 1.5,
+            "clear": 3,
+            "preRapid": false
+          }
+        },
+        {
+          "path": "lineage.count",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "cycle.distance",
+          "value": "G90"
+        },
+        {
+          "path": "cycle.word",
+          "value": {
+            "x": 4,
+            "y": 5,
+            "z": 1.5,
+            "r": 2.8,
+            "l": 1
+          }
+        },
+        {
+          "path": "cycle.expect",
+          "value": {
+            "xy": [
+              [
+                4,
+                5
+              ]
+            ],
+            "r": 2.8,
+            "z": 1.5,
+            "clear": 3,
+            "preRapid": false
+          }
+        },
+        {
+          "path": "lineage.count",
+          "value": 1
+        },
+        {
+          "path": "cycle.retract",
+          "value": "G99"
+        },
+        {
+          "path": "cycle.expect",
+          "value": {
+            "xy": [
+              [
+                4,
+                5
+              ]
+            ],
+            "r": 2.8,
+            "z": 1.5,
+            "clear": 2.8,
+            "preRapid": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "cycle.retract",
+          "value": "G99"
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "cycle.exit",
+          "value": "G80"
+        },
+        {
+          "path": "cycle.afterOldZ",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "cycle.exit",
+          "value": "G0"
+        },
+        {
+          "path": "cycle.afterOldZ",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "expected": "PASS",
+      "patches": [
+        {
+          "path": "cycle.distance",
+          "value": "G90"
+        },
+        {
+          "path": "cycle.word",
+          "value": {
+            "x": 4,
+            "y": 5,
+            "z": 1.5,
+            "r": 2.8,
+            "l": 1
+          }
+        },
+        {
+          "path": "cycle.expect",
+          "value": {
+            "xy": [
+              [
+                4,
+                5
+              ]
+            ],
+            "r": 2.8,
+            "z": 1.5,
+            "clear": 3,
+            "preRapid": false
+          }
+        },
+        {
+          "path": "lineage.count",
+          "value": 1
+        },
+        {
+          "path": "cycle.start",
+          "value": [
+            1,
+            2,
+            0
+          ]
+        },
+        {
+          "path": "cycle.oldZ",
+          "value": 0
+        },
+        {
+          "path": "cycle.expect",
+          "value": {
+            "xy": [
+              [
+                4,
+                5
+              ]
+            ],
+            "r": 2.8,
+            "z": 1.5,
+            "clear": 2.8,
+            "preRapid": true
+          }
+        },
+        {
+          "path": "cycle.afterOldZ",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "U01",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "cycle.mode",
+          "value": "G83"
+        },
+        {
+          "path": "gate.d13",
+          "value": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "N01",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.nc",
+          "value": "invalid"
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.d04",
+          "value": "invalid"
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.d10",
+          "value": "invalid"
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.profile",
+          "value": "invalid"
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.frame",
+          "value": "invalid"
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.d10",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.source",
+          "value": "D09_CL"
+        }
+      ]
+    },
+    {
+      "id": "N08",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "refs.d10Revision",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "N09",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.mode",
+          "value": "G83"
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.plane",
+          "value": "G19"
+        }
+      ]
+    },
+    {
+      "id": "N11",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.distance",
+          "value": "G90.1"
+        }
+      ]
+    },
+    {
+      "id": "N12",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.retract",
+          "value": "G97"
+        }
+      ]
+    },
+    {
+      "id": "N13",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.word.l",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N14",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.word.l",
+          "value": 1.2
+        }
+      ]
+    },
+    {
+      "id": "N15",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.word.l",
+          "value": 17
+        }
+      ]
+    },
+    {
+      "id": "N16",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.expect.xy",
+          "value": [
+            [
+              5,
+              7
+            ],
+            [
+              9,
+              12
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N17",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "lineage.count",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "N18",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.expect.z",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "id": "N19",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.oldZ",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N20",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.expect.r",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "N21",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.expect.clear",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "N22",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.exit",
+          "value": "INVALID"
+        }
+      ]
+    },
+    {
+      "id": "N23",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.afterOldZ",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "id": "N24",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.feed",
+          "value": "G93"
+        }
+      ]
+    },
+    {
+      "id": "N25",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.comp",
+          "value": "G41"
+        }
+      ]
+    },
+    {
+      "id": "N26",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.rotary",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N27",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.macro",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N28",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.word.r",
+          "value": -3
+        }
+      ]
+    },
+    {
+      "id": "N29",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "cycle.expect.preRapid",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N30",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "lineage.line",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "N31",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "lineage.block",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "N32",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "lineage.modalBefore",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "N33",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.port",
+          "value": "Agent.direct"
+        }
+      ]
+    },
+    {
+      "id": "N34",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.channels",
+          "value": [
+            "GUI"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N35",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.worlds",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "N36",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.panel",
+          "value": "Drawer.right"
+        }
+      ]
+    },
+    {
+      "id": "N37",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.observed",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "N38",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.aclObserved",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "N39",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.scopeObserved",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "N40",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.generationObserved",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "id": "N41",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.cancel",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N42",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.lateAck",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N43",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.frozen",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N44",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.frozenChanged",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N45",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.d13",
+          "value": "READY_FOR_D14"
+        }
+      ]
+    },
+    {
+      "id": "N46",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.d15",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "N47",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "gate.d16",
+          "value": "RELEASED"
+        }
+      ]
+    }
+  ]
+}

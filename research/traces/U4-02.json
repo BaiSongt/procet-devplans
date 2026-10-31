@@ -1,0 +1,265 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "U4-02",
+  "researchTopic": "R-TASK-EDIT-001",
+  "sourceRegistry": "research/sources/U4-02.json",
+  "specification": "docs/work-packages/U4-02.md",
+  "ui": "docs/work-packages/U4-02/UI.md",
+  "fixtures": "docs/work-packages/U4-02/fixtures.json",
+  "validator": "tools/check_u402_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "U4-02-R01",
+      "workPackageId": "U4-02",
+      "summary": "三入口统一领域命令，不允许Shell私有保存",
+      "fields": [
+        "entry.surface",
+        "entry.commandId",
+        "entry.resolvedCommandId",
+        "entry.ownerPort"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U402-S03",
+        "SRC-U402-S04"
+      ],
+      "positiveTestId": "U4-02-T01",
+      "negativeTestId": "U4-02-T02",
+      "negativeReason": "REJECT_U402_R01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R02",
+      "workPackageId": "U4-02",
+      "summary": "贡献Ready源于Owner能力而非UI自授权",
+      "fields": [
+        "contribution.registered",
+        "contribution.requiredCapability",
+        "contribution.portCapabilities",
+        "contribution.backendReady"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U402-S04",
+        "SRC-U402-S05"
+      ],
+      "positiveTestId": "U4-02-T03",
+      "negativeTestId": "U4-02-T04",
+      "negativeReason": "REJECT_U402_R02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R03",
+      "workPackageId": "U4-02",
+      "summary": "EditSession具备精确工程/文档/Setup/Frame修订与哈希",
+      "fields": [
+        "session.projectId",
+        "session.documentId",
+        "session.documentRevision",
+        "session.documentHash",
+        "session.setupId",
+        "session.setupRevision",
+        "session.setupHash",
+        "session.frameHash"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-U402-S07",
+        "SRC-U402-S08"
+      ],
+      "positiveTestId": "U4-02-T05",
+      "negativeTestId": "U4-02-T06",
+      "negativeReason": "REJECT_U402_R03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R04",
+      "workPackageId": "U4-02",
+      "summary": "脏草稿离开必须显式三选，不可自动丢失",
+      "fields": [
+        "edit.dirty",
+        "edit.resolution",
+        "edit.userConfirmed",
+        "edit.preservedDraft"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U402-S01",
+        "SRC-U402-S03"
+      ],
+      "positiveTestId": "U4-02-T07",
+      "negativeTestId": "U4-02-T08",
+      "negativeReason": "REJECT_U402_R04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R05",
+      "workPackageId": "U4-02",
+      "summary": "SAVE_DRAFT不得生成APPROVE或D08冻结",
+      "fields": [
+        "edit.action",
+        "edit.approvalCreated",
+        "edit.draftRevisionCreated"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U402-S07",
+        "SRC-U402-S08"
+      ],
+      "positiveTestId": "U4-02-T09",
+      "negativeTestId": "U4-02-T10",
+      "negativeReason": "REJECT_U402_R05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R06",
+      "workPackageId": "U4-02",
+      "summary": "APPROVE需要人工决策、Owner权限及D08精确来源",
+      "fields": [
+        "approval.action",
+        "approval.humanApproval",
+        "approval.ownerAuthorized",
+        "approval.d08SourceHash"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U402-S07",
+        "SRC-U402-S08"
+      ],
+      "positiveTestId": "U4-02-T11",
+      "negativeTestId": "U4-02-T12",
+      "negativeReason": "REJECT_U402_R06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R07",
+      "workPackageId": "U4-02",
+      "summary": "Owner提交时重验CAS/ACL epoch/任务代次/取消",
+      "fields": [
+        "commit.expectedHead",
+        "commit.currentHead",
+        "commit.aclEpoch",
+        "commit.currentAclEpoch",
+        "commit.generation",
+        "commit.currentGeneration",
+        "commit.cancelled"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U402-S07",
+        "SRC-U402-S06"
+      ],
+      "positiveTestId": "U4-02-T13",
+      "negativeTestId": "U4-02-T14",
+      "negativeReason": "REJECT_U402_R07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R08",
+      "workPackageId": "U4-02",
+      "summary": "晚回执必须匹配scopeEpoch/generation/documentHash且未取消",
+      "fields": [
+        "expected.scopeEpoch",
+        "expected.generation",
+        "expected.documentHash",
+        "receipt.scopeEpoch",
+        "receipt.generation",
+        "receipt.documentHash",
+        "receipt.cancelled"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U402-S06",
+        "SRC-U402-S03"
+      ],
+      "positiveTestId": "U4-02-T15",
+      "negativeTestId": "U4-02-T16",
+      "negativeReason": "REJECT_U402_R08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R09",
+      "workPackageId": "U4-02",
+      "summary": "同幂等键同载荷仅同回执，不同载荷须拒绝",
+      "fields": [
+        "retry.key",
+        "retry.payloadHash",
+        "retry.priorPayloadHash",
+        "retry.receiptId",
+        "retry.priorReceiptId"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U402-S07",
+        "SRC-U402-S08"
+      ],
+      "positiveTestId": "U4-02-T17",
+      "negativeTestId": "U4-02-T18",
+      "negativeReason": "REJECT_U402_R09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-02-R10",
+      "workPackageId": "U4-02",
+      "summary": "单Scene/单保存控制器/Owner唯一写端及V1读兼容",
+      "fields": [
+        "integration.sceneCount",
+        "integration.controllerCount",
+        "integration.writeOwnerPortCount",
+        "integration.oldReaderCompatible",
+        "integration.migrationStage"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "sourceIds": [
+        "SRC-U402-S04",
+        "SRC-U402-S05"
+      ],
+      "positiveTestId": "U4-02-T19",
+      "negativeTestId": "U4-02-T20",
+      "negativeReason": "REJECT_U402_R10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

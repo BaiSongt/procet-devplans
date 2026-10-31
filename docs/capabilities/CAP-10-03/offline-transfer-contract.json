@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "procet-cap1003-offline-contract-v1",
+  "status": "PLANNING_DTO_UNFROZEN_L3_PENDING",
+  "ownerDomain": "10 程序发布与现场协同",
+  "ownerOfRecord": {
+    "D16": "10域签发发布包与介质交付对象（候选，待Owner正式会签）",
+    "D17": "10域现场签收与反馈追加事件（候选，待正式会签）"
+  },
+  "references": {
+    "D08": "frozenRevision/hash不可覆盖",
+    "D04": "nominalSetupRevision/nominalFrameHash",
+    "D10": "actualExecutionRevision/actualFrameHash/machineId/controllerProfileHash/toolAssemblyHash",
+    "D12": "finalNcRawSha256/subprogramClosureHash",
+    "D13": "controllerSemanticProfileHash/unknownCodes",
+    "D14": "axisMotionTimelineRevision",
+    "D15": "independentOracleId/coverageHash/unknownReasons",
+    "D16": "signedManifestHash/approvalEventId/keyId/trustedRootVersion/payloadHashes",
+    "D17": "receiverReceiptId/receiverIdentity/mediaIdentifier/timeEvidence/verificationReportHash"
+  },
+  "port": {
+    "name": "OfflineTransferPort",
+    "invokers": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "operations": [
+      "readSignedRelease",
+      "prepareMediaCopy",
+      "inspectReceipt",
+      "verifyOfflineReceiverCAS",
+      "appendReceptionEvidenceCAS",
+      "cancelTransfer"
+    ],
+    "forbidden": [
+      "autoMachineStart",
+      "reinterpretUnknownAsPass",
+      "trustProducerGreenStatus",
+      "overwriteD16",
+      "mutateD08",
+      "agentSign"
+    ]
+  },
+  "states": [
+    "CANDIDATE_SIGNED",
+    "COPY_PREPARED",
+    "MEDIA_COPIED_UNVERIFIED",
+    "RECEIVED_UNVERIFIED",
+    "BLOCKED_UNKNOWN",
+    "REJECTED",
+    "VERIFIED_FOR_MANUAL_MACHINE_REVIEW",
+    "ACK_RECORDED",
+    "STALE",
+    "REVOKED"
+  ],
+  "precommit": [
+    "ACL_RECHECK",
+    "CAS_EXACT_REVISION_HASH_FRAME",
+    "SCOPE_EPOCH_RECHECK",
+    "CANCEL_LATE_ACK_RECHECK"
+  ],
+  "receiverRequiredEvidence": [
+    "receiverTrustedRootPinned",
+    "independentSignatureVerification",
+    "rawNCAndSubprogramByteHashesRecomputed",
+    "manifestCanonicalDigestRecomputed",
+    "machineControllerD10Match",
+    "D15IndependentEngineeringEvidenceMatch",
+    "mediaOwnerAndCustody",
+    "trustedTimeAndRevocationPolicy"
+  ],
+  "unknownFailClosed": true,
+  "neverImplicitMachineImport": true,
+  "ownerSignoff": "PENDING_HUMAN",
+  "l3Approval": "PENDING_HUMAN",
+  "productTests": "NOT_RUN"
+}

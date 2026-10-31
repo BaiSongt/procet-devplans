@@ -1,0 +1,667 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-08",
+  "researchTopic": "R-HUMAN-AUTH-001",
+  "sourceRegistry": "research/sources/CAP-11-08.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-08-R01",
+      "capabilityId": "CAP-11-08",
+      "summary": "身份与代理委托",
+      "engineeringRule": "人类身份和Agent委托是不同主体，审批不可由代理自签",
+      "fields": [
+        "identity.principalVerified",
+        "identity.delegationExact",
+        "identity.noAgentImpersonation",
+        "identity.projectTenantPinned"
+      ],
+      "sourceIds": [
+        "C1108-S02",
+        "C1108-S03",
+        "C1108-S04",
+        "C1108-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "identity.principalVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.delegationExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.noAgentImpersonation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.projectTenantPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R02",
+      "capabilityId": "CAP-11-08",
+      "summary": "最小权限与受众绑定",
+      "engineeringRule": "各次请求校验Action、Asset、Project、ScopeEpoch、资源令牌受众和最小权限",
+      "fields": [
+        "scope.actionAllowlisted",
+        "scope.resourceAudienceBound",
+        "scope.scopeEpochCurrent",
+        "scope.leastPrivilege"
+      ],
+      "sourceIds": [
+        "C1108-S03",
+        "C1108-S06",
+        "C1108-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "scope.actionAllowlisted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.resourceAudienceBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.scopeEpochCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "scope.leastPrivilege",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R03",
+      "capabilityId": "CAP-11-08",
+      "summary": "不可变变更意图",
+      "engineeringRule": "受控目标Revision/Hash/Frame、差异和影响锁定，外部文本只能作为不可信数据",
+      "fields": [
+        "intent.targetRevisionHashPinned",
+        "intent.diffDigestPinned",
+        "intent.riskEffectsShown",
+        "intent.untrustedInputIsData"
+      ],
+      "sourceIds": [
+        "C1108-S04",
+        "C1108-S05",
+        "C1108-S08",
+        "C1108-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "intent.targetRevisionHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "intent.diffDigestPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "intent.riskEffectsShown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "intent.untrustedInputIsData",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R04",
+      "capabilityId": "CAP-11-08",
+      "summary": "独立人类审批",
+      "engineeringRule": "人类身份、职责分离、意图Digest/Scope和审批期限同时满足",
+      "fields": [
+        "approval.humanIdentityCurrent",
+        "approval.separationOfDuties",
+        "approval.digestScopeMatch",
+        "approval.notExpiredOrReusable"
+      ],
+      "sourceIds": [
+        "C1108-S01",
+        "C1108-S02",
+        "C1108-S04"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "approval.humanIdentityCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.separationOfDuties",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.digestScopeMatch",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.notExpiredOrReusable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R05",
+      "capabilityId": "CAP-11-08",
+      "summary": "冻结保护与新增修订",
+      "engineeringRule": "同一A/B事实不可覆盖已冻结D08，批准不能令Agent取得直接写入权",
+      "fields": [
+        "freeze.d08Immutable",
+        "freeze.abSharedNotOverwritten",
+        "freeze.newRevisionOnly",
+        "freeze.noImplicitWrite"
+      ],
+      "sourceIds": [
+        "C1108-S04",
+        "C1108-S05",
+        "C1108-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "freeze.d08Immutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.abSharedNotOverwritten",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.newRevisionOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "freeze.noImplicitWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R06",
+      "capabilityId": "CAP-11-08",
+      "summary": "Owner Port事务重验",
+      "engineeringRule": "GUI/CLI/Agent统一调用业务Owner，提交前重验ACL/Scope/CAS/Frame/Cancel",
+      "fields": [
+        "commit.ownerPortOnly",
+        "commit.aclScopeRechecked",
+        "commit.casRevisionHashFrameExact",
+        "commit.cancelGenerationCurrent"
+      ],
+      "sourceIds": [
+        "C1108-S03",
+        "C1108-S06",
+        "C1108-S08"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "commit.ownerPortOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.aclScopeRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casRevisionHashFrameExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelGenerationCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R07",
+      "capabilityId": "CAP-11-08",
+      "summary": "重放取消与真实回执",
+      "engineeringRule": "Nonce只一次，取消后的晚回执不再授权，但提交前实际生效的结果必须对账保留",
+      "fields": [
+        "race.uniqueNonce",
+        "race.expiryAndReplayChecked",
+        "race.lateAckQuarantined",
+        "race.committedReceiptRetained"
+      ],
+      "sourceIds": [
+        "C1108-S07",
+        "C1108-S08",
+        "C1108-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "race.uniqueNonce",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "race.expiryAndReplayChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "race.lateAckQuarantined",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "race.committedReceiptRetained",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R08",
+      "capabilityId": "CAP-11-08",
+      "summary": "NC语义与发布隔离",
+      "engineeringRule": "D04 Setup不等于D10执行绑定，D13 UNKNOWN、无D15独立证据不得D16发布",
+      "fields": [
+        "nc.d04d10Distinct",
+        "nc.d13UnknownBlocksRelease",
+        "nc.d15FromFinalNcIndependent",
+        "nc.d16OwnerApprovalOnly"
+      ],
+      "sourceIds": [
+        "C1108-S03",
+        "C1108-S05",
+        "C1108-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "nc.d04d10Distinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d13UnknownBlocksRelease",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d15FromFinalNcIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d16OwnerApprovalOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R09",
+      "capabilityId": "CAP-11-08",
+      "summary": "单世界及统一三入口",
+      "engineeringRule": "唯一Babylon、左TaskPanel、最大12px字体，Agent/GUI/CLI同领域Port",
+      "fields": [
+        "ui.singleBabylonWorld",
+        "ui.leftTaskPanelOnly",
+        "ui.guiCliAgentSamePort",
+        "ui.fontLimit12"
+      ],
+      "sourceIds": [
+        "C1108-S04",
+        "C1108-S05",
+        "C1108-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "ui.singleBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftTaskPanelOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.guiCliAgentSamePort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.fontLimit12",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-08-R10",
+      "capabilityId": "CAP-11-08",
+      "summary": "审计与消费者迁移",
+      "engineeringRule": "追加拒绝/审批/回执事件、独立消费者确认、失效回退只读、Owner签署待人类",
+      "fields": [
+        "audit.appendOnlyRedacted",
+        "audit.independentConsumerGate",
+        "audit.migrationReadOnlyRollback",
+        "audit.ownerSignoffPending"
+      ],
+      "sourceIds": [
+        "C1108-S03",
+        "C1108-S07",
+        "C1108-S09",
+        "C1108-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "05",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "audit.appendOnlyRedacted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.independentConsumerGate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.migrationReadOnlyRollback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.ownerSignoffPending",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "完整正例1+每个字段独立负例1，以及状态/跨域门禁",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN",
+  "humanDesignApproval": "PENDING_HUMAN"
+}

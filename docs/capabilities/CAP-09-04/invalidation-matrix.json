@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "procet-cap0904-invalidation-v1",
+  "dependencyChanges": [
+    {
+      "changed": "D03刀具/刀柄/接口参数或资源几何",
+      "stale": [
+        "D10.mountResolution",
+        "D13.compatibility",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D04名义Setup与工件Frame",
+      "stale": [
+        "D10.workSetupReference",
+        "D11",
+        "D12.profileBinding",
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D10主轴/刀柄/刀具实际绑定或测量",
+      "stale": [
+        "D12.compatibility",
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D12最终NC字节/H寄存器",
+      "stale": [
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D13解释器/固件/RTCP语义",
+      "stale": [
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "磨损量/实测Gauge/单位/测量不确定度",
+      "stale": [
+        "D10",
+        "D13.offsetEvidence",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "ACL撤权/CAS不匹配/generation/cancel",
+      "stale": [
+        "currentAttemptOnly"
+      ],
+      "action": "REJECT_LATE_ACK"
+    }
+  ],
+  "preserve": [
+    "D08冻结快照",
+    "D16历史已发布证据",
+    "用户数据库"
+  ],
+  "rollback": "Expand/Migrate/Contract: reader + schema + postprocessor + controllerProfile paired; non-destructive"
+}

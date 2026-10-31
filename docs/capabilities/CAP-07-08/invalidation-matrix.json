@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "procet-cap0708-invalidation-v1",
+  "changeCases": [
+    {
+      "change": "D09_SEGMENT_EDIT",
+      "invalidate": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "preserve": [
+        "D08_frozen",
+        "D09_old",
+        "D16_old_published"
+      ],
+      "policy": "NEW_D09_REVISION"
+    },
+    {
+      "change": "D04_FRAME_OR_D07_MATERIAL",
+      "invalidate": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "preserve": [
+        "D08_frozen"
+      ],
+      "policy": "ESCALATE_OPERATION_OR_UNKNOWN"
+    },
+    {
+      "change": "D03_TOOL_OR_FIXTURE",
+      "invalidate": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "preserve": [
+        "D03_old_snapshot"
+      ],
+      "policy": "REVALIDATE_ALL_AFFECTED"
+    },
+    {
+      "change": "D10_EXECUTION_BINDING",
+      "invalidate": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "preserve": [
+        "D04_SETUP",
+        "D09_NEUTRAL_CL"
+      ],
+      "policy": "REPOST_NC"
+    },
+    {
+      "change": "D13_UNSUPPORTED_SEMANTICS",
+      "invalidate": [
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "preserve": [
+        "D09",
+        "D12"
+      ],
+      "policy": "UNKNOWN_BLOCK"
+    },
+    {
+      "change": "CANCEL_OR_STALE_RECEIPT",
+      "invalidate": [
+        "candidate_only"
+      ],
+      "preserve": [
+        "committed_D09",
+        "D08"
+      ],
+      "policy": "REJECT_NO_WRITE"
+    }
+  ]
+}

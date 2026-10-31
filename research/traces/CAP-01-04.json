@@ -1,0 +1,376 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-01-04",
+  "topic": "R-AUTH-001",
+  "status": "local_drafted_pending_remote_and_review",
+  "productAcceptance": "NOT_RUN_PRODUCT_TEST",
+  "paths": {
+    "originalSpec": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-04_权限、审批与审计.md",
+    "backfill": "docs/capabilities/CAP-01-04/RESEARCH-BACKFILL.md",
+    "fixtures": "docs/capabilities/CAP-01-04/fixtures.json",
+    "research": "research/topics/R-AUTH-001.md",
+    "newSources": "research/sources/CAP-01-04.json",
+    "sourceIndex": "research/source-index.json"
+  },
+  "legacyRegisteredSourceIds": [
+    "SRC-REF-005"
+  ],
+  "newRegisteredSourceIds": [
+    "SRC-AUTH-001",
+    "SRC-AUTH-002",
+    "SRC-AUTH-003",
+    "SRC-AUTH-004",
+    "SRC-AUTH-005"
+  ],
+  "codeEvidence": {
+    "repository": "BaiSongt/procet-gui",
+    "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+    "files": [
+      "crates/procet-host-runtime/src/policy.rs",
+      "crates/procet-host-runtime/src/dispatcher.rs",
+      "apps/desktop/src/modules/manifest/types.ts",
+      "apps/desktop/src/modules/agent/components/ApprovalCard.tsx"
+    ],
+    "ids": [
+      "E-AUTH-01",
+      "E-AUTH-02",
+      "E-AUTH-03",
+      "E-AUTH-04"
+    ],
+    "evidenceKind": "read_only_source_not_product_test"
+  },
+  "rules": [
+    {
+      "id": "AUTH-R01",
+      "capabilityId": "CAP-01-04",
+      "description": "Host可信主体与代理链不得由请求body覆盖",
+      "sourceIds": [
+        "SRC-AUTH-005",
+        "SRC-AUTH-001"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "hostActor",
+        "delegateChain",
+        "identityAssurance"
+      ],
+      "tests": [
+        "CAP-01-04-AT-01",
+        "CAP-01-04-AT-16"
+      ],
+      "workPackages": [
+        "F1-01",
+        "B0-06"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-01"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R02",
+      "capabilityId": "CAP-01-04",
+      "description": "按动作/对象/作用域和策略版本每次执行鉴权，默认拒绝",
+      "sourceIds": [
+        "SRC-AUTH-001",
+        "SRC-AUTH-002"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "projectRef",
+        "targetRef",
+        "policyRef",
+        "requestedAction"
+      ],
+      "tests": [
+        "CAP-01-04-AT-04",
+        "CAP-01-04-AT-11"
+      ],
+      "workPackages": [
+        "F1-01",
+        "W2-04"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-01"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R03",
+      "capabilityId": "CAP-01-04",
+      "description": "WebView IPC暴露、工具确认与领域批准严格分层",
+      "sourceIds": [
+        "SRC-AUTH-003",
+        "SRC-AUTH-004"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "ipcCapability",
+        "toolApprovalRef",
+        "businessApprovalRef"
+      ],
+      "tests": [
+        "CAP-01-04-AT-08",
+        "CAP-01-04-AT-19"
+      ],
+      "workPackages": [
+        "B0-06",
+        "U4-04"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-03",
+        "E-AUTH-04"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R04",
+      "capabilityId": "CAP-01-04",
+      "description": "预检和决定绑定exact目标、内容hash、证据，预览不提交",
+      "sourceIds": [
+        "SRC-AUTH-001",
+        "SRC-AUTH-002"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "targetRef",
+        "targetContentHash",
+        "previewFingerprint",
+        "evidenceRefs"
+      ],
+      "tests": [
+        "CAP-01-04-AT-02",
+        "CAP-01-04-AT-10",
+        "CAP-01-04-AT-17"
+      ],
+      "workPackages": [
+        "F1-01",
+        "W2-04"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-02"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R05",
+      "capabilityId": "CAP-01-04",
+      "description": "历史Decision和现时Applicability分离，撤销追加新事实",
+      "sourceIds": [
+        "SRC-REF-005",
+        "SRC-AUTH-002"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "decisionRef",
+        "revocationRef",
+        "applicability"
+      ],
+      "tests": [
+        "CAP-01-04-AT-07",
+        "CAP-01-04-AT-09"
+      ],
+      "workPackages": [
+        "F1-06",
+        "W2-04"
+      ],
+      "codeObservationIds": [],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R06",
+      "capabilityId": "CAP-01-04",
+      "description": "自审和职责分离由显式部署策略决定，不靠姓名判断",
+      "sourceIds": [
+        "SRC-AUTH-001",
+        "SRC-AUTH-002"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "policyRef",
+        "authorRef",
+        "reviewerRef",
+        "separationOfDuties"
+      ],
+      "tests": [
+        "CAP-01-04-AT-06",
+        "CAP-01-04-AT-16"
+      ],
+      "workPackages": [
+        "B0-06",
+        "W2-04"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-01"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R07",
+      "capabilityId": "CAP-01-04",
+      "description": "离线身份保证标注真实来源，不继承受管组织认证",
+      "sourceIds": [
+        "SRC-AUTH-005"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "identityAssurance",
+        "credentialContext",
+        "decisionAt"
+      ],
+      "tests": [
+        "CAP-01-04-AT-01",
+        "CAP-01-04-AT-05",
+        "CAP-01-04-AT-16"
+      ],
+      "workPackages": [
+        "B0-06",
+        "U4-04"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-01"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R08",
+      "capabilityId": "CAP-01-04",
+      "description": "审计记录Actor/动作/来源/回执并脱敏，失败显式对账",
+      "sourceIds": [
+        "SRC-REF-005",
+        "SRC-AUTH-002"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "auditReceiptRef",
+        "correlationId",
+        "redactionProfile"
+      ],
+      "tests": [
+        "CAP-01-04-AT-12",
+        "CAP-01-04-AT-15"
+      ],
+      "workPackages": [
+        "F1-06",
+        "T5-01"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-02"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R09",
+      "capabilityId": "CAP-01-04",
+      "description": "幂等重放返回原决定，迟到响应按scopeEpoch隔离",
+      "sourceIds": [
+        "SRC-AUTH-002"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "requestId",
+        "idempotencyKey",
+        "scopeEpoch",
+        "resultStatus"
+      ],
+      "tests": [
+        "CAP-01-04-AT-13",
+        "CAP-01-04-AT-14"
+      ],
+      "workPackages": [
+        "W2-04",
+        "U4-01"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-02"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    },
+    {
+      "id": "AUTH-R10",
+      "capabilityId": "CAP-01-04",
+      "description": "缺D15完整证据或历史记录不完整时制造批准保持unknown",
+      "sourceIds": [
+        "SRC-AUTH-001",
+        "SRC-REF-005"
+      ],
+      "kind": "official_guidance_plus_internal_policy_and_read_only_code_observation",
+      "fields": [
+        "qualification",
+        "controllerSemantics",
+        "legacyApprovalStatus"
+      ],
+      "tests": [
+        "CAP-01-04-AT-03",
+        "CAP-01-04-AT-18",
+        "CAP-01-04-AT-20"
+      ],
+      "workPackages": [
+        "E3-06",
+        "U4-06"
+      ],
+      "codeObservationIds": [
+        "E-AUTH-01"
+      ],
+      "implementationStatus": "planned_only",
+      "productAcceptance": "NOT_RUN_PRODUCT_TEST"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-01-04-AT-01",
+    "CAP-01-04-AT-02",
+    "CAP-01-04-AT-03",
+    "CAP-01-04-AT-04",
+    "CAP-01-04-AT-05",
+    "CAP-01-04-AT-06",
+    "CAP-01-04-AT-07",
+    "CAP-01-04-AT-08",
+    "CAP-01-04-AT-09",
+    "CAP-01-04-AT-10",
+    "CAP-01-04-AT-11",
+    "CAP-01-04-AT-12",
+    "CAP-01-04-AT-13",
+    "CAP-01-04-AT-14",
+    "CAP-01-04-AT-15",
+    "CAP-01-04-AT-16",
+    "CAP-01-04-AT-17",
+    "CAP-01-04-AT-18",
+    "CAP-01-04-AT-19",
+    "CAP-01-04-AT-20"
+  ],
+  "workPackages": [
+    "B0-06",
+    "E3-06",
+    "F1-01",
+    "F1-06",
+    "T5-01",
+    "U4-01",
+    "U4-04",
+    "U4-06",
+    "W2-04"
+  ],
+  "relatedAssets": [
+    "D03",
+    "D08",
+    "D10",
+    "D12",
+    "D15",
+    "D16"
+  ],
+  "remainingEngineeringGates": [
+    "验证Host verifier与领域正式批准对exact target、policy、evidence的全链路绑定",
+    "跨领域Decision/Audit独立故障注入及恢复语义",
+    "离线身份可信度与自审策略由业务Owner评审",
+    "产品统一GUI/CLI/Agent安全回归",
+    "不能以本规划证明实机或控制器资格"
+  ]
+}

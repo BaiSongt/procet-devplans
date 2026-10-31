@@ -1,0 +1,1054 @@
+{
+  "schemaVersion": "procet-cap1106-fixtures-v1",
+  "capabilityId": "CAP-11-06",
+  "syntheticOnly": true,
+  "caseMeaning": "50独立逐字段正反 + 28异步门禁 + 4依赖DAG。纯规划合成数据，不执行真实任务，不构成产品PASS",
+  "cases": [
+    {
+      "id": "CAP-11-06-R01-P",
+      "ruleId": "CAP-11-06-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "identity": {
+          "taskIdStable": true,
+          "projectScopePinned": true,
+          "ownerRevisionHashPinned": true,
+          "framePinned": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R01-N-identity-taskIdStable",
+      "ruleId": "CAP-11-06-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.taskIdStable",
+      "input": {
+        "identity": {
+          "taskIdStable": false,
+          "projectScopePinned": true,
+          "ownerRevisionHashPinned": true,
+          "framePinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R01-N-identity-projectScopePinned",
+      "ruleId": "CAP-11-06-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.projectScopePinned",
+      "input": {
+        "identity": {
+          "taskIdStable": true,
+          "projectScopePinned": false,
+          "ownerRevisionHashPinned": true,
+          "framePinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R01-N-identity-ownerRevisionHashPinned",
+      "ruleId": "CAP-11-06-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.ownerRevisionHashPinned",
+      "input": {
+        "identity": {
+          "taskIdStable": true,
+          "projectScopePinned": true,
+          "ownerRevisionHashPinned": false,
+          "framePinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R01-N-identity-framePinned",
+      "ruleId": "CAP-11-06-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "identity.framePinned",
+      "input": {
+        "identity": {
+          "taskIdStable": true,
+          "projectScopePinned": true,
+          "ownerRevisionHashPinned": true,
+          "framePinned": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R02-P",
+      "ruleId": "CAP-11-06-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "graph": {
+          "dagAcyclic": true,
+          "inputDigestPinned": true,
+          "checkpointVersionPinned": true,
+          "replaySideEffectGuard": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R02-N-graph-dagAcyclic",
+      "ruleId": "CAP-11-06-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "graph.dagAcyclic",
+      "input": {
+        "graph": {
+          "dagAcyclic": false,
+          "inputDigestPinned": true,
+          "checkpointVersionPinned": true,
+          "replaySideEffectGuard": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R02-N-graph-inputDigestPinned",
+      "ruleId": "CAP-11-06-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "graph.inputDigestPinned",
+      "input": {
+        "graph": {
+          "dagAcyclic": true,
+          "inputDigestPinned": false,
+          "checkpointVersionPinned": true,
+          "replaySideEffectGuard": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R02-N-graph-checkpointVersionPinned",
+      "ruleId": "CAP-11-06-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "graph.checkpointVersionPinned",
+      "input": {
+        "graph": {
+          "dagAcyclic": true,
+          "inputDigestPinned": true,
+          "checkpointVersionPinned": false,
+          "replaySideEffectGuard": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R02-N-graph-replaySideEffectGuard",
+      "ruleId": "CAP-11-06-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "graph.replaySideEffectGuard",
+      "input": {
+        "graph": {
+          "dagAcyclic": true,
+          "inputDigestPinned": true,
+          "checkpointVersionPinned": true,
+          "replaySideEffectGuard": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R03-P",
+      "ruleId": "CAP-11-06-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "lease": {
+          "generationCurrent": true,
+          "fencingEpochCurrent": true,
+          "ownerScopeRechecked": true,
+          "casBeforeWrite": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R03-N-lease-generationCurrent",
+      "ruleId": "CAP-11-06-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "lease.generationCurrent",
+      "input": {
+        "lease": {
+          "generationCurrent": false,
+          "fencingEpochCurrent": true,
+          "ownerScopeRechecked": true,
+          "casBeforeWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R03-N-lease-fencingEpochCurrent",
+      "ruleId": "CAP-11-06-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "lease.fencingEpochCurrent",
+      "input": {
+        "lease": {
+          "generationCurrent": true,
+          "fencingEpochCurrent": false,
+          "ownerScopeRechecked": true,
+          "casBeforeWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R03-N-lease-ownerScopeRechecked",
+      "ruleId": "CAP-11-06-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "lease.ownerScopeRechecked",
+      "input": {
+        "lease": {
+          "generationCurrent": true,
+          "fencingEpochCurrent": true,
+          "ownerScopeRechecked": false,
+          "casBeforeWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R03-N-lease-casBeforeWrite",
+      "ruleId": "CAP-11-06-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "lease.casBeforeWrite",
+      "input": {
+        "lease": {
+          "generationCurrent": true,
+          "fencingEpochCurrent": true,
+          "ownerScopeRechecked": true,
+          "casBeforeWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R04-P",
+      "ruleId": "CAP-11-06-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "retry": {
+          "errorClassKnown": true,
+          "idempotentOrReconciled": true,
+          "budgetBounded": true,
+          "backoffPersisted": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R04-N-retry-errorClassKnown",
+      "ruleId": "CAP-11-06-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "retry.errorClassKnown",
+      "input": {
+        "retry": {
+          "errorClassKnown": false,
+          "idempotentOrReconciled": true,
+          "budgetBounded": true,
+          "backoffPersisted": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R04-N-retry-idempotentOrReconciled",
+      "ruleId": "CAP-11-06-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "retry.idempotentOrReconciled",
+      "input": {
+        "retry": {
+          "errorClassKnown": true,
+          "idempotentOrReconciled": false,
+          "budgetBounded": true,
+          "backoffPersisted": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R04-N-retry-budgetBounded",
+      "ruleId": "CAP-11-06-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "retry.budgetBounded",
+      "input": {
+        "retry": {
+          "errorClassKnown": true,
+          "idempotentOrReconciled": true,
+          "budgetBounded": false,
+          "backoffPersisted": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R04-N-retry-backoffPersisted",
+      "ruleId": "CAP-11-06-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "retry.backoffPersisted",
+      "input": {
+        "retry": {
+          "errorClassKnown": true,
+          "idempotentOrReconciled": true,
+          "budgetBounded": true,
+          "backoffPersisted": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R05-P",
+      "ruleId": "CAP-11-06-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "effect": {
+          "keyDigestConsistent": true,
+          "ownerReceiptExact": true,
+          "committedEffectImmutable": true,
+          "duplicateReconciled": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R05-N-effect-keyDigestConsistent",
+      "ruleId": "CAP-11-06-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "effect.keyDigestConsistent",
+      "input": {
+        "effect": {
+          "keyDigestConsistent": false,
+          "ownerReceiptExact": true,
+          "committedEffectImmutable": true,
+          "duplicateReconciled": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R05-N-effect-ownerReceiptExact",
+      "ruleId": "CAP-11-06-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "effect.ownerReceiptExact",
+      "input": {
+        "effect": {
+          "keyDigestConsistent": true,
+          "ownerReceiptExact": false,
+          "committedEffectImmutable": true,
+          "duplicateReconciled": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R05-N-effect-committedEffectImmutable",
+      "ruleId": "CAP-11-06-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "effect.committedEffectImmutable",
+      "input": {
+        "effect": {
+          "keyDigestConsistent": true,
+          "ownerReceiptExact": true,
+          "committedEffectImmutable": false,
+          "duplicateReconciled": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R05-N-effect-duplicateReconciled",
+      "ruleId": "CAP-11-06-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "effect.duplicateReconciled",
+      "input": {
+        "effect": {
+          "keyDigestConsistent": true,
+          "ownerReceiptExact": true,
+          "committedEffectImmutable": true,
+          "duplicateReconciled": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R06-P",
+      "ruleId": "CAP-11-06-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "cancel": {
+          "tokenCheckedAtCommit": true,
+          "lateAckQuarantined": true,
+          "priorCommitReconciled": true,
+          "noNewEffectsAfterCancel": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R06-N-cancel-tokenCheckedAtCommit",
+      "ruleId": "CAP-11-06-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "cancel.tokenCheckedAtCommit",
+      "input": {
+        "cancel": {
+          "tokenCheckedAtCommit": false,
+          "lateAckQuarantined": true,
+          "priorCommitReconciled": true,
+          "noNewEffectsAfterCancel": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R06-N-cancel-lateAckQuarantined",
+      "ruleId": "CAP-11-06-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "cancel.lateAckQuarantined",
+      "input": {
+        "cancel": {
+          "tokenCheckedAtCommit": true,
+          "lateAckQuarantined": false,
+          "priorCommitReconciled": true,
+          "noNewEffectsAfterCancel": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R06-N-cancel-priorCommitReconciled",
+      "ruleId": "CAP-11-06-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "cancel.priorCommitReconciled",
+      "input": {
+        "cancel": {
+          "tokenCheckedAtCommit": true,
+          "lateAckQuarantined": true,
+          "priorCommitReconciled": false,
+          "noNewEffectsAfterCancel": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R06-N-cancel-noNewEffectsAfterCancel",
+      "ruleId": "CAP-11-06-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "cancel.noNewEffectsAfterCancel",
+      "input": {
+        "cancel": {
+          "tokenCheckedAtCommit": true,
+          "lateAckQuarantined": true,
+          "priorCommitReconciled": true,
+          "noNewEffectsAfterCancel": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R07-P",
+      "ruleId": "CAP-11-06-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "auth": {
+          "approvalDigestBound": true,
+          "aclCurrentAtCommit": true,
+          "scopeEpochCurrent": true,
+          "frozenABProtected": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R07-N-auth-approvalDigestBound",
+      "ruleId": "CAP-11-06-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "auth.approvalDigestBound",
+      "input": {
+        "auth": {
+          "approvalDigestBound": false,
+          "aclCurrentAtCommit": true,
+          "scopeEpochCurrent": true,
+          "frozenABProtected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R07-N-auth-aclCurrentAtCommit",
+      "ruleId": "CAP-11-06-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "auth.aclCurrentAtCommit",
+      "input": {
+        "auth": {
+          "approvalDigestBound": true,
+          "aclCurrentAtCommit": false,
+          "scopeEpochCurrent": true,
+          "frozenABProtected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R07-N-auth-scopeEpochCurrent",
+      "ruleId": "CAP-11-06-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "auth.scopeEpochCurrent",
+      "input": {
+        "auth": {
+          "approvalDigestBound": true,
+          "aclCurrentAtCommit": true,
+          "scopeEpochCurrent": false,
+          "frozenABProtected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R07-N-auth-frozenABProtected",
+      "ruleId": "CAP-11-06-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "auth.frozenABProtected",
+      "input": {
+        "auth": {
+          "approvalDigestBound": true,
+          "aclCurrentAtCommit": true,
+          "scopeEpochCurrent": true,
+          "frozenABProtected": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R08-P",
+      "ruleId": "CAP-11-06-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "ui": {
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": true,
+          "statusFromOwnerReceipt": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R08-N-ui-sameDomainPort",
+      "ruleId": "CAP-11-06-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.sameDomainPort",
+      "input": {
+        "ui": {
+          "sameDomainPort": false,
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": true,
+          "statusFromOwnerReceipt": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R08-N-ui-singleBabylonWorld",
+      "ruleId": "CAP-11-06-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.singleBabylonWorld",
+      "input": {
+        "ui": {
+          "sameDomainPort": true,
+          "singleBabylonWorld": false,
+          "leftTaskPanelOnly": true,
+          "statusFromOwnerReceipt": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R08-N-ui-leftTaskPanelOnly",
+      "ruleId": "CAP-11-06-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.leftTaskPanelOnly",
+      "input": {
+        "ui": {
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": false,
+          "statusFromOwnerReceipt": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R08-N-ui-statusFromOwnerReceipt",
+      "ruleId": "CAP-11-06-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.statusFromOwnerReceipt",
+      "input": {
+        "ui": {
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftTaskPanelOnly": true,
+          "statusFromOwnerReceipt": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R09-P",
+      "ruleId": "CAP-11-06-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "safety": {
+          "d04D10Distinct": true,
+          "d12ToD15Independent": true,
+          "unknownFailsClosed": true,
+          "clOnlyNotRelease": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R09-N-safety-d04D10Distinct",
+      "ruleId": "CAP-11-06-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "safety.d04D10Distinct",
+      "input": {
+        "safety": {
+          "d04D10Distinct": false,
+          "d12ToD15Independent": true,
+          "unknownFailsClosed": true,
+          "clOnlyNotRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R09-N-safety-d12ToD15Independent",
+      "ruleId": "CAP-11-06-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "safety.d12ToD15Independent",
+      "input": {
+        "safety": {
+          "d04D10Distinct": true,
+          "d12ToD15Independent": false,
+          "unknownFailsClosed": true,
+          "clOnlyNotRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R09-N-safety-unknownFailsClosed",
+      "ruleId": "CAP-11-06-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "safety.unknownFailsClosed",
+      "input": {
+        "safety": {
+          "d04D10Distinct": true,
+          "d12ToD15Independent": true,
+          "unknownFailsClosed": false,
+          "clOnlyNotRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R09-N-safety-clOnlyNotRelease",
+      "ruleId": "CAP-11-06-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "safety.clOnlyNotRelease",
+      "input": {
+        "safety": {
+          "d04D10Distinct": true,
+          "d12ToD15Independent": true,
+          "unknownFailsClosed": true,
+          "clOnlyNotRelease": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R10-P",
+      "ruleId": "CAP-11-06-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "legacyReadOnlyFallback": true,
+          "consumerReceiptChecked": true,
+          "rollbackPreservesFrozen": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R10-N-migration-expandBeforeContract",
+      "ruleId": "CAP-11-06-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.expandBeforeContract",
+      "input": {
+        "migration": {
+          "expandBeforeContract": false,
+          "legacyReadOnlyFallback": true,
+          "consumerReceiptChecked": true,
+          "rollbackPreservesFrozen": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R10-N-migration-legacyReadOnlyFallback",
+      "ruleId": "CAP-11-06-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.legacyReadOnlyFallback",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "legacyReadOnlyFallback": false,
+          "consumerReceiptChecked": true,
+          "rollbackPreservesFrozen": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R10-N-migration-consumerReceiptChecked",
+      "ruleId": "CAP-11-06-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.consumerReceiptChecked",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "legacyReadOnlyFallback": true,
+          "consumerReceiptChecked": false,
+          "rollbackPreservesFrozen": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-R10-N-migration-rollbackPreservesFrozen",
+      "ruleId": "CAP-11-06-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.rollbackPreservesFrozen",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "legacyReadOnlyFallback": true,
+          "consumerReceiptChecked": true,
+          "rollbackPreservesFrozen": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "gateCases": [
+    {
+      "id": "CAP-11-06-G01",
+      "signal": "SUBMITTED",
+      "expected": "QUEUED",
+      "reason": "新任务仅入队不成功",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G02",
+      "signal": "WORKER_ACK",
+      "expected": "RUNNING",
+      "reason": "有效Lease+generation领队",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G03",
+      "signal": "DEPENDENCY_PENDING",
+      "expected": "WAITING_DEPENDENCY",
+      "reason": "前置冻结与结果待齐",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G04",
+      "signal": "APPROVAL_REQUIRED",
+      "expected": "WAITING_APPROVAL",
+      "reason": "暂停写入等待人工审批",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G05",
+      "signal": "TRANSIENT_FAILURE_SAFE",
+      "expected": "RETRY_WAIT",
+      "reason": "仅已知无副作用重试",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G06",
+      "signal": "RESTART_VALID_CHECKPOINT",
+      "expected": "RUNNING",
+      "reason": "验证原输入/版本/租约后恢复",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G07",
+      "signal": "DUPLICATE_SAME_KEY_DIGEST",
+      "expected": "RECONCILING",
+      "reason": "同键相同内容先读取Owner事实",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G08",
+      "signal": "OWNER_RECEIPT_VERIFIED",
+      "expected": "SUCCEEDED",
+      "reason": "任务完成需业务Owner原始回执",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G09",
+      "signal": "CANCEL_AFTER_ACTUAL_COMMIT",
+      "expected": "RECONCILING",
+      "reason": "取消前已提交不删除事实",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G10",
+      "signal": "CANCEL_REQUESTED",
+      "expected": "CANCELLING",
+      "reason": "取消先进入中间态",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G11",
+      "signal": "CANCEL_BEFORE_COMMIT",
+      "expected": "CANCELLED",
+      "reason": "Owner最终CAS拒绝新副作用",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G12",
+      "signal": "LATE_ACK_AFTER_CANCEL",
+      "expected": "REJECT",
+      "reason": "迟到ACK绝不推动新Generation",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G13",
+      "signal": "REVOKED_ACL",
+      "expected": "REJECT",
+      "reason": "撤权不可用缓存Token穿透",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G14",
+      "signal": "UNAUTHORIZED_AGENT",
+      "expected": "REJECT",
+      "reason": "Agent自批不允许",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G15",
+      "signal": "DUPLICATE_DIFFERENT_DIGEST",
+      "expected": "REJECT",
+      "reason": "同幂等键异内容拒绝",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G16",
+      "signal": "FROZEN_AB_MUTATION",
+      "expected": "REJECT",
+      "reason": "冻结版本不可覆盖",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G17",
+      "signal": "PROJECT_SWITCH",
+      "expected": "STALE",
+      "reason": "切换上下文隔离旧任务",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G18",
+      "signal": "HASH_MISMATCH",
+      "expected": "STALE",
+      "reason": "来源内容已变化",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G19",
+      "signal": "FRAME_MISMATCH",
+      "expected": "STALE",
+      "reason": "坐标链不一致",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G20",
+      "signal": "LEASE_EXPIRED",
+      "expected": "STALE",
+      "reason": "旧Worker租约失效",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G21",
+      "signal": "CAS_CONFLICT",
+      "expected": "STALE",
+      "reason": "并发lost update",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G22",
+      "signal": "NON_IDEMPOTENT_RETRY",
+      "expected": "UNKNOWN",
+      "reason": "不能确定之前是否已提交",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G23",
+      "signal": "MCP_VERSION_UNNEGOTIATED",
+      "expected": "UNKNOWN",
+      "reason": "实验任务与Extension不兼容",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G24",
+      "signal": "D13_UNKNOWN",
+      "expected": "UNKNOWN",
+      "reason": "NC控制器未知语义不得放行",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G25",
+      "signal": "D15_CL_ONLY",
+      "expected": "UNKNOWN",
+      "reason": "CL演示非NC工程验证",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G26",
+      "signal": "TIMEOUT_AFTER_SEND",
+      "expected": "RECONCILING",
+      "reason": "发送超时不等于操作未发生",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G27",
+      "signal": "LEGACY_SCHEMA_READONLY",
+      "expected": "SUSPENDED",
+      "reason": "旧reader只读保留",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-06-G28",
+      "signal": "CONSUMER_NACK",
+      "expected": "FAILED",
+      "reason": "跨域独立消费者否认后不得关闭任务",
+      "synthetic": true
+    }
+  ],
+  "dagCases": [
+    {
+      "id": "DAG01",
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "expected": "PASS"
+    },
+    {
+      "id": "DAG02",
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "A"
+        ]
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "DAG03",
+      "edges": [
+        [
+          "A",
+          "A"
+        ]
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "DAG04",
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "expected": "PASS"
+    }
+  ]
+}

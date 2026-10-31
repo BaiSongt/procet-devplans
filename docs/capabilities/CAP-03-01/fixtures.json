@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "procet-planning-synthetic-scenarios-v1",
+  "capabilityId": "CAP-03-01",
+  "notProductTest": true,
+  "scenarios": [
+    {
+      "id": "CAP-03-01-T01",
+      "positive": "选择本地STEP文件，源字节归CAS并生成sha256及文件大小",
+      "negative": "仅保存外部路径而不保存字节仍宣称可离线恢复",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T02",
+      "positive": "同源重新导入生成明确去重候选，不隐式覆盖已有工程版本",
+      "negative": "恶意扩展引用/超限大文件导致持久半成品或未记录下载",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T03",
+      "positive": "公开声明AP242协议识别和Reader能力边界",
+      "negative": "仅文件名.stp即宣称支持完整AP242 PMI",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T04",
+      "positive": "历史2022版来源显示其版本并受现有Reader能力限制",
+      "negative": "把已撤回2022版写为最新或将未知协议解析为成功",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T05",
+      "positive": "从源声明与翻译器日志确定长度/角度单位并生成明确单位链",
+      "negative": "源单位缺失仍静默按毫米完成制造许可",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T06",
+      "positive": "正负方向及实例坐标变换在源/工程frame往返一致",
+      "negative": "靠Babylon相机反转或交换轴修复单位/手系差异",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T07",
+      "positive": "同一零件定义在装配中两个实例保留不同位姿与路径",
+      "negative": "按单一solid哈希合并后错误丢失实例坐标",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T08",
+      "positive": "源颜色/名称不存在时以缺省显示标记而非伪称源属性",
+      "negative": "把面片显示色当作受控材料或PMI证据",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T09",
+      "positive": "BRepCheck检查结果和失败子形状诊断可回溯",
+      "negative": "形状通过IsValid就授予可加工或碰撞PASS",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T10",
+      "positive": "ShapeFix可选修补生成独立派生、差异与来源",
+      "negative": "修补时无记录地改源且破坏原始几何回读",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T11",
+      "positive": "导入参数、预算、Worker版本可重放，超限显示阻断",
+      "negative": "后台超时后留下被声明完整的损坏CAS工件",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T12",
+      "positive": "导入过程中切Project/关闭标签，迟到结果只回原scope",
+      "negative": "迟到Worker回调把A模型写入B工程",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T13",
+      "positive": "拓扑选择携带exact BRep/face来源和拓扑snapshot",
+      "negative": "仅mesh三角面index创建制造特征并入批准Plan",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T14",
+      "positive": "mesh重生版本变更只重建投影，BRep真值保留",
+      "negative": "新mesh sourceHash不匹配旧Topology仍强行选择",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T15",
+      "positive": "brep_and_mesh/mesh_only/unavailable边界完整呈现",
+      "negative": "mesh_only被当作可执行CAM几何",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T16",
+      "positive": "导入CAD及PMI缺失仍允许正确展示已获得部分",
+      "negative": "无来源PMI通过界面自动生成受控制造公差",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T17",
+      "positive": "工程导入与CAM Job生成的能力资格分别判定",
+      "negative": "CAM后端离线时CAD只读/导入被硬性假判CAM已批准",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T18",
+      "positive": "GUI/CLI/Agent的导入提交接收同scope与权限，重试按requestId查回执",
+      "negative": "二次点击/响应丢失导致重复登记或跨工程落库",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T19",
+      "positive": "旧D00 descriptor/revision原样可读，导入新版本只追加派生",
+      "negative": "schema升级直接覆盖老批准项目源引用",
+      "execution": "not_run"
+    },
+    {
+      "id": "CAP-03-01-T20",
+      "positive": "离线恢复BRep、mesh与源文件闭包，缺件明确降级/阻断",
+      "negative": "源文件被删除后依靠历史绝对路径假恢复成功",
+      "execution": "not_run"
+    }
+  ]
+}

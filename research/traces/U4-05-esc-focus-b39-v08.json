@@ -1,0 +1,468 @@
+{
+  "schemaVersion": "procet-b39-trace-v1",
+  "date": "2026-10-30",
+  "workPackage": "U4-05",
+  "capability": "CAP-01-07",
+  "sourcesPath": "research/sources/U4-05-esc-focus-b39.json",
+  "fixturePath": "docs/work-packages/U4-05/esc-focus-b39-fixtures-v08.json",
+  "checkerPath": "tools/check_u405_esc_focus_b39_v08.cjs",
+  "rules": [
+    {
+      "id": "B39-R1",
+      "title": "IME优先及重复Escape不生成全局退出",
+      "sourceIds": [
+        "B39-S04",
+        "B39-S06"
+      ],
+      "origin": "MDN_LIMITATION_WITH_INTERNAL_ROUTING",
+      "fields": [
+        "event.key",
+        "event.isComposing",
+        "event.compositionStateTrusted",
+        "event.repeat"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P03",
+        "P06",
+        "P01"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03"
+      ],
+      "unknownIds": [
+        "U04"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B39-R2",
+      "title": "真正模态对话框聚焦并关闭归还焦点，左TaskPanel非模态",
+      "sourceIds": [
+        "B39-S01",
+        "B39-S02",
+        "B39-S07"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_GUIDANCE",
+      "fields": [
+        "focus.modalOpen",
+        "focus.kind",
+        "focus.initialInside",
+        "focus.restoreAnchor",
+        "focus.trap",
+        "focus.obscured"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01",
+        "P05"
+      ],
+      "negativeIds": [
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09"
+      ],
+      "unknownIds": [
+        "U02"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B39-R3",
+      "title": "脏草稿Escape必须确认且不做隐式权威写入",
+      "sourceIds": [
+        "B39-S06",
+        "B39-S07"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_GUIDANCE",
+      "fields": [
+        "edit.dirty",
+        "edit.confirmOnDirty",
+        "edit.discardWithoutConfirm",
+        "edit.previewWrites"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N10",
+        "N11",
+        "N12"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B39-R4",
+      "title": "pointercancel/lostpointercapture释放预览不提交选择",
+      "sourceIds": [
+        "B39-S03",
+        "B39-S05",
+        "B39-S07"
+      ],
+      "origin": "POINTER_SPEC_WITH_INTERNAL_LIFECYCLE",
+      "fields": [
+        "event.key",
+        "gesture.captureActive",
+        "gesture.cancelled",
+        "gesture.captureLost",
+        "gesture.promotePick"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P04",
+        "P07",
+        "P01"
+      ],
+      "negativeIds": [
+        "N13",
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B39-R5",
+      "title": "单Babylon世界与跨空间Scene/Pick/Lease epoch守恒",
+      "sourceIds": [
+        "B39-S07",
+        "B39-S06"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_GUIDANCE",
+      "fields": [
+        "render.engineCount",
+        "render.sceneCount",
+        "render.canvasCount",
+        "render.activeRoot",
+        "render.hiddenRootPickable",
+        "render.sceneEpoch",
+        "render.pickEpoch",
+        "render.leaseEpoch"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22",
+        "N23"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B39-R6",
+      "title": "12px文本上限与24 CSS px指针目标分别校验，例外待复核",
+      "sourceIds": [
+        "B39-S01",
+        "B39-S06"
+      ],
+      "origin": "WCAG_WITH_CONSERVATIVE_LOCAL_POLICY",
+      "fields": [
+        "pointer.widthCssPx",
+        "pointer.heightCssPx",
+        "pointer.exception",
+        "pointer.keyboardAlt",
+        "pointer.dragAlt",
+        "ui.fontMaxPx"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N24",
+        "N25",
+        "N26",
+        "N27",
+        "N28"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B39-R7",
+      "title": "Owner exact Revision/Hash/Frame和ACL/Scope/Cancel重验",
+      "sourceIds": [
+        "B39-S07",
+        "B39-S06"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_GUIDANCE",
+      "fields": [
+        "owner.expectedRevision",
+        "owner.actualRevision",
+        "owner.expectedHash",
+        "owner.actualHash",
+        "owner.expectedFrame",
+        "owner.actualFrame",
+        "owner.aclEpoch",
+        "owner.aclNow",
+        "owner.scopeEpoch",
+        "owner.scopeNow",
+        "owner.cancelEpoch",
+        "owner.ackEpoch",
+        "owner.cancelled",
+        "owner.lateAck"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B39-R8",
+      "title": "GUI/CLI/Agent同领域Port与D04/D10/CL-NC/冻结只读回退",
+      "sourceIds": [
+        "B39-S06",
+        "B39-S07"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_GUIDANCE",
+      "fields": [
+        "ui.channels",
+        "ui.port",
+        "ui.leftPanel",
+        "ui.fontMaxPx",
+        "flow.d04",
+        "flow.d10",
+        "flow.freezeBefore",
+        "flow.freezeAfter",
+        "flow.d13",
+        "flow.d15",
+        "flow.clAsNcVerified",
+        "flow.oldReader",
+        "flow.consumer"
+      ],
+      "capabilityIds": [
+        "CAP-01-06",
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assetIds": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48",
+        "N49",
+        "N50",
+        "N51",
+        "N52",
+        "N53"
+      ],
+      "unknownIds": [
+        "U03"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ]
+}

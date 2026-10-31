@@ -1,0 +1,415 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-02-02",
+  "topic": "R-CUT-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "originalSpecification": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-02-02_刀具与切削参数.md",
+    "supplement": "docs/capabilities/CAP-02-02/RESEARCH-BACKFILL.md",
+    "fixtures": "docs/capabilities/CAP-02-02/fixtures.json",
+    "sourceRegistry": "research/sources/CAP-02-02.json"
+  },
+  "registeredSources": 7,
+  "workPackages": [
+    "F1-01",
+    "F1-02",
+    "F1-04",
+    "F1-06",
+    "U4-02",
+    "U4-03",
+    "W2-03",
+    "E3-03",
+    "E3-05"
+  ],
+  "assetOwner": "Resources: Cutter/Profile; Planning: adopted Operation; NC execution: D13 only",
+  "relatedAssets": [
+    "D03",
+    "D05",
+    "D09",
+    "D12",
+    "D13",
+    "D14",
+    "D15"
+  ],
+  "sourceEvidence": "7 public official source pages read by relevant catalog/section only",
+  "codeEvidence": [],
+  "notes": "原CAP-02-02 AT01..08保留；本T01..T20是补充独立正反验收；真实产品测试NOT_RUN",
+  "rules": [
+    {
+      "id": "CUT-R01",
+      "capabilityId": "CAP-02-02",
+      "description": "刀具几何按刀型及字典定义，Unsupported不得静默映射为通用铣刀",
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-002"
+      ],
+      "fields": [
+        "cutterKind",
+        "geometryProperties"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T01",
+        "CAP-02-02-T02"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    },
+    {
+      "id": "CUT-R02",
+      "capabilityId": "CAP-02-02",
+      "description": "切削直径/刃长/总长使用有单位的正值，几何长度不等于装配Gauge Length/TCP",
+      "sourceIds": [
+        "SRC-CUT-002",
+        "SRC-CUT-003"
+      ],
+      "fields": [
+        "cuttingDiameter",
+        "cuttingLength",
+        "overallLength",
+        "gaugeLengthRef"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T03",
+        "CAP-02-02-T04"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    },
+    {
+      "id": "CUT-R03",
+      "capabilityId": "CAP-02-02",
+      "description": "刀具基体材质、涂层、工件材质和热处理状态不可互相替代；未知维持unknown",
+      "sourceIds": [
+        "SRC-CUT-004",
+        "SRC-CUT-007"
+      ],
+      "fields": [
+        "substrate",
+        "coating",
+        "workpieceMaterialRef",
+        "heatTreatmentCondition"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T05",
+        "CAP-02-02-T06"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    },
+    {
+      "id": "CUT-R04",
+      "capabilityId": "CAP-02-02",
+      "description": "切削档案必须锁定刀具exact revision/hash、材料工况、加工策略、来源和适用区间",
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-007"
+      ],
+      "fields": [
+        "cuttingProfileRef",
+        "cutterExactRef",
+        "applicability",
+        "provenance"
+      ],
+      "assets": [
+        "D03",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T07",
+        "CAP-02-02-T08"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    },
+    {
+      "id": "CUT-R05",
+      "capabilityId": "CAP-02-02",
+      "description": "仅对支持的铣削工况按Dcap和有效齿数推导n、vf，明确单位和公式版本；球头/复杂接触无Dcap时unknown",
+      "sourceIds": [
+        "SRC-CUT-005"
+      ],
+      "fields": [
+        "effectiveCuttingDiameterMm",
+        "effectiveTeeth",
+        "cuttingSpeedMPerMin",
+        "feedPerToothMm",
+        "spindleSpeedRpm",
+        "feedRateMmPerMin"
+      ],
+      "assets": [
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T09",
+        "CAP-02-02-T10"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_formula_plus_project_gate"
+    },
+    {
+      "id": "CUT-R06",
+      "capabilityId": "CAP-02-02",
+      "description": "机床最大转速限制不能静默截断并沿用旧进给；须给出冲突并在用户选定控制量后重算",
+      "sourceIds": [
+        "SRC-CUT-005"
+      ],
+      "fields": [
+        "machineCapabilityExactRef",
+        "spindleSpeedLimitRpm",
+        "chosenGoverningInput",
+        "resolutionDecision"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T11",
+        "CAP-02-02-T12"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_formula_plus_project_gate"
+    },
+    {
+      "id": "CUT-R07",
+      "capabilityId": "CAP-02-02",
+      "description": "资源Released修订不可原位修改；采用档案须以CAS校验当前Operation/权限/工况并生成新工序修订",
+      "sourceIds": [
+        "SRC-CUT-001"
+      ],
+      "fields": [
+        "resourceRevision",
+        "expectedOperationHead",
+        "operationRevision",
+        "actorScope"
+      ],
+      "assets": [
+        "D03",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T13",
+        "CAP-02-02-T14"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    },
+    {
+      "id": "CUT-R08",
+      "capabilityId": "CAP-02-02",
+      "description": "CAM参数推荐不等于NC控制器执行语义；D13未知模态为unknown，CL预览不得授予D15安全验证",
+      "sourceIds": [
+        "SRC-CUT-005",
+        "SRC-CUT-006"
+      ],
+      "fields": [
+        "clExactRef",
+        "ncExactHash",
+        "executionSemanticsRef",
+        "verificationRef"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T15",
+        "CAP-02-02-T16"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    },
+    {
+      "id": "CUT-R09",
+      "capabilityId": "CAP-02-02",
+      "description": "GUI、CLI、Agent访问同一Resources/Planning授权与采纳用例；3D选择/PreviewLease不产生领域写入",
+      "sourceIds": [
+        "SRC-CUT-001"
+      ],
+      "fields": [
+        "workContext",
+        "selectionIntent",
+        "previewLease",
+        "editSession",
+        "permissionDecision"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T17",
+        "CAP-02-02-T18"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    },
+    {
+      "id": "CUT-R10",
+      "capabilityId": "CAP-02-02",
+      "description": "跨项目或换Setup后迟到回执拒绝提交；资源修订失效可迁移/重评估但不得覆盖A/B已冻结同事实",
+      "sourceIds": [
+        "SRC-CUT-001",
+        "SRC-CUT-006"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "commandId",
+        "expectedRevision",
+        "resultRevision",
+        "freezeSet"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-02",
+        "F1-04",
+        "F1-06",
+        "U4-02",
+        "U4-03",
+        "W2-03",
+        "E3-03",
+        "E3-05"
+      ],
+      "tests": [
+        "CAP-02-02-T19",
+        "CAP-02-02-T20"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "external_context_plus_project_policy_not_normative"
+    }
+  ]
+}

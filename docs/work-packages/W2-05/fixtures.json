@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "procet-w205-synthetic-v1",
+  "workPackageId": "W2-05",
+  "evidence": "SYNTHETIC_ONLY_NOT_PRODUCT_TEST",
+  "baseScenario": {
+    "context": {
+      "projectId": "P",
+      "documentId": "DOC1",
+      "branchId": "branchA",
+      "setupId": "setupA",
+      "revision": "D04-r4",
+      "contentHash": "sha256:SYNTHETIC_D04",
+      "hashKind": "SYNTHETIC",
+      "frame": "F_SETUP_A",
+      "unit": "mm",
+      "ownerPortVersion": "D04.v1"
+    },
+    "navigation": {
+      "requestedSetupId": "setupA",
+      "returnedSetupIds": [
+        "setupA"
+      ],
+      "requiresRecognition": false,
+      "authoritative": true,
+      "activeGuiStoreOnly": false
+    },
+    "relation": {
+      "edges": [
+        [
+          "f1",
+          "s1"
+        ],
+        [
+          "f1",
+          "s2"
+        ],
+        [
+          "f2",
+          "s1"
+        ]
+      ],
+      "feature1StepCount": 2,
+      "step1FeatureCount": 2,
+      "stableUid": true,
+      "exactRevisions": true
+    },
+    "sources": {
+      "d02Owner": "D02",
+      "d04Owner": "D04",
+      "d05Owner": "D05",
+      "featureRevision": "f4",
+      "expectedFeatureRevision": "f4",
+      "featureHash": "sha256:SYNTHETIC_D02",
+      "branchMatched": true
+    },
+    "transfer": {
+      "fromSetup": "setupA",
+      "toSetup": "setupB",
+      "frameChain": [
+        "F_SETUP_A",
+        "F_PART",
+        "F_SETUP_B"
+      ],
+      "resolved": true,
+      "roundtripPass": true,
+      "unitVerified": true,
+      "materialIndependentlyVerified": true
+    },
+    "projection": {
+      "readOnly": true,
+      "ownerWrites": 0,
+      "rebuildSameHash": true,
+      "staleReported": true
+    },
+    "guard": {
+      "readAcl": true,
+      "commitAcl": true,
+      "headExpected": "h1",
+      "headCurrent": "h1",
+      "epochExpected": 4,
+      "epochCurrent": 4,
+      "generation": 7,
+      "liveGeneration": 7,
+      "cancelled": false,
+      "lateReceipt": false
+    },
+    "missing": {
+      "sourceAvailable": true,
+      "returnedAsEmpty": false,
+      "missingStatus": "UNKNOWN_MISSING_SOURCE"
+    },
+    "otherSetup": {
+      "oldHash": "sha256:STABLE_B",
+      "newHash": "sha256:STABLE_B",
+      "frozenD08Unchanged": true
+    },
+    "qualification": {
+      "d11": "CL_PREVIEW",
+      "d13": "UNKNOWN",
+      "d15Pass": false,
+      "d16Released": false
+    }
+  },
+  "cases": [
+    {
+      "id": "W2-05-T01",
+      "ruleId": "W205-R01",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T02",
+      "ruleId": "W205-R01",
+      "polarity": "negative",
+      "overrides": {
+        "context": {
+          "revision": ""
+        }
+      },
+      "expected": "REJECT_MISSING_EXACT_CONTEXT"
+    },
+    {
+      "id": "W2-05-T03",
+      "ruleId": "W205-R02",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T04",
+      "ruleId": "W205-R02",
+      "polarity": "negative",
+      "overrides": {
+        "navigation": {
+          "requiresRecognition": true
+        }
+      },
+      "expected": "REJECT_HIDDEN_RECOGNITION"
+    },
+    {
+      "id": "W2-05-T05",
+      "ruleId": "W205-R03",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T06",
+      "ruleId": "W205-R03",
+      "polarity": "negative",
+      "overrides": {
+        "relation": {
+          "step1FeatureCount": 1
+        }
+      },
+      "expected": "REJECT_COLLAPSED_RELATION"
+    },
+    {
+      "id": "W2-05-T07",
+      "ruleId": "W205-R04",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T08",
+      "ruleId": "W205-R04",
+      "polarity": "negative",
+      "overrides": {
+        "navigation": {
+          "returnedSetupIds": [
+            "setupA",
+            "setupB"
+          ]
+        }
+      },
+      "expected": "REJECT_CROSS_SETUP"
+    },
+    {
+      "id": "W2-05-T09",
+      "ruleId": "W205-R05",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T10",
+      "ruleId": "W205-R05",
+      "polarity": "negative",
+      "overrides": {
+        "sources": {
+          "featureRevision": "f5"
+        }
+      },
+      "expected": "REJECT_STALE_FEATURE"
+    },
+    {
+      "id": "W2-05-T11",
+      "ruleId": "W205-R06",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T12",
+      "ruleId": "W205-R06",
+      "polarity": "negative",
+      "overrides": {
+        "transfer": {
+          "roundtripPass": false
+        }
+      },
+      "expected": "REJECT_UNVERIFIED_TRANSFER"
+    },
+    {
+      "id": "W2-05-T13",
+      "ruleId": "W205-R07",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T14",
+      "ruleId": "W205-R07",
+      "polarity": "negative",
+      "overrides": {
+        "projection": {
+          "ownerWrites": 1
+        }
+      },
+      "expected": "REJECT_OWNER_WRITE_BY_PROJECTION"
+    },
+    {
+      "id": "W2-05-T15",
+      "ruleId": "W205-R08",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T16",
+      "ruleId": "W205-R08",
+      "polarity": "negative",
+      "overrides": {
+        "guard": {
+          "lateReceipt": true
+        }
+      },
+      "expected": "REJECT_LATE_RECEIPT"
+    },
+    {
+      "id": "W2-05-T17",
+      "ruleId": "W205-R09",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T18",
+      "ruleId": "W205-R09",
+      "polarity": "negative",
+      "overrides": {
+        "missing": {
+          "sourceAvailable": false,
+          "returnedAsEmpty": true
+        }
+      },
+      "expected": "UNKNOWN_MISSING_SOURCE"
+    },
+    {
+      "id": "W2-05-T19",
+      "ruleId": "W205-R10",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-05-T20",
+      "ruleId": "W205-R10",
+      "polarity": "negative",
+      "overrides": {
+        "qualification": {
+          "d15Pass": true
+        }
+      },
+      "expected": "REJECT_FALSE_NC_PASS"
+    }
+  ],
+  "independentAcceptanceNotExecuted": [
+    "setupA和setupB真实进程读取、数据库持久性隔离",
+    "实际Feature/Step多对多完整性",
+    "重启后直接取原工序不重复识别",
+    "变更A核对B原Hash和冻结D08",
+    "跨Setup Frame/单位往返与D07独立材料重验",
+    "取消晚回执/撤权/CAS冲突注入"
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "schemaVersion": "procet-b43-fixtures-v1",
+  "date": "2026-10-30",
+  "syntheticOnly": true,
+  "capability": "CAP-08-04",
+  "meaning": "合成控制器快照，PLANNING_ONLY非实机/NC验证；负例每次只改一字段",
+  "baseline": {
+    "profile.dialect": "LINUXCNC_2_9",
+    "profile.iniHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "profile.firmware": "2.9-synthetic",
+    "profile.optionKnown": true,
+    "profile.keepSpindleOn": false,
+    "tool.number": 7,
+    "tool.magazineHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "tool.prepare": "REQUESTED",
+    "tool.change": "REQUESTED",
+    "tool.ackOrigin": "NONE",
+    "tool.physicalClaim": false,
+    "coolant.afterM6": "CONTINUE_UNLESS_M9",
+    "spindle.afterM6": "DEFAULT_STOP_OPTION_OFF",
+    "nc.reparseFinal": true,
+    "nc.bytesHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "orient.qSeconds": 5,
+    "orient.rDegrees": 90,
+    "orient.ack": "NOT_CONNECTED",
+    "orient.physicalClaim": false,
+    "orient.faultClear": true,
+    "length.g43Separate": true,
+    "length.offsetHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "length.modalHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "length.provenance": "PLANNED_ONLY",
+    "binding.d04": "D04-r12",
+    "binding.d10": "D10-r9",
+    "frame.machine": "MACHINE:mm",
+    "safety.poseQualification": "NOT_RUN",
+    "ui.port": "08.AuxActionPort",
+    "ui.channels": "GUI|CLI|Agent",
+    "ui.worlds": 1,
+    "ui.leftPanel": true,
+    "ui.fontMaxPx": 12,
+    "owner.casExpected": 11,
+    "owner.casCurrent": 11,
+    "owner.aclExpected": 9,
+    "owner.aclCurrent": 9,
+    "owner.generation": 4,
+    "owner.ackGeneration": 4,
+    "owner.cancelled": false,
+    "owner.lateAckAdopted": false,
+    "owner.d08Untouched": true,
+    "result.d15": "NOT_RUN",
+    "result.d16Released": false
+  },
+  "positiveCount": 1,
+  "negativeCount": 40,
+  "unknownCount": 4,
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "ruleId": "ALL",
+      "patch": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "M01",
+      "kind": "negative",
+      "ruleId": "B43-R1",
+      "changedField": "profile.dialect",
+      "patch": {
+        "profile.dialect": "HAAS"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M02",
+      "kind": "negative",
+      "ruleId": "B43-R1",
+      "changedField": "profile.iniHash",
+      "patch": {
+        "profile.iniHash": "bad"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M03",
+      "kind": "negative",
+      "ruleId": "B43-R1",
+      "changedField": "profile.firmware",
+      "patch": {
+        "profile.firmware": "2.8"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M04",
+      "kind": "unknown",
+      "ruleId": "B43-R1",
+      "changedField": "profile.optionKnown",
+      "patch": {
+        "profile.optionKnown": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M05",
+      "kind": "unknown",
+      "ruleId": "B43-R1",
+      "changedField": "profile.keepSpindleOn",
+      "patch": {
+        "profile.keepSpindleOn": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M06",
+      "kind": "negative",
+      "ruleId": "B43-R2",
+      "changedField": "tool.number",
+      "patch": {
+        "tool.number": -1
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M07",
+      "kind": "negative",
+      "ruleId": "B43-R2",
+      "changedField": "tool.magazineHash",
+      "patch": {
+        "tool.magazineHash": "bad"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M08",
+      "kind": "negative",
+      "ruleId": "B43-R2",
+      "changedField": "tool.prepare",
+      "patch": {
+        "tool.prepare": "DONE"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M09",
+      "kind": "negative",
+      "ruleId": "B43-R2",
+      "changedField": "tool.change",
+      "patch": {
+        "tool.change": "DONE"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M10",
+      "kind": "unknown",
+      "ruleId": "B43-R2",
+      "changedField": "tool.ackOrigin",
+      "patch": {
+        "tool.ackOrigin": "HAL_LOOPBACK"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M11",
+      "kind": "negative",
+      "ruleId": "B43-R2",
+      "changedField": "tool.physicalClaim",
+      "patch": {
+        "tool.physicalClaim": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M12",
+      "kind": "negative",
+      "ruleId": "B43-R3",
+      "changedField": "coolant.afterM6",
+      "patch": {
+        "coolant.afterM6": "STOP"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M13",
+      "kind": "negative",
+      "ruleId": "B43-R3",
+      "changedField": "spindle.afterM6",
+      "patch": {
+        "spindle.afterM6": "ALWAYS_STOP"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M14",
+      "kind": "negative",
+      "ruleId": "B43-R3",
+      "changedField": "nc.reparseFinal",
+      "patch": {
+        "nc.reparseFinal": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M15",
+      "kind": "negative",
+      "ruleId": "B43-R3",
+      "changedField": "nc.bytesHash",
+      "patch": {
+        "nc.bytesHash": "bad"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M16",
+      "kind": "negative",
+      "ruleId": "B43-R4",
+      "changedField": "orient.qSeconds",
+      "patch": {
+        "orient.qSeconds": 0
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M17",
+      "kind": "negative",
+      "ruleId": "B43-R4",
+      "changedField": "orient.rDegrees",
+      "patch": {
+        "orient.rDegrees": 450
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M18",
+      "kind": "negative",
+      "ruleId": "B43-R4",
+      "changedField": "orient.ack",
+      "patch": {
+        "orient.ack": "SUCCESS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M19",
+      "kind": "negative",
+      "ruleId": "B43-R4",
+      "changedField": "orient.physicalClaim",
+      "patch": {
+        "orient.physicalClaim": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M20",
+      "kind": "unknown",
+      "ruleId": "B43-R4",
+      "changedField": "orient.faultClear",
+      "patch": {
+        "orient.faultClear": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M21",
+      "kind": "negative",
+      "ruleId": "B43-R5",
+      "changedField": "length.g43Separate",
+      "patch": {
+        "length.g43Separate": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M22",
+      "kind": "negative",
+      "ruleId": "B43-R5",
+      "changedField": "length.offsetHash",
+      "patch": {
+        "length.offsetHash": "bad"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M23",
+      "kind": "negative",
+      "ruleId": "B43-R5",
+      "changedField": "length.modalHash",
+      "patch": {
+        "length.modalHash": "bad"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M24",
+      "kind": "negative",
+      "ruleId": "B43-R5",
+      "changedField": "length.provenance",
+      "patch": {
+        "length.provenance": "CERTIFIED"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M25",
+      "kind": "negative",
+      "ruleId": "B43-R6",
+      "changedField": "binding.d04",
+      "patch": {
+        "binding.d04": "D04-r11"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M26",
+      "kind": "negative",
+      "ruleId": "B43-R6",
+      "changedField": "binding.d10",
+      "patch": {
+        "binding.d10": "D10-r8"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M27",
+      "kind": "negative",
+      "ruleId": "B43-R6",
+      "changedField": "frame.machine",
+      "patch": {
+        "frame.machine": "PART:mm"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M28",
+      "kind": "negative",
+      "ruleId": "B43-R6",
+      "changedField": "safety.poseQualification",
+      "patch": {
+        "safety.poseQualification": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M29",
+      "kind": "negative",
+      "ruleId": "B43-R7",
+      "changedField": "ui.port",
+      "patch": {
+        "ui.port": "GUI.Local"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M30",
+      "kind": "negative",
+      "ruleId": "B43-R7",
+      "changedField": "ui.channels",
+      "patch": {
+        "ui.channels": "GUI_ONLY"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M31",
+      "kind": "negative",
+      "ruleId": "B43-R7",
+      "changedField": "ui.worlds",
+      "patch": {
+        "ui.worlds": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M32",
+      "kind": "negative",
+      "ruleId": "B43-R7",
+      "changedField": "ui.leftPanel",
+      "patch": {
+        "ui.leftPanel": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M33",
+      "kind": "negative",
+      "ruleId": "B43-R7",
+      "changedField": "ui.fontMaxPx",
+      "patch": {
+        "ui.fontMaxPx": 13
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M34",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.casExpected",
+      "patch": {
+        "owner.casExpected": 10
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M35",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.casCurrent",
+      "patch": {
+        "owner.casCurrent": 12
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M36",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.aclExpected",
+      "patch": {
+        "owner.aclExpected": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M37",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.aclCurrent",
+      "patch": {
+        "owner.aclCurrent": 10
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M38",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.generation",
+      "patch": {
+        "owner.generation": 3
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M39",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.ackGeneration",
+      "patch": {
+        "owner.ackGeneration": 2
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M40",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.cancelled",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "expected": "CANCELLED"
+    },
+    {
+      "id": "M41",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.lateAckAdopted",
+      "patch": {
+        "owner.lateAckAdopted": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M42",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "owner.d08Untouched",
+      "patch": {
+        "owner.d08Untouched": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M43",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "result.d15",
+      "patch": {
+        "result.d15": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M44",
+      "kind": "negative",
+      "ruleId": "B43-R8",
+      "changedField": "result.d16Released",
+      "patch": {
+        "result.d16Released": true
+      },
+      "expected": "REJECT"
+    }
+  ]
+}

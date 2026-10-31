@@ -1,0 +1,493 @@
+{
+  "schemaVersion": "procet-cap-06-04-fixtures-v1",
+  "syntheticOnly": true,
+  "notRealOcct": true,
+  "context": "finite_cell_set_oracle",
+  "cases": [
+    {
+      "id": "CAP-06-04-T01",
+      "ruleId": "C0604-R01",
+      "input": {
+        "refs": [
+          {
+            "assetId": "D01",
+            "revision": "r3",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hashKind": "SYNTHETIC_SHA256",
+            "frame": "PART",
+            "unit": "mm",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1",
+            "scope": "DEMO/A/S1"
+          },
+          {
+            "assetId": "D04",
+            "revision": "r6",
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "hashKind": "SYNTHETIC_SHA256",
+            "frame": "S1",
+            "unit": "mm",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1",
+            "scope": "DEMO/A/S1"
+          },
+          {
+            "assetId": "D07",
+            "revision": "r9",
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "hashKind": "SYNTHETIC_SHA256",
+            "frame": "S1",
+            "unit": "mm",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1",
+            "scope": "DEMO/A/S1"
+          }
+        ],
+        "scopeAligned": true
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T02",
+      "ruleId": "C0604-R01",
+      "input": {
+        "refs": [
+          {
+            "assetId": "D01",
+            "revision": "r3",
+            "hash": "INVALID",
+            "hashKind": "SYNTHETIC_SHA256",
+            "frame": "PART",
+            "unit": "mm",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1",
+            "scope": "DEMO/A/S1"
+          },
+          {
+            "assetId": "D04",
+            "revision": "r6",
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "hashKind": "SYNTHETIC_SHA256",
+            "frame": "S1",
+            "unit": "mm",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1",
+            "scope": "DEMO/A/S1"
+          },
+          {
+            "assetId": "D07",
+            "revision": "r9",
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "hashKind": "SYNTHETIC_SHA256",
+            "frame": "S1",
+            "unit": "mm",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1",
+            "scope": "DEMO/A/S1"
+          }
+        ],
+        "scopeAligned": true
+      },
+      "expected": "REJECT_SOURCE_CLOSURE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T03",
+      "ruleId": "C0604-R02",
+      "input": {
+        "transform": {
+          "from": "PART",
+          "to": "S1",
+          "hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "invertible": true,
+          "unitsCompatible": true,
+          "rightHanded": true,
+          "approved": true,
+          "displayOnlyConversionExcluded": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T04",
+      "ruleId": "C0604-R02",
+      "input": {
+        "transform": {
+          "from": "PART",
+          "to": "S1",
+          "hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "invertible": true,
+          "unitsCompatible": true,
+          "rightHanded": false,
+          "approved": true,
+          "displayOnlyConversionExcluded": true
+        }
+      },
+      "expected": "REJECT_FRAME_MISMATCH",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T05",
+      "ruleId": "C0604-R03",
+      "input": {
+        "geometry": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "retain": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c"
+          ],
+          "preserved": [
+            "a",
+            "b",
+            "d"
+          ]
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T06",
+      "ruleId": "C0604-R03",
+      "input": {
+        "geometry": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "retain": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "d"
+          ],
+          "preserved": [
+            "a",
+            "b",
+            "d"
+          ]
+        }
+      },
+      "expected": "REJECT_SET_DOMAIN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T07",
+      "ruleId": "C0604-R04",
+      "input": {
+        "target": {
+          "stock": [
+            "a",
+            "b",
+            "c"
+          ],
+          "target": [
+            "a",
+            "b"
+          ],
+          "subtractiveOnly": true,
+          "fullyKnown": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T08",
+      "ruleId": "C0604-R04",
+      "input": {
+        "target": {
+          "stock": [
+            "a",
+            "b",
+            "c"
+          ],
+          "target": [
+            "a",
+            "b",
+            "missing"
+          ],
+          "subtractiveOnly": true,
+          "fullyKnown": true
+        }
+      },
+      "expected": "REJECT_UNREACHABLE_TARGET",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T09",
+      "ruleId": "C0604-R05",
+      "input": {
+        "allowance": {
+          "faces": [
+            {
+              "uid": "f1",
+              "mm": 0.1,
+              "approved": true
+            },
+            {
+              "uid": "f2",
+              "mm": 0,
+              "approved": true
+            }
+          ],
+          "approvalRef": "policy-r2",
+          "envelopeKind": "OCCT_BREP_CERTIFICATION_REQUIRED",
+          "noGlobalBBox": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T10",
+      "ruleId": "C0604-R05",
+      "input": {
+        "allowance": {
+          "faces": [
+            {
+              "uid": "f1",
+              "mm": 0.1,
+              "approved": true
+            },
+            {
+              "uid": "f2",
+              "mm": 0,
+              "approved": true
+            }
+          ],
+          "approvalRef": "policy-r2",
+          "envelopeKind": "BBOX_ONLY",
+          "noGlobalBBox": true
+        }
+      },
+      "expected": "REJECT_ALLOWANCE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T11",
+      "ruleId": "C0604-R06",
+      "input": {
+        "guard": {
+          "removable": [
+            "c"
+          ],
+          "protected": [
+            "d"
+          ],
+          "crossCheck": "INDEPENDENT_COMMON_REQUIRED",
+          "protectedRefHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "sameFrame": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T12",
+      "ruleId": "C0604-R06",
+      "input": {
+        "guard": {
+          "removable": [
+            "c"
+          ],
+          "protected": [
+            "d",
+            "c"
+          ],
+          "crossCheck": "INDEPENDENT_COMMON_REQUIRED",
+          "protectedRefHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "sameFrame": true
+        }
+      },
+      "expected": "REJECT_PROTECTED_INTERSECTION",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T13",
+      "ruleId": "C0604-R07",
+      "input": {
+        "history": {
+          "previousHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "consumedHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "initialHash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "previousStepUid": "STEP-3",
+          "currentStepUid": "STEP-4",
+          "immutable": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T14",
+      "ruleId": "C0604-R07",
+      "input": {
+        "history": {
+          "previousHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "consumedHash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "initialHash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "previousStepUid": "STEP-3",
+          "currentStepUid": "STEP-4",
+          "immutable": true
+        }
+      },
+      "expected": "REJECT_STATE_HISTORY",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T15",
+      "ruleId": "C0604-R08",
+      "input": {
+        "engine": {
+          "version": "OCCT_8.0.1_REQUIRED",
+          "pre": "REAL_BREP_CHECK_REQUIRED",
+          "post": "REAL_BREP_CHECK_REQUIRED",
+          "warningsReviewed": true,
+          "hasHistory": true,
+          "fuzzyApproved": true,
+          "result": "NOT_RUN_REAL_OCCT"
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T16",
+      "ruleId": "C0604-R08",
+      "input": {
+        "engine": {
+          "version": "OCCT_8.0.1_REQUIRED",
+          "pre": "REAL_BREP_CHECK_REQUIRED",
+          "post": "REAL_BREP_CHECK_REQUIRED",
+          "warningsReviewed": true,
+          "hasHistory": true,
+          "fuzzyApproved": true,
+          "result": "BBOX_PASS"
+        }
+      },
+      "expected": "REJECT_GEOMETRY_GATE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T17",
+      "ruleId": "C0604-R09",
+      "input": {
+        "commit": {
+          "expectedHead": "r4",
+          "currentHead": "r4",
+          "aclEpoch": 3,
+          "authorizedEpoch": 3,
+          "generation": 4,
+          "currentGeneration": 4,
+          "cancelled": false,
+          "lateAck": false,
+          "frozenD08Untouched": true,
+          "otherSetupUntouched": true,
+          "invalidates": [
+            "D07",
+            "D09",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16"
+          ]
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T18",
+      "ruleId": "C0604-R09",
+      "input": {
+        "commit": {
+          "expectedHead": "r4",
+          "currentHead": "r4",
+          "aclEpoch": 3,
+          "authorizedEpoch": 3,
+          "generation": 4,
+          "currentGeneration": 4,
+          "cancelled": false,
+          "lateAck": false,
+          "frozenD08Untouched": false,
+          "otherSetupUntouched": true,
+          "invalidates": [
+            "D07",
+            "D09",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16"
+          ]
+        }
+      },
+      "expected": "REJECT_COMMIT_STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T19",
+      "ruleId": "C0604-R10",
+      "input": {
+        "downstream": {
+          "d07Independent": "REQUIRES_REAL_CONSUMER",
+          "d08Frozen": true,
+          "d09": "CONDITIONAL_ONLY",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-04-T20",
+      "ruleId": "C0604-R10",
+      "input": {
+        "downstream": {
+          "d07Independent": "REQUIRES_REAL_CONSUMER",
+          "d08Frozen": true,
+          "d09": "CONDITIONAL_ONLY",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d15": "PASS",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      },
+      "expected": "REJECT_FALSE_NC_PASS",
+      "synthetic": true
+    }
+  ]
+}

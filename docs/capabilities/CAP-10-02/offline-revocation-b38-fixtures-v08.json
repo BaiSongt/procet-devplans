@@ -1,0 +1,664 @@
+{
+  "schemaVersion": "procet-b38-fixture-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-10-02",
+  "important": "All credentials/CRL/TSA flags synthetic; no real signing or product testing",
+  "baseline": {
+    "nc.rawHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "nc.d15RawHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "nc.manifestHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "nc.approvedManifestHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "nc.closure": true,
+    "binding.d04": "D04-r8",
+    "binding.d10": "D10-r12",
+    "binding.from": "MACHINE_BASE",
+    "binding.to": "WORKPIECE",
+    "binding.d15Independent": true,
+    "binding.coverage": "FULL_NC",
+    "binding.d13Known": true,
+    "approval.requester": "engineer-A",
+    "approval.reviewer": "reviewer-B",
+    "approval.human": true,
+    "approval.noAgent": true,
+    "crl.issuer": "CA-TEST",
+    "crl.syntheticSignatureChecked": true,
+    "crl.coverage": "ALL_SYNTHETIC",
+    "crl.revoked": false,
+    "crl.thisUpdate": "2026-10-29T00:00:00Z",
+    "crl.nextUpdate": "2026-10-31T00:00:00Z",
+    "crl.validationTime": "2026-10-30T06:00:00Z",
+    "tsa.imprintMatches": true,
+    "tsa.syntheticTrustChecked": true,
+    "tsa.policy": "TSA-SYNTHETIC-B38",
+    "tsa.time": "2026-10-29T05:00:00Z",
+    "offline.root": "CA-TEST",
+    "offline.clockTrusted": true,
+    "offline.snapshotPinned": true,
+    "offline.noCycleStartInference": true,
+    "owner.expectedRevision": "D16-r7",
+    "owner.actualRevision": "D16-r7",
+    "owner.expectedHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "owner.actualHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "owner.aclEpoch": 5,
+    "owner.aclNow": 5,
+    "owner.scopeEpoch": 7,
+    "owner.scopeNow": 7,
+    "owner.cancelEpoch": 3,
+    "owner.ackEpoch": 3,
+    "owner.cancelled": false,
+    "owner.lateAck": false,
+    "ui.channels": "GUI|CLI|Agent",
+    "ui.port": "10.ApproveReleasePort",
+    "ui.worlds": 1,
+    "ui.leftPanel": true,
+    "ui.fontMaxPx": 12,
+    "ui.previewWrites": false,
+    "handoff.freezeBefore": "D08-frozen-r8",
+    "handoff.freezeAfter": "D08-frozen-r8",
+    "handoff.oldReader": "SHADOW_READ_ONLY",
+    "handoff.consumer": "NOT_RUN"
+  },
+  "positiveCount": 1,
+  "negativeCount": 55,
+  "unknownCount": 4,
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "ruleId": "ALL",
+      "patch": {},
+      "expected": "REVIEW_ELIGIBLE_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "ruleId": "B38-R1",
+      "changedField": "nc.rawHash",
+      "patch": {
+        "nc.rawHash": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "ruleId": "B38-R1",
+      "changedField": "nc.d15RawHash",
+      "patch": {
+        "nc.d15RawHash": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "ruleId": "B38-R1",
+      "changedField": "nc.manifestHash",
+      "patch": {
+        "nc.manifestHash": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "ruleId": "B38-R1",
+      "changedField": "nc.approvedManifestHash",
+      "patch": {
+        "nc.approvedManifestHash": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "ruleId": "B38-R1",
+      "changedField": "nc.closure",
+      "patch": {
+        "nc.closure": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "ruleId": "B38-R2",
+      "changedField": "binding.d04",
+      "patch": {
+        "binding.d04": "INVALID_FIELD"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "ruleId": "B38-R2",
+      "changedField": "binding.d10",
+      "patch": {
+        "binding.d10": "INVALID_FIELD"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "ruleId": "B38-R2",
+      "changedField": "binding.from",
+      "patch": {
+        "binding.from": "INVALID_FIELD"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "ruleId": "B38-R2",
+      "changedField": "binding.to",
+      "patch": {
+        "binding.to": "INVALID_FIELD"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "ruleId": "B38-R2",
+      "changedField": "binding.d15Independent",
+      "patch": {
+        "binding.d15Independent": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "ruleId": "B38-R2",
+      "changedField": "binding.coverage",
+      "patch": {
+        "binding.coverage": "INVALID_FIELD"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "ruleId": "B38-R2",
+      "changedField": "binding.d13Known",
+      "patch": {
+        "binding.d13Known": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "ruleId": "B38-R3",
+      "changedField": "approval.requester",
+      "patch": {
+        "approval.requester": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "ruleId": "B38-R3",
+      "changedField": "approval.reviewer",
+      "patch": {
+        "approval.reviewer": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "ruleId": "B38-R3",
+      "changedField": "approval.human",
+      "patch": {
+        "approval.human": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "ruleId": "B38-R3",
+      "changedField": "approval.noAgent",
+      "patch": {
+        "approval.noAgent": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "changedField": "crl.issuer",
+      "patch": {
+        "crl.issuer": "UNTRUSTED-CA"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "changedField": "crl.syntheticSignatureChecked",
+      "patch": {
+        "crl.syntheticSignatureChecked": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "changedField": "crl.coverage",
+      "patch": {
+        "crl.coverage": "INVALID_FIELD"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "changedField": "crl.revoked",
+      "patch": {
+        "crl.revoked": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N21",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "changedField": "crl.thisUpdate",
+      "patch": {
+        "crl.thisUpdate": "2026-10-31T06:00:00Z"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N22",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "changedField": "crl.nextUpdate",
+      "patch": {
+        "crl.nextUpdate": "2026-10-30T04:00:00Z"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N23",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "changedField": "crl.validationTime",
+      "patch": {
+        "crl.validationTime": "2026-11-01T00:00:00Z"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N24",
+      "kind": "negative",
+      "ruleId": "B38-R5",
+      "changedField": "tsa.imprintMatches",
+      "patch": {
+        "tsa.imprintMatches": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N25",
+      "kind": "negative",
+      "ruleId": "B38-R5",
+      "changedField": "tsa.syntheticTrustChecked",
+      "patch": {
+        "tsa.syntheticTrustChecked": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N26",
+      "kind": "negative",
+      "ruleId": "B38-R5",
+      "changedField": "tsa.policy",
+      "patch": {
+        "tsa.policy": "INVALID_FIELD"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N27",
+      "kind": "negative",
+      "ruleId": "B38-R5",
+      "changedField": "tsa.time",
+      "patch": {
+        "tsa.time": "2026-11-01T00:00:00Z"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N28",
+      "kind": "negative",
+      "ruleId": "B38-R6",
+      "changedField": "offline.root",
+      "patch": {
+        "offline.root": "UNTRUSTED-CA"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N29",
+      "kind": "negative",
+      "ruleId": "B38-R6",
+      "changedField": "offline.clockTrusted",
+      "patch": {
+        "offline.clockTrusted": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N30",
+      "kind": "negative",
+      "ruleId": "B38-R6",
+      "changedField": "offline.snapshotPinned",
+      "patch": {
+        "offline.snapshotPinned": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N31",
+      "kind": "negative",
+      "ruleId": "B38-R6",
+      "changedField": "offline.noCycleStartInference",
+      "patch": {
+        "offline.noCycleStartInference": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N32",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.expectedRevision",
+      "patch": {
+        "owner.expectedRevision": "D16-r6"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N33",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.actualRevision",
+      "patch": {
+        "owner.actualRevision": "INVALID_FIELD"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N34",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.expectedHash",
+      "patch": {
+        "owner.expectedHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N35",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.actualHash",
+      "patch": {
+        "owner.actualHash": "INVALID_FIELD"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N36",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.aclEpoch",
+      "patch": {
+        "owner.aclEpoch": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N37",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.aclNow",
+      "patch": {
+        "owner.aclNow": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N38",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.scopeEpoch",
+      "patch": {
+        "owner.scopeEpoch": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N39",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.scopeNow",
+      "patch": {
+        "owner.scopeNow": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N40",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.cancelEpoch",
+      "patch": {
+        "owner.cancelEpoch": 4
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N41",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.ackEpoch",
+      "patch": {
+        "owner.ackEpoch": 4
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N42",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.cancelled",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N43",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "changedField": "owner.lateAck",
+      "patch": {
+        "owner.lateAck": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N44",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "ui.channels",
+      "patch": {
+        "ui.channels": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N45",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "ui.port",
+      "patch": {
+        "ui.port": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N46",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "ui.worlds",
+      "patch": {
+        "ui.worlds": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N47",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "ui.leftPanel",
+      "patch": {
+        "ui.leftPanel": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N48",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "ui.fontMaxPx",
+      "patch": {
+        "ui.fontMaxPx": 13
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N49",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "ui.previewWrites",
+      "patch": {
+        "ui.previewWrites": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N50",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "handoff.freezeBefore",
+      "patch": {
+        "handoff.freezeBefore": "D08-r7"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N51",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "handoff.freezeAfter",
+      "patch": {
+        "handoff.freezeAfter": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N52",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "handoff.oldReader",
+      "patch": {
+        "handoff.oldReader": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N53",
+      "kind": "negative",
+      "ruleId": "B38-R8",
+      "changedField": "handoff.consumer",
+      "patch": {
+        "handoff.consumer": "INVALID_FIELD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U01",
+      "kind": "unknown",
+      "ruleId": "B38-R4",
+      "expected": "UNKNOWN",
+      "patch": {
+        "crl.nextUpdate": "2026-10-30T06:00:00Z"
+      },
+      "note": "等于nextUpdate视为本应用保守UNKNOWN"
+    },
+    {
+      "id": "U02",
+      "kind": "unknown",
+      "ruleId": "B38-R4",
+      "expected": "UNKNOWN",
+      "patch": {
+        "crl.coverage": "MISSING_REASONS"
+      },
+      "note": "CRL适用理由缺口"
+    },
+    {
+      "id": "U03",
+      "kind": "unknown",
+      "ruleId": "B38-R5",
+      "expected": "UNKNOWN",
+      "patch": {
+        "tsa.time": "2026-10-30T07:00:00Z"
+      },
+      "note": "TSA时间晚于本次验证时刻"
+    },
+    {
+      "id": "U04",
+      "kind": "unknown",
+      "ruleId": "B38-R6",
+      "expected": "UNKNOWN",
+      "patch": {
+        "offline.clockTrusted": false
+      },
+      "note": "无法核实离线时钟"
+    },
+    {
+      "id": "N56",
+      "kind": "negative",
+      "ruleId": "B38-R7",
+      "expected": "STALE",
+      "patch": {
+        "owner.cancelled": true,
+        "owner.lateAck": true
+      },
+      "note": "取消后晚回执"
+    },
+    {
+      "id": "N57",
+      "kind": "negative",
+      "ruleId": "B38-R4",
+      "expected": "REJECT",
+      "patch": {
+        "crl.revoked": true
+      },
+      "note": "合成证书撤销见证"
+    }
+  ]
+}

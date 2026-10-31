@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "procet-cap-06-05-invalidation-v1",
+  "syntheticOnly": true,
+  "scenarios": [
+    {
+      "id": "LOCAL_S1",
+      "changed": "D07:S1:r9",
+      "invalidated": [
+        "D07:S1:downstream",
+        "D09:S1",
+        "D12:S1",
+        "D13:S1",
+        "D14:S1",
+        "D15:S1",
+        "D16:S1"
+      ],
+      "mustRemainUnchanged": [
+        "D04:S1",
+        "D04:S2",
+        "D08:S1:old-frozen",
+        "D08:S2:old-frozen",
+        "D07:S2",
+        "D09:S2"
+      ]
+    },
+    {
+      "id": "FORK_AB",
+      "changed": "D07:A:derived",
+      "invalidated": [
+        "D09:A:exact-descendants"
+      ],
+      "mustRemainUnchanged": [
+        "D07:B:parent",
+        "D07:B:unaffected",
+        "D08:B:old-frozen"
+      ]
+    },
+    {
+      "id": "GUI_THEME",
+      "changed": "GUI:theme",
+      "invalidated": [],
+      "mustRemainUnchanged": [
+        "D01",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ]
+    }
+  ],
+  "unknownSemanticsPolicy": "UNKNOWN_NOT_PASS",
+  "physicalStockSweptSimulation": "OUT_OF_SCOPE"
+}

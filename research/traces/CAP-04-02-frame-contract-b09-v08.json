@@ -1,0 +1,316 @@
+{
+  "schemaVersion": "procet-v08-cap0402-frame-b09-v1",
+  "topic": "R-STOCKREG-B09",
+  "snapshot": {
+    "branch": "gpt-ai/plans/cap-02-07-20261017",
+    "observedExactHead": "f3551c6a6715f2e1b91092e3d4b106e6490377f0",
+    "observedTreeSha": "2d22f81029db6c0ce15a51d7e2d702bdcd0a6894",
+    "accessedOn": "2026-10-29",
+    "mode": "NEWLY_AUTHORED_SUPPLEMENT",
+    "historicalRegistryChanged": false
+  },
+  "sources": [
+    {
+      "id": "B09-ISO5459",
+      "author": "ISO/TC 213",
+      "title": "ISO 5459:2024 GPS Datums and datum systems",
+      "version": "Edition 3",
+      "published": "2024-10",
+      "url": "https://www.iso.org/standard/87855.html",
+      "visitedOn": "2026-10-29",
+      "readDepth": "官网目录、版本与Abstract；未读付费标准正文",
+      "limits": "仅能区分设计基准规范和可能的验证操作，不能声称装夹配准已测量或合格"
+    },
+    {
+      "id": "B09-OCCT-TRSF",
+      "author": "Open CASCADE",
+      "title": "gp_Trsf Class Reference",
+      "version": "OCCT 8.0.1 online API",
+      "published": "未显示单独发布日期",
+      "url": "https://occt3d.com/dev/doc/refman/html/classgp___trsf.html",
+      "visitedOn": "2026-10-29",
+      "readDepth": "类概述、变换组合与公开方法说明片段",
+      "limits": "含scale/mirror等能力，但Procet候选刚体限制是内部规则；非产品固定OCCT版本测试"
+    },
+    {
+      "id": "B09-OCCT-TOPLOC",
+      "author": "Open CASCADE",
+      "title": "TopLoc_Location Class Reference",
+      "version": "OCCT 8.0.1 online API",
+      "published": "未显示单独发布日期",
+      "url": "https://occt3d.com/dev/doc/refman/html/class_top_loc___location.html",
+      "visitedOn": "2026-10-29",
+      "readDepth": "类概述与Transformation函数公开说明",
+      "limits": "不能推出跨修订子形状拓扑永久身份"
+    },
+    {
+      "id": "B09-OCCT-BBOX",
+      "author": "Open CASCADE",
+      "title": "BRepBndLib Class Reference",
+      "version": "OCCT 8.0.1 online API",
+      "published": "未显示单独发布日期",
+      "url": "https://occt3d.com/dev/doc/refman/html/class_b_rep_bnd_lib.html",
+      "visitedOn": "2026-10-29",
+      "readDepth": "Add/AddClose/AddOptimal公开API描述",
+      "limits": "BBox必要筛查不是精确BRep布尔包含，未运行任何OCCT实例"
+    },
+    {
+      "id": "B09-LINUXCNC",
+      "author": "LinuxCNC Documentation Team",
+      "title": "G-Codes",
+      "version": "2.9",
+      "published": "在线文档未锁定发布日期",
+      "url": "https://www.linuxcnc.org/docs/2.9/html/gcode/g-code.html",
+      "visitedOn": "2026-10-29",
+      "readDepth": "G52/G53/G54-G59.3公开章节",
+      "limits": "不能将LinuxCNC G53/G54语义推广到B5或OEM控制器"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B09-R01",
+      "rule": "D01 CAD实例与stock来源含exact revision/hash/occurrence/frame，nominal不伪装实测",
+      "sourceRefs": [
+        "B09-ISO5459",
+        "B09-OCCT-TOPLOC"
+      ],
+      "fields": [
+        "scope.*",
+        "cad.*",
+        "stock.*"
+      ],
+      "caps": [
+        "CAP-04-02",
+        "CAP-03-02"
+      ],
+      "originalPackages": [
+        "F1-02",
+        "W2-05"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N01",
+        "B09-N02",
+        "B09-N03",
+        "B09-N04",
+        "B09-N05",
+        "B09-N06",
+        "B09-N07",
+        "B09-N08"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    },
+    {
+      "id": "B09-R02",
+      "rule": "T^K_P=(T^S_K)^-1·T^S_P，列向量左乘，合成刚体排除镜像/缩放/非有限值，数值政策独立指定",
+      "sourceRefs": [
+        "B09-OCCT-TRSF",
+        "B09-OCCT-TOPLOC"
+      ],
+      "fields": [
+        "frames.T_SP",
+        "frames.T_SK",
+        "frames.T_KP",
+        "frames.unit",
+        "frames.numericPolicyRef"
+      ],
+      "caps": [
+        "CAP-04-02"
+      ],
+      "originalPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N09",
+        "B09-N10",
+        "B09-N11",
+        "B09-N12",
+        "B09-N13",
+        "B09-N14",
+        "B09-N15",
+        "B09-N16",
+        "B09-N17"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    },
+    {
+      "id": "B09-R03",
+      "rule": "少于六独立约束或多解时不得声明唯一配准；重复落座需基于锁定输入，ghost非真值",
+      "sourceRefs": [
+        "B09-ISO5459",
+        "B09-OCCT-TOPLOC"
+      ],
+      "fields": [
+        "constraints.rank",
+        "constraints.candidates",
+        "constraints.conflicting"
+      ],
+      "caps": [
+        "CAP-04-02"
+      ],
+      "originalPackages": [
+        "W2-05"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N18",
+        "B09-N19",
+        "B09-N20"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    },
+    {
+      "id": "B09-R04",
+      "rule": "AABB仅为必要几何筛查，nominal资料不能升格精确BRep包含或已测量",
+      "sourceRefs": [
+        "B09-OCCT-BBOX",
+        "B09-ISO5459"
+      ],
+      "fields": [
+        "geometry.bboxEvidence",
+        "geometry.declaredContainment",
+        "stock.sourceKind"
+      ],
+      "caps": [
+        "CAP-04-02",
+        "CAP-06-01"
+      ],
+      "originalPackages": [
+        "F1-02",
+        "W2-05"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N21",
+        "B09-N22"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    },
+    {
+      "id": "B09-R05",
+      "rule": "D04唯一写Owner；在提交点重验ACL、权限Epoch、scopeEpoch、CAS，取消或晚ACK零写",
+      "sourceRefs": [
+        "B09-OCCT-TOPLOC"
+      ],
+      "fields": [
+        "write.*",
+        "scope.scopeEpoch",
+        "scope.currentScopeEpoch"
+      ],
+      "caps": [
+        "CAP-04-02",
+        "CAP-01-03"
+      ],
+      "originalPackages": [
+        "W2-05",
+        "B0-05"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N23",
+        "B09-N24",
+        "B09-N25",
+        "B09-N26",
+        "B09-N27",
+        "B09-N28",
+        "B09-N29",
+        "B09-N30",
+        "B09-N31"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    },
+    {
+      "id": "B09-R06",
+      "rule": "GUI/CLI/Agent走StockPartRegistrationPort；Babylon单活动世界和统一左TaskPanel无第二真值",
+      "sourceRefs": [
+        "B09-OCCT-TOPLOC"
+      ],
+      "fields": [
+        "ui.guiPort",
+        "ui.cliPort",
+        "ui.agentPort",
+        "ui.activeBabylonWorlds",
+        "ui.taskPanelSide"
+      ],
+      "caps": [
+        "CAP-04-02",
+        "CAP-01-07"
+      ],
+      "originalPackages": [
+        "U4-02"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N32",
+        "B09-N33",
+        "B09-N34",
+        "B09-N35"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    },
+    {
+      "id": "B09-R07",
+      "rule": "D04 Setup配准与D10执行绑定独立；D13 unknown、D14/D15未运行时D16阻断，CL动画不得补D15",
+      "sourceRefs": [
+        "B09-LINUXCNC",
+        "B09-OCCT-TRSF"
+      ],
+      "fields": [
+        "execution.*"
+      ],
+      "caps": [
+        "CAP-04-02",
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "originalPackages": [
+        "E3-04"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N36",
+        "B09-N37",
+        "B09-N38",
+        "B09-N39",
+        "B09-N40"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    },
+    {
+      "id": "B09-R08",
+      "rule": "未签署17 Owner、未运行17消费者、L3待审、原字节缺失或无回退不得伪造完成",
+      "sourceRefs": [
+        "B09-ISO5459",
+        "B09-OCCT-TOPLOC"
+      ],
+      "fields": [
+        "evidence.*",
+        "migration.*"
+      ],
+      "caps": [
+        "CAP-04-02",
+        "CAP-11-03"
+      ],
+      "originalPackages": [
+        "B0-05"
+      ],
+      "positiveCase": "B09-P01",
+      "independentNegativeCases": [
+        "B09-N41",
+        "B09-N42",
+        "B09-N43",
+        "B09-N44",
+        "B09-N45",
+        "B09-N46"
+      ],
+      "category": "engineering_design_inference_not_standard_clause"
+    }
+  ],
+  "limits": [
+    "保留历史CAP/工作包编号和原research/source-index.json 127/1075，不冒认新外部来源全部原件逐条复读",
+    "数值矩阵10^-10仅合成代数测试的运算阈值，不是生产测量/几何公差",
+    "不修改真实CAD、NC、机床、D04/D10业务资产或产品代码"
+  ]
+}

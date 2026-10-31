@@ -1,3 +1,13 @@
+## 2026-10-29｜B18 Git链接目标的对象模式与AST保守资格
+[来源与发现](第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则/字段/原包](../../../research/traces/FINAL-MD-B18-GITMODE-V08.json) → [13独立合成](final-md-b18-gitmode-fixtures-v08.json) · [工具](../../../tools/check_final_md_b18_gitmode_v08.py)。本地Python/临时Git模式样例通过，不等于真实规划仓AST全跑或GitHub渲染器验证。**规划PASS≠产品PASS。**
+
+## 2026-10-29｜B15：Git Commit/Tree原SHA类型勘误
+[原因及后续门禁](第十五轮Git提交与Tree身份勘误_2026-10-29.md) · [5条规则](../../../research/traces/FINAL-MARKDOWN-B15-TREE-V08.json) · [1正16反](final-markdown-b15-tree-fixtures-v08.json) · [Node](../../../tools/check_final_md_b15_tree_v08.cjs)。原B14审计误用commit SHA作Tree SHA，已纠正；AST、L3与产品不因此PASS。
+
+## 2026-10-29｜CAP-04-02 工程配准Frame与D04提交资格专项补证
+
+[配准Frame数学与资格范围](../../capabilities/CAP-04-02/FRAME-CONTRACT-B09-2026-10-29.md) → [八条增量来源/规则追踪](../../../research/traces/CAP-04-02-frame-contract-b09-v08.json) → [47项合成正反](../../capabilities/CAP-04-02/frame-contract-b09-fixtures-v08.json) → [只读Node校验器](../../../tools/check_cap0402_frame_contract_b09_v08.cjs)。L3/17 Owner/17独立消费者及真实NC/OCCT/B5仍未验收，规划PASS≠产品PASS。
+
 # Procet Studio 架构与团队开发计划 V0.8
 
 **2026-10-16｜评审稿｜仅 Procet-* 新架构。**
@@ -24,3 +34,20 @@
 历史 11 域与 A/B 原则沿用既有方案；88 个三级条目与 17 类数据仍保持候选/评审语义。新能力编号仅用于本报告追踪。团队角色不表示实际已经组建这些团队。
 
 10 月 24 日 MVP 与长期团队化计划分开管理：前者应是明确定义且经过验证的两机型纵向切片，不是全部 88 项能力在同日前实现的承诺。
+
+## 2026-10-28新增：17资产Owner/消费者交叉评审
+
+[候选矩阵与交接](17资产Owner接口交叉核验_2026-10-28.md) · [结构化Owner端口](owner-interface-review-v08.json) · [正反场景](owner-port-review-fixtures.json) · [对应研究](../../../research/topics/R-ASSET-OWNER-INTERFACE-001.md)。原业务资产基线不修改；17份Owner正式签署与独立消费者验收未完成。
+
+
+## 2026-10-29｜最终引用审计B04
+
+[第四轮链接与跨HEAD审计](第四轮Markdown链接审计与跨HEAD失效_2026-10-29.md) · [96份Blob-SHA清单](../../../research/audits/FINAL-HISTORY-LINK-B04-2026-10-29.json) · [25项设计门禁](final-history-link-b04-fixtures-v08.json)。此轮只验证部分启发式相对链接，不代表全仓、L3或产品验收通过。
+
+## 2026-10-29｜B08：56份CAD/资源/Setup跨域证据冻结
+
+[原Blob/SHA及247条链接](../../../research/audits/FINAL-HISTORY-LINK-B08-2026-10-29.json) · [六条规则追踪](../../../research/traces/FINAL-HISTORY-LINK-B08-V08.json) · [27项合成正反](final-history-link-b08-fixtures-v08.json) · [报告与局限](第八轮跨域规格链接冻结与追踪门禁_2026-10-29.md)。同基线累计288/535份逐SHA，剩247份；非GFM AST/全仓Node或产品PASS。
+
+## 2026-10-29｜B14：541份Markdown固定HEAD路径SHA全覆盖与AST下一门禁
+
+[固定快照541/541路径SHA及原始附件缺口](../../../research/audits/FINAL-MARKDOWN-B14-2026-10-29.json) · [7规则与官方来源](../../../research/traces/FINAL-MARKDOWN-B14-V08.json) · [1正12反](final-markdown-b14-fixtures-v08.json) · [只读Node](../../../tools/check_final_md_b14_v08.cjs) · [专项报告](第十四轮全仓MarkdownSHA冻结与历史证据门禁_2026-10-29.md)。286旧SHA未变化+255新增精确读取；仅固定B13 HEAD；**GFM AST/锚点/HTML仍NOT_RUN**，历史3旧JSON原字节缺失，17 Owner和17消费者0、L3待审。规划PASS≠产品PASS。

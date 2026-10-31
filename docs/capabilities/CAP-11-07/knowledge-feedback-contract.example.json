@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "procet-knowledge-feedback-v0.8-proposal",
+  "capabilityId": "CAP-11-07",
+  "syntheticExampleOnly": true,
+  "feedback": {
+    "feedbackId": "demo-feedback-01",
+    "kind": "PROCESS_RECOMMENDATION_ERROR",
+    "state": "REVIEW_REQUIRED",
+    "source": {
+      "asset": "D17",
+      "eventId": "demo-observation",
+      "rawHash": "sha256:synthetic-not-real",
+      "quality": "OBSERVED_NOT_NC_VERIFIED"
+    },
+    "scope": {
+      "projectId": "demo-project",
+      "scopeEpoch": 7,
+      "principalId": "demo-operator",
+      "aclVersion": "acl-9"
+    },
+    "context": {
+      "d01Revision": "cad-r3",
+      "d01Hash": "sha256:demo-cad",
+      "d04SetupRevision": "setup-r2",
+      "frameId": "part-frame-r2",
+      "unit": "mm",
+      "d03ResourceRevision": "machine-r5",
+      "controllerProfileRevision": "controller-r4"
+    }
+  },
+  "knowledge": {
+    "knowledgeId": "K-CUT-OPTION-12",
+    "parentRevision": "krev-5",
+    "parentDigest": "sha256:demo-parent",
+    "proposedNewRevision": "krev-6",
+    "state": "CANDIDATE",
+    "applicability": {
+      "materialGrade": "example-only",
+      "toolAssemblyRevision": "assy-r2",
+      "machineResourceRevision": "machine-r5",
+      "controllerProfileRevision": "controller-r4",
+      "strategy": "2.5D_PROPOSED"
+    },
+    "provenance": {
+      "relation": "prov:wasRevisionOf",
+      "evidenceIds": [
+        "demo-observation"
+      ],
+      "negativeEvidenceIds": [
+        "demo-counterexample"
+      ]
+    },
+    "changeSetDigest": "sha256:demo-change-digest",
+    "ownerCommit": {
+      "ownerPort": "11.KnowledgeOwnerPort",
+      "intent": "PROPOSE_NEW_REVISION",
+      "expectedHead": "krev-5",
+      "approvalDigest": "sha256:demo-approval",
+      "aclRecheck": "REQUIRED",
+      "scopeEpochRecheck": "REQUIRED",
+      "casRecheck": "REQUIRED",
+      "cancelGenerationRecheck": "REQUIRED",
+      "result": "NOT_COMMITTED"
+    }
+  },
+  "manufacturing": {
+    "d08Frozen": "UNCHANGED",
+    "d04VsD10": "DISTINCT",
+    "d12FinalNcHash": "UNKNOWN",
+    "d13ControllerSemantics": "UNKNOWN",
+    "d14AxisTrace": "NOT_RUN",
+    "d15IndependentNcEvidence": "NOT_RUN",
+    "d16Release": "FORBIDDEN"
+  },
+  "audit": {
+    "immutability": "APPEND_ONLY",
+    "rollback": "NEW_REVISION_OR_REVOCATION_EVENT",
+    "lateAck": "QUARANTINE",
+    "independentConsumer": "NOT_RUN",
+    "planningOnly": true
+  }
+}

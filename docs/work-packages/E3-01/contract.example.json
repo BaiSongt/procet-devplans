@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "procet-neutral-cl-v0.8-draft",
+  "workPackageId": "E3-01",
+  "status": "PROPOSAL_NOT_IMPLEMENTATION",
+  "owner": "07 CAM刀路",
+  "port": "ToolpathPlanningPort",
+  "commands": [
+    "inspectStrategyCapabilities",
+    "generateNeutralCL",
+    "preview",
+    "invalidate",
+    "rebuildForPost"
+  ],
+  "request": {
+    "exactRefs": [
+      "projectId",
+      "documentId",
+      "processSetupId",
+      "D04.revision/hash/frame",
+      "D05.operationRevision",
+      "D07.materialStateRevision",
+      "D03.toolRevision"
+    ],
+    "expectedRevision": "CAS_required",
+    "principal": "ACL_recheck_at_commit",
+    "cancelToken": "required",
+    "idempotencyKey": "required"
+  },
+  "segment": {
+    "segmentId": "stable",
+    "motionKind": [
+      "CUT",
+      "APPROACH",
+      "RETRACT",
+      "LINK",
+      "TRAVERSE"
+    ],
+    "sourceOperationExactRef": "required",
+    "strategyRevision": "required",
+    "frameId": "D04_nominal",
+    "unit": "explicit",
+    "geometry": [
+      "LINE",
+      "ARC",
+      "HELIX",
+      "TOOL_AXIS"
+    ],
+    "arc": [
+      "center",
+      "plane",
+      "sweepRad",
+      "radius",
+      "tolerance"
+    ],
+    "feed": [
+      "mode",
+      "value",
+      "unit"
+    ],
+    "clearanceEvidenceRef": "required_for_link"
+  },
+  "forbidden": [
+    "D10_actual_offsets_in_neutral_cl",
+    "controller_dialect_or_axis_commands",
+    "D11_CL_preview_as_D15_pass",
+    "unknown_as_pass"
+  ],
+  "consumers": [
+    "D12 independent post and line mapping",
+    "D11 preview only"
+  ],
+  "channels": [
+    "GUI single Babylon world / unified left TaskPanel",
+    "CLI same Port",
+    "Agent same Port"
+  ],
+  "realConsumer": "NOT_RUN"
+}

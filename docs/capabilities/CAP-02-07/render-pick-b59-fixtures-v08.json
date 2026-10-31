@@ -1,0 +1,550 @@
+{
+  "schemaVersion": "procet-b59-pick-fixtures-v1",
+  "capabilityId": "CAP-02-07",
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-03",
+    "F1-06",
+    "E3-04",
+    "U4-02",
+    "U4-03"
+  ],
+  "provenance": "NEWLY_AUTHORED_SYNTHETIC_NO_PRODUCT_DATA",
+  "base": {
+    "owner": {
+      "acl": "allow",
+      "frameHash": "frame-17",
+      "scope": "project-A",
+      "assetHash": "cad-0007",
+      "readAssetHash": "cad-0007",
+      "revision": "rev-007",
+      "readRevision": "rev-007",
+      "scopeEpoch": 4,
+      "readScopeEpoch": 4
+    },
+    "render": {
+      "cadAssetHash": "cad-0007",
+      "geometryHash": "mesh-0031",
+      "meshEpoch": 8,
+      "sceneEpoch": 3,
+      "activeSceneEpoch": 3,
+      "instanceRegistryEpoch": 6,
+      "cadUnit": "mm",
+      "exportUnit": "m",
+      "metersPerCadMm": 0.001,
+      "linearDeflectionMm": 0.02,
+      "angularDeflectionRad": 0.3,
+      "meshId": "shared-tool-geometry"
+    },
+    "hit": {
+      "sceneEpoch": 3,
+      "meshHash": "mesh-0031",
+      "mapCadHash": "cad-0007",
+      "mapGeometryHash": "mesh-0031",
+      "mapMeshEpoch": 8,
+      "meshId": "shared-tool-geometry",
+      "thinInstanceIndex": 1,
+      "instanceRegistryEpoch": 6,
+      "instanceRegistry": {
+        "0": "assembly-A/node-1",
+        "1": "assembly-B/node-1"
+      },
+      "instanceKey": "assembly-B/node-1",
+      "transformMm": [
+        0,
+        -1,
+        0,
+        20,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "localPointMm": [
+        10,
+        0,
+        0
+      ],
+      "worldPointM": [
+        0.02,
+        0.01,
+        0
+      ],
+      "mapStatus": "EXACT",
+      "triangleId": 12,
+      "triangleToFace": {
+        "10": "face-7",
+        "11": "face-7",
+        "12": "face-7"
+      },
+      "faceRef": "face-7",
+      "faceProof": {
+        "sourceFaceRef": "face-7",
+        "assetHash": "cad-0007",
+        "instanceKey": "assembly-B/node-1"
+      }
+    },
+    "ui": {
+      "cancelled": false,
+      "taskGeneration": 9,
+      "expectedTaskGeneration": 9,
+      "rendererCount": 1,
+      "canvasCount": 1,
+      "panel": "LEFT",
+      "domainPort": "D03.resolvePickCandidate",
+      "fontMaxPx": 12,
+      "mode": "RESOURCE"
+    },
+    "downstream": {
+      "d04Owner": "D04",
+      "d10Owner": "D10",
+      "d08FrozenUntouched": true,
+      "ncEngineeringPassInferred": false,
+      "independentConsumer": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "B59-P01",
+      "ruleId": "B59-R01",
+      "expected": "PICK_CANDIDATE",
+      "edits": {},
+      "intent": "实例B精确来源候选"
+    },
+    {
+      "id": "B59-P02",
+      "ruleId": "B59-R04",
+      "expected": "PICK_CANDIDATE",
+      "edits": {
+        "hit.thinInstanceIndex": 0,
+        "hit.instanceKey": "assembly-A/node-1",
+        "hit.faceProof.instanceKey": "assembly-A/node-1"
+      },
+      "intent": "同Mesh另一有效实例A"
+    },
+    {
+      "id": "B59-N01",
+      "ruleId": "B59-R01",
+      "expected": "REJECT",
+      "edits": {
+        "owner.acl": "deny"
+      },
+      "intent": "单字段失效：owner.acl"
+    },
+    {
+      "id": "B59-N02",
+      "ruleId": "B59-R01",
+      "expected": "STALE",
+      "edits": {
+        "owner.revision": "rev-008"
+      },
+      "intent": "单字段失效：owner.revision"
+    },
+    {
+      "id": "B59-N03",
+      "ruleId": "B59-R01",
+      "expected": "STALE",
+      "edits": {
+        "owner.assetHash": "cad-OLD"
+      },
+      "intent": "单字段失效：owner.assetHash"
+    },
+    {
+      "id": "B59-N04",
+      "ruleId": "B59-R01",
+      "expected": "STALE",
+      "edits": {
+        "owner.scopeEpoch": 5
+      },
+      "intent": "单字段失效：owner.scopeEpoch"
+    },
+    {
+      "id": "B59-N05",
+      "ruleId": "B59-R06",
+      "expected": "STALE",
+      "edits": {
+        "render.sceneEpoch": 2
+      },
+      "intent": "单字段失效：render.sceneEpoch"
+    },
+    {
+      "id": "B59-N06",
+      "ruleId": "B59-R03",
+      "expected": "STALE",
+      "edits": {
+        "render.geometryHash": "mesh-OLD"
+      },
+      "intent": "单字段失效：render.geometryHash"
+    },
+    {
+      "id": "B59-N07",
+      "ruleId": "B59-R03",
+      "expected": "STALE",
+      "edits": {
+        "render.cadAssetHash": "cad-OLD"
+      },
+      "intent": "单字段失效：render.cadAssetHash"
+    },
+    {
+      "id": "B59-N08",
+      "ruleId": "B59-R04",
+      "expected": "STALE",
+      "edits": {
+        "render.instanceRegistryEpoch": 5
+      },
+      "intent": "单字段失效：render.instanceRegistryEpoch"
+    },
+    {
+      "id": "B59-N09",
+      "ruleId": "B59-R06",
+      "expected": "STALE",
+      "edits": {
+        "hit.sceneEpoch": 2
+      },
+      "intent": "单字段失效：hit.sceneEpoch"
+    },
+    {
+      "id": "B59-N10",
+      "ruleId": "B59-R03",
+      "expected": "STALE",
+      "edits": {
+        "hit.meshHash": "mesh-OLD"
+      },
+      "intent": "单字段失效：hit.meshHash"
+    },
+    {
+      "id": "B59-N11",
+      "ruleId": "B59-R03",
+      "expected": "STALE",
+      "edits": {
+        "hit.mapMeshEpoch": 7
+      },
+      "intent": "单字段失效：hit.mapMeshEpoch"
+    },
+    {
+      "id": "B59-N12",
+      "ruleId": "B59-R05",
+      "expected": "STALE",
+      "edits": {
+        "hit.mapCadHash": "cad-OLD"
+      },
+      "intent": "单字段失效：hit.mapCadHash"
+    },
+    {
+      "id": "B59-N13",
+      "ruleId": "B59-R04",
+      "expected": "REJECT",
+      "edits": {
+        "hit.instanceKey": "assembly-A/node-1"
+      },
+      "intent": "单字段失效：hit.instanceKey"
+    },
+    {
+      "id": "B59-N14",
+      "ruleId": "B59-R04",
+      "expected": "REJECT",
+      "edits": {
+        "hit.meshId": "other-shared-mesh"
+      },
+      "intent": "单字段失效：hit.meshId"
+    },
+    {
+      "id": "B59-N15",
+      "ruleId": "B59-R05",
+      "expected": "REJECT",
+      "edits": {
+        "hit.faceRef": "face-OTHER"
+      },
+      "intent": "单字段失效：hit.faceRef"
+    },
+    {
+      "id": "B59-N16",
+      "ruleId": "B59-R05",
+      "expected": "REJECT",
+      "edits": {
+        "hit.faceProof.assetHash": "cad-OLD"
+      },
+      "intent": "单字段失效：hit.faceProof.assetHash"
+    },
+    {
+      "id": "B59-N17",
+      "ruleId": "B59-R02",
+      "expected": "REJECT",
+      "edits": {
+        "render.metersPerCadMm": 1
+      },
+      "intent": "单字段失效：render.metersPerCadMm"
+    },
+    {
+      "id": "B59-N18",
+      "ruleId": "B59-R02",
+      "expected": "REJECT",
+      "edits": {
+        "render.exportUnit": "mm"
+      },
+      "intent": "单字段失效：render.exportUnit"
+    },
+    {
+      "id": "B59-N19",
+      "ruleId": "B59-R03",
+      "expected": "REJECT",
+      "edits": {
+        "render.linearDeflectionMm": 0
+      },
+      "intent": "单字段失效：render.linearDeflectionMm"
+    },
+    {
+      "id": "B59-N20",
+      "ruleId": "B59-R03",
+      "expected": "REJECT",
+      "edits": {
+        "render.angularDeflectionRad": 0
+      },
+      "intent": "单字段失效：render.angularDeflectionRad"
+    },
+    {
+      "id": "B59-N21",
+      "ruleId": "B59-R02",
+      "expected": "REJECT",
+      "edits": {
+        "hit.transformMm": [
+          0,
+          1,
+          0,
+          20,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "intent": "单字段失效：hit.transformMm"
+    },
+    {
+      "id": "B59-N22",
+      "ruleId": "B59-R02",
+      "expected": "REJECT",
+      "edits": {
+        "hit.transformMm": [
+          0,
+          -2,
+          0,
+          20,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "intent": "单字段失效：hit.transformMm"
+    },
+    {
+      "id": "B59-N23",
+      "ruleId": "B59-R02",
+      "expected": "REJECT",
+      "edits": {
+        "hit.worldPointM": [
+          0.03,
+          0.01,
+          0
+        ]
+      },
+      "intent": "单字段失效：hit.worldPointM"
+    },
+    {
+      "id": "B59-N24",
+      "ruleId": "B59-R06",
+      "expected": "STALE",
+      "edits": {
+        "ui.cancelled": true
+      },
+      "intent": "单字段失效：ui.cancelled"
+    },
+    {
+      "id": "B59-N25",
+      "ruleId": "B59-R06",
+      "expected": "STALE",
+      "edits": {
+        "ui.taskGeneration": 10
+      },
+      "intent": "单字段失效：ui.taskGeneration"
+    },
+    {
+      "id": "B59-N26",
+      "ruleId": "B59-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.canvasCount": 2
+      },
+      "intent": "单字段失效：ui.canvasCount"
+    },
+    {
+      "id": "B59-N27",
+      "ruleId": "B59-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.panel": "RIGHT"
+      },
+      "intent": "单字段失效：ui.panel"
+    },
+    {
+      "id": "B59-N28",
+      "ruleId": "B59-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.domainPort": "Renderer.localPick"
+      },
+      "intent": "单字段失效：ui.domainPort"
+    },
+    {
+      "id": "B59-N29",
+      "ruleId": "B59-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.fontMaxPx": 14
+      },
+      "intent": "单字段失效：ui.fontMaxPx"
+    },
+    {
+      "id": "B59-N30",
+      "ruleId": "B59-R08",
+      "expected": "REJECT",
+      "edits": {
+        "downstream.d10Owner": "D04"
+      },
+      "intent": "单字段失效：downstream.d10Owner"
+    },
+    {
+      "id": "B59-N31",
+      "ruleId": "B59-R08",
+      "expected": "REJECT",
+      "edits": {
+        "downstream.d08FrozenUntouched": false
+      },
+      "intent": "单字段失效：downstream.d08FrozenUntouched"
+    },
+    {
+      "id": "B59-N32",
+      "ruleId": "B59-R08",
+      "expected": "REJECT",
+      "edits": {
+        "downstream.ncEngineeringPassInferred": true
+      },
+      "intent": "单字段失效：downstream.ncEngineeringPassInferred"
+    },
+    {
+      "id": "B59-N33",
+      "ruleId": "B59-R05",
+      "expected": "STALE",
+      "edits": {
+        "hit.mapGeometryHash": "mesh-OLD"
+      },
+      "intent": "单字段失效：hit.mapGeometryHash"
+    },
+    {
+      "id": "B59-N34",
+      "ruleId": "B59-R05",
+      "expected": "REJECT",
+      "edits": {
+        "hit.faceProof.instanceKey": "assembly-A/node-1"
+      },
+      "intent": "单字段失效：hit.faceProof.instanceKey"
+    },
+    {
+      "id": "B59-U01",
+      "ruleId": "B59-R01",
+      "expected": "UNKNOWN",
+      "edits": {
+        "owner.frameHash": ""
+      },
+      "intent": "证据不足或仅能显示：owner.frameHash"
+    },
+    {
+      "id": "B59-U02",
+      "ruleId": "B59-R02",
+      "expected": "UNKNOWN",
+      "edits": {
+        "render.exportUnit": null
+      },
+      "intent": "证据不足或仅能显示：render.exportUnit"
+    },
+    {
+      "id": "B59-U03",
+      "ruleId": "B59-R03",
+      "expected": "UNKNOWN",
+      "edits": {
+        "render.cadAssetHash": null
+      },
+      "intent": "证据不足或仅能显示：render.cadAssetHash"
+    },
+    {
+      "id": "B59-U04",
+      "ruleId": "B59-R04",
+      "expected": "UNKNOWN",
+      "edits": {
+        "hit.thinInstanceIndex": 9
+      },
+      "intent": "证据不足或仅能显示：hit.thinInstanceIndex"
+    },
+    {
+      "id": "B59-U05",
+      "ruleId": "B59-R05",
+      "expected": "DISPLAY_ONLY",
+      "edits": {
+        "hit.mapStatus": "UNPROVEN"
+      },
+      "intent": "证据不足或仅能显示：hit.mapStatus"
+    },
+    {
+      "id": "B59-U06",
+      "ruleId": "B59-R05",
+      "expected": "DISPLAY_ONLY",
+      "edits": {
+        "hit.triangleToFace": {}
+      },
+      "intent": "证据不足或仅能显示：hit.triangleToFace"
+    },
+    {
+      "id": "B59-U07",
+      "ruleId": "B59-R05",
+      "expected": "DISPLAY_ONLY",
+      "edits": {
+        "hit.faceProof": null
+      },
+      "intent": "证据不足或仅能显示：hit.faceProof"
+    },
+    {
+      "id": "B59-U08",
+      "ruleId": "B59-R01",
+      "expected": "UNKNOWN",
+      "edits": {
+        "owner.acl": "unknown"
+      },
+      "intent": "证据不足或仅能显示：owner.acl"
+    }
+  ]
+}

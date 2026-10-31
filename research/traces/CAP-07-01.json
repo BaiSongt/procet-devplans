@@ -1,0 +1,598 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-01",
+  "researchTopic": "R-25D-TOOLPATH-001",
+  "sourceRegistry": "research/sources/CAP-07-01.json",
+  "specification": "docs/capabilities/CAP-07-01/README.md",
+  "ui": "docs/capabilities/CAP-07-01/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-01/fixtures.json",
+  "validator": "tools/check_cap0701_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0701-R01",
+      "capabilityId": "CAP-07-01",
+      "summary": "D08冻结基线与D04 Setup、D07有序Stock、D03刀具均为exact来源，Frame不匹配拒绝重用",
+      "fields": [
+        "assetId",
+        "revision",
+        "contentHash",
+        "frameHash",
+        "setupRevision"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D07",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S01",
+        "SRC-C0701-S06",
+        "SRC-C0701-S07"
+      ],
+      "criteria": [
+        {
+          "path": "assetId",
+          "op": "eq",
+          "value": "D08"
+        },
+        {
+          "path": "revision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "contentHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "setupRevision",
+          "op": "gt",
+          "value": 0
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T01",
+      "negativeTestId": "CAP-07-01-T02",
+      "mutationTestId": "CAP-07-01-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R02",
+      "capabilityId": "CAP-07-01",
+      "summary": "轮廓须闭合并通过偏置拓扑检查；自交/不可验证偏置拒绝生成，不凭包围盒替代",
+      "fields": [
+        "wireClosed",
+        "selfIntersection",
+        "offsetStatus",
+        "islandCount",
+        "protectedIslands"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S02",
+        "SRC-C0701-S05"
+      ],
+      "criteria": [
+        {
+          "path": "wireClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "selfIntersection",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "offsetStatus",
+          "op": "eq",
+          "value": "VALIDATED"
+        },
+        {
+          "path": "islandCount",
+          "op": "gte",
+          "value": 1
+        },
+        {
+          "path": "protectedIslands",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T03",
+      "negativeTestId": "CAP-07-01-T04",
+      "mutationTestId": "CAP-07-01-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R03",
+      "capabilityId": "CAP-07-01",
+      "summary": "走刀距小于刀具直径，正切深，径向/轴向余量分别记录，单位不可暗换",
+      "fields": [
+        "toolDiameterMm",
+        "stepoverMm",
+        "stepdownMm",
+        "radialAllowanceMm",
+        "axialAllowanceMm",
+        "unit"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S01",
+        "SRC-C0701-S04",
+        "SRC-C0701-S05"
+      ],
+      "criteria": [
+        {
+          "path": "toolDiameterMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "stepoverMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "stepoverMm",
+          "op": "ltField",
+          "other": "toolDiameterMm"
+        },
+        {
+          "path": "stepdownMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "radialAllowanceMm",
+          "op": "gte",
+          "value": 0
+        },
+        {
+          "path": "axialAllowanceMm",
+          "op": "gte",
+          "value": 0
+        },
+        {
+          "path": "unit",
+          "op": "eq",
+          "value": "mm"
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T05",
+      "negativeTestId": "CAP-07-01-T06",
+      "mutationTestId": "CAP-07-01-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R04",
+      "capabilityId": "CAP-07-01",
+      "summary": "按前序D07 Stock审核2.5D区域覆盖、残岛和越界；合成状态不能当真实OCCT去料验证",
+      "fields": [
+        "stockStateHash",
+        "containerCheck",
+        "remainingIslandCount",
+        "overcutCount",
+        "coverageVerified"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S02",
+        "SRC-C0701-S04",
+        "SRC-C0701-S06"
+      ],
+      "criteria": [
+        {
+          "path": "stockStateHash",
+          "op": "sha256"
+        },
+        {
+          "path": "containerCheck",
+          "op": "eq",
+          "value": "PASS"
+        },
+        {
+          "path": "remainingIslandCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "overcutCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "coverageVerified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T07",
+      "negativeTestId": "CAP-07-01-T08",
+      "mutationTestId": "CAP-07-01-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R05",
+      "capabilityId": "CAP-07-01",
+      "summary": "端面底面加工与型腔墙面精加工分工，链接有证据安全时不得机械每行提退刀",
+      "fields": [
+        "strategy",
+        "floorPassEnabled",
+        "finalDepthReached",
+        "liftEveryRow",
+        "linkSafetyCertified"
+      ],
+      "assets": [
+        "D05",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S04",
+        "SRC-C0701-S05"
+      ],
+      "criteria": [
+        {
+          "path": "strategy",
+          "op": "eq",
+          "value": "FACE"
+        },
+        {
+          "path": "floorPassEnabled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "finalDepthReached",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "liftEveryRow",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "linkSafetyCertified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T09",
+      "negativeTestId": "CAP-07-01-T10",
+      "mutationTestId": "CAP-07-01-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R06",
+      "capabilityId": "CAP-07-01",
+      "summary": "孔中心逐点绑定Frame，刀尖深度/孔底目标和回退平面逐项校核；循环语义交后处理和D13",
+      "fields": [
+        "holeCount",
+        "allHoleFramesExact",
+        "safeRetract",
+        "tipDepthMm",
+        "targetDepthMm",
+        "precheckCollision",
+        "frameHash"
+      ],
+      "assets": [
+        "D02",
+        "D04",
+        "D09",
+        "D13"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S01",
+        "SRC-C0701-S03",
+        "SRC-C0701-S08"
+      ],
+      "criteria": [
+        {
+          "path": "holeCount",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "allHoleFramesExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safeRetract",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tipDepthMm",
+          "op": "eqField",
+          "other": "targetDepthMm"
+        },
+        {
+          "path": "precheckCollision",
+          "op": "eq",
+          "value": "NONE"
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T11",
+      "negativeTestId": "CAP-07-01-T12",
+      "mutationTestId": "CAP-07-01-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R07",
+      "capabilityId": "CAP-07-01",
+      "summary": "螺旋/斜插/下刀必须具有包络证据，跨区链接经清障检查；安全未知拒绝走刀",
+      "fields": [
+        "entryEnvelopeVerified",
+        "linkClearanceVerified",
+        "protectedZoneIntersections",
+        "redundantLiftCount"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S02",
+        "SRC-C0701-S05"
+      ],
+      "criteria": [
+        {
+          "path": "entryEnvelopeVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "linkClearanceVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "protectedZoneIntersections",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "redundantLiftCount",
+          "op": "eq",
+          "value": 0
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T13",
+      "negativeTestId": "CAP-07-01-T14",
+      "mutationTestId": "CAP-07-01-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R08",
+      "capabilityId": "CAP-07-01",
+      "summary": "D09只表达TCP/进给/圆弧意图与exact Frame，不带特定控制器或实际机床轴运动承诺",
+      "fields": [
+        "primitive",
+        "frameHash",
+        "sourceHash",
+        "controllerId",
+        "arcSweepDeg",
+        "feedMmMin"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D12"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S03",
+        "SRC-C0701-S06",
+        "SRC-C0701-S08"
+      ],
+      "criteria": [
+        {
+          "path": "primitive",
+          "op": "eq",
+          "value": "ARC"
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "sourceHash",
+          "op": "sha256"
+        },
+        {
+          "path": "controllerId",
+          "op": "isNull"
+        },
+        {
+          "path": "arcSweepDeg",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "arcSweepDeg",
+          "op": "lt",
+          "value": 360
+        },
+        {
+          "path": "feedMmMin",
+          "op": "gt",
+          "value": 0
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T15",
+      "negativeTestId": "CAP-07-01-T16",
+      "mutationTestId": "CAP-07-01-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R09",
+      "capabilityId": "CAP-07-01",
+      "summary": "D09及CL动画不能授D15通过，未知D13语义阻断D16，不做材料扫掠仿真，D08原字节保留",
+      "fields": [
+        "clOwner",
+        "sourceD08Hash",
+        "freezeBytesPreserved",
+        "clPreviewEngineeringPass",
+        "controllerStatus",
+        "d15Status",
+        "releaseEligible",
+        "materialSweepSimulated"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D11",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S01",
+        "SRC-C0701-S03",
+        "SRC-C0701-S08"
+      ],
+      "criteria": [
+        {
+          "path": "clOwner",
+          "op": "eq",
+          "value": "07"
+        },
+        {
+          "path": "sourceD08Hash",
+          "op": "sha256"
+        },
+        {
+          "path": "freezeBytesPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clPreviewEngineeringPass",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "controllerStatus",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "d15Status",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "releaseEligible",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "materialSweepSimulated",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T17",
+      "negativeTestId": "CAP-07-01-T18",
+      "mutationTestId": "CAP-07-01-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0701-R10",
+      "capabilityId": "CAP-07-01",
+      "summary": "GUI/CLI/Agent相同07域Port；提交前重验CAS/ACL/代次和取消，晚回执不能污染新工程，迁移可无损回退",
+      "fields": [
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "taskGeneration",
+        "receiptGeneration",
+        "cancelled",
+        "lateReceiptAction",
+        "rollbackNonDestructive"
+      ],
+      "assets": [
+        "D09",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0701-S06",
+        "SRC-C0701-S07"
+      ],
+      "criteria": [
+        {
+          "path": "expectedHead",
+          "op": "sha256"
+        },
+        {
+          "path": "actualHead",
+          "op": "eqField",
+          "other": "expectedHead"
+        },
+        {
+          "path": "aclAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taskGeneration",
+          "op": "eqField",
+          "other": "receiptGeneration"
+        },
+        {
+          "path": "cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "lateReceiptAction",
+          "op": "eq",
+          "value": "IGNORE_OLD"
+        },
+        {
+          "path": "rollbackNonDestructive",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-01-T19",
+      "negativeTestId": "CAP-07-01-T20",
+      "mutationTestId": "CAP-07-01-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

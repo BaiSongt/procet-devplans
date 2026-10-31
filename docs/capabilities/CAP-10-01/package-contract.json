@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "procet-cap1001-contract-v1",
+  "status": "PLANNING_DTO_UNFROZEN",
+  "capabilityId": "CAP-10-01",
+  "domainOwner": "10 程序发布与现场协同",
+  "publicC0Minimal": [
+    "objectId",
+    "schemaVersion",
+    "revision",
+    "sha256",
+    "frameRef",
+    "scopeRef"
+  ],
+  "ownerMustSign": "PENDING_HUMAN",
+  "port": {
+    "name": "ReleasePackagePort",
+    "invokers": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "operations": [
+      "readCandidate",
+      "buildCandidateCAS",
+      "compareClosure",
+      "downloadDraftManifest"
+    ],
+    "forbidden": [
+      "approveRelease",
+      "overrideD15",
+      "writeD12",
+      "writeD08"
+    ],
+    "cancellation": "scopeEpoch+cancelToken+lateAckNoCommit"
+  },
+  "inputs": [
+    {
+      "id": "D08",
+      "read": [
+        "frozenRevision",
+        "operationGraphHash",
+        "modeProvenance"
+      ]
+    },
+    {
+      "id": "D03",
+      "read": [
+        "machineResourceRevision",
+        "toolCatalogHash"
+      ]
+    },
+    {
+      "id": "D04",
+      "read": [
+        "nominalSetupRef",
+        "nominalFrameHash"
+      ]
+    },
+    {
+      "id": "D10",
+      "read": [
+        "actualMachineBindingRevision",
+        "controllerProfileHash",
+        "actualSetupFrameHash",
+        "toolAssemblyHash"
+      ]
+    },
+    {
+      "id": "D12",
+      "read": [
+        "finalNcByteSha256",
+        "programRevision",
+        "encoding",
+        "subprogramByteHashes"
+      ]
+    },
+    {
+      "id": "D13",
+      "read": [
+        "controllerSemanticRevision",
+        "resolvedToolCallRefs",
+        "unknownCommands"
+      ]
+    },
+    {
+      "id": "D14",
+      "read": [
+        "jointTimelineRevision",
+        "timebase",
+        "status"
+      ]
+    },
+    {
+      "id": "D15",
+      "read": [
+        "independentOracleRevision",
+        "validatedNcByteSha256",
+        "validatedD10Revision",
+        "coverage",
+        "unknownReasons",
+        "status"
+      ]
+    }
+  ],
+  "candidateD16": {
+    "state": "CANDIDATE_NOT_SIGNED",
+    "manifest": "JCS_NORMALIZE_SEPARATE_FROM_RAW_NC_SHA",
+    "checks": [
+      "payload_manifest_paths_unique_casefold",
+      "no_symlink_or_parent_escape",
+      "exact_input_revision_sha_frame",
+      "fresh_independent_d15_coverage",
+      "ACL_CAS_EPOCH_CANCEL_AT_COMMIT"
+    ],
+    "approval": "CAP-10-02_REQUIRES_HUMAN",
+    "offlineReceiver": "CAP-10-03_INDEPENDENT_REHASH_NOT_RUN"
+  },
+  "schemaEvolution": {
+    "readerStrategy": "vNext-vOld paired readers first",
+    "rollback": "old immutable candidate/readers preserved",
+    "freezeImmutable": true
+  },
+  "productTests": "NOT_RUN"
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "procet-cap0705-stage-strategy-proposal-v0.8",
+  "syntheticOnly": true,
+  "workContext": {
+    "projectId": "synthetic-project",
+    "setupId": "synthetic-setup",
+    "scopeEpoch": 5,
+    "coordinateFrameId": "SETUP_LOCAL_RIGHT",
+    "frameRevision": 8,
+    "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "readExactAssets": [
+    {
+      "assetId": "D04",
+      "revision": 8,
+      "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    {
+      "assetId": "D07",
+      "revision": 4,
+      "contentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    {
+      "assetId": "D08",
+      "revision": 5,
+      "contentHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "immutableFrozen": true
+    }
+  ],
+  "stageSequence": [
+    {
+      "stageId": "S1",
+      "phase": "ROUGH",
+      "radialAllowanceMm": 1.2,
+      "axialAllowanceMm": 0.8,
+      "stockInRevision": 4,
+      "stockInHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "stockOut": "UNKNOWN_UNTIL_D07_ORACLE"
+    },
+    {
+      "stageId": "S2",
+      "phase": "SEMI",
+      "radialAllowanceMm": 0.4,
+      "axialAllowanceMm": 0.2,
+      "stockIn": "EXACT_S1_D07_REQUIRED",
+      "stockOut": "UNKNOWN_UNTIL_D07_ORACLE"
+    },
+    {
+      "stageId": "S3",
+      "phase": "FINISH",
+      "radialAllowanceMm": 0,
+      "axialAllowanceMm": 0,
+      "stockIn": "EXACT_S2_D07_REQUIRED",
+      "surfaceRaTargetUm": 3.2,
+      "measurementStatus": "NOT_MEASURED"
+    }
+  ],
+  "output": {
+    "assetId": "D09",
+    "type": "NEUTRAL_CL_STAGE_BUNDLE_CANDIDATE",
+    "hasControllerWords": false,
+    "notNCVerified": true
+  },
+  "submit": {
+    "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "aclAllowed": true,
+    "taskGeneration": 5,
+    "receiptGeneration": 5,
+    "cancelled": false
+  },
+  "d10Binding": "SEPARATE",
+  "downstream": {
+    "D12": "NOT_RUN",
+    "D13": "UNKNOWN",
+    "D14": "NOT_RUN",
+    "D15": "NOT_RUN",
+    "D16": "BLOCKED"
+  },
+  "disallowed": [
+    "MATERIAL_SWEEP_SIM",
+    "CL_PREVIEW_AS_ENGINEERING_VERIFICATION",
+    "OVERWRITE_D08_FROZEN"
+  ]
+}

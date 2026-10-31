@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "procet-v08-research-trace-v1",
+  "researchTopic": "R-FINAL-HISTORY-LINK-B07",
+  "auditPath": "research/audits/FINAL-HISTORY-LINK-B07-2026-10-29.json",
+  "rules": [
+    {
+      "id": "B07-R01",
+      "rule": "Git SHA逐文件冻结36份与130个单行链接，并识别真实缺件；不将局部启发式核验当作AST全仓PASS",
+      "sourceRefs": [
+        "B07-GH-REPO",
+        "B07-GFM",
+        "B07-GH-MD"
+      ],
+      "fields": [
+        "fileManifest[].gitBlobSha",
+        "markdownSnapshot.singleLineInlineRelativeLinks",
+        "missingPath.resolved"
+      ],
+      "caps": [
+        "CAP-01-02",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-04",
+        "B0-05"
+      ],
+      "acceptance": [
+        "B07-P01",
+        "B07-N01",
+        "B07-N02",
+        "B07-N03",
+        "B07-N04"
+      ]
+    },
+    {
+      "id": "B07-R02",
+      "rule": "B0-04十项机器子任务从原设计表重编，保留原B004规则和验收ID，来源标NEWLY_AUTHORED不能称原字节恢复",
+      "sourceRefs": [
+        "B07-GH-REPO",
+        "B07-GH-MD"
+      ],
+      "fields": [
+        "subtasks[].id",
+        "subtasks[].relatedRuleIds",
+        "subtasks[].dependencies",
+        "subtasks[].rollback"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "B0-04"
+      ],
+      "acceptance": [
+        "B07-P01",
+        "B07-N05",
+        "B07-N06",
+        "B07-N07",
+        "B07-N08"
+      ]
+    },
+    {
+      "id": "B07-R03",
+      "rule": "两Cargo锁、pnpm frozen/offline及Native/Worker运行闭包分立；无真实目标Windows工件绝不把规划准入晋升发布资格",
+      "sourceRefs": [
+        "B07-CARGO",
+        "B07-PNPM",
+        "B07-SLSA"
+      ],
+      "fields": [
+        "subtasks[].actualTestEntry",
+        "subtasks[].deliverableExists",
+        "subtasks[].productTest"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "B0-04",
+        "B0-05"
+      ],
+      "acceptance": [
+        "B07-P01",
+        "B07-N09",
+        "B07-N10",
+        "B07-N11",
+        "B07-N12"
+      ]
+    },
+    {
+      "id": "B07-R04",
+      "rule": "GUI/CLI/Agent共享Owner Port；修订/hash/frame、单Babylon/左TaskPanel、CAS与ACL提交点重验、取消晚ACK不得写事实",
+      "sourceRefs": [
+        "B07-GH-REPO",
+        "B07-SLSA"
+      ],
+      "fields": [
+        "subtasks[].revisionAndHashRequired",
+        "subtasks[].frameRef",
+        "subtasks[].casPermissionRecheck",
+        "subtasks[].cancelledLateAckMayCommit"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-11-01"
+      ],
+      "packages": [
+        "B0-02",
+        "B0-04",
+        "U4-02"
+      ],
+      "acceptance": [
+        "B07-P01",
+        "B07-N13",
+        "B07-N14",
+        "B07-N15",
+        "B07-N16"
+      ]
+    },
+    {
+      "id": "B07-R05",
+      "rule": "D04 Setup与D10执行绑定分离；中立CL预览≠D13解释/D14轴时序/D15独立验证，UNKNOWN阻断D16，不增加材料扫掠仿真",
+      "sourceRefs": [
+        "B07-GH-REPO",
+        "B07-SLSA"
+      ],
+      "fields": [
+        "domainGates.d04EqualsD10",
+        "domainGates.clAsD15",
+        "domainGates.unknownNc"
+      ],
+      "caps": [
+        "CAP-04-06",
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-03",
+        "E3-04",
+        "B0-04"
+      ],
+      "acceptance": [
+        "B07-P01",
+        "B07-N17",
+        "B07-N18",
+        "B07-N19"
+      ]
+    },
+    {
+      "id": "B07-R06",
+      "rule": "修复规划附件链接不等于真实Node完整执行、原件恢复、人类Owner/L3或产品消费者验收；保留风险回退",
+      "sourceRefs": [
+        "B07-GFM",
+        "B07-RFC",
+        "B07-GH-REPO"
+      ],
+      "fields": [
+        "limits.oldOriginals",
+        "limits.actualOwnerSignatures",
+        "limits.actualConsumers",
+        "limits.l3"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-04",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B07-P01",
+        "B07-N20",
+        "B07-N21",
+        "B07-N22",
+        "B07-N23"
+      ]
+    }
+  ]
+}

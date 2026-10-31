@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "procet-u404-invalidation-v1",
+  "sourceChange": "D12 exact NC bytes or post config changed",
+  "sourceVersion": "sha256:nc-r3→sha256:nc-r4",
+  "scope": "setup:S1 only",
+  "preserve": [
+    "D08 frozen bytes",
+    "D09 neutral CL",
+    "old D12-D16 evidence as historical immutable revisions",
+    "setup:S2 independent evidence"
+  ],
+  "invalidate": [
+    "D13 old execution actions",
+    "D14 old axis timetable",
+    "D15 old verification",
+    "D16 old release eligibility"
+  ],
+  "notImplicitlyInvalidated": [
+    "D06 solver convergence",
+    "D11 CL preview"
+  ],
+  "visibility": "STALE with exact old/new refs; never delete evidence",
+  "action": "new D12 owner commit→D13 re-interpret→D14 new axis evidence→D15 independent verify→D16 authorized publication",
+  "unknown": "SOURCE_GAP|UNKNOWN, not PASS"
+}
