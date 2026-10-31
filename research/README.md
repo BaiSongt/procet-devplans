@@ -1,3 +1,6 @@
+## 2026-10-31｜B68 R-KNOWLEDGE-POISON-GATE-001 RAG不可信数据写回晋级
+[原CAP补证](../docs/capabilities/CAP-11-07/POISON-PROMOTION-B68-2026-10-31.md) → [7来源](sources/CAP-11-07-poison-gate-b68.json) → [8规则/原T5-01/02/03/04](traces/CAP-11-07-poison-gate-b68-v08.json) → [49合成](../docs/capabilities/CAP-11-07/poison-gate-b68-fixtures-v08.json)。OWASP检索/工具权限公开章节及W3C PROV-O §4实读；NIST AI600-1/SP800-53仅出版摘要/版本，GFM仅§4.7，不外推未读标准正文。V8同函数规划合成，独立Node/真实向量索引/Owner/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B67 R-AUX-MCODE-001 M62/M63运动同步、M64/M65即时及M66真实观测
 [专项研究及阅读分级](../docs/capabilities/CAP-08-04/AUX-IO-FENCES-B67-2026-10-31.md) → [8项来源](sources/CAP-08-04-io-fences-b67.json) → [8条规则/原E3-02/E3-03/U4-04](traces/CAP-08-04-io-fences-b67-v08.json) → [53个显式正反/UNKNOWN/STALE样例](../docs/capabilities/CAP-08-04/io-fences-b67-fixtures-v08.json) → [Node只读脚本](../tools/check_cap0804_io_fences_b67_v08.cjs)。LinuxCNC2.9公开§15—18/HAL实读；ISO6983-1与NIST仅目录摘要，正式Owner0/17，真实独立消费者/L3/NC/OEM NOT_RUN。**规划PASS≠产品PASS。**
 

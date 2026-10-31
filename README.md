@@ -1,3 +1,6 @@
+## 2026-10-31｜B68 CAP-11-07 不可信RAG知识反馈的来源洗白和晋级闸门
+[定点研究](docs/capabilities/CAP-11-07/POISON-PROMOTION-B68-2026-10-31.md) → [7份阅读分级来源](research/sources/CAP-11-07-poison-gate-b68.json) → [8规则/字段/原T5-01/02/03/04](research/traces/CAP-11-07-poison-gate-b68-v08.json) → [49显式正反/STALE/UNKNOWN/只读合成](docs/capabilities/CAP-11-07/poison-gate-b68-fixtures-v08.json) → [只读Node](tools/check_cap1107_poison_gate_b68_v08.cjs) → [执行等级](tracking/cap1107-poison-gate-b68-verification-2026-10-31.json)。原检索文本即便Hash/引用正确也不具工具控制权；跨项目Chunk不能写回11域知识或提升D15/D16。49/49同judge规划合成，远端独立Node/真实RAG/17独立消费者NOT_RUN、正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B66 CAP-05-03 显式人工工序前置边与只读约简
 [专项研究](docs/capabilities/CAP-05-03/EXPLICIT-EDGES-B66-2026-10-31.md) → [9来源](research/sources/CAP-05-03-explicit-edges-b66.json) → [8规则及W2-02/03/05](research/traces/CAP-05-03-explicit-edges-b66-v08.json) → [56规划合成](docs/capabilities/CAP-05-03/explicit-edges-b66-fixtures-v08.json) → [校验器](tools/check_cap0503_explicit_edges_b66_v08.cjs) → [执行级别](tracking/cap0503-explicit-edges-b66-verification-2026-10-31.json)。DAG可达性等价不保人工直接约束边来源；V8同judge规划合成通过，独立Node/真实D05/NC/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

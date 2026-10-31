@@ -1,3 +1,5 @@
+> **B68专项补证（2026-10-31）**：[不可信RAG文本→知识Revision晋级的来源Hash/Chunk/Scope、人工批准与CAS规则](POISON-PROMOTION-B68-2026-10-31.md)；[7来源](../../../research/sources/CAP-11-07-poison-gate-b68.json) → [8规则及49合成](../../../research/traces/CAP-11-07-poison-gate-b68-v08.json)。只读规划验证，Owner/L3/真实消费者未通过。
+
 # CAP-11-07｜知识反馈与版本管理（V0.8实施级，L3待审）
 
 **原88项业务定义：**「复用、验证、演化及退回变更」。保留原 [T5-01](../../work-packages/T5-01.md) / [T5-02](../../work-packages/T5-02.md) 两包，不改11域、88 CAP、36原编号包、17资产，L1/L2不变，L3待人类审批。本文是业务契约规划，不是产品验收。
