@@ -1,3 +1,6 @@
+## 2026-11-01｜B76 R-CYCLES-MACROS-001 子程序副作用、递归预算与外部闭包
+[研究及访问深度](../docs/capabilities/CAP-08-05/SUBPROGRAM-CLOSURE-B76-2026-11-01.md) → [7分级来源](sources/CAP-08-05-subprogram-b76.json) → [8条可追溯规则](traces/CAP-08-05-subprogram-b76-v08.json) → [43项预期样例](../docs/capabilities/CAP-08-05/subprogram-b76-fixtures-v08.json)。LinuxCNC 2.9 §4/4.1/9和Haas车床§11.5官方正文定点读；NIST仅出版摘要、ISO仅官方目录/摘要。正式Owner/真实消费者0/17，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B75 R-STOCKREG-001 D04注册与D10现场WCS非交换证据
 [6项来源和访问深度](sources/CAP-04-02-offset-evidence-b75.json) → [8字段规则](traces/CAP-04-02-offset-evidence-b75-v08.json) → [24正反未知过期样例](../docs/capabilities/CAP-04-02/offset-evidence-b75-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-04-02/WCS-EVIDENCE-B75-2026-11-01.md)。LinuxCNC 2.9公开HTML实读、OCCT8.0.1 API文本实读、NIST 2016/2017仅摘要；真实D10/NC/Owner/独立消费者未验。**规划PASS≠产品PASS。**
 
