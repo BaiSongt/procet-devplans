@@ -60,3 +60,7 @@ W3C Pointer Events L3 于2026-06-30成为Recommendation，本文只读取相关�
 ## 2026-10-31 B50｜三维尺寸直接输入与驱动参数资格
 
 补充[测量/PMI/驱动参数分离专项研究](DIMENSION-EDIT-B50-2026-10-31.md)、[9项来源](../../../research/sources/CAP-01-07-dimension-edit-b50.json)、[10规则与独立正反未知验收](../../../research/traces/CAP-01-07-dimension-edit-b50-v08.json)。不修改原UI3D-R01..10和原AT，V8同函数规划合成56/56，独立Node/OCCT/Babylon/真实消费者仍NOT_RUN；L3待人审。
+
+## 2026-11-01 B77｜尺寸标签的CSS像素与可见性补证
+
+[HUD可读性/遮挡/碰撞专项研究](DIMENSION-HUD-B77-2026-11-01.md) → [9来源](../../../research/sources/CAP-01-07-hud-b77.json) → [8规则](../../../research/traces/CAP-01-07-hud-b77-v08.json) → [48机器预期合成](hud-b77-fixtures-v08.json) → [只读Node](../../../tools/check_cap0107_hud_b77_v08.cjs)。B50负责驱动参数与再生；B77只负责Renderer尺寸标签显示/可见性与交互资格。L3待审，真实Babylon、跨域Owner及产品测试NOT_RUN。

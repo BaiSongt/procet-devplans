@@ -1,3 +1,6 @@
+## 2026-11-01｜B77 R-UI3D-001 尺寸HUD CSS像素和遮挡证据
+[9份已分级来源](sources/CAP-01-07-hud-b77.json) → [8条字段规则](traces/CAP-01-07-hud-b77-v08.json) → [48项预期正反与Unknown](../docs/capabilities/CAP-01-07/hud-b77-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-01-07/DIMENSION-HUD-B77-2026-11-01.md)。MDN/W3C/OCCT/Babylon公开相关段落核对，未锁定产品Babylon投影版本；真实Node、GUI、17消费者及L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B76 R-CYCLES-MACROS-001 子程序副作用、递归预算与外部闭包
 [研究及访问深度](../docs/capabilities/CAP-08-05/SUBPROGRAM-CLOSURE-B76-2026-11-01.md) → [7分级来源](sources/CAP-08-05-subprogram-b76.json) → [8条可追溯规则](traces/CAP-08-05-subprogram-b76-v08.json) → [43项预期样例](../docs/capabilities/CAP-08-05/subprogram-b76-fixtures-v08.json)。LinuxCNC 2.9 §4/4.1/9和Haas车床§11.5官方正文定点读；NIST仅出版摘要、ISO仅官方目录/摘要。正式Owner/真实消费者0/17，L3待审。**规划PASS≠产品PASS。**
 

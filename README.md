@@ -1,3 +1,6 @@
+## 2026-11-01｜B77 CAP-01-07 三维尺寸标签CSS像素、遮挡和命中资格
+[研究与DPR2投影(500,350)反例](docs/capabilities/CAP-01-07/DIMENSION-HUD-B77-2026-11-01.md) → [9分级来源](research/sources/CAP-01-07-hud-b77.json) → [8规则/字段/原U4包](research/traces/CAP-01-07-hud-b77-v08.json) → [48预期正反/STALE/UNKNOWN/只读合成](docs/capabilities/CAP-01-07/hud-b77-fixtures-v08.json) → [只读Node](tools/check_cap0107_hud_b77_v08.cjs) → [执行等级](tracking/cap0107-hud-b77-verification-2026-11-01.json)。字体≤12px，但交互命中≥24×24 CSS px；真实Babylon/DPI/跨域消费者与L3仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B76 CAP-08-05 子程序调用参数作用域和闭包
 [专项研究与5×5=25反例](docs/capabilities/CAP-08-05/SUBPROGRAM-CLOSURE-B76-2026-11-01.md) → [7份分级来源](research/sources/CAP-08-05-subprogram-b76.json) → [8规则与原工作包](research/traces/CAP-08-05-subprogram-b76-v08.json) → [43项显式正反/UNKNOWN/STALE](docs/capabilities/CAP-08-05/subprogram-b76-fixtures-v08.json) → [只读Node校验器](tools/check_cap0805_subprogram_b76_v08.cjs) → [证据等级](tracking/cap0805-subprogram-b76-verification-2026-11-01.json)。O-call局部#1–#30与M98编号全局副作用不能互换；Haas M97本地N行和M98外部O程序需要固定搜索根。仅V8同judge合成43/43，Node独立文件/真实NC、17Owner/消费者NOT_RUN；全仓GFM AST及历史附件原字节待审。**规划PASS≠产品PASS。**
 
