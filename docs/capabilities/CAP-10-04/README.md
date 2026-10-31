@@ -41,3 +41,8 @@
 [单Babylon和统一左TaskPanel](UI.md) · [10域Port草案](dnc-transfer-contract.json) · [68合成正反状态向量](fixtures.json) · [独立消费者与回退](independent-consumer-handoff.md) · [10份来源与访问层级](../../../research/sources/CAP-10-04.json) → [10规则40字段](../../../research/traces/CAP-10-04.json) → [研究专题](../../../research/topics/R-DNC-TRANSFER-001.md) · [只验证规划的Node入口](../../../tools/check_cap1004_planning_2026_10_27.cjs)。
 
 **验收分层**：规划文件与合成检查≠真实文件传输≠独立控制器读取≠D15物理工程验证≠上机许可。产品、真实OPC UA/厂商适配器、B5、不同机床、浏览器及独立收方均NOT_RUN；17资产正式Owner签署与L3审批PENDING_HUMAN。
+
+
+## B63补证：OPC UA FileType短读、Session句柄及独立收方完整性
+
+[公开官方章节及失效边界](OPCUA-SESSION-SHORTREAD-B63-2026-10-31.md) → [8规则字段](../../../research/traces/CAP-10-04-opcua-file-b63-v08.json) → [54合成样例](opcua-file-b63-fixtures-v08.json) → [只读校验器](../../../tools/check_cap1004_opcua_file_b63_v08.cjs) → [验证分级](../../../tracking/cap1004-opcua-file-b63-verification-2026-10-31.json)。本补证并列于原R01–R10，不更改原冻结、真实机床/独立消费者或人类授权状态。

@@ -1,3 +1,6 @@
+## 2026-10-31｜B63 CAP-10-04 OPC UA FileType短读与Session句柄
+[研究](docs/capabilities/CAP-10-04/OPCUA-SESSION-SHORTREAD-B63-2026-10-31.md) → [6来源](research/sources/CAP-10-04-opcua-file-b63.json) → [8规则](research/traces/CAP-10-04-opcua-file-b63-v08.json) → [54合成正反未知](docs/capabilities/CAP-10-04/opcua-file-b63-fixtures-v08.json) → [只读Node工具](tools/check_cap1004_opcua_file_b63_v08.cjs) → [核验](tracking/cap1004-opcua-file-b63-verification-2026-10-31.json)。Read返回不足请求长度不是EOF；句柄不能跨Session；SetPosition越界钳到EOF。V8同判定函数54/54合成仅CANDIDATE_ONLY，独立Node/实际OPC设备/17独立消费者NOT_RUN，正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B62 CAP-07-05 球刀平面残高与表面纹理资格
 [研究](docs/capabilities/CAP-07-05/SCALLOP-QUALIFICATION-B62-2026-10-31.md) → [7来源](research/sources/CAP-07-05-scallop-b62.json) → [8规则](research/traces/CAP-07-05-scallop-b62-v08.json) → [43项合成](docs/capabilities/CAP-07-05/scallop-b62-fixtures-v08.json) → [校验器](tools/check_cap0705_scallop_b62_v08.cjs) → [分级](tracking/cap0705-scallop-b62-verification-2026-10-31.json)。R5/s0.8理想h=0.016025682mm，s1为0.025062814mm超0.02目标；h不等于Ra。V8同函数43/43规划合成；真实Node/OCCT/NC/D17/OEM/消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-10-31｜B63 R-DNC-TRANSFER-001 OPC UA FileType精准短读及Session恢复证据
+[官方实读和限制](../docs/capabilities/CAP-10-04/OPCUA-SESSION-SHORTREAD-B63-2026-10-31.md) → [6项来源登记](sources/CAP-10-04-opcua-file-b63.json) → [8规则/字段/原E3-06/T5-03](traces/CAP-10-04-opcua-file-b63-v08.json) → [54项规划合成](../docs/capabilities/CAP-10-04/opcua-file-b63-fixtures-v08.json)。实测OPC UA服务、D15及独立收方均未执行，Owner/L3待人类审批。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B62 R-STAGE-MACHINING-001 残高与表面纹理/实测分层
 [专项研究](../docs/capabilities/CAP-07-05/SCALLOP-QUALIFICATION-B62-2026-10-31.md) → [7项分级来源](sources/CAP-07-05-scallop-b62.json) → [8规则](traces/CAP-07-05-scallop-b62-v08.json) → [43合成](../docs/capabilities/CAP-07-05/scallop-b62-fixtures-v08.json)。ISO21920目录摘要、Sandvik、OCCT8.0.1镜像与NIST两篇官方摘要均严格区分阅读深度；实际产品/Owner签署/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 
