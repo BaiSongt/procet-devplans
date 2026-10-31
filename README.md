@@ -1,3 +1,6 @@
+## 2026-10-31｜B59 CAP-02-07 3D资源Mesh复用实例拾取与B-Rep来源身份
+[OCCT/glTF/Babylon/NIST阅读层级与数学Golden](docs/capabilities/CAP-02-07/RENDER-PICK-IDENTITY-B59-2026-10-31.md) → [6来源](research/sources/CAP-02-07-render-pick-b59.json) → [8条规则/字段及原包](research/traces/CAP-02-07-render-pick-b59-v08.json) → [44个正反/未知合成](docs/capabilities/CAP-02-07/render-pick-b59-fixtures-v08.json) → [Node只读检查器](tools/check_cap0207_render_pick_b59_v08.cjs) → [证据分级](tracking/cap0207-render-pick-b59-verification-2026-10-31.json)。**共享meshId≠装配实例，三角片≠权威B-Rep Face；GUI只读拾取不等于D15工程验证。** 本地等价Node独立进程44/44合成通过，提交文件完整独立Node运行未核；真实OCCT/Babylon/17消费者/Owner签署均未验、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B58 CAP-09-06 NC轨迹模式与前瞻资格
 [专项研究](docs/capabilities/CAP-09-06/TRAJECTORY-MODES-B58-2026-10-31.md) → [5来源](research/sources/CAP-09-06-trajectory-modes-b58.json) → [8规则](research/traces/CAP-09-06-trajectory-modes-b58-v08.json) → [61正反UNKNOWN](docs/capabilities/CAP-09-06/trajectory-modes-b58-fixtures-v08.json) → [工具](tools/check_cap0906_trajectory_modes_b58_v08.cjs) → [核验](tracking/cap0906-trajectory-modes-b58-verification-2026-10-31.json)。LinuxCNC2.9 G61≠G61.1、G64无P/P0无有限误差保证、P/Q及INI差异；8正44反9 UNKNOWN共61项V8合成，实际Node/NC/B5/OEM/D15/17消费者NOT_RUN、Owner0/17，L3待审。**规划PASS≠产品PASS**。
 

@@ -1,3 +1,6 @@
+## 2026-10-31｜B59 R-RG-001 共享Mesh实例、Face谱系及GPU拾取代次
+[专门研究](../docs/capabilities/CAP-02-07/RENDER-PICK-IDENTITY-B59-2026-10-31.md) → [6项官方/内部来源及访问限制](sources/CAP-02-07-render-pick-b59.json) → [8规则、字段、原F1-02/F1-03/F1-06/E3-04/U4-02/U4-03](traces/CAP-02-07-render-pick-b59-v08.json) → [2正34反5未知3仅显示，44例](../docs/capabilities/CAP-02-07/render-pick-b59-fixtures-v08.json)。OCCT8.0.1/API、glTF2.0.1、Babylon公开定点正文已读，NISTIR7796仅官方摘要；本地等价Node 44/44，真实GPU/OCCT/Node远端完整Blob/独立消费者NOT_RUN，正式Owner0/17、L3待审。
+
 ## 2026-10-31｜B58 R-NC-TRAJECTORY-MODES-001 NC轨迹前瞻与D14时序补证
 [官方章节与数学边界](../docs/capabilities/CAP-09-06/TRAJECTORY-MODES-B58-2026-10-31.md) → [5来源分层](sources/CAP-09-06-trajectory-modes-b58.json) → [8规则](traces/CAP-09-06-trajectory-modes-b58-v08.json) → [61合成正反未知](../docs/capabilities/CAP-09-06/trajectory-modes-b58-fixtures-v08.json)。真实控制器/OEM/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS**。
 

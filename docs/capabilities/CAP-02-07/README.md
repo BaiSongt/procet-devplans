@@ -1,3 +1,5 @@
+> **B59实例拾取与B-Rep源身份专项（2026-10-31）：** [研究/矩阵Golden](RENDER-PICK-IDENTITY-B59-2026-10-31.md) → [6来源](../../../research/sources/CAP-02-07-render-pick-b59.json) → [8规则字段](../../../research/traces/CAP-02-07-render-pick-b59-v08.json) → [44合成](render-pick-b59-fixtures-v08.json) → [独立Node只读入口](../../../tools/check_cap0207_render_pick_b59_v08.cjs)。共享Mesh多实例不能以meshId写资源，triangle到Face无证明只DISPLAY_ONLY。真正OCCT/GPU/Owner/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 # CAP-02-07｜资源几何与参数化
 
 版本：v0.1，2026-10-17；状态：**规格编制完成、待评审、产品验收未执行**。沿用原CAP-02-07编号及F1-02/F1-06/E3-04工作包关联。
