@@ -1,3 +1,6 @@
+## 2026-10-31｜B56 R-NC-SOURCE-EDIT-001 NC字节补丁、UTF-16/OCTET错位及严格UTF-8边界
+[原NC字节补丁算法/来源限制](../docs/capabilities/CAP-08-06/BYTE-EDIT-B56-2026-10-31.md) → [5来源](sources/CAP-08-06-byte-edit-b56.json) → [8规则/字段/原E3-02/E3-03/U4-04等工作包](traces/CAP-08-06-byte-edit-b56-v08.json) → [5正62反5未知合成](../docs/capabilities/CAP-08-06/byte-edit-b56-fixtures-v08.json) → [只读Node工具](../tools/check_cap0806_byte_edit_b56_v08.cjs)。本轮V8同一判定函数72/72规划合成PASS；独立Node文件进程、D13/NC/B5/OEM/17真实消费者NOT_RUN、正式签署0/17及L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B55 17资产独立消费者验收收件证据
 [专项研究](../docs/architecture/v0.8/CONSUMER-PROOF-GATE-B55-2026-10-31.md) → [Pact/CloudEvents/PROV-O/RFC五项官方文档加两份固定GitBlob](sources/FINAL-ASSET-CONSUMER-B55.json) → [8项规则字段和原E3-06/T5-03](traces/FINAL-ASSET-CONSUMER-B55-V08.json) → [44合成正反未知](../docs/architecture/v0.8/consumer-proof-b55-fixtures-v08.json)。真实Owner/消费者0/17，L3待人类审查。
 

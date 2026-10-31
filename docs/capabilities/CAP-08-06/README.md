@@ -33,3 +33,7 @@
 [8项来源阅读深度](../../../research/sources/CAP-08-06.json) → [理论推导](../../../research/topics/R-NC-SOURCE-EDIT-001.md) → [10条规则/字段/验收映射](../../../research/traces/CAP-08-06.json) → [30条正反变异及9条语义负例](fixtures.json) → [规划工具](../../../tools/check_cap0806_planning_2026_10_26.cjs)。
 
 源字节-控制器语义-轴动作的真实独立消费者、NC/OCCT/GUI/实机测试仍**NOT_RUN**；来源仅用于规划依据，17资产Owner会签与L3仍为**PENDING_HUMAN**。不得将规划合成PASS称作产品PASS。
+
+
+## B56（2026-10-31）字节补丁专项增量｜L3待审
+[UTF-16字符位置与原NC byteSpan不混用的专项研究](BYTE-EDIT-B56-2026-10-31.md) → [5项官方/内生来源](../../../research/sources/CAP-08-06-byte-edit-b56.json) → [8规则与字段可检追踪](../../../research/traces/CAP-08-06-byte-edit-b56-v08.json) → [5正62反5 UNKNOWN合成fixture](byte-edit-b56-fixtures-v08.json) → [只读Node入口](../../../tools/check_cap0806_byte_edit_b56_v08.cjs)。UTF-8 only为本轮合成范围，实际OEM编码和设备测试UNKNOWN/NOT_RUN；每次改动生成不可变新D12，D13-D15证据STALE、D16 BLOCKED，D04与D10分离；17真实消费者0/17、Owner0/17、L3待审，**规划PASS≠产品PASS**。

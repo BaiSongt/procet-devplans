@@ -1,3 +1,6 @@
+## 2026-10-31｜B56 CAP-08-06 NC原始字节补丁与Unicode边界专项
+[研究与官方来源](docs/capabilities/CAP-08-06/BYTE-EDIT-B56-2026-10-31.md) → [5来源](research/sources/CAP-08-06-byte-edit-b56.json) → [8规则/字段](research/traces/CAP-08-06-byte-edit-b56-v08.json) → [5正62反5 UNKNOWN](docs/capabilities/CAP-08-06/byte-edit-b56-fixtures-v08.json) → [只读Node校验器](tools/check_cap0806_byte_edit_b56_v08.cjs) → [验证等级](tracking/cap0806-byte-edit-b56-verification-2026-10-31.json)。新增byteSpan/PREIMAGE SHA/UTF-8边界/BOM/EOL不改原NC字节的不变量，UTF-16索引不可当字节偏移；未知编码与控制器方言保守UNKNOWN。V8同判定函数72/72规划合成PASS，独立Node文件/NC/OEM/真实17消费者NOT_RUN，Owner正式签署0/17、L3待审；**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B55 CAP-10-08 17资产独立消费者证据防伪收件
 [研究及真实阅读边界](docs/architecture/v0.8/CONSUMER-PROOF-GATE-B55-2026-10-31.md) → [7来源](research/sources/FINAL-ASSET-CONSUMER-B55.json) → [8规则](research/traces/FINAL-ASSET-CONSUMER-B55-V08.json) → [17资产收件槽位](docs/architecture/v0.8/consumer-proof-b55-schema-v08.json) → [1正39反4 UNKNOWN](docs/architecture/v0.8/consumer-proof-b55-fixtures-v08.json) → [只读Node](tools/check_final_asset_consumer_b55_v08.cjs) → [分级核验](tracking/final-asset-consumer-b55-verification-2026-10-31.json)。候选Port的17/44结构不等于真实消费者，Owner签署0/17，实际独立消费者0/17；V8同一函数44/44仅合成，真实Node/Pact/OCCT/NC/B5/OEM未运行，L3待审。**规划PASS≠产品PASS。**
 
