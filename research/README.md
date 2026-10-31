@@ -1,3 +1,6 @@
+## 2026-11-01｜B79 R-TASK-001 SSE游标与Host Journal恢复
+[6来源](sources/CAP-01-06-sse-replay-b79.json) → [8字段规则](traces/CAP-01-06-sse-replay-b79-v08.json) → [29合成](../docs/capabilities/CAP-01-06/sse-replay-b79-fixtures-v08.json) → [报告](../docs/capabilities/CAP-01-06/SSE-REPLAY-B79-2026-11-01.md)。WHATWG §9.2和RFC9110§13.1.1具体正文，NIST仅出版著录；产品/独立消费者NOT_RUN。
+
 ## 2026-11-01｜B78 R-WH-001 OPC观测状态与时间深度补证
 [7项分级来源及限制](sources/CAP-02-04-opc-observation-b78.json) → [8规则/CAP/原包](traces/CAP-02-04-opc-observation-b78-v08.json) → [32独立预期样例](../docs/capabilities/CAP-02-04/opc-observation-b78-fixtures-v08.json) → [报告](../docs/capabilities/CAP-02-04/OPC-OBSERVATION-B78-2026-11-01.md)。NIST仅出版摘要；OPC真实服务、夹具受力、Node独立进程与17消费者未执行。
 

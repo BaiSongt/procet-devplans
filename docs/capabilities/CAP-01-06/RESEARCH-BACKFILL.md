@@ -31,3 +31,5 @@ Host/平台负责Journal、cancel/retry与进程恢复；业务领域Owner负责
 ## 质量门槛（尚未执行产品测试）
 
 [fixtures](fixtures.json)保留原AT01..AT08业务语义，补AT09..20，每规则至少一正一负。真实Host故障注入要覆盖取消晚确认、回执丢失、事件乱序、强杀重开、并发CAS、权限重验、D13未知语义；另从GUI/CLI/Agent与D15/D16做独立消费者验收。当前设计L3待审，Python脚本、产品Rust/TS/OCCT、NC/GUI与实机均NOT_RUN；规划结构PASS不等于产品PASS。
+## B79重连事件证据增量（2026-11-01）
+[研究](SSE-REPLAY-B79-2026-11-01.md)、[来源](../../../research/sources/CAP-01-06-sse-replay-b79.json)、[规则](../../../research/traces/CAP-01-06-sse-replay-b79-v08.json)、[合成](sse-replay-b79-fixtures-v08.json)、[工具](../../../tools/check_cap0106_sse_replay_b79_v08.cjs)。不覆盖原AT或十条研究规则；真实消费者与Owner/L3仍待审。

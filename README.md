@@ -1,3 +1,6 @@
+## 2026-11-01｜B79 CAP-01-06 SSE重连游标与Host持久事件补证
+[研究](docs/capabilities/CAP-01-06/SSE-REPLAY-B79-2026-11-01.md) → [来源](research/sources/CAP-01-06-sse-replay-b79.json) → [8规则](research/traces/CAP-01-06-sse-replay-b79-v08.json) → [29合成](docs/capabilities/CAP-01-06/sse-replay-b79-fixtures-v08.json) → [Node](tools/check_cap0106_sse_replay_b79_v08.cjs)。Last-Event-ID不证明持久重放，空id重置游标，超2^53精确序列；真实Host/独立消费者未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B78 CAP-02-04 OPC三层状态与夹具观测来源时钟
 [专项研究](docs/capabilities/CAP-02-04/OPC-OBSERVATION-B78-2026-11-01.md) → [7分级来源](research/sources/CAP-02-04-opc-observation-b78.json) → [8规则/字段](research/traces/CAP-02-04-opc-observation-b78-v08.json) → [32正反/未知/过期](docs/capabilities/CAP-02-04/opc-observation-b78-fixtures-v08.json) → [只读Node](tools/check_cap0204_opc_observation_b78_v08.cjs)。OPC Service Good≠Operation Good≠DataValue Good，serverTimestamp不能代替sourceTimestamp。32/32仅同judge合成，真实OPC/独立消费者/Owner/L3未验。**规划PASS≠产品PASS。**
 
