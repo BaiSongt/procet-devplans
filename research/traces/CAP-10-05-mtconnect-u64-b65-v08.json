@@ -1,0 +1,378 @@
+{
+  "schemaVersion": "procet-cap1005-mtconnect-u64-b65-trace-v1",
+  "capabilityId": "CAP-10-05",
+  "researchTopic": "R-MDC-OBSERVABILITY-001",
+  "sourceRegistry": "research/sources/CAP-10-05-mtconnect-u64-b65.json",
+  "specification": "docs/capabilities/CAP-10-05/MTCONNECT-U64-FILTER-B65-2026-10-31.md",
+  "fixtures": "docs/capabilities/CAP-10-05/mtconnect-u64-b65-fixtures-v08.json",
+  "validator": "tools/check_cap1005_mtconnect_u64_b65_v08.cjs",
+  "baselineHead": "2d0d95ca659f5d5fb439eaab7ea915fad4eac29c",
+  "ownerDomain": "10",
+  "ownerPort": "MdcObservationPort.appendCAS",
+  "status": "PENDING_HUMAN_SYNTHETIC_ONLY",
+  "rules": [
+    {
+      "id": "B65-R01",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "精确uint64十进制游标/BigInt，不经JS Number",
+      "sourceIds": [
+        "B65-S01",
+        "B65-S02",
+        "B65-S06"
+      ],
+      "fields": [
+        "cursor.sequence",
+        "cursor.first",
+        "cursor.last",
+        "cursor.next",
+        "cursor.jsNumberUsed",
+        "cursor.rawDecimalPinned"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R01-P"
+      ],
+      "negativeTestIds": [
+        "B65-R01-M01",
+        "B65-R01-M02",
+        "B65-R01-M03",
+        "B65-R01-M04",
+        "B65-R01-M05",
+        "B65-R01-M06"
+      ],
+      "unknownTestIds": [
+        "B65-R01-U"
+      ],
+      "boundaryTestIds": [
+        "B65-BND-U64-MAX",
+        "B65-BND-NONCANONICAL"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B65-R02",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "Agent instanceId与Machine/Profile/Probe检查点绑定",
+      "sourceIds": [
+        "B65-S01",
+        "B65-S06"
+      ],
+      "fields": [
+        "identity.machineExact",
+        "identity.agentExact",
+        "identity.instanceId",
+        "identity.checkpointInstanceId",
+        "identity.profileExact",
+        "identity.deviceModelExact"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R02-P"
+      ],
+      "negativeTestIds": [
+        "B65-R02-M01",
+        "B65-R02-M02",
+        "B65-R02-M03",
+        "B65-R02-M04",
+        "B65-R02-M05",
+        "B65-R02-M06"
+      ],
+      "unknownTestIds": [
+        "B65-R02-U"
+      ],
+      "boundaryTestIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B65-R03",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "sample窗口与OUT_OF_RANGE错误码辨认",
+      "sourceIds": [
+        "B65-S01",
+        "B65-S04",
+        "B65-S06"
+      ],
+      "fields": [
+        "window.from",
+        "window.first",
+        "window.last",
+        "window.responseKind",
+        "window.errorCode",
+        "window.httpStatus"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R03-P"
+      ],
+      "negativeTestIds": [
+        "B65-R03-M01",
+        "B65-R03-M02",
+        "B65-R03-M03",
+        "B65-R03-M04",
+        "B65-R03-M05",
+        "B65-R03-M06"
+      ],
+      "unknownTestIds": [
+        "B65-R03-U"
+      ],
+      "boundaryTestIds": [
+        "B65-BND-FROM-ZERO",
+        "B65-BND-404-OTHER"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B65-R04",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "仅包含末尾观察时nextSequence按lastSequence+1，D17提交后持久化",
+      "sourceIds": [
+        "B65-S02",
+        "B65-S06"
+      ],
+      "fields": [
+        "page.lastIncluded",
+        "page.last",
+        "page.next",
+        "page.cursorPersistedAfterCommit",
+        "page.headerPinned",
+        "page.filteredPathPinned"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R04-P"
+      ],
+      "negativeTestIds": [
+        "B65-R04-M01",
+        "B65-R04-M02",
+        "B65-R04-M03",
+        "B65-R04-M04",
+        "B65-R04-M05",
+        "B65-R04-M06"
+      ],
+      "unknownTestIds": [
+        "B65-R04-U"
+      ],
+      "boundaryTestIds": [
+        "B65-BND-PAGE-MAX"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B65-R05",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "path筛选稀疏global序列不能当作丢失历史",
+      "sourceIds": [
+        "B65-S01",
+        "B65-S02",
+        "B65-S04",
+        "B65-S06"
+      ],
+      "fields": [
+        "filter.globalSequence",
+        "filter.selectedSequences",
+        "filter.headerFrom",
+        "filter.headerNext",
+        "filter.noPerItemGapInference",
+        "filter.probeModelPinned",
+        "filter.responseHeaderPinned"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R05-P"
+      ],
+      "negativeTestIds": [
+        "B65-R05-M01",
+        "B65-R05-M02",
+        "B65-R05-M03",
+        "B65-R05-M04",
+        "B65-R05-M05",
+        "B65-R05-M06",
+        "B65-R05-M07"
+      ],
+      "unknownTestIds": [
+        "B65-R05-U"
+      ],
+      "boundaryTestIds": [
+        "B65-BND-SPARSE-OK"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B65-R06",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "空heartbeat仅作控制不生成D17或NC验证",
+      "sourceIds": [
+        "B65-S01",
+        "B65-S04",
+        "B65-S06"
+      ],
+      "fields": [
+        "heartbeat.responseEmpty",
+        "heartbeat.intervalSet",
+        "heartbeat.heartbeatValid",
+        "heartbeat.d17AppendAttempted",
+        "heartbeat.deviceExecutionInferred"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R06-P"
+      ],
+      "negativeTestIds": [
+        "B65-R06-M01",
+        "B65-R06-M02",
+        "B65-R06-M03",
+        "B65-R06-M04",
+        "B65-R06-M05"
+      ],
+      "unknownTestIds": [
+        "B65-R06-U"
+      ],
+      "boundaryTestIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B65-R07",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "D17 appendCAS、ACL/Scope/取消Fence重验后才持久化游标",
+      "sourceIds": [
+        "B65-S05",
+        "B65-S06"
+      ],
+      "fields": [
+        "commit.ownerCasPassed",
+        "commit.aclRechecked",
+        "commit.scopeEpochRechecked",
+        "commit.cancelLateResponseRejected",
+        "commit.rawHashPinned",
+        "commit.cursorAdvanceAfterCommit",
+        "commit.d17AppendOnly",
+        "commit.idempotencyPinned"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R07-P"
+      ],
+      "negativeTestIds": [
+        "B65-R07-M01",
+        "B65-R07-M02",
+        "B65-R07-M03",
+        "B65-R07-M04",
+        "B65-R07-M05",
+        "B65-R07-M06",
+        "B65-R07-M07",
+        "B65-R07-M08"
+      ],
+      "unknownTestIds": [
+        "B65-R07-U"
+      ],
+      "boundaryTestIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B65-R08",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "同域GUI/CLI/Agent Port与单Babylon/左TaskPanel及冻结回退",
+      "sourceIds": [
+        "B65-S06"
+      ],
+      "fields": [
+        "ux.sameOwnerPort",
+        "ux.singleBabylonWorld",
+        "ux.leftTaskPanel",
+        "ux.frozenABPreserved",
+        "ux.noD15Inference",
+        "ux.noCycleStart",
+        "ux.shadowReadRollback",
+        "ux.independentConsumerRequired"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B65-R08-P"
+      ],
+      "negativeTestIds": [
+        "B65-R08-M01",
+        "B65-R08-M02",
+        "B65-R08-M03",
+        "B65-R08-M04",
+        "B65-R08-M05",
+        "B65-R08-M06",
+        "B65-R08-M07",
+        "B65-R08-M08"
+      ],
+      "unknownTestIds": [
+        "B65-R08-U"
+      ],
+      "boundaryTestIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

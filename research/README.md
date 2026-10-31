@@ -1,3 +1,6 @@
+## 2026-10-31｜B65 R-MDC-OBSERVABILITY-001 MTConnect V2.5官方Agent/Streams uint64
+[官方Version2.5网页具体段落与适用限制](../docs/capabilities/CAP-10-05/MTCONNECT-U64-FILTER-B65-2026-10-31.md) → [6来源分级](sources/CAP-10-05-mtconnect-u64-b65.json) → [8规则/字段](traces/CAP-10-05-mtconnect-u64-b65-v08.json) → [74独立正反/过期/未知合成](../docs/capabilities/CAP-10-05/mtconnect-u64-b65-fixtures-v08.json)。规划同函数合成；独立Node/真实Agent/D17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B64 R-MDC-OBSERVABILITY-001 OPC订阅通知、ACK与断线追踪
 [OPC官方§5.14/6.7实读与来源限制](../docs/capabilities/CAP-10-05/OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md) → [6来源登记](sources/CAP-10-05-opcua-subscription-b64.json) → [8规则字段](traces/CAP-10-05-opcua-subscription-b64-v08.json) → [68规划合成](../docs/capabilities/CAP-10-05/opcua-subscription-b64-fixtures-v08.json)；仅同函数V8，独立Node和真实D17/OPC/消费者NOT_RUN。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-10-31｜B65 CAP-10-05 MTConnect uint64游标/Agent代次/筛选稀疏流
+[研究与数学反例](docs/capabilities/CAP-10-05/MTCONNECT-U64-FILTER-B65-2026-10-31.md) → [6来源](research/sources/CAP-10-05-mtconnect-u64-b65.json) → [8规则及原E3-06/T5-03](research/traces/CAP-10-05-mtconnect-u64-b65-v08.json) → [74合成](docs/capabilities/CAP-10-05/mtconnect-u64-b65-fixtures-v08.json) → [Node只读验证器](tools/check_cap1005_mtconnect_u64_b65_v08.cjs) → [分级验收](tracking/cap1005-mtconnect-u64-b65-verification-2026-10-31.json)。2^53+1不能用JS Number，筛选后稀疏序列≠流GAP，heartbeat≠观测/NC验证。74/74同判定函数规划合成，独立Node/Agent/17消费者NOT_RUN、Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B64 CAP-10-05 OPC UA订阅ACK/Republish断点与D17持久化
 [专项研究](docs/capabilities/CAP-10-05/OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md) → [6来源](research/sources/CAP-10-05-opcua-subscription-b64.json) → [8规则/字段/原E3-06/T5-03](research/traces/CAP-10-05-opcua-subscription-b64-v08.json) → [68正反/GAP/STALE/UNKNOWN合成](docs/capabilities/CAP-10-05/opcua-subscription-b64-fixtures-v08.json) → [Node只读校验器](tools/check_cap1005_opcua_subscription_b64_v08.cjs) → [核验分级](tracking/cap1005-opcua-subscription-b64-verification-2026-10-31.json)。OPC UA keep-alive≠Observation；数据入D17必须Owner CAS落盘后才考虑ACK，失联Republish缺消息的历史不能靠最新值补造。V8同函数合成68/68，独立Node/真实OPC/OEM/17消费者NOT_RUN、Owner0/17、L3待审。并修正source-index旧计数字段1299≠实际登记1317，现170 Registry/1323条。**规划PASS≠产品PASS。**
 

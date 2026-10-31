@@ -1,3 +1,6 @@
+## 2026-10-31｜B65 MTConnect 2.5 高位uint64及带筛选断点续采补证
+[研究与官方实读边界](MTCONNECT-U64-FILTER-B65-2026-10-31.md) · [6来源](../../../research/sources/CAP-10-05-mtconnect-u64-b65.json) · [8规则](../../../research/traces/CAP-10-05-mtconnect-u64-b65-v08.json) · [74合成](mtconnect-u64-b65-fixtures-v08.json) · [只读校验](../../../tools/check_cap1005_mtconnect_u64_b65_v08.cjs)。保留原十任务，D17 Owner同域入口、D04/D10隔离、单Babylon和左TaskPanel、A/B冻结、NC验证不可由MDC推断。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B64 OPC UA订阅恢复专项补证（不改变原十任务）
 [Publish/Republish/Keepalive/Session/ACK先落盘研究](OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md) · [来源](../../../research/sources/CAP-10-05-opcua-subscription-b64.json) · [8规则](../../../research/traces/CAP-10-05-opcua-subscription-b64-v08.json) · [68独立合成](opcua-subscription-b64-fixtures-v08.json) · [验证级别](../../../tracking/cap1005-opcua-subscription-b64-verification-2026-10-31.json)。原十任务和R01–R10保留，新增B64-R01..08属于补证，不冒充真实MDC/产品验收；L3待审。**规划PASS≠产品PASS。**
 
