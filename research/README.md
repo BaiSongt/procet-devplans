@@ -1,3 +1,6 @@
+## 2026-10-31｜B61 R-CONTINUOUS-5AXIS-001 逆时间与真实运动时序隔离
+[研究与访问深度](../docs/capabilities/CAP-07-04/INVERSE-TIME-FEED-B61-2026-10-31.md) → [5来源](sources/CAP-07-04-inverse-time-b61.json) → [8规则](traces/CAP-07-04-inverse-time-b61-v08.json) → [47合成](../docs/capabilities/CAP-07-04/inverse-time-b61-fixtures-v08.json)。LinuxCNC2.9官方§59/§5实读，NIST仅出版页；独立Node/D13/D14/B5/OEM/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B60 R-INDEXED-POSE-001 面内roll/控制器隔离
 [数学与阅读范围](../docs/capabilities/CAP-07-03/INDEXED-ROLL-B60-2026-10-31.md) → [6来源](sources/CAP-07-03-indexed-roll-b60.json) → [8规则](traces/CAP-07-03-indexed-roll-b60-v08.json) → [41合成](../docs/capabilities/CAP-07-03/indexed-roll-b60-fixtures-v08.json)。OCCT8.0.1及LinuxCNC2.9公开API/章节定点读，ISO841仅目录、NIST论文仅官方摘要；17独立消费者及Owner签署均0/17。**规划PASS≠产品PASS**。
 

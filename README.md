@@ -1,3 +1,6 @@
+## 2026-10-31｜B61 CAP-07-04 G93逆时间进给不是五轴Joint实际时序
+[分层研究](docs/capabilities/CAP-07-04/INVERSE-TIME-FEED-B61-2026-10-31.md) → [5项来源](research/sources/CAP-07-04-inverse-time-b61.json) → [8规则](research/traces/CAP-07-04-inverse-time-b61-v08.json) → [47合成](docs/capabilities/CAP-07-04/inverse-time-b61-fixtures-v08.json) → [校验器](tools/check_cap0704_inverse_time_b61_v08.cjs)。LinuxCNC 2.9 §59公开正文实读；NIST IR6556仅出版页。G93 F2名义30秒、每个G1/G2/G3运动块须F，D14实际关节/NC工程验证均NOT_RUN，Owner及消费者0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B60 CAP-07-03 索引3+2同刀轴不同roll反例
 [研究与数学Golden](docs/capabilities/CAP-07-03/INDEXED-ROLL-B60-2026-10-31.md) → [6来源](research/sources/CAP-07-03-indexed-roll-b60.json) → [8规则](research/traces/CAP-07-03-indexed-roll-b60-v08.json) → [41正反未知合成](docs/capabilities/CAP-07-03/indexed-roll-b60-fixtures-v08.json) → [Node工具](tools/check_cap0703_indexed_roll_b60_v08.cjs) → [等级记录](tracking/cap0703-indexed-roll-b60-verification-2026-10-31.json)。两矩阵刀轴同为世界X，面内X相差90°。V8同judge 41/41仅规划合成；实际独立Node、OCCT/控制器/NC/B5/17消费者均NOT_RUN，Owner0/17、L3待审、历史附件与全仓GFM AST未闭。**规划PASS≠产品PASS。**
 

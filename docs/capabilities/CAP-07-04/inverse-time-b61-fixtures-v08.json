@@ -1,0 +1,658 @@
+{
+  "schemaVersion": "procet-b61-inverse-time-fixture-v1",
+  "capabilityId": "CAP-07-04",
+  "provenance": "NEWLY_AUTHORED_SYNTHETIC_NO_REAL_NC",
+  "base": {
+    "owner": {
+      "acl": "ALLOW",
+      "cancelled": false,
+      "rev": "r7",
+      "currentRev": "r7",
+      "hash": "h7",
+      "currentHash": "h7",
+      "frame": "SETUP-F7",
+      "currentFrame": "SETUP-F7",
+      "scopeEpoch": 5,
+      "currentScopeEpoch": 5,
+      "taskGeneration": 8,
+      "receiptGeneration": 8
+    },
+    "nc": {
+      "profileKnown": true,
+      "profile": "LINUXCNC_2_9",
+      "profileHash": "p9",
+      "d13ProfileHash": "p9",
+      "sourceHash": "d12-byte7",
+      "d13ReadHash": "d12-byte7",
+      "d10Hash": "D10-7",
+      "consumerD10Hash": "D10-7",
+      "initialMode": "G94",
+      "unknownMacro": false,
+      "spindleSpeedKnown": false,
+      "blocks": [
+        {
+          "line": 1,
+          "g": "G93"
+        },
+        {
+          "line": 2,
+          "motion": "G1",
+          "axes": true,
+          "f": 2
+        },
+        {
+          "line": 3,
+          "axes": true,
+          "f": 4
+        },
+        {
+          "line": 4,
+          "motion": "G0",
+          "axes": true,
+          "f": 99
+        },
+        {
+          "line": 5,
+          "g": "G94"
+        },
+        {
+          "line": 6,
+          "motion": "G1",
+          "axes": true,
+          "f": 120
+        }
+      ]
+    },
+    "execution": {
+      "d04Owner": "D04",
+      "d10Owner": "D10",
+      "d10InCl": false,
+      "ncFromD12": true,
+      "d13ReadsFinalNc": true,
+      "frozenD08Unchanged": true,
+      "d15PassClaim": false,
+      "d16ReleaseClaim": false,
+      "clPreviewAsNcPass": false,
+      "materialSweepClaim": false,
+      "servoDurationCertifiedWithoutD14": false,
+      "d14": "NOT_RUN"
+    },
+    "ui": {
+      "engineCount": 1,
+      "sceneCount": 1,
+      "canvasCount": 1,
+      "panel": "LEFT",
+      "fontMaxPx": 12,
+      "port": "D13.FeedSemanticPort",
+      "entries": [
+        "GUI",
+        "CLI",
+        "AGENT"
+      ]
+    },
+    "legacy": {
+      "readOnlyLegacy": false,
+      "rollbackAsNewRevision": true,
+      "unknownCanPass": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B61-P01",
+      "ruleId": "B61-R01",
+      "expected": "LOCAL_FEED_CANDIDATE",
+      "edits": {},
+      "expectedNominalSeconds": [
+        30,
+        15
+      ],
+      "why": "G93 F2为30秒、F4为15秒；G0上F99不作为下一段的时间证明"
+    },
+    {
+      "id": "B61-P02",
+      "ruleId": "B61-R02",
+      "expected": "LOCAL_FEED_CANDIDATE",
+      "edits": {
+        "nc.blocks": [
+          {
+            "line": 1,
+            "g": "G93"
+          },
+          {
+            "line": 2,
+            "motion": "G2",
+            "axes": true,
+            "f": 3
+          },
+          {
+            "line": 3,
+            "motion": "G3",
+            "axes": true,
+            "f": 6
+          }
+        ]
+      },
+      "expectedNominalSeconds": [
+        20,
+        10
+      ],
+      "why": "G2/G3受相同逐块inverse-time契约约束，非圆弧几何验证"
+    },
+    {
+      "id": "B61-P03",
+      "ruleId": "B61-R04",
+      "expected": "LOCAL_FEED_CANDIDATE",
+      "edits": {
+        "nc.blocks": [
+          {
+            "line": 1,
+            "g": "G95",
+            "f": 0.2
+          },
+          {
+            "line": 2,
+            "motion": "G1",
+            "axes": true
+          }
+        ],
+        "nc.spindleSpeedKnown": true
+      },
+      "expectedNominalSeconds": [],
+      "why": "有证据的G95解释候选，不代表实机时间"
+    },
+    {
+      "id": "B61-P04",
+      "ruleId": "B61-R03",
+      "expected": "LOCAL_FEED_CANDIDATE",
+      "edits": {
+        "nc.blocks": [
+          {
+            "line": 1,
+            "g": "G93"
+          },
+          {
+            "line": 2,
+            "motion": "G0",
+            "axes": true,
+            "f": 99
+          },
+          {
+            "line": 3,
+            "motion": "G1",
+            "axes": true,
+            "f": 5
+          }
+        ]
+      },
+      "expectedNominalSeconds": [
+        12
+      ],
+      "why": "G0的F忽略；下一G1必须新F"
+    },
+    {
+      "id": "B61-N01",
+      "ruleId": "B61-R01",
+      "expected": "REJECT",
+      "edits": {
+        "nc.blocks.1.f": 0
+      },
+      "expectedNominalSeconds": null,
+      "why": "逆时间F不能为0"
+    },
+    {
+      "id": "B61-N02",
+      "ruleId": "B61-R01",
+      "expected": "REJECT",
+      "edits": {
+        "nc.blocks.1.f": -2
+      },
+      "expectedNominalSeconds": null,
+      "why": "逆时间F不能为负"
+    },
+    {
+      "id": "B61-N03",
+      "ruleId": "B61-R02",
+      "expected": "REJECT",
+      "edits": {
+        "nc.blocks.2.f": null
+      },
+      "expectedNominalSeconds": null,
+      "why": "模态继承G1仍要求G93同块F"
+    },
+    {
+      "id": "B61-N04",
+      "ruleId": "B61-R02",
+      "expected": "REJECT",
+      "edits": {
+        "nc.blocks.1.f": null
+      },
+      "expectedNominalSeconds": null,
+      "why": "显式G1缺逆时间F"
+    },
+    {
+      "id": "B61-N05",
+      "ruleId": "B61-R03",
+      "expected": "REJECT",
+      "edits": {
+        "nc.blocks.2.f": null
+      },
+      "expectedNominalSeconds": null,
+      "why": "G93前一块G1的F不能复用"
+    },
+    {
+      "id": "B61-N06",
+      "ruleId": "B61-R04",
+      "expected": "REJECT",
+      "edits": {
+        "nc.blocks.5.f": null
+      },
+      "expectedNominalSeconds": null,
+      "why": "切G94之后未明确新F"
+    },
+    {
+      "id": "B61-N07",
+      "ruleId": "B61-R04",
+      "expected": "REJECT",
+      "edits": {
+        "nc.blocks.5.f": 0
+      },
+      "expectedNominalSeconds": null,
+      "why": "G94进给F无效"
+    },
+    {
+      "id": "B61-N08",
+      "ruleId": "B61-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d13ReadsFinalNc": false
+      },
+      "expectedNominalSeconds": null,
+      "why": "必须独立重读D12最终字节"
+    },
+    {
+      "id": "B61-N09",
+      "ruleId": "B61-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.ncFromD12": false
+      },
+      "expectedNominalSeconds": null,
+      "why": "D13输入非D12真实NC"
+    },
+    {
+      "id": "B61-N10",
+      "ruleId": "B61-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d10InCl": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "D10机床信息混入中立CL"
+    },
+    {
+      "id": "B61-N11",
+      "ruleId": "B61-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d04Owner": "D10"
+      },
+      "expectedNominalSeconds": null,
+      "why": "D04名义工艺Setup的Owner错误"
+    },
+    {
+      "id": "B61-N12",
+      "ruleId": "B61-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d10Owner": "D04"
+      },
+      "expectedNominalSeconds": null,
+      "why": "D10实际执行绑定Owner错误"
+    },
+    {
+      "id": "B61-N13",
+      "ruleId": "B61-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.servoDurationCertifiedWithoutD14": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "把60/F名义值冒充实轴时序"
+    },
+    {
+      "id": "B61-N14",
+      "ruleId": "B61-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d15PassClaim": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "D13候选冒充D15工程PASS"
+    },
+    {
+      "id": "B61-N15",
+      "ruleId": "B61-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d16ReleaseClaim": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "未独立验证便发布"
+    },
+    {
+      "id": "B61-N16",
+      "ruleId": "B61-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.clPreviewAsNcPass": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "CL动画不能冒充NC验证"
+    },
+    {
+      "id": "B61-N17",
+      "ruleId": "B61-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.materialSweepClaim": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "禁止将扫掠材料仿真视为证据"
+    },
+    {
+      "id": "B61-N18",
+      "ruleId": "B61-R07",
+      "expected": "REJECT",
+      "edits": {
+        "owner.acl": "DENY"
+      },
+      "expectedNominalSeconds": null,
+      "why": "提交时必须重核ACL"
+    },
+    {
+      "id": "B61-N19",
+      "ruleId": "B61-R07",
+      "expected": "REJECT",
+      "edits": {
+        "owner.cancelled": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "取消晚回执不能采纳"
+    },
+    {
+      "id": "B61-N20",
+      "ruleId": "B61-R07",
+      "expected": "REJECT",
+      "edits": {
+        "execution.frozenD08Unchanged": false
+      },
+      "expectedNominalSeconds": null,
+      "why": "不得覆写D08冻结"
+    },
+    {
+      "id": "B61-N21",
+      "ruleId": "B61-R08",
+      "expected": "REJECT",
+      "edits": {
+        "ui.sceneCount": 2
+      },
+      "expectedNominalSeconds": null,
+      "why": "禁止双Babylon世界"
+    },
+    {
+      "id": "B61-N22",
+      "ruleId": "B61-R08",
+      "expected": "REJECT",
+      "edits": {
+        "ui.panel": "RIGHT"
+      },
+      "expectedNominalSeconds": null,
+      "why": "唯一TaskPanel必须在左侧"
+    },
+    {
+      "id": "B61-N23",
+      "ruleId": "B61-R08",
+      "expected": "REJECT",
+      "edits": {
+        "ui.fontMaxPx": 13
+      },
+      "expectedNominalSeconds": null,
+      "why": "12px字号上限"
+    },
+    {
+      "id": "B61-N24",
+      "ruleId": "B61-R08",
+      "expected": "REJECT",
+      "edits": {
+        "ui.port": "AGENT.DirectWrite"
+      },
+      "expectedNominalSeconds": null,
+      "why": "GUI/CLI/Agent不能旁路OwnerPort"
+    },
+    {
+      "id": "B61-N25",
+      "ruleId": "B61-R08",
+      "expected": "REJECT",
+      "edits": {
+        "legacy.rollbackAsNewRevision": false
+      },
+      "expectedNominalSeconds": null,
+      "why": "回退必须非破坏新修订"
+    },
+    {
+      "id": "B61-N26",
+      "ruleId": "B61-R08",
+      "expected": "REJECT",
+      "edits": {
+        "legacy.unknownCanPass": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "UNKNOWN不能晋升PASS"
+    },
+    {
+      "id": "B61-N27",
+      "ruleId": "B61-R08",
+      "expected": "REJECT",
+      "edits": {
+        "ui.entries": [
+          "GUI",
+          "AGENT"
+        ]
+      },
+      "expectedNominalSeconds": null,
+      "why": "CLI必须复用同域Port"
+    },
+    {
+      "id": "B61-S01",
+      "ruleId": "B61-R07",
+      "expected": "STALE",
+      "edits": {
+        "owner.currentRev": "r8"
+      },
+      "expectedNominalSeconds": null,
+      "why": "并发CAS修订失效"
+    },
+    {
+      "id": "B61-S02",
+      "ruleId": "B61-R07",
+      "expected": "STALE",
+      "edits": {
+        "owner.currentHash": "h8"
+      },
+      "expectedNominalSeconds": null,
+      "why": "业务source哈希失效"
+    },
+    {
+      "id": "B61-S03",
+      "ruleId": "B61-R07",
+      "expected": "STALE",
+      "edits": {
+        "owner.currentFrame": "SETUP-F8"
+      },
+      "expectedNominalSeconds": null,
+      "why": "Frame失效"
+    },
+    {
+      "id": "B61-S04",
+      "ruleId": "B61-R07",
+      "expected": "STALE",
+      "edits": {
+        "owner.currentScopeEpoch": 6
+      },
+      "expectedNominalSeconds": null,
+      "why": "Scope撤权代次失效"
+    },
+    {
+      "id": "B61-S05",
+      "ruleId": "B61-R07",
+      "expected": "STALE",
+      "edits": {
+        "owner.receiptGeneration": 9
+      },
+      "expectedNominalSeconds": null,
+      "why": "取消任务迟到ACK失效"
+    },
+    {
+      "id": "B61-S06",
+      "ruleId": "B61-R05",
+      "expected": "STALE",
+      "edits": {
+        "nc.d13ReadHash": "wrong-nc"
+      },
+      "expectedNominalSeconds": null,
+      "why": "D13读入旧NC字节"
+    },
+    {
+      "id": "B61-S07",
+      "ruleId": "B61-R05",
+      "expected": "STALE",
+      "edits": {
+        "nc.d13ProfileHash": "p10"
+      },
+      "expectedNominalSeconds": null,
+      "why": "方言Profile变更"
+    },
+    {
+      "id": "B61-S08",
+      "ruleId": "B61-R05",
+      "expected": "STALE",
+      "edits": {
+        "nc.consumerD10Hash": "D10-8"
+      },
+      "expectedNominalSeconds": null,
+      "why": "实际机床绑定失效"
+    },
+    {
+      "id": "B61-U01",
+      "ruleId": "B61-R05",
+      "expected": "UNKNOWN",
+      "edits": {
+        "nc.profile": "UNKNOWN_OEM"
+      },
+      "expectedNominalSeconds": null,
+      "why": "目标控制器未知不能按LinuxCNC解释"
+    },
+    {
+      "id": "B61-U02",
+      "ruleId": "B61-R05",
+      "expected": "UNKNOWN",
+      "edits": {
+        "nc.profileKnown": false
+      },
+      "expectedNominalSeconds": null,
+      "why": "固件/选件未知"
+    },
+    {
+      "id": "B61-U03",
+      "ruleId": "B61-R04",
+      "expected": "UNKNOWN",
+      "edits": {
+        "nc.blocks": [
+          {
+            "line": 1,
+            "g": "G95",
+            "f": 0.2
+          },
+          {
+            "line": 2,
+            "motion": "G1",
+            "axes": true
+          }
+        ]
+      },
+      "expectedNominalSeconds": null,
+      "why": "G95缺主轴速度信号资格"
+    },
+    {
+      "id": "B61-U04",
+      "ruleId": "B61-R05",
+      "expected": "UNKNOWN",
+      "edits": {
+        "nc.unknownMacro": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "未建模宏语义"
+    },
+    {
+      "id": "B61-U05",
+      "ruleId": "B61-R08",
+      "expected": "UNKNOWN",
+      "edits": {
+        "legacy.readOnlyLegacy": true
+      },
+      "expectedNominalSeconds": null,
+      "why": "旧项目仅向后兼容只读UNKNOWN"
+    },
+    {
+      "id": "B61-U06",
+      "ruleId": "B61-R01",
+      "expected": "UNKNOWN",
+      "edits": {
+        "nc.initialMode": null
+      },
+      "expectedNominalSeconds": null,
+      "why": "缺初态不能猜G93/G94/G95"
+    },
+    {
+      "id": "B61-U07",
+      "ruleId": "B61-R02",
+      "expected": "UNKNOWN",
+      "edits": {
+        "nc.blocks": [
+          {
+            "line": 1,
+            "g": "G93"
+          },
+          {
+            "line": 2,
+            "axes": true,
+            "f": 2
+          }
+        ]
+      },
+      "expectedNominalSeconds": null,
+      "why": "运动模态无初态"
+    },
+    {
+      "id": "B61-U08",
+      "ruleId": "B61-R05",
+      "expected": "UNKNOWN",
+      "edits": {
+        "nc.blocks": [
+          {
+            "line": 1,
+            "g": "G93"
+          },
+          {
+            "line": 2,
+            "motion": "G5",
+            "axes": true,
+            "f": 2
+          }
+        ]
+      },
+      "expectedNominalSeconds": null,
+      "why": "未覆盖G5语义"
+    }
+  ]
+}
