@@ -1,3 +1,6 @@
+## 2026-10-31｜B71 CAP-02-06不确定度与本件测量三区决策
+[研究与数学反例](docs/capabilities/CAP-02-06/UNCERTAINTY-GUARD-B71-2026-10-31.md) → [6来源](research/sources/CAP-02-06-uncertainty-guard-b71.json) → [8规则/原包](research/traces/CAP-02-06-uncertainty-guard-b71-v08.json) → [58合成正反/未知](docs/capabilities/CAP-02-06/uncertainty-guard-b71-fixtures-v08.json) → [Node只读校验器](tools/check_cap0206_uncertainty_guard_b71_v08.cjs) → [验收等级](tracking/cap0206-uncertainty-guard-b71-verification-2026-10-31.json)。校准资源D03不等于D17实际观测；10.02±0.04mm与9.95–10.05mm公差存在不确定区域。仅V8同函数合成58/58；真实测量、Node文件、17消费者、Owner/L3仍未通过。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B70 CAP-09-08 旋转Joint完整圈数与显示插值资格
 [数学反例及阅读分级](docs/capabilities/CAP-09-08/ROTARY-WINDING-B70-2026-10-31.md) → [7来源](research/sources/CAP-09-08-joint-winding-b70.json) → [8规则/原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-08-joint-winding-b70-v08.json) → [55合成正反/未知](docs/capabilities/CAP-09-08/joint-winding-b70-fixtures-v08.json) → [Node只读检查器](tools/check_cap0908_joint_winding_b70_v08.cjs) → [执行等级](tracking/cap0908-joint-winding-b70-verification-2026-10-31.json)。0°和360°同姿态不代表同一Joint运动，Babylon Slerp不能恢复累计圈数。V8同函数55/55合成；独立Node/实机/D15/D16/17消费者NOT_RUN、Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

@@ -1,0 +1,790 @@
+{
+  "schemaVersion": "procet-b71-fixtures-v1",
+  "syntheticOnly": true,
+  "capabilityId": "CAP-02-06",
+  "policyMeaning": "内部示范保守区间法，不冒充ISO默认规则",
+  "base": {
+    "spec": {
+      "revision": "D01@r7",
+      "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "frameRef": "DESIGN:1",
+      "unit": "mm",
+      "lowerMm": 9.95,
+      "upperMm": 10.05,
+      "approved": true,
+      "frozen": true
+    },
+    "resource": {
+      "revision": "D03@r4",
+      "hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "measurementCapability": true,
+      "capabilityOnly": true,
+      "calibrationValid": true
+    },
+    "obs": {
+      "sourceKind": "D17_MEASURED_RESULT",
+      "revision": "D17@r3",
+      "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "frameRef": "DESIGN:1",
+      "unit": "mm",
+      "valueMm": 10,
+      "ucMm": 0.02,
+      "coverageFactor": 2,
+      "expandedUMm": 0.04,
+      "methodEvidence": true,
+      "uncertaintyBudgetRef": "BUDGET@7",
+      "calibrationSnapshotMatch": true,
+      "observationExact": true
+    },
+    "policy": {
+      "revision": "POLICY@r1",
+      "hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "revisionExact": true,
+      "decisionRule": "INTERVAL_CONTAINMENT_V1",
+      "approved": true,
+      "acceptedRiskOwner": "QUALITY"
+    },
+    "tx": {
+      "actorAuthorized": true,
+      "casExact": true,
+      "scopeExact": true,
+      "generationExact": true,
+      "cancelled": false,
+      "lateAck": false,
+      "duplicatePayloadSame": true,
+      "receiptKnown": true
+    },
+    "ui": {
+      "sceneCount": 1,
+      "panel": "LEFT_UNIFIED",
+      "port": "MeasurementReviewPort",
+      "writesD17": false,
+      "directEntry": "DOMAIN_USECASE",
+      "displayOnly": true
+    },
+    "evidence": {
+      "claimsD15Pass": false,
+      "claimsD16Release": false,
+      "frozenHistoryPreserved": true,
+      "migrationReadersPaired": true,
+      "actualIndependentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "B71-P01",
+      "ruleId": "B71-R01",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-P02",
+      "ruleId": "B71-R02",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-P03",
+      "ruleId": "B71-R03",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-P04",
+      "ruleId": "B71-R04",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-P05",
+      "ruleId": "B71-R05",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-P06",
+      "ruleId": "B71-R06",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-P07",
+      "ruleId": "B71-R07",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-P08",
+      "ruleId": "B71-R08",
+      "scenario": "BASELINE_POSITIVE",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B71-M01",
+      "ruleId": "B71-R04",
+      "scenario": "MATH_GOLDEN",
+      "expected": "INDETERMINATE",
+      "patches": [
+        {
+          "path": "obs.valueMm",
+          "value": 10.02
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-M02",
+      "ruleId": "B71-R04",
+      "scenario": "MATH_GOLDEN",
+      "expected": "CANDIDATE_NONCONFORMING",
+      "patches": [
+        {
+          "path": "obs.valueMm",
+          "value": 10.11
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-M03",
+      "ruleId": "B71-R04",
+      "scenario": "MATH_GOLDEN",
+      "expected": "CANDIDATE_NONCONFORMING",
+      "patches": [
+        {
+          "path": "obs.valueMm",
+          "value": 9.89
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-M04",
+      "ruleId": "B71-R04",
+      "scenario": "MATH_GOLDEN",
+      "expected": "CANDIDATE_CONFORMING",
+      "patches": [
+        {
+          "path": "obs.valueMm",
+          "value": 9.99
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-M05",
+      "ruleId": "B71-R04",
+      "scenario": "MATH_GOLDEN",
+      "expected": "INDETERMINATE",
+      "patches": [
+        {
+          "path": "obs.valueMm",
+          "value": 10.09
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-M06",
+      "ruleId": "B71-R04",
+      "scenario": "MATH_GOLDEN",
+      "expected": "INDETERMINATE",
+      "patches": [
+        {
+          "path": "obs.valueMm",
+          "value": 9.96
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N01",
+      "ruleId": "B71-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "spec.unit",
+          "value": "in"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N02",
+      "ruleId": "B71-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "spec.frameRef",
+          "value": "OTHER_FRAME"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N03",
+      "ruleId": "B71-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "spec.lowerMm",
+          "value": 10.08
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N04",
+      "ruleId": "B71-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "spec.approved",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N05",
+      "ruleId": "B71-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "spec.hash",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N06",
+      "ruleId": "B71-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "obs.sourceKind",
+          "value": "D03_CAPABILITY"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N07",
+      "ruleId": "B71-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "resource.capabilityOnly",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N08",
+      "ruleId": "B71-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "resource.calibrationValid",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N09",
+      "ruleId": "B71-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "obs.calibrationSnapshotMatch",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N10",
+      "ruleId": "B71-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "resource.measurementCapability",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N11",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "obs.expandedUMm",
+          "value": -0.01
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N12",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "obs.ucMm",
+          "value": -0.01
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N13",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "obs.coverageFactor",
+          "value": 0
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N14",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "obs.expandedUMm",
+          "value": 0.05
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N15",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "obs.expandedUMm",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N16",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "obs.coverageFactor",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N17",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "obs.uncertaintyBudgetRef",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N18",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "obs.valueMm",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N19",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "obs.unit",
+          "value": "in"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N20",
+      "ruleId": "B71-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "obs.methodEvidence",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N21",
+      "ruleId": "B71-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "policy.decisionRule",
+          "value": "AUTO_PASS"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N22",
+      "ruleId": "B71-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "policy.approved",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N23",
+      "ruleId": "B71-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "policy.revisionExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N24",
+      "ruleId": "B71-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "policy.hash",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N25",
+      "ruleId": "B71-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "policy.acceptedRiskOwner",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N26",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "tx.actorAuthorized",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N27",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "tx.casExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N28",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.scopeExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N29",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.generationExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N30",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.cancelled",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N31",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.lateAck",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N32",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "tx.duplicatePayloadSame",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N33",
+      "ruleId": "B71-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "tx.receiptKnown",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N34",
+      "ruleId": "B71-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.sceneCount",
+          "value": 2
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N35",
+      "ruleId": "B71-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.panel",
+          "value": "RIGHT_DRAWER"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N36",
+      "ruleId": "B71-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.writesD17",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N37",
+      "ruleId": "B71-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.directEntry",
+          "value": "GUI_DIRECT"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N38",
+      "ruleId": "B71-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.displayOnly",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N39",
+      "ruleId": "B71-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.claimsD15Pass",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N40",
+      "ruleId": "B71-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.claimsD16Release",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N41",
+      "ruleId": "B71-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.frozenHistoryPreserved",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N42",
+      "ruleId": "B71-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.migrationReadersPaired",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N43",
+      "ruleId": "B71-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.actualIndependentConsumer",
+          "value": "PASS"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B71-N44",
+      "ruleId": "B71-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.productAcceptance",
+          "value": "PASS"
+        }
+      ],
+      "synthetic": true
+    }
+  ]
+}

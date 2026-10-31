@@ -1,5 +1,8 @@
 # CAP-02-06｜测量与检测资源
 
+**B71专项（2026-10-31）：** [扩展不确定度与保守区间判定](UNCERTAINTY-GUARD-B71-2026-10-31.md)、[6来源](../../../research/sources/CAP-02-06-uncertainty-guard-b71.json)、[8规则](../../../research/traces/CAP-02-06-uncertainty-guard-b71-v08.json)、[58正反/未知规格](uncertainty-guard-b71-fixtures-v08.json)。D03设备校准不等于D17本件测量，仍为L3待审和产品NOT_RUN。
+
+
 版本：0.1（2026-10-17）；状态：**规划编制完成／待人类评审；产品实现与验收均未执行**。沿用[原88项编号](../../architecture/v0.8/03_三级能力映射_88项.md)，本项为长期扩展能力，不列入3轴＋B5 MVP已实现范围。关联：[界面规格](UI.md)、[理论专题R-MET-001](../../../research/topics/R-MET-001.md)、[机器追踪](../../../research/traces/CAP-02-06.json)、[F1-01](../../work-packages/F1-01.md)、[F1-02](../../work-packages/F1-02.md)，F1-06尚待细分。
 
 ## 一、目标、用户与明确边界
