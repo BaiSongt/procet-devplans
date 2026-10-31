@@ -1,3 +1,6 @@
+## 2026-11-01｜B73 CAP-10-06 离线事件重放与工单收件证据
+[专项研究](docs/capabilities/CAP-10-06/OFFLINE-EVENT-REPLAY-B73-2026-11-01.md) → [7项分级来源](research/sources/CAP-10-06-offline-events-b73.json) → [8项来源/规则/字段及原E3-06、T5-03映射](research/traces/CAP-10-06-offline-events-b73-v08.json) → [48合成正反/幂等/缺口/过期/未知](docs/capabilities/CAP-10-06/offline-events-b73-fixtures-v08.json) → [Node只读规划校验器](tools/check_cap1006_offline_events_b73_v08.cjs) → [实际执行分级](tracking/cap1006-offline-events-b73-verification-2026-11-01.json)。OPC ISA-95 `Store`不启动，`StoreAndStart`具启动效果且本CAP不调用；CloudEvents `source+id`不等于业务全序。V8同judge 48/48仅规划合成，独立Node/ERP-MES/OPC/NC/17消费者未测、正式Owner 0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B72 CAP-08-03车床G95/G99跨方言及G96恒线速证据
 
 [研究与数学反例](docs/capabilities/CAP-08-03/LATHE-CSS-DIALECT-B72-2026-11-01.md) → [8项分级来源](research/sources/CAP-08-03-lathe-css-b72.json) → [8条字段规则/原工作包](research/traces/CAP-08-03-lathe-css-b72-v08.json) → [46项合成验收](docs/capabilities/CAP-08-03/lathe-css-b72-fixtures-v08.json) → [只读Node工具](tools/check_cap0803_lathe_css_b72_v08.cjs) → [证据分级](tracking/cap0803-lathe-css-b72-verification-2026-11-01.json)。LinuxCNC2.9 G95为每转进给，Haas车床G95为动力刀具攻丝、G99才为每转进给；LinuxCNC G96 D与Haas G50 S限速不能混写。V8同judge合成46/46预期一致，独立Node、真实NC/OEM和17消费者NOT_RUN；正式Owner0/17，L3待审。**规划PASS≠产品PASS。**
