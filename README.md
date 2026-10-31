@@ -1,3 +1,6 @@
+## 2026-11-01｜B76 CAP-08-05 子程序调用参数作用域和闭包
+[专项研究与5×5=25反例](docs/capabilities/CAP-08-05/SUBPROGRAM-CLOSURE-B76-2026-11-01.md) → [7份分级来源](research/sources/CAP-08-05-subprogram-b76.json) → [8规则与原工作包](research/traces/CAP-08-05-subprogram-b76-v08.json) → [43项显式正反/UNKNOWN/STALE](docs/capabilities/CAP-08-05/subprogram-b76-fixtures-v08.json) → [只读Node校验器](tools/check_cap0805_subprogram_b76_v08.cjs) → [证据等级](tracking/cap0805-subprogram-b76-verification-2026-11-01.json)。O-call局部#1–#30与M98编号全局副作用不能互换；Haas M97本地N行和M98外部O程序需要固定搜索根。仅V8同judge合成43/43，Node独立文件/真实NC、17Owner/消费者NOT_RUN；全仓GFM AST及历史附件原字节待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B75 CAP-04-02 D04配准与D10机器WCS偏置证据分离
 [研究与后叠加反例](docs/capabilities/CAP-04-02/WCS-EVIDENCE-B75-2026-11-01.md) → [6来源](research/sources/CAP-04-02-offset-evidence-b75.json) → [8规则/字段](research/traces/CAP-04-02-offset-evidence-b75-v08.json) → [24独立预期合成](docs/capabilities/CAP-04-02/offset-evidence-b75-fixtures-v08.json) → [Node只读工具](tools/check_cap0402_offset_evidence_b75_v08.cjs) → [分级验收](tracking/cap0402-offset-evidence-b75-verification-2026-11-01.json)。G10 L2 P1不会自动选择G54，G52/G92持久寄存器和旋转后偏移不能由D04名义Frame推测。V8同judge 24/24；独立Node/真实NC/OEM/Owner/消费者均未验，L3待审。**规划PASS≠产品PASS。**
 
