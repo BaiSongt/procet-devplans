@@ -1,3 +1,6 @@
+## 2026-10-31｜B57 CAP-07-06 连续进退刀区间保守安全下界
+[数学推导与阅读限制](docs/capabilities/CAP-07-06/CONTINUOUS-LINK-CERT-B57-2026-10-31.md) → [5来源](research/sources/CAP-07-06-continuous-b57.json) → [8规则](research/traces/CAP-07-06-continuous-b57-v08.json) → [8正27反14 UNKNOWN](docs/capabilities/CAP-07-06/continuous-link-b57-fixtures-v08.json) → [Node工具](tools/check_cap0706_continuous_link_b57_v08.cjs) → [验证等级](tracking/cap0706-continuous-link-b57-verification-2026-10-31.json)。仅V8同判定函数合成49/49，实际OCCT/FCL/NC/B5/OEM/17独立消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS**。
+
 ## 2026-10-31｜B56 CAP-08-06 NC原始字节补丁与Unicode边界专项
 [研究与官方来源](docs/capabilities/CAP-08-06/BYTE-EDIT-B56-2026-10-31.md) → [5来源](research/sources/CAP-08-06-byte-edit-b56.json) → [8规则/字段](research/traces/CAP-08-06-byte-edit-b56-v08.json) → [5正62反5 UNKNOWN](docs/capabilities/CAP-08-06/byte-edit-b56-fixtures-v08.json) → [只读Node校验器](tools/check_cap0806_byte_edit_b56_v08.cjs) → [验证等级](tracking/cap0806-byte-edit-b56-verification-2026-10-31.json)。新增byteSpan/PREIMAGE SHA/UTF-8边界/BOM/EOL不改原NC字节的不变量，UTF-16索引不可当字节偏移；未知编码与控制器方言保守UNKNOWN。V8同判定函数72/72规划合成PASS，独立Node文件/NC/OEM/真实17消费者NOT_RUN，Owner正式签署0/17、L3待审；**规划PASS≠产品PASS。**
 

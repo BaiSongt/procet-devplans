@@ -30,3 +30,7 @@ D09中立CL候选段类型`APPROACH/LEAD_IN/CUT/LINK_STAY_DOWN/LINK_RETRACT/LEAD
 [单Babylon与左TaskPanel](UI.md) · [合成接口](contract.example.json) · [17资产Owner候选](asset-owner-candidates.json) · [独立消费者与回退](independent-consumer-handoff.md) · [9项来源/阅读层级](../../../research/sources/CAP-07-06.json) · [理论](../../../research/topics/R-LEAD-LINK-001.md) · [10规则与正反变异](../../../research/traces/CAP-07-06.json) · [30合成场景](fixtures.json)。
 
 测试入口`node tools/check_cap0706_planning_2026_10_26.cjs`；本轮只完成V8纯规划合成30/30，**独立Node文件、真实OCCT/连续干涉、控制器/NC/实机/独立消费者NOT_RUN**；L3与17资产Owner正式会签PENDING。**规划PASS≠产品PASS。**
+
+
+## B57连续链接区间下界补证（2026-10-31，L3待审）
+[区间数学与源/规则/正反验收](CONTINUOUS-LINK-CERT-B57-2026-10-31.md) → [5项来源](../../../research/sources/CAP-07-06-continuous-b57.json) → [8规则](../../../research/traces/CAP-07-06-continuous-b57-v08.json) → [49合成fixture](continuous-link-b57-fixtures-v08.json) → [只读Node校验器](../../../tools/check_cap0706_continuous_link_b57_v08.cjs)。D09局部候选不等于D15，Owner/17真实消费者0/17，规划PASS≠产品PASS。
