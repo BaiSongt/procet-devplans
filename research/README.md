@@ -1,3 +1,6 @@
+## 2026-10-31｜B62 R-STAGE-MACHINING-001 残高与表面纹理/实测分层
+[专项研究](../docs/capabilities/CAP-07-05/SCALLOP-QUALIFICATION-B62-2026-10-31.md) → [7项分级来源](sources/CAP-07-05-scallop-b62.json) → [8规则](traces/CAP-07-05-scallop-b62-v08.json) → [43合成](../docs/capabilities/CAP-07-05/scallop-b62-fixtures-v08.json)。ISO21920目录摘要、Sandvik、OCCT8.0.1镜像与NIST两篇官方摘要均严格区分阅读深度；实际产品/Owner签署/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B61 R-CONTINUOUS-5AXIS-001 逆时间与真实运动时序隔离
 [研究与访问深度](../docs/capabilities/CAP-07-04/INVERSE-TIME-FEED-B61-2026-10-31.md) → [5来源](sources/CAP-07-04-inverse-time-b61.json) → [8规则](traces/CAP-07-04-inverse-time-b61-v08.json) → [47合成](../docs/capabilities/CAP-07-04/inverse-time-b61-fixtures-v08.json)。LinuxCNC2.9官方§59/§5实读，NIST仅出版页；独立Node/D13/D14/B5/OEM/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

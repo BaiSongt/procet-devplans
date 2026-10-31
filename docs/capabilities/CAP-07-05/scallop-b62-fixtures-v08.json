@@ -1,0 +1,465 @@
+{
+  "schemaVersion": "procet-b62-scallop-fixtures-v1",
+  "provenance": "NEWLY_AUTHORED_SYNTHETIC_PLANE_ONLY",
+  "base": {
+    "owner": {
+      "acl": "ALLOW",
+      "rev": "r7",
+      "currentRev": "r7",
+      "hash": "D09-h7",
+      "currentHash": "D09-h7",
+      "frame": "SETUP-F7",
+      "currentFrame": "SETUP-F7",
+      "scopeEpoch": 5,
+      "currentScopeEpoch": 5,
+      "taskGeneration": 8,
+      "receiptGeneration": 8,
+      "cancelled": false
+    },
+    "geometry": {
+      "contactModel": "BALL_ON_PLANE",
+      "contactEvidence": "EXACT",
+      "toolType": "BALL_NOSE",
+      "radiusMm": 5,
+      "stepoverMm": 0.8,
+      "targetCuspMm": 0.02,
+      "unit": "mm",
+      "stepoverBasis": "TANGENT_ARC_LENGTH",
+      "metricCertified": true,
+      "normalDefined": true
+    },
+    "stage": {
+      "d04Frame": "SETUP-F7",
+      "d10CopiedToD04": false,
+      "d07Hash": "D07-h7",
+      "previousOutputHash": "D07-h7",
+      "stockSealed": true,
+      "protectedKnown": true,
+      "d08FrozenUnchanged": true,
+      "sameABFact": true,
+      "d09Neutral": true,
+      "materialSweepClaim": false
+    },
+    "quality": {
+      "raPassClaim": false,
+      "dimensionalPassClaim": false,
+      "cuspAsMeasuredPass": false
+    },
+    "execution": {
+      "clAsD15": false,
+      "d15PassClaim": false,
+      "d16ReleaseClaim": false,
+      "unknownPassClaim": false,
+      "controllerUnknown": false
+    },
+    "ui": {
+      "engineCount": 1,
+      "sceneCount": 1,
+      "canvasCount": 1,
+      "panel": "LEFT",
+      "fontMaxPx": 12,
+      "port": "D09.StageFinishPort",
+      "entries": [
+        "GUI",
+        "CLI",
+        "AGENT"
+      ]
+    },
+    "legacy": {
+      "readOnly": true,
+      "rollbackAsNewRevision": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B62-P01",
+      "ruleId": "B62-R01",
+      "expected": "LOCAL_SCALLOP_CANDIDATE",
+      "edits": {},
+      "why": "R5mm+s0.8mm理想球冠",
+      "goldenCuspMm": 0.016025682249154904
+    },
+    {
+      "id": "B62-P02",
+      "ruleId": "B62-R01",
+      "expected": "LOCAL_SCALLOP_CANDIDATE",
+      "edits": {
+        "geometry.stepoverMm": 0.5
+      },
+      "why": "R5mm+s0.5mm理想球冠",
+      "goldenCuspMm": 0.0062539111404555925
+    },
+    {
+      "id": "B62-N01",
+      "ruleId": "B62-R01",
+      "expected": "REJECT",
+      "edits": {
+        "geometry.radiusMm": 0
+      },
+      "why": "零半径"
+    },
+    {
+      "id": "B62-N02",
+      "ruleId": "B62-R01",
+      "expected": "REJECT",
+      "edits": {
+        "geometry.stepoverMm": 10.1
+      },
+      "why": "超2R域"
+    },
+    {
+      "id": "B62-N03",
+      "ruleId": "B62-R01",
+      "expected": "REJECT",
+      "edits": {
+        "geometry.targetCuspMm": -0.1
+      },
+      "why": "负目标"
+    },
+    {
+      "id": "B62-N04",
+      "ruleId": "B62-R01",
+      "expected": "REJECT",
+      "edits": {
+        "geometry.stepoverMm": 1
+      },
+      "why": "s1mm→h0.02506超0.02目标"
+    },
+    {
+      "id": "B62-N05",
+      "ruleId": "B62-R01",
+      "expected": "REJECT",
+      "edits": {
+        "geometry.unit": "inch"
+      },
+      "why": "未转换单位"
+    },
+    {
+      "id": "B62-U01",
+      "ruleId": "B62-R02",
+      "expected": "UNKNOWN",
+      "edits": {
+        "geometry.contactModel": "FREEFORM"
+      },
+      "why": "自由曲面不可套平面"
+    },
+    {
+      "id": "B62-U02",
+      "ruleId": "B62-R02",
+      "expected": "UNKNOWN",
+      "edits": {
+        "geometry.contactEvidence": "UNKNOWN"
+      },
+      "why": "接触模型未证"
+    },
+    {
+      "id": "B62-U03",
+      "ruleId": "B62-R02",
+      "expected": "UNKNOWN",
+      "edits": {
+        "geometry.toolType": "CONICAL_BALL"
+      },
+      "why": "锥形真实接触未知"
+    },
+    {
+      "id": "B62-N06",
+      "ruleId": "B62-R03",
+      "expected": "REJECT",
+      "edits": {
+        "quality.raPassClaim": true
+      },
+      "why": "h不是Ra"
+    },
+    {
+      "id": "B62-N07",
+      "ruleId": "B62-R03",
+      "expected": "REJECT",
+      "edits": {
+        "quality.dimensionalPassClaim": true
+      },
+      "why": "非尺寸GD&T"
+    },
+    {
+      "id": "B62-N08",
+      "ruleId": "B62-R03",
+      "expected": "REJECT",
+      "edits": {
+        "quality.cuspAsMeasuredPass": true
+      },
+      "why": "非实际测量"
+    },
+    {
+      "id": "B62-S01",
+      "ruleId": "B62-R04",
+      "expected": "STALE",
+      "edits": {
+        "owner.rev": "old"
+      },
+      "why": "Revision过期"
+    },
+    {
+      "id": "B62-S02",
+      "ruleId": "B62-R04",
+      "expected": "STALE",
+      "edits": {
+        "owner.hash": "old"
+      },
+      "why": "Hash过期"
+    },
+    {
+      "id": "B62-S03",
+      "ruleId": "B62-R04",
+      "expected": "STALE",
+      "edits": {
+        "owner.frame": "old"
+      },
+      "why": "Frame过期"
+    },
+    {
+      "id": "B62-S04",
+      "ruleId": "B62-R04",
+      "expected": "STALE",
+      "edits": {
+        "owner.scopeEpoch": 4
+      },
+      "why": "ScopeEpoch过期"
+    },
+    {
+      "id": "B62-S05",
+      "ruleId": "B62-R04",
+      "expected": "STALE",
+      "edits": {
+        "owner.receiptGeneration": 7
+      },
+      "why": "晚回执"
+    },
+    {
+      "id": "B62-S06",
+      "ruleId": "B62-R04",
+      "expected": "STALE",
+      "edits": {
+        "owner.cancelled": true
+      },
+      "why": "取消"
+    },
+    {
+      "id": "B62-N09",
+      "ruleId": "B62-R04",
+      "expected": "REJECT",
+      "edits": {
+        "owner.acl": "DENY"
+      },
+      "why": "权限重验"
+    },
+    {
+      "id": "B62-N10",
+      "ruleId": "B62-R04",
+      "expected": "REJECT",
+      "edits": {
+        "stage.d08FrozenUnchanged": false
+      },
+      "why": "冻结不可覆盖"
+    },
+    {
+      "id": "B62-N11",
+      "ruleId": "B62-R04",
+      "expected": "REJECT",
+      "edits": {
+        "stage.sameABFact": false
+      },
+      "why": "A/B同事实"
+    },
+    {
+      "id": "B62-U04",
+      "ruleId": "B62-R05",
+      "expected": "UNKNOWN",
+      "edits": {
+        "geometry.metricCertified": false
+      },
+      "why": "UV长度资格不足"
+    },
+    {
+      "id": "B62-U05",
+      "ruleId": "B62-R05",
+      "expected": "UNKNOWN",
+      "edits": {
+        "geometry.normalDefined": false
+      },
+      "why": "法向未知"
+    },
+    {
+      "id": "B62-N12",
+      "ruleId": "B62-R05",
+      "expected": "REJECT",
+      "edits": {
+        "geometry.stepoverBasis": "UV_PARAMETER"
+      },
+      "why": "不能以UV步长当毫米"
+    },
+    {
+      "id": "B62-U06",
+      "ruleId": "B62-R06",
+      "expected": "UNKNOWN",
+      "edits": {
+        "stage.stockSealed": false
+      },
+      "why": "D07前态未封存"
+    },
+    {
+      "id": "B62-U07",
+      "ruleId": "B62-R06",
+      "expected": "UNKNOWN",
+      "edits": {
+        "stage.protectedKnown": false
+      },
+      "why": "夹具保护区未知"
+    },
+    {
+      "id": "B62-S07",
+      "ruleId": "B62-R06",
+      "expected": "STALE",
+      "edits": {
+        "stage.d07Hash": "old"
+      },
+      "why": "阶段前态不一致"
+    },
+    {
+      "id": "B62-N13",
+      "ruleId": "B62-R06",
+      "expected": "REJECT",
+      "edits": {
+        "stage.materialSweepClaim": true
+      },
+      "why": "禁止材料扫掠仿真冒充"
+    },
+    {
+      "id": "B62-N14",
+      "ruleId": "B62-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.engineCount": 2
+      },
+      "why": "单Engine"
+    },
+    {
+      "id": "B62-N15",
+      "ruleId": "B62-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.sceneCount": 2
+      },
+      "why": "单Scene"
+    },
+    {
+      "id": "B62-N16",
+      "ruleId": "B62-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.canvasCount": 2
+      },
+      "why": "单Canvas"
+    },
+    {
+      "id": "B62-N17",
+      "ruleId": "B62-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.panel": "RIGHT"
+      },
+      "why": "统一左TaskPanel"
+    },
+    {
+      "id": "B62-N18",
+      "ruleId": "B62-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.fontMaxPx": 14
+      },
+      "why": "12px上限"
+    },
+    {
+      "id": "B62-N19",
+      "ruleId": "B62-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.port": "AgentDirectWrite"
+      },
+      "why": "同领域Port"
+    },
+    {
+      "id": "B62-N20",
+      "ruleId": "B62-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.entries": [
+          "GUI",
+          "AGENT"
+        ]
+      },
+      "why": "GUI CLI Agent三入口"
+    },
+    {
+      "id": "B62-N21",
+      "ruleId": "B62-R08",
+      "expected": "REJECT",
+      "edits": {
+        "stage.d10CopiedToD04": true
+      },
+      "why": "D04/D10分离"
+    },
+    {
+      "id": "B62-N22",
+      "ruleId": "B62-R08",
+      "expected": "REJECT",
+      "edits": {
+        "stage.d09Neutral": false
+      },
+      "why": "D09必须中立"
+    },
+    {
+      "id": "B62-N23",
+      "ruleId": "B62-R08",
+      "expected": "REJECT",
+      "edits": {
+        "execution.clAsD15": true
+      },
+      "why": "CL动画不是NC验证"
+    },
+    {
+      "id": "B62-N24",
+      "ruleId": "B62-R08",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d15PassClaim": true
+      },
+      "why": "D15未跑"
+    },
+    {
+      "id": "B62-N25",
+      "ruleId": "B62-R08",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d16ReleaseClaim": true
+      },
+      "why": "D16不得发布"
+    },
+    {
+      "id": "B62-N26",
+      "ruleId": "B62-R08",
+      "expected": "REJECT",
+      "edits": {
+        "execution.unknownPassClaim": true
+      },
+      "why": "UNKNOWN不是PASS"
+    },
+    {
+      "id": "B62-U08",
+      "ruleId": "B62-R08",
+      "expected": "UNKNOWN",
+      "edits": {
+        "execution.controllerUnknown": true
+      },
+      "why": "OEM语义未知"
+    }
+  ]
+}

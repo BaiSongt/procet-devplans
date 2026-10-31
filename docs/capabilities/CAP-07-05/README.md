@@ -29,3 +29,6 @@
 ## 验收与边界
 [10条规则→字段→30正反/差异变异](../../../research/traces/CAP-07-05.json) · [机器可检合成场景](fixtures.json) · [GUI/3D](UI.md) · [接口实例](contract.example.json) · [17资产Owner候选](asset-owner-candidates.json) · [独立消费者](independent-consumer-handoff.md) · [研究专题](../../../research/topics/R-STAGE-MACHINING-001.md) · [9条合法来源](../../../research/sources/CAP-07-05.json)。
 测试入口：`node tools/check_cap0705_planning_2026_10_26.cjs`。规划正10/反10/差异变异10，提交前可仅在隔离V8环境执行；真实OCCT/NC/机床/消费者全部NOT_RUN，L3待审、17Owner待正式签署。**规划PASS≠产品PASS。**
+
+## B62 理想球刀残高与真实纹理质量补证
+[公式与43项合成验收](SCALLOP-QUALIFICATION-B62-2026-10-31.md)；理想h≠Ra/GD&T/D17，真实产品及17消费者NOT_RUN。L3待审。

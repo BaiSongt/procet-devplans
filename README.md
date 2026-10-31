@@ -1,3 +1,6 @@
+## 2026-10-31｜B62 CAP-07-05 球刀平面残高与表面纹理资格
+[研究](docs/capabilities/CAP-07-05/SCALLOP-QUALIFICATION-B62-2026-10-31.md) → [7来源](research/sources/CAP-07-05-scallop-b62.json) → [8规则](research/traces/CAP-07-05-scallop-b62-v08.json) → [43项合成](docs/capabilities/CAP-07-05/scallop-b62-fixtures-v08.json) → [校验器](tools/check_cap0705_scallop_b62_v08.cjs) → [分级](tracking/cap0705-scallop-b62-verification-2026-10-31.json)。R5/s0.8理想h=0.016025682mm，s1为0.025062814mm超0.02目标；h不等于Ra。V8同函数43/43规划合成；真实Node/OCCT/NC/D17/OEM/消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B61 CAP-07-04 G93逆时间进给不是五轴Joint实际时序
 [分层研究](docs/capabilities/CAP-07-04/INVERSE-TIME-FEED-B61-2026-10-31.md) → [5项来源](research/sources/CAP-07-04-inverse-time-b61.json) → [8规则](research/traces/CAP-07-04-inverse-time-b61-v08.json) → [47合成](docs/capabilities/CAP-07-04/inverse-time-b61-fixtures-v08.json) → [校验器](tools/check_cap0704_inverse_time_b61_v08.cjs)。LinuxCNC 2.9 §59公开正文实读；NIST IR6556仅出版页。G93 F2名义30秒、每个G1/G2/G3运动块须F，D14实际关节/NC工程验证均NOT_RUN，Owner及消费者0/17、L3待审。**规划PASS≠产品PASS。**
 
