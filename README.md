@@ -1,3 +1,6 @@
+## 2026-11-01｜B74 CAP-02-02车床刀尖半径与跨方言偏置
+[数学及来源](docs/capabilities/CAP-02-02/LATHE-NOSE-COMPENSATION-B74-2026-11-01.md) → [7项来源](research/sources/CAP-02-02-lathe-tnc-b74.json) → [8规则/字段/原包](research/traces/CAP-02-02-lathe-tnc-b74-v08.json) → [26项合成样例](docs/capabilities/CAP-02-02/lathe-tnc-b74-fixtures-v08.json) → [只读Node](tools/check_cap0202_lathe_tnc_b74_v08.cjs) → [验收等级](tracking/cap0202-lathe-tnc-b74-verification-2026-11-01.json)。LinuxCNC工具表D为直径，但G41 Dn为工具号，Haas Tnnxx为另一方言偏置号；同judge合成26/26，真实独立Node/NC/消费者NOT_RUN，Owner0/17且L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B73 CAP-10-06 离线事件重放与工单收件证据
 [专项研究](docs/capabilities/CAP-10-06/OFFLINE-EVENT-REPLAY-B73-2026-11-01.md) → [7项分级来源](research/sources/CAP-10-06-offline-events-b73.json) → [8项来源/规则/字段及原E3-06、T5-03映射](research/traces/CAP-10-06-offline-events-b73-v08.json) → [48合成正反/幂等/缺口/过期/未知](docs/capabilities/CAP-10-06/offline-events-b73-fixtures-v08.json) → [Node只读规划校验器](tools/check_cap1006_offline_events_b73_v08.cjs) → [实际执行分级](tracking/cap1006-offline-events-b73-verification-2026-11-01.json)。OPC ISA-95 `Store`不启动，`StoreAndStart`具启动效果且本CAP不调用；CloudEvents `source+id`不等于业务全序。V8同judge 48/48仅规划合成，独立Node/ERP-MES/OPC/NC/17消费者未测、正式Owner 0/17、L3待审。**规划PASS≠产品PASS。**
 

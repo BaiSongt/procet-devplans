@@ -1,3 +1,6 @@
+## 2026-11-01｜B74 R-CUT-001车刀刀尖半径、Q取向与跨控制器偏置证据
+[7项分级来源](sources/CAP-02-02-lathe-tnc-b74.json) → [8规则](traces/CAP-02-02-lathe-tnc-b74-v08.json) → [26合成](../docs/capabilities/CAP-02-02/lathe-tnc-b74-fixtures-v08.json) → [报告](../docs/capabilities/CAP-02-02/LATHE-NOSE-COMPENSATION-B74-2026-11-01.md)。LinuxCNC2.9/Haas公开HTML定点实读、ISO13399目录/摘要、Gao2015出版摘要；产品未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B73 R-WORKORDER-EXECUTION-001 离线工单事件身份与重放缺口
 [研究/阅读分级](../docs/capabilities/CAP-10-06/OFFLINE-EVENT-REPLAY-B73-2026-11-01.md) → [7项来源](sources/CAP-10-06-offline-events-b73.json) → [8项规则/字段/原E3-06、T5-03](traces/CAP-10-06-offline-events-b73-v08.json) → [48规划合成](../docs/capabilities/CAP-10-06/offline-events-b73-fixtures-v08.json)。CloudEvents v1.0.2、OPC 10031-4 v2.00.0与RFC 9110指定公开正文、NIST仅出版摘要；Owner/真实消费者、独立Node文件进程及OEM/NC未验。**规划PASS≠产品PASS。**
 
