@@ -1,3 +1,7 @@
+## 2026-11-01｜B72 R-WCS-MOTION-001 两轴车床直径/半径、G码碰撞与恒线速限幅
+
+[公开阅读深度与保守算例](../docs/capabilities/CAP-08-03/LATHE-CSS-DIALECT-B72-2026-11-01.md) → [8项来源](sources/CAP-08-03-lathe-css-b72.json) → [8规则字段](traces/CAP-08-03-lathe-css-b72-v08.json) → [46独立预期合成](../docs/capabilities/CAP-08-03/lathe-css-b72-fixtures-v08.json)。2026-11-01官方LinuxCNC2.9指定章节和Haas车床清单/G50正文实读；Haas G96专页仅摘要、NIST仅出版摘要、ISO仅合法目录。真实Node进程、OEM/NC、正式Owner与独立消费者未验。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B71 R-MET-UNCERTAINTY-003 D03资源能力与D17不确定度决策
 [数学与Owner边界](../docs/capabilities/CAP-02-06/UNCERTAINTY-GUARD-B71-2026-10-31.md) → [6项分级来源](sources/CAP-02-06-uncertainty-guard-b71.json) → [8规则字段/原包](traces/CAP-02-06-uncertainty-guard-b71-v08.json) → [58项三区/拒绝/未知合成](../docs/capabilities/CAP-02-06/uncertainty-guard-b71-fixtures-v08.json)。NIST TN1297 §6/7公开HTML实读，ISO14253-1和BIPM106仅合法摘要、NIST2014文章仅官方摘要，内生区间策略非ISO默认规则；产品、Owner及独立消费者待验。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,7 @@
+## 2026-11-01｜B72 CAP-08-03车床G95/G99跨方言及G96恒线速证据
+
+[研究与数学反例](docs/capabilities/CAP-08-03/LATHE-CSS-DIALECT-B72-2026-11-01.md) → [8项分级来源](research/sources/CAP-08-03-lathe-css-b72.json) → [8条字段规则/原工作包](research/traces/CAP-08-03-lathe-css-b72-v08.json) → [46项合成验收](docs/capabilities/CAP-08-03/lathe-css-b72-fixtures-v08.json) → [只读Node工具](tools/check_cap0803_lathe_css_b72_v08.cjs) → [证据分级](tracking/cap0803-lathe-css-b72-verification-2026-11-01.json)。LinuxCNC2.9 G95为每转进给，Haas车床G95为动力刀具攻丝、G99才为每转进给；LinuxCNC G96 D与Haas G50 S限速不能混写。V8同judge合成46/46预期一致，独立Node、真实NC/OEM和17消费者NOT_RUN；正式Owner0/17，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B71 CAP-02-06不确定度与本件测量三区决策
 [研究与数学反例](docs/capabilities/CAP-02-06/UNCERTAINTY-GUARD-B71-2026-10-31.md) → [6来源](research/sources/CAP-02-06-uncertainty-guard-b71.json) → [8规则/原包](research/traces/CAP-02-06-uncertainty-guard-b71-v08.json) → [58合成正反/未知](docs/capabilities/CAP-02-06/uncertainty-guard-b71-fixtures-v08.json) → [Node只读校验器](tools/check_cap0206_uncertainty_guard_b71_v08.cjs) → [验收等级](tracking/cap0206-uncertainty-guard-b71-verification-2026-10-31.json)。校准资源D03不等于D17实际观测；10.02±0.04mm与9.95–10.05mm公差存在不确定区域。仅V8同函数合成58/58；真实测量、Node文件、17消费者、Owner/L3仍未通过。**规划PASS≠产品PASS。**
 

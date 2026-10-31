@@ -35,3 +35,7 @@ GUI/CLI/Agent共用08域Owner Port和UseCase，不独立写D12/D13；NC Activity
 ## 2026-10-30｜B46 G53/G54-G59.3、G10及G52/G92共享寄存器专项补证
 
 [官方证据和有界算例](WCS-OFFSETS-B46-2026-10-30.md) → [5来源](../../../research/sources/CAP-08-03-wcs-offsets-b46.json) → [8规则](../../../research/traces/CAP-08-03-wcs-offsets-b46-v08.json) → [8正、56单字段反、3 UNKNOWN；合计67项V8同函数合成](wcs-offsets-b46-fixtures-v08.json) → [只读Node](../../../tools/check_cap0803_wcs_offsets_b46_v08.cjs)。INI未知、OEM方言未知均不自动PASS；独立Node、D13–D15与真实消费者NOT_RUN，L3/Owner待审。**规划PASS≠产品PASS。**
+
+## 2026-11-01｜B72车床G95/G99碰撞与CSS限幅专项补证
+
+[专项研究与阅读等级](LATHE-CSS-DIALECT-B72-2026-11-01.md) → [8来源](../../../research/sources/CAP-08-03-lathe-css-b72.json) → [8规则/原编号包](../../../research/traces/CAP-08-03-lathe-css-b72-v08.json) → [46项合成正反过期未知](lathe-css-b72-fixtures-v08.json) → [Node只读工具](../../../tools/check_cap0803_lathe_css_b72_v08.cjs)。LinuxCNC G95每转≠Haas车床G95动力刀具攻丝；Haas车床每转为G99，G50 S与LinuxCNC G96 D必须按Profile解释，X直径/半径与中心Frame不能猜。真实D13/D14/D15、Haas/LinuxCNC/OEM及17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
