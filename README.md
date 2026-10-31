@@ -1,3 +1,6 @@
+## 2026-10-31｜B58 CAP-09-06 NC轨迹模式与前瞻资格
+[专项研究](docs/capabilities/CAP-09-06/TRAJECTORY-MODES-B58-2026-10-31.md) → [5来源](research/sources/CAP-09-06-trajectory-modes-b58.json) → [8规则](research/traces/CAP-09-06-trajectory-modes-b58-v08.json) → [61正反UNKNOWN](docs/capabilities/CAP-09-06/trajectory-modes-b58-fixtures-v08.json) → [工具](tools/check_cap0906_trajectory_modes_b58_v08.cjs) → [核验](tracking/cap0906-trajectory-modes-b58-verification-2026-10-31.json)。LinuxCNC2.9 G61≠G61.1、G64无P/P0无有限误差保证、P/Q及INI差异；8正44反9 UNKNOWN共61项V8合成，实际Node/NC/B5/OEM/D15/17消费者NOT_RUN、Owner0/17，L3待审。**规划PASS≠产品PASS**。
+
 ## 2026-10-31｜B57 CAP-07-06 连续进退刀区间保守安全下界
 [数学推导与阅读限制](docs/capabilities/CAP-07-06/CONTINUOUS-LINK-CERT-B57-2026-10-31.md) → [5来源](research/sources/CAP-07-06-continuous-b57.json) → [8规则](research/traces/CAP-07-06-continuous-b57-v08.json) → [8正27反14 UNKNOWN](docs/capabilities/CAP-07-06/continuous-link-b57-fixtures-v08.json) → [Node工具](tools/check_cap0706_continuous_link_b57_v08.cjs) → [验证等级](tracking/cap0706-continuous-link-b57-verification-2026-10-31.json)。仅V8同判定函数合成49/49，实际OCCT/FCL/NC/B5/OEM/17独立消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS**。
 

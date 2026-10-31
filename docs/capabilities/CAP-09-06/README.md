@@ -1,3 +1,5 @@
+> **B58专项补证（2026-10-31）：** [G61/G61.1/G64及前瞻轨迹资格](TRAJECTORY-MODES-B58-2026-10-31.md) → [8规则追踪](../../../research/traces/CAP-09-06-trajectory-modes-b58-v08.json) → [61合成验收](trajectory-modes-b58-fixtures-v08.json)。实际NC/D15/B5/OEM仍NOT_RUN，L3待审。
+
 # CAP-09-06｜NC程序驱动验证（V0.8原编号；L3待人类评审）
 
 **原88项原文目标**：解释/执行NC并检查控制器级运动。归09机床运动与工程验证域；原关联工作包 **F1-02 / E3-04 / E3-05 / U4-04**。不重排L1/L2，不以规划通过替代产品验收。

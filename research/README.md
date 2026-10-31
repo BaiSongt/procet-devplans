@@ -1,3 +1,6 @@
+## 2026-10-31｜B58 R-NC-TRAJECTORY-MODES-001 NC轨迹前瞻与D14时序补证
+[官方章节与数学边界](../docs/capabilities/CAP-09-06/TRAJECTORY-MODES-B58-2026-10-31.md) → [5来源分层](sources/CAP-09-06-trajectory-modes-b58.json) → [8规则](traces/CAP-09-06-trajectory-modes-b58-v08.json) → [61合成正反未知](../docs/capabilities/CAP-09-06/trajectory-modes-b58-fixtures-v08.json)。真实控制器/OEM/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS**。
+
 ## 2026-10-31｜B57 R-LEAD-LINK-001 区间几何保守下界补证
 [专项推导](../docs/capabilities/CAP-07-06/CONTINUOUS-LINK-CERT-B57-2026-10-31.md) → [5项来源](sources/CAP-07-06-continuous-b57.json) → [8规则/字段/原包](traces/CAP-07-06-continuous-b57-v08.json) → [49合成正反未知](../docs/capabilities/CAP-07-06/continuous-link-b57-fixtures-v08.json)。OMPL离散采样、OCCT静态距离与FCL连续API边界分开；NIST只读摘要；实际OCCT/机床/17消费者NOT_RUN，L3待审。
 
