@@ -4,7 +4,7 @@
 
 ## 业务反例与本轮解决的问题
 
-将模板 `APPROVED` 或JSON Schema `default: "ALUMINIUM"` 误读为现场材料已经测得为铝，会把**未知**误判为**适用**。本轮将模板候选应用建立在三个互斥事实等级之上：事实已知且不匹配 = `NOT_APPLICABLE`；尚无可靠事实或量纲无法解释 = `UNKNOWN`；所有已要求谓词及精确引用均有证据且通过 = `CANDIDATE_ONLY`。另外，D05 Head/Scope/任务代次过期 = `STALE`，权限、冻结或执行边界违约 = `REJECT`。处理优先级是REJECT > STALE > NOT_APPLICABLE > UNKNOWN > CANDIDATE_ONLY；**这是Procet内部决策排序，JSON Schema/ISO没有规定此五态枚举**。
+将模板 `APPROVED` 或JSON Schema `default: "ALUMINIUM"` 误读为现场材料已经测得为铝，会把**未知**误判为**适用**。本轮将模板候选应用建立在三个互斥事实等级之上：事实已知且不匹配 = `NOT_APPLICABLE`；尚无可靠事实或量纲无法解释 = `UNKNOWN`；所有已要求谓词及精确引用均有证据且通过 = `CANDIDATE_ONLY`。另外，D05 Head/Scope/任务代次过期 = `STALE`，权限、冻结或执行边界违约 = `REJECT`。判定按阶段进行：权限、身份与冻结不变量违规先`REJECT`，Owner或依赖代次冲突为`STALE`；随后必须先建立精确来源与FrameGraph资格，否则返回`UNKNOWN`；资格成立后，已知类别或量值失配为`NOT_APPLICABLE`，剩余缺失信息为`UNKNOWN`，全部满足才为`CANDIDATE_ONLY`。**这只是Procet内生保守决策顺序，并非全局可交换的状态优先级；JSON Schema/ISO没有规定这些状态**。
 
 取一个明确注明为合成的铣削模板：要求铝合金、平面腔体、粗加工、三轴能力、`pocket-main`槽位、目标直径闭区间[20,30] mm以及步距最大13 mm。NIST公开英寸定义给出 `1 in = 25.4 mm` 精确，因此`1in`直径为25.4 mm、`0.5in`步距为12.7 mm，仅满足**本合成适用性规则**。步距`0.6in=15.24mm`明确不适用；机床能力未读取时则UNKNOWN而不是默认无能力。13 mm边界是**合成值，不是刀具切削参数推荐值或标准公差**。
 
