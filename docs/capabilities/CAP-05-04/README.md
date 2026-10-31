@@ -1,3 +1,5 @@
+> **B69定点补证（2026-10-31）**：[工艺模板的三值适用性/单位精确换算与CAS](APPLICABILITY-THREE-VALUED-B69-2026-10-31.md) → [来源](../../../research/sources/CAP-05-04-applicability-b69.json) → [8规则](../../../research/traces/CAP-05-04-applicability-b69-v08.json) → [40合成](applicability-b69-fixtures-v08.json)。未知材料/机床能力不能从default推定适用，规划候选≠NC产品验证，L3及真实消费者待验。
+
 # CAP-05-04｜工艺模板与复用（V0.8原编号）
 > **规划候选，L3、Owner签署及产品/独立消费者均未执行；不是可直接使用的CAM模板库。** 保留11域、88 CAP、36工作包、17资产的既有编号。
 

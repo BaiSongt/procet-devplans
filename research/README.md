@@ -1,3 +1,6 @@
+## 2026-10-31｜B69 R-TMPL-APPLICABILITY-003 模板适用三值、量纲及Owner事务
+[研究边界](../docs/capabilities/CAP-05-04/APPLICABILITY-THREE-VALUED-B69-2026-10-31.md) → [6来源](sources/CAP-05-04-applicability-b69.json) → [8规则](traces/CAP-05-04-applicability-b69-v08.json) → [40合成](../docs/capabilities/CAP-05-04/applicability-b69-fixtures-v08.json)。JSON Schema 2020-12公开§6/§9及Core §10定点实读、NIST inch 1959精确定义、ISO14649-10仅公开摘要、W3C PROV-O公开指定章节；三值与CAS为Procet内生工程决议。合成不证明真实D05/NC/17消费者。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B68 R-KNOWLEDGE-POISON-GATE-001 RAG不可信数据写回晋级
 [原CAP补证](../docs/capabilities/CAP-11-07/POISON-PROMOTION-B68-2026-10-31.md) → [7来源](sources/CAP-11-07-poison-gate-b68.json) → [8规则/原T5-01/02/03/04](traces/CAP-11-07-poison-gate-b68-v08.json) → [49合成](../docs/capabilities/CAP-11-07/poison-gate-b68-fixtures-v08.json)。OWASP检索/工具权限公开章节及W3C PROV-O §4实读；NIST AI600-1/SP800-53仅出版摘要/版本，GFM仅§4.7，不外推未读标准正文。V8同函数规划合成，独立Node/真实向量索引/Owner/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

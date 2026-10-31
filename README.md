@@ -1,3 +1,6 @@
+## 2026-10-31｜B69 CAP-05-04 工艺模板缺失事实三值适用性及英寸单位
+[来源与数学反例](docs/capabilities/CAP-05-04/APPLICABILITY-THREE-VALUED-B69-2026-10-31.md) → [6来源](research/sources/CAP-05-04-applicability-b69.json) → [8规则/原W2-02/03/05](research/traces/CAP-05-04-applicability-b69-v08.json) → [40项五态合成](docs/capabilities/CAP-05-04/applicability-b69-fixtures-v08.json) → [只读Node](tools/check_cap0504_applicability_b69_v08.cjs) → [等级](tracking/cap0504-applicability-b69-verification-2026-10-31.json)。1in=25.4mm为NIST官方定义，JSON Schema default不是制造事实；UNKNOWN不被视为PASS。V8同函数规划合成40/40，真实Node/D05/17消费者/NC均NOT_RUN；正式Owner0/17，L3待审、历史原件与全仓GFM AST未闭。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B68 CAP-11-07 不可信RAG知识反馈的来源洗白和晋级闸门
 [定点研究](docs/capabilities/CAP-11-07/POISON-PROMOTION-B68-2026-10-31.md) → [7份阅读分级来源](research/sources/CAP-11-07-poison-gate-b68.json) → [8规则/字段/原T5-01/02/03/04](research/traces/CAP-11-07-poison-gate-b68-v08.json) → [49显式正反/STALE/UNKNOWN/只读合成](docs/capabilities/CAP-11-07/poison-gate-b68-fixtures-v08.json) → [只读Node](tools/check_cap1107_poison_gate_b68_v08.cjs) → [执行等级](tracking/cap1107-poison-gate-b68-verification-2026-10-31.json)。原检索文本即便Hash/引用正确也不具工具控制权；跨项目Chunk不能写回11域知识或提升D15/D16。49/49同judge规划合成，远端独立Node/真实RAG/17独立消费者NOT_RUN、正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
 
