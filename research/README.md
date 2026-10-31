@@ -1,3 +1,6 @@
+## 2026-11-01｜B78 R-WH-001 OPC观测状态与时间深度补证
+[7项分级来源及限制](sources/CAP-02-04-opc-observation-b78.json) → [8规则/CAP/原包](traces/CAP-02-04-opc-observation-b78-v08.json) → [32独立预期样例](../docs/capabilities/CAP-02-04/opc-observation-b78-fixtures-v08.json) → [报告](../docs/capabilities/CAP-02-04/OPC-OBSERVATION-B78-2026-11-01.md)。NIST仅出版摘要；OPC真实服务、夹具受力、Node独立进程与17消费者未执行。
+
 ## 2026-11-01｜B77 R-UI3D-001 尺寸HUD CSS像素和遮挡证据
 [9份已分级来源](sources/CAP-01-07-hud-b77.json) → [8条字段规则](traces/CAP-01-07-hud-b77-v08.json) → [48项预期正反与Unknown](../docs/capabilities/CAP-01-07/hud-b77-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-01-07/DIMENSION-HUD-B77-2026-11-01.md)。MDN/W3C/OCCT/Babylon公开相关段落核对，未锁定产品Babylon投影版本；真实Node、GUI、17消费者及L3待审。**规划PASS≠产品PASS。**
 

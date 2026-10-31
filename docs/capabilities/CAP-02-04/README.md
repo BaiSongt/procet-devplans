@@ -1,5 +1,8 @@
 # CAP-02-04｜夹具与工装资源
 
+> **B78新增研究（2026-11-01）**：[OPC UA三个Status与sourceTimestamp、serverTimestamp、信号物理身份资格](OPC-OBSERVATION-B78-2026-11-01.md) · [来源](../../../research/sources/CAP-02-04-opc-observation-b78.json) · [8规则](../../../research/traces/CAP-02-04-opc-observation-b78-v08.json) · [32项合成](opc-observation-b78-fixtures-v08.json)。对[B36](WORKHOLDING-B36-2026-10-30.md)的传感证据存在性进一步细化；无真实夹紧安全/NC/独立消费者验收，L3待审。
+
+
 版本：0.1评审稿；编制日期：2026-10-16。状态：详细规格已编制、待人类评审；不是产品实现或装夹认证。
 
 关联：[界面与字段](UI.md)｜[R-WH-001理论依据](../../../research/topics/R-WH-001.md)｜[F1-02实施工作包](../../work-packages/F1-02.md)｜[研究追踪](../../../research/traces/CAP-02-04.json)。原编号、名称和11/88/36/17目录保持不变。

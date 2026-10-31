@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "procet-b78-trace-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-02-04",
+  "sourcesPath": "research/sources/CAP-02-04-opc-observation-b78.json",
+  "fixturePath": "docs/capabilities/CAP-02-04/opc-observation-b78-fixtures-v08.json",
+  "checker": "tools/check_cap0204_opc_observation_b78_v08.cjs",
+  "rules": [
+    {
+      "id": "B78-R1",
+      "title": "资源能力为额定资料非实测",
+      "fields": [
+        "resource.revision",
+        "resource.hash",
+        "resource.published",
+        "resource.ratedSource"
+      ],
+      "sourceIds": [
+        "B78-S05",
+        "B78-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "F1-06"
+      ],
+      "caseIds": [
+        "B78-001",
+        "B78-002",
+        "B78-003",
+        "B78-004"
+      ],
+      "origin": "PROCET_INTERNAL_OR_VENDOR_CONDITIONAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B78-R2",
+      "title": "D03资源、D04计划与D10真实安装精确区分",
+      "fields": [
+        "setup.resourceRevision",
+        "setup.frame",
+        "execution.bindingResourceHash",
+        "execution.actualInstalled"
+      ],
+      "sourceIds": [
+        "B78-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "E3-04"
+      ],
+      "caseIds": [
+        "B78-005",
+        "B78-006",
+        "B78-007",
+        "B78-008"
+      ],
+      "origin": "PROCET_INTERNAL_OR_VENDOR_CONDITIONAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B78-R3",
+      "title": "Service/Operation/DataValue三层状态不得混写",
+      "fields": [
+        "sensor.serviceResult",
+        "sensor.operationResult",
+        "sensor.dataValueStatus"
+      ],
+      "sourceIds": [
+        "B78-S01",
+        "B78-S03"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "T5-03"
+      ],
+      "caseIds": [
+        "B78-009",
+        "B78-010",
+        "B78-011",
+        "B78-012"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B78-R4",
+      "title": "sourceTimestamp不由serverTimestamp代替，加入时钟不确定度",
+      "fields": [
+        "sensor.sourceTimestamp",
+        "sensor.serverTimestamp",
+        "sensor.observedAt",
+        "sensor.maxAgeMs",
+        "sensor.clockUncertaintyMs"
+      ],
+      "sourceIds": [
+        "B78-S02",
+        "B78-S04"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "T5-03"
+      ],
+      "caseIds": [
+        "B78-013",
+        "B78-014",
+        "B78-015",
+        "B78-016"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B78-R5",
+      "title": "机器夹具Node极性及观测来源exact绑定",
+      "fields": [
+        "sensor.machineId",
+        "sensor.fixtureId",
+        "sensor.nodeId",
+        "sensor.polarity",
+        "sensor.provenanceHash"
+      ],
+      "sourceIds": [
+        "B78-S02",
+        "B78-S06",
+        "B78-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04"
+      ],
+      "caseIds": [
+        "B78-017",
+        "B78-018",
+        "B78-019",
+        "B78-020"
+      ],
+      "origin": "PROCET_INTERNAL_OR_VENDOR_CONDITIONAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B78-R6",
+      "title": "CLOSED最多只读观测候选，不产生D15/D16通过",
+      "fields": [
+        "sensor.value",
+        "assessment.safetyClaim",
+        "assessment.d15",
+        "assessment.d16"
+      ],
+      "sourceIds": [
+        "B78-S03",
+        "B78-S05",
+        "B78-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "E3-05",
+        "E3-06"
+      ],
+      "caseIds": [
+        "B78-021",
+        "B78-022",
+        "B78-023",
+        "B78-024"
+      ],
+      "origin": "PROCET_INTERNAL_OR_VENDOR_CONDITIONAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B78-R7",
+      "title": "Owner ACL/CAS/修订作用域及取消晚回执重验",
+      "fields": [
+        "gate.acl",
+        "gate.cas",
+        "gate.expectedRevision",
+        "gate.currentRevision",
+        "gate.cancelled",
+        "gate.receiptGen"
+      ],
+      "sourceIds": [
+        "B78-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "U4-03"
+      ],
+      "caseIds": [
+        "B78-025",
+        "B78-026",
+        "B78-027",
+        "B78-028"
+      ],
+      "origin": "PROCET_INTERNAL_OR_VENDOR_CONDITIONAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B78-R8",
+      "title": "GUI/CLI/Agent单一Owner端口+单Babylon世界+左TaskPanel和回退",
+      "fields": [
+        "ui.channels",
+        "ui.sceneCount",
+        "ui.panel",
+        "migration.rollbackSafe",
+        "migration.freezeUnchanged"
+      ],
+      "sourceIds": [
+        "B78-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-04"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "T5-01"
+      ],
+      "caseIds": [
+        "B78-029",
+        "B78-030",
+        "B78-031",
+        "B78-032"
+      ],
+      "origin": "PROCET_INTERNAL_OR_VENDOR_CONDITIONAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ],
+  "claimBoundary": "只证明规划合成判断；候选观测不等于物理夹紧力、NC、D15或D16 PASS"
+}

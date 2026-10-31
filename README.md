@@ -1,3 +1,6 @@
+## 2026-11-01｜B78 CAP-02-04 OPC三层状态与夹具观测来源时钟
+[专项研究](docs/capabilities/CAP-02-04/OPC-OBSERVATION-B78-2026-11-01.md) → [7分级来源](research/sources/CAP-02-04-opc-observation-b78.json) → [8规则/字段](research/traces/CAP-02-04-opc-observation-b78-v08.json) → [32正反/未知/过期](docs/capabilities/CAP-02-04/opc-observation-b78-fixtures-v08.json) → [只读Node](tools/check_cap0204_opc_observation_b78_v08.cjs)。OPC Service Good≠Operation Good≠DataValue Good，serverTimestamp不能代替sourceTimestamp。32/32仅同judge合成，真实OPC/独立消费者/Owner/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B77 CAP-01-07 三维尺寸标签CSS像素、遮挡和命中资格
 [研究与DPR2投影(500,350)反例](docs/capabilities/CAP-01-07/DIMENSION-HUD-B77-2026-11-01.md) → [9分级来源](research/sources/CAP-01-07-hud-b77.json) → [8规则/字段/原U4包](research/traces/CAP-01-07-hud-b77-v08.json) → [48预期正反/STALE/UNKNOWN/只读合成](docs/capabilities/CAP-01-07/hud-b77-fixtures-v08.json) → [只读Node](tools/check_cap0107_hud_b77_v08.cjs) → [执行等级](tracking/cap0107-hud-b77-verification-2026-11-01.json)。字体≤12px，但交互命中≥24×24 CSS px；真实Babylon/DPI/跨域消费者与L3仍未验。**规划PASS≠产品PASS。**
 
