@@ -1,0 +1,2226 @@
+{
+  "schemaVersion": "procet-b74-fixtures-v1",
+  "date": "2026-11-01",
+  "baseExactHead": "567f82e32f861b167c22f83c0d208cf84f4f7c39",
+  "total": 26,
+  "counts": {
+    "positive": 8,
+    "negative": 8,
+    "unknown": 8,
+    "stale": 1,
+    "display": 1
+  },
+  "cases": [
+    {
+      "id": "B74-001",
+      "ruleId": "B74-R1",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "车刀R与铣刀D不混用",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-002",
+      "ruleId": "B74-R1",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "cutter.kind单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "MILL_END",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-003",
+      "ruleId": "B74-R1",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "cutter.noseRadiusMm单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": null,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-004",
+      "ruleId": "B74-R2",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "LinuxCNC工具表D=2R、Q取向而G41 Dn是工具号",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-005",
+      "ruleId": "B74-R2",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "bind.tableDiameterMm单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.4,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-006",
+      "ruleId": "B74-R2",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "bind.tableQ单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": null,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-007",
+      "ruleId": "B74-R3",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "Haas Tnnxx偏置非LinuxCNC Q工具号",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "Haas",
+          "version": "NGC",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "Haas",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-008",
+      "ruleId": "B74-R3",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "bind.haasOffset单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "Haas",
+          "version": "NGC",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0708",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "Haas",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-009",
+      "ruleId": "B74-R3",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "bind.version单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "Haas",
+          "version": "",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "Haas",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-010",
+      "ruleId": "B74-R4",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "G7直径与G8半径仅是位置换算",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-011",
+      "ruleId": "B74-R4",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "nc.xWord单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 20,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-012",
+      "ruleId": "B74-R4",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "nc.xMode单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": null,
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-013",
+      "ruleId": "B74-R5",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "G41/G42进入G40退出依OEM语义判定",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-014",
+      "ruleId": "B74-R5",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "nc.entryMm单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.2,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-015",
+      "ruleId": "B74-R5",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "nc.comp单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": null,
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-016",
+      "ruleId": "B74-R6",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "D03名义刀片与D10实装及实际偏置必须精确",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-017",
+      "ruleId": "B74-R6",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "bind.physicalInstall单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": false,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-018",
+      "ruleId": "B74-R6",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "bind.offsetEvidence单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": null
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-019",
+      "ruleId": "B74-R7",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "Owner CAS/ACL与迟到回执重新检查",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-020",
+      "ruleId": "B74-R7",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "gate.acl单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": false,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-021",
+      "ruleId": "B74-R7",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "gate.requestId单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": null
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-022",
+      "ruleId": "B74-R8",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "description": "同领域三入口、单Babylon左TaskPanel与冻结回退",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-023",
+      "ruleId": "B74-R8",
+      "kind": "negative",
+      "expected": "REJECT",
+      "description": "ui.sceneCount单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 2,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-024",
+      "ruleId": "B74-R8",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "description": "compat.newReader单字段变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": null,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-025",
+      "ruleId": "B74-R7",
+      "kind": "stale",
+      "expected": "STALE",
+      "description": "gate.receiptGen变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 999,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": false
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "B74-026",
+      "ruleId": "B74-R8",
+      "kind": "display",
+      "expected": "DISPLAY_ONLY",
+      "description": "ui.displayOnly变异",
+      "input": {
+        "cutter": {
+          "kind": "TURNING_INSERT",
+          "revision": "D03-r7",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "noseRadiusMm": 0.4,
+          "orientationQ": 3,
+          "unit": "mm"
+        },
+        "bind": {
+          "cutterRevision": "D03-r7",
+          "cutterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "physicalInstall": true,
+          "frame": "F1",
+          "expectedFrame": "F1",
+          "controller": "LinuxCNC",
+          "version": "2.9",
+          "loadedTool": 7,
+          "tableTool": 7,
+          "tableDiameterMm": 0.8,
+          "tableQ": 3,
+          "haasOffset": "T0707",
+          "haasTip": 3,
+          "offsetEvidence": true
+        },
+        "nc": {
+          "dialect": "LinuxCNC",
+          "finalHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "plane": "G18",
+          "xMode": "G7",
+          "partDiameterMm": 40,
+          "xWord": 40,
+          "comp": "G42",
+          "entryMm": 0.5,
+          "exitMm": 0.9,
+          "entryMotion": "LINEAR",
+          "exitMotion": "LINEAR",
+          "haasExitVerified": true,
+          "clClaimsPass": false,
+          "d13": "PENDING",
+          "d14": "NOT_RUN",
+          "d15": "NOT_RUN",
+          "d16": "BLOCKED"
+        },
+        "gate": {
+          "port": "Resources.CutterProfilePort",
+          "acl": true,
+          "cas": true,
+          "expectedRev": "D03-r7",
+          "currentRev": "D03-r7",
+          "scope": 4,
+          "expectedScope": 4,
+          "taskGen": 7,
+          "receiptGen": 7,
+          "cancelled": false,
+          "requestId": "req-74"
+        },
+        "ui": {
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "sceneCount": 1,
+          "engineCount": 1,
+          "panel": "UnifiedTaskPanel",
+          "previewWrites": false,
+          "displayOnly": true
+        },
+        "compat": {
+          "oldReader": true,
+          "newReader": true,
+          "freezeUnchanged": true,
+          "rollbackSafe": true,
+          "abOverwrite": false
+        }
+      }
+    }
+  ],
+  "note": "合成规划，不是独立机床或NC结果；Hash/工具号和半径仅为测试数值"
+}
