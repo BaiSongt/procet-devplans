@@ -1,3 +1,6 @@
+## 2026-10-31｜B64 R-MDC-OBSERVABILITY-001 OPC订阅通知、ACK与断线追踪
+[OPC官方§5.14/6.7实读与来源限制](../docs/capabilities/CAP-10-05/OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md) → [6来源登记](sources/CAP-10-05-opcua-subscription-b64.json) → [8规则字段](traces/CAP-10-05-opcua-subscription-b64-v08.json) → [68规划合成](../docs/capabilities/CAP-10-05/opcua-subscription-b64-fixtures-v08.json)；仅同函数V8，独立Node和真实D17/OPC/消费者NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B63 R-DNC-TRANSFER-001 OPC UA FileType精准短读及Session恢复证据
 [官方实读和限制](../docs/capabilities/CAP-10-04/OPCUA-SESSION-SHORTREAD-B63-2026-10-31.md) → [6项来源登记](sources/CAP-10-04-opcua-file-b63.json) → [8规则/字段/原E3-06/T5-03](traces/CAP-10-04-opcua-file-b63-v08.json) → [54项规划合成](../docs/capabilities/CAP-10-04/opcua-file-b63-fixtures-v08.json)。实测OPC UA服务、D15及独立收方均未执行，Owner/L3待人类审批。**规划PASS≠产品PASS。**
 

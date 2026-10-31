@@ -1,3 +1,6 @@
+## 2026-10-31｜B64 CAP-10-05 OPC UA订阅ACK/Republish断点与D17持久化
+[专项研究](docs/capabilities/CAP-10-05/OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md) → [6来源](research/sources/CAP-10-05-opcua-subscription-b64.json) → [8规则/字段/原E3-06/T5-03](research/traces/CAP-10-05-opcua-subscription-b64-v08.json) → [68正反/GAP/STALE/UNKNOWN合成](docs/capabilities/CAP-10-05/opcua-subscription-b64-fixtures-v08.json) → [Node只读校验器](tools/check_cap1005_opcua_subscription_b64_v08.cjs) → [核验分级](tracking/cap1005-opcua-subscription-b64-verification-2026-10-31.json)。OPC UA keep-alive≠Observation；数据入D17必须Owner CAS落盘后才考虑ACK，失联Republish缺消息的历史不能靠最新值补造。V8同函数合成68/68，独立Node/真实OPC/OEM/17消费者NOT_RUN、Owner0/17、L3待审。并修正source-index旧计数字段1299≠实际登记1317，现170 Registry/1323条。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B63 CAP-10-04 OPC UA FileType短读与Session句柄
 [研究](docs/capabilities/CAP-10-04/OPCUA-SESSION-SHORTREAD-B63-2026-10-31.md) → [6来源](research/sources/CAP-10-04-opcua-file-b63.json) → [8规则](research/traces/CAP-10-04-opcua-file-b63-v08.json) → [54合成正反未知](docs/capabilities/CAP-10-04/opcua-file-b63-fixtures-v08.json) → [只读Node工具](tools/check_cap1004_opcua_file_b63_v08.cjs) → [核验](tracking/cap1004-opcua-file-b63-verification-2026-10-31.json)。Read返回不足请求长度不是EOF；句柄不能跨Session；SetPosition越界钳到EOF。V8同判定函数54/54合成仅CANDIDATE_ONLY，独立Node/实际OPC设备/17独立消费者NOT_RUN，正式Owner0/17、L3待审。**规划PASS≠产品PASS。**
 

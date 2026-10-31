@@ -1,3 +1,6 @@
+## 2026-10-31｜B64 OPC UA订阅恢复专项补证（不改变原十任务）
+[Publish/Republish/Keepalive/Session/ACK先落盘研究](OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md) · [来源](../../../research/sources/CAP-10-05-opcua-subscription-b64.json) · [8规则](../../../research/traces/CAP-10-05-opcua-subscription-b64-v08.json) · [68独立合成](opcua-subscription-b64-fixtures-v08.json) · [验证级别](../../../tracking/cap1005-opcua-subscription-b64-verification-2026-10-31.json)。原十任务和R01–R10保留，新增B64-R01..08属于补证，不冒充真实MDC/产品验收；L3待审。**规划PASS≠产品PASS。**
+
 # CAP-10-05｜MDC数据采集（V0.8，L3待审）
 
 **原88项目标**：设备状态、报警、运行信息采集；原编号关联E3-06/T5-03。为长期扩展能力，本轮仅制定实施级规格，不宣称MVP产品已实现。
