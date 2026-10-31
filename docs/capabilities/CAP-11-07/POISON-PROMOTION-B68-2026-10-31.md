@@ -39,12 +39,14 @@
 |B68-S04|Chloe Autio、Reva Schwartz、Jesse Dunietz、Shomik Jain、Martin Stanley、Elham Tabassi、Patrick Hall、Kamie Roberts；2024-07-26|[NIST AI 600-1 Generative AI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence)；NIST publication metadata and abstract, not PDF full text（official_catalog_and_abstract）|未阅读NIST PDF正文，不用其证明精确AI控制条款|
 |B68-S05|NIST Joint Task Force；2020-09_final;2025-08-27_release_5.2.0_note|[NIST SP 800-53 Rev 5 (Release 5.2.0 note)](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)；Official SP 800-53 Rev 5 catalog; 5.2.0 planning note, not SI-10/SI-7 PDF text（official_catalog_abstract_release_note）|未读PDF逐项控制正文，不将CAS/ACL具体设计归因于本规范|
 |B68-S06|Procet规划仓业务规范；2026-10-27_or_earlier_repository_record|[CAP-11-07 既有V0.8知识反馈实施规格（固定Git Blob）](https://github.com/BaiSongt/procet-devplans/blob/bcd642973262f04c6049c13e0d55d687ab4cf09b/docs/capabilities/CAP-11-07/README.md)；受控业务闭环；精确数据结构；十项实施任务；不可信提示词段（original_specification_exact_git_blob）|这些业务规则不是OWASP/NIST/W3C逐字要求，也不是产品实现证据|
-|B68-S07|GitHub, Inc.; CommonMark contributors；public_online_spec_v0.29_gfm|[GitHub Flavored Markdown Spec](https://github.github.com/gfm/)；§4.7 Link reference definitions; examples 161–188, 550–554（public_targeted_section）|本轮仅读此章节，尚未运行全仓595份Markdown AST；不把这项参考当已完成审计|
+|B68-S07|GitHub, Inc.; CommonMark contributors；public_online_spec_v0.29_gfm|[GitHub Flavored Markdown Spec](https://github.github.com/gfm/)；§4.7 Link reference definitions; examples 161–188, 550–554（public_targeted_section）|本轮仅读此章节，尚未运行全仓596份Markdown AST；不把这项参考当已完成审计|
 
 OWASP为在线活文档，无本轮可验证的固定出版修订，因此引用访问日与章节而不伪称固定标准条款。GFM官方§4.7仅用于指出引用式链接等AST检查要求，本轮仍未执行全仓595份Markdown AST。
 
 ## 四、机器合成验收与工程阻断
 
 [7份来源](../../../research/sources/CAP-11-07-poison-gate-b68.json) → [8规则/具体字段/原工作包/逐case映射](../../../research/traces/CAP-11-07-poison-gate-b68-v08.json) → [49个具有显式期望的合成正反/过期/未知/仅显示样例](poison-gate-b68-fixtures-v08.json) → [Node只读脚本](../../../tools/check_cap1107_poison_gate_b68_v08.cjs) → [执行级别](../../../tracking/cap1107-poison-gate-b68-verification-2026-10-31.json)。本轮同judge内存合成49/49通过，覆盖{"CANDIDATE_ONLY":4,"REJECT":25,"STALE":11,"UNKNOWN":7,"DISPLAY_ONLY":2}；这不意味着安全攻击被真实防御，也不能把“候选可审核”提升成“知识已签名、已写入、已生效”。
+
+**局部链接审计**：对提交`eaea3bf36e63656ed1824c63247662c41d9ea4ee`的Git Tree（1942项，596份Markdown，未截断），用词法显式链接扫描四份相关文档，共1703条相对链接目标0缺失；[逐项范围与限制](../../../tracking/b68-link-verification-2026-10-31.json)。这不等于全仓GFM AST或锚点验证。
 
 **明确NOT_RUN**：独立Node读取真实远端GitHub文件运行、真实向量索引/跨租户数据库、源缓存撤权/断网、Owner CAS原子事务、人类签署、17实际独立消费者、OCCT/NC/B5/OEM与全仓GFM AST。L3 PENDING；历史原附件原始字节审计未闭。**规划PASS≠产品PASS。**
