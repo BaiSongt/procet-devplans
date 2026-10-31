@@ -1,3 +1,6 @@
+## 2026-10-31｜B60 CAP-07-03 索引3+2同刀轴不同roll反例
+[研究与数学Golden](docs/capabilities/CAP-07-03/INDEXED-ROLL-B60-2026-10-31.md) → [6来源](research/sources/CAP-07-03-indexed-roll-b60.json) → [8规则](research/traces/CAP-07-03-indexed-roll-b60-v08.json) → [41正反未知合成](docs/capabilities/CAP-07-03/indexed-roll-b60-fixtures-v08.json) → [Node工具](tools/check_cap0703_indexed_roll_b60_v08.cjs) → [等级记录](tracking/cap0703-indexed-roll-b60-verification-2026-10-31.json)。两矩阵刀轴同为世界X，面内X相差90°。V8同judge 41/41仅规划合成；实际独立Node、OCCT/控制器/NC/B5/17消费者均NOT_RUN，Owner0/17、L3待审、历史附件与全仓GFM AST未闭。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B59 CAP-02-07 3D资源Mesh复用实例拾取与B-Rep来源身份
 [OCCT/glTF/Babylon/NIST阅读层级与数学Golden](docs/capabilities/CAP-02-07/RENDER-PICK-IDENTITY-B59-2026-10-31.md) → [6来源](research/sources/CAP-02-07-render-pick-b59.json) → [8条规则/字段及原包](research/traces/CAP-02-07-render-pick-b59-v08.json) → [44个正反/未知合成](docs/capabilities/CAP-02-07/render-pick-b59-fixtures-v08.json) → [Node只读检查器](tools/check_cap0207_render_pick_b59_v08.cjs) → [证据分级](tracking/cap0207-render-pick-b59-verification-2026-10-31.json)。**共享meshId≠装配实例，三角片≠权威B-Rep Face；GUI只读拾取不等于D15工程验证。** 本地等价Node独立进程44/44合成通过，提交文件完整独立Node运行未核；真实OCCT/Babylon/17消费者/Owner签署均未验、L3待审。**规划PASS≠产品PASS。**
 

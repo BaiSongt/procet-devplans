@@ -1,3 +1,6 @@
+## 2026-10-31｜B60 R-INDEXED-POSE-001 面内roll/控制器隔离
+[数学与阅读范围](../docs/capabilities/CAP-07-03/INDEXED-ROLL-B60-2026-10-31.md) → [6来源](sources/CAP-07-03-indexed-roll-b60.json) → [8规则](traces/CAP-07-03-indexed-roll-b60-v08.json) → [41合成](../docs/capabilities/CAP-07-03/indexed-roll-b60-fixtures-v08.json)。OCCT8.0.1及LinuxCNC2.9公开API/章节定点读，ISO841仅目录、NIST论文仅官方摘要；17独立消费者及Owner签署均0/17。**规划PASS≠产品PASS**。
+
 ## 2026-10-31｜B59 R-RG-001 共享Mesh实例、Face谱系及GPU拾取代次
 [专门研究](../docs/capabilities/CAP-02-07/RENDER-PICK-IDENTITY-B59-2026-10-31.md) → [6项官方/内部来源及访问限制](sources/CAP-02-07-render-pick-b59.json) → [8规则、字段、原F1-02/F1-03/F1-06/E3-04/U4-02/U4-03](traces/CAP-02-07-render-pick-b59-v08.json) → [2正34反5未知3仅显示，44例](../docs/capabilities/CAP-02-07/render-pick-b59-fixtures-v08.json)。OCCT8.0.1/API、glTF2.0.1、Babylon公开定点正文已读，NISTIR7796仅官方摘要；本地等价Node 44/44，真实GPU/OCCT/Node远端完整Blob/独立消费者NOT_RUN，正式Owner0/17、L3待审。
 

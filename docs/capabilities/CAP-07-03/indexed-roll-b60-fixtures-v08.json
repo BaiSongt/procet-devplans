@@ -1,0 +1,548 @@
+{
+  "schemaVersion": "procet-b60-indexed-roll-fixture-v1",
+  "capabilityId": "CAP-07-03",
+  "provenance": "NEWLY_AUTHORED_SYNTHETIC_NO_PRODUCT_DATA",
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-03",
+    "E3-01",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "base": {
+    "owner": {
+      "acl": "ALLOW",
+      "rev": "r7",
+      "actualRev": "r7",
+      "hash": "hash7",
+      "actualHash": "hash7",
+      "frame": "FG-7",
+      "actualFrame": "FG-7",
+      "epoch": 6,
+      "actualEpoch": 6,
+      "generation": 8,
+      "ackGeneration": 8,
+      "cancelled": false
+    },
+    "pose": {
+      "R": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          -1,
+          0,
+          0
+        ]
+      ],
+      "axisX": [
+        0,
+        0,
+        -1
+      ],
+      "axisZ": [
+        1,
+        0,
+        0
+      ],
+      "fullFrame": true,
+      "fromFrame": "D04_SETUP",
+      "toFrame": "D09_INDEXED",
+      "poseHash": "idx-7",
+      "clPoseHash": "idx-7",
+      "tol": 1e-9,
+      "unit": "mm",
+      "mode": "INDEXED_3_PLUS_2",
+      "rotaryDuringCut": false,
+      "clMachineAxes": false,
+      "retracted": true
+    },
+    "execution": {
+      "d04Owner": "D04",
+      "d10Owner": "D10",
+      "d10InCl": false,
+      "post": "POST_PENDING",
+      "clClaimD15": false,
+      "clClaimD16": false,
+      "materialSweepClaim": false,
+      "frozenUnchanged": true,
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN"
+    },
+    "ui": {
+      "engines": 1,
+      "scenes": 1,
+      "canvases": 1,
+      "panel": "LEFT",
+      "port": "D09.IndexedPosePort",
+      "entries": [
+        "GUI",
+        "CLI",
+        "AGENT"
+      ],
+      "fontMax": 12
+    },
+    "legacy": {
+      "vectorOnly": false,
+      "rollbackNewRev": true,
+      "unknownAsPass": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B60-P01",
+      "ruleId": "B60-R01",
+      "expected": "LOCAL_CANDIDATE",
+      "edits": {},
+      "why": "Ry90完整姿态"
+    },
+    {
+      "id": "B60-P02",
+      "ruleId": "B60-R01",
+      "expected": "LOCAL_CANDIDATE",
+      "edits": {
+        "pose.R": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "pose.axisX": [
+          0,
+          1,
+          0
+        ]
+      },
+      "why": "Ry90·Rz90同刀轴但面内X转90°"
+    },
+    {
+      "id": "B60-N01",
+      "ruleId": "B60-R01",
+      "expected": "REJECT",
+      "edits": {
+        "pose.axisX": [
+          0,
+          1,
+          0
+        ]
+      },
+      "why": "刀轴一致却把另一个roll的X引用到当前姿态"
+    },
+    {
+      "id": "B60-N02",
+      "ruleId": "B60-R01",
+      "expected": "REJECT",
+      "edits": {
+        "pose.axisZ": [
+          0,
+          0,
+          1
+        ]
+      },
+      "why": "刀轴与R列不一致"
+    },
+    {
+      "id": "B60-N03",
+      "ruleId": "B60-R02",
+      "expected": "REJECT",
+      "edits": {
+        "pose.R": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "why": "镜像"
+    },
+    {
+      "id": "B60-N04",
+      "ruleId": "B60-R02",
+      "expected": "REJECT",
+      "edits": {
+        "pose.R": [
+          [
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      },
+      "why": "缩放"
+    },
+    {
+      "id": "B60-N05",
+      "ruleId": "B60-R02",
+      "expected": "REJECT",
+      "edits": {
+        "pose.R": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      },
+      "why": "剪切"
+    },
+    {
+      "id": "B60-N06",
+      "ruleId": "B60-R02",
+      "expected": "REJECT",
+      "edits": {
+        "pose.tol": 0
+      },
+      "why": "容差无效"
+    },
+    {
+      "id": "B60-N07",
+      "ruleId": "B60-R02",
+      "expected": "REJECT",
+      "edits": {
+        "pose.unit": "m"
+      },
+      "why": "单位不符"
+    },
+    {
+      "id": "B60-N08",
+      "ruleId": "B60-R03",
+      "expected": "REJECT",
+      "edits": {
+        "owner.acl": "DENY"
+      },
+      "why": "权限撤销"
+    },
+    {
+      "id": "B60-N09",
+      "ruleId": "B60-R03",
+      "expected": "STALE",
+      "edits": {
+        "owner.rev": "r8"
+      },
+      "why": "修订变化"
+    },
+    {
+      "id": "B60-N10",
+      "ruleId": "B60-R03",
+      "expected": "STALE",
+      "edits": {
+        "owner.hash": "new"
+      },
+      "why": "Hash变化"
+    },
+    {
+      "id": "B60-N11",
+      "ruleId": "B60-R03",
+      "expected": "STALE",
+      "edits": {
+        "owner.frame": "new"
+      },
+      "why": "Frame变化"
+    },
+    {
+      "id": "B60-N12",
+      "ruleId": "B60-R03",
+      "expected": "STALE",
+      "edits": {
+        "owner.epoch": 7
+      },
+      "why": "Scope改变"
+    },
+    {
+      "id": "B60-N13",
+      "ruleId": "B60-R03",
+      "expected": "STALE",
+      "edits": {
+        "owner.generation": 9
+      },
+      "why": "旧回执代次"
+    },
+    {
+      "id": "B60-N14",
+      "ruleId": "B60-R03",
+      "expected": "REJECT",
+      "edits": {
+        "owner.cancelled": true
+      },
+      "why": "取消晚回执"
+    },
+    {
+      "id": "B60-N15",
+      "ruleId": "B60-R03",
+      "expected": "STALE",
+      "edits": {
+        "pose.clPoseHash": "idx-old"
+      },
+      "why": "CL索引姿态失效"
+    },
+    {
+      "id": "B60-N16",
+      "ruleId": "B60-R04",
+      "expected": "REJECT",
+      "edits": {
+        "pose.mode": "CONTINUOUS"
+      },
+      "why": "不允许连续五轴冒充索引"
+    },
+    {
+      "id": "B60-N17",
+      "ruleId": "B60-R04",
+      "expected": "REJECT",
+      "edits": {
+        "pose.rotaryDuringCut": true
+      },
+      "why": "切削段存在回转"
+    },
+    {
+      "id": "B60-N18",
+      "ruleId": "B60-R04",
+      "expected": "REJECT",
+      "edits": {
+        "pose.clMachineAxes": true
+      },
+      "why": "中立CL提前写Joint"
+    },
+    {
+      "id": "B60-N19",
+      "ruleId": "B60-R04",
+      "expected": "REJECT",
+      "edits": {
+        "pose.retracted": false
+      },
+      "why": "转位前未退刀"
+    },
+    {
+      "id": "B60-N20",
+      "ruleId": "B60-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d04Owner": "D10"
+      },
+      "why": "Owner混淆"
+    },
+    {
+      "id": "B60-N21",
+      "ruleId": "B60-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d10Owner": "D04"
+      },
+      "why": "D10 Owner混淆"
+    },
+    {
+      "id": "B60-N22",
+      "ruleId": "B60-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.d10InCl": true
+      },
+      "why": "执行绑定污染CL"
+    },
+    {
+      "id": "B60-N23",
+      "ruleId": "B60-R05",
+      "expected": "REJECT",
+      "edits": {
+        "execution.post": "G10_L2_R_AS_UNIVERSAL_TILT"
+      },
+      "why": "将XY旋转误当任意空间倾斜"
+    },
+    {
+      "id": "B60-N24",
+      "ruleId": "B60-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.clClaimD15": true
+      },
+      "why": "CL动画冒充D15"
+    },
+    {
+      "id": "B60-N25",
+      "ruleId": "B60-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.clClaimD16": true
+      },
+      "why": "CL候选直接发布"
+    },
+    {
+      "id": "B60-N26",
+      "ruleId": "B60-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.materialSweepClaim": true
+      },
+      "why": "伪材料扫掠"
+    },
+    {
+      "id": "B60-N27",
+      "ruleId": "B60-R06",
+      "expected": "REJECT",
+      "edits": {
+        "execution.frozenUnchanged": false
+      },
+      "why": "覆盖冻结"
+    },
+    {
+      "id": "B60-N28",
+      "ruleId": "B60-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.engines": 2
+      },
+      "why": "多Babylon"
+    },
+    {
+      "id": "B60-N29",
+      "ruleId": "B60-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.panel": "RIGHT"
+      },
+      "why": "右侧抽屉"
+    },
+    {
+      "id": "B60-N30",
+      "ruleId": "B60-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.port": "UI_BYPASS"
+      },
+      "why": "绕过领域Port"
+    },
+    {
+      "id": "B60-N31",
+      "ruleId": "B60-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.entries": [
+          "GUI",
+          "CLI"
+        ]
+      },
+      "why": "缺Agent"
+    },
+    {
+      "id": "B60-N32",
+      "ruleId": "B60-R07",
+      "expected": "REJECT",
+      "edits": {
+        "ui.fontMax": 13
+      },
+      "why": "超12px"
+    },
+    {
+      "id": "B60-N33",
+      "ruleId": "B60-R08",
+      "expected": "REJECT",
+      "edits": {
+        "legacy.rollbackNewRev": false
+      },
+      "why": "破坏性回退"
+    },
+    {
+      "id": "B60-N34",
+      "ruleId": "B60-R08",
+      "expected": "REJECT",
+      "edits": {
+        "legacy.unknownAsPass": true
+      },
+      "why": "UNKNOWN伪PASS"
+    },
+    {
+      "id": "B60-U01",
+      "ruleId": "B60-R01",
+      "expected": "UNKNOWN",
+      "edits": {
+        "pose.fullFrame": false
+      },
+      "why": "只有刀轴无完整roll"
+    },
+    {
+      "id": "B60-U02",
+      "ruleId": "B60-R08",
+      "expected": "UNKNOWN",
+      "edits": {
+        "legacy.vectorOnly": true
+      },
+      "why": "旧向量需迁移"
+    },
+    {
+      "id": "B60-U03",
+      "ruleId": "B60-R08",
+      "expected": "UNKNOWN",
+      "edits": {
+        "pose.R": null
+      },
+      "why": "缺完整旋转矩阵"
+    },
+    {
+      "id": "B60-U04",
+      "ruleId": "B60-R03",
+      "expected": "UNKNOWN",
+      "edits": {
+        "pose.fromFrame": null
+      },
+      "why": "缺具名源Frame"
+    },
+    {
+      "id": "B60-U05",
+      "ruleId": "B60-R05",
+      "expected": "UNKNOWN",
+      "edits": {
+        "execution.post": "UNVERIFIED_OEM"
+      },
+      "why": "未知后处理选项"
+    }
+  ]
+}
