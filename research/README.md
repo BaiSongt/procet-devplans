@@ -1,3 +1,6 @@
+## 2026-11-01｜B73 R-WORKORDER-EXECUTION-001 离线工单事件身份与重放缺口
+[研究/阅读分级](../docs/capabilities/CAP-10-06/OFFLINE-EVENT-REPLAY-B73-2026-11-01.md) → [7项来源](sources/CAP-10-06-offline-events-b73.json) → [8项规则/字段/原E3-06、T5-03](traces/CAP-10-06-offline-events-b73-v08.json) → [48规划合成](../docs/capabilities/CAP-10-06/offline-events-b73-fixtures-v08.json)。CloudEvents v1.0.2、OPC 10031-4 v2.00.0与RFC 9110指定公开正文、NIST仅出版摘要；Owner/真实消费者、独立Node文件进程及OEM/NC未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B72 R-WCS-MOTION-001 两轴车床直径/半径、G码碰撞与恒线速限幅
 
 [公开阅读深度与保守算例](../docs/capabilities/CAP-08-03/LATHE-CSS-DIALECT-B72-2026-11-01.md) → [8项来源](sources/CAP-08-03-lathe-css-b72.json) → [8规则字段](traces/CAP-08-03-lathe-css-b72-v08.json) → [46独立预期合成](../docs/capabilities/CAP-08-03/lathe-css-b72-fixtures-v08.json)。2026-11-01官方LinuxCNC2.9指定章节和Haas车床清单/G50正文实读；Haas G96专页仅摘要、NIST仅出版摘要、ISO仅合法目录。真实Node进程、OEM/NC、正式Owner与独立消费者未验。**规划PASS≠产品PASS。**
