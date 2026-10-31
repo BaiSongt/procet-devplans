@@ -1,3 +1,5 @@
+> **B73研究补证（2026-11-01）**：[离线事件重放、OPC Store/StoreAndStart及D17收件资格](OFFLINE-EVENT-REPLAY-B73-2026-11-01.md) → [来源](../../../research/sources/CAP-10-06-offline-events-b73.json) → [规则/原E3-06、T5-03](../../../research/traces/CAP-10-06-offline-events-b73-v08.json) → [48规划合成](offline-events-b73-fixtures-v08.json)；独立Node/真实MES/OPC/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 # CAP-10-06｜现场执行与工单（V0.8，L3待审）
 **原88项基线原文**：作业指导、交付记录及工单关联；原编号E3-06 / T5-03。长期扩展能力；本次仅规划，不宣称MVP已实现或工厂现场已接入。
 
