@@ -1,3 +1,5 @@
+**B83追加专项（2026-11-01）：** [三维PMI标注方向平面/附件放置/Saved View分层](ANNOTATION-PLANE-B83-2026-11-01.md) · [8来源](../../../research/sources/CAP-03-04-annotation-plane-b83.json) · [8字段规则](../../../research/traces/CAP-03-04-annotation-plane-b83-v08.json) · [37显式合成](annotation-plane-b83-fixtures-v08.json) · [Node只读检查](../../../tools/check_cap0304_annotation_plane_b83_v08.cjs)。仅规划草案，L3/真实产品/跨域消费者待审。
+
 > **B22新增：** [PMI损失账本及分母防错](PMI-LOSS-LEDGER-B22-2026-10-29.md) · [5来源](../../../research/sources/CAP-03-04-pmi-loss-b22.json) · [8规则/29反例](../../../research/traces/CAP-03-04-pmi-loss-b22-v08.json)。原20案例未改，L3与产品仍待审。
 
 # CAP-03-04｜PMI与设计约束：从设计标注到可追溯的制造要求

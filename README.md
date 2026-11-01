@@ -1,3 +1,6 @@
+## 2026-11-01｜B83 CAP-03-04 PMI标注平面与Saved View/ Capture分层
+[B83 PMI标注平面、放置与Capture独立契约](docs/capabilities/CAP-03-04/ANNOTATION-PLANE-B83-2026-11-01.md) → [8项来源/访问深度](research/sources/CAP-03-04-annotation-plane-b83.json) → [8字段规则及原工作包](research/traces/CAP-03-04-annotation-plane-b83-v08.json) → [37项显式正反](docs/capabilities/CAP-03-04/annotation-plane-b83-fixtures-v08.json) → [只读Node工具](tools/check_cap0304_annotation_plane_b83_v08.cjs) → [合成验证等级](tracking/cap0304-annotation-plane-b83-verification-2026-11-01.json)。CAx-IF v4.0.8 for Review §9.4.2/Annex D与Creo R12公开手册定点阅读；Annotation Plane方向≠附件平行放置≠Capture Camera与成员；37项V8同判定函数仅合成，独立Node/真实CAD/GUI/消费者NOT_RUN，Owner0/17、L3待审、全仓AST未终核。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B82 规划仓GFM锚点碰撞与保守终核资格
 [研究](docs/architecture/v0.8/第八十二轮GFM锚点碰撞与终核资格_2026-11-01.md) → [6来源](research/sources/FINAL-MD-B82.json) → [8规则](research/traces/FINAL-MD-B82-ANCHOR-V08.json) → [22个独立预期](docs/architecture/v0.8/final-md-b82-anchor-fixtures-v08.json) → [Python只读工具](tools/check_final_md_b82_anchor_v08.py) → [执行等级](tracking/final-md-b82-verification-2026-11-01.json)。补足自动标题去重后缀与字面Slug冲突及重复HTML id的UNKNOWN分级；本地22/22合成、5故意错误变异拒绝、独立临时Git对象样例通过，**609份真实Markdown全仓GFM AST及GitHub渲染对等NOT_RUN**。正式Owner0/17、独立消费者0/17、L3待审。**规划PASS≠产品PASS。**
 

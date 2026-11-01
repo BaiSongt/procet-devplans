@@ -1,3 +1,6 @@
+## 2026-11-01｜B83 R-PMI-001 增量：Annotation Plane、附件放置与Saved View
+[8项合法且分级来源](sources/CAP-03-04-annotation-plane-b83.json) → [8规则/字段/原B0-02、F1-03、F1-04、T5-02](traces/CAP-03-04-annotation-plane-b83-v08.json) → [37项显式正反合成](../docs/capabilities/CAP-03-04/annotation-plane-b83-fixtures-v08.json) → [CAP03-04研究报告](../docs/capabilities/CAP-03-04/ANNOTATION-PLANE-B83-2026-11-01.md)。PTC R12 Orientation/Plane/Toolkit公开章节，CAx-IF PMI 4.0.8（2020-09-04，for Review）§9.4.2与Annex D PDF图页、ISO16792:2021仅官方目录摘要；真实独立Node、CATIA/Creo往返、17消费者与L3均NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B82 GFM锚点生成碰撞与校核可信度
 [6来源及其阅读边界](sources/FINAL-MD-B82.json) → [8规则/字段/CAP/原工作包/22正反与UNKNOWN](traces/FINAL-MD-B82-ANCHOR-V08.json) → [真实Git Tree固定快照下的研究](../docs/architecture/v0.8/第八十二轮GFM锚点碰撞与终核资格_2026-11-01.md)。GitHub GFM 0.29-gfm、CommonMark 0.31.2、GitHub Docs、Git Trees和markdown-it-py指定公开章节分级实读；候选slug与实际GitHub渲染不同，真实全仓AST与Owner/消费者NOT_RUN。**规划PASS≠产品PASS。**
 

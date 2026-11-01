@@ -1,0 +1,280 @@
+{
+  "schemaVersion": "procet-b83-annotation-plane-trace-v08",
+  "date": "2026-11-01",
+  "sourceRegistry": "research/sources/CAP-03-04-annotation-plane-b83.json",
+  "capabilityId": "CAP-03-04",
+  "adjacentCapabilities": [
+    "CAP-03-03",
+    "CAP-01-07"
+  ],
+  "originalWorkPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "AP83-R01",
+      "statement": "同一D01 exact源、修订、装配Occurrence和Frame才能把PMI锚点与Plane关联",
+      "sourceIds": [
+        "P83-S06",
+        "P83-S08"
+      ],
+      "fields": [
+        "scope.sourceHash",
+        "scope.designRev",
+        "scope.occurrence",
+        "scope.frame",
+        "pmi.anchor"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "B0-02",
+      "positiveIds": [
+        "B83-P01"
+      ],
+      "negativeIds": [
+        "B83-N01",
+        "B83-N02"
+      ]
+    },
+    {
+      "id": "AP83-R02",
+      "statement": "Plane的right/up/normal正交且右手向，文字角度与原点有限；1e-6仅合成数值阈值",
+      "sourceIds": [
+        "P83-S01",
+        "P83-S03",
+        "P83-S04"
+      ],
+      "fields": [
+        "plane.origin",
+        "plane.right",
+        "plane.up",
+        "plane.normal",
+        "plane.textRotationDeg"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B83-P02"
+      ],
+      "negativeIds": [
+        "B83-N03",
+        "B83-N04",
+        "B83-N05",
+        "B83-N06"
+      ]
+    },
+    {
+      "id": "AP83-R03",
+      "statement": "驱动Plane要精确有效Reference；冻结Plane保留basis SnapshotHash，失效不自动latest重绑",
+      "sourceIds": [
+        "P83-S01",
+        "P83-S03",
+        "P83-S04"
+      ],
+      "fields": [
+        "plane.mode",
+        "plane.binding",
+        "plane.referenceRef",
+        "plane.referenceStatus",
+        "plane.frozenSnapshotHash"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B83-P03",
+        "B83-P04"
+      ],
+      "negativeIds": [
+        "B83-N07",
+        "B83-N08"
+      ]
+    },
+    {
+      "id": "AP83-R04",
+      "statement": "PMI的Plane方向、平行放置偏移及第一附件分别保存；只有resolved定位可供草案",
+      "sourceIds": [
+        "P83-S02",
+        "P83-S03",
+        "P83-S08"
+      ],
+      "fields": [
+        "pmi.planeId",
+        "pmi.offsetMm",
+        "pmi.attachmentState",
+        "plane.id"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-04",
+      "positiveIds": [
+        "B83-P05"
+      ],
+      "negativeIds": [
+        "B83-N09",
+        "B83-N10",
+        "B83-N11"
+      ]
+    },
+    {
+      "id": "AP83-R05",
+      "statement": "SavedView固定显示成员和Camera，单Plane不等价Capture，缺失相机/成员返回UNKNOWN",
+      "sourceIds": [
+        "P83-S05",
+        "P83-S06"
+      ],
+      "fields": [
+        "view.kind",
+        "view.cameraExact",
+        "view.visibilityExact",
+        "view.memberIds",
+        "view.exportSavedView"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "T5-02",
+      "positiveIds": [
+        "B83-P06"
+      ],
+      "negativeIds": [
+        "B83-N12",
+        "B83-N13",
+        "B83-N14"
+      ]
+    },
+    {
+      "id": "AP83-R06",
+      "statement": "Graphic-only与未知GD&T修改符不能升格制造语义；Flat-to-Screen仅允许本设计的只读NOTE",
+      "sourceIds": [
+        "P83-S04",
+        "P83-S05",
+        "P83-S08"
+      ],
+      "fields": [
+        "pmi.kind",
+        "pmi.semanticStatus",
+        "pmi.modifierSupport",
+        "plane.mode"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "T5-02",
+      "positiveIds": [
+        "B83-P07",
+        "B83-P08"
+      ],
+      "negativeIds": [
+        "B83-N15",
+        "B83-N16",
+        "B83-N17"
+      ]
+    },
+    {
+      "id": "AP83-R07",
+      "statement": "GUI/CLI/Agent统一PMI Owner Port，GUI只有一个Babylon世界且统一左TaskPanel；Renderer只读",
+      "sourceIds": [
+        "P83-S05",
+        "P83-S08"
+      ],
+      "fields": [
+        "ui.sameDomainPort",
+        "ui.guiPresent",
+        "ui.worldCount",
+        "ui.taskPanel"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-04",
+      "positiveIds": [
+        "B83-P09",
+        "B83-P10"
+      ],
+      "negativeIds": [
+        "B83-N18",
+        "B83-N19",
+        "B83-N20"
+      ]
+    },
+    {
+      "id": "AP83-R08",
+      "statement": "预览≠提交，Commit时按ACL/CAS/Scope/Cancel和回执工程一致性重验，冻结独立人审",
+      "sourceIds": [
+        "P83-S07",
+        "P83-S08"
+      ],
+      "fields": [
+        "command.mode",
+        "command.authorized",
+        "command.expectedPmiRev",
+        "command.currentPmiRev",
+        "command.scopeEpoch",
+        "command.activeEpoch",
+        "command.cancelled",
+        "command.receiptProject"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "B0-02",
+      "positiveIds": [
+        "B83-P11",
+        "B83-P12"
+      ],
+      "negativeIds": [
+        "B83-N21",
+        "B83-N22",
+        "B83-N23",
+        "B83-N24",
+        "B83-N25"
+      ]
+    }
+  ],
+  "fixturesPath": "docs/capabilities/CAP-03-04/annotation-plane-b83-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0304_annotation_plane_b83_v08.cjs",
+  "semanticStatus": "L3_PENDING_HUMAN",
+  "ownerSignatureCount": 0,
+  "independentConsumerPassCount": 0
+}

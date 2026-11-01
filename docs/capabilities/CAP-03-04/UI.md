@@ -38,3 +38,9 @@
 ## 审查验收（具体产品入口尚未建立，`TODO_TEST_ENTRY`）
 
 须覆盖：同一零件定义的两实例不同PMI、缺Datum、sourceHash变更、CAD拓扑分裂、presentation-only、未知标准体系、尺寸mm与deg混合、CAD语义导入loss、补录与原生语义冲突、协同CAS竞态、离线恢复缺件、审批回执超时、Agent和GUI同权限、多面多边拓扑匹配误差、旧版reader向后兼容，以及发布后源要求失效。UI不是审批真值，3D看见标注不证明GD&T被解析。
+
+## B83（2026-11-01）标注平面与Capture操作补充
+
+沿用本文件五页结构、唯一Babylon世界与左UnifiedTaskPanel，在第三页内添加平面管理、参考Plane/NamedView、Driven/Frozen、翻转/文字旋转、附件偏移及每PMI的planeId；第五页新增Capture及camera/visibilitySet的只读互操作对照。方向Plane、标注实际位置与Saved View三者独立；切换活动Plane**不能覆盖已建PMI**。屏幕避让只更改Renderer临时投影，字体≤12 CSS px而命中区域独立设置，颜色随浅/深主题变化。导出完整Saved View时缺Camera或成员仅UNKNOWN；Clip/切面属Capture/视图层，GD&T语义仍属03域Owner。
+
+[完整流程/字段与失败迁移](ANNOTATION-PLANE-B83-2026-11-01.md) → [规则/验收](../../../research/traces/CAP-03-04-annotation-plane-b83-v08.json) → [Node只读校验入口](../../../tools/check_cap0304_annotation_plane_b83_v08.cjs)。CLI/Agent沿用同域受管命令、提交点CAS/ACL、取消迟到回执不串工程。T5-02真实CATIA/Creo/AP242独立消费者入口仅规划，NOT_RUN。
