@@ -1,3 +1,6 @@
+## 2026-11-01｜B95 R-WCS-MOTION-001 独立弧心模态与全圆螺旋
+[8项来源阅读分级](sources/CAP-08-03-arc-modal-b95.json) → [9规则及字段](traces/CAP-08-03-arc-modal-b95-v08.json) → [38正反UNKNOWN及2Golden](../docs/capabilities/CAP-08-03/arc-modal-b95-fixtures-v08.json) → [CAP-08-03 B95研究](../docs/capabilities/CAP-08-03/ARC-MODAL-B95-2026-11-01.md)。LinuxCNC§5.1与§55冲突按UNKNOWN处理，NISTIR6556仅官方摘要、ISO6983只读合法目录；真实解释器/跨域消费者未测，L3待人审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B94 R-NEUTRAL-CL-CONTRACT-001 反平行与SO(3)轨迹
 [8份来源及阅读深度](sources/CAP-07-07-orientation-b94.json) → [8规则字段](traces/CAP-07-07-orientation-b94-v08.json) → [35正反UNKNOWN/3Golden](../docs/capabilities/CAP-07-07/orientation-b94-fixtures-v08.json) → [数学与Owner边界](../docs/capabilities/CAP-07-07/ORIENTATION-INTERPOLATION-B94-2026-11-01.md)。Eigen仅检索摘录、NIST/arXiv仅摘要，真实NC/消费者NOT_RUN。**规划PASS≠产品PASS。**
 

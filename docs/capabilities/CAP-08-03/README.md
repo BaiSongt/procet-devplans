@@ -39,3 +39,7 @@ GUI/CLI/Agent共用08域Owner Port和UseCase，不独立写D12/D13；NC Activity
 ## 2026-11-01｜B72车床G95/G99碰撞与CSS限幅专项补证
 
 [专项研究与阅读等级](LATHE-CSS-DIALECT-B72-2026-11-01.md) → [8来源](../../../research/sources/CAP-08-03-lathe-css-b72.json) → [8规则/原编号包](../../../research/traces/CAP-08-03-lathe-css-b72-v08.json) → [46项合成正反过期未知](lathe-css-b72-fixtures-v08.json) → [Node只读工具](../../../tools/check_cap0803_lathe_css_b72_v08.cjs)。LinuxCNC G95每转≠Haas车床G95动力刀具攻丝；Haas车床每转为G99，G50 S与LinuxCNC G96 D必须按Profile解释，X直径/半径与中心Frame不能猜。真实D13/D14/D15、Haas/LinuxCNC/OEM及17消费者NOT_RUN，Owner0/17、L3待审。**规划PASS≠产品PASS。**
+
+
+## B95增量：G2/G3中心与端点独立模态、R符号及完整圆
+[研究报告与公开文档冲突](ARC-MODAL-B95-2026-11-01.md) → [8份来源/9规则与E3-02、E3-03、U4-04](../../../research/traces/CAP-08-03-arc-modal-b95-v08.json) → [38例正反UNKNOWN](arc-modal-b95-fixtures-v08.json) → [Node验证入口](../../../tools/check_cap0803_arc_modal_b95_v08.cjs)。G18绝对弧心同页§5.1 I/K与§55 J/K冲突保持UNKNOWN，真实控制器/L3与17实际消费者均待审。**规划PASS≠产品PASS。**

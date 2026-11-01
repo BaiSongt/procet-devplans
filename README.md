@@ -1,3 +1,6 @@
+## 2026-11-01｜B95 CAP-08-03 G2/G3弧心双模态与LinuxCNC文档冲突
+[研究报告/实际阅读局限](docs/capabilities/CAP-08-03/ARC-MODAL-B95-2026-11-01.md) → [8项来源](research/sources/CAP-08-03-arc-modal-b95.json) → [9规则字段/原包](research/traces/CAP-08-03-arc-modal-b95-v08.json) → [38显式正反与UNKNOWN/2数学Golden](docs/capabilities/CAP-08-03/arc-modal-b95-fixtures-v08.json) → [Node只读工具](tools/check_cap0803_arc_modal_b95_v08.cjs)。LinuxCNC2.9同页§5.1 G18 I/K与§55 G18 J/K冲突维持UNKNOWN；38合成仅同judge预检，真实NC、Owner0/17、消费者0/17、L3及全仓GFM AST待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B94 CAP-07-07 中立CL反平行刀轴与姿态插值补证
 [专题与合法来源分级](docs/capabilities/CAP-07-07/ORIENTATION-INTERPOLATION-B94-2026-11-01.md) → [8来源](research/sources/CAP-07-07-orientation-b94.json) → [8规则字段/原工作包](research/traces/CAP-07-07-orientation-b94-v08.json) → [35正反UNKNOWN/3解析Golden](docs/capabilities/CAP-07-07/orientation-b94-fixtures-v08.json) → [Node只读检查器](tools/check_cap0707_orientation_b94_v08.cjs)。仅V8同judge合成，Node独立进程/OCCT/NC/真实Owner/消费者/L3待审。**规划PASS≠产品PASS。**
 
