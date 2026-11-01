@@ -1,3 +1,6 @@
+## 2026-11-01｜B87 R-GEO-001 布尔Fuzzy与Glue几何前提深度补证
+[7项分级来源及局限](sources/CAP-06-03-fuzzy-b87.json) → [8规则/字段/原编号包](traces/CAP-06-03-fuzzy-b87-v08.json) → [32合成正反](../docs/capabilities/CAP-06-03/fuzzy-b87-fixtures-v08.json) → [研究](../docs/capabilities/CAP-06-03/BOOLEAN-FUZZY-B87-2026-11-01.md)。OCCT8.0.1官方Fuzzy/Gluing/SafeProcessing/History章节定点实读；NIST Han 2000仅摘要；合成非产品、无真实Owner签署/独立消费者，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B86 R-TA-001 车床刀塔工位/总成/Offset分离补证
 [9来源及阅读限制](sources/CAP-02-03-lathe-turret-b86.json) → [8规则字段](traces/CAP-02-03-lathe-turret-b86-v08.json) → [32正反](../docs/capabilities/CAP-02-03/lathe-turret-b86-fixtures-v08.json) → [CAP研究](../docs/capabilities/CAP-02-03/LATHE-TURRET-B86-2026-11-01.md)。Haas T0102与LinuxCNC Tn/M6不同；同函数合成，独立Node/NC/OEM/正式Owner/消费者未验。**规划PASS≠产品PASS**。
 

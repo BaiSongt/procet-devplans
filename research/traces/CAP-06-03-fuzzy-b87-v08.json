@@ -1,0 +1,356 @@
+{
+  "schemaVersion": "procet-b87-fuzzy-trace-v08",
+  "date": "2026-11-01",
+  "sourceRegistry": "research/sources/CAP-06-03-fuzzy-b87.json",
+  "capabilityId": "CAP-06-03",
+  "relatedCapabilities": [
+    "CAP-03-03",
+    "CAP-06-07"
+  ],
+  "originalWorkPackages": [
+    "F1-05",
+    "W2-02",
+    "W2-03",
+    "W2-06"
+  ],
+  "assetOwners": "03域D01/D02、04域D04、06域D06/D07、05域D08均为候选Owner；正式签署0/17",
+  "ruleCount": 8,
+  "acceptanceFixture": "docs/capabilities/CAP-06-03/fuzzy-b87-fixtures-v08.json",
+  "validator": "tools/check_cap0603_fuzzy_b87_v08.cjs",
+  "independentConsumers": "NOT_RUN",
+  "rules": [
+    {
+      "id": "F87-R1",
+      "statement": "固定输入Stock/去料候选/目标和Setup的exact scope、revision、hash、frame及单位，严禁用活跃UI选择代替签名事实",
+      "sourceIds": [
+        "F87-S07"
+      ],
+      "fields": [
+        "inputs.revision",
+        "inputs.hash",
+        "inputs.frame",
+        "inputs.unit",
+        "inputs.scope"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "F1-05",
+      "assets": [
+        "D01",
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveIds": [
+        "F87-01"
+      ],
+      "negativeIds": [
+        "F87-02",
+        "F87-03",
+        "F87-04"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "F87-R2",
+      "statement": "fuzzy必须是有单位、量测gap、最小特征和审批上限的版本化策略；接近薄壁尺度时UNKNOWN，不以自动增大fuzzy解围",
+      "sourceIds": [
+        "F87-S01",
+        "F87-S03",
+        "F87-S06"
+      ],
+      "fields": [
+        "boolean.fuzzy",
+        "policy.maxFuzzy",
+        "geometry.minFeature",
+        "geometry.measuredGap",
+        "policy.version"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-03",
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveIds": [
+        "F87-05"
+      ],
+      "negativeIds": [
+        "F87-06",
+        "F87-07",
+        "F87-08"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "F87-R3",
+      "statement": "GlueOff默认；GlueShift/GlueFull只在无真实交叉、并取得具体共面/重合独立证据后可候选，否则拒绝或UNKNOWN",
+      "sourceIds": [
+        "F87-S01",
+        "F87-S02"
+      ],
+      "fields": [
+        "boolean.glue",
+        "geometry.realIntersection",
+        "geometry.coincidenceProof"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-03",
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveIds": [
+        "F87-09",
+        "F87-12"
+      ],
+      "negativeIds": [
+        "F87-10",
+        "F87-11"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "F87-R4",
+      "statement": "不变输入启用SetNonDestructive并重新比对前后源字节哈希；未观测前后字节不可称无修改",
+      "sourceIds": [
+        "F87-S01",
+        "F87-S02",
+        "F87-S07"
+      ],
+      "fields": [
+        "boolean.nonDestructive",
+        "inputs.hashBefore",
+        "inputs.hashAfter"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "F1-05",
+      "assets": [
+        "D01",
+        "D07"
+      ],
+      "positiveIds": [
+        "F87-13"
+      ],
+      "negativeIds": [
+        "F87-14",
+        "F87-15",
+        "F87-16"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "F87-R5",
+      "statement": "简化前后历史必须连通并支持多对一；IsDeleted/Modified/Generated不能推断唯一拓扑继承关系",
+      "sourceIds": [
+        "F87-S01",
+        "F87-S02",
+        "F87-S04",
+        "F87-S07"
+      ],
+      "fields": [
+        "history.enabled",
+        "history.simplify",
+        "history.merged",
+        "history.multiOrigin",
+        "history.finalResolved"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-06",
+      "assets": [
+        "D02",
+        "D06",
+        "D07"
+      ],
+      "positiveIds": [
+        "F87-17"
+      ],
+      "negativeIds": [
+        "F87-18",
+        "F87-19",
+        "F87-20"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "F87-R6",
+      "statement": "HasErrors、HasWarnings、Build完成与Message_Report分别记录，警告不静默提升几何正确性",
+      "sourceIds": [
+        "F87-S01",
+        "F87-S03",
+        "F87-S05"
+      ],
+      "fields": [
+        "report.hasErrors",
+        "report.hasWarnings",
+        "report.isDone",
+        "report.captured"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-03",
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveIds": [
+        "F87-21"
+      ],
+      "negativeIds": [
+        "F87-22",
+        "F87-23",
+        "F87-24"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "F87-R7",
+      "statement": "保护区、Solid检查、独立Oracle与具体D07结果分别验证；静态fixture最多得到合成候选资格",
+      "sourceIds": [
+        "F87-S05",
+        "F87-S06",
+        "F87-S07"
+      ],
+      "fields": [
+        "oracle.valid",
+        "oracle.checkedSolidCount",
+        "oracle.protectedOverlap",
+        "oracle.independentPath"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "W2-06",
+      "assets": [
+        "D04",
+        "D07",
+        "D08"
+      ],
+      "positiveIds": [
+        "F87-25"
+      ],
+      "negativeIds": [
+        "F87-26",
+        "F87-27",
+        "F87-28"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "F87-R8",
+      "statement": "06域同一GUI/CLI/Agent受管Port、一个Babylon/左TaskPanel；提交前重验CAS/ACL/取消并保存迁移回退，不越权冻结或冒充NC验证",
+      "sourceIds": [
+        "F87-S07"
+      ],
+      "fields": [
+        "owner.port",
+        "ui.worlds",
+        "ui.panel",
+        "tx.expectedHead",
+        "tx.aclEpoch",
+        "tx.generation",
+        "tx.cancelled",
+        "migration.rollbackRef"
+      ],
+      "capabilityId": "CAP-06-03",
+      "relatedCapabilities": [
+        "CAP-03-03",
+        "CAP-06-07"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "primaryPackage": "F1-05",
+      "assets": [
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "F87-29"
+      ],
+      "negativeIds": [
+        "F87-30",
+        "F87-31",
+        "F87-32"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    }
+  ]
+}

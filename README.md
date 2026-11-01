@@ -1,3 +1,6 @@
+## 2026-11-01｜B87 CAP-06-03 OCCT布尔Fuzzy与Glue风险前提
+[研究与实际来源深度](docs/capabilities/CAP-06-03/BOOLEAN-FUZZY-B87-2026-11-01.md) → [7来源](research/sources/CAP-06-03-fuzzy-b87.json) → [8规则/原W2-03/F1-05](research/traces/CAP-06-03-fuzzy-b87-v08.json) → [32显式正反/UNKNOWN](docs/capabilities/CAP-06-03/fuzzy-b87-fixtures-v08.json) → [Node](tools/check_cap0603_fuzzy_b87_v08.cjs)。Glue仅在无真实子形状相交且有重合证据时可启；fuzzy实测预算不能抹平薄壁；非破坏输入与简化后History分离。仅同判定函数合成32/32和8故障注入；真实OCCT/Owner/独立消费者及全仓AST仍NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B86 CAP-02-03车床刀塔与刀补Index分层
 [报告](docs/capabilities/CAP-02-03/LATHE-TURRET-B86-2026-11-01.md) → [9来源](research/sources/CAP-02-03-lathe-turret-b86.json) → [8规则](research/traces/CAP-02-03-lathe-turret-b86-v08.json) → [32正反](docs/capabilities/CAP-02-03/lathe-turret-b86-fixtures-v08.json) → [Node](tools/check_cap0203_lathe_turret_b86_v08.cjs)。Haas§8.3/§11.3与LinuxCNC2.9官方正文定点阅读，ISO仅目录，NIST仅摘要。32/32同函数合成，真实Owner/消费者0/17、L3待审，**规划PASS≠产品PASS**。
 
