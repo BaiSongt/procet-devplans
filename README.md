@@ -1,3 +1,6 @@
+## 2026-11-01｜B85 CAP-10-07现场变更补丁原子性与CAS
+[研究](docs/capabilities/CAP-10-07/CHANGE-PATCH-B85-2026-11-01.md) → [7来源](research/sources/CAP-10-07-change-patch-b85.json) → [8规则](research/traces/CAP-10-07-change-patch-b85-v08.json) → [46合成](docs/capabilities/CAP-10-07/change-patch-b85-fixtures-v08.json)。Owner/真实消费者/L3未验；**规划PASS≠产品PASS**。
+
 ## 2026-11-01｜B84 CAP-04-05 多Setup转序相关测量不确定度
 [研究与标量合成反例](docs/capabilities/CAP-04-05/TRANSFER-UNCERTAINTY-B84-2026-11-01.md) → [9项分级来源](research/sources/CAP-04-05-transfer-uncertainty-b84.json) → [8规则及原F1-02/F1-04/W2-05/E3-04/U4-02](research/traces/CAP-04-05-transfer-uncertainty-b84-v08.json) → [46个显式正反/UNKNOWN/STALE](docs/capabilities/CAP-04-05/transfer-uncertainty-b84-fixtures-v08.json) → [只读Node验收入口](tools/check_cap0405_transfer_uncertainty_b84_v08.cjs) → [验证等级](tracking/cap0405-transfer-uncertainty-b84-verification-2026-11-01.json)。相关性ρ未知不默认零；0.06mm是自设1σ合成预算非公差；D04与D10、D15/D16隔离，真实计量、独立Node、17正式Owner/消费者、全仓GFM AST与L3均未完成。**规划PASS≠产品PASS。**
 

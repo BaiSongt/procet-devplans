@@ -1,0 +1,602 @@
+{
+  "schemaVersion": "procet-b85-fixtures-v08",
+  "date": "2026-11-01",
+  "classification": "SYNTHETIC_ONLY",
+  "base": {
+    "incident": {
+      "id": "INC-85",
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d17": "D17@r12",
+      "sourceOwner": "10.现场",
+      "frame": "FRAME-12",
+      "quality": "VERIFIED"
+    },
+    "document": {
+      "operations": {
+        "OP/A": {
+          "strategyIntent": "ROUGH"
+        },
+        "OP~1": {
+          "strategyIntent": "FINISH"
+        }
+      }
+    },
+    "patch": {
+      "type": "application/json-patch+json",
+      "ops": [
+        {
+          "op": "test",
+          "path": "/operations/OP~1A/strategyIntent",
+          "value": "ROUGH"
+        },
+        {
+          "op": "replace",
+          "path": "/operations/OP~1A/strategyIntent",
+          "value": "FINISH"
+        }
+      ]
+    },
+    "boundary": {
+      "d04": "D04@r4",
+      "d10": "D10@r7",
+      "identical": false,
+      "frozenWrite": false,
+      "d05DirectWrite": false,
+      "claimD16": false,
+      "clAsD15": false,
+      "d13Known": true
+    },
+    "ui": {
+      "gui": "10.FieldEngineeringChangePort",
+      "cli": "10.FieldEngineeringChangePort",
+      "agent": "10.FieldEngineeringChangePort",
+      "worldCount": 1,
+      "panel": "LEFT_UNIFIED",
+      "previewWrites": false
+    },
+    "command": {
+      "mode": "PROPOSE",
+      "readAllowed": true,
+      "aclAtCommit": true,
+      "expectedHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "actualHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "sourceHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "expectedRevision": "r5",
+      "actualRevision": "r5",
+      "expectedFrame": "FRAME-12",
+      "actualFrame": "FRAME-12",
+      "scope": 3,
+      "actualScope": 3,
+      "generation": 5,
+      "actualGeneration": 5,
+      "cancelled": false,
+      "lateAck": false
+    },
+    "migration": {
+      "readerPreserved": true,
+      "rollbackRef": "D05-old@r4",
+      "claimConsumerPass": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B85-P01",
+      "ruleId": "CP85-R01",
+      "expected": "QUALIFIED_CHANGE_DRAFT",
+      "changes": []
+    },
+    {
+      "id": "B85-P02",
+      "ruleId": "CP85-R03",
+      "expected": "QUALIFIED_CHANGE_DRAFT",
+      "changes": [
+        {
+          "path": "patch.ops.0.path",
+          "value": "/operations/OP~01/strategyIntent"
+        },
+        {
+          "path": "patch.ops.1.path",
+          "value": "/operations/OP~01/strategyIntent"
+        },
+        {
+          "path": "patch.ops.0.value",
+          "value": "FINISH"
+        },
+        {
+          "path": "patch.ops.1.value",
+          "value": "ROUGH"
+        }
+      ]
+    },
+    {
+      "id": "B85-P03",
+      "ruleId": "CP85-R07",
+      "expected": "DISPLAY_ONLY",
+      "changes": [
+        {
+          "path": "command.mode",
+          "value": "PREVIEW"
+        }
+      ]
+    },
+    {
+      "id": "B85-N01",
+      "ruleId": "CP85-R01",
+      "expected": "UNKNOWN_INCIDENT",
+      "changes": [
+        {
+          "path": "incident.id",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B85-N02",
+      "ruleId": "CP85-R01",
+      "expected": "UNKNOWN_INCIDENT",
+      "changes": [
+        {
+          "path": "incident.hash",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "B85-N03",
+      "ruleId": "CP85-R01",
+      "expected": "UNKNOWN_INCIDENT",
+      "changes": [
+        {
+          "path": "incident.d17",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B85-N04",
+      "ruleId": "CP85-R01",
+      "expected": "UNKNOWN_INCIDENT",
+      "changes": [
+        {
+          "path": "incident.quality",
+          "value": "UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "id": "B85-N05",
+      "ruleId": "CP85-R01",
+      "expected": "UNKNOWN_INCIDENT",
+      "changes": [
+        {
+          "path": "incident.frame",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B85-N06",
+      "ruleId": "CP85-R02",
+      "expected": "REJECT_PATCH_FORMAT",
+      "changes": [
+        {
+          "path": "patch.type",
+          "value": "application/merge-patch+json"
+        }
+      ]
+    },
+    {
+      "id": "B85-N07",
+      "ruleId": "CP85-R02",
+      "expected": "REJECT_PATCH_SHAPE",
+      "changes": [
+        {
+          "path": "patch.ops",
+          "value": [
+            {
+              "op": "test",
+              "path": "/operations/OP~1A/strategyIntent",
+              "value": "ROUGH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B85-N08",
+      "ruleId": "CP85-R02",
+      "expected": "UNKNOWN_PATCH_SEMANTIC",
+      "changes": [
+        {
+          "path": "patch.ops.1.op",
+          "value": "remove"
+        }
+      ]
+    },
+    {
+      "id": "B85-N09",
+      "ruleId": "CP85-R02",
+      "expected": "UNKNOWN_PATCH_SEMANTIC",
+      "changes": [
+        {
+          "path": "patch.ops.1.op",
+          "value": "move"
+        }
+      ]
+    },
+    {
+      "id": "B85-N10",
+      "ruleId": "CP85-R03",
+      "expected": "REJECT_POINTER",
+      "changes": [
+        {
+          "path": "patch.ops.0.path",
+          "value": "/operations/OP~2A/strategyIntent"
+        }
+      ]
+    },
+    {
+      "id": "B85-N11",
+      "ruleId": "CP85-R03",
+      "expected": "REJECT_PATH_POLICY",
+      "changes": [
+        {
+          "path": "patch.ops.0.path",
+          "value": "/operations/OP/A/strategyIntent"
+        }
+      ]
+    },
+    {
+      "id": "B85-N12",
+      "ruleId": "CP85-R03",
+      "expected": "REJECT_POINTER",
+      "changes": [
+        {
+          "path": "patch.ops.0.path",
+          "value": "/operations/__proto__/strategyIntent"
+        }
+      ]
+    },
+    {
+      "id": "B85-N13",
+      "ruleId": "CP85-R03",
+      "expected": "REJECT_PATH_POLICY",
+      "changes": [
+        {
+          "path": "patch.ops.0.path",
+          "value": "/frozen/field"
+        }
+      ]
+    },
+    {
+      "id": "B85-N14",
+      "ruleId": "CP85-R03",
+      "expected": "REJECT_PATH_POLICY",
+      "changes": [
+        {
+          "path": "patch.ops.0.path",
+          "value": "/operations/OP~1A/feed"
+        }
+      ]
+    },
+    {
+      "id": "B85-N15",
+      "ruleId": "CP85-R04",
+      "expected": "REJECT_TEST",
+      "changes": [
+        {
+          "path": "patch.ops.0.value",
+          "value": "FINISH"
+        }
+      ]
+    },
+    {
+      "id": "B85-N16",
+      "ruleId": "CP85-R04",
+      "expected": "REJECT_UNGUARDED_PATCH",
+      "changes": [
+        {
+          "path": "patch.ops.0.op",
+          "value": "replace"
+        }
+      ]
+    },
+    {
+      "id": "B85-N17",
+      "ruleId": "CP85-R04",
+      "expected": "REJECT_UNGUARDED_PATCH",
+      "changes": [
+        {
+          "path": "patch.ops.1.path",
+          "value": "/operations/OP~01/strategyIntent"
+        }
+      ]
+    },
+    {
+      "id": "B85-N18",
+      "ruleId": "CP85-R04",
+      "expected": "REJECT_VALUE",
+      "changes": [
+        {
+          "path": "patch.ops.1.value",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B85-N19",
+      "ruleId": "CP85-R04",
+      "expected": "REJECT_VALUE",
+      "changes": [
+        {
+          "path": "patch.ops.1.value",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "id": "B85-N20",
+      "ruleId": "CP85-R04",
+      "expected": "REJECT_NO_CHANGE",
+      "changes": [
+        {
+          "path": "patch.ops.1.value",
+          "value": "ROUGH"
+        }
+      ]
+    },
+    {
+      "id": "B85-N21",
+      "ruleId": "CP85-R05",
+      "expected": "STALE_CAS",
+      "changes": [
+        {
+          "path": "command.expectedRevision",
+          "value": "r4"
+        }
+      ]
+    },
+    {
+      "id": "B85-N22",
+      "ruleId": "CP85-R05",
+      "expected": "STALE_CAS",
+      "changes": [
+        {
+          "path": "command.actualHash",
+          "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        }
+      ]
+    },
+    {
+      "id": "B85-N23",
+      "ruleId": "CP85-R05",
+      "expected": "STALE_CAS",
+      "changes": [
+        {
+          "path": "command.sourceHash",
+          "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      ]
+    },
+    {
+      "id": "B85-N24",
+      "ruleId": "CP85-R05",
+      "expected": "STALE_FRAME",
+      "changes": [
+        {
+          "path": "command.actualFrame",
+          "value": "FRAME-OLD"
+        }
+      ]
+    },
+    {
+      "id": "B85-N25",
+      "ruleId": "CP85-R05",
+      "expected": "STALE_SCOPE",
+      "changes": [
+        {
+          "path": "command.actualScope",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "B85-N26",
+      "ruleId": "CP85-R05",
+      "expected": "STALE_SCOPE",
+      "changes": [
+        {
+          "path": "command.actualGeneration",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "id": "B85-N27",
+      "ruleId": "CP85-R06",
+      "expected": "UNKNOWN_EXEC_BINDING",
+      "changes": [
+        {
+          "path": "boundary.d10",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B85-N28",
+      "ruleId": "CP85-R06",
+      "expected": "REJECT_BOUNDARY",
+      "changes": [
+        {
+          "path": "boundary.identical",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B85-N29",
+      "ruleId": "CP85-R06",
+      "expected": "BLOCK_FROZEN",
+      "changes": [
+        {
+          "path": "boundary.frozenWrite",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B85-N30",
+      "ruleId": "CP85-R06",
+      "expected": "REJECT_OWNER",
+      "changes": [
+        {
+          "path": "boundary.d05DirectWrite",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B85-N31",
+      "ruleId": "CP85-R06",
+      "expected": "REJECT_FALSE_RELEASE",
+      "changes": [
+        {
+          "path": "boundary.claimD16",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B85-N32",
+      "ruleId": "CP85-R06",
+      "expected": "REJECT_FALSE_RELEASE",
+      "changes": [
+        {
+          "path": "boundary.clAsD15",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B85-N33",
+      "ruleId": "CP85-R06",
+      "expected": "UNKNOWN_DOWNSTREAM",
+      "changes": [
+        {
+          "path": "boundary.d13Known",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B85-N34",
+      "ruleId": "CP85-R07",
+      "expected": "REJECT_UI",
+      "changes": [
+        {
+          "path": "ui.agent",
+          "value": "11.AgentPort"
+        }
+      ]
+    },
+    {
+      "id": "B85-N35",
+      "ruleId": "CP85-R07",
+      "expected": "REJECT_UI",
+      "changes": [
+        {
+          "path": "ui.worldCount",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "B85-N36",
+      "ruleId": "CP85-R07",
+      "expected": "REJECT_UI",
+      "changes": [
+        {
+          "path": "ui.panel",
+          "value": "RIGHT_DRAWER"
+        }
+      ]
+    },
+    {
+      "id": "B85-N37",
+      "ruleId": "CP85-R07",
+      "expected": "REJECT_ACL",
+      "changes": [
+        {
+          "path": "command.aclAtCommit",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B85-N38",
+      "ruleId": "CP85-R07",
+      "expected": "REJECT_ACL",
+      "changes": [
+        {
+          "path": "command.readAllowed",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B85-N39",
+      "ruleId": "CP85-R07",
+      "expected": "REJECT_CANCELLED",
+      "changes": [
+        {
+          "path": "command.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B85-N40",
+      "ruleId": "CP85-R07",
+      "expected": "REJECT_LATE_ACK",
+      "changes": [
+        {
+          "path": "command.lateAck",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B85-N41",
+      "ruleId": "CP85-R08",
+      "expected": "UNKNOWN_MIGRATION",
+      "changes": [
+        {
+          "path": "migration.readerPreserved",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B85-N42",
+      "ruleId": "CP85-R08",
+      "expected": "UNKNOWN_MIGRATION",
+      "changes": [
+        {
+          "path": "migration.rollbackRef",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B85-N43",
+      "ruleId": "CP85-R08",
+      "expected": "REJECT_FAKE_CONSUMER",
+      "changes": [
+        {
+          "path": "migration.claimConsumerPass",
+          "value": true
+        }
+      ]
+    }
+  ]
+}

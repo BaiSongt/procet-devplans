@@ -1,3 +1,6 @@
+## 2026-11-01｜B85现场变更RFC Pointer/Patch研究
+[官方规范和限制](../docs/capabilities/CAP-10-07/CHANGE-PATCH-B85-2026-11-01.md) → [7来源](sources/CAP-10-07-change-patch-b85.json) → [8规则](traces/CAP-10-07-change-patch-b85-v08.json) → [46正反](../docs/capabilities/CAP-10-07/change-patch-b85-fixtures-v08.json)。仅规划合成，真实消费者NOT_RUN。
+
 ## 2026-11-01｜B84 R-MSET-001 多Setup测量相关性补证
 [9项合法来源与逐项阅读深度](sources/CAP-04-05-transfer-uncertainty-b84.json) → [8规则/字段/原工作包](traces/CAP-04-05-transfer-uncertainty-b84-v08.json) → [46个显式预期案例](../docs/capabilities/CAP-04-05/transfer-uncertainty-b84-fixtures-v08.json) → [研究](../docs/capabilities/CAP-04-05/TRANSFER-UNCERTAINTY-B84-2026-11-01.md)。NIST NUM官网v1.6.4支持有相关输入的数学不确定度评估；ISO5459与JCGM100仅官方目录摘要，OCCT8.0.1与Modern Robotics只读公开指定章节；产品、实测、独立消费者NOT_RUN。**规划PASS≠产品PASS。**
 

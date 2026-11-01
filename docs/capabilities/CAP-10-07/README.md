@@ -38,3 +38,6 @@
 ## B40 事件时钟、MTConnect代次与证据非因果补证（2026-10-30）
 
 [专项研究与阅读范围](EVENT-PROVENANCE-B40-2026-10-30.md) → [来源](../../../research/sources/CAP-10-07-event-provenance-b40.json) → [8规则/字段/原工作包](../../../research/traces/CAP-10-07-event-provenance-b40-v08.json) → [正反合成](event-provenance-b40-fixtures-v08.json) → [只读检查](../../../tools/check_cap1007_event_provenance_b40_v08.cjs)。保留原R01–R10和70项原验收，不覆盖原字节/追踪。规划PASS≠产品PASS。
+
+## B85现场JSON Patch与跨域Owner CAS（2026-11-01）
+[研究](CHANGE-PATCH-B85-2026-11-01.md) → [7来源](../../../research/sources/CAP-10-07-change-patch-b85.json) → [8规则](../../../research/traces/CAP-10-07-change-patch-b85-v08.json) → [46机器合成](change-patch-b85-fixtures-v08.json) → [Node](../../../tools/check_cap1007_change_patch_b85_v08.cjs)。10域只提案，05域写D05；L3及产品未验。

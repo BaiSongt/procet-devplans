@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+'use strict';
+// B85合成规格只读校验，真实Owner/消费者/NC/机床NOT_RUN。
+const fs=require('node:fs'),path=require('node:path');
+const hash=x=>typeof x==="string"&&/^[a-f0-9]{64}$/.test(x);
+const str=x=>typeof x==="string"&&x.trim().length>0;
+const pointer=function pointer(p){if(typeof p!=="string"||!p.startsWith("/")||p.includes("//"))return null;const a=p.slice(1).split("/");if(a.some(t=>/~(?![01])/.test(t)))return null;const t=a.map(v=>v.replace(/~1/g,"/").replace(/~0/g,"~"));return t.some(v=>["__proto__","constructor","prototype"].includes(v))?null:t};
+const readKey=function readKey(o,ks){for(const k of ks){if(!o||typeof o!=="object"||Array.isArray(o)||!Object.prototype.hasOwnProperty.call(o,k))return {ok:false};o=o[k]}return {ok:true,value:o}};
+const evaluate=function evaluate(x){const s=x?.incident,p=x?.patch,d=x?.document,b=x?.boundary,u=x?.ui,c=x?.command,m=x?.migration;
+if(!s||!str(s.id)||!hash(s.hash)||!str(s.d17)||!str(s.sourceOwner)||!str(s.frame)||s.quality!=="VERIFIED")return "UNKNOWN_INCIDENT";
+if(p?.type!=="application/json-patch+json")return "REJECT_PATCH_FORMAT";
+if(!Array.isArray(p.ops)||p.ops.length!==2||!d)return "REJECT_PATCH_SHAPE";
+const [a,z]=p.ops;if(!a||!z||!["test","replace"].includes(a.op)||!["test","replace"].includes(z.op))return "UNKNOWN_PATCH_SEMANTIC";
+if(a.op!=="test"||z.op!=="replace")return "REJECT_UNGUARDED_PATCH";
+const ta=pointer(a.path),tz=pointer(z.path);if(!ta||!tz)return "REJECT_POINTER";
+if(ta.length!==3||tz.length!==3||ta[0]!=="operations"||tz[0]!=="operations"||ta[2]!=="strategyIntent"||tz[2]!=="strategyIntent")return "REJECT_PATH_POLICY";
+if(a.path!==z.path)return "REJECT_UNGUARDED_PATCH";
+const found=readKey(d,ta);if(!found.ok||typeof found.value!=="string")return "REJECT_POINTER";
+if(typeof a.value!=="string"||a.value!==found.value)return "REJECT_TEST";
+if(typeof z.value!=="string"||!["ROUGH","FINISH","SEMI_FINISH"].includes(z.value))return "REJECT_VALUE";
+if(z.value===found.value)return "REJECT_NO_CHANGE";
+if(!b||!str(b.d04)||!str(b.d10))return "UNKNOWN_EXEC_BINDING";
+if(b.identical)return "REJECT_BOUNDARY";if(b.frozenWrite)return "BLOCK_FROZEN";if(b.d05DirectWrite)return "REJECT_OWNER";
+if(b.claimD16||b.clAsD15)return "REJECT_FALSE_RELEASE";if(!b.d13Known)return "UNKNOWN_DOWNSTREAM";
+if(!u||u.gui!=="10.FieldEngineeringChangePort"||u.cli!==u.gui||u.agent!==u.gui||u.worldCount!==1||u.panel!=="LEFT_UNIFIED"||u.previewWrites)return "REJECT_UI";
+if(!c||!["PREVIEW","PROPOSE"].includes(c.mode))return "UNKNOWN_COMMAND";
+if(!c.readAllowed)return "REJECT_ACL";if(c.mode==="PREVIEW")return "DISPLAY_ONLY";
+if(!c.aclAtCommit)return "REJECT_ACL";
+if(!hash(c.expectedHash)||c.expectedHash!==c.actualHash||c.expectedHash!==c.sourceHash||!str(c.expectedRevision)||c.expectedRevision!==c.actualRevision)return "STALE_CAS";
+if(!str(c.expectedFrame)||c.expectedFrame!==c.actualFrame||c.expectedFrame!==s.frame)return "STALE_FRAME";
+if(!Number.isInteger(c.scope)||c.scope!==c.actualScope||!Number.isInteger(c.generation)||c.generation!==c.actualGeneration)return "STALE_SCOPE";
+if(c.cancelled)return "REJECT_CANCELLED";if(c.lateAck)return "REJECT_LATE_ACK";
+if(!m?.readerPreserved||!str(m.rollbackRef))return "UNKNOWN_MIGRATION";if(m.claimConsumerPass)return "REJECT_FAKE_CONSUMER";
+return "QUALIFIED_CHANGE_DRAFT";};
+const patchAt=function patchAt(o,p,v){let ks=p.split("."),n=o;for(let i=0;i<ks.length-1;i++)n=n[/^\d+$/.test(ks[i])?Number(ks[i]):ks[i]];n[/^\d+$/.test(ks.at(-1))?Number(ks.at(-1)):ks.at(-1)]=v;};
+const f=JSON.parse(fs.readFileSync(process.argv[2]||path.resolve(__dirname,'../docs/capabilities/CAP-10-07/change-patch-b85-fixtures-v08.json'),'utf8'));
+let passed=0;const errors=[],ids=new Set(),rules=new Set();
+for(const c of f.cases){if(ids.has(c.id)){errors.push('DUPLICATE '+c.id);continue;}ids.add(c.id);rules.add(c.ruleId);const x=JSON.parse(JSON.stringify(f.base));for(const t of c.changes)patchAt(x,t.path,t.value);const before=JSON.stringify(x),got=evaluate(x);if(got===c.expected)passed++;else errors.push(c.id+':'+got+' expected '+c.expected);if(JSON.stringify(x)!==before)errors.push('MUTATED '+c.id);}
+for(let i=1;i<=8;i++)if(!rules.has('CP85-R'+String(i).padStart(2,'0')))errors.push('RULE_MISSING '+i);
+console.log(JSON.stringify({passed,total:f.cases.length,errors,scope:'SYNTHETIC_ONLY',product:'NOT_RUN'},null,2));if(errors.length)process.exitCode=1;
