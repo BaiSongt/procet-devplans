@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "procet-b92-trace-v08",
+  "origin": "NEWLY_AUTHORED_PLANNING_ONLY",
+  "sourceRegistry": "research/sources/CAP-07-02-trim-projection-b92.json",
+  "fixturePath": "docs/capabilities/CAP-07-02/trim-projection-b92-fixtures-v08.json",
+  "reportPath": "docs/capabilities/CAP-07-02/TRIMMED-FACE-PROJECTION-B92-2026-11-01.md",
+  "validator": "tools/check_cap0702_trim_projection_b92_v08.cjs",
+  "capabilityId": "CAP-07-02",
+  "originalWorkPackages": [
+    "F1-03",
+    "E3-01",
+    "U4-04"
+  ],
+  "assetOwner": "D09_07_CAM",
+  "l1l2": "UNCHANGED",
+  "l3": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "B92-R1",
+      "statement": "D01/D02/D03/D04/D07/D08 exact输入和冻结不变",
+      "sourceIds": [
+        "B92-S08"
+      ],
+      "fields": [
+        "refs.actualHash",
+        "refs.expectedHash",
+        "refs.actualFrameHash",
+        "refs.expectedFrameHash",
+        "refs.scopeEpoch",
+        "refs.frozenD08Untouched"
+      ],
+      "primaryPackage": "E3-01",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P1"
+      ],
+      "negativeIds": [
+        "B92-N1a",
+        "B92-N1b"
+      ],
+      "unknownIds": [
+        "B92-U1"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B92-R2",
+      "statement": "支撑面正交投影须IsDone、多解索引合法及残差预算",
+      "sourceIds": [
+        "B92-S01"
+      ],
+      "fields": [
+        "projection.done",
+        "projection.solutions",
+        "projection.solutionIndex",
+        "projection.distanceMm",
+        "projection.toleranceMm"
+      ],
+      "primaryPackage": "F1-03",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P2"
+      ],
+      "negativeIds": [
+        "B92-N2a",
+        "B92-N2b"
+      ],
+      "unknownIds": [
+        "B92-U2"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B92-R3",
+      "statement": "真实修剪Face IN/OUT/ON不得由支撑面或UVBounds替代",
+      "sourceIds": [
+        "B92-S01",
+        "B92-S02",
+        "B92-S03",
+        "B92-S05",
+        "B92-S06"
+      ],
+      "fields": [
+        "face.trimChecker",
+        "face.trimClass",
+        "face.topologyValid",
+        "face.uvBoundsAsProof",
+        "face.supportingSurfaceOnlyAsProof"
+      ],
+      "primaryPackage": "E3-01",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P3"
+      ],
+      "negativeIds": [
+        "B92-N3a",
+        "B92-N3b"
+      ],
+      "unknownIds": [
+        "B92-U3"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B92-R4",
+      "statement": "TopAbs_ON不自动晋级，必须有边归属与缝协调证据",
+      "sourceIds": [
+        "B92-S02",
+        "B92-S08"
+      ],
+      "fields": [
+        "boundary.policy",
+        "boundary.ownerVerified",
+        "boundary.reconciled"
+      ],
+      "primaryPackage": "F1-03",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P4"
+      ],
+      "negativeIds": [
+        "B92-N4a",
+        "B92-N4b"
+      ],
+      "unknownIds": [
+        "B92-U4"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B92-R5",
+      "statement": "周期UV等价须同Exact Face、已知Period、两端Trim与真实3D缝距",
+      "sourceIds": [
+        "B92-S04",
+        "B92-S08"
+      ],
+      "fields": [
+        "seam.periodU",
+        "seam.uStart",
+        "seam.uEnd",
+        "seam.sameExactFaceHash",
+        "seam.xyzGapMm",
+        "seam.bothTrimQualified"
+      ],
+      "primaryPackage": "F1-03",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P5"
+      ],
+      "negativeIds": [
+        "B92-N5a",
+        "B92-N5b"
+      ],
+      "unknownIds": [
+        "B92-U5"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B92-R6",
+      "statement": "带孔平面解析Golden区分支撑面距离和修剪面最近距离，复杂曲面保持UNKNOWN",
+      "sourceIds": [
+        "B92-S01",
+        "B92-S02",
+        "B92-S07",
+        "B92-S08"
+      ],
+      "fields": [
+        "face.point",
+        "face.holes",
+        "projection.supportDistanceClaimMm",
+        "projection.faceDistanceClaimMm"
+      ],
+      "primaryPackage": "E3-01",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P6"
+      ],
+      "negativeIds": [
+        "B92-N6a",
+        "B92-N6b"
+      ],
+      "unknownIds": [
+        "B92-U6"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B92-R7",
+      "statement": "07 Owner统一GUI/CLI/Agent与单Babylon左TaskPanel，CAS ACL权限代次取消重验",
+      "sourceIds": [
+        "B92-S08"
+      ],
+      "fields": [
+        "owner.samePortGuiCliAgent",
+        "owner.oneBabylonWorld",
+        "owner.leftTaskPanel",
+        "commit.aclAllowed",
+        "commit.receiptGeneration"
+      ],
+      "primaryPackage": "U4-04",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P7"
+      ],
+      "negativeIds": [
+        "B92-N7a",
+        "B92-N7b"
+      ],
+      "unknownIds": [
+        "B92-U7"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B92-R8",
+      "statement": "D09 CL预览不授D13/D14/D15/D16权限；D04与D10分离，UNKNOWN阻发布",
+      "sourceIds": [
+        "B92-S08"
+      ],
+      "fields": [
+        "owner.d04D10Separate",
+        "nc.clControllerNeutral",
+        "nc.clPreviewCountsAsD15",
+        "nc.d13Status",
+        "nc.d14Status",
+        "nc.d15Status",
+        "nc.releaseEligible"
+      ],
+      "primaryPackage": "U4-04",
+      "ownerAsset": "D09",
+      "capabilityId": "CAP-07-02",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B92-P8"
+      ],
+      "negativeIds": [
+        "B92-N8a",
+        "B92-N8b"
+      ],
+      "unknownIds": [
+        "B92-U8"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY_NOT_PRODUCT_PASS"
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+{
+  "schemaVersion": "procet-b92-trim-face-fixture-v08",
+  "syntheticOnly": true,
+  "sourceRegistry": "research/sources/CAP-07-02-trim-projection-b92.json",
+  "ruleTrace": "research/traces/CAP-07-02-trim-projection-b92-v08.json",
+  "geometryScope": "ANALYTIC_RECT_HOLE_NOT_REAL_OCCT",
+  "baseline": {
+    "refs": {
+      "actualHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "expectedHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actualFrameHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "expectedFrameHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "scopeEpoch": 4,
+      "expectedScopeEpoch": 4,
+      "frozenD08Untouched": true
+    },
+    "projection": {
+      "done": true,
+      "solutions": 2,
+      "solutionIndex": 1,
+      "distanceMm": 1,
+      "toleranceMm": 1.1,
+      "supportDistanceClaimMm": 1,
+      "faceDistanceClaimMm": 1
+    },
+    "face": {
+      "model": "PLANAR_RECT_HOLE",
+      "topologyValid": "YES",
+      "trimChecker": "RUN",
+      "uvBoundsAsProof": false,
+      "supportingSurfaceOnlyAsProof": false,
+      "point": [
+        3,
+        3,
+        1
+      ],
+      "projected": [
+        3,
+        3,
+        0
+      ],
+      "outer": [
+        0,
+        0,
+        10,
+        10
+      ],
+      "holes": [
+        [
+          4,
+          4,
+          6,
+          6
+        ]
+      ],
+      "trimClass": "IN"
+    },
+    "boundary": {
+      "policy": "CANDIDATE_ONLY",
+      "ownerVerified": true,
+      "reconciled": true
+    },
+    "seam": {
+      "enabled": false,
+      "sameExactFaceHash": true,
+      "periodicVerified": true,
+      "bothTrimQualified": true,
+      "xyzVerified": true,
+      "periodU": 6.283185307179586,
+      "uStart": 0,
+      "uEnd": 6.283185307179586,
+      "xyzGapMm": 0,
+      "xyzGapBudgetMm": 0.001,
+      "rawUvDifferenceUsedAsMetric": false
+    },
+    "owner": {
+      "ownerDomain": "07",
+      "asset": "D09",
+      "samePortGuiCliAgent": true,
+      "oneBabylonWorld": true,
+      "leftTaskPanel": true,
+      "d04D10Separate": true
+    },
+    "commit": {
+      "aclAllowed": true,
+      "cancelled": false,
+      "rollbackNonDestructive": true,
+      "lateReceiptDiscarded": true,
+      "expectedHead": "revision-v1",
+      "actualHead": "revision-v1",
+      "taskGeneration": 7,
+      "receiptGeneration": 7
+    },
+    "nc": {
+      "controllerProfileResolved": true,
+      "clControllerNeutral": true,
+      "clPreviewCountsAsD15": false,
+      "materialSweepSimulated": false,
+      "d09OverridesD08": false,
+      "releaseEligible": false,
+      "d13Status": "UNKNOWN",
+      "d14Status": "NOT_RUN",
+      "d15Status": "NOT_RUN",
+      "d16HumanApproved": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B92-P1",
+      "ruleId": "B92-R1",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {},
+      "note": "精确输入和D08冻结"
+    },
+    {
+      "id": "B92-N1a",
+      "ruleId": "B92-R1",
+      "expect": "STALE",
+      "patch": {
+        "refs.actualHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "note": "来源hash变更"
+    },
+    {
+      "id": "B92-N1b",
+      "ruleId": "B92-R1",
+      "expect": "STALE",
+      "patch": {
+        "refs.actualFrameHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "note": "Frame hash失配"
+    },
+    {
+      "id": "B92-U1",
+      "ruleId": "B92-R1",
+      "expect": "UNKNOWN",
+      "patch": {
+        "refs.actualHash": null
+      },
+      "note": "来源缺失"
+    },
+    {
+      "id": "B92-P2",
+      "ruleId": "B92-R2",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {
+        "projection.solutionIndex": 2
+      },
+      "note": "多个有效投影候选但不代表唯一刀位"
+    },
+    {
+      "id": "B92-N2a",
+      "ruleId": "B92-R2",
+      "expect": "REJECT",
+      "patch": {
+        "projection.solutionIndex": 3
+      },
+      "note": "1-based索引越界"
+    },
+    {
+      "id": "B92-N2b",
+      "ruleId": "B92-R2",
+      "expect": "REJECT",
+      "patch": {
+        "projection.distanceMm": 1.2
+      },
+      "note": "投影残差超过预算"
+    },
+    {
+      "id": "B92-U2",
+      "ruleId": "B92-R2",
+      "expect": "UNKNOWN",
+      "patch": {
+        "projection.done": false
+      },
+      "note": "投影失败"
+    },
+    {
+      "id": "B92-P3",
+      "ruleId": "B92-R3",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {},
+      "note": "Face trim IN"
+    },
+    {
+      "id": "B92-N3a",
+      "ruleId": "B92-R3",
+      "expect": "REJECT",
+      "patch": {
+        "face.point": [
+          5,
+          5,
+          1
+        ],
+        "face.projected": [
+          5,
+          5,
+          0
+        ],
+        "face.trimClass": "IN"
+      },
+      "note": "孔内支撑面投影假IN"
+    },
+    {
+      "id": "B92-N3b",
+      "ruleId": "B92-R3",
+      "expect": "REJECT",
+      "patch": {
+        "face.uvBoundsAsProof": true
+      },
+      "note": "UVBounds不是trim证明"
+    },
+    {
+      "id": "B92-U3",
+      "ruleId": "B92-R3",
+      "expect": "UNKNOWN",
+      "patch": {
+        "face.trimChecker": "NOT_RUN"
+      },
+      "note": "未执行FaceClassifier"
+    },
+    {
+      "id": "B92-P4",
+      "ruleId": "B92-R4",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {
+        "face.point": [
+          4,
+          5,
+          1
+        ],
+        "face.projected": [
+          4,
+          5,
+          0
+        ],
+        "face.trimClass": "ON"
+      },
+      "note": "边界ON候选已确认但不授予NC"
+    },
+    {
+      "id": "B92-N4a",
+      "ruleId": "B92-R4",
+      "expect": "REJECT",
+      "patch": {
+        "face.point": [
+          4,
+          5,
+          1
+        ],
+        "face.projected": [
+          4,
+          5,
+          0
+        ],
+        "face.trimClass": "ON",
+        "boundary.policy": "AUTO_ACCEPT"
+      },
+      "note": "ON自动宣称通过"
+    },
+    {
+      "id": "B92-N4b",
+      "ruleId": "B92-R4",
+      "expect": "REJECT",
+      "patch": {
+        "face.point": [
+          5,
+          5,
+          1
+        ],
+        "face.projected": [
+          5,
+          5,
+          0
+        ],
+        "face.trimClass": "ON"
+      },
+      "note": "孔内部错误声明为ON"
+    },
+    {
+      "id": "B92-U4",
+      "ruleId": "B92-R4",
+      "expect": "UNKNOWN",
+      "patch": {
+        "face.point": [
+          4,
+          5,
+          1
+        ],
+        "face.projected": [
+          4,
+          5,
+          0
+        ],
+        "face.trimClass": "ON",
+        "boundary.ownerVerified": false
+      },
+      "note": "边归属未确认"
+    },
+    {
+      "id": "B92-P5",
+      "ruleId": "B92-R5",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {
+        "seam.enabled": true
+      },
+      "note": "同一精确面周期UV+物理缝证据"
+    },
+    {
+      "id": "B92-N5a",
+      "ruleId": "B92-R5",
+      "expect": "REJECT",
+      "patch": {
+        "seam.enabled": true,
+        "seam.rawUvDifferenceUsedAsMetric": true
+      },
+      "note": "raw UV差不能当3D缝隙"
+    },
+    {
+      "id": "B92-N5b",
+      "ruleId": "B92-R5",
+      "expect": "REJECT",
+      "patch": {
+        "seam.enabled": true,
+        "seam.xyzGapMm": 0.02
+      },
+      "note": "物理缝隙越过预算"
+    },
+    {
+      "id": "B92-U5",
+      "ruleId": "B92-R5",
+      "expect": "UNKNOWN",
+      "patch": {
+        "seam.enabled": true,
+        "seam.periodicVerified": false
+      },
+      "note": "周期性未证"
+    },
+    {
+      "id": "B92-P6",
+      "ruleId": "B92-R6",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {},
+      "note": "平面内点投影距离"
+    },
+    {
+      "id": "B92-N6a",
+      "ruleId": "B92-R6",
+      "expect": "REJECT",
+      "patch": {
+        "projection.faceDistanceClaimMm": 2
+      },
+      "note": "错误Face距离声明"
+    },
+    {
+      "id": "B92-N6b",
+      "ruleId": "B92-R6",
+      "expect": "REJECT",
+      "patch": {
+        "projection.supportDistanceClaimMm": 0
+      },
+      "note": "错误支撑面距离"
+    },
+    {
+      "id": "B92-U6",
+      "ruleId": "B92-R6",
+      "expect": "UNKNOWN",
+      "patch": {
+        "face.model": "UNSUPPORTED_COMPLEX_TRIM"
+      },
+      "note": "复杂曲面不适用这个解析Oracle"
+    },
+    {
+      "id": "B92-P7",
+      "ruleId": "B92-R7",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {},
+      "note": "同Owner API及提交点安全检查"
+    },
+    {
+      "id": "B92-N7a",
+      "ruleId": "B92-R7",
+      "expect": "REJECT",
+      "patch": {
+        "commit.aclAllowed": false
+      },
+      "note": "ACL撤销"
+    },
+    {
+      "id": "B92-N7b",
+      "ruleId": "B92-R7",
+      "expect": "STALE",
+      "patch": {
+        "commit.receiptGeneration": 6
+      },
+      "note": "晚回执代次不符"
+    },
+    {
+      "id": "B92-U7",
+      "ruleId": "B92-R7",
+      "expect": "UNKNOWN",
+      "patch": {
+        "commit.aclAllowed": "UNKNOWN"
+      },
+      "note": "权限不确定"
+    },
+    {
+      "id": "B92-P8",
+      "ruleId": "B92-R8",
+      "expect": "PASS_PLANNING_LOCAL_ONLY",
+      "patch": {},
+      "note": "CL仅候选不等于NC发布"
+    },
+    {
+      "id": "B92-N8a",
+      "ruleId": "B92-R8",
+      "expect": "REJECT",
+      "patch": {
+        "nc.releaseEligible": true
+      },
+      "note": "D13 unknown误发布"
+    },
+    {
+      "id": "B92-N8b",
+      "ruleId": "B92-R8",
+      "expect": "REJECT",
+      "patch": {
+        "nc.clPreviewCountsAsD15": true
+      },
+      "note": "CL动画冒充NC安全验证"
+    },
+    {
+      "id": "B92-U8",
+      "ruleId": "B92-R8",
+      "expect": "UNKNOWN",
+      "patch": {
+        "nc.controllerProfileResolved": false
+      },
+      "note": "控制器Profile未知"
+    }
+  ],
+  "arithmeticGoldens": [
+    {
+      "id": "B92-G1",
+      "point": [
+        3,
+        3,
+        1
+      ],
+      "class": "IN",
+      "supportDistanceMm": 1,
+      "trimDistanceMm": 1
+    },
+    {
+      "id": "B92-G2",
+      "point": [
+        5,
+        5,
+        1
+      ],
+      "class": "OUT",
+      "supportDistanceMm": 1,
+      "trimDistanceMm": 1.4142135623730951
+    },
+    {
+      "id": "B92-G3",
+      "uStart": 0,
+      "uEnd": 6.283185307179586,
+      "periodU": 6.283185307179586,
+      "wrappedGap": 0
+    }
+  ]
+}

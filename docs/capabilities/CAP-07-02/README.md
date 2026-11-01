@@ -48,3 +48,6 @@ D01/D02/D03/D04/D07/D08变化只失效确证依赖范围的D09及其派生D11～
 
 ## 溯源、校验和实际产品验收分层
 [研究专题](../../../research/topics/R-3AXIS-SURFACE-001.md) → [10份合法公开来源及深度](../../../research/sources/CAP-07-02.json) → [10规则/字段映射](../../../research/traces/CAP-07-02.json) → [20正反+10独立变异](fixtures.json) → [规划校验器](../../../tools/check_cap0702_planning_2026_10_26.cjs)。`node tools/check_cap0702_planning_2026_10_26.cjs`仅检静态规划合成DTO；**不执行真实OCCT/机床/后处理/独立消费者，规划PASS≠产品PASS**。
+
+## B92 修剪Face与支撑曲面投影证据分层（2026-11-01）
+[专项补证](TRIMMED-FACE-PROJECTION-B92-2026-11-01.md) → [8来源](../../../research/sources/CAP-07-02-trim-projection-b92.json) → [8规则字段及F1-03/E3-01/U4-04](../../../research/traces/CAP-07-02-trim-projection-b92-v08.json) → [32合成与3解析Golden](trim-projection-b92-fixtures-v08.json) → [只读Node](../../../tools/check_cap0702_trim_projection_b92_v08.cjs) → [分级验收](../../../tracking/cap0702-trim-projection-b92-verification-2026-11-01.json)。防止孔内支撑曲面垂足被当Trim面合法刀位；周期UV原值差不是真实3D缝距。L3、Owner/真实独立消费者、OCCT与全仓GFM AST均待审，**规划PASS≠产品PASS**。

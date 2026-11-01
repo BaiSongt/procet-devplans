@@ -1,3 +1,6 @@
+## 2026-11-01｜B92 CAP-07-02 修剪Face投影、孔环和周期UV缝专项补证
+[研究与访问限制](docs/capabilities/CAP-07-02/TRIMMED-FACE-PROJECTION-B92-2026-11-01.md) → [8来源](research/sources/CAP-07-02-trim-projection-b92.json) → [8规则/CAP/原F1-03、E3-01、U4-04](research/traces/CAP-07-02-trim-projection-b92-v08.json) → [8正16反8未知/3解析Golden](docs/capabilities/CAP-07-02/trim-projection-b92-fixtures-v08.json) → [只读Node工具](tools/check_cap0702_trim_projection_b92_v08.cjs)。V8同判定合成32/32、解析Golden3/3，真实OCCT、独立Node、Owner/消费者与全仓AST均NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B91 CAP-07-01 多环岛屿偏置/窄通道/圆弧误差补证
 [研究与限制](docs/capabilities/CAP-07-01/MULTIRING-OFFSET-B91-2026-11-01.md) → [7来源](research/sources/CAP-07-01-multiring-offset-b91.json) → [8规则/原F1-03/E3-01/U4-04](research/traces/CAP-07-01-multiring-offset-b91-v08.json) → [8正18反、3解析Golden](docs/capabilities/CAP-07-01/multiring-offset-b91-fixtures-v08.json) → [只读Node](tools/check_cap0701_multiring_offset_b91_v08.cjs)。限定平行通道及弦高合成，不宣称实际OCCT、D15或独立消费者通过。L3待审，规划PASS≠产品PASS。
 

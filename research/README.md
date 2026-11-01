@@ -1,3 +1,6 @@
+## 2026-11-01｜B92 R-3AXIS-SURFACE-001 修剪面投影及孔环误判
+[8项分级来源](sources/CAP-07-02-trim-projection-b92.json) → [8规则字段/原包](traces/CAP-07-02-trim-projection-b92-v08.json) → [32合成及3解析Golden](../docs/capabilities/CAP-07-02/trim-projection-b92-fixtures-v08.json) → [研究专题](../docs/capabilities/CAP-07-02/TRIMMED-FACE-PROJECTION-B92-2026-11-01.md)。OCCT五项指定公开API正文、ISO仅目录、NIST仅摘要；真实STEP/OCCT/OEM/消费者NOT_RUN。
+
 ## 2026-11-01｜B91 R-25D-TOOLPATH-001 多环偏置与弦高精度
 [7项精确阅读分级](sources/CAP-07-01-multiring-offset-b91.json) → [8规则字段/3原编号包](traces/CAP-07-01-multiring-offset-b91-v08.json) → [8正18反/3公式](../docs/capabilities/CAP-07-01/multiring-offset-b91-fixtures-v08.json) → [CAP专题](../docs/capabilities/CAP-07-01/MULTIRING-OFFSET-B91-2026-11-01.md)。OCCT/CGAL指定API与手册已读、NIST与2014论文仅摘要、ISO仅书目，GPL仅研究；实际独立几何/机器验收NOT_RUN。
 
