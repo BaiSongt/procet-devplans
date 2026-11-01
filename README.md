@@ -1,3 +1,6 @@
+## 2026-11-01｜B89 CAP-09-03 近奇异逆解的阻尼步长不等于残差达标
+[研究与明确阅读深度](docs/capabilities/CAP-09-03/IK-CONDITIONING-B89-2026-11-01.md) → [7来源](research/sources/CAP-09-03-ik-conditioning-b89.json) → [8规则与原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-03-ik-conditioning-b89-v08.json) → [8正24反+2解析Golden](docs/capabilities/CAP-09-03/ik-conditioning-b89-fixtures-v08.json) → [Node检查入口](tools/check_cap0903_ik_conditioning_b89_v08.cjs)。Eigen数值秩阈值与异量纲归一化需显式配置；阻尼使步长有界但残差仍可能显著。32项仅同函数合成，独立Node/Eigen/B5/OEM/真实D15/17消费者NOT_RUN，L3待人审，**规划PASS≠产品PASS**。
+
 ## 2026-11-01｜B88 CAP-08-07 NC宏循环执行实例与来源身份补证
 [研究与限制](docs/capabilities/CAP-08-07/EXECUTION-OCCURRENCE-B88-2026-11-01.md) → [8来源](research/sources/CAP-08-07-occurrence-b88.json) → [8规则/原E3-02/E3-03/U4-04](research/traces/CAP-08-07-occurrence-b88-v08.json) → [33正反合成](docs/capabilities/CAP-08-07/occurrence-b88-fixtures-v08.json) → [Node只读入口](tools/check_cap0807_occurrence_b88_v08.cjs)。同一NC源行可对应多次执行，必须以原字节/闭包/Profile/调用路径/字符串事件号溯源；N号不是运行主键。V8同函数33/33，独立Node进程、真实D13–D16、Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

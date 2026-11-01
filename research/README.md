@@ -1,3 +1,6 @@
+## 2026-11-01｜B89 R-IK-001 近奇异Jacobian、阻尼增益与未消解残差
+[7项来源元数据/精确阅读边界](sources/CAP-09-03-ik-conditioning-b89.json) → [8字段规则、Owner资产与原编号包](traces/CAP-09-03-ik-conditioning-b89-v08.json) → [32项合成预期、2项解析Golden](../docs/capabilities/CAP-09-03/ik-conditioning-b89-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-09-03/IK-CONDITIONING-B89-2026-11-01.md)。Northwestern Ch5/6为官方公开章节简介，Eigen 3.3.9 JacobiSVD为已读API，Bath论文与NIST仅官方摘要，Cambridge仅出版目录；内生阈值不是标准条款。真实D14/D15/17独立消费者和L3均未验。**规划PASS≠产品PASS**。
+
 ## 2026-11-01｜B88 R-CL-NC-PROVENANCE-001 调用实例与静态来源区分
 [8项证据与章节分级](sources/CAP-08-07-occurrence-b88.json) → [8条字段规则与原包](traces/CAP-08-07-occurrence-b88-v08.json) → [33项合成](../docs/capabilities/CAP-08-07/occurrence-b88-fixtures-v08.json) → [研究](../docs/capabilities/CAP-08-07/EXECUTION-OCCURRENCE-B88-2026-11-01.md)。LinuxCNC2.9、W3C PROV及RFC公开选定章节实读；NIST IR6556仅官方元数据，真实解释器/独立消费者/Owner/L3未验。**规划PASS≠产品PASS。**
 

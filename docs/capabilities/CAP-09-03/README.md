@@ -1,3 +1,5 @@
+> **B89增量研究（2026-11-01）：** [近奇异阻尼逆解与未消解残差](IK-CONDITIONING-B89-2026-11-01.md) → [8条来源字段规则](../../../research/traces/CAP-09-03-ik-conditioning-b89-v08.json) → [8正24反+2数学Golden](ik-conditioning-b89-fixtures-v08.json)。仅数学与规划合成，独立Eigen/真实D13-D15/OEM/Owner与消费者NOT_RUN，L3待审。
+ 
 # CAP-09-03｜逆运动学与解分支（V0.8原编号，L3待审）
 **原目标**：轴解、连续性、奇异点和角度规划；原包F1-02、E3-04、E3-05、U4-04。L1/L2及11域88 CAP编号不变，L3仍待人类审查。
 
