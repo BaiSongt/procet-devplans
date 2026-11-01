@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "procet-b102-registry-trace-v08",
+  "date": "2026-11-02",
+  "capabilityId": "CAP-01-08",
+  "researchTopic": "R-EXT-001",
+  "workPackages": [
+    "B0-05",
+    "U4-06",
+    "T5-06"
+  ],
+  "sourcesPath": "research/sources/CAP-01-08-registry-consistency-b102.json",
+  "fixturesPath": "docs/capabilities/CAP-01-08/registry-consistency-b102-fixtures-v08.json",
+  "checkerPath": "tools/check_registry_consistency_b102_v08.cjs",
+  "semanticStatus": "L3_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "RC102-R01",
+      "statement": "登记path唯一且限research/sources/*.json或references.json",
+      "fields": [
+        "registries[].path"
+      ],
+      "sourceIds": [
+        "RC102-S02",
+        "RC102-S04"
+      ],
+      "capabilityId": "CAP-01-08",
+      "workPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "B102-P01"
+      ],
+      "negativeIds": [
+        "B102-N01",
+        "B102-N04"
+      ]
+    },
+    {
+      "id": "RC102-R02",
+      "statement": "每条registeredRecords为非负安全整数，索引总数等于逐条求和",
+      "fields": [
+        "registries[].registeredRecords",
+        "registeredRecords"
+      ],
+      "sourceIds": [
+        "RC102-S02",
+        "RC102-S04"
+      ],
+      "capabilityId": "CAP-01-08",
+      "workPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "B102-P01"
+      ],
+      "negativeIds": [
+        "B102-N02",
+        "B102-N03"
+      ]
+    },
+    {
+      "id": "RC102-R03",
+      "statement": "固定Git Tree未截断且SHA准确、每个登记目标为100644/blob；特殊mode不自动信任",
+      "fields": [
+        "gitTree.sha",
+        "truncated",
+        "entries[].mode/type"
+      ],
+      "sourceIds": [
+        "RC102-S01",
+        "RC102-S04"
+      ],
+      "capabilityId": "CAP-01-08",
+      "workPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "B102-P01"
+      ],
+      "negativeIds": [
+        "B102-N05",
+        "B102-N06",
+        "B102-N07"
+      ]
+    },
+    {
+      "id": "RC102-R04",
+      "statement": "progress结构化登记数与注册表实际项数同步且文字说明不可滞后",
+      "fields": [
+        "research.registeredSources",
+        "additionalRegistries",
+        "registeredSourceCountMeaning"
+      ],
+      "sourceIds": [
+        "RC102-S04",
+        "RC102-S05"
+      ],
+      "capabilityId": "CAP-01-08",
+      "workPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "B102-P01"
+      ],
+      "negativeIds": [
+        "B102-N08",
+        "B102-N09",
+        "B102-N12"
+      ]
+    },
+    {
+      "id": "RC102-R05",
+      "statement": "L1/L2及11域88CAP36原包17资产分母冻结",
+      "fields": [
+        "baseline.domainCount/capabilityCount/workPackageCount/businessAssetCount"
+      ],
+      "sourceIds": [
+        "RC102-S05"
+      ],
+      "capabilityId": "CAP-01-08",
+      "workPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "B102-P01"
+      ],
+      "negativeIds": [
+        "B102-N10"
+      ]
+    },
+    {
+      "id": "RC102-R06",
+      "statement": "真实Owner/消费者不足时禁止将规划自动停止或认定产品通过",
+      "fields": [
+        "businessAssets.ownerSignatureCount",
+        "independentConsumerRealPassCount",
+        "stopConditionMet"
+      ],
+      "sourceIds": [
+        "RC102-S03",
+        "RC102-S05"
+      ],
+      "capabilityId": "CAP-01-08",
+      "workPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "B102-P01"
+      ],
+      "negativeIds": [
+        "B102-N11"
+      ]
+    },
+    {
+      "id": "RC102-R07",
+      "statement": "来源登记存在不等于全部原文、独立消费者、GFM AST或产品认证通过",
+      "fields": [
+        "research.sourceIndex",
+        "checks",
+        "planningStatus"
+      ],
+      "sourceIds": [
+        "RC102-S01",
+        "RC102-S03",
+        "RC102-S04"
+      ],
+      "capabilityId": "CAP-01-08",
+      "workPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "B102-P01"
+      ],
+      "negativeIds": [
+        "B102-N06"
+      ]
+    }
+  ],
+  "ownerSignatureCount": 0,
+  "independentConsumerRealPassCount": 0
+}

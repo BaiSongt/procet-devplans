@@ -1,3 +1,6 @@
+## 2026-11-02｜B102 CAP-01-08 研究注册表三方一致性与描述漂移修复
+[固定Tree/官方章节专项](docs/capabilities/CAP-01-08/REGISTRY-CONSISTENCY-B102-2026-11-02.md) → [5分级来源](research/sources/CAP-01-08-registry-consistency-b102.json) → [7规则字段/原B0-05/U4-06/T5-06](research/traces/CAP-01-08-registry-consistency-b102-v08.json) → [1正12反](docs/capabilities/CAP-01-08/registry-consistency-b102-fixtures-v08.json) → [只读Node](tools/check_registry_consistency_b102_v08.cjs)。旧207 Registry/1591登记在Git Tree中路径全在且普通Blob、0缺失，修复progress文字仍停留206/1584；新增5登记后208 Registry/1596条。仅远端结构及V8同算法合成，不是逐来源全文或全仓GFM AST/产品PASS。17 Owner/消费者0、L3待审。
+
 ## 2026-11-02｜B101 CAP-09-06 非恒等Joint限位与D14→D15独立验证
 [研究及官方阅读边界](docs/capabilities/CAP-09-06/JOINT-INDEPENDENCE-B101-2026-11-02.md) → [7分级来源](research/sources/CAP-09-06-joint-b101.json) → [8规则字段](research/traces/CAP-09-06-joint-b101-trace-v08.json) → [45合成正反UNKNOWN](docs/capabilities/CAP-09-06/CAP-09-06-joint-b101-fixtures-v08.json) → [只读Node](tools/check_cap0906_joint_b101_v08.cjs)。Cartesian软限位合格不意味着Joint安全；D15同域必须独立实现，真实消费者/Owner/L3/全仓AST待验。**规划PASS≠产品PASS。**
 

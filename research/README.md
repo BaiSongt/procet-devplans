@@ -1,3 +1,6 @@
+## 2026-11-02｜B102 R-EXT-001 研究索引与进度一致性
+[5分级来源](sources/CAP-01-08-registry-consistency-b102.json) → [7规则字段](traces/CAP-01-08-registry-consistency-b102-v08.json) → [1正12反](../docs/capabilities/CAP-01-08/registry-consistency-b102-fixtures-v08.json) → [报告/公开章节阅读深度](../docs/capabilities/CAP-01-08/REGISTRY-CONSISTENCY-B102-2026-11-02.md)。纠正旧进度来源标签206/1584滞后于真实207/1591，新增后208 Registry/1596登记；未验全文/独立Node/产品、Owner0/17，规划PASS≠产品PASS。
+
 ## 2026-11-02｜B101 R-NC-VALIDATION-001 Joint限位与独立D15证据
 [7条合法来源](sources/CAP-09-06-joint-b101.json) → [8规则字段](traces/CAP-09-06-joint-b101-trace-v08.json) → [45同judge正反UNKNOWN](../docs/capabilities/CAP-09-06/CAP-09-06-joint-b101-fixtures-v08.json) → [研究及限制](../docs/capabilities/CAP-09-06/JOINT-INDEPENDENCE-B101-2026-11-02.md)。LinuxCNC2.9实读、ISO/ASME仅目录；真实D15、控制器/Owner、L3和全仓AST未验证。
 
