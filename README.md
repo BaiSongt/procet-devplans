@@ -1,3 +1,6 @@
+## 2026-11-02｜B98 17资产独立消费者同域盲点与证据矩阵
+[专项补证](docs/architecture/v0.8/ASSET-CONSUMER-INDEPENDENCE-B98-2026-11-02.md) → [17优先消费边+2同域例外](docs/architecture/v0.8/asset-consumer-independence-b98-v08.json) → [7项分级合法来源](research/sources/FINAL-ASSET-INDEPENDENCE-B98.json) → [8规则](research/traces/FINAL-ASSET-INDEPENDENCE-B98-V08.json) → [47规划合成](docs/architecture/v0.8/asset-consumer-independence-b98-fixtures-v08.json) → [Node只读工具](tools/check_asset_consumer_independence_b98_v08.cjs)。17资产44边互反；D14和D16仅同域业务消费输出，须有独立实现与运行证据，正式Owner/消费者仍0/17；独立Node/真实NC/全仓GFM AST未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B97 CAP-01-08 Markdown AST链接与特殊Git对象保守补证
 [研究、阅读深度与独立验收边界](docs/capabilities/CAP-01-08/GFM-AST-VALIDATION-B97-2026-11-02.md) → [4合法分级来源](research/sources/FINAL-MD-B97-AST-V08.json) → [6规则/原B0-05、U4-06、T5-06包](research/traces/FINAL-MD-B97-AST-V08.json) → [12路径+3 AST合成](docs/capabilities/CAP-01-08/gfm-ast-b97-fixtures-v08.json) → [只读Python](tools/check_final_md_b97_ast_v08.py)。本地15项合成与临时真实Git四链接分类通过；**真实规划仓全仓GFM AST、GitHub锚点渲染对等NOT_RUN**。Owner/消费者0/17，L3待人审，规划PASS≠产品PASS。
 

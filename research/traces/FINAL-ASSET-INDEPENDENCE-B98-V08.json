@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "procet-b98-independence-trace-v08",
+  "researchTopic": "R-ASSET-INDEPENDENCE-001",
+  "sourceRegistry": "research/sources/FINAL-ASSET-INDEPENDENCE-B98.json",
+  "manifest": "docs/architecture/v0.8/asset-consumer-independence-b98-v08.json",
+  "fixtures": "docs/architecture/v0.8/asset-consumer-independence-b98-fixtures-v08.json",
+  "checker": "tools/check_asset_consumer_independence_b98_v08.cjs",
+  "rules": [
+    {
+      "id": "B98-R01",
+      "summary": "固定17资产/44双向边与旧索引不可混号",
+      "fields": [
+        "sourceHead",
+        "sourceBlobs",
+        "scope",
+        "rows[].assetId"
+      ],
+      "sourceIds": [
+        "B98-S05",
+        "B98-S06"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-01-08"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "B0-05"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N10"
+      ]
+    },
+    {
+      "id": "B98-R02",
+      "summary": "GUI/CLI/Agent只能通过同一Owner readExact",
+      "fields": [
+        "rows[].producerDomain",
+        "producerPort",
+        "readEntry"
+      ],
+      "sourceIds": [
+        "B98-S06"
+      ],
+      "caps": [
+        "CAP-01-08"
+      ],
+      "originalWorkPackages": [
+        "F1-01",
+        "U4-06"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N01",
+        "B98-N02",
+        "B98-N06"
+      ]
+    },
+    {
+      "id": "B98-R03",
+      "summary": "消费者边合法，优先跨域；D14及D16无跨域输出，只能附加独立实现要求",
+      "fields": [
+        "rows[].consumerAssetId",
+        "consumerDomain",
+        "independenceClass",
+        "requiredSeparateBinary"
+      ],
+      "sourceIds": [
+        "B98-S05",
+        "B98-S06",
+        "B98-S07"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-05",
+        "E3-06",
+        "T5-03"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N03",
+        "B98-N04"
+      ]
+    },
+    {
+      "id": "B98-R04",
+      "summary": "0/17正式签署与0/17真实消费不得因合成测试升级",
+      "fields": [
+        "rows[].ownerSignoff",
+        "independentConsumerAcceptance",
+        "evidenceArtifact",
+        "realConsumerAcceptedCount"
+      ],
+      "sourceIds": [
+        "B98-S04",
+        "B98-S07"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "B0-06",
+        "T5-03"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N05",
+        "B98-N12"
+      ]
+    },
+    {
+      "id": "B98-R05",
+      "summary": "17份资产特有负例具不同Code且状态不允许作为发布凭证",
+      "fields": [
+        "rows[].negativeBusinessScenario.code",
+        "expected"
+      ],
+      "sourceIds": [
+        "B98-S01",
+        "B98-S05",
+        "B98-S06"
+      ],
+      "caps": [
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "T5-03"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N11"
+      ]
+    },
+    {
+      "id": "B98-R06",
+      "summary": "独立消费者证据需记录双方二进制、运行环境、原始对象修订、Frame和回退，缺失保持NOT_RUN",
+      "fields": [
+        "rows[].receiptRequired",
+        "independentBinaryEvidence",
+        "productStatus"
+      ],
+      "sourceIds": [
+        "B98-S04",
+        "B98-S07"
+      ],
+      "caps": [
+        "CAP-10-08",
+        "CAP-01-04"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N05"
+      ]
+    },
+    {
+      "id": "B98-R07",
+      "summary": "D04/D10及NC工程链、A/B冻结、单3D、左TaskPanel、CAS晚回执保持原边界",
+      "fields": [
+        "guardrails"
+      ],
+      "sourceIds": [
+        "B98-S05",
+        "B98-S06"
+      ],
+      "caps": [
+        "CAP-04-06",
+        "CAP-09-06",
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-01"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N08"
+      ]
+    },
+    {
+      "id": "B98-R08",
+      "summary": "原字节Hash与RFC8785规范化域不得无版本混写；来源证明不等于产品签名",
+      "fields": [
+        "hashPolicy",
+        "sourceBlobs",
+        "rows[].evidenceArtifact"
+      ],
+      "sourceIds": [
+        "B98-S02",
+        "B98-S03"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "F1-01",
+        "T5-03"
+      ],
+      "positive": [
+        "B98-P01"
+      ],
+      "negative": [
+        "B98-N09"
+      ]
+    }
+  ],
+  "executionBoundary": "SAME_FUNCTION_V8_SYNTHETIC_ONLY_REAL_CONSUMER_NOT_RUN"
+}

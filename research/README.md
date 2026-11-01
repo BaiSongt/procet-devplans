@@ -1,3 +1,6 @@
+## 2026-11-02｜B98 R-ASSET-INDEPENDENCE-001 17资产消费独立性盲点
+[7项来源与阅读限制](sources/FINAL-ASSET-INDEPENDENCE-B98.json) → [8规则字段](traces/FINAL-ASSET-INDEPENDENCE-B98-V08.json) → [17条候选消费边](../docs/architecture/v0.8/asset-consumer-independence-b98-v08.json) → [47合成用例](../docs/architecture/v0.8/asset-consumer-independence-b98-fixtures-v08.json)。NIST IR8536 2026-09最终仅官方摘要；RFC8785与W3C公开指定段；D14→D15、D16→D17必须证实同域内独立实现，真实Owner/消费者0/17、L3未批。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B97 CAP-01-08 GFM链接语法树及Git对象模式交叉研究
 [GitHub/GFM定点官方阅读与限制](../docs/capabilities/CAP-01-08/GFM-AST-VALIDATION-B97-2026-11-02.md) → [4条来源登记](sources/FINAL-MD-B97-AST-V08.json) → [6规则字段原包](traces/FINAL-MD-B97-AST-V08.json) → [12路径及3 AST正反](../docs/capabilities/CAP-01-08/gfm-ast-b97-fixtures-v08.json)。仅合成自测/临时Git验证；全仓真实AST和GitHub渲染一致性、正式Owner与消费者均未验，L3待审。**规划PASS≠产品PASS。**
 
