@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "procet-final-md-b82-fixtures-v08",
+  "scope": "SYNTHETIC_ONLY",
+  "gates": {
+    "fullRepoAst": "NOT_RUN",
+    "githubRendererParity": "NOT_RUN",
+    "product": "NOT_RUN"
+  },
+  "supportingDocuments": {
+    "docs/target.md": "# alpha\n\n## beta\n\n<a name=\"my-custom\"></a>\n",
+    "docs/中文 文件.md": "# 非英文标题\n"
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "source": "[目标](target.md)",
+      "expected": "PASS_LOCAL_PATH"
+    },
+    {
+      "id": "P02",
+      "source": "[锚](target.md#alpha)",
+      "expected": "PASS_ANCHOR_CANDIDATE"
+    },
+    {
+      "id": "P03",
+      "source": "[锚](target.md#my-custom)",
+      "expected": "PASS_ANCHOR_CANDIDATE"
+    },
+    {
+      "id": "P04",
+      "source": "[编码](%E4%B8%AD%E6%96%87%20%E6%96%87%E4%BB%B6.md)",
+      "expected": "PASS_LOCAL_PATH"
+    },
+    {
+      "id": "P05",
+      "source": "[ref][x]\n\n[x]: target.md",
+      "expected": "PASS_LOCAL_PATH"
+    },
+    {
+      "id": "P06",
+      "source": "[同一文件](#ok)\n\n# ok",
+      "expected": "PASS_ANCHOR_CANDIDATE"
+    },
+    {
+      "id": "P07",
+      "source": "<a href=\"target.md\">go</a>",
+      "expected": "PASS_LOCAL_PATH"
+    },
+    {
+      "id": "P08",
+      "source": "![image](target.md)",
+      "expected": "PASS_LOCAL_PATH"
+    },
+    {
+      "id": "N01",
+      "source": "[破损](missing.md)",
+      "expected": "REJECT_MISSING_PATH"
+    },
+    {
+      "id": "N02",
+      "source": "[锚](target.md#no-such-anchor)",
+      "expected": "REJECT_MISSING_ANCHOR"
+    },
+    {
+      "id": "N03",
+      "source": "[逃逸](../../secret.md)",
+      "expected": "REJECT_ESCAPE_REPO"
+    },
+    {
+      "id": "N04",
+      "source": "[坏百分号](target%ZZ.md)",
+      "expected": "UNKNOWN_UNSAFE_NORMALIZATION"
+    },
+    {
+      "id": "U01",
+      "source": "[锚](#alpha-1)\n\n# alpha\n# alpha\n# alpha-1",
+      "expected": "UNKNOWN_COLLIDING_ANCHOR"
+    },
+    {
+      "id": "U02",
+      "source": "[锚](#alpha-1-1)\n\n# alpha\n# alpha\n# alpha-1",
+      "expected": "UNKNOWN_COLLIDING_ANCHOR"
+    },
+    {
+      "id": "U03",
+      "source": "[非英文](中文%20文件.md#非英文标题)",
+      "expected": "UNKNOWN_RENDERER_SLUG"
+    },
+    {
+      "id": "U04",
+      "source": "<a id=\"dup\"></a>\n<a id=\"dup\"></a>\n[锚](#dup)",
+      "expected": "UNKNOWN_COLLIDING_ANCHOR"
+    },
+    {
+      "id": "U05",
+      "source": "[软链](redirect.md)",
+      "objectOverrides": {
+        "docs/redirect.md": "120000"
+      },
+      "expected": "UNKNOWN_SYMLINK"
+    },
+    {
+      "id": "U06",
+      "source": "[子仓](vendor/module.md)",
+      "objectOverrides": {
+        "docs/vendor": "160000"
+      },
+      "expected": "UNKNOWN_GITLINK"
+    },
+    {
+      "id": "U07",
+      "source": "[查询](target.md?sort=asc)",
+      "expected": "UNKNOWN_QUERY"
+    },
+    {
+      "id": "U08",
+      "source": "[外链](https://docs.github.com/)",
+      "expected": "EXTERNAL_NOT_CHECKED"
+    },
+    {
+      "id": "I01",
+      "source": "```md\n[假链接](missing.md)\n```",
+      "expected": "NO_LINK"
+    },
+    {
+      "id": "I02",
+      "source": "`[假链接](missing.md)`",
+      "expected": "NO_LINK"
+    }
+  ]
+}
