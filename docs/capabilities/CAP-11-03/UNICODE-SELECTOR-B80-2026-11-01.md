@@ -27,8 +27,12 @@ D01/D02来源的`ownerRevision/currentRevision/rawHash/currentRawHash/snapshotId
 
 真实Owner还需在**提交瞬间**重新查询权限/CAS，不能仅依赖合成布尔字段；撤权先失效索引缓存，迁移必须影子读取、独立消费者签署后切换，失败回退旧只读Reader，A/B冻结事实不可覆盖。C0仅最小身份/hash/revision/unit/frame/scope/Port。D04名义Setup与D10执行绑定分离；中立CL→D12 NC→D13解释→D14轴时序→D15验证→D16发布，UNKNOWN不放行，不做材料扫掠仿真。CL动画不等于NC工程验证。
 
+## 合成边界校正与验证层级
+
+N10是范围逆序的负例，不能据此声称测过字素簇拆分。本轮补入N33（起点落在组合重音符上）与N34（终点落在组合重音符前）两个实际边界反例，要求REJECT。它们同时改变起止、quote及上下文以构成完整真实反例，不冒充单字段变异；40例原样保留，总计42例。完整UAX29库、Emoji ZWJ及复杂分词仍NOT_RUN或UNKNOWN。
+
 ## 来源—规则—字段—CAP/原包—正反验收
 
-[7项来源/版本/阅读深度](../../../research/sources/CAP-11-03-unicode-selector-b80.json) → [8字段规则与T5-01/T5-02](../../../research/traces/CAP-11-03-unicode-selector-b80-v08.json) → [40合成案例](unicode-selector-b80-fixtures-v08.json) → [只读Node入口](../../../tools/check_cap1103_unicode_selector_b80_v08.cjs) → [执行等级](../../../tracking/cap1103-unicode-selector-b80-verification-2026-11-01.json)。NIST AI600-1和Lewis2020仅出版摘要，未读全文或虚构条款。
+[7项来源/版本/阅读深度](../../../research/sources/CAP-11-03-unicode-selector-b80.json) → [8字段规则与T5-01/T5-02](../../../research/traces/CAP-11-03-unicode-selector-b80-v08.json) → [42合成案例](unicode-selector-b80-fixtures-v08.json) → [只读Node入口](../../../tools/check_cap1103_unicode_selector_b80_v08.cjs) → [执行等级](../../../tracking/cap1103-unicode-selector-b80-verification-2026-11-01.json)。NIST AI600-1和Lewis2020仅出版摘要，未读全文或虚构条款。
 
-V8内存同判定函数显式预期40/40符合；独立Node完整文件、实际归一化器和Unicode UAX29引擎、实际Owner ACL/CAS、真实浏览器与17消费者均`NOT_RUN`，正式Owner 0/17、L3待审，历史原件与全仓GFM AST仍未闭。**规划PASS≠产品PASS。**
+V8内存同判定函数显式预期42/42符合；独立Node完整文件、实际归一化器和Unicode UAX29引擎、实际Owner ACL/CAS、真实浏览器与17消费者均`NOT_RUN`，正式Owner 0/17、L3待审，历史原件与全仓GFM AST仍未闭。**规划PASS≠产品PASS。**

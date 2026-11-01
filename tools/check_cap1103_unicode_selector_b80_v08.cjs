@@ -30,7 +30,7 @@ function judge(v) {
 }
 const p=path.resolve(__dirname,"../docs/capabilities/CAP-11-03/unicode-selector-b80-fixtures-v08.json");
 const dataset=JSON.parse(fs.readFileSync(p,"utf8"));
-assert.equal(dataset.syntheticOnly,true);assert.equal(dataset.cases.length,40);
+assert.equal(dataset.syntheticOnly,true);assert.equal(dataset.cases.length,42);
 const counts={};for(const c of dataset.cases){const got=judge(c.input);assert.equal(got,c.expected,c.id);counts[got]=(counts[got]||0)+1;}
 console.log("B80_PLANNING_SYNTHETIC_PASS",dataset.cases.length,JSON.stringify(counts));
 console.log("FULL_UAX29/ACTUAL_OWNER/INDEPENDENT_CONSUMERS/PRODUCT: NOT_RUN；规划PASS≠产品PASS");

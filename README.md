@@ -1,5 +1,5 @@
 ## 2026-11-01｜B80 CAP-11-03 Unicode代码点与多语种引用归属
-[专项研究](docs/capabilities/CAP-11-03/UNICODE-SELECTOR-B80-2026-11-01.md) → [7项分级来源](research/sources/CAP-11-03-unicode-selector-b80.json) → [8字段规则/原T5-01和T5-02](research/traces/CAP-11-03-unicode-selector-b80-v08.json) → [40项显式合成](docs/capabilities/CAP-11-03/unicode-selector-b80-fixtures-v08.json) → [只读Node校验](tools/check_cap1103_unicode_selector_b80_v08.cjs)。W3C代码点与JS UTF-16位置不同，字素簇处理未全覆盖须UNKNOWN；真实Owner、独立消费者与L3仍待审。**规划PASS≠产品PASS。**
+[专项研究](docs/capabilities/CAP-11-03/UNICODE-SELECTOR-B80-2026-11-01.md) → [7项分级来源](research/sources/CAP-11-03-unicode-selector-b80.json) → [8字段规则/原T5-01和T5-02](research/traces/CAP-11-03-unicode-selector-b80-v08.json) → [42项显式合成](docs/capabilities/CAP-11-03/unicode-selector-b80-fixtures-v08.json) → [只读Node校验](tools/check_cap1103_unicode_selector_b80_v08.cjs)。W3C代码点与JS UTF-16位置不同，字素簇处理未全覆盖须UNKNOWN；真实Owner、独立消费者与L3仍待审。**规划PASS≠产品PASS。**
 
 ## 2026-11-01｜B79 CAP-01-06 SSE重连游标与Host持久事件补证
 [研究](docs/capabilities/CAP-01-06/SSE-REPLAY-B79-2026-11-01.md) → [来源](research/sources/CAP-01-06-sse-replay-b79.json) → [8规则](research/traces/CAP-01-06-sse-replay-b79-v08.json) → [29合成](docs/capabilities/CAP-01-06/sse-replay-b79-fixtures-v08.json) → [Node](tools/check_cap0106_sse_replay_b79_v08.cjs)。Last-Event-ID不证明持久重放，空id重置游标，超2^53精确序列；真实Host/独立消费者未验。**规划PASS≠产品PASS。**

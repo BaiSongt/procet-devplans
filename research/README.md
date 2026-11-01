@@ -1,5 +1,5 @@
 ## 2026-11-01｜B80 R-RAG-EVIDENCE-001 Unicode引用与Quote唯一性
-[7项来源](sources/CAP-11-03-unicode-selector-b80.json) → [8规则/原包字段](traces/CAP-11-03-unicode-selector-b80-v08.json) → [40项预期合成](../docs/capabilities/CAP-11-03/unicode-selector-b80-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-11-03/UNICODE-SELECTOR-B80-2026-11-01.md)。W3C 2017§4.2.4/5、Unicode18 UAX29 Rev49、ECMA262 Ed17及RFC8785公开章节实读；NIST与Lewis论文只读官方摘要。真实UAX29与独立消费者未验。**规划PASS≠产品PASS。**
+[7项来源](sources/CAP-11-03-unicode-selector-b80.json) → [8规则/原包字段](traces/CAP-11-03-unicode-selector-b80-v08.json) → [42项预期合成](../docs/capabilities/CAP-11-03/unicode-selector-b80-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-11-03/UNICODE-SELECTOR-B80-2026-11-01.md)。W3C 2017§4.2.4/5、Unicode18 UAX29 Rev49、ECMA262 Ed17及RFC8785公开章节实读；NIST与Lewis论文只读官方摘要。真实UAX29与独立消费者未验。**规划PASS≠产品PASS。**
 
 ## 2026-11-01｜B79 R-TASK-001 SSE游标与Host Journal恢复
 [6来源](sources/CAP-01-06-sse-replay-b79.json) → [8字段规则](traces/CAP-01-06-sse-replay-b79-v08.json) → [29合成](../docs/capabilities/CAP-01-06/sse-replay-b79-fixtures-v08.json) → [报告](../docs/capabilities/CAP-01-06/SSE-REPLAY-B79-2026-11-01.md)。WHATWG §9.2和RFC9110§13.1.1具体正文，NIST仅出版著录；产品/独立消费者NOT_RUN。
