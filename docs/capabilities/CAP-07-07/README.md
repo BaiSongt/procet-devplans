@@ -41,3 +41,7 @@ GUI/CLI/Agent都调用07域同一Owner Port：`CAMDomainPort.previewNeutralCL/re
 [同一Babylon世界与左TaskPanel](UI.md) · [只作合成数据的D09结构](contract.example.json) · [17资产候选Owner](asset-owner-candidates.json) · [独立D12/D13/D14/D15/D16消费者](independent-consumer-handoff.md) · [9项来源及深度](../../../research/sources/CAP-07-07.json) · [理论](../../../research/topics/R-NEUTRAL-CL-CONTRACT-001.md) · [10规则与30正反变异](../../../research/traces/CAP-07-07.json) · [fixtures](fixtures.json)。
 
 规划工具入口：`node tools/check_cap0707_planning_2026_10_26.cjs`；本轮V8等价结构/规则合成检查，**真实OCCT、控制器后处理、Win11/B5、跨域消费者与真实Node文件执行NOT_RUN**；所有Owner会签与L3=PENDING。**规划PASS≠产品PASS。**
+
+
+## B94｜反平行刀轴、四元数双覆盖和Roll证据（2026-11-01）
+[专题](ORIENTATION-INTERPOLATION-B94-2026-11-01.md) → [8来源](../../../research/sources/CAP-07-07-orientation-b94.json) → [8规则/原包](../../../research/traces/CAP-07-07-orientation-b94-v08.json) → [35样例/3Golden](orientation-b94-fixtures-v08.json) → [只读Node工具](../../../tools/check_cap0707_orientation_b94_v08.cjs)。真实消费者、L3未验，规划PASS≠产品PASS。

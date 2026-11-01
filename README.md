@@ -1,3 +1,6 @@
+## 2026-11-01｜B94 CAP-07-07 中立CL反平行刀轴与姿态插值补证
+[专题与合法来源分级](docs/capabilities/CAP-07-07/ORIENTATION-INTERPOLATION-B94-2026-11-01.md) → [8来源](research/sources/CAP-07-07-orientation-b94.json) → [8规则字段/原工作包](research/traces/CAP-07-07-orientation-b94-v08.json) → [35正反UNKNOWN/3解析Golden](docs/capabilities/CAP-07-07/orientation-b94-fixtures-v08.json) → [Node只读检查器](tools/check_cap0707_orientation_b94_v08.cjs)。仅V8同judge合成，Node独立进程/OCCT/NC/真实Owner/消费者/L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B93 CAP-07-08 局部编辑DAG闭包、段血缘与旧NC证据失效
 [研究与限制](docs/capabilities/CAP-07-08/EDIT-DAG-LINEAGE-B93-2026-11-01.md) → [8来源](research/sources/CAP-07-08-edit-dag-b93.json) → [8规则/原F1-03、E3-01、U4-04](research/traces/CAP-07-08-edit-dag-b93-v08.json) → [32正反未知、3图Golden](docs/capabilities/CAP-07-08/edit-dag-b93-fixtures-v08.json) → [Node工具](tools/check_cap0708_edit_dag_b93_v08.cjs)。V8同judge规划合成32/32、数学图Golden3/3；真实Owner/独立消费者、NC、L3与全仓AST未完成。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-11-01｜B94 R-NEUTRAL-CL-CONTRACT-001 反平行与SO(3)轨迹
+[8份来源及阅读深度](sources/CAP-07-07-orientation-b94.json) → [8规则字段](traces/CAP-07-07-orientation-b94-v08.json) → [35正反UNKNOWN/3Golden](../docs/capabilities/CAP-07-07/orientation-b94-fixtures-v08.json) → [数学与Owner边界](../docs/capabilities/CAP-07-07/ORIENTATION-INTERPOLATION-B94-2026-11-01.md)。Eigen仅检索摘录、NIST/arXiv仅摘要，真实NC/消费者NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B93 R-TOOLPATH-LOCAL-REGEN-001 图闭包与段血缘
 [8合法来源](sources/CAP-07-08-edit-dag-b93.json) → [8规则及原包](traces/CAP-07-08-edit-dag-b93-v08.json) → [32显式合成、3图Golden](../docs/capabilities/CAP-07-08/edit-dag-b93-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-07-08/EDIT-DAG-LINEAGE-B93-2026-11-01.md)。NetworkX3.7/W3C PROV-O/RFC6902/9110/OCCT8.0.1公开选段，NIST两文仅摘要；真实产品、独立消费者、L3尚未验收。
 
