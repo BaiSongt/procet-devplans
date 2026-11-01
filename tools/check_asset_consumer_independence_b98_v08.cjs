@@ -4,7 +4,7 @@
 const fs=require('fs'), path=require('path'), crypto=require('crypto');
 const root=path.resolve(__dirname,'..');
 function load(p){const s=fs.readFileSync(path.join(root,p),'utf8');return [JSON.parse(s),s];}
-function gitBlob(bytes){return crypto.createHash('sha1').update('blob '+Buffer.byteLength(bytes,'utf8')+'\\0','utf8').update(bytes,'utf8').digest('hex');}
+function gitBlob(bytes){return crypto.createHash('sha1').update('blob '+Buffer.byteLength(bytes,'utf8')+String.fromCharCode(0),'utf8').update(bytes,'utf8').digest('hex');}
 function judge(m,b,o){
 const err=(reason)=>({state:"REJECT",reason});const ids=b.assets.map(x=>x.id),omap=new Map(o.contracts.map(x=>[x.assetId,x]));
 if(m.schemaVersion!=="procet-b98-asset-consumer-independence-v08")return err("SCHEMA");
