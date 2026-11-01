@@ -1,3 +1,6 @@
+## 2026-11-02｜B96 R-WCS-MOTION-001 有符号刀补与跨方言G40退出
+[官方实读、章节、限制](../docs/capabilities/CAP-08-03/CUTTER-COMP-DIALECT-B96-2026-11-02.md) → [9条分级来源](sources/CAP-08-03-cutter-comp-b96.json) → [9规则/字段](traces/CAP-08-03-cutter-comp-b96-v08.json) → [38合成/3数学Golden](../docs/capabilities/CAP-08-03/cutter-comp-b96-fixtures-v08.json)。NIST仅出版摘要、LinuxCNC2.8仅辅助旧版本，不冒充目标机实测。L3/真实Owner消费者待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B95 R-WCS-MOTION-001 独立弧心模态与全圆螺旋
 [8项来源阅读分级](sources/CAP-08-03-arc-modal-b95.json) → [9规则及字段](traces/CAP-08-03-arc-modal-b95-v08.json) → [38正反UNKNOWN及2Golden](../docs/capabilities/CAP-08-03/arc-modal-b95-fixtures-v08.json) → [CAP-08-03 B95研究](../docs/capabilities/CAP-08-03/ARC-MODAL-B95-2026-11-01.md)。LinuxCNC§5.1与§55冲突按UNKNOWN处理，NISTIR6556仅官方摘要、ISO6983只读合法目录；真实解释器/跨域消费者未测，L3待人审。**规划PASS≠产品PASS。**
 

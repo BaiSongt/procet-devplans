@@ -43,3 +43,7 @@ GUI/CLI/Agent共用08域Owner Port和UseCase，不独立写D12/D13；NC Activity
 
 ## B95增量：G2/G3中心与端点独立模态、R符号及完整圆
 [研究报告与公开文档冲突](ARC-MODAL-B95-2026-11-01.md) → [8份来源/9规则与E3-02、E3-03、U4-04](../../../research/traces/CAP-08-03-arc-modal-b95-v08.json) → [38例正反UNKNOWN](arc-modal-b95-fixtures-v08.json) → [Node验证入口](../../../tools/check_cap0803_arc_modal_b95_v08.cjs)。G18绝对弧心同页§5.1 I/K与§55 J/K冲突保持UNKNOWN，真实控制器/L3与17实际消费者均待审。**规划PASS≠产品PASS。**
+
+
+## 2026-11-02｜B96刀补有符号半径、方言及进退刀差异补证
+[研究及阅读限制](CUTTER-COMP-DIALECT-B96-2026-11-02.md) → [9来源](../../../research/sources/CAP-08-03-cutter-comp-b96.json) → [9规则与原E3-02/E3-03/U4-04](../../../research/traces/CAP-08-03-cutter-comp-b96-v08.json) → [38合成及3Golden](cutter-comp-b96-fixtures-v08.json) → [Node只读入口](../../../tools/check_cap0803_cutter_comp_b96_v08.cjs)。LinuxCNC2.9 G18/D可选与Haas铣床G17/D必选不可跨方言推断，Setting40/58和D10刀补快照必须钉版本，Owner/消费者/L3未完成；**规划PASS≠产品PASS**。

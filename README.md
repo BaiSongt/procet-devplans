@@ -1,3 +1,6 @@
+## 2026-11-02｜B96 CAP-08-03 G41/G42半径刀补跨控制器语义
+[LinuxCNC2.9/Haas Setting40、D号与G40退刀差异](docs/capabilities/CAP-08-03/CUTTER-COMP-DIALECT-B96-2026-11-02.md) → [9项分级来源](research/sources/CAP-08-03-cutter-comp-b96.json) → [9规则/原E3-02、E3-03、U4-04](research/traces/CAP-08-03-cutter-comp-b96-v08.json) → [38正反UNKNOWN/3数学Golden](docs/capabilities/CAP-08-03/cutter-comp-b96-fixtures-v08.json) → [只读Node工具](tools/check_cap0803_cutter_comp_b96_v08.cjs)。V8同judge合成38/38；真实控制器、Node独立文件进程、17 Owner/真实消费者/L3与全仓AST尚未验证。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B95 CAP-08-03 G2/G3弧心双模态与LinuxCNC文档冲突
 [研究报告/实际阅读局限](docs/capabilities/CAP-08-03/ARC-MODAL-B95-2026-11-01.md) → [8项来源](research/sources/CAP-08-03-arc-modal-b95.json) → [9规则字段/原包](research/traces/CAP-08-03-arc-modal-b95-v08.json) → [38显式正反与UNKNOWN/2数学Golden](docs/capabilities/CAP-08-03/arc-modal-b95-fixtures-v08.json) → [Node只读工具](tools/check_cap0803_arc_modal_b95_v08.cjs)。LinuxCNC2.9同页§5.1 G18 I/K与§55 G18 J/K冲突维持UNKNOWN；38合成仅同judge预检，真实NC、Owner0/17、消费者0/17、L3及全仓GFM AST待验。**规划PASS≠产品PASS。**
 

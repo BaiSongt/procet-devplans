@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "procet-b96-trace-v08",
+  "capabilityId": "CAP-08-03",
+  "originalWorkPackages": [
+    "E3-02",
+    "E3-03",
+    "U4-04"
+  ],
+  "ownerAsset": "D13",
+  "l1l2": "UNCHANGED",
+  "l3": "PENDING_HUMAN",
+  "sourceRegistry": "research/sources/CAP-08-03-cutter-comp-b96.json",
+  "fixturePath": "docs/capabilities/CAP-08-03/cutter-comp-b96-fixtures-v08.json",
+  "reportPath": "docs/capabilities/CAP-08-03/CUTTER-COMP-DIALECT-B96-2026-11-02.md",
+  "validator": "tools/check_cap0803_cutter_comp_b96_v08.cjs",
+  "rules": [
+    {
+      "id": "B96-R1",
+      "statement": "冻结D03刀具、D04 Setup、D10实物装配、NC字节与Frame，防止别名覆盖",
+      "sourceIds": [
+        "B96-S09",
+        "B96-S07",
+        "B96-S08"
+      ],
+      "fields": [
+        "source.d03Exact",
+        "source.d04Exact",
+        "source.d10Exact",
+        "source.ncHashPinned",
+        "source.framePinned"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-02",
+      "positiveIds": [
+        "B96-P1"
+      ],
+      "negativeIds": [
+        "B96-N11",
+        "B96-N12"
+      ],
+      "unknownIds": [
+        "B96-U1"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R2",
+      "statement": "方言/Profile/刀补表锁定；Haas D必填，LinuxCNC 2.9 D可省略，不能合并解析规则",
+      "sourceIds": [
+        "B96-S01",
+        "B96-S03",
+        "B96-S09"
+      ],
+      "fields": [
+        "dialect.name",
+        "dialect.versionPinned",
+        "dialect.dNumber",
+        "dialect.tableHashPinned"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "B96-P2"
+      ],
+      "negativeIds": [
+        "B96-N21",
+        "B96-N22"
+      ],
+      "unknownIds": [
+        "B96-U2"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R3",
+      "statement": "Haas Setting40半径/直径与几何加磨耗归一到有符号实际偏移",
+      "sourceIds": [
+        "B96-S03",
+        "B96-S04"
+      ],
+      "fields": [
+        "offset.measure",
+        "offset.geometry",
+        "offset.wear",
+        "offset.effectiveRadiusMm",
+        "offset.interpretationPinned"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "B96-P3"
+      ],
+      "negativeIds": [
+        "B96-N31",
+        "B96-N32"
+      ],
+      "unknownIds": [
+        "B96-U3"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R4",
+      "statement": "Haas负偏移使G41/G42有效侧反转；保持原始偏移和解释后侧别",
+      "sourceIds": [
+        "B96-S03",
+        "B96-S05"
+      ],
+      "fields": [
+        "side.mode",
+        "side.signedRadius",
+        "side.actual",
+        "side.signApplied"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "B96-P4"
+      ],
+      "negativeIds": [
+        "B96-N41",
+        "B96-N42"
+      ],
+      "unknownIds": [
+        "B96-U4"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R5",
+      "statement": "LinuxCNC 2.9 G17/G18许可与Haas铣床G17限定分离，G19不臆测可用",
+      "sourceIds": [
+        "B96-S01",
+        "B96-S03"
+      ],
+      "fields": [
+        "plane.selected",
+        "plane.modelKnown",
+        "plane.allowed"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "B96-P5",
+        "B96-P5L"
+      ],
+      "negativeIds": [
+        "B96-N51",
+        "B96-N52",
+        "B96-N5L"
+      ],
+      "unknownIds": [
+        "B96-U5"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R6",
+      "statement": "G41/G42切入和G40退出的线性长度及模态按Profile计算，非通用常数",
+      "sourceIds": [
+        "B96-S01",
+        "B96-S02",
+        "B96-S05"
+      ],
+      "fields": [
+        "lead.entryLenMm",
+        "lead.exitLenMm",
+        "lead.entryMove",
+        "lead.exitMove",
+        "lead.profileKnown"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "B96-P6"
+      ],
+      "negativeIds": [
+        "B96-N61",
+        "B96-N62"
+      ],
+      "unknownIds": [
+        "B96-U6"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R7",
+      "statement": "Haas内圆角半径不足、Setting58前瞻策略、连续安全证据分层",
+      "sourceIds": [
+        "B96-S03",
+        "B96-S05"
+      ],
+      "fields": [
+        "corner.insideArcRadiusMm",
+        "corner.checked",
+        "corner.setting58Pinned",
+        "corner.noContinuousSafetyClaim"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B96-P7"
+      ],
+      "negativeIds": [
+        "B96-N71",
+        "B96-N72"
+      ],
+      "unknownIds": [
+        "B96-U7"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R8",
+      "statement": "D12最终NC→D13解释→D14轴时序→D15工程验证→D16发布，不以CL预览解禁",
+      "sourceIds": [
+        "B96-S06",
+        "B96-S08",
+        "B96-S09"
+      ],
+      "fields": [
+        "chain.finalNcReparsed",
+        "chain.d13UnknownBlocked",
+        "chain.d14MotionIndependent",
+        "chain.d15EngineeringIndependent",
+        "chain.d16NotFromCL"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "B96-P8"
+      ],
+      "negativeIds": [
+        "B96-N81",
+        "B96-N82"
+      ],
+      "unknownIds": [
+        "B96-U8"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B96-R9",
+      "statement": "08域Owner唯一端口、GUI/CLI/Agent、左TaskPanel单Babylon、ACL/CAS/取消回执及非破坏回退",
+      "sourceIds": [
+        "B96-S07",
+        "B96-S08",
+        "B96-S09"
+      ],
+      "fields": [
+        "owner.singleOwnerPort",
+        "owner.aclAtCommit",
+        "owner.casAtCommit",
+        "owner.cancelGeneration",
+        "owner.singleBabylonLeftPanel",
+        "owner.nonDestructiveRollback"
+      ],
+      "capabilityId": "CAP-08-03",
+      "ownerAsset": "D13",
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B96-P9"
+      ],
+      "negativeIds": [
+        "B96-N91",
+        "B96-N92"
+      ],
+      "unknownIds": [
+        "B96-U9"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}
