@@ -1,3 +1,6 @@
+## 2026-11-01｜B88 CAP-08-07 NC宏循环执行实例与来源身份补证
+[研究与限制](docs/capabilities/CAP-08-07/EXECUTION-OCCURRENCE-B88-2026-11-01.md) → [8来源](research/sources/CAP-08-07-occurrence-b88.json) → [8规则/原E3-02/E3-03/U4-04](research/traces/CAP-08-07-occurrence-b88-v08.json) → [33正反合成](docs/capabilities/CAP-08-07/occurrence-b88-fixtures-v08.json) → [Node只读入口](tools/check_cap0807_occurrence_b88_v08.cjs)。同一NC源行可对应多次执行，必须以原字节/闭包/Profile/调用路径/字符串事件号溯源；N号不是运行主键。V8同函数33/33，独立Node进程、真实D13–D16、Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B87 CAP-06-03 OCCT布尔Fuzzy与Glue风险前提
 [研究与实际来源深度](docs/capabilities/CAP-06-03/BOOLEAN-FUZZY-B87-2026-11-01.md) → [7来源](research/sources/CAP-06-03-fuzzy-b87.json) → [8规则/原W2-03/F1-05](research/traces/CAP-06-03-fuzzy-b87-v08.json) → [32显式正反/UNKNOWN](docs/capabilities/CAP-06-03/fuzzy-b87-fixtures-v08.json) → [Node](tools/check_cap0603_fuzzy_b87_v08.cjs)。Glue仅在无真实子形状相交且有重合证据时可启；fuzzy实测预算不能抹平薄壁；非破坏输入与简化后History分离。仅同判定函数合成32/32和8故障注入；真实OCCT/Owner/独立消费者及全仓AST仍NOT_RUN。**规划PASS≠产品PASS。**
 

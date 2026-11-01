@@ -1,3 +1,5 @@
+> **B88增量（2026-11-01）**：[NC宏循环执行实例身份与静态来源](EXECUTION-OCCURRENCE-B88-2026-11-01.md) → [8来源](../../../research/sources/CAP-08-07-occurrence-b88.json) → [8规则](../../../research/traces/CAP-08-07-occurrence-b88-v08.json) → [33合成](occurrence-b88-fixtures-v08.json)。不复写既有十项规格；N号与byteSpan不能代替调用实例主键。**规划PASS≠产品PASS**。
+
 # CAP-08-07｜CL与NC映射溯源（V0.8原编号，L3待审）
 
 **原始目标**：程序段回到轨迹片段/工序/Setup；原关联工作包 **E3-02 / E3-03 / U4-04**。本次只细化此目标，不更改11域/L1/L2/88 CAP与36原编号包；L3继续人工审查。设计文件不表示产品已实现。

@@ -1,3 +1,6 @@
+## 2026-11-01｜B88 R-CL-NC-PROVENANCE-001 调用实例与静态来源区分
+[8项证据与章节分级](sources/CAP-08-07-occurrence-b88.json) → [8条字段规则与原包](traces/CAP-08-07-occurrence-b88-v08.json) → [33项合成](../docs/capabilities/CAP-08-07/occurrence-b88-fixtures-v08.json) → [研究](../docs/capabilities/CAP-08-07/EXECUTION-OCCURRENCE-B88-2026-11-01.md)。LinuxCNC2.9、W3C PROV及RFC公开选定章节实读；NIST IR6556仅官方元数据，真实解释器/独立消费者/Owner/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B87 R-GEO-001 布尔Fuzzy与Glue几何前提深度补证
 [7项分级来源及局限](sources/CAP-06-03-fuzzy-b87.json) → [8规则/字段/原编号包](traces/CAP-06-03-fuzzy-b87-v08.json) → [32合成正反](../docs/capabilities/CAP-06-03/fuzzy-b87-fixtures-v08.json) → [研究](../docs/capabilities/CAP-06-03/BOOLEAN-FUZZY-B87-2026-11-01.md)。OCCT8.0.1官方Fuzzy/Gluing/SafeProcessing/History章节定点实读；NIST Han 2000仅摘要；合成非产品、无真实Owner签署/独立消费者，L3待审。**规划PASS≠产品PASS。**
 
