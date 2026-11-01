@@ -1,3 +1,6 @@
+## 2026-11-02｜B100 R-RELEASE-001 D16→D17同域独立消费者收件证明
+[8项访问深度明确的来源](sources/CAP-10-03-independent-receipt-b100.json) → [8规则字段](traces/CAP-10-03-independent-receipt-b100-v08.json) → [37设计合成案例](../docs/capabilities/CAP-10-03/independent-receipt-b100-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-10-03/INDEPENDENT-RECEIPT-B100-2026-11-02.md)。RFC7515/8785/9110/W3C选段实读，NIST IR8536/SP800-53仅摘要/目录。独立Node、真实D17/签名/机床NOT_RUN，17Owner签字0/17，L3待审。
+
 ## 2026-11-02｜B99 R-WCS-MOTION-001 刀长H与G234双方言
 [官方公开章节及限制](../docs/capabilities/CAP-08-03/TOOL-LENGTH-TCPC-B99-2026-11-02.md) → [6来源](sources/CAP-08-03-tlo-tcpc-b99.json) → [8规则](traces/CAP-08-03-tlo-tcpc-b99-v08.json) → [36合成/4几何Golden](../docs/capabilities/CAP-08-03/tlo-tcpc-b99-fixtures-v08.json)。NIST6556仅目录摘要；实际机器、独立消费者NOT_RUN，L3待人审。
 

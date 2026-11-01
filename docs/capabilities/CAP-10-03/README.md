@@ -1,3 +1,5 @@
+> **B100研究增量（2026-11-02）**：[D16→D17独立接收证明和同域自证陷阱](INDEPENDENT-RECEIPT-B100-2026-11-02.md) → [8来源](../../../research/sources/CAP-10-03-independent-receipt-b100.json) → [8规则](../../../research/traces/CAP-10-03-independent-receipt-b100-v08.json) → [37项正反/UNKNOWN/幂等合成](independent-receipt-b100-fixtures-v08.json)。真实独立D17、签名、CNC与L3均NOT_RUN；规划PASS≠产品PASS。
+
 > **B48研究增量（2026-10-31）：** [Windows ZIP成员路径别名与封闭接收](WINDOWS-PATH-ALIASES-B48-2026-10-31.md) → [6来源](../../../research/sources/CAP-10-03-windows-path-b48.json) → [8规则](../../../research/traces/CAP-10-03-windows-path-b48-v08.json) → [43正反未知合成](windows-path-b48-fixtures-v08.json)。原R05与原E3-06/T5-03不变；独立Windows/ZIP/NC消费者NOT_RUN，L3待审。
 
 # CAP-10-03｜离线介质交付（L3待审）

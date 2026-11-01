@@ -1,3 +1,6 @@
+## 2026-11-02｜B100 CAP-10-03 D16→D17独立接收证明与幂等回执
+[研究及真实独立消费者门禁](docs/capabilities/CAP-10-03/INDEPENDENT-RECEIPT-B100-2026-11-02.md) → [8分级来源](research/sources/CAP-10-03-independent-receipt-b100.json) → [8规则/字段/原E3-06、T5-03](research/traces/CAP-10-03-independent-receipt-b100-v08.json) → [37合成正反/UNKNOWN/幂等](docs/capabilities/CAP-10-03/independent-receipt-b100-fixtures-v08.json) → [只读Node](tools/check_cap1003_independent_receipt_b100_v08.cjs)。同judge预检不等于真实D17已验，Owner/消费者0/17，L3待人审。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B99 CAP-08-03 G43刀长与G234 TCPC方言补证
 [研究/厂商公开正文及限制](docs/capabilities/CAP-08-03/TOOL-LENGTH-TCPC-B99-2026-11-02.md) → [6来源](research/sources/CAP-08-03-tlo-tcpc-b99.json) → [8规则/16字段](research/traces/CAP-08-03-tlo-tcpc-b99-v08.json) → [36正反/UNKNOWN](docs/capabilities/CAP-08-03/tlo-tcpc-b99-fixtures-v08.json) → [只读Node](tools/check_cap0803_tlo_tcpc_b99_v08.cjs)；4几何Golden仅规划。真实OEM、独立Node、17 Owner/消费者及L3均未验。**规划PASS≠产品PASS。**
 
