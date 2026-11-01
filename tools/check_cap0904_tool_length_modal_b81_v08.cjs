@@ -12,7 +12,7 @@ function judge(x){
  if(!e.d10Revision||!e.d03Revision||!e.d12Revision||!e.toolTableRevision)return ans('UNKNOWN',null,'missing_revision');
  if(e.scope!==e.authorizedScope||(e.readOnlyAgent===false&&e.actor==='agent_unapproved'))return ans('REJECT',null,'scope_or_agent');
  if(e.cancelled||!e.aclAtCommit||!e.d15Independent||e.d16AutoPublish||e.executionWithoutApproval)return ans('REJECT',null,'permission_or_safety');
- if(e.d10Revision!==e.expectedD10Revision||e.d03Revision!==e.expectedD03Revision||e.d12Revision!==e.expectedD12Revision||
+ if(e.d03Hash!==e.expectedD03Hash||e.d10Hash!==e.expectedD10Hash||e.d10Revision!==e.expectedD10Revision||e.d03Revision!==e.expectedD03Revision||e.d12Revision!==e.expectedD12Revision||
   e.toolTableRevision!==e.expectedToolTableRevision||e.d12Hash!==e.expectedD12Hash||e.toolTableHash!==e.expectedToolTableHash||
   e.scopeEpoch!==e.expectedScopeEpoch||e.generation!==e.expectedGeneration||e.cancelEpoch!==e.expectedCancelEpoch)
   return ans('STALE',null,'revision_epoch_hash');
@@ -71,7 +71,7 @@ for(const c of data.cases){
  if(actual.status!==c.expect||('offsetZ' in c&&(actual.offsetZ===null||Math.abs(actual.offsetZ-c.offsetZ)>1e-8)))
   failed.push({id:c.id,expect:c.expect,expectedOffset:c.offsetZ,actual});
 }
-if(data.cases.length!==32||ids.size!==32)throw Error('B81必须32项不同ID');
+if(data.cases.length!==34||ids.size!==34)throw Error('B81必须34项不同ID');
 console.log(JSON.stringify({scope:'PLANNING_SYNTHETIC_SAME_JUDGE_ONLY',cases:ids.size,counts,failed,
  independentNodeProcess:true,realController:'NOT_RUN',d13d14d15d16:'NOT_RUN',
  ownerSigned:'0/17',consumerPass:'0/17',L3:'PENDING_HUMAN'}));

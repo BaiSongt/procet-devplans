@@ -16,11 +16,11 @@ Haas**铣床**官方G43/G44 Group 08页面说明G43正向、G44反向；从NGC�
 
 ## 来源与实施边界
 
-[7项分级来源](../../../research/sources/CAP-09-04-tool-length-modal-b81.json) → [8条追踪规则、字段和原包](../../../research/traces/CAP-09-04-tool-length-modal-b81-v08.json) → [32合成正反/UNKNOWN/STALE](tool-length-modal-b81-fixtures-v08.json) → [规划Node只读校验](../../../tools/check_cap0904_tool_length_modal_b81_v08.cjs) → [分级执行记录](../../../tracking/cap0904-tool-length-modal-b81-verification-2026-11-01.json)。ISO 6983-1:2009只核官方合法目录/摘要；NIST Gao等2023只读官方出版摘要，**均未阅读收费标准正文/论文全文**，不将内生CAS门禁归因于ISO/NIST。
+[7项分级来源](../../../research/sources/CAP-09-04-tool-length-modal-b81.json) → [8条追踪规则、字段和原包](../../../research/traces/CAP-09-04-tool-length-modal-b81-v08.json) → [34合成正反/UNKNOWN/STALE](tool-length-modal-b81-fixtures-v08.json) → [规划Node只读校验](../../../tools/check_cap0904_tool_length_modal_b81_v08.cjs) → [分级执行记录](../../../tracking/cap0904-tool-length-modal-b81-verification-2026-11-01.json)。ISO 6983-1:2009只核官方合法目录/摘要；NIST Gao等2023只读官方出版摘要，**均未阅读收费标准正文/论文全文**，不将内生CAS门禁归因于ISO/NIST。
 
 ## 数据契约、入口及验收资格
 
-- **固定字段**：`d03Revision/hash`、`d10Revision/hash`、`d12Revision/NCBytesHash`、`toolTableRevision/hash`、`controllerSoftware/interpreterBuild`、`gaugeMeasuredZ/gaugeFrame`、`scope`、`frame/unit`、`currentAppliedOffset`、`changerKind`、`loadedTool`、`sourceNCLine`、`motionEpoch`。示例工具只覆盖Z轴，不默许X/Y/五轴等效。
+- **固定字段**：`d03Revision/hash/expectedHash`、`d10Revision/hash/expectedHash`、`d12Revision/NCBytesHash`、`toolTableRevision/hash`、`controllerSoftware/interpreterBuild`、`gaugeMeasuredZ/gaugeFrame`、`scope`、`frame/unit`、`currentAppliedOffset`、`changerKind`、`loadedTool`、`sourceNCLine`、`motionEpoch`。示例工具只覆盖Z轴，不默许X/Y/五轴等效。
 - **唯一写端口**：D03 ResourceOwner负责资源，D10 MountBindingOwner负责实际装夹与测量引用，D12 PostOwner写最终NC，D13 ControllerSemanticOwner解释最终字节的模态、H选项及版本，D14依D13输出物理Joint时序，D15**独立消费者**作实际验证，D16需审批才发布。未知语义显式`UNKNOWN`；**CL级动画/D11不是D15证据**。不做材料扫掠仿真。
 - **GUI/CLI/Agent**在同一个09域工作任务和D13状态只读检查视图中使用同一领域Port：`inspectExactMountEvidence`、`inspectCurrentModalOffset`、`previewOffsetDeltaReadOnly`、`requestD13Reinterpret`；唯一活动Babylon世界、左TaskPanel（文字≤12px）。CLI/Agent无特殊绕权写通道。提交瞬间重验Owner ACL、expected revision/hash、scope/frame、generation、cancelEpoch；取消晚回执拒绝。
 - **失效与迁移**：刀具表、H映射、Gauge、机床控制器版本、NC字节/Revision、D10现场偏置变更使D13→D14→D15→D16候选资格失效，A/B共享事实不得覆盖D08冻结快照。旧schema只读保留，回退旧解释器须生成新run，禁止旧验证自动复活。

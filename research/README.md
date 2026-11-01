@@ -1,5 +1,5 @@
 ## 2026-11-01｜B81 R-TOOL-ASSEMBLY-TCP-001 刀长补偿模态证据
-[7项来源/章节深度及局限](sources/CAP-09-04-tool-length-modal-b81.json) → [8规则/字段/CAP与原E3-05](traces/CAP-09-04-tool-length-modal-b81-v08.json) → [32正反/STALE/UNKNOWN合成](../docs/capabilities/CAP-09-04/tool-length-modal-b81-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-09-04/TOOL-LENGTH-MODAL-B81-2026-11-01.md)。LinuxCNC2.9§28–31与Haas官方G43/G44正文定点阅读；ISO6983-1仅官方目录、NIST Gao等仅摘要，RFC9110仅CAS类比；独立远端Node/真实控制器/17消费者NOT_RUN。**规划PASS≠产品PASS。**
+[7项来源/章节深度及局限](sources/CAP-09-04-tool-length-modal-b81.json) → [8规则/字段/CAP与原E3-05](traces/CAP-09-04-tool-length-modal-b81-v08.json) → [34正反/STALE/UNKNOWN合成](../docs/capabilities/CAP-09-04/tool-length-modal-b81-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-09-04/TOOL-LENGTH-MODAL-B81-2026-11-01.md)。LinuxCNC2.9§28–31与Haas官方G43/G44正文定点阅读；ISO6983-1仅官方目录、NIST Gao等仅摘要，RFC9110仅CAS类比；独立远端Node/真实控制器/17消费者NOT_RUN。**规划PASS≠产品PASS。**
 
 ## 2026-11-01｜B80 R-RAG-EVIDENCE-001 Unicode引用与Quote唯一性
 [7项来源](sources/CAP-11-03-unicode-selector-b80.json) → [8规则/原包字段](traces/CAP-11-03-unicode-selector-b80-v08.json) → [42项预期合成](../docs/capabilities/CAP-11-03/unicode-selector-b80-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-11-03/UNICODE-SELECTOR-B80-2026-11-01.md)。W3C 2017§4.2.4/5、Unicode18 UAX29 Rev49、ECMA262 Ed17及RFC8785公开章节实读；NIST与Lewis论文只读官方摘要。真实UAX29与独立消费者未验。**规划PASS≠产品PASS。**

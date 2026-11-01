@@ -1,4 +1,4 @@
-> **B81刀长补偿模态专项补证（2026-11-01）**：[LinuxCNC G43.1/G43.2、Haas NGC及D10安装证据隔离](TOOL-LENGTH-MODAL-B81-2026-11-01.md) · [7来源](../../../research/sources/CAP-09-04-tool-length-modal-b81.json) · [8字段规则/原工作包](../../../research/traces/CAP-09-04-tool-length-modal-b81-v08.json) · [32合成正反/UNKNOWN/STALE](tool-length-modal-b81-fixtures-v08.json)。D03名义长度不得充当D10实测或D13模态；仅规划合成，真实控制器及独立消费者NOT_RUN。
+> **B81刀长补偿模态专项补证（2026-11-01）**：[LinuxCNC G43.1/G43.2、Haas NGC及D10安装证据隔离](TOOL-LENGTH-MODAL-B81-2026-11-01.md) · [7来源](../../../research/sources/CAP-09-04-tool-length-modal-b81.json) · [8字段规则/原工作包](../../../research/traces/CAP-09-04-tool-length-modal-b81-v08.json) · [34合成正反/UNKNOWN/STALE](tool-length-modal-b81-fixtures-v08.json)。D03名义长度不得充当D10实测或D13模态；仅规划合成，真实控制器及独立消费者NOT_RUN。
 
 # CAP-09-04｜刀具安装与TCP核对（V0.8原编号，L3待审）
 **原目标（原88项）**：主轴安装接口、刀柄、刀尖偏置一致性。归09机床运动与工程验证域；依赖原编号工作包F1-02、E3-04、E3-05、U4-04。保持L1/L2与CAP分母不变。
