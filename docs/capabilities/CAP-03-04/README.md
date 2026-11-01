@@ -1,3 +1,5 @@
+**B103补证（2026-11-02）：** [AP242 2025/2022版次、NIST STC全部删除Datum Target的验收覆盖盲点](DATUM-TARGET-COVERAGE-B103-2026-11-02.md) → [7条来源](../../../research/sources/CAP-03-04-datum-target-b103.json) → [8条规则](../../../research/traces/CAP-03-04-datum-target-b103-v08.json) → [35合成正反UNKNOWN](datum-target-b103-fixtures-v08.json)。未执行真实FTC/OCCT/NIST Analyzer，L3待审，规划PASS≠产品PASS。
+
 **B83追加专项（2026-11-01）：** [三维PMI标注方向平面/附件放置/Saved View分层](ANNOTATION-PLANE-B83-2026-11-01.md) · [8来源](../../../research/sources/CAP-03-04-annotation-plane-b83.json) · [8字段规则](../../../research/traces/CAP-03-04-annotation-plane-b83-v08.json) · [37显式合成](annotation-plane-b83-fixtures-v08.json) · [Node只读检查](../../../tools/check_cap0304_annotation_plane_b83_v08.cjs)。仅规划草案，L3/真实产品/跨域消费者待审。
 
 > **B22新增：** [PMI损失账本及分母防错](PMI-LOSS-LEDGER-B22-2026-10-29.md) · [5来源](../../../research/sources/CAP-03-04-pmi-loss-b22.json) · [8规则/29反例](../../../research/traces/CAP-03-04-pmi-loss-b22-v08.json)。原20案例未改，L3与产品仍待审。

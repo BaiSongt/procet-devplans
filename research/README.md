@@ -1,3 +1,6 @@
+## 2026-11-02｜B103 R-PMI-001 AP242版本与NIST FTC/STC Datum Target覆盖盲点
+[七条合法分级来源](sources/CAP-03-04-datum-target-b103.json) → [八项字段规则/原包追踪](traces/CAP-03-04-datum-target-b103-v08.json) → [35项合成正反UNKNOWN](../docs/capabilities/CAP-03-04/datum-target-b103-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-03-04/DATUM-TARGET-COVERAGE-B103-2026-11-02.md)。NIST STC不含Datum Target，ISO标准仅查目录，OCCT只查API，未运行STEP/Reader，L3和Owner待审。
+
 ## 2026-11-02｜B102 R-EXT-001 研究索引与进度一致性
 [5分级来源](sources/CAP-01-08-registry-consistency-b102.json) → [7规则字段](traces/CAP-01-08-registry-consistency-b102-v08.json) → [1正12反](../docs/capabilities/CAP-01-08/registry-consistency-b102-fixtures-v08.json) → [报告/公开章节阅读深度](../docs/capabilities/CAP-01-08/REGISTRY-CONSISTENCY-B102-2026-11-02.md)。纠正旧进度来源标签206/1584滞后于真实207/1591，新增后208 Registry/1596登记；未验全文/独立Node/产品、Owner0/17，规划PASS≠产品PASS。
 

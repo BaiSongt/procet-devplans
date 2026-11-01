@@ -1,3 +1,6 @@
+## 2026-11-02｜B103 CAP-03-04 Datum Target基准覆盖与AP242版次专项
+[研究与来源深度](docs/capabilities/CAP-03-04/DATUM-TARGET-COVERAGE-B103-2026-11-02.md) → [7条分级来源](research/sources/CAP-03-04-datum-target-b103.json) → [8规则/原B0-02、F1-03、F1-04、T5-02](research/traces/CAP-03-04-datum-target-b103-v08.json) → [35合成正反UNKNOWN](docs/capabilities/CAP-03-04/datum-target-b103-fixtures-v08.json) → [只读Node](tools/check_cap0304_datum_target_b103_v08.cjs)。NIST官方明确2023 STC移除全部Datum Target，STC通过不等于该维度验证；ISO AP242:2025 Edition4已发布、2022 Edition3撤回但历史输入需保留原版次。独立Reader/FTC原始字节/Owner/消费者/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B102 CAP-01-08 研究注册表三方一致性与描述漂移修复
 [固定Tree/官方章节专项](docs/capabilities/CAP-01-08/REGISTRY-CONSISTENCY-B102-2026-11-02.md) → [5分级来源](research/sources/CAP-01-08-registry-consistency-b102.json) → [7规则字段/原B0-05/U4-06/T5-06](research/traces/CAP-01-08-registry-consistency-b102-v08.json) → [1正12反](docs/capabilities/CAP-01-08/registry-consistency-b102-fixtures-v08.json) → [只读Node](tools/check_registry_consistency_b102_v08.cjs)。旧207 Registry/1591登记在Git Tree中路径全在且普通Blob、0缺失，修复progress文字仍停留206/1584；新增5登记后208 Registry/1596条。仅远端结构及V8同算法合成，不是逐来源全文或全仓GFM AST/产品PASS。17 Owner/消费者0、L3待审。
 
