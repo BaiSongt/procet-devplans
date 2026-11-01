@@ -59,3 +59,6 @@ GUI/CLI/Agent共享EvidenceRetrievalPort与审计；单Babylon/左TaskPanel；CA
 [唯一GUI/3D](UI.md) · [示例合同](retrieval-evidence-contract.example.json) · [17资产Owner候选](asset-owner-candidates.json) · [独立消费者与回退](independent-consumer-handoff.md) · [9来源及阅读局限](../../../research/sources/CAP-11-03.json) → [10规则40字段](../../../research/traces/CAP-11-03.json) → [50字段正反+28门禁](fixtures.json) · [研究专题](../../../research/topics/R-RAG-EVIDENCE-001.md)。
 
 **规划PASS≠产品PASS。** 独立Node文件执行、真实向量检索、Owner ACL、浏览器、NC/机床、独立消费者均NOT_RUN；Owner会签与L3审批PENDING_HUMAN。
+
+## B80｜Unicode引用精确定位补证
+[专项研究](UNICODE-SELECTOR-B80-2026-11-01.md)补充W3C Unicode代码点、JS UTF-16、字素簇UNKNOWN和重复Quote歧义的工程资格；原十规则和T5-01/T5-02不替换，L3、独立消费者待核。
