@@ -1,3 +1,6 @@
+## 2026-11-01｜CAP-07-01 B91多环/岛/圆弧专项补证
+[研究与八条新门禁](CAP-07-01/MULTIRING-OFFSET-B91-2026-11-01.md) · [追踪](../../research/traces/CAP-07-01-multiring-offset-b91-v08.json) · [26项正反与3公式](CAP-07-01/multiring-offset-b91-fixtures-v08.json)。不增加原88项完成计数，真实OCCT/NC与L3待验。
+
 ## 2026-10-28｜[CAP-04-07 刀具安装关系](CAP-04-07/README.md)
 [统一GUI/3D](CAP-04-07/UI.md) · [10源/规则追踪](../../research/traces/CAP-04-07.json) · [80项规划合成](CAP-04-07/fixtures.json) · [候选Owner](CAP-04-07/independent-consumer-handoff.md)。**原88项全部有详细稿但均待L3**；17Owner/11域终核/历史附件/全仓覆盖尚未闭合。
 

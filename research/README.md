@@ -1,3 +1,6 @@
+## 2026-11-01｜B91 R-25D-TOOLPATH-001 多环偏置与弦高精度
+[7项精确阅读分级](sources/CAP-07-01-multiring-offset-b91.json) → [8规则字段/3原编号包](traces/CAP-07-01-multiring-offset-b91-v08.json) → [8正18反/3公式](../docs/capabilities/CAP-07-01/multiring-offset-b91-fixtures-v08.json) → [CAP专题](../docs/capabilities/CAP-07-01/MULTIRING-OFFSET-B91-2026-11-01.md)。OCCT/CGAL指定API与手册已读、NIST与2014论文仅摘要、ISO仅书目，GPL仅研究；实际独立几何/机器验收NOT_RUN。
+
 ## 2026-11-01｜B90 R-NC-EXEC-001 反时进给与时钟证据
 [7条合法分级来源](sources/CAP-09-06-feed-time-b90.json) → [9规则/字段/原E3-03/E3-04/E3-05](traces/CAP-09-06-feed-time-b90-v08.json) → [27正反与3数值Golden](../docs/capabilities/CAP-09-06/feed-time-b90-fixtures-v08.json) → [报告](../docs/capabilities/CAP-09-06/INVERSE-FEED-TIME-B90-2026-11-01.md)。LinuxCNC 2.9指定章节正文实读，Haas G93和车床G94只读官网检索摘要；真实OEM/17消费者/人类Owner未验，L3待审。**规划PASS≠产品PASS。**
 

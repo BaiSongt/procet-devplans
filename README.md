@@ -1,3 +1,6 @@
+## 2026-11-01｜B91 CAP-07-01 多环岛屿偏置/窄通道/圆弧误差补证
+[研究与限制](docs/capabilities/CAP-07-01/MULTIRING-OFFSET-B91-2026-11-01.md) → [7来源](research/sources/CAP-07-01-multiring-offset-b91.json) → [8规则/原F1-03/E3-01/U4-04](research/traces/CAP-07-01-multiring-offset-b91-v08.json) → [8正18反、3解析Golden](docs/capabilities/CAP-07-01/multiring-offset-b91-fixtures-v08.json) → [只读Node](tools/check_cap0701_multiring_offset_b91_v08.cjs)。限定平行通道及弦高合成，不宣称实际OCCT、D15或独立消费者通过。L3待审，规划PASS≠产品PASS。
+
 ## 2026-11-01｜B90 CAP-09-06 G93/G94/G95名义进给时间与NC执行分离
 [报告](docs/capabilities/CAP-09-06/INVERSE-FEED-TIME-B90-2026-11-01.md) → [7来源](research/sources/CAP-09-06-feed-time-b90.json) → [9字段规则/原工作包](research/traces/CAP-09-06-feed-time-b90-v08.json) → [27正反+3数值Golden](docs/capabilities/CAP-09-06/feed-time-b90-fixtures-v08.json) → [Node只读入口](tools/check_cap0906_feed_time_b90_v08.cjs)。LinuxCNC G93 F2为30秒名义指令，不是实际轴时钟；Haas车床与铣床G94不同。规划同judge27/27、3公式Golden；真实D13–D15与Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS**。
 

@@ -39,3 +39,6 @@
 
 ## 理论证据与验收
 [理论专题](../../../research/topics/R-25D-TOOLPATH-001.md) → [8份合法资料、版本与访问深度](../../../research/sources/CAP-07-01.json) → [10规则/字段/来源](../../../research/traces/CAP-07-01.json) → [10正+10反+10独立变异](fixtures.json) → [可本地运行的规则检查器](../../../tools/check_cap0701_planning_2026_10_25.cjs) → [独立消费者/迁移](independent-consumer-handoff.md)。可执行`node tools/check_cap0701_planning_2026_10_25.cjs`，**它只检查规划静态合成DTO；未运行真实OCCT、Post、NC控制器、机床或GUI，不能声明产品PASS。**
+
+## 2026-11-01 B91增量（保持上述原十条规则不变）
+[多环偏置、窄通道及圆弧弦高研究](MULTIRING-OFFSET-B91-2026-11-01.md) → [7来源](../../../research/sources/CAP-07-01-multiring-offset-b91.json) → [8增量规则](../../../research/traces/CAP-07-01-multiring-offset-b91-v08.json) → [8正18反和3数值Golden](multiring-offset-b91-fixtures-v08.json)。本轮仅本地同判定函数规划合成，真实D12消费者、OCCT/CGAL、实机/D15、人类Owner/独立消费者均NOT_RUN。
