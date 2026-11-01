@@ -1,3 +1,5 @@
+> **B101专项（2026-11-02）：** [非恒等Joint与独立D15](JOINT-INDEPENDENCE-B101-2026-11-02.md) → [追踪8规则](../../../research/traces/CAP-09-06-joint-b101-trace-v08.json) → [45同judge合成](joint-b101-fixtures-v08.json)；真实机床与独立消费者NOT_RUN。
+
 > **B90专项补证（2026-11-01）：** [G93/G94/G95名义进给时间不是物理D14轴时序](INVERSE-FEED-TIME-B90-2026-11-01.md) → [9规则](../../../research/traces/CAP-09-06-feed-time-b90-v08.json) → [27正反+3 Golden](feed-time-b90-fixtures-v08.json)。真实NC/B5/OEM/D15 NOT_RUN，L3待审。
 
 > **B58专项补证（2026-10-31）：** [G61/G61.1/G64及前瞻轨迹资格](TRAJECTORY-MODES-B58-2026-10-31.md) → [8规则追踪](../../../research/traces/CAP-09-06-trajectory-modes-b58-v08.json) → [61合成验收](trajectory-modes-b58-fixtures-v08.json)。实际NC/D15/B5/OEM仍NOT_RUN，L3待审。

@@ -1,3 +1,6 @@
+## 2026-11-02｜B101 CAP-09-06 非恒等Joint限位与D14→D15独立验证
+[研究及官方阅读边界](docs/capabilities/CAP-09-06/JOINT-INDEPENDENCE-B101-2026-11-02.md) → [7分级来源](research/sources/CAP-09-06-joint-b101.json) → [8规则字段](research/traces/CAP-09-06-joint-b101-trace-v08.json) → [45合成正反UNKNOWN](docs/capabilities/CAP-09-06/CAP-09-06-joint-b101-fixtures-v08.json) → [只读Node](tools/check_cap0906_joint_b101_v08.cjs)。Cartesian软限位合格不意味着Joint安全；D15同域必须独立实现，真实消费者/Owner/L3/全仓AST待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B100 CAP-10-03 D16→D17独立接收证明与幂等回执
 [研究及真实独立消费者门禁](docs/capabilities/CAP-10-03/INDEPENDENT-RECEIPT-B100-2026-11-02.md) → [8分级来源](research/sources/CAP-10-03-independent-receipt-b100.json) → [8规则/字段/原E3-06、T5-03](research/traces/CAP-10-03-independent-receipt-b100-v08.json) → [37合成正反/UNKNOWN/幂等](docs/capabilities/CAP-10-03/independent-receipt-b100-fixtures-v08.json) → [只读Node](tools/check_cap1003_independent_receipt_b100_v08.cjs)。同judge预检不等于真实D17已验，Owner/消费者0/17，L3待人审。**规划PASS≠产品PASS。**
 

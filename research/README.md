@@ -1,3 +1,6 @@
+## 2026-11-02｜B101 R-NC-VALIDATION-001 Joint限位与独立D15证据
+[7条合法来源](sources/CAP-09-06-joint-b101.json) → [8规则字段](traces/CAP-09-06-joint-b101-trace-v08.json) → [45同judge正反UNKNOWN](../docs/capabilities/CAP-09-06/CAP-09-06-joint-b101-fixtures-v08.json) → [研究及限制](../docs/capabilities/CAP-09-06/JOINT-INDEPENDENCE-B101-2026-11-02.md)。LinuxCNC2.9实读、ISO/ASME仅目录；真实D15、控制器/Owner、L3和全仓AST未验证。
+
 ## 2026-11-02｜B100 R-RELEASE-001 D16→D17同域独立消费者收件证明
 [8项访问深度明确的来源](sources/CAP-10-03-independent-receipt-b100.json) → [8规则字段](traces/CAP-10-03-independent-receipt-b100-v08.json) → [37设计合成案例](../docs/capabilities/CAP-10-03/independent-receipt-b100-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-10-03/INDEPENDENT-RECEIPT-B100-2026-11-02.md)。RFC7515/8785/9110/W3C选段实读，NIST IR8536/SP800-53仅摘要/目录。独立Node、真实D17/签名/机床NOT_RUN，17Owner签字0/17，L3待审。
 
