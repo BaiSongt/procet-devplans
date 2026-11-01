@@ -44,3 +44,7 @@ Expand旧Reader与新编辑DTO并存；Migrate只追加D09派生修订及段级�
 导航：[GUI与3D](UI.md) · [合成编辑DTO](contract.example.json) · [失效矩阵](invalidation-matrix.json) · [17资产Owner候选](asset-owner-candidates.json) · [独立消费者](independent-consumer-handoff.md) · [8来源](../../../research/sources/CAP-07-08.json) · [理论](../../../research/topics/R-TOOLPATH-LOCAL-REGEN-001.md) · [10规则及30变异](../../../research/traces/CAP-07-08.json) · [fixtures](fixtures.json)。
 
 独立Node磁盘执行、实际OCCT/NC/机床/跨域消费者为NOT_RUN，L3及17Owner正式会签PENDING，规划PASS≠产品PASS。
+
+
+## B93｜局部编辑DAG闭包、分裂段血缘与旧NC证据失效（2026-11-01）
+[专项研究](EDIT-DAG-LINEAGE-B93-2026-11-01.md) → [8来源](../../../research/sources/CAP-07-08-edit-dag-b93.json) → [8规则/原F1-03、E3-01、U4-04](../../../research/traces/CAP-07-08-edit-dag-b93-v08.json) → [32显式正反未知及3图Golden](edit-dag-b93-fixtures-v08.json) → [只读Node](../../../tools/check_cap0708_edit_dag_b93_v08.cjs)。同judge合成非产品验收，L3待审。

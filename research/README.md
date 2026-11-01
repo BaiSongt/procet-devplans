@@ -1,3 +1,6 @@
+## 2026-11-01｜B93 R-TOOLPATH-LOCAL-REGEN-001 图闭包与段血缘
+[8合法来源](sources/CAP-07-08-edit-dag-b93.json) → [8规则及原包](traces/CAP-07-08-edit-dag-b93-v08.json) → [32显式合成、3图Golden](../docs/capabilities/CAP-07-08/edit-dag-b93-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-07-08/EDIT-DAG-LINEAGE-B93-2026-11-01.md)。NetworkX3.7/W3C PROV-O/RFC6902/9110/OCCT8.0.1公开选段，NIST两文仅摘要；真实产品、独立消费者、L3尚未验收。
+
 ## 2026-11-01｜B92 R-3AXIS-SURFACE-001 修剪面投影及孔环误判
 [8项分级来源](sources/CAP-07-02-trim-projection-b92.json) → [8规则字段/原包](traces/CAP-07-02-trim-projection-b92-v08.json) → [32合成及3解析Golden](../docs/capabilities/CAP-07-02/trim-projection-b92-fixtures-v08.json) → [研究专题](../docs/capabilities/CAP-07-02/TRIMMED-FACE-PROJECTION-B92-2026-11-01.md)。OCCT五项指定公开API正文、ISO仅目录、NIST仅摘要；真实STEP/OCCT/OEM/消费者NOT_RUN。
 
