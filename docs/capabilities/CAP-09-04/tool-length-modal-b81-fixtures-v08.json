@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "procet-b81-fixtures-v1",
+  "scope": "SYNTHETIC_ONLY",
+  "base": {
+    "evidence": {
+      "d03Hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d10Hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "d12Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "expectedD12Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "toolTableHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "expectedToolTableHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "d03Revision": "r03",
+      "expectedD03Revision": "r03",
+      "d10Revision": "r10",
+      "expectedD10Revision": "r10",
+      "d12Revision": "r12",
+      "expectedD12Revision": "r12",
+      "toolTableRevision": "rt",
+      "expectedToolTableRevision": "rt",
+      "gaugeFrame": "spindle_gauge",
+      "gaugeMeasuredZ": 50,
+      "frame": "machine",
+      "unit": "mm",
+      "scope": "project-1",
+      "authorizedScope": "project-1",
+      "scopeEpoch": 4,
+      "expectedScopeEpoch": 4,
+      "generation": 5,
+      "expectedGeneration": 5,
+      "cancelEpoch": 3,
+      "expectedCancelEpoch": 3,
+      "controllerSoftware": "linuxcnc-2.9",
+      "interpreterBuild": "linuxcnc-2.9-profile",
+      "changer": "nonrandom",
+      "loadedTool": 1,
+      "toolTable": {
+        "0": 8,
+        "1": 50,
+        "2": 30,
+        "10": 0.2
+      },
+      "currentAppliedZ": 50,
+      "aclAtCommit": true,
+      "cancelled": false,
+      "d15Independent": true,
+      "d16AutoPublish": false,
+      "executionWithoutApproval": false,
+      "startupOffsetObserved": true,
+      "intent": "inspect"
+    },
+    "action": {
+      "op": "G43",
+      "h": 1
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expect": "CANDIDATE_ONLY",
+      "patch": {},
+      "offsetZ": 50
+    },
+    {
+      "id": "P02",
+      "expect": "CANDIDATE_ONLY",
+      "patch": {
+        "action": {
+          "op": "G43.2",
+          "h": 10
+        }
+      },
+      "offsetZ": 50.2
+    },
+    {
+      "id": "P03",
+      "expect": "CANDIDATE_ONLY",
+      "patch": {
+        "action": {
+          "op": "G43.1",
+          "z": 0.25
+        }
+      },
+      "offsetZ": 0.25
+    },
+    {
+      "id": "P04",
+      "expect": "CANDIDATE_ONLY",
+      "patch": {
+        "action": {
+          "op": "G49"
+        }
+      },
+      "offsetZ": 0
+    },
+    {
+      "id": "P05",
+      "expect": "CANDIDATE_ONLY",
+      "patch": {
+        "action": {
+          "op": "G43",
+          "h": 0
+        }
+      },
+      "offsetZ": 50
+    },
+    {
+      "id": "P06",
+      "expect": "CANDIDATE_ONLY",
+      "patch": {
+        "action": {
+          "op": "G43",
+          "h": 0
+        },
+        "evidence": {
+          "changer": "random"
+        }
+      },
+      "offsetZ": 8
+    },
+    {
+      "id": "P07",
+      "expect": "CANDIDATE_ONLY",
+      "patch": {
+        "action": {
+          "op": "G43",
+          "h": 2
+        },
+        "evidence": {
+          "controllerSoftware": "haas-ngc-100.21.000.1100",
+          "interpreterBuild": "haas-ngc-versioned-profile"
+        }
+      },
+      "offsetZ": 30
+    },
+    {
+      "id": "P08",
+      "expect": "READ_ONLY",
+      "patch": {
+        "evidence": {
+          "intent": "preview"
+        }
+      },
+      "offsetZ": 50
+    },
+    {
+      "id": "N01",
+      "expect": "REJECT",
+      "patch": {
+        "action": {
+          "op": "G43.1",
+          "z": 0.25,
+          "sameBlockMotion": true
+        }
+      }
+    },
+    {
+      "id": "N02",
+      "expect": "REJECT",
+      "patch": {
+        "action": {
+          "op": "G43.2",
+          "h": 10,
+          "z": 1
+        }
+      }
+    },
+    {
+      "id": "N03",
+      "expect": "REJECT",
+      "patch": {
+        "action": {
+          "op": "G43.2"
+        }
+      }
+    },
+    {
+      "id": "N04",
+      "expect": "REJECT",
+      "patch": {
+        "action": {
+          "op": "G43",
+          "h": -1
+        }
+      }
+    },
+    {
+      "id": "N05",
+      "expect": "REJECT",
+      "patch": {
+        "evidence": {
+          "aclAtCommit": false
+        }
+      }
+    },
+    {
+      "id": "N06",
+      "expect": "REJECT",
+      "patch": {
+        "evidence": {
+          "cancelled": true
+        }
+      }
+    },
+    {
+      "id": "N07",
+      "expect": "REJECT",
+      "patch": {
+        "evidence": {
+          "authorizedScope": "project-2"
+        }
+      }
+    },
+    {
+      "id": "N08",
+      "expect": "REJECT",
+      "patch": {
+        "evidence": {
+          "d15Independent": false
+        }
+      }
+    },
+    {
+      "id": "N09",
+      "expect": "REJECT",
+      "patch": {
+        "evidence": {
+          "d16AutoPublish": true
+        }
+      }
+    },
+    {
+      "id": "N10",
+      "expect": "REJECT",
+      "patch": {
+        "evidence": {
+          "executionWithoutApproval": true
+        }
+      }
+    },
+    {
+      "id": "U01",
+      "expect": "UNKNOWN",
+      "patch": {
+        "evidence": {
+          "controllerSoftware": "unknown-oem"
+        }
+      }
+    },
+    {
+      "id": "U02",
+      "expect": "UNKNOWN",
+      "patch": {
+        "action": {
+          "op": "G43",
+          "h": 99
+        }
+      }
+    },
+    {
+      "id": "U03",
+      "expect": "UNKNOWN",
+      "patch": {
+        "action": {
+          "op": "G43",
+          "h": 0
+        },
+        "evidence": {
+          "changer": "random",
+          "toolTable": {
+            "0": null
+          }
+        }
+      }
+    },
+    {
+      "id": "U04",
+      "expect": "UNKNOWN",
+      "patch": {
+        "action": {
+          "op": "G143"
+        }
+      }
+    },
+    {
+      "id": "U05",
+      "expect": "UNKNOWN",
+      "patch": {
+        "evidence": {
+          "controllerSoftware": "haas-ngc-100.21.000.1100",
+          "interpreterBuild": "haas-ngc-versioned-profile",
+          "startupOffsetObserved": false
+        }
+      }
+    },
+    {
+      "id": "U06",
+      "expect": "UNKNOWN",
+      "patch": {
+        "evidence": {
+          "gaugeMeasuredZ": null
+        }
+      }
+    },
+    {
+      "id": "U07",
+      "expect": "UNKNOWN",
+      "patch": {
+        "evidence": {
+          "gaugeFrame": "unknown"
+        }
+      }
+    },
+    {
+      "id": "U08",
+      "expect": "UNKNOWN",
+      "patch": {
+        "action": {
+          "op": "G43",
+          "h": 0
+        },
+        "evidence": {
+          "changer": "unknown"
+        }
+      }
+    },
+    {
+      "id": "S01",
+      "expect": "STALE",
+      "patch": {
+        "evidence": {
+          "d10Revision": "r10-new"
+        }
+      }
+    },
+    {
+      "id": "S02",
+      "expect": "STALE",
+      "patch": {
+        "evidence": {
+          "d12Hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        }
+      }
+    },
+    {
+      "id": "S03",
+      "expect": "STALE",
+      "patch": {
+        "evidence": {
+          "toolTableHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      }
+    },
+    {
+      "id": "S04",
+      "expect": "STALE",
+      "patch": {
+        "evidence": {
+          "scopeEpoch": 10
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "expect": "STALE",
+      "patch": {
+        "evidence": {
+          "generation": 15
+        }
+      }
+    },
+    {
+      "id": "S06",
+      "expect": "STALE",
+      "patch": {
+        "evidence": {
+          "cancelEpoch": 6
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "所有输入数字及例子均为虚构的单轴规划样例",
+    "未测试实际LinuxCNC/Haas/OEM控制器、物理Gauge、G143、五轴TCP",
+    "同一判定函数合成用例不是产品或独立消费者PASS"
+  ]
+}

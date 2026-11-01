@@ -1,3 +1,6 @@
+## 2026-11-01｜B81 CAP-09-04 G43.1替换、G43.2叠加与Haas NGC持久刀补
+[专项研究](docs/capabilities/CAP-09-04/TOOL-LENGTH-MODAL-B81-2026-11-01.md) → [7分级来源](research/sources/CAP-09-04-tool-length-modal-b81.json) → [8规则及原E3-04/E3-05/U4-04](research/traces/CAP-09-04-tool-length-modal-b81-v08.json) → [32项合成用例](docs/capabilities/CAP-09-04/tool-length-modal-b81-fixtures-v08.json) → [只读Node工具](tools/check_cap0904_tool_length_modal_b81_v08.cjs)。LinuxCNC2.9 G43.1覆盖而G43.2追加，Haas NGC版本化的偏置可跨重启保留；单轴Z合成32/32本地Node通过，不等于真实G-code解释、五轴TCP或NC安全。Owner签署及独立消费者0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B80 CAP-11-03 Unicode代码点与多语种引用归属
 [专项研究](docs/capabilities/CAP-11-03/UNICODE-SELECTOR-B80-2026-11-01.md) → [7项分级来源](research/sources/CAP-11-03-unicode-selector-b80.json) → [8字段规则/原T5-01和T5-02](research/traces/CAP-11-03-unicode-selector-b80-v08.json) → [42项显式合成](docs/capabilities/CAP-11-03/unicode-selector-b80-fixtures-v08.json) → [只读Node校验](tools/check_cap1103_unicode_selector_b80_v08.cjs)。W3C代码点与JS UTF-16位置不同，字素簇处理未全覆盖须UNKNOWN；真实Owner、独立消费者与L3仍待审。**规划PASS≠产品PASS。**
 
