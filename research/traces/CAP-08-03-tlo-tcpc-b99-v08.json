@@ -1,0 +1,264 @@
+{
+  "schemaVersion": "procet-b99-tlo-tcpc-trace-v08",
+  "sourceRegistry": "research/sources/CAP-08-03-tlo-tcpc-b99.json",
+  "fixtures": "docs/capabilities/CAP-08-03/tlo-tcpc-b99-fixtures-v08.json",
+  "checker": "tools/check_cap0803_tlo_tcpc_b99_v08.cjs",
+  "rules": [
+    {
+      "id": "B99-R01",
+      "summary": "锁定机种、方言和固件，不能把G234等价任意G43.4",
+      "sourceIds": [
+        "B99-S01",
+        "B99-S02",
+        "B99-S06"
+      ],
+      "fields": [
+        "guards.controllerProfilePinned",
+        "guards.controllerVersionPinned"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N01",
+        "B99-N02"
+      ],
+      "unknown": [
+        "B99-U31"
+      ]
+    },
+    {
+      "id": "B99-R02",
+      "summary": "最终D12 NC原字节与D10刀补表修订不可漂移",
+      "sourceIds": [
+        "B99-S01",
+        "B99-S06"
+      ],
+      "fields": [
+        "guards.ncBytesShaPinned",
+        "guards.toolTableShaPinned"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N03",
+        "B99-N04",
+        "B99-N18"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B99-R03",
+      "summary": "LinuxCNC动态G43.1替换而G43.2叠加，H0依换刀配置",
+      "sourceIds": [
+        "B99-S01"
+      ],
+      "fields": [
+        "guards.hEntryResolved",
+        "guards.g431ReplaceG432Add"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N05",
+        "B99-N06",
+        "B99-N17",
+        "B99-N19",
+        "B99-N20",
+        "B99-N21",
+        "B99-N22"
+      ],
+      "unknown": [
+        "B99-U32"
+      ]
+    },
+    {
+      "id": "B99-R04",
+      "summary": "Haas NGC新版自动TLO和跨开机模态不能猜默认关闭",
+      "sourceIds": [
+        "B99-S02",
+        "B99-S04"
+      ],
+      "fields": [
+        "guards.haasInitialModalCaptured",
+        "guards.g49TransitionTracked"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N07",
+        "B99-N08"
+      ],
+      "unknown": [
+        "B99-U30"
+      ]
+    },
+    {
+      "id": "B99-R05",
+      "summary": "G234 H同块、MRZP、WCS及G43/G254互斥",
+      "sourceIds": [
+        "B99-S03"
+      ],
+      "fields": [
+        "guards.g234HMrzpWcsPinned",
+        "guards.g234MutualExclusion"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N09",
+        "B99-N10",
+        "B99-N23",
+        "B99-N24",
+        "B99-N25",
+        "B99-N26",
+        "B99-N27"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B99-R06",
+      "summary": "G234快速旋转刀尖保持未知及补偿后机床行程核验",
+      "sourceIds": [
+        "B99-S03"
+      ],
+      "fields": [
+        "guards.rapidRotaryNotCertified",
+        "guards.postCompAxisLimitChecked"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N11",
+        "B99-N12"
+      ],
+      "unknown": [
+        "B99-U28",
+        "B99-U29"
+      ]
+    },
+    {
+      "id": "B99-R07",
+      "summary": "量规长度与H实际偏置不同，D14禁止双重补偿",
+      "sourceIds": [
+        "B99-S06"
+      ],
+      "fields": [
+        "guards.d03D10Separate",
+        "guards.gaugeVectorFrameDeclared"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N13",
+        "B99-N14"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B99-R08",
+      "summary": "统一入口、CAS权限重验、迟ACK及独立D15签发门禁",
+      "sourceIds": [
+        "B99-S06"
+      ],
+      "fields": [
+        "guards.aclScopeCasCancelFence",
+        "guards.independentD15UnknownBlocksD16"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B99-P01"
+      ],
+      "negative": [
+        "B99-N15",
+        "B99-N16"
+      ],
+      "unknown": []
+    }
+  ]
+}

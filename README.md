@@ -1,3 +1,6 @@
+## 2026-11-02｜B99 CAP-08-03 G43刀长与G234 TCPC方言补证
+[研究/厂商公开正文及限制](docs/capabilities/CAP-08-03/TOOL-LENGTH-TCPC-B99-2026-11-02.md) → [6来源](research/sources/CAP-08-03-tlo-tcpc-b99.json) → [8规则/16字段](research/traces/CAP-08-03-tlo-tcpc-b99-v08.json) → [36正反/UNKNOWN](docs/capabilities/CAP-08-03/tlo-tcpc-b99-fixtures-v08.json) → [只读Node](tools/check_cap0803_tlo_tcpc_b99_v08.cjs)；4几何Golden仅规划。真实OEM、独立Node、17 Owner/消费者及L3均未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B98 17资产独立消费者同域盲点与证据矩阵
 [专项补证](docs/architecture/v0.8/ASSET-CONSUMER-INDEPENDENCE-B98-2026-11-02.md) → [17优先消费边+2同域例外](docs/architecture/v0.8/asset-consumer-independence-b98-v08.json) → [7项分级合法来源](research/sources/FINAL-ASSET-INDEPENDENCE-B98.json) → [8规则](research/traces/FINAL-ASSET-INDEPENDENCE-B98-V08.json) → [47规划合成](docs/architecture/v0.8/asset-consumer-independence-b98-fixtures-v08.json) → [Node只读工具](tools/check_asset_consumer_independence_b98_v08.cjs)。17资产44边互反；D14和D16仅同域业务消费输出，须有独立实现与运行证据，正式Owner/消费者仍0/17；独立Node/真实NC/全仓GFM AST未验。规划PASS≠产品PASS。
 

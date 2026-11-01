@@ -1,3 +1,6 @@
+## 2026-11-02｜B99 R-WCS-MOTION-001 刀长H与G234双方言
+[官方公开章节及限制](../docs/capabilities/CAP-08-03/TOOL-LENGTH-TCPC-B99-2026-11-02.md) → [6来源](sources/CAP-08-03-tlo-tcpc-b99.json) → [8规则](traces/CAP-08-03-tlo-tcpc-b99-v08.json) → [36合成/4几何Golden](../docs/capabilities/CAP-08-03/tlo-tcpc-b99-fixtures-v08.json)。NIST6556仅目录摘要；实际机器、独立消费者NOT_RUN，L3待人审。
+
 ## 2026-11-02｜B98 R-ASSET-INDEPENDENCE-001 17资产消费独立性盲点
 [7项来源与阅读限制](sources/FINAL-ASSET-INDEPENDENCE-B98.json) → [8规则字段](traces/FINAL-ASSET-INDEPENDENCE-B98-V08.json) → [17条候选消费边](../docs/architecture/v0.8/asset-consumer-independence-b98-v08.json) → [47合成用例](../docs/architecture/v0.8/asset-consumer-independence-b98-fixtures-v08.json)。NIST IR8536 2026-09最终仅官方摘要；RFC8785与W3C公开指定段；D14→D15、D16→D17必须证实同域内独立实现，真实Owner/消费者0/17、L3未批。规划PASS≠产品PASS。
 
