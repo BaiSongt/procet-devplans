@@ -1,3 +1,6 @@
+## 2026-11-02｜B97 CAP-01-08 Markdown AST链接与特殊Git对象保守补证
+[研究、阅读深度与独立验收边界](docs/capabilities/CAP-01-08/GFM-AST-VALIDATION-B97-2026-11-02.md) → [4合法分级来源](research/sources/FINAL-MD-B97-AST-V08.json) → [6规则/原B0-05、U4-06、T5-06包](research/traces/FINAL-MD-B97-AST-V08.json) → [12路径+3 AST合成](docs/capabilities/CAP-01-08/gfm-ast-b97-fixtures-v08.json) → [只读Python](tools/check_final_md_b97_ast_v08.py)。本地15项合成与临时真实Git四链接分类通过；**真实规划仓全仓GFM AST、GitHub锚点渲染对等NOT_RUN**。Owner/消费者0/17，L3待人审，规划PASS≠产品PASS。
+
 ## 2026-11-02｜B96 CAP-08-03 G41/G42半径刀补跨控制器语义
 [LinuxCNC2.9/Haas Setting40、D号与G40退刀差异](docs/capabilities/CAP-08-03/CUTTER-COMP-DIALECT-B96-2026-11-02.md) → [9项分级来源](research/sources/CAP-08-03-cutter-comp-b96.json) → [9规则/原E3-02、E3-03、U4-04](research/traces/CAP-08-03-cutter-comp-b96-v08.json) → [38正反UNKNOWN/3数学Golden](docs/capabilities/CAP-08-03/cutter-comp-b96-fixtures-v08.json) → [只读Node工具](tools/check_cap0803_cutter_comp_b96_v08.cjs)。V8同judge合成38/38；真实控制器、Node独立文件进程、17 Owner/真实消费者/L3与全仓AST尚未验证。**规划PASS≠产品PASS。**
 

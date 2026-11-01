@@ -1,3 +1,6 @@
+## 2026-11-02｜B97 CAP-01-08 GFM链接语法树及Git对象模式交叉研究
+[GitHub/GFM定点官方阅读与限制](../docs/capabilities/CAP-01-08/GFM-AST-VALIDATION-B97-2026-11-02.md) → [4条来源登记](sources/FINAL-MD-B97-AST-V08.json) → [6规则字段原包](traces/FINAL-MD-B97-AST-V08.json) → [12路径及3 AST正反](../docs/capabilities/CAP-01-08/gfm-ast-b97-fixtures-v08.json)。仅合成自测/临时Git验证；全仓真实AST和GitHub渲染一致性、正式Owner与消费者均未验，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B96 R-WCS-MOTION-001 有符号刀补与跨方言G40退出
 [官方实读、章节、限制](../docs/capabilities/CAP-08-03/CUTTER-COMP-DIALECT-B96-2026-11-02.md) → [9条分级来源](sources/CAP-08-03-cutter-comp-b96.json) → [9规则/字段](traces/CAP-08-03-cutter-comp-b96-v08.json) → [38合成/3数学Golden](../docs/capabilities/CAP-08-03/cutter-comp-b96-fixtures-v08.json)。NIST仅出版摘要、LinuxCNC2.8仅辅助旧版本，不冒充目标机实测。L3/真实Owner消费者待审。**规划PASS≠产品PASS。**
 

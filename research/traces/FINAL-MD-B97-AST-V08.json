@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "procet-b97-ast-trace-v08",
+  "date": "2026-11-02",
+  "capabilityId": "CAP-01-08",
+  "relatedCapabilities": [
+    "CAP-01-03",
+    "CAP-01-07",
+    "CAP-10-08"
+  ],
+  "originalWorkPackages": [
+    "B0-05",
+    "U4-06",
+    "T5-06"
+  ],
+  "sourceRegistry": "research/sources/FINAL-MD-B97-AST-V08.json",
+  "acceptanceFixture": "docs/capabilities/CAP-01-08/gfm-ast-b97-fixtures-v08.json",
+  "validator": "tools/check_final_md_b97_ast_v08.py",
+  "ruleCount": 6,
+  "status": "SYNTHETIC_ONLY_PENDING_HUMAN_REVIEW",
+  "assetOwners": "D01/D16/D17 original Owners unchanged; 0/17 formal signoff",
+  "independentConsumers": "NOT_RUN",
+  "rules": [
+    {
+      "id": "B97-R1",
+      "statement": "Use markdown AST for reference-style links, fenced-code exclusions and repeated heading candidates",
+      "sourceIds": [
+        "B97-S02",
+        "B97-S03"
+      ],
+      "fields": [
+        "scan.markdownParser",
+        "link.referenceLabel",
+        "scan.headingCandidate"
+      ],
+      "capabilityId": "CAP-01-08",
+      "originalWorkPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "T01",
+        "T03"
+      ],
+      "negativeOrUnknownIds": [
+        "T02"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B97-R2",
+      "statement": "Exact tree local path existence rejects missing or escaping repository root",
+      "sourceIds": [
+        "B97-S01",
+        "B97-S03"
+      ],
+      "fields": [
+        "scan.exactCommit",
+        "scan.gitTreeMode",
+        "link.targetPath"
+      ],
+      "capabilityId": "CAP-01-08",
+      "originalWorkPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "A01"
+      ],
+      "negativeOrUnknownIds": [
+        "A04",
+        "A05"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B97-R3",
+      "statement": "Symlink/gitlink/directory must be UNKNOWN, not a pass for normal Markdown",
+      "sourceIds": [
+        "B97-S01"
+      ],
+      "fields": [
+        "link.gitParentMode",
+        "scan.gitTreeMode",
+        "link.targetPath"
+      ],
+      "capabilityId": "CAP-01-08",
+      "originalWorkPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "A01"
+      ],
+      "negativeOrUnknownIds": [
+        "A06",
+        "A07",
+        "A08"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B97-R4",
+      "statement": "Heading fragment requires renderer parity; do not mistake guessed slug for exact GitHub rendering",
+      "sourceIds": [
+        "B97-S02",
+        "B97-S03"
+      ],
+      "fields": [
+        "scan.headingCandidate",
+        "link.fragment",
+        "scan.auditLevel"
+      ],
+      "capabilityId": "CAP-01-08",
+      "originalWorkPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "A02"
+      ],
+      "negativeOrUnknownIds": [
+        "A03"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B97-R5",
+      "statement": "Absolute, external and unsafe URL must not be declared local verified",
+      "sourceIds": [
+        "B97-S02",
+        "B97-S03"
+      ],
+      "fields": [
+        "link.scheme",
+        "link.href",
+        "scan.auditLevel"
+      ],
+      "capabilityId": "CAP-01-08",
+      "originalWorkPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "A01"
+      ],
+      "negativeOrUnknownIds": [
+        "A09",
+        "A10",
+        "A11"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B97-R6",
+      "statement": "Exact commit and failure/unknown levels cannot automatically promote CAP approval or 17 Owners",
+      "sourceIds": [
+        "B97-S04",
+        "B97-S01"
+      ],
+      "fields": [
+        "scan.exactCommit",
+        "scan.auditLevel",
+        "workflow.ownerExactRef",
+        "workflow.gateStatus"
+      ],
+      "capabilityId": "CAP-01-08",
+      "originalWorkPackages": [
+        "B0-05",
+        "U4-06",
+        "T5-06"
+      ],
+      "positiveIds": [
+        "A12"
+      ],
+      "negativeOrUnknownIds": [
+        "A03",
+        "A04"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    }
+  ]
+}
