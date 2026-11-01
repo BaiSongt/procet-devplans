@@ -1,0 +1,406 @@
+{
+  "schemaVersion": "procet-b86-fixtures-v08",
+  "date": "2026-11-01",
+  "classification": "SYNTHETIC_ONLY",
+  "base": {
+    "machine": {
+      "id": "LATHE-SYNTHETIC",
+      "revision": "r03",
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "controllerProfile": "HAAS_NGC_TXXYY",
+      "profileExact": true
+    },
+    "turret": {
+      "station": 1,
+      "capacity": 8,
+      "activeStation": 1,
+      "assemblyRef": "D03@r04",
+      "assemblyHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "installedAssemblyHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "mountingFace": "front",
+      "mappedFace": "front"
+    },
+    "offset": {
+      "word": "T0102",
+      "parser": "HAAS_NGC_TXXYY",
+      "index": 2,
+      "d10Index": 2,
+      "zeroOffsetExplicit": false,
+      "claimSameNumber": false,
+      "tableHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "expectedTableHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    "calibration": {
+      "geometryRef": "GEO@r7",
+      "geometryHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "expectedGeometryHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "wearRef": "WEAR@r9",
+      "wearHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "expectedWearHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "quality": "OBSERVED",
+      "source": "PROBE_SNAPSHOT"
+    },
+    "orientation": {
+      "policy": "HAAS_TIP_DIRECTION",
+      "tip": 3,
+      "mappingSource": "HAAS_MANUAL"
+    },
+    "execution": {
+      "d03": "D03@r4",
+      "d04": "D04@r5",
+      "d10": "D10@r7",
+      "d10Hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "d12": "D12@r10",
+      "d12Hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "d13Known": true,
+      "d14": "D14@r3",
+      "d15RealPassed": false,
+      "d16Claim": false
+    },
+    "tx": {
+      "expectedRevision": "r07",
+      "actualRevision": "r07",
+      "expectedHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "actualHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "epoch": 2,
+      "currentEpoch": 2,
+      "generation": 4,
+      "currentGeneration": 4,
+      "acl": true,
+      "cancelled": false,
+      "lateAck": false,
+      "mode": "REVIEW"
+    },
+    "ui": {
+      "gui": "02.ToolAssemblyPort",
+      "cli": "02.ToolAssemblyPort",
+      "agent": "02.ToolAssemblyPort",
+      "worldCount": 1,
+      "panel": "LEFT_UNIFIED"
+    },
+    "migration": {
+      "oldReader": true,
+      "rollbackRef": "D03@r03",
+      "claimConsumerPass": false
+    }
+  },
+  "cases": [
+    {
+      "id": "LT86-P01",
+      "ruleId": "LT86-R01",
+      "expected": "CANDIDATE_ONLY",
+      "changes": []
+    },
+    {
+      "id": "LT86-N02",
+      "ruleId": "LT86-R01",
+      "expected": "REJECT_STATION",
+      "changes": [
+        {
+          "path": "turret.station",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "LT86-N03",
+      "ruleId": "LT86-R01",
+      "expected": "UNKNOWN_RESOURCE",
+      "changes": [
+        {
+          "path": "turret.assemblyHash",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "LT86-N04",
+      "ruleId": "LT86-R01",
+      "expected": "UNKNOWN_RESOURCE",
+      "changes": [
+        {
+          "path": "machine.revision",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "LT86-P05",
+      "ruleId": "LT86-R02",
+      "expected": "CANDIDATE_ONLY",
+      "changes": []
+    },
+    {
+      "id": "LT86-N06",
+      "ruleId": "LT86-R02",
+      "expected": "UNKNOWN_DIALECT",
+      "changes": [
+        {
+          "path": "machine.controllerProfile",
+          "value": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N07",
+      "ruleId": "LT86-R02",
+      "expected": "REJECT_DIALECT",
+      "changes": [
+        {
+          "path": "offset.parser",
+          "value": "LINUXCNC_TN_M6"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N08",
+      "ruleId": "LT86-R02",
+      "expected": "UNKNOWN_DIALECT",
+      "changes": [
+        {
+          "path": "machine.profileExact",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "LT86-P09",
+      "ruleId": "LT86-R03",
+      "expected": "CANDIDATE_ONLY",
+      "changes": []
+    },
+    {
+      "id": "LT86-N10",
+      "ruleId": "LT86-R03",
+      "expected": "UNKNOWN_OFFSET_DISABLED",
+      "changes": [
+        {
+          "path": "offset.word",
+          "value": "T0100"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N11",
+      "ruleId": "LT86-R03",
+      "expected": "STALE_STATION",
+      "changes": [
+        {
+          "path": "offset.word",
+          "value": "T0202"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N12",
+      "ruleId": "LT86-R03",
+      "expected": "REJECT_TWORD",
+      "changes": [
+        {
+          "path": "offset.word",
+          "value": "T01"
+        }
+      ]
+    },
+    {
+      "id": "LT86-P13",
+      "ruleId": "LT86-R04",
+      "expected": "CANDIDATE_ONLY",
+      "changes": []
+    },
+    {
+      "id": "LT86-N14",
+      "ruleId": "LT86-R04",
+      "expected": "REJECT_ALIAS",
+      "changes": [
+        {
+          "path": "offset.claimSameNumber",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "LT86-N15",
+      "ruleId": "LT86-R04",
+      "expected": "STALE_OFFSET",
+      "changes": [
+        {
+          "path": "offset.index",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "LT86-N16",
+      "ruleId": "LT86-R04",
+      "expected": "STALE_TABLE",
+      "changes": [
+        {
+          "path": "offset.tableHash",
+          "value": "2222222222222222222222222222222222222222222222222222222222222222"
+        }
+      ]
+    },
+    {
+      "id": "LT86-P17",
+      "ruleId": "LT86-R05",
+      "expected": "CANDIDATE_ONLY",
+      "changes": []
+    },
+    {
+      "id": "LT86-N18",
+      "ruleId": "LT86-R05",
+      "expected": "STALE_CALIBRATION",
+      "changes": [
+        {
+          "path": "calibration.geometryHash",
+          "value": "3333333333333333333333333333333333333333333333333333333333333333"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N19",
+      "ruleId": "LT86-R05",
+      "expected": "UNKNOWN_CALIBRATION",
+      "changes": [
+        {
+          "path": "calibration.quality",
+          "value": "ASSUMED"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N20",
+      "ruleId": "LT86-R05",
+      "expected": "STALE_CALIBRATION",
+      "changes": [
+        {
+          "path": "calibration.wearHash",
+          "value": "4444444444444444444444444444444444444444444444444444444444444444"
+        }
+      ]
+    },
+    {
+      "id": "LT86-P21",
+      "ruleId": "LT86-R06",
+      "expected": "CANDIDATE_ONLY",
+      "changes": []
+    },
+    {
+      "id": "LT86-N22",
+      "ruleId": "LT86-R06",
+      "expected": "UNKNOWN_ORIENTATION",
+      "changes": [
+        {
+          "path": "orientation.policy",
+          "value": "LINUXCNC_Q"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N23",
+      "ruleId": "LT86-R06",
+      "expected": "UNKNOWN_ORIENTATION",
+      "changes": [
+        {
+          "path": "orientation.tip",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "LT86-N24",
+      "ruleId": "LT86-R06",
+      "expected": "UNKNOWN_ORIENTATION",
+      "changes": [
+        {
+          "path": "orientation.mappingSource",
+          "value": "DISPLAY_MESH"
+        }
+      ]
+    },
+    {
+      "id": "LT86-P25",
+      "ruleId": "LT86-R07",
+      "expected": "CANDIDATE_ONLY",
+      "changes": []
+    },
+    {
+      "id": "LT86-N26",
+      "ruleId": "LT86-R07",
+      "expected": "STALE_STATION",
+      "changes": [
+        {
+          "path": "turret.activeStation",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "LT86-N27",
+      "ruleId": "LT86-R07",
+      "expected": "UNKNOWN_MOUNT",
+      "changes": [
+        {
+          "path": "turret.mountingFace",
+          "value": "rear"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N28",
+      "ruleId": "LT86-R07",
+      "expected": "STALE_RESOURCE",
+      "changes": [
+        {
+          "path": "turret.installedAssemblyHash",
+          "value": "5555555555555555555555555555555555555555555555555555555555555555"
+        }
+      ]
+    },
+    {
+      "id": "LT86-P29",
+      "ruleId": "LT86-R08",
+      "expected": "DISPLAY_ONLY",
+      "changes": [
+        {
+          "path": "tx.mode",
+          "value": "PREVIEW"
+        }
+      ]
+    },
+    {
+      "id": "LT86-N30",
+      "ruleId": "LT86-R08",
+      "expected": "REJECT_ACL",
+      "changes": [
+        {
+          "path": "tx.acl",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "LT86-N31",
+      "ruleId": "LT86-R08",
+      "expected": "STALE_CANCELLED",
+      "changes": [
+        {
+          "path": "tx.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "LT86-N32",
+      "ruleId": "LT86-R08",
+      "expected": "REJECT_PROMOTION",
+      "changes": [
+        {
+          "path": "execution.d16Claim",
+          "value": true
+        }
+      ]
+    }
+  ]
+}

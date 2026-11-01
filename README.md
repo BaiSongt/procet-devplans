@@ -1,3 +1,6 @@
+## 2026-11-01｜B86 CAP-02-03车床刀塔与刀补Index分层
+[报告](docs/capabilities/CAP-02-03/LATHE-TURRET-B86-2026-11-01.md) → [9来源](research/sources/CAP-02-03-lathe-turret-b86.json) → [8规则](research/traces/CAP-02-03-lathe-turret-b86-v08.json) → [32正反](docs/capabilities/CAP-02-03/lathe-turret-b86-fixtures-v08.json) → [Node](tools/check_cap0203_lathe_turret_b86_v08.cjs)。Haas§8.3/§11.3与LinuxCNC2.9官方正文定点阅读，ISO仅目录，NIST仅摘要。32/32同函数合成，真实Owner/消费者0/17、L3待审，**规划PASS≠产品PASS**。
+
 ## 2026-11-01｜B85 CAP-10-07现场变更补丁原子性与CAS
 [研究](docs/capabilities/CAP-10-07/CHANGE-PATCH-B85-2026-11-01.md) → [7来源](research/sources/CAP-10-07-change-patch-b85.json) → [8规则](research/traces/CAP-10-07-change-patch-b85-v08.json) → [46合成](docs/capabilities/CAP-10-07/change-patch-b85-fixtures-v08.json)。Owner/真实消费者/L3未验；**规划PASS≠产品PASS**。
 

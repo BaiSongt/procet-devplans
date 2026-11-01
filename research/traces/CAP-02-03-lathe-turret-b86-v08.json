@@ -1,0 +1,391 @@
+{
+  "schemaVersion": "procet-b86-trace-v08",
+  "date": "2026-11-01",
+  "sourceRegistry": "research/sources/CAP-02-03-lathe-turret-b86.json",
+  "capabilityId": "CAP-02-03",
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-06",
+    "E3-04",
+    "B0-03",
+    "E3-03",
+    "U4-02",
+    "U4-03"
+  ],
+  "assetOwner": "02域D03名义总成；04域D10执行绑定；08域D13控制器解释；09域D14/D15；10域D16；皆为候选Owner",
+  "ruleCount": 8,
+  "acceptanceFixture": "docs/capabilities/CAP-02-03/lathe-turret-b86-fixtures-v08.json",
+  "validator": "tools/check_cap0203_lathe_turret_b86_v08.cjs",
+  "independentConsumers": "NOT_RUN",
+  "rules": [
+    {
+      "id": "LT86-R01",
+      "statement": "工位、机床与总成独立exact身份",
+      "sourceIds": [
+        "LT86-S02",
+        "LT86-S07",
+        "LT86-S09"
+      ],
+      "fields": [
+        "machine.id",
+        "machine.revision",
+        "machine.hash",
+        "turret.station",
+        "turret.assemblyHash"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "positiveIds": [
+        "LT86-P01"
+      ],
+      "negativeIds": [
+        "LT86-N02",
+        "LT86-N03",
+        "LT86-N04"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "LT86-R02",
+      "statement": "只按D10精确方言解释NC T字，Haas/LinuxCNC不可互借",
+      "sourceIds": [
+        "LT86-S01",
+        "LT86-S03",
+        "LT86-S04"
+      ],
+      "fields": [
+        "machine.controllerProfile",
+        "machine.profileExact",
+        "offset.parser"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "LT86-P05"
+      ],
+      "negativeIds": [
+        "LT86-N06",
+        "LT86-N07",
+        "LT86-N08"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "LT86-R03",
+      "statement": "Haas T0102表示示意工位1偏置2；T0100偏置禁用须显式",
+      "sourceIds": [
+        "LT86-S01",
+        "LT86-S02"
+      ],
+      "fields": [
+        "offset.word",
+        "turret.station",
+        "offset.zeroOffsetExplicit"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positiveIds": [
+        "LT86-P09"
+      ],
+      "negativeIds": [
+        "LT86-N10",
+        "LT86-N11",
+        "LT86-N12"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "LT86-R04",
+      "statement": "控制器Offset Index不等于物理Station，表快照Hash不得漂移",
+      "sourceIds": [
+        "LT86-S01",
+        "LT86-S02",
+        "LT86-S04"
+      ],
+      "fields": [
+        "offset.index",
+        "offset.d10Index",
+        "offset.claimSameNumber",
+        "offset.tableHash"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "LT86-P13"
+      ],
+      "negativeIds": [
+        "LT86-N14",
+        "LT86-N15",
+        "LT86-N16"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "LT86-R05",
+      "statement": "X/Z Geometry及Wear有独立测量来源与精确Hash",
+      "sourceIds": [
+        "LT86-S02",
+        "LT86-S03",
+        "LT86-S09"
+      ],
+      "fields": [
+        "calibration.geometryHash",
+        "calibration.wearHash",
+        "calibration.source",
+        "calibration.quality"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "LT86-P17"
+      ],
+      "negativeIds": [
+        "LT86-N18",
+        "LT86-N19",
+        "LT86-N20"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "LT86-R06",
+      "statement": "Haas刀尖方向与LinuxCNC Q/I/J须按版本化Profile映射",
+      "sourceIds": [
+        "LT86-S02",
+        "LT86-S03",
+        "LT86-S04"
+      ],
+      "fields": [
+        "orientation.policy",
+        "orientation.tip",
+        "orientation.mappingSource"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveIds": [
+        "LT86-P21"
+      ],
+      "negativeIds": [
+        "LT86-N22",
+        "LT86-N23",
+        "LT86-N24"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "LT86-R07",
+      "statement": "前后装刀、当前工位和实际安装总成均不可由名义模型推定",
+      "sourceIds": [
+        "LT86-S02",
+        "LT86-S07",
+        "LT86-S09"
+      ],
+      "fields": [
+        "turret.activeStation",
+        "turret.mountingFace",
+        "turret.mappedFace",
+        "turret.installedAssemblyHash"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveIds": [
+        "LT86-P25"
+      ],
+      "negativeIds": [
+        "LT86-N26",
+        "LT86-N27",
+        "LT86-N28"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "LT86-R08",
+      "statement": "统一GUI/CLI/Agent Port、单Babylon与左TaskPanel，权限/CAS/取消和D15发布分离",
+      "sourceIds": [
+        "LT86-S06",
+        "LT86-S07",
+        "LT86-S08",
+        "LT86-S09"
+      ],
+      "fields": [
+        "ui.gui",
+        "ui.cli",
+        "ui.agent",
+        "ui.worldCount",
+        "ui.panel",
+        "tx.acl",
+        "tx.cancelled",
+        "execution.d16Claim",
+        "migration.rollbackRef"
+      ],
+      "capabilityId": "CAP-02-03",
+      "relatedCapabilities": [
+        "CAP-02-01",
+        "CAP-02-02",
+        "CAP-08-03",
+        "CAP-09-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "B0-03",
+        "E3-03",
+        "U4-02",
+        "U4-03"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "LT86-P29"
+      ],
+      "negativeIds": [
+        "LT86-N30",
+        "LT86-N31",
+        "LT86-N32"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    }
+  ]
+}

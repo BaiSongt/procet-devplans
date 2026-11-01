@@ -1,3 +1,6 @@
+## 2026-11-01｜B86 R-TA-001 车床刀塔工位/总成/Offset分离补证
+[9来源及阅读限制](sources/CAP-02-03-lathe-turret-b86.json) → [8规则字段](traces/CAP-02-03-lathe-turret-b86-v08.json) → [32正反](../docs/capabilities/CAP-02-03/lathe-turret-b86-fixtures-v08.json) → [CAP研究](../docs/capabilities/CAP-02-03/LATHE-TURRET-B86-2026-11-01.md)。Haas T0102与LinuxCNC Tn/M6不同；同函数合成，独立Node/NC/OEM/正式Owner/消费者未验。**规划PASS≠产品PASS**。
+
 ## 2026-11-01｜B85现场变更RFC Pointer/Patch研究
 [官方规范和限制](../docs/capabilities/CAP-10-07/CHANGE-PATCH-B85-2026-11-01.md) → [7来源](sources/CAP-10-07-change-patch-b85.json) → [8规则](traces/CAP-10-07-change-patch-b85-v08.json) → [46正反](../docs/capabilities/CAP-10-07/change-patch-b85-fixtures-v08.json)。仅规划合成，真实消费者NOT_RUN。
 
