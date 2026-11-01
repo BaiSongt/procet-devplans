@@ -13,7 +13,7 @@ LinuxCNC 2.9官方INI正文说明：其非恒等运动学下，Cartesian轨迹�
 LinuxCNC MOTION(9)分别公开`joint.N.pos-cmd`/ `pos-fb`以及`f-error`；规划D14描述指令时序，不持有运行时传感器值。D15不能从未运行的NC预测“已测伺服跟随误差”，必须将实际Servo证据列`NOT_OBSERVED`，未知Profile、采样缺口或未建模语义返回`UNKNOWN`并阻D16；不能用静态/端点检查宣称连续干涉安全，不做材料扫掠仿真。
 
 ## 三、来源分级、追踪与机器样例
-[来源与作者版本/合法阅读深度](../../../research/sources/CAP-09-06-joint-b101.json)记录7条：LinuxCNC2.9公开INI/MOTION指定章节、W3C PROV-O血缘正文实读；ISO23247-1:2021及ASME V&V10-2019(R2025)仅官方或授权目录，未读付费正文；两份固定Git Blob为**本仓内生业务规则**，不外推厂商承诺。[规则与字段](../../../research/traces/CAP-09-06-joint-b101-trace-v08.json) → [45合成正反/UNKNOWN](joint-b101-fixtures-v08.json) → [Node只读校验器](../../../tools/check_cap0906_joint_b101_v08.cjs) → [分级验证](../../../tracking/cap0906-joint-b101-verification-2026-11-02.json)。
+[来源与作者版本/合法阅读深度](../../../research/sources/CAP-09-06-joint-b101.json)记录7条：LinuxCNC2.9公开INI/MOTION指定章节、W3C PROV-O血缘正文实读；ISO23247-1:2021及ASME V&V10-2019(R2025)仅官方或授权目录，未读付费正文；两份固定Git Blob为**本仓内生业务规则**，不外推厂商承诺。[规则与字段](../../../research/traces/CAP-09-06-joint-b101-trace-v08.json) → [45合成正反/UNKNOWN](CAP-09-06-joint-b101-fixtures-v08.json) → [Node只读校验器](../../../tools/check_cap0906_joint_b101_v08.cjs) → [分级验证](../../../tracking/cap0906-joint-b101-verification-2026-11-02.json)。
 
 | 规则 | 工程合同 | 证据 | 具体字段 | 负例 / 未知 |
 |---|---|---|---|---|
