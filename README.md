@@ -1,3 +1,6 @@
+## 2026-11-01｜B90 CAP-09-06 G93/G94/G95名义进给时间与NC执行分离
+[报告](docs/capabilities/CAP-09-06/INVERSE-FEED-TIME-B90-2026-11-01.md) → [7来源](research/sources/CAP-09-06-feed-time-b90.json) → [9字段规则/原工作包](research/traces/CAP-09-06-feed-time-b90-v08.json) → [27正反+3数值Golden](docs/capabilities/CAP-09-06/feed-time-b90-fixtures-v08.json) → [Node只读入口](tools/check_cap0906_feed_time_b90_v08.cjs)。LinuxCNC G93 F2为30秒名义指令，不是实际轴时钟；Haas车床与铣床G94不同。规划同judge27/27、3公式Golden；真实D13–D15与Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS**。
+
 ## 2026-11-01｜B89 CAP-09-03 近奇异逆解的阻尼步长不等于残差达标
 [研究与明确阅读深度](docs/capabilities/CAP-09-03/IK-CONDITIONING-B89-2026-11-01.md) → [7来源](research/sources/CAP-09-03-ik-conditioning-b89.json) → [8规则与原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-03-ik-conditioning-b89-v08.json) → [8正24反+2解析Golden](docs/capabilities/CAP-09-03/ik-conditioning-b89-fixtures-v08.json) → [Node检查入口](tools/check_cap0903_ik_conditioning_b89_v08.cjs)。Eigen数值秩阈值与异量纲归一化需显式配置；阻尼使步长有界但残差仍可能显著。32项仅同函数合成，独立Node/Eigen/B5/OEM/真实D15/17消费者NOT_RUN，L3待人审，**规划PASS≠产品PASS**。
 

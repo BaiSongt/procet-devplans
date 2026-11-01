@@ -1,3 +1,6 @@
+## 2026-11-01｜B90 R-NC-EXEC-001 反时进给与时钟证据
+[7条合法分级来源](sources/CAP-09-06-feed-time-b90.json) → [9规则/字段/原E3-03/E3-04/E3-05](traces/CAP-09-06-feed-time-b90-v08.json) → [27正反与3数值Golden](../docs/capabilities/CAP-09-06/feed-time-b90-fixtures-v08.json) → [报告](../docs/capabilities/CAP-09-06/INVERSE-FEED-TIME-B90-2026-11-01.md)。LinuxCNC 2.9指定章节正文实读，Haas G93和车床G94只读官网检索摘要；真实OEM/17消费者/人类Owner未验，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B89 R-IK-001 近奇异Jacobian、阻尼增益与未消解残差
 [7项来源元数据/精确阅读边界](sources/CAP-09-03-ik-conditioning-b89.json) → [8字段规则、Owner资产与原编号包](traces/CAP-09-03-ik-conditioning-b89-v08.json) → [32项合成预期、2项解析Golden](../docs/capabilities/CAP-09-03/ik-conditioning-b89-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-09-03/IK-CONDITIONING-B89-2026-11-01.md)。Northwestern Ch5/6为官方公开章节简介，Eigen 3.3.9 JacobiSVD为已读API，Bath论文与NIST仅官方摘要，Cambridge仅出版目录；内生阈值不是标准条款。真实D14/D15/17独立消费者和L3均未验。**规划PASS≠产品PASS**。
 
