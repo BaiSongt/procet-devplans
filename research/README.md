@@ -1,3 +1,6 @@
+## 2026-11-01｜B84 R-MSET-001 多Setup测量相关性补证
+[9项合法来源与逐项阅读深度](sources/CAP-04-05-transfer-uncertainty-b84.json) → [8规则/字段/原工作包](traces/CAP-04-05-transfer-uncertainty-b84-v08.json) → [46个显式预期案例](../docs/capabilities/CAP-04-05/transfer-uncertainty-b84-fixtures-v08.json) → [研究](../docs/capabilities/CAP-04-05/TRANSFER-UNCERTAINTY-B84-2026-11-01.md)。NIST NUM官网v1.6.4支持有相关输入的数学不确定度评估；ISO5459与JCGM100仅官方目录摘要，OCCT8.0.1与Modern Robotics只读公开指定章节；产品、实测、独立消费者NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B83 R-PMI-001 增量：Annotation Plane、附件放置与Saved View
 [8项合法且分级来源](sources/CAP-03-04-annotation-plane-b83.json) → [8规则/字段/原B0-02、F1-03、F1-04、T5-02](traces/CAP-03-04-annotation-plane-b83-v08.json) → [37项显式正反合成](../docs/capabilities/CAP-03-04/annotation-plane-b83-fixtures-v08.json) → [CAP03-04研究报告](../docs/capabilities/CAP-03-04/ANNOTATION-PLANE-B83-2026-11-01.md)。PTC R12 Orientation/Plane/Toolkit公开章节，CAx-IF PMI 4.0.8（2020-09-04，for Review）§9.4.2与Annex D PDF图页、ISO16792:2021仅官方目录摘要；真实独立Node、CATIA/Creo往返、17消费者与L3均NOT_RUN。**规划PASS≠产品PASS。**
 

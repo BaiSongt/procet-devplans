@@ -1,3 +1,6 @@
+## 2026-11-01｜B84 CAP-04-05 多Setup转序相关测量不确定度
+[研究与标量合成反例](docs/capabilities/CAP-04-05/TRANSFER-UNCERTAINTY-B84-2026-11-01.md) → [9项分级来源](research/sources/CAP-04-05-transfer-uncertainty-b84.json) → [8规则及原F1-02/F1-04/W2-05/E3-04/U4-02](research/traces/CAP-04-05-transfer-uncertainty-b84-v08.json) → [46个显式正反/UNKNOWN/STALE](docs/capabilities/CAP-04-05/transfer-uncertainty-b84-fixtures-v08.json) → [只读Node验收入口](tools/check_cap0405_transfer_uncertainty_b84_v08.cjs) → [验证等级](tracking/cap0405-transfer-uncertainty-b84-verification-2026-11-01.json)。相关性ρ未知不默认零；0.06mm是自设1σ合成预算非公差；D04与D10、D15/D16隔离，真实计量、独立Node、17正式Owner/消费者、全仓GFM AST与L3均未完成。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜B83 CAP-03-04 PMI标注平面与Saved View/ Capture分层
 [B83 PMI标注平面、放置与Capture独立契约](docs/capabilities/CAP-03-04/ANNOTATION-PLANE-B83-2026-11-01.md) → [8项来源/访问深度](research/sources/CAP-03-04-annotation-plane-b83.json) → [8字段规则及原工作包](research/traces/CAP-03-04-annotation-plane-b83-v08.json) → [37项显式正反](docs/capabilities/CAP-03-04/annotation-plane-b83-fixtures-v08.json) → [只读Node工具](tools/check_cap0304_annotation_plane_b83_v08.cjs) → [合成验证等级](tracking/cap0304-annotation-plane-b83-verification-2026-11-01.json)。CAx-IF v4.0.8 for Review §9.4.2/Annex D与Creo R12公开手册定点阅读；Annotation Plane方向≠附件平行放置≠Capture Camera与成员；37项V8同判定函数仅合成，独立Node/真实CAD/GUI/消费者NOT_RUN，Owner0/17、L3待审、全仓AST未终核。**规划PASS≠产品PASS。**
 

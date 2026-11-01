@@ -1,3 +1,5 @@
+> **B84增量（2026-11-01）**：[多Setup转序测量不确定度与相关性补证](TRANSFER-UNCERTAINTY-B84-2026-11-01.md) → [9分级来源](../../../research/sources/CAP-04-05-transfer-uncertainty-b84.json) → [8规则/字段/原工作包](../../../research/traces/CAP-04-05-transfer-uncertainty-b84-v08.json) → [46项显式合成](transfer-uncertainty-b84-fixtures-v08.json) → [只读校验](../../../tools/check_cap0405_transfer_uncertainty_b84_v08.cjs)。仅演示k=1自设预算，未知相关/6DoF模型不授NC发布资格；L3、真实计量与17消费者NOT_RUN。**规划PASS≠产品PASS。**
+
 # CAP-04-05｜多Setup与转序（V0.8详细实施规划）
 
 **原88项CAP的04域第05项；2026-10-19新增规划。L1/L2不变；L3待人工评审，产品与独立消费者均NOT_RUN。**

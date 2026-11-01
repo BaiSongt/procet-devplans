@@ -1,0 +1,613 @@
+{
+  "schemaVersion": "procet-b84-transfer-uncertainty-fixtures-v08",
+  "date": "2026-11-01",
+  "classification": "NEWLY_AUTHORED_SYNTHETIC_NOT_MEASUREMENT",
+  "units": "mm; k=1 SYNTHETIC_POLICY_ONLY; 6DoF and machine qualification NOT_RUN",
+  "base": {
+    "source": {
+      "project": "SYNTH-P",
+      "sourceHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "designRevision": "r8",
+      "occurrence": "/Assembly/Part1",
+      "frame": "PART@r8",
+      "scopeEpoch": 4
+    },
+    "transfer": {
+      "fromStage": "Setup-A",
+      "toStage": "Setup-B",
+      "designRevision": "r8",
+      "occurrence": "/Assembly/Part1",
+      "fromFrame": "SETUP-A@r8",
+      "toFrame": "SETUP-B@r8",
+      "transformKind": "COORDINATE_CHANGE",
+      "unit": "mm",
+      "matrix": [
+        [
+          1,
+          0,
+          0,
+          20
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    "measurement": {
+      "sourceId": "MEAS-A01",
+      "targetId": "MEAS-B01",
+      "sourceRevision": "m5",
+      "targetRevision": "m6",
+      "sourceHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "targetHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "sourceFrame": "SETUP-A@r8",
+      "targetFrame": "SETUP-B@r8",
+      "calibrationSourceExact": true,
+      "calibrationTargetExact": true,
+      "sourceStatus": "CURRENT",
+      "targetStatus": "CURRENT",
+      "modelKind": "SCALAR_TRANSLATION",
+      "modelFrame": "SETUP-B@r8",
+      "modelUnit": "mm",
+      "uSource": 0.04,
+      "uTarget": 0.03,
+      "rho": 0,
+      "budgetMm": 0.06,
+      "budgetKind": "SYNTHETIC_K1"
+    },
+    "boundary": {
+      "d04NominalExact": true,
+      "d07MaterialExact": true,
+      "d10PhysicalBinding": "UNBOUND_CANDIDATE_ONLY",
+      "copyD04ToD10": false,
+      "overwriteFrozenD08": false,
+      "claimD16Released": false,
+      "clAnimationAsD15": false
+    },
+    "ui": {
+      "guiPort": "04.MultiSetupPort",
+      "cliPort": "04.MultiSetupPort",
+      "agentPort": "04.MultiSetupPort",
+      "worldCount": 1,
+      "taskPanel": "LEFT_UNIFIED",
+      "previewWrites": false
+    },
+    "command": {
+      "mode": "PROPOSE_TRANSFER",
+      "authorized": true,
+      "expectedRevision": "d04-r8",
+      "currentRevision": "d04-r8",
+      "expectedHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "currentHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "expectedFrame": "SETUP-B@r8",
+      "currentFrame": "SETUP-B@r8",
+      "scopeEpoch": 4,
+      "activeScopeEpoch": 4,
+      "cancelled": false,
+      "lateAck": false
+    },
+    "migration": {
+      "legacyReaderPreserved": true,
+      "rollbackRef": "D04-legacy-reader@r3",
+      "consumerClaimsPass": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B84-P01",
+      "ruleId": "TU84-R01",
+      "expected": "QUALIFIED_DRAFT",
+      "patches": []
+    },
+    {
+      "id": "B84-P02",
+      "ruleId": "TU84-R04",
+      "expected": "QUALIFIED_DRAFT",
+      "patches": [
+        {
+          "path": "measurement.rho",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "B84-P03",
+      "ruleId": "TU84-R05",
+      "expected": "RISK_REVIEW_REQUIRED",
+      "patches": [
+        {
+          "path": "measurement.rho",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "B84-P04",
+      "ruleId": "TU84-R07",
+      "expected": "DISPLAY_ONLY",
+      "patches": [
+        {
+          "path": "command.mode",
+          "value": "PREVIEW"
+        }
+      ]
+    },
+    {
+      "id": "B84-N01",
+      "ruleId": "TU84-R01",
+      "expected": "UNKNOWN_SOURCE",
+      "patches": [
+        {
+          "path": "source.sourceHash",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B84-N02",
+      "ruleId": "TU84-R01",
+      "expected": "UNKNOWN_SOURCE",
+      "patches": [
+        {
+          "path": "source.designRevision",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B84-N03",
+      "ruleId": "TU84-R01",
+      "expected": "STALE_SOURCE",
+      "patches": [
+        {
+          "path": "transfer.designRevision",
+          "value": "r9"
+        }
+      ]
+    },
+    {
+      "id": "B84-N04",
+      "ruleId": "TU84-R01",
+      "expected": "STALE_SOURCE",
+      "patches": [
+        {
+          "path": "transfer.occurrence",
+          "value": "/Other"
+        }
+      ]
+    },
+    {
+      "id": "B84-N05",
+      "ruleId": "TU84-R02",
+      "expected": "REJECT_NON_RIGID",
+      "patches": [
+        {
+          "path": "transfer.matrix.0.0",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "B84-N06",
+      "ruleId": "TU84-R02",
+      "expected": "REJECT_NON_RIGID",
+      "patches": [
+        {
+          "path": "transfer.matrix.3.3",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "B84-N07",
+      "ruleId": "TU84-R02",
+      "expected": "REJECT_NON_RIGID",
+      "patches": [
+        {
+          "path": "transfer.matrix.0.0",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "B84-N08",
+      "ruleId": "TU84-R02",
+      "expected": "REJECT_TRANSFORM_DIRECTION",
+      "patches": [
+        {
+          "path": "transfer.fromFrame",
+          "value": "SETUP-B@r8"
+        }
+      ]
+    },
+    {
+      "id": "B84-N09",
+      "ruleId": "TU84-R02",
+      "expected": "UNKNOWN_TRANSFORM_SEMANTIC",
+      "patches": [
+        {
+          "path": "transfer.transformKind",
+          "value": "DISPLACEMENT"
+        }
+      ]
+    },
+    {
+      "id": "B84-N10",
+      "ruleId": "TU84-R03",
+      "expected": "UNKNOWN_MEASUREMENT",
+      "patches": [
+        {
+          "path": "measurement.sourceId",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B84-N11",
+      "ruleId": "TU84-R03",
+      "expected": "UNKNOWN_MEASUREMENT",
+      "patches": [
+        {
+          "path": "measurement.calibrationSourceExact",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B84-N12",
+      "ruleId": "TU84-R03",
+      "expected": "STALE_MEASUREMENT",
+      "patches": [
+        {
+          "path": "measurement.targetStatus",
+          "value": "STALE"
+        }
+      ]
+    },
+    {
+      "id": "B84-N13",
+      "ruleId": "TU84-R03",
+      "expected": "STALE_MEASUREMENT",
+      "patches": [
+        {
+          "path": "measurement.targetFrame",
+          "value": "OTHER@r8"
+        }
+      ]
+    },
+    {
+      "id": "B84-N14",
+      "ruleId": "TU84-R04",
+      "expected": "UNKNOWN_MODEL",
+      "patches": [
+        {
+          "path": "measurement.modelKind",
+          "value": "FULL_SE3"
+        }
+      ]
+    },
+    {
+      "id": "B84-N15",
+      "ruleId": "TU84-R04",
+      "expected": "REJECT_UNIT",
+      "patches": [
+        {
+          "path": "measurement.modelUnit",
+          "value": "inch"
+        }
+      ]
+    },
+    {
+      "id": "B84-N16",
+      "ruleId": "TU84-R04",
+      "expected": "STALE_FRAME",
+      "patches": [
+        {
+          "path": "measurement.modelFrame",
+          "value": "A@r8"
+        }
+      ]
+    },
+    {
+      "id": "B84-N17",
+      "ruleId": "TU84-R04",
+      "expected": "REJECT_UNCERTAINTY",
+      "patches": [
+        {
+          "path": "measurement.uSource",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "B84-N18",
+      "ruleId": "TU84-R04",
+      "expected": "UNKNOWN_CORRELATION",
+      "patches": [
+        {
+          "path": "measurement.rho",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B84-N19",
+      "ruleId": "TU84-R04",
+      "expected": "REJECT_CORRELATION",
+      "patches": [
+        {
+          "path": "measurement.rho",
+          "value": 1.4
+        }
+      ]
+    },
+    {
+      "id": "B84-N20",
+      "ruleId": "TU84-R05",
+      "expected": "UNKNOWN_BUDGET",
+      "patches": [
+        {
+          "path": "measurement.budgetMm",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B84-N21",
+      "ruleId": "TU84-R05",
+      "expected": "REJECT_BUDGET",
+      "patches": [
+        {
+          "path": "measurement.budgetMm",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "B84-N22",
+      "ruleId": "TU84-R05",
+      "expected": "UNKNOWN_BUDGET_POLICY",
+      "patches": [
+        {
+          "path": "measurement.budgetKind",
+          "value": "NORMATIVE_ISO"
+        }
+      ]
+    },
+    {
+      "id": "B84-N23",
+      "ruleId": "TU84-R06",
+      "expected": "UNKNOWN_MATERIAL",
+      "patches": [
+        {
+          "path": "boundary.d07MaterialExact",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B84-N24",
+      "ruleId": "TU84-R06",
+      "expected": "UNKNOWN_NOMINAL_SETUP",
+      "patches": [
+        {
+          "path": "boundary.d04NominalExact",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B84-N25",
+      "ruleId": "TU84-R06",
+      "expected": "REJECT_BOUNDARY",
+      "patches": [
+        {
+          "path": "boundary.copyD04ToD10",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B84-N26",
+      "ruleId": "TU84-R06",
+      "expected": "REJECT_FROZEN",
+      "patches": [
+        {
+          "path": "boundary.overwriteFrozenD08",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B84-N27",
+      "ruleId": "TU84-R06",
+      "expected": "REJECT_FALSE_RELEASE",
+      "patches": [
+        {
+          "path": "boundary.claimD16Released",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B84-N28",
+      "ruleId": "TU84-R06",
+      "expected": "REJECT_FALSE_RELEASE",
+      "patches": [
+        {
+          "path": "boundary.clAnimationAsD15",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B84-N29",
+      "ruleId": "TU84-R07",
+      "expected": "REJECT_UI",
+      "patches": [
+        {
+          "path": "ui.worldCount",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "B84-N30",
+      "ruleId": "TU84-R07",
+      "expected": "REJECT_UI",
+      "patches": [
+        {
+          "path": "ui.taskPanel",
+          "value": "RIGHT_DRAWER"
+        }
+      ]
+    },
+    {
+      "id": "B84-N31",
+      "ruleId": "TU84-R07",
+      "expected": "REJECT_UI",
+      "patches": [
+        {
+          "path": "ui.cliPort",
+          "value": "01.UnsafePort"
+        }
+      ]
+    },
+    {
+      "id": "B84-N32",
+      "ruleId": "TU84-R07",
+      "expected": "REJECT_UI",
+      "patches": [
+        {
+          "path": "ui.previewWrites",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B84-N33",
+      "ruleId": "TU84-R08",
+      "expected": "REJECT_PERMISSION",
+      "patches": [
+        {
+          "path": "command.authorized",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B84-N34",
+      "ruleId": "TU84-R08",
+      "expected": "STALE_CAS",
+      "patches": [
+        {
+          "path": "command.expectedRevision",
+          "value": "d04-r7"
+        }
+      ]
+    },
+    {
+      "id": "B84-N35",
+      "ruleId": "TU84-R08",
+      "expected": "STALE_CAS",
+      "patches": [
+        {
+          "path": "command.expectedHash",
+          "value": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        }
+      ]
+    },
+    {
+      "id": "B84-N36",
+      "ruleId": "TU84-R08",
+      "expected": "STALE_FRAME",
+      "patches": [
+        {
+          "path": "command.expectedFrame",
+          "value": "OTHER@r8"
+        }
+      ]
+    },
+    {
+      "id": "B84-N37",
+      "ruleId": "TU84-R08",
+      "expected": "STALE_SCOPE",
+      "patches": [
+        {
+          "path": "command.scopeEpoch",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "B84-N38",
+      "ruleId": "TU84-R08",
+      "expected": "REJECT_CANCELLED",
+      "patches": [
+        {
+          "path": "command.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B84-N39",
+      "ruleId": "TU84-R08",
+      "expected": "REJECT_LATE_ACK",
+      "patches": [
+        {
+          "path": "command.lateAck",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B84-N40",
+      "ruleId": "TU84-R08",
+      "expected": "UNKNOWN_MIGRATION",
+      "patches": [
+        {
+          "path": "migration.legacyReaderPreserved",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B84-N41",
+      "ruleId": "TU84-R08",
+      "expected": "UNKNOWN_MIGRATION",
+      "patches": [
+        {
+          "path": "migration.rollbackRef",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "B84-N42",
+      "ruleId": "TU84-R08",
+      "expected": "REJECT_FAKE_PASS",
+      "patches": [
+        {
+          "path": "migration.consumerClaimsPass",
+          "value": true
+        }
+      ]
+    }
+  ]
+}
