@@ -1,0 +1,415 @@
+{
+  "schemaVersion": "procet-b110-aba-cas-trace-v08",
+  "date": "2026-11-02",
+  "sourceRegistry": "research/sources/CAP-05-06-aba-cas-b110.json",
+  "fixtures": "docs/capabilities/CAP-05-06/aba-cas-b110-fixtures-v08.json",
+  "checker": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+  "capabilityId": "CAP-05-06",
+  "relatedCapabilities": [
+    "CAP-01-03",
+    "CAP-01-04",
+    "CAP-05-01",
+    "CAP-05-03"
+  ],
+  "originalWorkPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-04",
+    "W2-05"
+  ],
+  "sourceCount": 7,
+  "ruleCount": 8,
+  "approval": "L3_PENDING_HUMAN",
+  "ownerSignatures": "0/17",
+  "realIndependentConsumers": "0/17",
+  "rules": [
+    {
+      "id": "B110-R01",
+      "summary": "内容Hash相同不代表同一Revision：A→B→A必须拒绝旧expectedRevision或lineageEpoch",
+      "sourceIds": [
+        "B110-SRC01",
+        "B110-SRC05",
+        "B110-SRC07"
+      ],
+      "fields": [
+        "head.revision",
+        "head.contentHash",
+        "head.lineageEpoch",
+        "request.expectedRevision",
+        "request.expectedHash",
+        "request.expectedLineageEpoch"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-02",
+      "positive": [
+        "B110-P01"
+      ],
+      "negative": [],
+      "stale": [
+        "B110-S01",
+        "B110-S02",
+        "B110-S03"
+      ],
+      "unknown": [],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B110-R02",
+      "summary": "CAS必须在持久化写事务中以WHERE精确匹配并验证唯一受影响行，失败不可部分提交",
+      "sourceIds": [
+        "B110-SRC02",
+        "B110-SRC03",
+        "B110-SRC04",
+        "B110-SRC07"
+      ],
+      "fields": [
+        "transaction.atomicConditionalWrite",
+        "transaction.affectedRows",
+        "transaction.transactionMode"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-04",
+      "positive": [],
+      "negative": [
+        "B110-N01"
+      ],
+      "stale": [
+        "B110-S08"
+      ],
+      "unknown": [
+        "B110-U01",
+        "B110-U02"
+      ],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B110-R03",
+      "summary": "同一Idempotency Key不同载荷禁止重放；相同载荷有权威回执只能对账零写",
+      "sourceIds": [
+        "B110-SRC07",
+        "B110-SRC05"
+      ],
+      "fields": [
+        "idempotency.keyStatus",
+        "idempotency.payloadHashMatches",
+        "idempotency.receiptVerified"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-04",
+      "positive": [
+        "B110-P04"
+      ],
+      "negative": [
+        "B110-N02"
+      ],
+      "stale": [],
+      "unknown": [
+        "B110-U03"
+      ],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B110-R04",
+      "summary": "权限/批准/冻结在提交时重验，旧预览与Agent提示均无提交资格",
+      "sourceIds": [
+        "B110-SRC07"
+      ],
+      "fields": [
+        "workflow.aclAtCommit",
+        "workflow.approvalAtCommit",
+        "workflow.freezeConflict",
+        "workflow.agentDirectWrite"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-02",
+      "positive": [],
+      "negative": [
+        "B110-N03",
+        "B110-N04",
+        "B110-N05",
+        "B110-N06"
+      ],
+      "stale": [],
+      "unknown": [],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B110-R05",
+      "summary": "取消、任务代次及ScopeEpoch失效令晚回执不能换头，即使Hash意外相同",
+      "sourceIds": [
+        "B110-SRC07",
+        "B110-SRC01"
+      ],
+      "fields": [
+        "workflow.scopeEpoch",
+        "workflow.ackScopeEpoch",
+        "workflow.taskGeneration",
+        "workflow.ackGeneration",
+        "workflow.cancelled",
+        "workflow.lateAck"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-04",
+      "positive": [],
+      "negative": [],
+      "stale": [
+        "B110-S04",
+        "B110-S05",
+        "B110-S06",
+        "B110-S07"
+      ],
+      "unknown": [],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B110-R06",
+      "summary": "D01/D02/D04/D05/D08精确源、Frame与schema/profile不齐时保持UNKNOWN，绝不默认旧修订适用",
+      "sourceIds": [
+        "B110-SRC06",
+        "B110-SRC07"
+      ],
+      "fields": [
+        "request.sourceExact",
+        "request.frameProofExact",
+        "request.canonicalProfileKnown",
+        "request.schemaCompatible"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-03",
+      "positive": [
+        "B110-P02"
+      ],
+      "negative": [],
+      "stale": [],
+      "unknown": [
+        "B110-U04",
+        "B110-U05",
+        "B110-U06",
+        "B110-U07"
+      ],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B110-R07",
+      "summary": "GUI/CLI/Agent共享同一05域Port、统一左TaskPanel及单Babylon世界，预览不写D05/D08",
+      "sourceIds": [
+        "B110-SRC07"
+      ],
+      "fields": [
+        "workflow.sameDomainPort",
+        "workflow.sceneCount",
+        "workflow.leftTaskPanel",
+        "workflow.previewWrites"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-05",
+      "positive": [],
+      "negative": [
+        "B110-N07",
+        "B110-N08",
+        "B110-N09",
+        "B110-N10"
+      ],
+      "stale": [],
+      "unknown": [],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B110-R08",
+      "summary": "成功只生成候选不可变新修订和来源，D04不冒充D10；D13 unknown不得授D15/D16 PASS",
+      "sourceIds": [
+        "B110-SRC05",
+        "B110-SRC07"
+      ],
+      "fields": [
+        "workflow.appendOnly",
+        "workflow.d04EqualsD10",
+        "workflow.d13Semantic",
+        "workflow.d15PassClaim",
+        "workflow.d16PublishClaim"
+      ],
+      "capabilityIds": [
+        "CAP-05-06"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-04",
+        "W2-05"
+      ],
+      "primaryPackage": "W2-03",
+      "positive": [
+        "B110-P03"
+      ],
+      "negative": [
+        "B110-N11",
+        "B110-N12",
+        "B110-N13",
+        "B110-N14"
+      ],
+      "stale": [],
+      "unknown": [],
+      "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+      "independentConsumer": "NOT_RUN",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    }
+  ]
+}

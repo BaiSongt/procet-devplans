@@ -1,3 +1,6 @@
+## 2026-11-02｜B110 CAP-05-06 ABA同Hash异修订与原子CAS/幂等对账
+[研究与SQLite/RFC选段局限](docs/capabilities/CAP-05-06/ABA-CAS-B110-2026-11-02.md) → [7来源](research/sources/CAP-05-06-aba-cas-b110.json) → [8规则/原W2-02/03/04/05](research/traces/CAP-05-06-aba-cas-b110-v08.json) → [33正反UNKNOWN/STALE/RECONCILE](docs/capabilities/CAP-05-06/aba-cas-b110-fixtures-v08.json) → [Node只读工具](tools/check_cap0506_aba_cas_b110_v08.cjs)、[SQLite内存独立合成](tools/check_cap0506_sqlite_aba_b110_v08.py)。正式Owner/消费者0/17，L3、真实产品数据库及全仓AST未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B109 CAP-03-05 圆柱面不是孔：材料侧/盲通孔边界
 [OCCT/ISO/NIST公开章节与阅读限制](docs/capabilities/CAP-03-05/HOLE-MATERIAL-SIDE-B109-2026-11-02.md) → [7来源](research/sources/CAP-03-05-hole-material-b109.json) → [8规则字段/原B0-02 F1-03 F1-04 T5-02](research/traces/CAP-03-05-hole-material-b109-v08.json) → [36合成正反/UNKNOWN/STALE](docs/capabilities/CAP-03-05/hole-material-b109-fixtures-v08.json) → [只读Node](tools/check_cap0305_hole_material_b109_v08.cjs)。无原始OCCT/STEP/独立Owner实际验收，L3待审。规划PASS≠产品PASS。
 

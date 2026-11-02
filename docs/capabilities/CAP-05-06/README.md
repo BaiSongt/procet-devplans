@@ -1,3 +1,6 @@
+## B110 定点补证（2026-11-02）
+[ABA同Hash异revision/epoch与原子CAS](ABA-CAS-B110-2026-11-02.md) → [7来源](../../../research/sources/CAP-05-06-aba-cas-b110.json) → [8规则](../../../research/traces/CAP-05-06-aba-cas-b110-v08.json) → [33正反/UNKNOWN/STALE/幂等合成](aba-cas-b110-fixtures-v08.json) → [只读Node](../../../tools/check_cap0506_aba_cas_b110_v08.cjs)与[SQLite内存试验](../../../tools/check_cap0506_sqlite_aba_b110_v08.py)。源版本同hash非同revision，真实产品与L3待验。
+
 # CAP-05-06｜局部冻结与冲突管理
 > V0.8原编号；L1/L2不变、L3待人类评审。仅规划候选，17资产Owner会签、产品与消费者测试均NOT_RUN。
 

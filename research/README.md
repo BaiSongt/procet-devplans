@@ -1,3 +1,6 @@
+## 2026-11-02｜B110 R-FREEZE-001 ABA CAS/幂等写点
+[7项合法来源](sources/CAP-05-06-aba-cas-b110.json) → [8条字段/规则/原工作包追踪](traces/CAP-05-06-aba-cas-b110-v08.json) → [33设计正反案例](../docs/capabilities/CAP-05-06/aba-cas-b110-fixtures-v08.json) → [研究与阅读深度](../docs/capabilities/CAP-05-06/ABA-CAS-B110-2026-11-02.md)。SQLite内存7/7只为独立合成语义检查，真实Owner/消费者及L3待验。
+
 ## 2026-11-02｜B109 R-MFR-001 圆柱曲面与真实材料侧分离
 [7项分级来源](sources/CAP-03-05-hole-material-b109.json) → [8规则/原工作包](traces/CAP-03-05-hole-material-b109-v08.json) → [36合成](../docs/capabilities/CAP-03-05/hole-material-b109-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-03-05/HOLE-MATERIAL-SIDE-B109-2026-11-02.md)。OCCT8.0.1四API定点实读，ISO14649只官方摘要，NIST7098仅官方摘要；真实STEP/Owner/消费者/L3未验。
 

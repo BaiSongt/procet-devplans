@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "procet-b110-aba-cas-sources-v08",
+  "accessedOn": "2026-11-02",
+  "origin": "NEWLY_AUTHORED_NOT_HISTORICAL_BYTES",
+  "registeredRecords": 7,
+  "sources": [
+    {
+      "id": "B110-SRC01",
+      "authors": [
+        "R. Fielding",
+        "M. Nottingham",
+        "J. Reschke"
+      ],
+      "title": "RFC 9110 HTTP Semantics",
+      "version": "RFC 9110 / STD 97",
+      "published": "2022-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "accessedOn": "2026-11-02",
+      "section": "§13.1.1 If-Match; §13.2 Evaluation",
+      "accessDepth": "OFFICIAL_PUBLIC_SELECTED_HTML_BODY",
+      "supports": "HTTP If-Match强验证器及写请求前置条件的语义",
+      "limits": "HTTP representation ETag不等同于Procet领域revision/lineageEpoch，不提供多领域DB原子事务"
+    },
+    {
+      "id": "B110-SRC02",
+      "authors": [
+        "SQLite Project"
+      ],
+      "title": "SQLite Transaction Control",
+      "version": "SQLite online documentation, accessed 2026-11-02",
+      "published": "官网页面未标注统一发布日期",
+      "url": "https://www.sqlite.org/lang_transaction.html",
+      "accessedOn": "2026-11-02",
+      "section": "§2; §2.1; §2.2 DEFERRED/IMMEDIATE; SQLITE_BUSY",
+      "accessDepth": "OFFICIAL_PUBLIC_SELECTED_HTML_BODY",
+      "supports": "事务可显式开始，BEGIN IMMEDIATE请求写事务且可能遇BUSY",
+      "limits": "不保证跨多个SQLite数据库或远程服务分布式ACID；未读产品实际数据库代码"
+    },
+    {
+      "id": "B110-SRC03",
+      "authors": [
+        "SQLite Project"
+      ],
+      "title": "SQLite UPDATE",
+      "version": "SQLite online documentation",
+      "published": "官网页面未标注统一发布日期",
+      "url": "https://www.sqlite.org/lang_update.html",
+      "accessedOn": "2026-11-02",
+      "section": "§1 Overview; §2 Details/WHERE",
+      "accessDepth": "OFFICIAL_PUBLIC_SELECTED_HTML_BODY",
+      "supports": "条件UPDATE可限制更新行；不匹配WHERE时影响零行",
+      "limits": "条件谓词及revision必须由领域写侧实现；不是自动权限或历史保护"
+    },
+    {
+      "id": "B110-SRC04",
+      "authors": [
+        "SQLite Project"
+      ],
+      "title": "SQLite RETURNING",
+      "version": "SQLite >= 3.35.0 feature; online docs",
+      "published": "2021-03-12 首次支持（官方文档）；文档最近修订日未核定",
+      "url": "https://www.sqlite.org/lang_returning.html",
+      "accessedOn": "2026-11-02",
+      "section": "§1 Overview; §1.1 Typical Use; §3 Limitations",
+      "accessDepth": "OFFICIAL_PUBLIC_SELECTED_HTML_BODY",
+      "supports": "UPDATE RETURNING可返回受影响的行，用于核对实际更新行数",
+      "limits": "RETURNING不是分布式提交凭证；本轮仅在内存SQLite进行独立合成试验"
+    },
+    {
+      "id": "B110-SRC05",
+      "authors": [
+        "Timothy Lebo",
+        "Satya Sahoo",
+        "Deborah McGuinness"
+      ],
+      "title": "W3C PROV-O: The PROV Ontology",
+      "version": "W3C Recommendation 2013-04-30",
+      "published": "2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "accessedOn": "2026-11-02",
+      "section": "§2/§3 prov:wasDerivedFrom; prov:wasRevisionOf",
+      "accessDepth": "OFFICIAL_PUBLIC_SELECTED_HTML_BODY",
+      "supports": "对新旧不可变修订建立明确来源关系",
+      "limits": "PROV-O不强制数据库CAS、ACL及幂等语义；规则均为Procet领域设计推导"
+    },
+    {
+      "id": "B110-SRC06",
+      "authors": [
+        "A. Rundgren",
+        "B. Jordan",
+        "S. Erdtman"
+      ],
+      "title": "RFC 8785 JSON Canonicalization Scheme",
+      "version": "RFC 8785 Informational",
+      "published": "2020-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc8785.html",
+      "accessedOn": "2026-11-02",
+      "section": "§1; §3.1; §3.2 公开选段",
+      "accessDepth": "OFFICIAL_PUBLIC_SELECTED_HTML_BODY",
+      "supports": "内容哈希必须有确定性canonical profile和I-JSON限制",
+      "limits": "不保证历史身份或抵御ABA；并未实现完整跨语言JCS"
+    },
+    {
+      "id": "B110-SRC07",
+      "authors": [
+        "BaiSongt/procet-devplans maintainers"
+      ],
+      "title": "CAP-05-06 原有局部冻结与冲突管理业务规格",
+      "version": "固定规划分支 cd6de09da6fae9dbf6dc9c97a88d154b4f71dbc3",
+      "published": "原规划已入库，当前回读日期2026-11-02",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/cd6de09da6fae9dbf6dc9c97a88d154b4f71dbc3/docs/capabilities/CAP-05-06/README.md",
+      "accessedOn": "2026-11-02",
+      "section": "Owner、D05/D08冻结、CAS、任务代次、A/B、D04/D10、GUI/CLI/Agent与独立消费者",
+      "accessDepth": "EXACT_GITHUB_FILE_READ",
+      "supports": "Owner/Frame/ScopeEpoch/取消晚回执等为Procet内生设计要求",
+      "limits": "不是外部标准要求；未获L3及正式Owner签署"
+    }
+  ]
+}
