@@ -1,3 +1,6 @@
+## 2026-11-02｜B107 R-MET-001 测头测试类别与厂商重复性资格
+[6项分级合法来源](sources/CAP-02-06-probe-qualification-b107.json) → [8条字段规则/原包](traces/CAP-02-06-probe-qualification-b107-v08.json) → [34机器合成](../docs/capabilities/CAP-02-06/probe-qualification-b107-fixtures-v08.json) → [研究与证据限制](../docs/capabilities/CAP-02-06/PROBE-QUALIFICATION-B107-2026-11-02.md)。ISO仅官方目录，NIST§5/7及Renishaw公开HTML限定，真实ISO试验/校准/独立消费NOT_RUN。
+
 ## 2026-11-02｜B106 R-ASM-001 SHUO显隐假阴性与Reader颜色开关
 [7来源及深度](sources/CAP-03-02-instance-style-b106.json) → [8规则/字段/原工作包](traces/CAP-03-02-instance-style-b106-v08.json) → [50合成](../docs/capabilities/CAP-03-02/instance-style-b106-fixtures-v08.json) → [研究](../docs/capabilities/CAP-03-02/INSTANCE-STYLE-EVIDENCE-B106-2026-11-02.md)。仅OCCT官方指定API实读、NIST简介/W3C摘要；真实STEP/Owner/独立消费者及L3未验。规划PASS≠产品PASS。
 

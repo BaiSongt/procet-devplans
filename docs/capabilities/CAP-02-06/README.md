@@ -1,3 +1,5 @@
+> **B107专项（2026-11-02）**：[在机测头模式/2σ资格](PROBE-QUALIFICATION-B107-2026-11-02.md) → [6来源](../../../research/sources/CAP-02-06-probe-qualification-b107.json) → [8规则](../../../research/traces/CAP-02-06-probe-qualification-b107-v08.json) → [34正反/STALE/UNKNOWN](probe-qualification-b107-fixtures-v08.json)。ISO230-10仅公开摘要，CMM台架规格不可外推NC实际测量性能；L3/实机NOT_RUN。
+
 # CAP-02-06｜测量与检测资源
 
 **B71专项（2026-10-31）：** [扩展不确定度与保守区间判定](UNCERTAINTY-GUARD-B71-2026-10-31.md)、[6来源](../../../research/sources/CAP-02-06-uncertainty-guard-b71.json)、[8规则](../../../research/traces/CAP-02-06-uncertainty-guard-b71-v08.json)、[58正反/未知规格](uncertainty-guard-b71-fixtures-v08.json)。D03设备校准不等于D17本件测量，仍为L3待审和产品NOT_RUN。

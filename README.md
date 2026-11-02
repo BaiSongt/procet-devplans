@@ -1,3 +1,6 @@
+## 2026-11-02｜B107 CAP-02-06 测头/测刀系统资格与厂商台架2σ外推隔离
+[研究与严格阅读范围](docs/capabilities/CAP-02-06/PROBE-QUALIFICATION-B107-2026-11-02.md) → [6分级来源](research/sources/CAP-02-06-probe-qualification-b107.json) → [8规则/原F1-02/F1-06/E3-04/T5-05](research/traces/CAP-02-06-probe-qualification-b107-v08.json) → [34合成正反STALE/UNKNOWN](docs/capabilities/CAP-02-06/probe-qualification-b107-fixtures-v08.json) → [只读Node入口](tools/check_cap0206_probe_qualification_b107_v08.cjs)。ISO230-10:2022仅读官网摘要，Renishaw CMM测试架2σ不等于NC整机/本件测量不确定度。同judge34/34仅规划合成，真实校准/Owner/独立消费者与L3未通过；**规划PASS≠产品PASS**。
+
 ## 2026-11-02｜B106 CAP-03-02 XDE/SHUO实例外观误隐藏防错
 [官方API研究与阅读范围](docs/capabilities/CAP-03-02/INSTANCE-STYLE-EVIDENCE-B106-2026-11-02.md) → [7合法分级来源](research/sources/CAP-03-02-instance-style-b106.json) → [8规则及B0-02/F1-03/F1-04/T5-02](research/traces/CAP-03-02-instance-style-b106-v08.json) → [50正反/UNKNOWN及18来源Golden](docs/capabilities/CAP-03-02/instance-style-b106-fixtures-v08.json) → [只读Node](tools/check_cap0302_instance_style_b106_v08.cjs)。OCCT`IsInstanceVisible(false)`在无SHUO时不等于实例明确隐藏；ColorMode关闭无法证明源STEP缺色。独立Node/真实Reader/17Owner与消费者/L3未验，规划PASS≠产品PASS。
 
