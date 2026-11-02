@@ -1,0 +1,367 @@
+{
+  "schemaVersion": "procet-b118-trace-v08",
+  "date": "2026-11-02",
+  "traceId": "CAP-07-06-RAPID-PATH-B118",
+  "primaryCapability": "CAP-07-06",
+  "researchTopic": "R-LEAD-LINK-001",
+  "sourceRegistry": "research/sources/CAP-07-06-rapid-b118.json",
+  "fixtures": "docs/capabilities/CAP-07-06/rapid-b118-fixtures-v08.json",
+  "validator": "tools/check_cap0706_rapid_b118_v08.cjs",
+  "rules": [
+    {
+      "id": "B118-R01",
+      "summary": "冻结源指纹和刀柄Frame",
+      "fields": [
+        "sourceRevisionExact",
+        "frameHashExact",
+        "holderAssemblyHashExact",
+        "frozenD08Preserved"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B118-S08",
+        "B118-S07"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D09"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01"
+      ],
+      "positive": [
+        "B118-P01"
+      ],
+      "negative": [
+        "B118-N01-1",
+        "B118-N01-2",
+        "B118-N01-3",
+        "B118-N01-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B118-R02",
+      "summary": "G00按机床类别和控制器Profile解释",
+      "fields": [
+        "machineClassPinned",
+        "controllerProfilePinned",
+        "rapidMeaningResolved",
+        "unknownProfileFailClosed"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B118-S01",
+        "B118-S02",
+        "B118-S03",
+        "B118-S08"
+      ],
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-01",
+        "E3-03"
+      ],
+      "positive": [
+        "B118-P02"
+      ],
+      "negative": [
+        "B118-N02-1",
+        "B118-N02-2",
+        "B118-N02-3",
+        "B118-N02-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B118-R03",
+      "summary": "非直线路径和端点不能认证全程",
+      "fields": [
+        "nonlinearRapidConsidered",
+        "axisTimingEvidenceKnown",
+        "entireRapidTrajectoryChecked",
+        "endpointsNotCertified"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B118-S01",
+        "B118-S02",
+        "B118-S03"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "positive": [
+        "B118-P03"
+      ],
+      "negative": [
+        "B118-N03-1",
+        "B118-N03-2",
+        "B118-N03-3",
+        "B118-N03-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B118-R04",
+      "summary": "G61/G64路径模式和拐角包络",
+      "fields": [
+        "pathControlModePinned",
+        "blendToleranceEvidenceKnown",
+        "cornerEnvelopeBounded",
+        "unboundedBlendUnknown"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B118-S03",
+        "B118-S04"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-05"
+      ],
+      "positive": [
+        "B118-P04"
+      ],
+      "negative": [
+        "B118-N04-1",
+        "B118-N04-2",
+        "B118-N04-3",
+        "B118-N04-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B118-R05",
+      "summary": "刀具刀柄夹具全时域清障",
+      "fields": [
+        "toolHolderEnvelopeIncluded",
+        "fixtureAndRemainingIncluded",
+        "continuousClearanceBound",
+        "pointSamplesNotSafetyPass"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B118-S05",
+        "B118-S06",
+        "B118-S08"
+      ],
+      "assets": [
+        "D03",
+        "D07",
+        "D09",
+        "D15"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-05"
+      ],
+      "positive": [
+        "B118-P05"
+      ],
+      "negative": [
+        "B118-N05-1",
+        "B118-N05-2",
+        "B118-N05-3",
+        "B118-N05-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B118-R06",
+      "summary": "D04仅名义Setup，最终NC重解释",
+      "fields": [
+        "d04NominalNotRuntime",
+        "d10BindingRevisionExact",
+        "finalNcD13ProfilePinned",
+        "d14RecomputedFromFinalNc"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "STALE",
+        "STALE",
+        "UNKNOWN"
+      ],
+      "sourceIds": [
+        "B118-S03",
+        "B118-S08"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-01",
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B118-P06"
+      ],
+      "negative": [
+        "B118-N06-1",
+        "B118-N06-2",
+        "B118-N06-3",
+        "B118-N06-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B118-R07",
+      "summary": "独立D15及UNKNOWN阻止D16",
+      "fields": [
+        "d15IndependentImplementation",
+        "d15VerifiedEvidence",
+        "d16BlocksUnknown",
+        "d17ReceiptNotCycleStart"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B118-S06",
+        "B118-S07",
+        "B118-S08"
+      ],
+      "assets": [
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-05",
+        "E3-06"
+      ],
+      "positive": [
+        "B118-P07"
+      ],
+      "negative": [
+        "B118-N07-1",
+        "B118-N07-2",
+        "B118-N07-3",
+        "B118-N07-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B118-R08",
+      "summary": "统一Owner端口单Scene/取消Fence",
+      "fields": [
+        "singleBabylonScene",
+        "leftTaskPanelSameOwnerPort",
+        "casAclGenerationRechecked",
+        "cancelLateAckDiscarded"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "STALE",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B118-S07",
+        "B118-S08"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D15"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "U4-04",
+        "E3-01"
+      ],
+      "positive": [
+        "B118-P08"
+      ],
+      "negative": [
+        "B118-N08-1",
+        "B118-N08-2",
+        "B118-N08-3",
+        "B118-N08-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

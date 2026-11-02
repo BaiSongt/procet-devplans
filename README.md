@@ -1,3 +1,6 @@
+## 2026-11-02｜B118 CAP-07-06 G00快速路径与D15验收隔离
+[研究/官方章节深度](docs/capabilities/CAP-07-06/RAPID-PATH-B118-2026-11-02.md) → [8来源](research/sources/CAP-07-06-rapid-b118.json) → [8规则字段原包](research/traces/CAP-07-06-rapid-b118-v08.json) → [40正反/3解析Golden](docs/capabilities/CAP-07-06/rapid-b118-fixtures-v08.json) → [Node校验入口](tools/check_cap0706_rapid_b118_v08.cjs)。Haas G00不一定单直线，LinuxCNC2.9协调G0及G61/G64不能互推；端点无碰≠全程认证。224 Registry/1707登记；真实Owner/消费者0/17、L3/GFM AST/原字节未闭。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B117 CAP-02-07 glTF米/毫米、层级TRS与镜像绕序资格
 [研究与精确来源阅读层级](docs/capabilities/CAP-02-07/GLTF-ROUNDTRIP-B117-2026-11-02.md) → [7登记](research/sources/CAP-02-07-gltf-b117.json) → [8规则及原编号包](research/traces/CAP-02-07-gltf-b117-v08.json) → [40正反+5数学Golden](docs/capabilities/CAP-02-07/gltf-b117-fixtures-v08.json) → [Node只读入口](tools/check_cap0207_gltf_b117_v08.cjs)。glTF单位米与父×局部T·R·S一次换算；全局负行列式影响三角绕序但不授生产Frame或B-Rep资格。现223 Registry/1699登记，正式Owner/消费者0/17，L3/全仓AST/历史原字节待审。**规划PASS≠产品PASS。**
 

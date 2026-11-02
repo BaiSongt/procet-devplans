@@ -1,3 +1,6 @@
+## 2026-11-02｜B118 R-LEAD-LINK-001 G00与G61/G64路径门禁
+[8分级来源](sources/CAP-07-06-rapid-b118.json) → [8规则原包](traces/CAP-07-06-rapid-b118-v08.json) → [40正反/3解析](../docs/capabilities/CAP-07-06/rapid-b118-fixtures-v08.json) → [报告](../docs/capabilities/CAP-07-06/RAPID-PATH-B118-2026-11-02.md)。Haas与LinuxCNC快速轨迹不互推，NIST摘要/OCCT静态距离不等于D15安全。正式Owner与17消费者、L3、实机均待验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B117 R-RG-001 glTF实例单位/负行列式/OCCT导入转换门禁
 [7分级来源与深度](sources/CAP-02-07-gltf-b117.json) → [8规则字段/CAP/原包](traces/CAP-02-07-gltf-b117-v08.json) → [40合成+5解析Golden](../docs/capabilities/CAP-02-07/gltf-b117-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-02-07/GLTF-ROUNDTRIP-B117-2026-11-02.md)。Khronos同根两章节不算两个出版物，OCCT 8.0.1仅API指定方法阅读；变换语义与制造资格隔离为Procet内生规则。独立Node/真实OCCT/17消费者/L3未通过。**规划PASS≠产品PASS。**
 

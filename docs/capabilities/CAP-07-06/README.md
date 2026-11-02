@@ -34,3 +34,6 @@ D09中立CL候选段类型`APPROACH/LEAD_IN/CUT/LINK_STAY_DOWN/LINK_RETRACT/LEAD
 
 ## B57连续链接区间下界补证（2026-10-31，L3待审）
 [区间数学与源/规则/正反验收](CONTINUOUS-LINK-CERT-B57-2026-10-31.md) → [5项来源](../../../research/sources/CAP-07-06-continuous-b57.json) → [8规则](../../../research/traces/CAP-07-06-continuous-b57-v08.json) → [49合成fixture](continuous-link-b57-fixtures-v08.json) → [只读Node校验器](../../../tools/check_cap0706_continuous_link_b57_v08.cjs)。D09局部候选不等于D15，Owner/17真实消费者0/17，规划PASS≠产品PASS。
+
+## B118｜G00快速轨迹与D13-D15证据分离（2026-11-02）
+[专项研究](RAPID-PATH-B118-2026-11-02.md) → [8来源](../../../research/sources/CAP-07-06-rapid-b118.json) → [8规则](../../../research/traces/CAP-07-06-rapid-b118-v08.json) → [40合成/3解析](rapid-b118-fixtures-v08.json) → [只读校验器](../../../tools/check_cap0706_rapid_b118_v08.cjs)。不把CL端点/动画当实际NC安全验证；Owner与消费者0/17，L3待审。规划PASS≠产品PASS。
