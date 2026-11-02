@@ -1,0 +1,748 @@
+{
+  "schemaVersion": "procet-b116-fixtures-v08",
+  "date": "2026-11-02",
+  "syntheticOnly": true,
+  "oracleIndependence": "同判定函数合成；图遍历Golden与规则判定不同算法，但样例同一作者设计，独立消费者未验",
+  "cases": [
+    {
+      "id": "B116-P01",
+      "rule": "B116-R01",
+      "input": {
+        "rootPinned": true,
+        "rootDigestMatches": true,
+        "graphAllEdgesResolved": true,
+        "hasUnresolvedCycle": false
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N01-1",
+      "rule": "B116-R01",
+      "mutatedField": "rootPinned",
+      "input": {
+        "rootPinned": false,
+        "rootDigestMatches": true,
+        "graphAllEdgesResolved": true,
+        "hasUnresolvedCycle": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N01-2",
+      "rule": "B116-R01",
+      "mutatedField": "rootDigestMatches",
+      "input": {
+        "rootPinned": true,
+        "rootDigestMatches": false,
+        "graphAllEdgesResolved": true,
+        "hasUnresolvedCycle": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N01-3",
+      "rule": "B116-R01",
+      "mutatedField": "graphAllEdgesResolved",
+      "input": {
+        "rootPinned": true,
+        "rootDigestMatches": true,
+        "graphAllEdgesResolved": false,
+        "hasUnresolvedCycle": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N01-4",
+      "rule": "B116-R01",
+      "mutatedField": "hasUnresolvedCycle",
+      "input": {
+        "rootPinned": true,
+        "rootDigestMatches": true,
+        "graphAllEdgesResolved": true,
+        "hasUnresolvedCycle": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-P02",
+      "rule": "B116-R02",
+      "input": {
+        "independentClaimCount": 2,
+        "distinctPrimaryRoots": 2,
+        "lineageComplete": true,
+        "aliasesResolved": true,
+        "sameSourceNotDoubleCount": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N02-1",
+      "rule": "B116-R02",
+      "mutatedField": "distinctPrimaryRoots",
+      "input": {
+        "independentClaimCount": 2,
+        "distinctPrimaryRoots": 1,
+        "lineageComplete": true,
+        "aliasesResolved": true,
+        "sameSourceNotDoubleCount": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N02-2",
+      "rule": "B116-R02",
+      "mutatedField": "lineageComplete",
+      "input": {
+        "independentClaimCount": 2,
+        "distinctPrimaryRoots": 2,
+        "lineageComplete": false,
+        "aliasesResolved": true,
+        "sameSourceNotDoubleCount": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N02-3",
+      "rule": "B116-R02",
+      "mutatedField": "aliasesResolved",
+      "input": {
+        "independentClaimCount": 2,
+        "distinctPrimaryRoots": 2,
+        "lineageComplete": true,
+        "aliasesResolved": false,
+        "sameSourceNotDoubleCount": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N02-4",
+      "rule": "B116-R02",
+      "mutatedField": "sameSourceNotDoubleCount",
+      "input": {
+        "independentClaimCount": 2,
+        "distinctPrimaryRoots": 2,
+        "lineageComplete": true,
+        "aliasesResolved": true,
+        "sameSourceNotDoubleCount": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-P03",
+      "rule": "B116-R03",
+      "input": {
+        "claimContextsComparable": true,
+        "opposingEvidencePresent": false,
+        "conflictDisclosed": true,
+        "versionPinned": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N03-1",
+      "rule": "B116-R03",
+      "mutatedField": "claimContextsComparable",
+      "input": {
+        "claimContextsComparable": false,
+        "opposingEvidencePresent": false,
+        "conflictDisclosed": true,
+        "versionPinned": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N03-2",
+      "rule": "B116-R03",
+      "mutatedField": "opposingEvidencePresent",
+      "input": {
+        "claimContextsComparable": true,
+        "opposingEvidencePresent": true,
+        "conflictDisclosed": true,
+        "versionPinned": true
+      },
+      "expect": "CONFLICT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N03-3",
+      "rule": "B116-R03",
+      "mutatedField": "conflictDisclosed",
+      "input": {
+        "claimContextsComparable": true,
+        "opposingEvidencePresent": false,
+        "conflictDisclosed": false,
+        "versionPinned": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N03-4",
+      "rule": "B116-R03",
+      "mutatedField": "versionPinned",
+      "input": {
+        "claimContextsComparable": true,
+        "opposingEvidencePresent": false,
+        "conflictDisclosed": true,
+        "versionPinned": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-P04",
+      "rule": "B116-R04",
+      "input": {
+        "exactSourceHash": true,
+        "normalizedSelectorMatch": true,
+        "uniqueTarget": true,
+        "accessLicenseValid": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N04-1",
+      "rule": "B116-R04",
+      "mutatedField": "exactSourceHash",
+      "input": {
+        "exactSourceHash": false,
+        "normalizedSelectorMatch": true,
+        "uniqueTarget": true,
+        "accessLicenseValid": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N04-2",
+      "rule": "B116-R04",
+      "mutatedField": "normalizedSelectorMatch",
+      "input": {
+        "exactSourceHash": true,
+        "normalizedSelectorMatch": false,
+        "uniqueTarget": true,
+        "accessLicenseValid": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N04-3",
+      "rule": "B116-R04",
+      "mutatedField": "uniqueTarget",
+      "input": {
+        "exactSourceHash": true,
+        "normalizedSelectorMatch": true,
+        "uniqueTarget": false,
+        "accessLicenseValid": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N04-4",
+      "rule": "B116-R04",
+      "mutatedField": "accessLicenseValid",
+      "input": {
+        "exactSourceHash": true,
+        "normalizedSelectorMatch": true,
+        "uniqueTarget": true,
+        "accessLicenseValid": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-P05",
+      "rule": "B116-R05",
+      "input": {
+        "officialTextSectionRead": true,
+        "claimWithinAccessDepth": true,
+        "policySeparated": true,
+        "noInventedNorms": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N05-1",
+      "rule": "B116-R05",
+      "mutatedField": "officialTextSectionRead",
+      "input": {
+        "officialTextSectionRead": false,
+        "claimWithinAccessDepth": true,
+        "policySeparated": true,
+        "noInventedNorms": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N05-2",
+      "rule": "B116-R05",
+      "mutatedField": "claimWithinAccessDepth",
+      "input": {
+        "officialTextSectionRead": true,
+        "claimWithinAccessDepth": false,
+        "policySeparated": true,
+        "noInventedNorms": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N05-3",
+      "rule": "B116-R05",
+      "mutatedField": "policySeparated",
+      "input": {
+        "officialTextSectionRead": true,
+        "claimWithinAccessDepth": true,
+        "policySeparated": false,
+        "noInventedNorms": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N05-4",
+      "rule": "B116-R05",
+      "mutatedField": "noInventedNorms",
+      "input": {
+        "officialTextSectionRead": true,
+        "claimWithinAccessDepth": true,
+        "policySeparated": true,
+        "noInventedNorms": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-P06",
+      "rule": "B116-R06",
+      "input": {
+        "qualityMetricDefined": true,
+        "denominatorPinned": true,
+        "independentRootsCounted": true,
+        "notEquatingScoreToEvidence": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N06-1",
+      "rule": "B116-R06",
+      "mutatedField": "qualityMetricDefined",
+      "input": {
+        "qualityMetricDefined": false,
+        "denominatorPinned": true,
+        "independentRootsCounted": true,
+        "notEquatingScoreToEvidence": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N06-2",
+      "rule": "B116-R06",
+      "mutatedField": "denominatorPinned",
+      "input": {
+        "qualityMetricDefined": true,
+        "denominatorPinned": false,
+        "independentRootsCounted": true,
+        "notEquatingScoreToEvidence": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N06-3",
+      "rule": "B116-R06",
+      "mutatedField": "independentRootsCounted",
+      "input": {
+        "qualityMetricDefined": true,
+        "denominatorPinned": true,
+        "independentRootsCounted": false,
+        "notEquatingScoreToEvidence": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N06-4",
+      "rule": "B116-R06",
+      "mutatedField": "notEquatingScoreToEvidence",
+      "input": {
+        "qualityMetricDefined": true,
+        "denominatorPinned": true,
+        "independentRootsCounted": true,
+        "notEquatingScoreToEvidence": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-P07",
+      "rule": "B116-R07",
+      "input": {
+        "postFilterOwnerAcl": true,
+        "scopeEpochExact": true,
+        "revocationInvalidatesCache": true,
+        "cancelFenceVerified": true,
+        "ownerRevisionHashFrameExact": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N07-1",
+      "rule": "B116-R07",
+      "mutatedField": "postFilterOwnerAcl",
+      "input": {
+        "postFilterOwnerAcl": false,
+        "scopeEpochExact": true,
+        "revocationInvalidatesCache": true,
+        "cancelFenceVerified": true,
+        "ownerRevisionHashFrameExact": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N07-2",
+      "rule": "B116-R07",
+      "mutatedField": "scopeEpochExact",
+      "input": {
+        "postFilterOwnerAcl": true,
+        "scopeEpochExact": false,
+        "revocationInvalidatesCache": true,
+        "cancelFenceVerified": true,
+        "ownerRevisionHashFrameExact": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N07-3",
+      "rule": "B116-R07",
+      "mutatedField": "revocationInvalidatesCache",
+      "input": {
+        "postFilterOwnerAcl": true,
+        "scopeEpochExact": true,
+        "revocationInvalidatesCache": false,
+        "cancelFenceVerified": true,
+        "ownerRevisionHashFrameExact": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N07-4",
+      "rule": "B116-R07",
+      "mutatedField": "cancelFenceVerified",
+      "input": {
+        "postFilterOwnerAcl": true,
+        "scopeEpochExact": true,
+        "revocationInvalidatesCache": true,
+        "cancelFenceVerified": false,
+        "ownerRevisionHashFrameExact": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N07-5",
+      "rule": "B116-R07",
+      "mutatedField": "ownerRevisionHashFrameExact",
+      "input": {
+        "postFilterOwnerAcl": true,
+        "scopeEpochExact": true,
+        "revocationInvalidatesCache": true,
+        "cancelFenceVerified": true,
+        "ownerRevisionHashFrameExact": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-P08",
+      "rule": "B116-R08",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-1",
+      "rule": "B116-R08",
+      "mutatedField": "sameDomainPort",
+      "input": {
+        "sameDomainPort": false,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-2",
+      "rule": "B116-R08",
+      "mutatedField": "singleBabylonWorld",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": false,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-3",
+      "rule": "B116-R08",
+      "mutatedField": "leftUnifiedTaskPanel",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": false,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-4",
+      "rule": "B116-R08",
+      "mutatedField": "d04SeparatedFromD10",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": false,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-5",
+      "rule": "B116-R08",
+      "mutatedField": "frozenD08Preserved",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": false,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-6",
+      "rule": "B116-R08",
+      "mutatedField": "d13UnknownBlocksRelease",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": false,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-7",
+      "rule": "B116-R08",
+      "mutatedField": "ownerCasAtWrite",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": false,
+        "lateCancelReceiptIgnored": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B116-N08-8",
+      "rule": "B116-R08",
+      "mutatedField": "lateCancelReceiptIgnored",
+      "input": {
+        "sameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "d04SeparatedFromD10": true,
+        "frozenD08Preserved": true,
+        "d13UnknownBlocksRelease": true,
+        "ownerCasAtWrite": true,
+        "lateCancelReceiptIgnored": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B116-G01",
+      "scenario": "两份不同网址转载同一原始文献",
+      "nodes": [
+        {
+          "id": "root-A",
+          "kind": "primary",
+          "parents": []
+        },
+        {
+          "id": "copy-A",
+          "kind": "derived",
+          "parents": [
+            "root-A"
+          ]
+        },
+        {
+          "id": "copy-B",
+          "kind": "derived",
+          "parents": [
+            "root-A"
+          ]
+        }
+      ],
+      "citations": [
+        "copy-A",
+        "copy-B"
+      ],
+      "claimedIndependent": 2,
+      "expect": "REJECT",
+      "expectedDistinctRoots": 1
+    },
+    {
+      "id": "B116-G02",
+      "scenario": "确有两个不同原件",
+      "nodes": [
+        {
+          "id": "root-A",
+          "kind": "primary",
+          "parents": []
+        },
+        {
+          "id": "root-B",
+          "kind": "primary",
+          "parents": []
+        },
+        {
+          "id": "copy-A",
+          "kind": "derived",
+          "parents": [
+            "root-A"
+          ]
+        },
+        {
+          "id": "copy-B",
+          "kind": "derived",
+          "parents": [
+            "root-B"
+          ]
+        }
+      ],
+      "citations": [
+        "copy-A",
+        "copy-B"
+      ],
+      "claimedIndependent": 2,
+      "expect": "CANDIDATE",
+      "expectedDistinctRoots": 2
+    },
+    {
+      "id": "B116-G03",
+      "scenario": "来源图含循环",
+      "nodes": [
+        {
+          "id": "copy-A",
+          "kind": "derived",
+          "parents": [
+            "copy-B"
+          ]
+        },
+        {
+          "id": "copy-B",
+          "kind": "derived",
+          "parents": [
+            "copy-A"
+          ]
+        }
+      ],
+      "citations": [
+        "copy-A"
+      ],
+      "claimedIndependent": 1,
+      "expect": "REJECT",
+      "expectedDistinctRoots": null
+    },
+    {
+      "id": "B116-G04",
+      "scenario": "引用源找不到上游",
+      "nodes": [
+        {
+          "id": "copy-A",
+          "kind": "derived",
+          "parents": [
+            "absent"
+          ]
+        }
+      ],
+      "citations": [
+        "copy-A"
+      ],
+      "claimedIndependent": 1,
+      "expect": "UNKNOWN",
+      "expectedDistinctRoots": null
+    }
+  ]
+}

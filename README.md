@@ -1,3 +1,6 @@
+## 2026-11-02｜B116 CAP-11-03 引用谱系去重与独立根冲突门禁
+[研究报告](docs/capabilities/CAP-11-03/LINEAGE-INDEPENDENCE-B116-2026-11-02.md) → [7分级来源](research/sources/CAP-11-03-lineage-independence-b116.json) → [8规则/字段/原T5-01/T5-02](research/traces/CAP-11-03-lineage-independence-b116-v08.json) → [45正反与4来源图Golden](docs/capabilities/CAP-11-03/lineage-independence-b116-fixtures-v08.json) → [Node只读工具](tools/check_cap1103_lineage_independence_b116_v08.cjs)。不同URL的转载不能当两份独立证据，矛盾需CONFLICT；本轮同步纠正progress旧220/1678至真实新222/1692。正式Owner/独立消费者0/17、L3/全仓AST及历史原字节未闭。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B115 CAP-10-05 OPC UA质量位、语义/结构变更及作业模型迁移
 [专项研究和阅读深度](docs/capabilities/CAP-10-05/OPCUA-SEMANTIC-QUALITY-B115-2026-11-02.md) → [7分级来源](research/sources/CAP-10-05-opcua-semantic-b115.json) → [8规则、字段/原E3-06与T5-03](research/traces/CAP-10-05-opcua-semantic-b115-v08.json) → [37项正反/UNKNOWN/GAP/STALE](docs/capabilities/CAP-10-05/opcua-semantic-b115-fixtures-v08.json) → [Node只读工具](tools/check_cap1005_opcua_semantic_b115_v08.cjs)。单位/结构变更不能以重订阅代替元数据重读；requested 50ms≠实际200ms；40501-1旧Production deprecated不等于已删除。17 Owner/消费者0、L3/全仓AST/历史原字节未闭；**规划PASS≠产品PASS。**
 

@@ -62,3 +62,6 @@ GUI/CLI/Agent共享EvidenceRetrievalPort与审计；单Babylon/左TaskPanel；CA
 
 ## B80｜Unicode引用精确定位补证
 [专项研究](UNICODE-SELECTOR-B80-2026-11-01.md)补充W3C Unicode代码点、JS UTF-16、字素簇UNKNOWN和重复Quote歧义的工程资格；原十规则和T5-01/T5-02不替换，L3、独立消费者待核。
+
+## B116｜派生引用独立根、冲突和撤权（2026-11-02）
+[来源图谱与工艺边界](LINEAGE-INDEPENDENCE-B116-2026-11-02.md) → [7来源](../../../research/sources/CAP-11-03-lineage-independence-b116.json) → [8规则和原T5-01/T5-02](../../../research/traces/CAP-11-03-lineage-independence-b116-v08.json) → [45正反/4图Golden](lineage-independence-b116-fixtures-v08.json) → [只读Node](../../../tools/check_cap1103_lineage_independence_b116_v08.cjs)。转载不同网址不等于独立，未实测的证据不得签发NC，Owner与L3待审。

@@ -1,3 +1,6 @@
+## 2026-11-02｜B116 R-RAG-EVIDENCE-001 来源谱系与同根转载去重
+[来源与阅读局限](sources/CAP-11-03-lineage-independence-b116.json) → [8规则及T5-01/T5-02](traces/CAP-11-03-lineage-independence-b116-v08.json) → [45合成/4图谱Golden](../docs/capabilities/CAP-11-03/lineage-independence-b116-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-11-03/LINEAGE-INDEPENDENCE-B116-2026-11-02.md) → [只读Node](../tools/check_cap1103_lineage_independence_b116_v08.cjs)。W3C DQV属于WG Note，NIST AI RMF Playbook属自愿指导，2020论文仅摘要；多源根独立性是内生策略，真实产品/消费者均未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B115 R-MDC-OBSERVABILITY-001 OPC语义变化/质量位和作业模型迁移
 [专项研究](../docs/capabilities/CAP-10-05/OPCUA-SEMANTIC-QUALITY-B115-2026-11-02.md) → [7条分级来源](sources/CAP-10-05-opcua-semantic-b115.json) → [8项规则及字段](traces/CAP-10-05-opcua-semantic-b115-v08.json) → [37项规划正反合成](../docs/capabilities/CAP-10-05/opcua-semantic-b115-fixtures-v08.json)。官方OPC公开章节定点实读，NIST仅出版摘要；真实OPC/独立Node/D17消费者/L3未核。规划PASS≠产品PASS。
 
