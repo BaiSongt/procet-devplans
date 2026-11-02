@@ -1,3 +1,6 @@
+## 2026-11-02｜B105 CAP-08-03 G93逆时间F与D14时序隔离
+[研究与官方章节](docs/capabilities/CAP-08-03/INVERSE-TIME-FEED-B105-2026-11-02.md) → [6来源](research/sources/CAP-08-03-inverse-time-b105.json) → [8规则/原E3-02、E3-03、U4-04、F1-02](research/traces/CAP-08-03-inverse-time-b105-v08.json) → [39正反/UNKNOWN](docs/capabilities/CAP-08-03/inverse-time-b105-fixtures-v08.json) → [Node工具](tools/check_cap0803_inverse_time_b105_v08.cjs)。G93 F的60/F是程序目标时长，非实测；同judge39/39，独立D14/D15、Owner、L3待验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B104 CAP-11-04 工具风险提示与OAuth资源受众隔离
 [专项研究与章节局限](docs/capabilities/CAP-11-04/TOOL-HINT-AUDIENCE-B104-2026-11-02.md) → [7来源](research/sources/CAP-11-04-tool-hint-b104.json) → [8规则/原T5-01、T5-02](research/traces/CAP-11-04-tool-hint-b104-v08.json) → [42合成](docs/capabilities/CAP-11-04/tool-hint-b104-fixtures-v08.json) → [只读Node](tools/check_cap1104_tool_hint_b104_v08.cjs)。readOnlyHint不是授权，OAuth受众不等于Owner CAS；同judge规划合成42/42，真实Owner/消费者/L3未验。规划PASS≠产品PASS。
 

@@ -1,0 +1,261 @@
+{
+  "schemaVersion": "procet-b105-inverse-time-trace-v08",
+  "sourceRegistry": "research/sources/CAP-08-03-inverse-time-b105.json",
+  "fixtures": "docs/capabilities/CAP-08-03/inverse-time-b105-fixtures-v08.json",
+  "checker": "tools/check_cap0803_inverse_time_b105_v08.cjs",
+  "rules": [
+    {
+      "id": "B105-R01",
+      "summary": "锁定控制器Profile、最终NC原字节，CL预览不能代替D13",
+      "sourceIds": [
+        "B105-S01",
+        "B105-S03",
+        "B105-S06"
+      ],
+      "fields": [
+        "guards.controllerProfileExact",
+        "guards.ncRawBytesExact"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N01",
+        "B105-N02"
+      ],
+      "unknown": [
+        "B105-U01"
+      ]
+    },
+    {
+      "id": "B105-R02",
+      "summary": "D04名义Setup与D10机床执行配置分离，初始模态快照必需",
+      "sourceIds": [
+        "B105-S01",
+        "B105-S06"
+      ],
+      "fields": [
+        "guards.d04D10Separated",
+        "guards.initialFeedModeKnown"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N03",
+        "B105-N04"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B105-R03",
+      "summary": "G93/G94模态状态变更逐行保留，G93每个插补块独立F",
+      "sourceIds": [
+        "B105-S01",
+        "B105-S02",
+        "B105-S03"
+      ],
+      "fields": [
+        "guards.modalTransitionRecorded",
+        "guards.g93BlockFRequired"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N05",
+        "B105-N06"
+      ],
+      "unknown": [
+        "B105-U02"
+      ]
+    },
+    {
+      "id": "B105-R04",
+      "summary": "解析隐式G1/G2/G3，G0不按G93 F计算时间",
+      "sourceIds": [
+        "B105-S01",
+        "B105-S02",
+        "B105-S03"
+      ],
+      "fields": [
+        "guards.implicitMotionResolved",
+        "guards.rapidUnaffected"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N07",
+        "B105-N08"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B105-R05",
+      "summary": "F必须为正有限数；60/F只得到程序目标时间",
+      "sourceIds": [
+        "B105-S01",
+        "B105-S03",
+        "B105-S06"
+      ],
+      "fields": [
+        "guards.fPositiveFinite",
+        "guards.nominalTimeUnitsDeclared"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N09",
+        "B105-N10"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B105-R06",
+      "summary": "LinuxCNC2.9 G94转入新F与Haas RESET G94分方言",
+      "sourceIds": [
+        "B105-S01",
+        "B105-S03",
+        "B105-S04"
+      ],
+      "fields": [
+        "guards.g94FreshFEnforcedByDialect",
+        "guards.resetSnapshotScoped"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N11",
+        "B105-N12"
+      ],
+      "unknown": [
+        "B105-U03"
+      ]
+    },
+    {
+      "id": "B105-R07",
+      "summary": "进给倍率与前瞻/加减速不能由F认证，D14独立消费",
+      "sourceIds": [
+        "B105-S03",
+        "B105-S06"
+      ],
+      "fields": [
+        "guards.overrideNotCertified",
+        "guards.d14IndependentTiming"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N13",
+        "B105-N14"
+      ],
+      "unknown": [
+        "B105-U05",
+        "B105-U06"
+      ]
+    },
+    {
+      "id": "B105-R08",
+      "summary": "GUI/CLI/Agent同Owner入口，CAS与取消Fence；D15未知阻D16",
+      "sourceIds": [
+        "B105-S06"
+      ],
+      "fields": [
+        "guards.aclCasCancelFence",
+        "guards.d15UnknownBlocksD16"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04",
+        "F1-02"
+      ],
+      "positive": [
+        "B105-P01"
+      ],
+      "negative": [
+        "B105-N15",
+        "B105-N16"
+      ],
+      "unknown": []
+    }
+  ]
+}

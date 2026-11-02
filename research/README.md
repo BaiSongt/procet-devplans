@@ -1,3 +1,6 @@
+## 2026-11-02｜B105 R-WCS-MOTION-001 G93/G94时序补证
+[6分级来源](sources/CAP-08-03-inverse-time-b105.json) → [8规则与原包](traces/CAP-08-03-inverse-time-b105-v08.json) → [39合成夹具](../docs/capabilities/CAP-08-03/inverse-time-b105-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-08-03/INVERSE-TIME-FEED-B105-2026-11-02.md)。LinuxCNC2.9§4/§59、Haas G93/G94实读，NIST仅书目，真实机床/D14/D15与L3未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B104 R-AGENT-ORCHESTRATION-001 工具注释及Token受众
 [7项来源的章节及阅读深度](sources/CAP-11-04-tool-hint-b104.json) → [8规则原包字段追踪](traces/CAP-11-04-tool-hint-b104-v08.json) → [42合成](../docs/capabilities/CAP-11-04/tool-hint-b104-fixtures-v08.json) → [报告](../docs/capabilities/CAP-11-04/TOOL-HINT-AUDIENCE-B104-2026-11-02.md)。MCP 2025-11-25指定HTML、RFC8707 §1–3；RFC8785仅§1/§3简介。真实工具/Owner/NC和L3未验。
 

@@ -50,3 +50,6 @@ GUI/CLI/Agent共用08域Owner Port和UseCase，不独立写D12/D13；NC Activity
 
 ## 2026-11-02｜B99刀长与G234 TCPC
 [报告](TOOL-LENGTH-TCPC-B99-2026-11-02.md)→[来源](../../../research/sources/CAP-08-03-tlo-tcpc-b99.json)→[规则](../../../research/traces/CAP-08-03-tlo-tcpc-b99-v08.json)→[合成](tlo-tcpc-b99-fixtures-v08.json)→[Node入口](../../../tools/check_cap0803_tlo_tcpc_b99_v08.cjs)。真实控制器/Owner/消费者/L3均待验；规划PASS≠产品PASS。
+
+## B105｜G93逆时间进给补证
+[官方章节、数学反例与D13–D15独立验证](INVERSE-TIME-FEED-B105-2026-11-02.md)。真实NC/机床NOT_RUN，规划PASS≠产品PASS。
