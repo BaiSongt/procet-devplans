@@ -1,3 +1,6 @@
+## 2026-11-02｜B117 CAP-02-07 glTF米/毫米、层级TRS与镜像绕序资格
+[研究与精确来源阅读层级](docs/capabilities/CAP-02-07/GLTF-ROUNDTRIP-B117-2026-11-02.md) → [7登记](research/sources/CAP-02-07-gltf-b117.json) → [8规则及原编号包](research/traces/CAP-02-07-gltf-b117-v08.json) → [40正反+5数学Golden](docs/capabilities/CAP-02-07/gltf-b117-fixtures-v08.json) → [Node只读入口](tools/check_cap0207_gltf_b117_v08.cjs)。glTF单位米与父×局部T·R·S一次换算；全局负行列式影响三角绕序但不授生产Frame或B-Rep资格。现223 Registry/1699登记，正式Owner/消费者0/17，L3/全仓AST/历史原字节待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B116 CAP-11-03 引用谱系去重与独立根冲突门禁
 [研究报告](docs/capabilities/CAP-11-03/LINEAGE-INDEPENDENCE-B116-2026-11-02.md) → [7分级来源](research/sources/CAP-11-03-lineage-independence-b116.json) → [8规则/字段/原T5-01/T5-02](research/traces/CAP-11-03-lineage-independence-b116-v08.json) → [45正反与4来源图Golden](docs/capabilities/CAP-11-03/lineage-independence-b116-fixtures-v08.json) → [Node只读工具](tools/check_cap1103_lineage_independence_b116_v08.cjs)。不同URL的转载不能当两份独立证据，矛盾需CONFLICT；本轮同步纠正progress旧220/1678至真实新222/1692。正式Owner/独立消费者0/17、L3/全仓AST及历史原字节未闭。**规划PASS≠产品PASS。**
 

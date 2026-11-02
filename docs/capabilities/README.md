@@ -1,3 +1,6 @@
+## 2026-11-02｜B117 CAP-02-07 glTF米/毫米、镜像与Reader/Writer来源资格
+[专题研究](CAP-02-07/GLTF-ROUNDTRIP-B117-2026-11-02.md) · [7分级来源](../../research/sources/CAP-02-07-gltf-b117.json) · [8规则](../../research/traces/CAP-02-07-gltf-b117-v08.json) · [40合成/5数学Golden](CAP-02-07/gltf-b117-fixtures-v08.json)。显示镜像/网格不能冒充精确制造Frame；正式Owner/17消费者/L3/真实OCCT/全仓AST仍待。**规划PASS≠产品PASS。**
+
 ## 2026-11-01｜CAP-07-01 B91多环/岛/圆弧专项补证
 [研究与八条新门禁](CAP-07-01/MULTIRING-OFFSET-B91-2026-11-01.md) · [追踪](../../research/traces/CAP-07-01-multiring-offset-b91-v08.json) · [26项正反与3公式](CAP-07-01/multiring-offset-b91-fixtures-v08.json)。不增加原88项完成计数，真实OCCT/NC与L3待验。
 

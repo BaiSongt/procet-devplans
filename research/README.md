@@ -1,3 +1,6 @@
+## 2026-11-02｜B117 R-RG-001 glTF实例单位/负行列式/OCCT导入转换门禁
+[7分级来源与深度](sources/CAP-02-07-gltf-b117.json) → [8规则字段/CAP/原包](traces/CAP-02-07-gltf-b117-v08.json) → [40合成+5解析Golden](../docs/capabilities/CAP-02-07/gltf-b117-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-02-07/GLTF-ROUNDTRIP-B117-2026-11-02.md)。Khronos同根两章节不算两个出版物，OCCT 8.0.1仅API指定方法阅读；变换语义与制造资格隔离为Procet内生规则。独立Node/真实OCCT/17消费者/L3未通过。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B116 R-RAG-EVIDENCE-001 来源谱系与同根转载去重
 [来源与阅读局限](sources/CAP-11-03-lineage-independence-b116.json) → [8规则及T5-01/T5-02](traces/CAP-11-03-lineage-independence-b116-v08.json) → [45合成/4图谱Golden](../docs/capabilities/CAP-11-03/lineage-independence-b116-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-11-03/LINEAGE-INDEPENDENCE-B116-2026-11-02.md) → [只读Node](../tools/check_cap1103_lineage_independence_b116_v08.cjs)。W3C DQV属于WG Note，NIST AI RMF Playbook属自愿指导，2020论文仅摘要；多源根独立性是内生策略，真实产品/消费者均未验。规划PASS≠产品PASS。
 

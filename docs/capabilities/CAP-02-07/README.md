@@ -104,3 +104,6 @@ RG-I01盘点现有types/GUI/消费者；I02定义typed参数与版本；I03几�
 
 ## V0.8研究补证（2026-10-28）
 [8来源](../../../research/sources/CAP-02-07.json) → [10规则40字段](../../../research/traces/CAP-02-07-v08-supplement.json) → [55规划合成](research-fixtures-v08.json) → [研究](RESEARCH-TRACE-2026-10-28.md)与[消费者](independent-consumer-v08.md)。原RG-R与RG-T保持，真实产品未验收。
+
+## B117 glTF米/毫米、层级镜像与导入导出配置专项（2026-11-02，L3待审）
+[原文阅读、8项新门禁与解析Golden](GLTF-ROUNDTRIP-B117-2026-11-02.md) → [7分级来源](../../../research/sources/CAP-02-07-gltf-b117.json) → [8规则](../../../research/traces/CAP-02-07-gltf-b117-v08.json) → [40合成/5解析Golden](gltf-b117-fixtures-v08.json) → [只读Node](../../../tools/check_cap0207_gltf_b117_v08.cjs)。资源显示glTF右手+米单位仅显示交换约束，镜像/非均匀缩放不授生产Frame，Reader/Writer设置按exact来源冻结，D03业务Owner与D04/D10分开；真实产品、独立消费者、正式Owner与L3仍NOT_RUN。**规划PASS≠产品PASS。**
