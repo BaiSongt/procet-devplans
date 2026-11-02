@@ -1,3 +1,6 @@
+## 2026-11-02｜B112 R-FRAME-001 SE(3)多路径及来源资格
+[5项合法来源的作者版次访问范围](sources/CAP-04-04-frame-path-b112.json) → [8规则字段原包](traces/CAP-04-04-frame-path-b112-v08.json) → [32机器合成](../docs/capabilities/CAP-04-04/frame-path-b112-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-04-04/FRAME-PATH-CLOSURE-B112-2026-11-02.md)。NIST1911仅官方摘要；Eigen为滚动nightly，OCCT8.0.1公开指定方法实读。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B111 R-FREL-001 共边真实祖先、周期缝与非流形
 [7来源及阅读深度](sources/CAP-03-07-edge-incidence-b111.json) → [8规则字段](traces/CAP-03-07-edge-incidence-b111-v08.json) → [32规划正反](../docs/capabilities/CAP-03-07/edge-incidence-b111-fixtures-v08.json) → [报告](../docs/capabilities/CAP-03-07/EDGE-INCIDENCE-B111-2026-11-02.md)。OCCT8.0.1指定公开方法实读，真实STEP与消费者未运行。
 

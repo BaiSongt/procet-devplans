@@ -1,3 +1,6 @@
+## 2026-11-02｜B112 CAP-04-04 多路径FrameGraph闭环与复合次序资格
+[OCCT/Eigen/NIST/W3C研究与深度限制](docs/capabilities/CAP-04-04/FRAME-PATH-CLOSURE-B112-2026-11-02.md) → [5项合法分级来源](research/sources/CAP-04-04-frame-path-b112.json) → [8规则字段/原F1-02/F1-04/W2-05/E3-04/U4-02](research/traces/CAP-04-04-frame-path-b112-v08.json) → [32正反UNKNOWN/STALE合成+4解析Golden](docs/capabilities/CAP-04-04/frame-path-b112-fixtures-v08.json) → [只读Node工具](tools/check_cap0404_frame_path_b112_v08.cjs)。双路径数学一致≠D10实装/测量/NC工程认证；V8同judge规划预检32/32、数学解析Golden4/4，独立Node/真实OCCT/17 Owner/消费者/L3及全仓GFM AST未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B111 CAP-03-07 周期缝/非流形共边资格
 [7来源](research/sources/CAP-03-07-edge-incidence-b111.json) → [8规则](research/traces/CAP-03-07-edge-incidence-b111-v08.json) → [32规划合成](docs/capabilities/CAP-03-07/edge-incidence-b111-fixtures-v08.json) → [报告](docs/capabilities/CAP-03-07/EDGE-INCIDENCE-B111-2026-11-02.md) → [只读Node](tools/check_cap0307_edge_incidence_b111_v08.cjs)。同Face两次edge引用不等于两张面共边，真实OCCT/17Owner/消费者/L3/GFM AST未验；**规划PASS≠产品PASS**。
 

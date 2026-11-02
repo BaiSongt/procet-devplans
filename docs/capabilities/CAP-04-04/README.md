@@ -31,3 +31,6 @@
 
 ## 五、实施、测试与交接
 关联原编号工作包F1-02、F1-04、W2-05、E3-04、U4-02，不新增工作包编号。先冻结FrameGraph契约/样例，再接Host/04域接口、Babylon单世界层、独立消费者及失效清单，最后按fixtures执行20个真实正反用例。业务Owner与独立跨域消费者各自签字，不能用Mock UI覆盖缺少独立消费者的门禁。每条用例的`testEntry`当前为TODO，产品Rust/TS/OCCT/GUI/NC及实机NOT_RUN。由人类评审L3后方可转入代码实施。
+
+## B112｜FrameGraph多路径闭环/矩阵方向/实装资格补证（2026-11-02）
+[研究与合法阅读范围](FRAME-PATH-CLOSURE-B112-2026-11-02.md) → [5项分级来源](../../../research/sources/CAP-04-04-frame-path-b112.json) → [8条规则/字段/原包](../../../research/traces/CAP-04-04-frame-path-b112-v08.json) → [32合成及4解析Golden](frame-path-b112-fixtures-v08.json) → [只读Node入口](../../../tools/check_cap0404_frame_path_b112_v08.cjs)。仅规划合成、L3/Owner/独立消费者及真实OCCT/NC均未验；规划PASS≠产品PASS。
