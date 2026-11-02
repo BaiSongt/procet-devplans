@@ -1,3 +1,6 @@
+## 2026-11-02｜B111 CAP-03-07 周期缝/非流形共边资格
+[7来源](research/sources/CAP-03-07-edge-incidence-b111.json) → [8规则](research/traces/CAP-03-07-edge-incidence-b111-v08.json) → [32规划合成](docs/capabilities/CAP-03-07/edge-incidence-b111-fixtures-v08.json) → [报告](docs/capabilities/CAP-03-07/EDGE-INCIDENCE-B111-2026-11-02.md) → [只读Node](tools/check_cap0307_edge_incidence_b111_v08.cjs)。同Face两次edge引用不等于两张面共边，真实OCCT/17Owner/消费者/L3/GFM AST未验；**规划PASS≠产品PASS**。
+
 ## 2026-11-02｜B110 CAP-05-06 ABA同Hash异修订与原子CAS/幂等对账
 [研究与SQLite/RFC选段局限](docs/capabilities/CAP-05-06/ABA-CAS-B110-2026-11-02.md) → [7来源](research/sources/CAP-05-06-aba-cas-b110.json) → [8规则/原W2-02/03/04/05](research/traces/CAP-05-06-aba-cas-b110-v08.json) → [33正反UNKNOWN/STALE/RECONCILE](docs/capabilities/CAP-05-06/aba-cas-b110-fixtures-v08.json) → [Node只读工具](tools/check_cap0506_aba_cas_b110_v08.cjs)、[SQLite内存独立合成](tools/check_cap0506_sqlite_aba_b110_v08.py)。正式Owner/消费者0/17，L3、真实产品数据库及全仓AST未验。规划PASS≠产品PASS。
 

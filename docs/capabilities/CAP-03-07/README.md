@@ -1,3 +1,5 @@
+> **B111补证：** [TopExp周期缝、非流形多面及Hash/Location边界](EDGE-INCIDENCE-B111-2026-11-02.md) → [7源](../../../research/sources/CAP-03-07-edge-incidence-b111.json) → [8规则](../../../research/traces/CAP-03-07-edge-incidence-b111-v08.json) → [32合成](edge-incidence-b111-fixtures-v08.json)。仅规划合成，L3/真实OCCT未验。
+
 # CAP-03-07｜特征关系与依赖：版本化制造特征关系图
 
 > 状态：**已入规划分支，L3待评审，产品实现与验收未执行**。2026-10-19。原V0.8第03域第07项；不增加88/36分母。关联[GUI/3D交互](UI.md)、[研究R-FREL-001](../../../research/topics/R-FREL-001.md)、[来源登记](../../../research/sources/CAP-03-07.json)、[规则追踪](../../../research/traces/CAP-03-07.json)与[独立正反验收](fixtures.json)。

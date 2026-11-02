@@ -1,3 +1,6 @@
+## 2026-11-02｜B111 R-FREL-001 共边真实祖先、周期缝与非流形
+[7来源及阅读深度](sources/CAP-03-07-edge-incidence-b111.json) → [8规则字段](traces/CAP-03-07-edge-incidence-b111-v08.json) → [32规划正反](../docs/capabilities/CAP-03-07/edge-incidence-b111-fixtures-v08.json) → [报告](../docs/capabilities/CAP-03-07/EDGE-INCIDENCE-B111-2026-11-02.md)。OCCT8.0.1指定公开方法实读，真实STEP与消费者未运行。
+
 ## 2026-11-02｜B110 R-FREEZE-001 ABA CAS/幂等写点
 [7项合法来源](sources/CAP-05-06-aba-cas-b110.json) → [8条字段/规则/原工作包追踪](traces/CAP-05-06-aba-cas-b110-v08.json) → [33设计正反案例](../docs/capabilities/CAP-05-06/aba-cas-b110-fixtures-v08.json) → [研究与阅读深度](../docs/capabilities/CAP-05-06/ABA-CAS-B110-2026-11-02.md)。SQLite内存7/7只为独立合成语义检查，真实Owner/消费者及L3待验。
 
