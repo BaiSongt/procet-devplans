@@ -1,3 +1,6 @@
+## 2026-11-03｜B123 R-WORKORDER-EXECUTION-001：工单非绝对排序与运行响应证据
+[8来源，OPC公开指定HTML/NIST仅元数据摘要](sources/CAP-10-06-job-order-b123.json) → [8规则及原E3-06/T5-03](traces/CAP-10-06-job-order-b123-v08.json) → [40规划正反/4解析择序](../docs/capabilities/CAP-10-06/job-order-b123-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-10-06/JOB-ORDER-PARTIAL-ORDER-B123-2026-11-03.md)。同出版物多章节非独立论文；实际OPC/MES/OEM/17消费者及Owner/L3未验。规划PASS≠产品PASS。
+
 ## 2026-11-03｜B122 R-NC-AUX-001：G96/G97与转速安全资格
 [9条来源与真实阅读层级](sources/CAP-08-04-css-spindle-b122.json) → [8规则与字段/原编号包](traces/CAP-08-04-css-spindle-b122-v08.json) → [8正35反/7公式Golden](../docs/capabilities/CAP-08-04/css-spindle-b122-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-04/CSS-SPINDLE-LIMIT-B122-2026-11-03.md)。Haas G96/G97仅索引摘录，ISO仅目录，NIST仅出版页；真实OEM/卡盘安全认证/17独立消费者未运行，L3待审。**规划PASS≠产品PASS。**
 

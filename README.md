@@ -1,3 +1,6 @@
+## 2026-11-03｜B123 CAP-10-06 JobOrder排序/Start/Run-Item语义防误判
+[官方章节/阅读范围](docs/capabilities/CAP-10-06/JOB-ORDER-PARTIAL-ORDER-B123-2026-11-03.md) → [8来源](research/sources/CAP-10-06-job-order-b123.json) → [8规则/原E3-06/T5-03](research/traces/CAP-10-06-job-order-b123-v08.json) → [40正反+4择序Golden](docs/capabilities/CAP-10-06/job-order-b123-fixtures-v08.json) → [Node只读工具](tools/check_cap1006_job_order_b123_v08.cjs)。OPC40001-3 JobOrderList非绝对顺序、平局应用专属；ISA-95 Start只到AllowedToStart；Run≠Item≠质检合格。NIST8536仅官方摘要，OPC多章节不算独立论文。229份Registry/1747条登记；Owner/真实消费者0/17、L3/历史原字节/全仓AST待审，实机NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B122 CAP-08-04 车床G96/G97与方言限速/物理额定
 [研究/阅读深度](docs/capabilities/CAP-08-04/CSS-SPINDLE-LIMIT-B122-2026-11-03.md) → [9来源](research/sources/CAP-08-04-css-spindle-b122.json) → [8规则/原包](research/traces/CAP-08-04-css-spindle-b122-v08.json) → [8正35反/7解析Golden](docs/capabilities/CAP-08-04/css-spindle-b122-fixtures-v08.json) → [Node只读工具](tools/check_cap0804_css_spindle_b122_v08.cjs)。Haas G96/G97仅官方搜索摘录，G50实读HTML；LinuxCNC2.9 G96 D与Haas G50 S不互推，物理夹具/卡盘限速缺证明UNKNOWN；228 Registry/1739登记，Owner/消费者0/17、L3/全仓GFM AST/历史原字节及实机未验。**规划PASS≠产品PASS。**
 

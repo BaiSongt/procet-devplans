@@ -1,0 +1,325 @@
+{
+  "schemaVersion": "procet-b123-trace-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-10-06",
+  "researchTopic": "R-WORKORDER-EXECUTION-001",
+  "sourceRegistry": "research/sources/CAP-10-06-job-order-b123.json",
+  "fixtures": "docs/capabilities/CAP-10-06/job-order-b123-fixtures-v08.json",
+  "checker": "tools/check_cap1006_job_order_b123_v08.cjs",
+  "originalWorkPackages": [
+    "E3-06",
+    "T5-03"
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "realIndependentConsumerPassCount": 0,
+  "authoringStatus": "NEWLY_AUTHORED",
+  "rules": [
+    {
+      "id": "B123-R01",
+      "summary": "锁定ISA-95版本/Namespace与设备能力探测，不把v1当v2",
+      "fields": [
+        "profile.modelRead",
+        "profile.isaVersion",
+        "profile.profileHash",
+        "profile.namespaceMatchesPinned"
+      ],
+      "sourceIds": [
+        "B123-S04",
+        "B123-S06",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-10-05",
+        "CAP-10-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "positive": [
+        "B123-P01"
+      ],
+      "negative": [
+        "B123-N01-1",
+        "B123-N01-2",
+        "B123-N01-3",
+        "B123-N01-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B123-R02",
+      "summary": "MES工单外部Owner与本地投影必须有来源和精确Revision映射",
+      "fields": [
+        "identity.issuerId",
+        "identity.mappingProof",
+        "identity.displayNameOnly",
+        "identity.revisionCurrent"
+      ],
+      "sourceIds": [
+        "B123-S03",
+        "B123-S04",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D01",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B123-P02"
+      ],
+      "negative": [
+        "B123-N02-1",
+        "B123-N02-2",
+        "B123-N02-3",
+        "B123-N02-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B123-R03",
+      "summary": "ISA-95 Start接受只证明AllowedToStart，不是Running和CycleStart",
+      "fields": [
+        "start.responseObserved",
+        "start.readbackState",
+        "start.claimRunning",
+        "start.remoteCycleStart"
+      ],
+      "sourceIds": [
+        "B123-S04",
+        "B123-S05",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-10-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B123-P03"
+      ],
+      "negative": [
+        "B123-N03-1",
+        "B123-N03-2",
+        "B123-N03-3",
+        "B123-N03-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B123-R04",
+      "summary": "JobOrderList排序不是绝对执行队列，并行同级无确定下一工单",
+      "fields": [
+        "queue.snapshotExact",
+        "queue.eligibleA.state",
+        "queue.absoluteNextClaim",
+        "queue.unqualifiedSelection"
+      ],
+      "sourceIds": [
+        "B123-S01",
+        "B123-S04",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-10-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "positive": [
+        "B123-P04"
+      ],
+      "negative": [
+        "B123-N04-1",
+        "B123-N04-2",
+        "B123-N04-3",
+        "B123-N04-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B123-R05",
+      "summary": "Run、Item、数量单位及质检合格结论分别追溯",
+      "fields": [
+        "quantity.units",
+        "quantity.runIdsUnique",
+        "quantity.conflatedRunItem",
+        "quantity.qualityFromCount"
+      ],
+      "sourceIds": [
+        "B123-S02",
+        "B123-S03",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-10-05",
+        "CAP-10-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B123-P05"
+      ],
+      "negative": [
+        "B123-N05-1",
+        "B123-N05-2",
+        "B123-N05-3",
+        "B123-N05-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B123-R06",
+      "summary": "JobResponse必须逐工单对账，缺EndTime时不得推完成/质量",
+      "fields": [
+        "response.jobResponseId",
+        "response.jobOrderId",
+        "response.finalClaim",
+        "response.qualityClaim"
+      ],
+      "sourceIds": [
+        "B123-S06",
+        "B123-S07",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "positive": [
+        "B123-P06"
+      ],
+      "negative": [
+        "B123-N06-1",
+        "B123-N06-2",
+        "B123-N06-3",
+        "B123-N06-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B123-R07",
+      "summary": "现场作业状态不取代D10实装、最终NC字节与独立D15批准",
+      "fields": [
+        "release.d10Exact",
+        "release.finalNcShaExact",
+        "release.d15Independent",
+        "release.claimCycleStartFromOrder"
+      ],
+      "sourceIds": [
+        "B123-S05",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-09-06",
+        "CAP-10-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B123-P07"
+      ],
+      "negative": [
+        "B123-N07-1",
+        "B123-N07-2",
+        "B123-N07-3",
+        "B123-N07-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B123-R08",
+      "summary": "10域同Owner Port的提交点重验ACL/CAS/取消Fence与单Babylon",
+      "fields": [
+        "control.aclCurrent",
+        "control.casMatch",
+        "control.cancelled",
+        "control.sameOwnerPort"
+      ],
+      "sourceIds": [
+        "B123-S07",
+        "B123-S08"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B123-P08"
+      ],
+      "negative": [
+        "B123-N08-1",
+        "B123-N08-2",
+        "B123-N08-3",
+        "B123-N08-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

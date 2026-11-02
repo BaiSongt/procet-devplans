@@ -1,3 +1,5 @@
+> **B123（2026-11-03）非绝对JobOrder排序与Start/运行分离专项：** [研究](JOB-ORDER-PARTIAL-ORDER-B123-2026-11-03.md) → [8来源](../../../research/sources/CAP-10-06-job-order-b123.json) → [8规则](../../../research/traces/CAP-10-06-job-order-b123-v08.json) → [8正32反/4择序Golden](job-order-b123-fixtures-v08.json) → [校验入口](../../../tools/check_cap1006_job_order_b123_v08.cjs)；真实OPC/独立消费者/L3未验。**规划PASS≠产品PASS。**
+
 > **B73研究补证（2026-11-01）**：[离线事件重放、OPC Store/StoreAndStart及D17收件资格](OFFLINE-EVENT-REPLAY-B73-2026-11-01.md) → [来源](../../../research/sources/CAP-10-06-offline-events-b73.json) → [规则/原E3-06、T5-03](../../../research/traces/CAP-10-06-offline-events-b73-v08.json) → [48规划合成](offline-events-b73-fixtures-v08.json)；独立Node/真实MES/OPC/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 
 # CAP-10-06｜现场执行与工单（V0.8，L3待审）
