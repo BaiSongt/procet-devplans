@@ -1,3 +1,6 @@
+## 2026-11-03｜B120 CAP-08-03 G28/G30双段快速回参考点与G53单块坐标
+[研究及合法来源阅读层级](docs/capabilities/CAP-08-03/REFERENCE-RETURN-B120-2026-11-03.md) → [8来源](research/sources/CAP-08-03-reference-return-b120.json) → [8规则/资产字段/原编号包](research/traces/CAP-08-03-reference-return-b120-v08.json) → [8正32反+8数学Golden](docs/capabilities/CAP-08-03/reference-return-b120-fixtures-v08.json) → [Node只读校验](tools/check_cap0803_reference_return_b120_v08.cjs)。新增预存G28/G30参考、G90/G91中间段、Haas Setting108、G53只影响当前块；旧D08冻结、D04/D10分离及D13→D16独立资格保持。真实Node/OEM/B5/Owner/17消费者/GFM AST均未通过，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B119 CAP-01-07 GPU异步Pick/ThinInstance索引与跨Root过期防线
 [来源深度与实施契约](docs/capabilities/CAP-01-07/GPU-PICK-ID-B119-2026-11-02.md) → [6分级来源](research/sources/CAP-01-07-gpu-pick-b119.json) → [8规则字段/原编号包](research/traces/CAP-01-07-gpu-pick-b119-v08.json) → [40正反+9事件快照](docs/capabilities/CAP-01-07/gpu-pick-b119-fixtures-v08.json) → [只读Node入口](tools/check_cap0107_gpu_pick_b119_v08.cjs)。Babylon GPU picking的thinInstanceIndex是渲染槽位；切空间、更新PickList或重排实例后旧Promise必须STALE，不许偷换业务Occurrence。W3C PointerEvents3/cancel与WCAG拖拽替代分级引用。225 Registry/1713登记，Owner/消费者0/17；L3、全仓GFM AST、历史附件原字节未闭。**规划PASS≠产品PASS。**
 

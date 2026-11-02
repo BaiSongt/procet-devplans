@@ -1,3 +1,5 @@
+> **B120专项补证（2026-11-03）：** [G28/G30中间段、G91污染和G53单块机器坐标](REFERENCE-RETURN-B120-2026-11-03.md) → [8来源](../../../research/sources/CAP-08-03-reference-return-b120.json) → [8规则](../../../research/traces/CAP-08-03-reference-return-b120-v08.json) → [40正反+8一维数学Golden](reference-return-b120-fixtures-v08.json) → [只读Node检查](../../../tools/check_cap0803_reference_return_b120_v08.cjs)。真实OEM/D10/D13–D15消费者、17 Owner与全仓AST未验，L3待审。
+
 # CAP-08-03｜坐标与运动指令（V0.8原编号，L3待审）
 
 > 2026-10-26横向纠错：刀具/刀柄资源应引用D03，实际机床刀具安装绑定由D10持有；D06仍然是求解候选。`toolLength.d03Exact`替代错误的`d06Exact`，属于候选契约更正；尚未执行真实消费者迁移与兼容测试。

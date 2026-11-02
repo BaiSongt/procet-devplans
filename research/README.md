@@ -1,3 +1,6 @@
+## 2026-11-03｜B120 R-WCS-MOTION-001 G28/G30中间段与G53单块语义
+[8项分级来源与实际访问限制](sources/CAP-08-03-reference-return-b120.json) → [8规则/CAP-08-03/09-06/原E3-02/E3-03/E3-04/E3-05/U4-04](traces/CAP-08-03-reference-return-b120-v08.json) → [40规则正反+8数学Golden](../docs/capabilities/CAP-08-03/reference-return-b120-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-03/REFERENCE-RETURN-B120-2026-11-03.md)。LinuxCNC2.9同文档多章节不算独立文献；Haas只官方检索摘录，ISO仅目录摘要；D13/D14/D15、17实际Owner和消费者、L3未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B119 R-UI3D-001 GPU PickList、薄实例与异步身份映射
 [研究与来源深度](../docs/capabilities/CAP-01-07/GPU-PICK-ID-B119-2026-11-02.md) → [6来源](sources/CAP-01-07-gpu-pick-b119.json) → [8规则/业务字段与原编号包](traces/CAP-01-07-gpu-pick-b119-v08.json) → [40+9规划合成](../docs/capabilities/CAP-01-07/gpu-pick-b119-fixtures-v08.json) → [Node检查入口](../tools/check_cap0107_gpu_pick_b119_v08.cjs)。官方Babylon GPU picking API与CPU默认过滤不同，渲染索引不可被当作D01/D03身份；W3C PE3 2026-06-30 Recommendation与WCAG2.2 2024-12-12定点实读。正式Owner与17真实消费者、L3、产品GPU仍未通过。规划PASS≠产品PASS。
 

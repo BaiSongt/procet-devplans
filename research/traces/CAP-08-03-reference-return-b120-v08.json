@@ -1,0 +1,378 @@
+{
+  "schemaVersion": "procet-b120-trace-v08",
+  "date": "2026-11-03",
+  "traceId": "CAP-08-03-REFERENCE-RETURN-B120",
+  "primaryCapability": "CAP-08-03",
+  "relatedCapability": "CAP-09-06",
+  "researchTopic": "R-WCS-MOTION-001",
+  "sourceRegistry": "research/sources/CAP-08-03-reference-return-b120.json",
+  "fixtures": "docs/capabilities/CAP-08-03/reference-return-b120-fixtures-v08.json",
+  "validator": "tools/check_cap0803_reference_return_b120_v08.cjs",
+  "report": "docs/capabilities/CAP-08-03/REFERENCE-RETURN-B120-2026-11-03.md",
+  "rules": [
+    {
+      "id": "B120-R01",
+      "summary": "G28/G30不混用方言缺省值",
+      "fields": [
+        "controllerProfileRevisionHashPinned",
+        "controllerFirmwareOptionPinned",
+        "referenceCommandSupportDeclared",
+        "noVendorFallbackGuess"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B120-S01",
+        "B120-S03",
+        "B120-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "B120-P01"
+      ],
+      "negative": [
+        "B120-N01-1",
+        "B120-N01-2",
+        "B120-N01-3",
+        "B120-N01-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B120-R02",
+      "summary": "G90/G91中间点和后续模态分别留痕",
+      "fields": [
+        "distanceModeBeforeAfterPinned",
+        "g90G91IntermediateResolved",
+        "wcsTransformOnceAndFrameExact",
+        "nextAbsoluteBlockHasG90OrExplicitIntent"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "REJECT",
+        "STALE",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B120-S01",
+        "B120-S03",
+        "B120-S07"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "U4-04"
+      ],
+      "positive": [
+        "B120-P02"
+      ],
+      "negative": [
+        "B120-N02-1",
+        "B120-N02-2",
+        "B120-N02-3",
+        "B120-N02-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B120-R03",
+      "summary": "G28/G30必须保留双段快速运动",
+      "fields": [
+        "intermediateLegRecorded",
+        "intermediateInActiveWorkFrame",
+        "finalReferenceMachineFrameResolved",
+        "bothLegsEvidenceRetained"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "REJECT",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B120-S01",
+        "B120-S03",
+        "B120-S07"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B120-P03"
+      ],
+      "negative": [
+        "B120-N03-1",
+        "B120-N03-2",
+        "B120-N03-3",
+        "B120-N03-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B120-R04",
+      "summary": "LinuxCNC预存机床参考点不可默认推定安全",
+      "fields": [
+        "linuxcncStoredParameterRevisionPinned",
+        "homedRepeatabilityEvidenceKnown",
+        "g28AndG30StoresSeparated",
+        "defaultOriginIsNotSafetyProof"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B120-S01",
+        "B120-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B120-P04"
+      ],
+      "negative": [
+        "B120-N04-1",
+        "B120-N04-2",
+        "B120-N04-3",
+        "B120-N04-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B120-R05",
+      "summary": "Haas G28/G29和旋转Setting108须有独立Profile",
+      "fields": [
+        "haasIntermediateG29ProfilePinned",
+        "setting108ExactWhenApplicable",
+        "rotaryJointAndWrapEvidenceKnown",
+        "noSimultaneousLinearPathAssumption"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B120-S03",
+        "B120-S05",
+        "B120-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B120-P05"
+      ],
+      "negative": [
+        "B120-N05-1",
+        "B120-N05-2",
+        "B120-N05-3",
+        "B120-N05-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B120-R06",
+      "summary": "G53仅当前块有效且前置条件按控制器判定",
+      "fields": [
+        "g53OnlyCurrentBlock",
+        "g53MachineFrameNotWcs",
+        "activeG0G1AndCompPreconditionsKnown",
+        "toolOffsetHandlingProfilePinned"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "UNKNOWN",
+        "UNKNOWN"
+      ],
+      "sourceIds": [
+        "B120-S02",
+        "B120-S04",
+        "B120-S07"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "B120-P06"
+      ],
+      "negative": [
+        "B120-N06-1",
+        "B120-N06-2",
+        "B120-N06-3",
+        "B120-N06-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B120-R07",
+      "summary": "NC字节双段事件到物理轴时序分层核验",
+      "fields": [
+        "d12ByteSpanAndD13ModalEventsExact",
+        "d14UsesD10D03JointReferenceHashes",
+        "unmodeledRapidLegRemainsUnknown",
+        "d15D16IndependentNeverFromCl"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B120-S01",
+        "B120-S03",
+        "B120-S08"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "positive": [
+        "B120-P07"
+      ],
+      "negative": [
+        "B120-N07-1",
+        "B120-N07-2",
+        "B120-N07-3",
+        "B120-N07-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B120-R08",
+      "summary": "统一入口与提交权限CAS取消及回退",
+      "fields": [
+        "guiCliAgentOneD13Port",
+        "singleBabylonLeftUnifiedTaskPanel",
+        "aclCasScopeCancelFenceAtCommit",
+        "versionedReaderRollbackProtectsD08D16"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "STALE",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B120-S07",
+        "B120-S08",
+        "B120-S06"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "U4-04"
+      ],
+      "positive": [
+        "B120-P08"
+      ],
+      "negative": [
+        "B120-N08-1",
+        "B120-N08-2",
+        "B120-N08-3",
+        "B120-N08-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}
