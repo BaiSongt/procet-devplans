@@ -1,3 +1,6 @@
+## 2026-11-02｜B114 CAP-10-04临时文件异步应用与收方闭环
+[专项报告](docs/capabilities/CAP-10-04/TEMP-APPLY-RECEIPT-B114-2026-11-02.md) → [8分级来源](research/sources/CAP-10-04-temp-apply-b114.json) → [8规则/字段/原E3-06/T5-03](research/traces/CAP-10-04-temp-apply-b114-v08.json) → [34规划合成正反/UNKNOWN/STALE](docs/capabilities/CAP-10-04/temp-apply-b114-fixtures-v08.json) → [Node工具](tools/check_cap1004_temp_apply_b114_v08.cjs)。OPC Part20 CloseAndCommit异步应用≠D17接收证明/机床激活，MoveOrCopy更换NodeId不可复用旧定位；新220 Registry/1678条登记（非去重），0/17正式Owner及真实独立消费者。全仓AST、历史原字节与L3仍待；**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B113 G98/G99车铣同码异义与B112研究总数纠错
 [研究/访问边界](docs/capabilities/CAP-08-05/RETURN-ROLE-B113-2026-11-02.md) → [8分级来源](research/sources/CAP-08-05-return-role-b113.json) → [8规则/字段原包](research/traces/CAP-08-05-return-role-b113-v08.json) → [24正反UNKNOWN/STALE](docs/capabilities/CAP-08-05/return-role-b113-fixtures-v08.json) → [Node只读工具](tools/check_cap0805_return_role_b113_v08.cjs)。Haas车G98/G99是进给单位、铣是固定循环退让；LinuxCNC2.9 G98取max(initialZ,R)。研究索引旧218 Registry合计1662但顶层误写1657，追加8后219 Registry/1670登记，非去重文献。真实OEM/17Owner与消费者/L3/全仓GFM AST未验，规划PASS≠产品PASS。
 

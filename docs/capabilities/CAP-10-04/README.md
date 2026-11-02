@@ -1,3 +1,5 @@
+> **B114｜2026-11-02 OPC UA临时文件应用与收方对账补证：** [专项报告](TEMP-APPLY-RECEIPT-B114-2026-11-02.md) → [8分级来源](../../../research/sources/CAP-10-04-temp-apply-b114.json) → [8规则/原E3-06、T5-03](../../../research/traces/CAP-10-04-temp-apply-b114-v08.json) → [34规划正反合成](temp-apply-b114-fixtures-v08.json) → [Node只读入口](../../../tools/check_cap1004_temp_apply_b114_v08.cjs)。异步ApplyWrite非完成、MoveOrCopy后NodeId重定位、独立D17验收及禁自动上机；Owner/消费者/L3待审，**规划PASS≠产品PASS。**
+
 # CAP-10-04｜DNC程序交换（V0.8，L3待审）
 
 **原88项目标**：在线下发、回收及传输校验；原关联工作包E3-06/T5-03；长期扩展能力，**本轮仅规划，不声明MVP产品实现**。
