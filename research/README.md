@@ -1,3 +1,6 @@
+## 2026-11-02｜B113 R-CYCLES-MACROS-001 车/铣G98/G99同码不同语义
+[8分级来源](sources/CAP-08-05-return-role-b113.json) → [8条规则字段](traces/CAP-08-05-return-role-b113-v08.json) → [24规划正反](../docs/capabilities/CAP-08-05/return-role-b113-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-08-05/RETURN-ROLE-B113-2026-11-02.md)。LinuxCNC2.9指定段落与Haas车铣公开索引已读，真实D15/Owner/独立消费者及L3待审，规划PASS≠产品PASS。
+
 ## 2026-11-02｜B112 R-FRAME-001 SE(3)多路径及来源资格
 [5项合法来源的作者版次访问范围](sources/CAP-04-04-frame-path-b112.json) → [8规则字段原包](traces/CAP-04-04-frame-path-b112-v08.json) → [32机器合成](../docs/capabilities/CAP-04-04/frame-path-b112-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-04-04/FRAME-PATH-CLOSURE-B112-2026-11-02.md)。NIST1911仅官方摘要；Eigen为滚动nightly，OCCT8.0.1公开指定方法实读。规划PASS≠产品PASS。
 

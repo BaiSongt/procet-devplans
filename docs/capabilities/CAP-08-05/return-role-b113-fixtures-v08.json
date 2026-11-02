@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "procet-b113-fixtures-v08",
+  "cases": [
+    {
+      "id": "B113-P01",
+      "rule": "B113-R01",
+      "input": {
+        "family": "HAAS_MILL",
+        "machineClass": "MILL",
+        "declaredRole": "RETRACT",
+        "firmwarePinned": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B113-N01",
+      "rule": "B113-R01",
+      "input": {
+        "family": "HAAS_LATHE",
+        "machineClass": "LATHE",
+        "declaredRole": "RETRACT",
+        "firmwarePinned": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B113-N02",
+      "rule": "B113-R01",
+      "input": {
+        "family": "HAAS_MILL",
+        "machineClass": "MILL",
+        "declaredRole": "RETRACT",
+        "firmwarePinned": false
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-P02",
+      "rule": "B113-R02",
+      "input": {
+        "family": "LINUXCNC_2_9",
+        "command": "G98",
+        "initialZ": 1,
+        "rPlane": 2
+      },
+      "expect": "CANDIDATE",
+      "value": 2
+    },
+    {
+      "id": "B113-N03",
+      "rule": "B113-R02",
+      "input": {
+        "family": "HAAS_MILL",
+        "command": "G98",
+        "initialZ": 1,
+        "rPlane": 2
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-N04",
+      "rule": "B113-R02",
+      "input": {
+        "family": "LINUXCNC_2_9",
+        "command": "G98",
+        "initialZ": null,
+        "rPlane": 2
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-P03",
+      "rule": "B113-R03",
+      "input": {
+        "cycleSwitched": true,
+        "initialRetained": true,
+        "afterG80": false,
+        "recaptured": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B113-N05",
+      "rule": "B113-R03",
+      "input": {
+        "cycleSwitched": true,
+        "initialRetained": false,
+        "afterG80": false,
+        "recaptured": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B113-N06",
+      "rule": "B113-R03",
+      "input": {
+        "cycleSwitched": false,
+        "initialRetained": true,
+        "afterG80": true,
+        "recaptured": false
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-P04",
+      "rule": "B113-R04",
+      "input": {
+        "distanceMode": "G91",
+        "entryZ": 3,
+        "rWord": 1.8
+      },
+      "expect": "CANDIDATE",
+      "value": 4.8
+    },
+    {
+      "id": "B113-N07",
+      "rule": "B113-R04",
+      "input": {
+        "distanceMode": "G91",
+        "entryZ": null,
+        "rWord": 1.8
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-N08",
+      "rule": "B113-R04",
+      "input": {
+        "distanceMode": "UNKNOWN",
+        "entryZ": 3,
+        "rWord": 1.8
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-P05",
+      "rule": "B113-R05",
+      "input": {
+        "machineClass": "MILL",
+        "command": "G99",
+        "initialZ": 15,
+        "rPlane": 2
+      },
+      "expect": "CANDIDATE",
+      "value": 2
+    },
+    {
+      "id": "B113-N09",
+      "rule": "B113-R05",
+      "input": {
+        "machineClass": "MILL",
+        "command": "G98",
+        "initialZ": 1,
+        "rPlane": 2
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-N10",
+      "rule": "B113-R05",
+      "input": {
+        "machineClass": "LATHE",
+        "command": "G99",
+        "initialZ": 15,
+        "rPlane": 2
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B113-P06",
+      "rule": "B113-R06",
+      "input": {
+        "machineClass": "LATHE",
+        "command": "G99",
+        "fValue": 0.15,
+        "rpm": 500
+      },
+      "expect": "CANDIDATE",
+      "value": 75
+    },
+    {
+      "id": "B113-N11",
+      "rule": "B113-R06",
+      "input": {
+        "machineClass": "LATHE",
+        "command": "G99",
+        "fValue": 0.15,
+        "rpm": null
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-N12",
+      "rule": "B113-R06",
+      "input": {
+        "machineClass": "MILL",
+        "command": "G98",
+        "fValue": 0.15,
+        "rpm": 500
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B113-P07",
+      "rule": "B113-R07",
+      "input": {
+        "retractZ": 15,
+        "requiredClearanceZ": 10,
+        "envelopeCertified": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B113-N13",
+      "rule": "B113-R07",
+      "input": {
+        "retractZ": 2,
+        "requiredClearanceZ": 10,
+        "envelopeCertified": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B113-N14",
+      "rule": "B113-R07",
+      "input": {
+        "retractZ": 15,
+        "requiredClearanceZ": 10,
+        "envelopeCertified": false
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B113-P08",
+      "rule": "B113-R08",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "frameExact": true,
+        "acl": true,
+        "cas": true,
+        "cancelled": false,
+        "d15Independent": false,
+        "releaseRequested": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B113-N15",
+      "rule": "B113-R08",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "frameExact": true,
+        "acl": true,
+        "cas": true,
+        "cancelled": true,
+        "d15Independent": false,
+        "releaseRequested": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B113-N16",
+      "rule": "B113-R08",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "frameExact": true,
+        "acl": true,
+        "cas": true,
+        "cancelled": false,
+        "d15Independent": false,
+        "releaseRequested": true
+      },
+      "expect": "REJECT"
+    }
+  ],
+  "mathGoldens": [
+    "LinuxCNC2.9 G98 max(1,2)=2mm",
+    "LinuxCNC2.9 G91 entryZ3+R1.8=4.8mm",
+    "Haas车床G99 F0.15mm/rev * 500rpm=75mm/min（仅名义快照）"
+  ],
+  "independentOEM": "NOT_RUN"
+}

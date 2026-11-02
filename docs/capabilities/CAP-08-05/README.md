@@ -1,3 +1,5 @@
+> **B113 G98/G99车铣角色与退让资格（2026-11-02）**：[研究](RETURN-ROLE-B113-2026-11-02.md) → [来源](../../../research/sources/CAP-08-05-return-role-b113.json) → [8规则](../../../research/traces/CAP-08-05-return-role-b113-v08.json) → [24案例](return-role-b113-fixtures-v08.json) → [Node](../../../tools/check_cap0805_return_role_b113_v08.cjs)。Haas车床G98/G99是进给单位，不可混用铣床退让语义。L3与真实产品NOT_RUN。**规划PASS≠产品PASS。**
+
 > **B76子程序专项（2026-11-01）：** [O-call/M98参数作用域、Haas M97/M98解析与程序包Hash闭包](SUBPROGRAM-CLOSURE-B76-2026-11-01.md) → [7来源](../../../research/sources/CAP-08-05-subprogram-b76.json) → [8规则/原包](../../../research/traces/CAP-08-05-subprogram-b76-v08.json) → [43合成](subprogram-b76-fixtures-v08.json)。V8同judge合成仅规划验证；真实D13–D16、独立Node、Owner/消费者0/17且L3待审。**规划PASS≠产品PASS。**
 
 > **B47 G83新增专项（2026-10-30）：** [中间退R、0.254mm快速重新进刀与最终G98/G99区别](PECK-MOTION-B47-2026-10-30.md) → [4项来源](../../../research/sources/CAP-08-05-peck-motion-b47.json) → [8条字段规则](../../../research/traces/CAP-08-05-peck-motion-b47-v08.json) → [6正37反3未知结构化规划合成](peck-motion-b47-fixtures-v08.json)；真实解释器/D15/独立消费者NOT_RUN。L3待审，规划PASS≠产品PASS。
