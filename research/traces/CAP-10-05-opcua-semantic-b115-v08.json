@@ -1,0 +1,313 @@
+{
+  "schemaVersion": "procet-b115-trace-v08",
+  "date": "2026-11-02",
+  "sourceRegistry": "research/sources/CAP-10-05-opcua-semantic-b115.json",
+  "fixtures": "docs/capabilities/CAP-10-05/opcua-semantic-b115-fixtures-v08.json",
+  "checker": "tools/check_cap1005_opcua_semantic_b115_v08.cjs",
+  "rules": [
+    {
+      "id": "B115-R01",
+      "summary": "状态码门禁：Bad/Uncertain值不可变成可信设备运行事实",
+      "sourceIds": [
+        "B115-S01",
+        "B115-S07"
+      ],
+      "fields": [
+        "severity",
+        "valuePresent",
+        "claimValid"
+      ],
+      "caps": [
+        "CAP-10-05"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "positive": [
+        "B115-P01"
+      ],
+      "negative": [
+        "B115-N01-1",
+        "B115-N01-2",
+        "B115-N01-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B115-R02",
+      "summary": "三时钟来源：源时钟、服务器时钟、采集时钟分别保真",
+      "sourceIds": [
+        "B115-S01",
+        "B115-S07"
+      ],
+      "fields": [
+        "sourceTime",
+        "serverTime",
+        "ingestTime",
+        "sourceClockTrusted",
+        "conflatesClock"
+      ],
+      "caps": [
+        "CAP-10-05"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D17"
+      ],
+      "positive": [
+        "B115-P02"
+      ],
+      "negative": [
+        "B115-N02-1",
+        "B115-N02-2",
+        "B115-N02-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B115-R03",
+      "summary": "SemanticsChanged需重读单位/范围元数据及精确映射修订",
+      "sourceIds": [
+        "B115-S02",
+        "B115-S07"
+      ],
+      "fields": [
+        "semanticsChanged",
+        "metadataFresh",
+        "namespaceExact",
+        "mappingRevisionPinned"
+      ],
+      "caps": [
+        "CAP-10-05"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "positive": [
+        "B115-P03"
+      ],
+      "negative": [
+        "B115-N03-1",
+        "B115-N03-2",
+        "B115-N03-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B115-R04",
+      "summary": "StructureChanged需重读DataTypeDefinition并换代解析器",
+      "sourceIds": [
+        "B115-S02",
+        "B115-S07"
+      ],
+      "fields": [
+        "structureChanged",
+        "typeMetadataFresh",
+        "parserRevisionPinned",
+        "rawPreserved"
+      ],
+      "caps": [
+        "CAP-10-05"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "positive": [
+        "B115-P04"
+      ],
+      "negative": [
+        "B115-N04-1",
+        "B115-N04-2",
+        "B115-N04-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B115-R05",
+      "summary": "队列Overflow/无连续性证据写GAP，不能插值补造历史",
+      "sourceIds": [
+        "B115-S03",
+        "B115-S07"
+      ],
+      "fields": [
+        "overflow",
+        "gapLedgerWritten",
+        "continuousClaim",
+        "queueSize"
+      ],
+      "caps": [
+        "CAP-10-05"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "positive": [
+        "B115-P05"
+      ],
+      "negative": [
+        "B115-N05-1",
+        "B115-N05-2",
+        "B115-N05-3",
+        "B115-N05-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B115-R06",
+      "summary": "协商后的采样周期/队列规模独立记录，不冒充请求值",
+      "sourceIds": [
+        "B115-S04",
+        "B115-S07"
+      ],
+      "fields": [
+        "requestedSamplingMs",
+        "revisedSamplingMs",
+        "effectiveIntervalRecorded",
+        "actualQueueRecorded",
+        "claimsRequestedRate"
+      ],
+      "caps": [
+        "CAP-10-05"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "positive": [
+        "B115-P06"
+      ],
+      "negative": [
+        "B115-N06-1",
+        "B115-N06-2",
+        "B115-N06-3",
+        "B115-N06-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B115-R07",
+      "summary": "40501-1 v1.02旧Production节点弃用和Job数据语义迁移",
+      "sourceIds": [
+        "B115-S05",
+        "B115-S07"
+      ],
+      "fields": [
+        "machineToolVersion",
+        "deprecatedProductionUsed",
+        "jobModelMapped",
+        "claimsNcCompleted"
+      ],
+      "caps": [
+        "CAP-10-05",
+        "CAP-10-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B115-P07"
+      ],
+      "negative": [
+        "B115-N07-1",
+        "B115-N07-2",
+        "B115-N07-3",
+        "B115-N07-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B115-R08",
+      "summary": "D17 Owner权限/CAS/取消Fence及三入口与NC隔离",
+      "sourceIds": [
+        "B115-S06",
+        "B115-S07"
+      ],
+      "fields": [
+        "d03Exact",
+        "d17Cas",
+        "aclCurrent",
+        "cancelled",
+        "samePort",
+        "singleWorld",
+        "leftPanel",
+        "claimsD15"
+      ],
+      "caps": [
+        "CAP-10-05",
+        "CAP-01-07",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B115-P08"
+      ],
+      "negative": [
+        "B115-N08-1",
+        "B115-N08-2",
+        "B115-N08-3",
+        "B115-N08-4",
+        "B115-N08-5"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "scope": "逐规则正反机器可检；L3待审；不构成真实D17独立消费者/NC产品验收"
+}

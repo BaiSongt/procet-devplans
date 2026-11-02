@@ -1,3 +1,6 @@
+## 2026-11-02｜B115 CAP-10-05 OPC UA质量位、语义/结构变更及作业模型迁移
+[专项研究和阅读深度](docs/capabilities/CAP-10-05/OPCUA-SEMANTIC-QUALITY-B115-2026-11-02.md) → [7分级来源](research/sources/CAP-10-05-opcua-semantic-b115.json) → [8规则、字段/原E3-06与T5-03](research/traces/CAP-10-05-opcua-semantic-b115-v08.json) → [37项正反/UNKNOWN/GAP/STALE](docs/capabilities/CAP-10-05/opcua-semantic-b115-fixtures-v08.json) → [Node只读工具](tools/check_cap1005_opcua_semantic_b115_v08.cjs)。单位/结构变更不能以重订阅代替元数据重读；requested 50ms≠实际200ms；40501-1旧Production deprecated不等于已删除。17 Owner/消费者0、L3/全仓AST/历史原字节未闭；**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B114 CAP-10-04临时文件异步应用与收方闭环
 [专项报告](docs/capabilities/CAP-10-04/TEMP-APPLY-RECEIPT-B114-2026-11-02.md) → [8分级来源](research/sources/CAP-10-04-temp-apply-b114.json) → [8规则/字段/原E3-06/T5-03](research/traces/CAP-10-04-temp-apply-b114-v08.json) → [34规划合成正反/UNKNOWN/STALE](docs/capabilities/CAP-10-04/temp-apply-b114-fixtures-v08.json) → [Node工具](tools/check_cap1004_temp_apply_b114_v08.cjs)。OPC Part20 CloseAndCommit异步应用≠D17接收证明/机床激活，MoveOrCopy更换NodeId不可复用旧定位；新220 Registry/1678条登记（非去重），0/17正式Owner及真实独立消费者。全仓AST、历史原字节与L3仍待；**规划PASS≠产品PASS。**
 

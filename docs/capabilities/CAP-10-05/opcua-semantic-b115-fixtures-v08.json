@@ -1,0 +1,510 @@
+{
+  "schemaVersion": "procet-b115-fixtures-v08",
+  "date": "2026-11-02",
+  "syntheticOnly": true,
+  "oracleIndependence": "同judge自编合成，独立Node/独立消费者NOT_RUN",
+  "cases": [
+    {
+      "id": "B115-P01",
+      "rule": "B115-R01",
+      "input": {
+        "severity": "Good",
+        "valuePresent": true,
+        "claimValid": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N01-1",
+      "rule": "B115-R01",
+      "mutatedField": "severity",
+      "input": {
+        "severity": "Uncertain",
+        "valuePresent": true,
+        "claimValid": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N01-2",
+      "rule": "B115-R01",
+      "mutatedField": "severity",
+      "input": {
+        "severity": "Bad",
+        "valuePresent": true,
+        "claimValid": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N01-3",
+      "rule": "B115-R01",
+      "mutatedField": "valuePresent",
+      "input": {
+        "severity": "Good",
+        "valuePresent": false,
+        "claimValid": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-P02",
+      "rule": "B115-R02",
+      "input": {
+        "sourceTime": true,
+        "serverTime": true,
+        "ingestTime": true,
+        "sourceClockTrusted": true,
+        "conflatesClock": false
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N02-1",
+      "rule": "B115-R02",
+      "mutatedField": "sourceTime",
+      "input": {
+        "sourceTime": false,
+        "serverTime": true,
+        "ingestTime": true,
+        "sourceClockTrusted": true,
+        "conflatesClock": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N02-2",
+      "rule": "B115-R02",
+      "mutatedField": "sourceClockTrusted",
+      "input": {
+        "sourceTime": true,
+        "serverTime": true,
+        "ingestTime": true,
+        "sourceClockTrusted": false,
+        "conflatesClock": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N02-3",
+      "rule": "B115-R02",
+      "mutatedField": "conflatesClock",
+      "input": {
+        "sourceTime": true,
+        "serverTime": true,
+        "ingestTime": true,
+        "sourceClockTrusted": true,
+        "conflatesClock": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-P03",
+      "rule": "B115-R03",
+      "input": {
+        "semanticsChanged": true,
+        "metadataFresh": true,
+        "namespaceExact": true,
+        "mappingRevisionPinned": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N03-1",
+      "rule": "B115-R03",
+      "mutatedField": "metadataFresh",
+      "input": {
+        "semanticsChanged": true,
+        "metadataFresh": false,
+        "namespaceExact": true,
+        "mappingRevisionPinned": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N03-2",
+      "rule": "B115-R03",
+      "mutatedField": "namespaceExact",
+      "input": {
+        "semanticsChanged": true,
+        "metadataFresh": true,
+        "namespaceExact": false,
+        "mappingRevisionPinned": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N03-3",
+      "rule": "B115-R03",
+      "mutatedField": "mappingRevisionPinned",
+      "input": {
+        "semanticsChanged": true,
+        "metadataFresh": true,
+        "namespaceExact": true,
+        "mappingRevisionPinned": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-P04",
+      "rule": "B115-R04",
+      "input": {
+        "structureChanged": true,
+        "typeMetadataFresh": true,
+        "parserRevisionPinned": true,
+        "rawPreserved": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N04-1",
+      "rule": "B115-R04",
+      "mutatedField": "typeMetadataFresh",
+      "input": {
+        "structureChanged": true,
+        "typeMetadataFresh": false,
+        "parserRevisionPinned": true,
+        "rawPreserved": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N04-2",
+      "rule": "B115-R04",
+      "mutatedField": "parserRevisionPinned",
+      "input": {
+        "structureChanged": true,
+        "typeMetadataFresh": true,
+        "parserRevisionPinned": false,
+        "rawPreserved": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N04-3",
+      "rule": "B115-R04",
+      "mutatedField": "rawPreserved",
+      "input": {
+        "structureChanged": true,
+        "typeMetadataFresh": true,
+        "parserRevisionPinned": true,
+        "rawPreserved": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-P05",
+      "rule": "B115-R05",
+      "input": {
+        "overflow": false,
+        "gapLedgerWritten": true,
+        "continuousClaim": false,
+        "queueSize": 8
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N05-1",
+      "rule": "B115-R05",
+      "mutatedField": "overflow",
+      "input": {
+        "overflow": true,
+        "gapLedgerWritten": true,
+        "continuousClaim": false,
+        "queueSize": 8
+      },
+      "expect": "GAP",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N05-2",
+      "rule": "B115-R05",
+      "mutatedField": "gapLedgerWritten",
+      "input": {
+        "overflow": false,
+        "gapLedgerWritten": false,
+        "continuousClaim": false,
+        "queueSize": 8
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N05-3",
+      "rule": "B115-R05",
+      "mutatedField": "continuousClaim",
+      "input": {
+        "overflow": false,
+        "gapLedgerWritten": true,
+        "continuousClaim": true,
+        "queueSize": 8
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N05-4",
+      "rule": "B115-R05",
+      "mutatedField": "queueSize",
+      "input": {
+        "overflow": false,
+        "gapLedgerWritten": true,
+        "continuousClaim": false,
+        "queueSize": 0
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-P06",
+      "rule": "B115-R06",
+      "input": {
+        "requestedSamplingMs": 50,
+        "revisedSamplingMs": 200,
+        "effectiveIntervalRecorded": true,
+        "actualQueueRecorded": true,
+        "claimsRequestedRate": false
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N06-1",
+      "rule": "B115-R06",
+      "mutatedField": "effectiveIntervalRecorded",
+      "input": {
+        "requestedSamplingMs": 50,
+        "revisedSamplingMs": 200,
+        "effectiveIntervalRecorded": false,
+        "actualQueueRecorded": true,
+        "claimsRequestedRate": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N06-2",
+      "rule": "B115-R06",
+      "mutatedField": "actualQueueRecorded",
+      "input": {
+        "requestedSamplingMs": 50,
+        "revisedSamplingMs": 200,
+        "effectiveIntervalRecorded": true,
+        "actualQueueRecorded": false,
+        "claimsRequestedRate": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N06-3",
+      "rule": "B115-R06",
+      "mutatedField": "claimsRequestedRate",
+      "input": {
+        "requestedSamplingMs": 50,
+        "revisedSamplingMs": 200,
+        "effectiveIntervalRecorded": true,
+        "actualQueueRecorded": true,
+        "claimsRequestedRate": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N06-4",
+      "rule": "B115-R06",
+      "mutatedField": "revisedSamplingMs",
+      "input": {
+        "requestedSamplingMs": 50,
+        "revisedSamplingMs": 30,
+        "effectiveIntervalRecorded": true,
+        "actualQueueRecorded": true,
+        "claimsRequestedRate": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-P07",
+      "rule": "B115-R07",
+      "input": {
+        "machineToolVersion": "1.02.0",
+        "deprecatedProductionUsed": false,
+        "jobModelMapped": true,
+        "claimsNcCompleted": false
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N07-1",
+      "rule": "B115-R07",
+      "mutatedField": "deprecatedProductionUsed",
+      "input": {
+        "machineToolVersion": "1.02.0",
+        "deprecatedProductionUsed": true,
+        "jobModelMapped": true,
+        "claimsNcCompleted": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N07-2",
+      "rule": "B115-R07",
+      "mutatedField": "jobModelMapped",
+      "input": {
+        "machineToolVersion": "1.02.0",
+        "deprecatedProductionUsed": false,
+        "jobModelMapped": false,
+        "claimsNcCompleted": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N07-3",
+      "rule": "B115-R07",
+      "mutatedField": "claimsNcCompleted",
+      "input": {
+        "machineToolVersion": "1.02.0",
+        "deprecatedProductionUsed": false,
+        "jobModelMapped": true,
+        "claimsNcCompleted": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N07-4",
+      "rule": "B115-R07",
+      "mutatedField": "machineToolVersion",
+      "input": {
+        "machineToolVersion": "1.00.0",
+        "deprecatedProductionUsed": false,
+        "jobModelMapped": true,
+        "claimsNcCompleted": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B115-P08",
+      "rule": "B115-R08",
+      "input": {
+        "d03Exact": true,
+        "d17Cas": true,
+        "aclCurrent": true,
+        "cancelled": false,
+        "samePort": true,
+        "singleWorld": true,
+        "leftPanel": true,
+        "claimsD15": false
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N08-1",
+      "rule": "B115-R08",
+      "mutatedField": "d17Cas",
+      "input": {
+        "d03Exact": true,
+        "d17Cas": false,
+        "aclCurrent": true,
+        "cancelled": false,
+        "samePort": true,
+        "singleWorld": true,
+        "leftPanel": true,
+        "claimsD15": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N08-2",
+      "rule": "B115-R08",
+      "mutatedField": "aclCurrent",
+      "input": {
+        "d03Exact": true,
+        "d17Cas": true,
+        "aclCurrent": false,
+        "cancelled": false,
+        "samePort": true,
+        "singleWorld": true,
+        "leftPanel": true,
+        "claimsD15": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N08-3",
+      "rule": "B115-R08",
+      "mutatedField": "cancelled",
+      "input": {
+        "d03Exact": true,
+        "d17Cas": true,
+        "aclCurrent": true,
+        "cancelled": true,
+        "samePort": true,
+        "singleWorld": true,
+        "leftPanel": true,
+        "claimsD15": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N08-4",
+      "rule": "B115-R08",
+      "mutatedField": "singleWorld",
+      "input": {
+        "d03Exact": true,
+        "d17Cas": true,
+        "aclCurrent": true,
+        "cancelled": false,
+        "samePort": true,
+        "singleWorld": false,
+        "leftPanel": true,
+        "claimsD15": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B115-N08-5",
+      "rule": "B115-R08",
+      "mutatedField": "claimsD15",
+      "input": {
+        "d03Exact": true,
+        "d17Cas": true,
+        "aclCurrent": true,
+        "cancelled": false,
+        "samePort": true,
+        "singleWorld": true,
+        "leftPanel": true,
+        "claimsD15": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    }
+  ]
+}

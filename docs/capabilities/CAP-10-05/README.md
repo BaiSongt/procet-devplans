@@ -1,3 +1,6 @@
+## 2026-11-02｜B115 OPC UA元数据改变/队列质量与作业模型迁移
+[专项证据](OPCUA-SEMANTIC-QUALITY-B115-2026-11-02.md) · [7来源](../../../research/sources/CAP-10-05-opcua-semantic-b115.json) · [8规则/原包](../../../research/traces/CAP-10-05-opcua-semantic-b115-v08.json) · [37合成](opcua-semantic-b115-fixtures-v08.json) · [只读校验](../../../tools/check_cap1005_opcua_semantic_b115_v08.cjs)。B64负责Subscription断点、B65负责MTConnect游标；B115负责DataValue语义质量和40501-1旧Production弃用。独立消费者、L3/产品均未验。**规划PASS≠产品PASS。**
+
 ## 2026-10-31｜B65 MTConnect 2.5 高位uint64及带筛选断点续采补证
 [研究与官方实读边界](MTCONNECT-U64-FILTER-B65-2026-10-31.md) · [6来源](../../../research/sources/CAP-10-05-mtconnect-u64-b65.json) · [8规则](../../../research/traces/CAP-10-05-mtconnect-u64-b65-v08.json) · [74合成](mtconnect-u64-b65-fixtures-v08.json) · [只读校验](../../../tools/check_cap1005_mtconnect_u64_b65_v08.cjs)。保留原十任务，D17 Owner同域入口、D04/D10隔离、单Babylon和左TaskPanel、A/B冻结、NC验证不可由MDC推断。**规划PASS≠产品PASS。**
 

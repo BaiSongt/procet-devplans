@@ -1,3 +1,6 @@
+## 2026-11-02｜B115 R-MDC-OBSERVABILITY-001 OPC语义变化/质量位和作业模型迁移
+[专项研究](../docs/capabilities/CAP-10-05/OPCUA-SEMANTIC-QUALITY-B115-2026-11-02.md) → [7条分级来源](sources/CAP-10-05-opcua-semantic-b115.json) → [8项规则及字段](traces/CAP-10-05-opcua-semantic-b115-v08.json) → [37项规划正反合成](../docs/capabilities/CAP-10-05/opcua-semantic-b115-fixtures-v08.json)。官方OPC公开章节定点实读，NIST仅出版摘要；真实OPC/独立Node/D17消费者/L3未核。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B114 R-DNC-TRANSFER-001 临时文件异步应用和D17收方闭环
 [OPC Part20/OT/RFC合法章节与阅读限制](../docs/capabilities/CAP-10-04/TEMP-APPLY-RECEIPT-B114-2026-11-02.md) → [8条分级登记](sources/CAP-10-04-temp-apply-b114.json) → [8规则字段及原E3-06/T5-03](traces/CAP-10-04-temp-apply-b114-v08.json) → [34正反/UNKNOWN/STALE合成](../docs/capabilities/CAP-10-04/temp-apply-b114-fixtures-v08.json)。B63已覆盖短读/Session，本轮新增CloseAndCommit异步与MoveOrCopy NodeId；独立Node/OEM/D17/Owner、L3、全仓GFM AST/历史原字节未验。规划PASS≠产品PASS。
 
