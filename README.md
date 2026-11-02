@@ -1,3 +1,6 @@
+## 2026-11-03｜B121 CAP-03-04 按尺寸类型校核标注Plane及Ordinate Baseline
+[专项研究与权威来源读取深度](docs/capabilities/CAP-03-04/DIMENSION-PLANE-COMPAT-B121-2026-11-03.md) → [9条官方/自有分级来源](research/sources/CAP-03-04-dimension-plane-b121.json) → [8规则/原编号B0-02 F1-03 F1-04 T5-02](research/traces/CAP-03-04-dimension-plane-b121-v08.json) → [40正反/6向量/4Baseline图](docs/capabilities/CAP-03-04/dimension-plane-b121-fixtures-v08.json) → [只读Node检查器](tools/check_cap0304_dimension_plane_b121_v08.cjs)。Creo版本限定，不泛化所有CAD；227 Registry/1730登记，正式Owner/实际独立消费者0/17，L3及全仓GFM AST、历史原字节、真实CAD测试待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B120 CAP-08-03 G28/G30双段快速回参考点与G53单块坐标
 [研究及合法来源阅读层级](docs/capabilities/CAP-08-03/REFERENCE-RETURN-B120-2026-11-03.md) → [8来源](research/sources/CAP-08-03-reference-return-b120.json) → [8规则/资产字段/原编号包](research/traces/CAP-08-03-reference-return-b120-v08.json) → [8正32反+8数学Golden](docs/capabilities/CAP-08-03/reference-return-b120-fixtures-v08.json) → [Node只读校验](tools/check_cap0803_reference_return_b120_v08.cjs)。新增预存G28/G30参考、G90/G91中间段、Haas Setting108、G53只影响当前块；旧D08冻结、D04/D10分离及D13→D16独立资格保持。真实Node/OEM/B5/Owner/17消费者/GFM AST均未通过，L3待审。**规划PASS≠产品PASS。**
 

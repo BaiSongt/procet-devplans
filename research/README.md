@@ -1,3 +1,6 @@
+## 2026-11-03｜B121 R-PMI-001：尺寸类型Plane及Ordinate基线
+[9条有界合法来源](sources/CAP-03-04-dimension-plane-b121.json) → [8规则与原包](traces/CAP-03-04-dimension-plane-b121-v08.json) → [40合成/6向量/4Baseline图](../docs/capabilities/CAP-03-04/dimension-plane-b121-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-03-04/DIMENSION-PLANE-COMPAT-B121-2026-11-03.md)。PTC明确公开章节，ISO仅官方目录元数据；真实Creo/CATIA/Owner/消费者NOT_RUN。
+
 ## 2026-11-03｜B120 R-WCS-MOTION-001 G28/G30中间段与G53单块语义
 [8项分级来源与实际访问限制](sources/CAP-08-03-reference-return-b120.json) → [8规则/CAP-08-03/09-06/原E3-02/E3-03/E3-04/E3-05/U4-04](traces/CAP-08-03-reference-return-b120-v08.json) → [40规则正反+8数学Golden](../docs/capabilities/CAP-08-03/reference-return-b120-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-03/REFERENCE-RETURN-B120-2026-11-03.md)。LinuxCNC2.9同文档多章节不算独立文献；Haas只官方检索摘录，ISO仅目录摘要；D13/D14/D15、17实际Owner和消费者、L3未验。规划PASS≠产品PASS。
 
