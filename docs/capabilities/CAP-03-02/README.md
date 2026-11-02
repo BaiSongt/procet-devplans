@@ -1,3 +1,5 @@
+> **B106 XDE/SHUO实例显隐专项补证（2026-11-02）**：[官方文档与业务资格](INSTANCE-STYLE-EVIDENCE-B106-2026-11-02.md) · [8规则/原包](../../../research/traces/CAP-03-02-instance-style-b106-v08.json) · [50合成](instance-style-b106-fixtures-v08.json)。无SHUO的false不能判断明确隐藏；禁用ColorMode后的缺色不能判断原件无色。L3/真实STEP与消费者待审。
+
 # CAP-03-02｜零件、装配及版本：定义—实例—修订一致性
 
 **规划稿 v0.1｜2026-10-18｜编制完成、待人类评审；不表示产品实现或验收。** 保持原V0.8能力编号与分母：`CAP-03-02`，原关联工作包 `B0-02 / F1-03 / F1-04 / T5-02`。研究专题 [R-ASM-001](../../../research/topics/R-ASM-001.md)、[GUI/3D规格](UI.md)、[规则—验收追踪](../../../research/traces/CAP-03-02.json)和[合成用例](fixtures.json)共同构成本项资料。与[CAP-03-01](../CAP-03-01/README.md)衔接：源文件导入是上游能力，**零件定义、装配节点、实例路径和工程修订不是一个ID**；与未来CAP-03-03拓扑稳定引用、CAP-03-04 PMI语义另设评审边界。

@@ -1,3 +1,6 @@
+## 2026-11-02｜B106 CAP-03-02 XDE/SHUO实例外观误隐藏防错
+[官方API研究与阅读范围](docs/capabilities/CAP-03-02/INSTANCE-STYLE-EVIDENCE-B106-2026-11-02.md) → [7合法分级来源](research/sources/CAP-03-02-instance-style-b106.json) → [8规则及B0-02/F1-03/F1-04/T5-02](research/traces/CAP-03-02-instance-style-b106-v08.json) → [50正反/UNKNOWN及18来源Golden](docs/capabilities/CAP-03-02/instance-style-b106-fixtures-v08.json) → [只读Node](tools/check_cap0302_instance_style_b106_v08.cjs)。OCCT`IsInstanceVisible(false)`在无SHUO时不等于实例明确隐藏；ColorMode关闭无法证明源STEP缺色。独立Node/真实Reader/17Owner与消费者/L3未验，规划PASS≠产品PASS。
+
 ## 2026-11-02｜B105 CAP-08-03 G93逆时间F与D14时序隔离
 [研究与官方章节](docs/capabilities/CAP-08-03/INVERSE-TIME-FEED-B105-2026-11-02.md) → [6来源](research/sources/CAP-08-03-inverse-time-b105.json) → [8规则/原E3-02、E3-03、U4-04、F1-02](research/traces/CAP-08-03-inverse-time-b105-v08.json) → [39正反/UNKNOWN](docs/capabilities/CAP-08-03/inverse-time-b105-fixtures-v08.json) → [Node工具](tools/check_cap0803_inverse_time_b105_v08.cjs)。G93 F的60/F是程序目标时长，非实测；同judge39/39，独立D14/D15、Owner、L3待验。规划PASS≠产品PASS。
 

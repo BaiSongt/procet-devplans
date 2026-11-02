@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "procet-b106-instance-style-trace-v08",
+  "sourceRegistry": "research/sources/CAP-03-02-instance-style-b106.json",
+  "fixtures": "docs/capabilities/CAP-03-02/instance-style-b106-fixtures-v08.json",
+  "checker": "tools/check_cap0302_instance_style_b106_v08.cjs",
+  "rules": [
+    {
+      "id": "B106-R01",
+      "summary": "STEP源hash、Reader版本与选项锁定，ColorMode禁用不证明源无色",
+      "sourceIds": [
+        "B106-S04",
+        "B106-S07"
+      ],
+      "fields": [
+        "source.sha256",
+        "source.readerVersion",
+        "source.readerOptionsHash",
+        "source.readerColorMode"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P01"
+      ],
+      "negative": [
+        "B106-N01",
+        "B106-N02",
+        "B106-N17"
+      ],
+      "unknown": [
+        "B106-U01",
+        "B106-U05"
+      ]
+    },
+    {
+      "id": "B106-R02",
+      "summary": "共享Definition的重复Occurrence不得按hash/显示去重",
+      "sourceIds": [
+        "B106-S01",
+        "B106-S02",
+        "B106-S07"
+      ],
+      "fields": [
+        "occurrence.id",
+        "occurrence.definitionRef",
+        "source.readerOptionsHash"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P02"
+      ],
+      "negative": [
+        "B106-N03",
+        "B106-N04",
+        "B106-N18"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B106-R03",
+      "summary": "实例路径与Frame属于exact D01身份，不由显示网格或颜色推算",
+      "sourceIds": [
+        "B106-S01",
+        "B106-S02",
+        "B106-S07"
+      ],
+      "fields": [
+        "occurrence.instancePath",
+        "occurrence.frameRef",
+        "occurrence.exactRevision"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P12"
+      ],
+      "negative": [
+        "B106-N05",
+        "B106-N06",
+        "B106-N19"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B106-R04",
+      "summary": "无SHUO时IsInstanceVisible(false)不证明明确源隐藏，需独立证据",
+      "sourceIds": [
+        "B106-S02",
+        "B106-S03"
+      ],
+      "fields": [
+        "appearance.shuoPresence",
+        "appearance.instanceVisibleRaw",
+        "appearance.visibilityEvidence",
+        "appearance.hiddenDeletesOccurrence"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P03",
+        "B106-P04"
+      ],
+      "negative": [
+        "B106-N07",
+        "B106-N08",
+        "B106-N20",
+        "B106-N29"
+      ],
+      "unknown": [
+        "B106-U02",
+        "B106-U03",
+        "B106-U06"
+      ]
+    },
+    {
+      "id": "B106-R05",
+      "summary": "GetInstanceColor false的SHUO/ColorType歧义与定义色回退来源需保留",
+      "sourceIds": [
+        "B106-S03",
+        "B106-S04",
+        "B106-S07"
+      ],
+      "fields": [
+        "appearance.instanceColorHit",
+        "appearance.definitionColorHit",
+        "appearance.colorType",
+        "appearance.sourceIdFromColor",
+        "appearance.sourceColorAsMaterial"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P05",
+        "B106-P09",
+        "B106-P11"
+      ],
+      "negative": [
+        "B106-N09",
+        "B106-N10",
+        "B106-N21",
+        "B106-N22"
+      ],
+      "unknown": [
+        "B106-U04",
+        "B106-U08"
+      ]
+    },
+    {
+      "id": "B106-R06",
+      "summary": "VIEWER隐藏与D01源外观隔离；NIST工具简介非真实Reader验收",
+      "sourceIds": [
+        "B106-S05",
+        "B106-S06",
+        "B106-S07"
+      ],
+      "fields": [
+        "appearance.scope",
+        "appearance.viewHidden",
+        "appearance.viewWritesD01",
+        "appearance.claimManufacturingVerified"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P06",
+        "B106-P10"
+      ],
+      "negative": [
+        "B106-N11",
+        "B106-N12",
+        "B106-N23",
+        "B106-N24"
+      ],
+      "unknown": [
+        "B106-U07"
+      ]
+    },
+    {
+      "id": "B106-R07",
+      "summary": "GUI/CLI/Agent共用Owner Port；ACL/CAS/Revision/ScopeEpoch提交点重验",
+      "sourceIds": [
+        "B106-S06",
+        "B106-S07"
+      ],
+      "fields": [
+        "owner.expectedRevision",
+        "owner.currentRevision",
+        "owner.aclAllowed",
+        "owner.casAllowed",
+        "owner.scopeEpoch"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P07"
+      ],
+      "negative": [
+        "B106-N13",
+        "B106-N14",
+        "B106-N25",
+        "B106-N26"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B106-R08",
+      "summary": "取消Fence、晚回执与D04/D10分离；CL动画不授NC D13-D16资格",
+      "sourceIds": [
+        "B106-S07"
+      ],
+      "fields": [
+        "owner.cancelFence",
+        "owner.lateAck",
+        "owner.receiptEpoch",
+        "appearance.claimClAsNcProof",
+        "appearance.d04D10Conflated"
+      ],
+      "caps": [
+        "CAP-03-02",
+        "CAP-03-01",
+        "CAP-02-07"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "positive": [
+        "B106-P08"
+      ],
+      "negative": [
+        "B106-N15",
+        "B106-N16",
+        "B106-N27",
+        "B106-N28",
+        "B106-N30"
+      ],
+      "unknown": []
+    }
+  ]
+}

@@ -1,3 +1,6 @@
+## 2026-11-02｜B106 R-ASM-001 SHUO显隐假阴性与Reader颜色开关
+[7来源及深度](sources/CAP-03-02-instance-style-b106.json) → [8规则/字段/原工作包](traces/CAP-03-02-instance-style-b106-v08.json) → [50合成](../docs/capabilities/CAP-03-02/instance-style-b106-fixtures-v08.json) → [研究](../docs/capabilities/CAP-03-02/INSTANCE-STYLE-EVIDENCE-B106-2026-11-02.md)。仅OCCT官方指定API实读、NIST简介/W3C摘要；真实STEP/Owner/独立消费者及L3未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B105 R-WCS-MOTION-001 G93/G94时序补证
 [6分级来源](sources/CAP-08-03-inverse-time-b105.json) → [8规则与原包](traces/CAP-08-03-inverse-time-b105-v08.json) → [39合成夹具](../docs/capabilities/CAP-08-03/inverse-time-b105-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-08-03/INVERSE-TIME-FEED-B105-2026-11-02.md)。LinuxCNC2.9§4/§59、Haas G93/G94实读，NIST仅书目，真实机床/D14/D15与L3未验。规划PASS≠产品PASS。
 
