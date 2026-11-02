@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "procet-b124-trace-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-09-05",
+  "researchTopic": "R-CL-PRECHECK-001",
+  "sourceRegistry": "research/sources/CAP-09-05-continuous-coverage-b124.json",
+  "fixtures": "docs/capabilities/CAP-09-05/continuous-coverage-b124-fixtures-v08.json",
+  "checker": "tools/check_cap0905_continuous_coverage_b124_v08.cjs",
+  "originalWorkPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "realIndependentConsumerPassCount": 0,
+  "authoringStatus": "NEWLY_AUTHORED",
+  "rules": [
+    {
+      "id": "B124-R01",
+      "summary": "D09/D10/Frame/政策版本精确闭包",
+      "fields": [
+        "input.clSha",
+        "input.d10Sha",
+        "input.frameHash",
+        "input.policyHash"
+      ],
+      "sourceIds": [
+        "B124-S06",
+        "B124-S07"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D11"
+      ],
+      "positive": [
+        "B124-P01"
+      ],
+      "negative": [
+        "B124-N01-1",
+        "B124-N01-2",
+        "B124-N01-3",
+        "B124-N01-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B124-R02",
+      "summary": "机床、刀具刀柄、夹具与Frame共同覆盖",
+      "fields": [
+        "models.toolHolder",
+        "models.fixture",
+        "models.machine",
+        "models.sameFrame"
+      ],
+      "sourceIds": [
+        "B124-S03",
+        "B124-S07"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D11"
+      ],
+      "positive": [
+        "B124-P02"
+      ],
+      "negative": [
+        "B124-N02-1",
+        "B124-N02-2",
+        "B124-N02-3",
+        "B124-N02-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B124-R03",
+      "summary": "时间/段参数与插值模型双侧锁定",
+      "fields": [
+        "motion.start",
+        "motion.end",
+        "motion.interpPinned",
+        "motion.dynamicFramePinned"
+      ],
+      "sourceIds": [
+        "B124-S01",
+        "B124-S02",
+        "B124-S07"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D11"
+      ],
+      "positive": [
+        "B124-P03"
+      ],
+      "negative": [
+        "B124-N03-1",
+        "B124-N03-2",
+        "B124-N03-3",
+        "B124-N03-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B124-R04",
+      "summary": "离散抽样误差界与区间认证资格分离",
+      "fields": [
+        "sampling.endpointsOnly",
+        "sampling.marginMm",
+        "sampling.errorBoundMm",
+        "sampling.claimCertified"
+      ],
+      "sourceIds": [
+        "B124-S01",
+        "B124-S03",
+        "B124-S05",
+        "B124-S07"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D09",
+        "D11"
+      ],
+      "positive": [
+        "B124-P04"
+      ],
+      "negative": [
+        "B124-N04-1",
+        "B124-N04-2",
+        "B124-N04-3",
+        "B124-N04-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B124-R05",
+      "summary": "CCD引擎版本、运动类型、请求完整性与全检测对象",
+      "fields": [
+        "ccd.version",
+        "ccd.motionSupported",
+        "ccd.requestComplete",
+        "ccd.allObjects"
+      ],
+      "sourceIds": [
+        "B124-S01",
+        "B124-S02",
+        "B124-S04"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D11"
+      ],
+      "positive": [
+        "B124-P05"
+      ],
+      "negative": [
+        "B124-N05-1",
+        "B124-N05-2",
+        "B124-N05-3",
+        "B124-N05-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B124-R06",
+      "summary": "接触结果、首次接触时间与调用失败独立状态",
+      "fields": [
+        "result.collision",
+        "result.toi",
+        "result.methodSuccess",
+        "result.falseClearOnFail"
+      ],
+      "sourceIds": [
+        "B124-S01",
+        "B124-S02",
+        "B124-S03"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D11",
+        "D15"
+      ],
+      "positive": [
+        "B124-P06"
+      ],
+      "negative": [
+        "B124-N06-1",
+        "B124-N06-2",
+        "B124-N06-3",
+        "B124-N06-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B124-R07",
+      "summary": "D11只属CL预检、不能冒充最终NC验证发布",
+      "fields": [
+        "gate.tag",
+        "gate.acknowledgeNoNcAxes",
+        "gate.noD15Promotion",
+        "gate.noD16Release"
+      ],
+      "sourceIds": [
+        "B124-S04",
+        "B124-S07"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B124-P07"
+      ],
+      "negative": [
+        "B124-N07-1",
+        "B124-N07-2",
+        "B124-N07-3",
+        "B124-N07-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B124-R08",
+      "summary": "统一GUI/CLI/Agent和左Panel，重验CAS权限取消回执",
+      "fields": [
+        "guard.samePort",
+        "guard.uiTopology",
+        "guard.aclCasCurrent",
+        "guard.cancelled"
+      ],
+      "sourceIds": [
+        "B124-S06",
+        "B124-S07"
+      ],
+      "caps": [
+        "CAP-09-05",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D01",
+        "D09",
+        "D11"
+      ],
+      "positive": [
+        "B124-P08"
+      ],
+      "negative": [
+        "B124-N08-1",
+        "B124-N08-2",
+        "B124-N08-3",
+        "B124-N08-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

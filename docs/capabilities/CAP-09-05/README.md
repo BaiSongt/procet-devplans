@@ -28,3 +28,6 @@ GUI、CLI、Agent调用同一Owner端口，不各自实现限位或审批。提�
 ## 失效、验收和交接
 [8项合法研究来源及阅读深度](../../../research/sources/CAP-09-05.json) → [10项规则字段/原工作包追踪](../../../research/traces/CAP-09-05.json) → [30项字段合成正反/10项状态向量](fixtures.json) → [独立消费者](independent-consumer-handoff.md)。[候选17资产Owner](asset-owner-candidates.json)仅为提案，**全部PENDING_HUMAN**；[示例合同](contract.example.json)、[失效矩阵](invalidation-matrix.json)、[理论推导](../../../research/topics/R-CL-PRECHECK-001.md)、[Node规划校验器](../../../tools/check_cap0905_planning_2026_10_27.cjs)互相联动。
 合成检查只判规则/界限，不读取真实STEP、B5运动参数或G-code，不构成真实OCCT连续碰撞、控制器、机床、浏览器或独立消费者PASS。L3审批`PENDING_HUMAN`；真实产品与消费者`NOT_RUN`；**规划PASS≠产品PASS**。
+
+## B124区间漏检与CCD证据资格增量（2026-11-03）
+[专项研究与解析反例](CONTINUOUS-COVERAGE-B124-2026-11-03.md) → [7分级来源](../../../research/sources/CAP-09-05-continuous-coverage-b124.json) → [8规则/原4包](../../../research/traces/CAP-09-05-continuous-coverage-b124-v08.json) → [40正反与4解析Golden](continuous-coverage-b124-fixtures-v08.json) → [Node只读入口](../../../tools/check_cap0905_continuous_coverage_b124_v08.cjs)。端点1.75mm、中点负0.25mm；D11仅中立CL预检，不能提升D15/D16；实际Owner/独立消费者/L3及产品尚未通过。**规划PASS≠产品PASS。**

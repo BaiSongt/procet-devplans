@@ -1,3 +1,6 @@
+## 2026-11-03｜B124 R-CL-PRECHECK-001：CL连续区间覆盖证据
+[7来源](sources/CAP-09-05-continuous-coverage-b124.json) → [8规则字段](traces/CAP-09-05-continuous-coverage-b124-v08.json) → [40+4合成](../docs/capabilities/CAP-09-05/continuous-coverage-b124-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-09-05/CONTINUOUS-COVERAGE-B124-2026-11-03.md)。FCL版本渠道分级，NIST仅摘要，W3C不规定数控安全；实际D11/D15/Owner/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B123 R-WORKORDER-EXECUTION-001：工单非绝对排序与运行响应证据
 [8来源，OPC公开指定HTML/NIST仅元数据摘要](sources/CAP-10-06-job-order-b123.json) → [8规则及原E3-06/T5-03](traces/CAP-10-06-job-order-b123-v08.json) → [40规划正反/4解析择序](../docs/capabilities/CAP-10-06/job-order-b123-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-10-06/JOB-ORDER-PARTIAL-ORDER-B123-2026-11-03.md)。同出版物多章节非独立论文；实际OPC/MES/OEM/17消费者及Owner/L3未验。规划PASS≠产品PASS。
 

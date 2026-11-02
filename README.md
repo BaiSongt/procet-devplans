@@ -1,3 +1,6 @@
+## 2026-11-03｜B124 CAP-09-05 连续区间漏采样与D11资格补证
+[报告](docs/capabilities/CAP-09-05/CONTINUOUS-COVERAGE-B124-2026-11-03.md) → [7来源](research/sources/CAP-09-05-continuous-coverage-b124.json) → [8规则/原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-05-continuous-coverage-b124-v08.json) → [40正反+4解析Golden](docs/capabilities/CAP-09-05/continuous-coverage-b124-fixtures-v08.json) → [Node只读工具](tools/check_cap0905_continuous_coverage_b124_v08.cjs)。解析例端点各1.75mm间隙，中点负0.25mm；FCL CCD≠实际NC轴时序，OCCT静态距离≠全程安全。累计230 Registry/1754来源登记（非去重），17正式Owner/17真实消费者0，L3与全仓AST/历史原字节待审，产品NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B123 CAP-10-06 JobOrder排序/Start/Run-Item语义防误判
 [官方章节/阅读范围](docs/capabilities/CAP-10-06/JOB-ORDER-PARTIAL-ORDER-B123-2026-11-03.md) → [8来源](research/sources/CAP-10-06-job-order-b123.json) → [8规则/原E3-06/T5-03](research/traces/CAP-10-06-job-order-b123-v08.json) → [40正反+4择序Golden](docs/capabilities/CAP-10-06/job-order-b123-fixtures-v08.json) → [Node只读工具](tools/check_cap1006_job_order_b123_v08.cjs)。OPC40001-3 JobOrderList非绝对顺序、平局应用专属；ISA-95 Start只到AllowedToStart；Run≠Item≠质检合格。NIST8536仅官方摘要，OPC多章节不算独立论文。229份Registry/1747条登记；Owner/真实消费者0/17、L3/历史原字节/全仓AST待审，实机NOT_RUN。**规划PASS≠产品PASS。**
 
