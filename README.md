@@ -1,3 +1,6 @@
+## 2026-11-03｜B126 17资产签署/独立消费者实证晋级门禁
+[专项研究](docs/architecture/v0.8/第126轮17资产签署与独立消费者真实证据门禁_2026-11-03.md) → [17资产真实缺口清单](tracking/owner-attestation-readiness-b126.json) → [7来源](research/sources/FINAL-OWNER-ATTESTATION-B126.json) → [8规则](research/traces/FINAL-OWNER-ATTESTATION-B126-V08.json) → [8正32反/5结构Golden](docs/architecture/v0.8/final-owner-attestation-b126-fixtures-v08.json) → [只读Node工具](tools/check_final_owner_attestation_b126_v08.cjs)。本轮补的是实证晋级协议而非重复B17结构边校验；Owner/消费者0/17、L3、历史原件、全仓AST和产品测试待办。**232 Registry、1769登记（非去重）**，规划PASS≠产品PASS。
+
 ## 2026-11-03｜B125 CAP-05-03 稳定拓扑序、显示偏好与旧锚点CAS
 [8来源/实际阅读限制](research/sources/CAP-05-03-stable-topo-b125.json) → [8规则/原W2-02/W2-03/W2-05](research/traces/CAP-05-03-stable-topo-b125-v08.json) → [40正反+6数学Golden](docs/capabilities/CAP-05-03/stable-topo-b125-fixtures-v08.json) → [专项研究](docs/capabilities/CAP-05-03/STABLE-TOPO-ORDER-B125-2026-11-03.md) → [只读Node工具](tools/check_cap0503_stable_topo_b125_v08.cjs)。B66显式边保留研究不重复；A/B冻结/名义D04与D10独立，不虚构产品结果。**累计231 Registry、1762登记记录（非去重）**，17正式Owner与消费者均0/17；L3、全仓AST、历史原字节、产品验收未闭。规划PASS≠产品PASS。
 
