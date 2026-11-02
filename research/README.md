@@ -1,3 +1,6 @@
+## 2026-11-03｜B127 R-NC-AUX-001：Haas NGC与LinuxCNC刀长模态代际差异
+[7项官方/内生分级来源](sources/CAP-08-04-ngc-tlo-b127.json) → [8规则/32字段](traces/CAP-08-04-ngc-tlo-b127-v08.json) → [40正反+8合成Golden](../docs/capabilities/CAP-08-04/ngc-tlo-b127-fixtures-v08.json) → [研究与局限](../docs/capabilities/CAP-08-04/NGC-TLO-PERSIST-B127-2026-11-03.md)。Haas官方公开Group08 NOTE明确NGC固件版本差异；ISO13399只目录摘要，不声称全文；独立Node、真实OEM和签署未验。规划PASS≠产品PASS。
+
 ## 2026-11-03｜B126 17业务资产真实签署和消费见证
 [7项有界来源](sources/FINAL-OWNER-ATTESTATION-B126.json) → [8规则/字段/CAP/原工作包](traces/FINAL-OWNER-ATTESTATION-B126-V08.json) → [40规划合成/5结构Golden](../docs/architecture/v0.8/final-owner-attestation-b126-fixtures-v08.json) → [专项报告](../docs/architecture/v0.8/第126轮17资产签署与独立消费者真实证据门禁_2026-11-03.md)。NIST仅摘要、JSON Schema属Internet-Draft；未执行JCS/真实签署。Owner和真实消费者0/17，规划PASS≠产品PASS。
 

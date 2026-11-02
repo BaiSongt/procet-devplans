@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "procet-b127-sources-v08",
+  "accessedOn": "2026-11-03",
+  "origin": "NEWLY_AUTHORED_NOT_RECOVERED_HISTORICAL_BYTES",
+  "registeredRecords": 7,
+  "meaning": "4份外部（Haas/LinuxCNC/ISO）与3份本仓固定Git Blob；不是7篇新论文，未读取收费ISO正文",
+  "sources": [
+    {
+      "id": "B127-S01",
+      "title": "Haas G43/G44 Group08及NGC固件行为",
+      "authors": "Haas Automation",
+      "version": "Haas Mill G43/G44官方滚动服务页；NGC Software 100.21.000.1100为明确行为分界",
+      "publishedOn": null,
+      "url": "https://legacy-aem.haascnc.com/content/haascnc/en/service/codes-settings.type%3Dgcode.machine%3Dmill.value%3DG44.html",
+      "section": "Group08 G43/G44及NOTE: Starting in NGC Software Version 100.21.000.1100",
+      "depth": "official_public_html_specific_paragraph_read",
+      "limitation": "页面未给出所有机型/固件/选件矩阵；启动真实偏置值必须由D10/OEM配置与实机复核，不能套用预设",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B127-S02",
+      "title": "LinuxCNC 2.9 G43/G43.1/G43.2/G49",
+      "authors": "LinuxCNC Project documentation contributors",
+      "version": "LinuxCNC 2.9在线章节，滚动更新，非锁Git提交",
+      "publishedOn": null,
+      "url": "https://www.linuxcnc.org/docs/2.9/html/gcode/g-code.html",
+      "section": "§28 G43；§29 G43.1；§30 G43.2；§31 G49",
+      "depth": "official_public_html_specific_sections_read",
+      "limitation": "G43 H0依随机/非随机换刀配置；G43.1替换、G43.2叠加适用LinuxCNC 2.9，不能照搬Haas或未经验证五轴TKCP语义",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B127-S03",
+      "title": "LinuxCNC Tool Compensation与tool.tbl",
+      "authors": "LinuxCNC Project documentation contributors",
+      "version": "LinuxCNC stable Tool Compensation（非精确2.9发行快照）",
+      "publishedOn": null,
+      "url": "https://www.linuxcnc.org/docs/stable/html/de/gcode/tool-compensation.html",
+      "section": "§1 Touch-Off; §1.1 G10; §2 Tool Table含T/P/XYZ",
+      "depth": "official_public_html_sections_read",
+      "limitation": "stable网页版本与2.9代码不可自动视为同版本；工具表实际加载/修改/机床单位需要读真实配置和revision",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B127-S04",
+      "title": "ISO 13399-1:2006 Cutting tool data representation",
+      "authors": "ISO/TC 29",
+      "version": "Edition1 2006-02，2021再次确认，含2010 amendment",
+      "publishedOn": "2006-02",
+      "url": "https://www.iso.org/standard/36757.html",
+      "section": "合法官方目录/Abstract/Edition/Revision history",
+      "depth": "official_catalogue_abstract_only_NO_PAID_BODY",
+      "limitation": "未读284页收费正文；目录的刀具信息模型不规定G43/G49、H寄存器或NGC上电保持",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B127-S05",
+      "title": "本仓CAP-04-07安装、Gauge与D10边界",
+      "authors": "Procet planning team",
+      "version": "exactGitBlob:c5bccdb75d0f4a0481b8b5ee3c690d32ffdf68cb",
+      "publishedOn": "2026-10",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/6fdf48f57e9551ff4077ba7154ecc8c9b0f01a09/docs/capabilities/CAP-04-07/README.md",
+      "section": "责任与数据边界/T03/T05/T06及Gauge Length",
+      "depth": "internal_exact_blob_read",
+      "limitation": "内部工程规格，不是外部标准或真实测量，L3待审",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B127-S06",
+      "title": "本仓CAP-08-04主轴换刀与辅助动作",
+      "authors": "Procet planning team",
+      "version": "exactGitBlob:913dbea96b05f61d9f64ce22f9aa6fa21d237e95",
+      "publishedOn": "2026-10",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/6fdf48f57e9551ff4077ba7154ecc8c9b0f01a09/docs/capabilities/CAP-08-04/README.md",
+      "section": "业务场景与正确性边界及T/M6/G43",
+      "depth": "internal_exact_blob_read",
+      "limitation": "原文不作跨固件的否定或肯定，B127限定明确的Haas NGC例外",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B127-S07",
+      "title": "本仓CAP-09-06最终NC独立验证契约",
+      "authors": "Procet planning team",
+      "version": "exactGitBlob:7f72eb46ccb6d37591a0d2275d90196d381c4b89",
+      "publishedOn": "2026-10",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/6fdf48f57e9551ff4077ba7154ecc8c9b0f01a09/docs/capabilities/CAP-09-06/README.md",
+      "section": "D12-D13-D14-D15职责和G43/H模态快照",
+      "depth": "internal_exact_blob_read",
+      "limitation": "当前仅规划，不是NC控制器实测、产品PASS或Owner正式签署",
+      "accessedOn": "2026-11-03"
+    }
+  ]
+}

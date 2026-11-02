@@ -1,3 +1,6 @@
+## 2026-11-03｜B127 CAP-08-04 Haas NGC刀长偏置固件差异与LinuxCNC G43
+[专项合同/阅读边界](docs/capabilities/CAP-08-04/NGC-TLO-PERSIST-B127-2026-11-03.md) → [7分级来源](research/sources/CAP-08-04-ngc-tlo-b127.json) → [8规则字段与原编号包](research/traces/CAP-08-04-ngc-tlo-b127-v08.json) → [8正32反/8合成Offset Golden](docs/capabilities/CAP-08-04/ngc-tlo-b127-fixtures-v08.json) → [Node只读校验](tools/check_cap0804_ngc_tlo_b127_v08.cjs)。Haas NGC 100.21.000.1100+自动TLO/跨上电状态与LinuxCNC的G43.1替换、G43.2叠加严格分流；ISO13399只官方目录摘要。累计**233 Registry/1776登记非去重**；17Owner签署0/17，独立消费者0/17，L3/全仓AST/历史字节和产品NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B126 17资产签署/独立消费者实证晋级门禁
 [专项研究](docs/architecture/v0.8/第126轮17资产签署与独立消费者真实证据门禁_2026-11-03.md) → [17资产真实缺口清单](tracking/owner-attestation-readiness-b126.json) → [7来源](research/sources/FINAL-OWNER-ATTESTATION-B126.json) → [8规则](research/traces/FINAL-OWNER-ATTESTATION-B126-V08.json) → [8正32反/5结构Golden](docs/architecture/v0.8/final-owner-attestation-b126-fixtures-v08.json) → [只读Node工具](tools/check_final_owner_attestation_b126_v08.cjs)。本轮补的是实证晋级协议而非重复B17结构边校验；Owner/消费者0/17、L3、历史原件、全仓AST和产品测试待办。**232 Registry、1769登记（非去重）**，规划PASS≠产品PASS。
 
