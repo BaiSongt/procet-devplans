@@ -1,3 +1,6 @@
+## 2026-11-02｜B108 R-IK-001 物理周数、支链与时序资格
+[7条官方与内生分级来源](sources/CAP-09-03-branch-winding-b108.json) → [8规则及原编号工作包](traces/CAP-09-03-branch-winding-b108-v08.json) → [34合成+3数值Golden](../docs/capabilities/CAP-09-03/branch-winding-b108-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-09-03/BRANCH-WINDING-B108-2026-11-02.md)。LinuxCNC2.9指定HTML、Cambridge公开摘要、Northwestern文字简介、MoveIt Rolling章节和NIST2011摘要限定读取；不臆造OEM回转策略。独立Node/真实D15、Owner/消费者和L3未验。
+
 ## 2026-11-02｜B107 R-MET-001 测头测试类别与厂商重复性资格
 [6项分级合法来源](sources/CAP-02-06-probe-qualification-b107.json) → [8条字段规则/原包](traces/CAP-02-06-probe-qualification-b107-v08.json) → [34机器合成](../docs/capabilities/CAP-02-06/probe-qualification-b107-fixtures-v08.json) → [研究与证据限制](../docs/capabilities/CAP-02-06/PROBE-QUALIFICATION-B107-2026-11-02.md)。ISO仅官方目录，NIST§5/7及Renishaw公开HTML限定，真实ISO试验/校准/独立消费NOT_RUN。
 

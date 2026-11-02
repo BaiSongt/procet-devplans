@@ -1,3 +1,6 @@
+## 2026-11-02｜B108 CAP-09-03 物理旋转整周数与IK支链连续性补证
+[研究与公开章节限制](docs/capabilities/CAP-09-03/BRANCH-WINDING-B108-2026-11-02.md) → [7分级来源](research/sources/CAP-09-03-branch-winding-b108.json) → [8规则/字段/原F1-02 E3-04 E3-05 U4-04](research/traces/CAP-09-03-branch-winding-b108-v08.json) → [34正反/UNKNOWN/STALE与3解析Goldens](docs/capabilities/CAP-09-03/branch-winding-b108-fixtures-v08.json) → [Node只读检查器](tools/check_cap0903_branch_winding_b108_v08.cjs)。物理370°与显示10°不能按同一Joint位置去重；LinuxCNC WRAPPED_ROTARY不代表OEM通用短路径。V8同判定函数34/34预检，独立Node/真实D13–D15/Owner/消费者/L3及全仓GFM AST均未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B107 CAP-02-06 测头/测刀系统资格与厂商台架2σ外推隔离
 [研究与严格阅读范围](docs/capabilities/CAP-02-06/PROBE-QUALIFICATION-B107-2026-11-02.md) → [6分级来源](research/sources/CAP-02-06-probe-qualification-b107.json) → [8规则/原F1-02/F1-06/E3-04/T5-05](research/traces/CAP-02-06-probe-qualification-b107-v08.json) → [34合成正反STALE/UNKNOWN](docs/capabilities/CAP-02-06/probe-qualification-b107-fixtures-v08.json) → [只读Node入口](tools/check_cap0206_probe_qualification_b107_v08.cjs)。ISO230-10:2022仅读官网摘要，Renishaw CMM测试架2σ不等于NC整机/本件测量不确定度。同judge34/34仅规划合成，真实校准/Owner/独立消费者与L3未通过；**规划PASS≠产品PASS**。
 
