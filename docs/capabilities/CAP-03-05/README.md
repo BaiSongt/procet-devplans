@@ -1,3 +1,5 @@
+**B109（2026-11-02）增量：** [圆柱材料侧/盲通孔证据补证](HOLE-MATERIAL-SIDE-B109-2026-11-02.md) · [8规则追踪](../../../research/traces/CAP-03-05-hole-material-b109-v08.json) · [36合成反例](hole-material-b109-fixtures-v08.json)。只读规划验证，不是OCCT真实加工识别产品验收。
+
 # CAP-03-05｜制造特征识别——从 B-Rep 证据到可复核的 D02 候选
 
 **B31追加专项（2026-10-30）：** [装配Occurrence与Face历史重绑证据](ASSEMBLY-FACE-B31-2026-10-30.md) · [8条规则追踪](../../../research/traces/CAP-03-05-assembly-face-b31-v08.json) · [合成检查](../../../tools/check_cap0305_assembly_face_b31_v08.cjs)。原文历史状态未改；专项证据已正式在规划分支入库，但L3、真实产品、独立Owner/消费者均待审。

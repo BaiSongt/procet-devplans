@@ -1,0 +1,388 @@
+{
+  "schemaVersion": "procet-b109-hole-material-fixtures-v08",
+  "date": "2026-11-02",
+  "capabilityId": "CAP-03-05",
+  "description": "新编非历史夹具；静态几何证据包非真实OCCT运算。条件采取保守门禁，所有用例按patch覆盖baseline",
+  "baseline": {
+    "refs": {
+      "d01Revision": "D01-r9",
+      "expectedRevision": "D01-r9",
+      "sourceHash": "src-sha-a",
+      "expectedHash": "src-sha-a",
+      "occurrence": "occ-1",
+      "selectedSolidRef": "solid-1",
+      "frame": "part-F-r3",
+      "unit": "mm",
+      "algorithmHash": "alg-sha-a"
+    },
+    "geometry": {
+      "native": "BREP_SOLID",
+      "shapeValid": true,
+      "checkProfile": "occt-8.0.1-exact",
+      "surfaceType": "CYLINDER",
+      "radiusMm": 5,
+      "adjacencyComplete": true,
+      "wallConnected": true,
+      "solidCount": 1,
+      "axisProbe": "OUT",
+      "materialProbe": "IN",
+      "classifierToleranceMm": 0.001,
+      "materialSide": "VOID",
+      "entranceCount": 2,
+      "capPresent": false,
+      "axialEndEvidence": "BOTH_OPEN",
+      "claim": "THROUGH"
+    },
+    "flow": {
+      "scopeEpoch": 4,
+      "ackEpoch": 4,
+      "acl": true,
+      "cas": true,
+      "cancelled": false,
+      "lateAck": false,
+      "sameOwnerPort": true,
+      "sceneCount": 1,
+      "leftTaskPanel": true,
+      "owner": "D02-03",
+      "autoApprove": false,
+      "hasD10": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B109-P01",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patch": {},
+      "why": "双开口连续圆孔，仅候选"
+    },
+    {
+      "id": "B109-P02",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patch": {
+        "geometry.claim": "BLIND",
+        "geometry.entranceCount": 1,
+        "geometry.capPresent": true,
+        "geometry.axialEndEvidence": "ONE_OPEN"
+      },
+      "why": "单开口真实底面，盲孔候选"
+    },
+    {
+      "id": "B109-P03",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patch": {
+        "flow.hasD10": true
+      },
+      "why": "即使具D10也不能由识别直接NC发布"
+    },
+    {
+      "id": "B109-P04",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patch": {
+        "refs.occurrence": "occ-2",
+        "refs.frame": "part-F-r8"
+      },
+      "why": "重复装配实例须各自锁定Frame"
+    },
+    {
+      "id": "B109-N01",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.native": "MESH"
+      },
+      "why": "网格不是原始BRep"
+    },
+    {
+      "id": "B109-N02",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.shapeValid": false
+      },
+      "why": "无效BRep禁止真实孔候选"
+    },
+    {
+      "id": "B109-N03",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.surfaceType": "CONE"
+      },
+      "why": "锥面不能冒充圆柱孔"
+    },
+    {
+      "id": "B109-N04",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.radiusMm": -1
+      },
+      "why": "负半径无效"
+    },
+    {
+      "id": "B109-N05",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.materialSide": "SOLID"
+      },
+      "why": "实体侧的凸台不是孔"
+    },
+    {
+      "id": "B109-N06",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.axisProbe": "IN"
+      },
+      "why": "轴线上为材料，识别为孔有反证"
+    },
+    {
+      "id": "B109-N07",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.materialProbe": "OUT"
+      },
+      "why": "应为材料的采样点却在外部"
+    },
+    {
+      "id": "B109-N08",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.capPresent": true
+      },
+      "why": "穿孔宣称与底面冲突"
+    },
+    {
+      "id": "B109-N09",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.entranceCount": 1
+      },
+      "why": "穿孔却只有一个轴向开口"
+    },
+    {
+      "id": "B109-N10",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "geometry.axialEndEvidence": "ONE_OPEN"
+      },
+      "why": "轴向证据和穿孔声称矛盾"
+    },
+    {
+      "id": "B109-N11",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "flow.acl": false
+      },
+      "why": "提交处缺ACL"
+    },
+    {
+      "id": "B109-N12",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "flow.cas": false
+      },
+      "why": "提交处无CAS"
+    },
+    {
+      "id": "B109-N13",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "flow.sameOwnerPort": false
+      },
+      "why": "GUI/CLI/Agent绕过统一业务入口"
+    },
+    {
+      "id": "B109-N14",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "flow.sceneCount": 2
+      },
+      "why": "禁止并列两个Babylon世界"
+    },
+    {
+      "id": "B109-N15",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "flow.leftTaskPanel": false
+      },
+      "why": "统一左TaskPanel约束"
+    },
+    {
+      "id": "B109-N16",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "flow.owner": "D05"
+      },
+      "why": "D05不得越权写D02"
+    },
+    {
+      "id": "B109-N17",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "patch": {
+        "flow.autoApprove": true
+      },
+      "why": "算法候选不能直接升批准"
+    },
+    {
+      "id": "B109-U01",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "refs.frame": null
+      },
+      "why": "缺精确Frame"
+    },
+    {
+      "id": "B109-U02",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "refs.selectedSolidRef": null
+      },
+      "why": "多Solid归属丢失"
+    },
+    {
+      "id": "B109-U03",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.checkProfile": "UNKNOWN"
+      },
+      "why": "OCCT检测配置未知"
+    },
+    {
+      "id": "B109-U04",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.adjacencyComplete": false
+      },
+      "why": "邻接未覆盖全部相关面"
+    },
+    {
+      "id": "B109-U05",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.wallConnected": false
+      },
+      "why": "同轴不保证连续孔壁"
+    },
+    {
+      "id": "B109-U06",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.axisProbe": "ON"
+      },
+      "why": "边界分类不能当内部孔证据"
+    },
+    {
+      "id": "B109-U07",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.materialProbe": "UNKNOWN"
+      },
+      "why": "材料侧采样无确定结论"
+    },
+    {
+      "id": "B109-U08",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.classifierToleranceMm": null
+      },
+      "why": "分类容差无证据"
+    },
+    {
+      "id": "B109-U09",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.axialEndEvidence": "UNKNOWN"
+      },
+      "why": "开口连通性缺证据"
+    },
+    {
+      "id": "B109-U10",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "patch": {
+        "geometry.solidCount": 2
+      },
+      "why": "多Solid合并分析未经分离"
+    },
+    {
+      "id": "B109-S01",
+      "kind": "STALE",
+      "expected": "STALE",
+      "patch": {
+        "refs.d01Revision": "D01-r8"
+      },
+      "why": "D01版本已变化"
+    },
+    {
+      "id": "B109-S02",
+      "kind": "STALE",
+      "expected": "STALE",
+      "patch": {
+        "refs.sourceHash": "old-source"
+      },
+      "why": "实际输入Hash已变化"
+    },
+    {
+      "id": "B109-S03",
+      "kind": "STALE",
+      "expected": "STALE",
+      "patch": {
+        "flow.ackEpoch": 3
+      },
+      "why": "晚回执属于旧scope"
+    },
+    {
+      "id": "B109-S04",
+      "kind": "STALE",
+      "expected": "STALE",
+      "patch": {
+        "flow.cancelled": true
+      },
+      "why": "取消后返回"
+    },
+    {
+      "id": "B109-S05",
+      "kind": "STALE",
+      "expected": "STALE",
+      "patch": {
+        "flow.lateAck": true
+      },
+      "why": "迟到回执不修改当前工程"
+    }
+  ],
+  "caseBreakdown": {
+    "POSITIVE": 4,
+    "NEGATIVE": 17,
+    "UNKNOWN": 10,
+    "STALE": 5
+  },
+  "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+  "realStepModels": "NOT_RUN",
+  "independentOracle": "NOT_RUN"
+}

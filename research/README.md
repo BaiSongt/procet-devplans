@@ -1,3 +1,6 @@
+## 2026-11-02｜B109 R-MFR-001 圆柱曲面与真实材料侧分离
+[7项分级来源](sources/CAP-03-05-hole-material-b109.json) → [8规则/原工作包](traces/CAP-03-05-hole-material-b109-v08.json) → [36合成](../docs/capabilities/CAP-03-05/hole-material-b109-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-03-05/HOLE-MATERIAL-SIDE-B109-2026-11-02.md)。OCCT8.0.1四API定点实读，ISO14649只官方摘要，NIST7098仅官方摘要；真实STEP/Owner/消费者/L3未验。
+
 ## 2026-11-02｜B108 R-IK-001 物理周数、支链与时序资格
 [7条官方与内生分级来源](sources/CAP-09-03-branch-winding-b108.json) → [8规则及原编号工作包](traces/CAP-09-03-branch-winding-b108-v08.json) → [34合成+3数值Golden](../docs/capabilities/CAP-09-03/branch-winding-b108-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-09-03/BRANCH-WINDING-B108-2026-11-02.md)。LinuxCNC2.9指定HTML、Cambridge公开摘要、Northwestern文字简介、MoveIt Rolling章节和NIST2011摘要限定读取；不臆造OEM回转策略。独立Node/真实D15、Owner/消费者和L3未验。
 

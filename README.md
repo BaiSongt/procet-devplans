@@ -1,3 +1,6 @@
+## 2026-11-02｜B109 CAP-03-05 圆柱面不是孔：材料侧/盲通孔边界
+[OCCT/ISO/NIST公开章节与阅读限制](docs/capabilities/CAP-03-05/HOLE-MATERIAL-SIDE-B109-2026-11-02.md) → [7来源](research/sources/CAP-03-05-hole-material-b109.json) → [8规则字段/原B0-02 F1-03 F1-04 T5-02](research/traces/CAP-03-05-hole-material-b109-v08.json) → [36合成正反/UNKNOWN/STALE](docs/capabilities/CAP-03-05/hole-material-b109-fixtures-v08.json) → [只读Node](tools/check_cap0305_hole_material_b109_v08.cjs)。无原始OCCT/STEP/独立Owner实际验收，L3待审。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B108 CAP-09-03 物理旋转整周数与IK支链连续性补证
 [研究与公开章节限制](docs/capabilities/CAP-09-03/BRANCH-WINDING-B108-2026-11-02.md) → [7分级来源](research/sources/CAP-09-03-branch-winding-b108.json) → [8规则/字段/原F1-02 E3-04 E3-05 U4-04](research/traces/CAP-09-03-branch-winding-b108-v08.json) → [34正反/UNKNOWN/STALE与3解析Goldens](docs/capabilities/CAP-09-03/branch-winding-b108-fixtures-v08.json) → [Node只读检查器](tools/check_cap0903_branch_winding_b108_v08.cjs)。物理370°与显示10°不能按同一Joint位置去重；LinuxCNC WRAPPED_ROTARY不代表OEM通用短路径。V8同判定函数34/34预检，独立Node/真实D13–D15/Owner/消费者/L3及全仓GFM AST均未验。规划PASS≠产品PASS。
 
