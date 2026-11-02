@@ -1,3 +1,6 @@
+## 2026-11-03｜B122 CAP-08-04 车床G96/G97与方言限速/物理额定
+[研究/阅读深度](docs/capabilities/CAP-08-04/CSS-SPINDLE-LIMIT-B122-2026-11-03.md) → [9来源](research/sources/CAP-08-04-css-spindle-b122.json) → [8规则/原包](research/traces/CAP-08-04-css-spindle-b122-v08.json) → [8正35反/7解析Golden](docs/capabilities/CAP-08-04/css-spindle-b122-fixtures-v08.json) → [Node只读工具](tools/check_cap0804_css_spindle_b122_v08.cjs)。Haas G96/G97仅官方搜索摘录，G50实读HTML；LinuxCNC2.9 G96 D与Haas G50 S不互推，物理夹具/卡盘限速缺证明UNKNOWN；228 Registry/1739登记，Owner/消费者0/17、L3/全仓GFM AST/历史原字节及实机未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B121 CAP-03-04 按尺寸类型校核标注Plane及Ordinate Baseline
 [专项研究与权威来源读取深度](docs/capabilities/CAP-03-04/DIMENSION-PLANE-COMPAT-B121-2026-11-03.md) → [9条官方/自有分级来源](research/sources/CAP-03-04-dimension-plane-b121.json) → [8规则/原编号B0-02 F1-03 F1-04 T5-02](research/traces/CAP-03-04-dimension-plane-b121-v08.json) → [40正反/6向量/4Baseline图](docs/capabilities/CAP-03-04/dimension-plane-b121-fixtures-v08.json) → [只读Node检查器](tools/check_cap0304_dimension_plane_b121_v08.cjs)。Creo版本限定，不泛化所有CAD；227 Registry/1730登记，正式Owner/实际独立消费者0/17，L3及全仓GFM AST、历史原字节、真实CAD测试待审。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-11-03｜B122 R-NC-AUX-001：G96/G97与转速安全资格
+[9条来源与真实阅读层级](sources/CAP-08-04-css-spindle-b122.json) → [8规则与字段/原编号包](traces/CAP-08-04-css-spindle-b122-v08.json) → [8正35反/7公式Golden](../docs/capabilities/CAP-08-04/css-spindle-b122-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-04/CSS-SPINDLE-LIMIT-B122-2026-11-03.md)。Haas G96/G97仅索引摘录，ISO仅目录，NIST仅出版页；真实OEM/卡盘安全认证/17独立消费者未运行，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B121 R-PMI-001：尺寸类型Plane及Ordinate基线
 [9条有界合法来源](sources/CAP-03-04-dimension-plane-b121.json) → [8规则与原包](traces/CAP-03-04-dimension-plane-b121-v08.json) → [40合成/6向量/4Baseline图](../docs/capabilities/CAP-03-04/dimension-plane-b121-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-03-04/DIMENSION-PLANE-COMPAT-B121-2026-11-03.md)。PTC明确公开章节，ISO仅官方目录元数据；真实Creo/CATIA/Owner/消费者NOT_RUN。
 
