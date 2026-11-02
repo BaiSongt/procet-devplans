@@ -1,3 +1,6 @@
+## 2026-11-03｜B125 CAP-05-03 稳定拓扑序、显示偏好与旧锚点CAS
+[8来源/实际阅读限制](research/sources/CAP-05-03-stable-topo-b125.json) → [8规则/原W2-02/W2-03/W2-05](research/traces/CAP-05-03-stable-topo-b125-v08.json) → [40正反+6数学Golden](docs/capabilities/CAP-05-03/stable-topo-b125-fixtures-v08.json) → [专项研究](docs/capabilities/CAP-05-03/STABLE-TOPO-ORDER-B125-2026-11-03.md) → [只读Node工具](tools/check_cap0503_stable_topo_b125_v08.cjs)。B66显式边保留研究不重复；A/B冻结/名义D04与D10独立，不虚构产品结果。**累计231 Registry、1762登记记录（非去重）**，17正式Owner与消费者均0/17；L3、全仓AST、历史原字节、产品验收未闭。规划PASS≠产品PASS。
+
 ## 2026-11-03｜B124 CAP-09-05 连续区间漏采样与D11资格补证
 [报告](docs/capabilities/CAP-09-05/CONTINUOUS-COVERAGE-B124-2026-11-03.md) → [7来源](research/sources/CAP-09-05-continuous-coverage-b124.json) → [8规则/原F1-02/E3-04/E3-05/U4-04](research/traces/CAP-09-05-continuous-coverage-b124-v08.json) → [40正反+4解析Golden](docs/capabilities/CAP-09-05/continuous-coverage-b124-fixtures-v08.json) → [Node只读工具](tools/check_cap0905_continuous_coverage_b124_v08.cjs)。解析例端点各1.75mm间隙，中点负0.25mm；FCL CCD≠实际NC轴时序，OCCT静态距离≠全程安全。累计230 Registry/1754来源登记（非去重），17正式Owner/17真实消费者0，L3与全仓AST/历史原字节待审，产品NOT_RUN。**规划PASS≠产品PASS。**
 

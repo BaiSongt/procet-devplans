@@ -1,3 +1,6 @@
+## 2026-11-03｜B125 R-ROUTEEDIT-001 稳定拓扑择序与CAS
+[8分级合法来源](sources/CAP-05-03-stable-topo-b125.json) → [8规则/32字段及原W2-02/03/05](traces/CAP-05-03-stable-topo-b125-v08.json) → [8正32反/6图Golden](../docs/capabilities/CAP-05-03/stable-topo-b125-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-05-03/STABLE-TOPO-ORDER-B125-2026-11-03.md)。NetworkX3.7有合法平局、Kahn仅出版社摘要；NIST只摘要，RFC仅公开节，不替代Owner/CAS独立验收。规划PASS≠产品PASS。
+
 ## 2026-11-03｜B124 R-CL-PRECHECK-001：CL连续区间覆盖证据
 [7来源](sources/CAP-09-05-continuous-coverage-b124.json) → [8规则字段](traces/CAP-09-05-continuous-coverage-b124-v08.json) → [40+4合成](../docs/capabilities/CAP-09-05/continuous-coverage-b124-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-09-05/CONTINUOUS-COVERAGE-B124-2026-11-03.md)。FCL版本渠道分级，NIST仅摘要，W3C不规定数控安全；实际D11/D15/Owner/L3未验。**规划PASS≠产品PASS。**
 

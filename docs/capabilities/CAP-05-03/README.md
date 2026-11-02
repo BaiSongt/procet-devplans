@@ -1,3 +1,5 @@
+> **B125（2026-11-03）**：[稳定拓扑择序、旧锚点与CAS的研究补证](STABLE-TOPO-ORDER-B125-2026-11-03.md) → [8分级来源](../../../research/sources/CAP-05-03-stable-topo-b125.json) → [8规则](../../../research/traces/CAP-05-03-stable-topo-b125-v08.json) → [40独立字段正反及6图Golden](stable-topo-b125-fixtures-v08.json)。保持B66显式前置边研究、原CAP与L3未批准事实。规划PASS≠产品PASS。
+
 ## 2026-10-31｜B66 显式前置边不能被传递约简覆盖
 
 [数学反例与来源层级](EXPLICIT-EDGES-B66-2026-10-31.md) → [9来源](../../../research/sources/CAP-05-03-explicit-edges-b66.json) → [8规则](../../../research/traces/CAP-05-03-explicit-edges-b66-v08.json) → [56规划合成](explicit-edges-b66-fixtures-v08.json)。Owner签署、L3、独立消费者均待审，规划PASS≠产品PASS。

@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "procet-b125-trace-v08",
+  "capabilityId": "CAP-05-03",
+  "originalWorkPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "sourceRegistry": "research/sources/CAP-05-03-stable-topo-b125.json",
+  "fixtures": "docs/capabilities/CAP-05-03/stable-topo-b125-fixtures-v08.json",
+  "checker": "tools/check_cap0503_stable_topo_b125_v08.cjs",
+  "designApproval": "PENDING_HUMAN",
+  "consumerSigned": 0,
+  "rules": [
+    {
+      "id": "B125-R01",
+      "summary": "精确D05/D08修订Hash、Frame及来源",
+      "fields": [
+        "scope.project",
+        "scope.d05Exact",
+        "scope.d08FrozenExact",
+        "scope.sourceDigest"
+      ],
+      "sourceIds": [
+        "B125-S06",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P01"
+      ],
+      "negative": [
+        "B125-N01-1",
+        "B125-N01-2",
+        "B125-N01-3",
+        "B125-N01-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B125-R02",
+      "summary": "图节点、有效边、边计数、非循环宣称独立校验",
+      "fields": [
+        "graph.nodes",
+        "graph.edges",
+        "graph.edgeCountExact",
+        "graph.acyclicWitness"
+      ],
+      "sourceIds": [
+        "B125-S01",
+        "B125-S02",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P02"
+      ],
+      "negative": [
+        "B125-N02-1",
+        "B125-N02-2",
+        "B125-N02-3",
+        "B125-N02-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B125-R03",
+      "summary": "displayOrder与precedenceEdges两种独立数据",
+      "fields": [
+        "display.previous",
+        "display.proposed",
+        "display.beforeEdges",
+        "display.afterEdges"
+      ],
+      "sourceIds": [
+        "B125-S03",
+        "B125-S05",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P03"
+      ],
+      "negative": [
+        "B125-N03-1",
+        "B125-N03-2",
+        "B125-N03-3",
+        "B125-N03-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B125-R04",
+      "summary": "固定稳定平局策略版本及拓扑结果",
+      "fields": [
+        "priority.stableIdTieBreak",
+        "priority.tieKeyVersion",
+        "priority.preference",
+        "priority.expectedOrder"
+      ],
+      "sourceIds": [
+        "B125-S01",
+        "B125-S02",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P04"
+      ],
+      "negative": [
+        "B125-N04-1",
+        "B125-N04-2",
+        "B125-N04-3",
+        "B125-N04-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B125-R05",
+      "summary": "移动锚点的stableId及baseRevision",
+      "fields": [
+        "move.operationId",
+        "move.anchorId",
+        "move.baseRevision",
+        "move.anchorIdentityExact"
+      ],
+      "sourceIds": [
+        "B125-S03",
+        "B125-S04",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P05"
+      ],
+      "negative": [
+        "B125-N05-1",
+        "B125-N05-2",
+        "B125-N05-3",
+        "B125-N05-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B125-R06",
+      "summary": "ACL、expected/current CAS、scopeEpoch、取消晚回执",
+      "fields": [
+        "commit.expectedHead",
+        "commit.aclLive",
+        "commit.scopeEpoch",
+        "commit.cancelled"
+      ],
+      "sourceIds": [
+        "B125-S04",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P06"
+      ],
+      "negative": [
+        "B125-N06-1",
+        "B125-N06-2",
+        "B125-N06-3",
+        "B125-N06-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B125-R07",
+      "summary": "跨Setup D04明确转序Frame不冒充D10实装",
+      "fields": [
+        "transfer.required",
+        "transfer.d04TransferExact",
+        "transfer.frameChecked",
+        "transfer.d10BoundInD04"
+      ],
+      "sourceIds": [
+        "B125-S05",
+        "B125-S07",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P07"
+      ],
+      "negative": [
+        "B125-N07-1",
+        "B125-N07-2",
+        "B125-N07-3",
+        "B125-N07-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B125-R08",
+      "summary": "D08冻结、仅UI无制造失效、语义变更失效、CL不授D15",
+      "fields": [
+        "freeze.editedFrozen",
+        "invalidation.displayOnlyNoManufacturingWrite",
+        "invalidation.semanticChangeStalesDownstream",
+        "verify.clPreviewNeverD15"
+      ],
+      "sourceIds": [
+        "B125-S06",
+        "B125-S07",
+        "B125-S08"
+      ],
+      "caps": [
+        "CAP-05-03"
+      ],
+      "originalWorkPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "positive": [
+        "B125-P08"
+      ],
+      "negative": [
+        "B125-N08-1",
+        "B125-N08-2",
+        "B125-N08-3",
+        "B125-N08-4"
+      ],
+      "owner": "05域D05",
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "origin": "PROCET_ENGINEERING_DERIVED_NOT_EXTERNAL_NORMATIVE"
+    }
+  ]
+}
