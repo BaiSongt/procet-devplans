@@ -1,3 +1,6 @@
+## 2026-11-02｜B104 CAP-11-04 工具风险提示与OAuth资源受众隔离
+[专项研究与章节局限](docs/capabilities/CAP-11-04/TOOL-HINT-AUDIENCE-B104-2026-11-02.md) → [7来源](research/sources/CAP-11-04-tool-hint-b104.json) → [8规则/原T5-01、T5-02](research/traces/CAP-11-04-tool-hint-b104-v08.json) → [42合成](docs/capabilities/CAP-11-04/tool-hint-b104-fixtures-v08.json) → [只读Node](tools/check_cap1104_tool_hint_b104_v08.cjs)。readOnlyHint不是授权，OAuth受众不等于Owner CAS；同judge规划合成42/42，真实Owner/消费者/L3未验。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B103 CAP-03-04 Datum Target基准覆盖与AP242版次专项
 [研究与来源深度](docs/capabilities/CAP-03-04/DATUM-TARGET-COVERAGE-B103-2026-11-02.md) → [7条分级来源](research/sources/CAP-03-04-datum-target-b103.json) → [8规则/原B0-02、F1-03、F1-04、T5-02](research/traces/CAP-03-04-datum-target-b103-v08.json) → [35合成正反UNKNOWN](docs/capabilities/CAP-03-04/datum-target-b103-fixtures-v08.json) → [只读Node](tools/check_cap0304_datum_target_b103_v08.cjs)。NIST官方明确2023 STC移除全部Datum Target，STC通过不等于该维度验证；ISO AP242:2025 Edition4已发布、2022 Edition3撤回但历史输入需保留原版次。独立Reader/FTC原始字节/Owner/消费者/L3未验。**规划PASS≠产品PASS。**
 

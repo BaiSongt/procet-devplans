@@ -1,0 +1,3278 @@
+{
+  "schemaVersion": "procet-b104-fixtures-v08",
+  "date": "2026-11-02",
+  "syntheticOnly": true,
+  "expectedDistribution": {
+    "PASS": 9,
+    "REJECT": 16,
+    "STALE": 8,
+    "UNKNOWN": 6,
+    "CANCELLED": 2,
+    "RECONCILE": 1
+  },
+  "caseMeaning": "同一判定函数设计合成；不是独立Node/实际MCP/业务Owner或产品验收",
+  "cases": [
+    {
+      "id": "B104-R01-P",
+      "ruleId": "B104-R01",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R01-N1",
+      "ruleId": "B104-R01",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "tool.ownerEffect",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": null,
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B104-R01-N2",
+      "ruleId": "B104-R01",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "intent.effect",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "READ",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R01-N3",
+      "ruleId": "B104-R01",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "approval.human",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": false,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R02-P",
+      "ruleId": "B104-R02",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R02-N1",
+      "ruleId": "B104-R02",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "tool.schema",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-B"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R02-N2",
+      "ruleId": "B104-R02",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "intent.name",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "other",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R02-N3",
+      "ruleId": "B104-R02",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "tool.name",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": null,
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B104-R03-P",
+      "ruleId": "B104-R03",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R03-N1",
+      "ruleId": "B104-R03",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "auth.audience",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-B",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R03-N2",
+      "ruleId": "B104-R03",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "auth.passthrough",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": true,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R03-N3",
+      "ruleId": "B104-R03",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "auth.validated",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": false,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R03-N4",
+      "ruleId": "B104-R03",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "auth.audience",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": null,
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B104-R04-P",
+      "ruleId": "B104-R04",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R04-N1",
+      "ruleId": "B104-R04",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "owner.acl",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": false,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R04-N2",
+      "ruleId": "B104-R04",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "owner.currentScopeEpoch",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 4,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R04-N3",
+      "ruleId": "B104-R04",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "owner.currentRevision",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-B",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R04-N4",
+      "ruleId": "B104-R04",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "owner.currentHash",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-B",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R04-N5",
+      "ruleId": "B104-R04",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "owner.currentFrame",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "other",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R05-P",
+      "ruleId": "B104-R05",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R05-N1",
+      "ruleId": "B104-R05",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "result.dataOnly",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": false,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R05-N2",
+      "ruleId": "B104-R05",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "result.receiptValid",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": false,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B104-R05-N3",
+      "ruleId": "B104-R05",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "result.currentGeneration",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 8
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R06-P",
+      "ruleId": "B104-R06",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R06-N1",
+      "ruleId": "B104-R06",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "approval.human",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": false,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R06-N2",
+      "ruleId": "B104-R06",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "approval.digest",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "different"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B104-R06-N3",
+      "ruleId": "B104-R06",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "owner.cas",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": false
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R07-P",
+      "ruleId": "B104-R07",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R07-N1",
+      "ruleId": "B104-R07",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "commit.cancelled",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": true,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "CANCELLED"
+    },
+    {
+      "id": "B104-R07-N2",
+      "ruleId": "B104-R07",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "commit.currentCancelEpoch",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 3
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "CANCELLED"
+    },
+    {
+      "id": "B104-R07-N3",
+      "ruleId": "B104-R07",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "intent.replayDigest",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "different",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R08-P",
+      "ruleId": "B104-R08",
+      "scenario": "BASE_OWNER_VERIFIED",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "B104-R08-N1",
+      "ruleId": "B104-R08",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "ux.commonPort",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": false,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R08-N2",
+      "ruleId": "B104-R08",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "ux.babylonWorlds",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 2,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R08-N3",
+      "ruleId": "B104-R08",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "ux.leftPanel",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": false
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R08-N4",
+      "ruleId": "B104-R08",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "nc.d04D10Separated",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": false,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R08-N5",
+      "ruleId": "B104-R08",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "nc.clAnimationGrantsD15",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": true
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R08-N6",
+      "ruleId": "B104-R08",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "intent.release",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": true
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B104-R08-N7",
+      "ruleId": "B104-R08",
+      "scenario": "ONE_FIELD_MUTATION",
+      "field": "migration.rollbackRef",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": null,
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B104-R07-RECONCILE",
+      "ruleId": "B104-R07",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": true,
+          "committedBeforeCancel": true,
+          "realReceipt": true,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "RECONCILE"
+    },
+    {
+      "id": "B104-R03-STDIO-U",
+      "ruleId": "B104-R03",
+      "input": {
+        "tool": {
+          "hint": "READ_ONLY",
+          "ownerEffect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "WRITE",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": true,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "STDIO",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B104-R01-READ-P",
+      "ruleId": "B104-R01",
+      "input": {
+        "tool": {
+          "hint": "WRITE",
+          "ownerEffect": "READ",
+          "name": "owner.commitCAS",
+          "schema": "schema-A"
+        },
+        "intent": {
+          "effect": "READ",
+          "name": "owner.commitCAS",
+          "schema": "schema-A",
+          "digest": "action-A",
+          "replayDigest": "action-A",
+          "release": false
+        },
+        "approval": {
+          "human": false,
+          "digest": "action-A"
+        },
+        "auth": {
+          "kind": "HTTP",
+          "audience": "resource-A",
+          "expectedAudience": "resource-A",
+          "validated": true,
+          "passthrough": false,
+          "localIdentity": false
+        },
+        "owner": {
+          "principal": "operator",
+          "project": "project-A",
+          "acl": true,
+          "scopeEpoch": 3,
+          "currentScopeEpoch": 3,
+          "revision": "rev-A",
+          "currentRevision": "rev-A",
+          "hash": "hash-A",
+          "currentHash": "hash-A",
+          "frame": "frame-A",
+          "currentFrame": "frame-A",
+          "cas": true
+        },
+        "result": {
+          "dataOnly": true,
+          "receiptValid": true,
+          "generation": 7,
+          "currentGeneration": 7
+        },
+        "commit": {
+          "cancelled": false,
+          "committedBeforeCancel": false,
+          "realReceipt": false,
+          "cancelEpoch": 2,
+          "currentCancelEpoch": 2
+        },
+        "ux": {
+          "commonPort": true,
+          "babylonWorlds": 1,
+          "leftPanel": true
+        },
+        "nc": {
+          "d04D10Separated": true,
+          "d13Known": true,
+          "d15Real": false,
+          "clAnimationGrantsD15": false
+        },
+        "migration": {
+          "legacyReadOnly": true,
+          "rollbackRef": "old-reader",
+          "frozenD08Untouched": true
+        }
+      },
+      "expected": "PASS"
+    }
+  ]
+}

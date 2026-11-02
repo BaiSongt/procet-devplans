@@ -1,3 +1,5 @@
+> **B104专项（2026-11-02）**：[MCP Hint不可信/OAuth受众与Owner CAS分层](TOOL-HINT-AUDIENCE-B104-2026-11-02.md) · [7来源](../../../research/sources/CAP-11-04-tool-hint-b104.json) · [8规则](../../../research/traces/CAP-11-04-tool-hint-b104-v08.json) · [42合成](tool-hint-b104-fixtures-v08.json)。独立产品验收与L3均未执行。
+
 # CAP-11-04｜工具调用与智能体编排（V0.8，L3待审）
 
 **原88项原文：**「调用规划、求解、刀路和验证受控接口」。保持11域88项、36原编号包、17资产、L1/L2不变；L3待人工审查。对应原包 [T5-01](../../work-packages/T5-01.md) / [T5-02](../../work-packages/T5-02.md)，不造新工作包。

@@ -1,3 +1,6 @@
+## 2026-11-02｜B104 R-AGENT-ORCHESTRATION-001 工具注释及Token受众
+[7项来源的章节及阅读深度](sources/CAP-11-04-tool-hint-b104.json) → [8规则原包字段追踪](traces/CAP-11-04-tool-hint-b104-v08.json) → [42合成](../docs/capabilities/CAP-11-04/tool-hint-b104-fixtures-v08.json) → [报告](../docs/capabilities/CAP-11-04/TOOL-HINT-AUDIENCE-B104-2026-11-02.md)。MCP 2025-11-25指定HTML、RFC8707 §1–3；RFC8785仅§1/§3简介。真实工具/Owner/NC和L3未验。
+
 ## 2026-11-02｜B103 R-PMI-001 AP242版本与NIST FTC/STC Datum Target覆盖盲点
 [七条合法分级来源](sources/CAP-03-04-datum-target-b103.json) → [八项字段规则/原包追踪](traces/CAP-03-04-datum-target-b103-v08.json) → [35项合成正反UNKNOWN](../docs/capabilities/CAP-03-04/datum-target-b103-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-03-04/DATUM-TARGET-COVERAGE-B103-2026-11-02.md)。NIST STC不含Datum Target，ISO标准仅查目录，OCCT只查API，未运行STEP/Reader，L3和Owner待审。
 
