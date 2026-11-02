@@ -1,3 +1,6 @@
+## 2026-11-02｜B119 R-UI3D-001 GPU PickList、薄实例与异步身份映射
+[研究与来源深度](../docs/capabilities/CAP-01-07/GPU-PICK-ID-B119-2026-11-02.md) → [6来源](sources/CAP-01-07-gpu-pick-b119.json) → [8规则/业务字段与原编号包](traces/CAP-01-07-gpu-pick-b119-v08.json) → [40+9规划合成](../docs/capabilities/CAP-01-07/gpu-pick-b119-fixtures-v08.json) → [Node检查入口](../tools/check_cap0107_gpu_pick_b119_v08.cjs)。官方Babylon GPU picking API与CPU默认过滤不同，渲染索引不可被当作D01/D03身份；W3C PE3 2026-06-30 Recommendation与WCAG2.2 2024-12-12定点实读。正式Owner与17真实消费者、L3、产品GPU仍未通过。规划PASS≠产品PASS。
+
 ## 2026-11-02｜B118 R-LEAD-LINK-001 G00与G61/G64路径门禁
 [8分级来源](sources/CAP-07-06-rapid-b118.json) → [8规则原包](traces/CAP-07-06-rapid-b118-v08.json) → [40正反/3解析](../docs/capabilities/CAP-07-06/rapid-b118-fixtures-v08.json) → [报告](../docs/capabilities/CAP-07-06/RAPID-PATH-B118-2026-11-02.md)。Haas与LinuxCNC快速轨迹不互推，NIST摘要/OCCT静态距离不等于D15安全。正式Owner与17消费者、L3、实机均待验。规划PASS≠产品PASS。
 

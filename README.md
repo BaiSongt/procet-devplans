@@ -1,3 +1,6 @@
+## 2026-11-02｜B119 CAP-01-07 GPU异步Pick/ThinInstance索引与跨Root过期防线
+[来源深度与实施契约](docs/capabilities/CAP-01-07/GPU-PICK-ID-B119-2026-11-02.md) → [6分级来源](research/sources/CAP-01-07-gpu-pick-b119.json) → [8规则字段/原编号包](research/traces/CAP-01-07-gpu-pick-b119-v08.json) → [40正反+9事件快照](docs/capabilities/CAP-01-07/gpu-pick-b119-fixtures-v08.json) → [只读Node入口](tools/check_cap0107_gpu_pick_b119_v08.cjs)。Babylon GPU picking的thinInstanceIndex是渲染槽位；切空间、更新PickList或重排实例后旧Promise必须STALE，不许偷换业务Occurrence。W3C PointerEvents3/cancel与WCAG拖拽替代分级引用。225 Registry/1713登记，Owner/消费者0/17；L3、全仓GFM AST、历史附件原字节未闭。**规划PASS≠产品PASS。**
+
 ## 2026-11-02｜B118 CAP-07-06 G00快速路径与D15验收隔离
 [研究/官方章节深度](docs/capabilities/CAP-07-06/RAPID-PATH-B118-2026-11-02.md) → [8来源](research/sources/CAP-07-06-rapid-b118.json) → [8规则字段原包](research/traces/CAP-07-06-rapid-b118-v08.json) → [40正反/3解析Golden](docs/capabilities/CAP-07-06/rapid-b118-fixtures-v08.json) → [Node校验入口](tools/check_cap0706_rapid_b118_v08.cjs)。Haas G00不一定单直线，LinuxCNC2.9协调G0及G61/G64不能互推；端点无碰≠全程认证。224 Registry/1707登记；真实Owner/消费者0/17、L3/GFM AST/原字节未闭。**规划PASS≠产品PASS。**
 

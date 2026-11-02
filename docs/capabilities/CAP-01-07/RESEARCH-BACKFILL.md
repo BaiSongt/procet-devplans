@@ -1,5 +1,8 @@
 # CAP-01-07｜工作台与3D交互：研究补证与可交接规格
 
+**B119补证（2026-11-02）**：[Babylon GPU异步Pick与Thin Instance身份隔离](GPU-PICK-ID-B119-2026-11-02.md)；[8字段规则](../../../research/traces/CAP-01-07-gpu-pick-b119-v08.json)、[40正反+9事件快照](gpu-pick-b119-fixtures-v08.json)。渲染索引、GPU缓存与旧异步回调不可代替D01/D03 ExactRef，L3/产品/真实消费者NOT_RUN。
+
+
 **2026-10-19 新编；已有第01批原规格保留原字节与 AT-01～08；L3待人工批准；产品、Electron、Babylon运行和独立消费者测试均 NOT_RUN。** 不增88项分母。
 
 [原规格](../batch01-v0.9.1/01_功能规格/CAP-01-07_工作台与3D交互.md)｜[研究专题](../../../research/topics/R-UI3D-001.md)｜[来源](../../../research/sources/CAP-01-07.json)｜[规则追踪](../../../research/traces/CAP-01-07.json)｜[正反场景](fixtures.json)
