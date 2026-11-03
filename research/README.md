@@ -1,3 +1,6 @@
+## 2026-11-03｜B128 R-WCS-MOTION-001：G10 L2/L20方言、G52/G92寄存器持久化
+[7条官方及本仓固定Blob/章节及局限](sources/CAP-08-03-wcs-offset-b128.json) → [8规则32字段原包](traces/CAP-08-03-wcs-offset-b128-v08.json) → [40正反/8解析标量Golden](../docs/capabilities/CAP-08-03/wcs-offset-b128-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-03/WCS-OFFSET-DIALECT-B128-2026-11-03.md)。LinuxCNC同出版物多节不算多篇，stable版本与2.9不等价；Haas Mill网页不能泛化OEM。真实D10寄存器、独立Node、Owner、L3和产品均未验证；规划PASS≠产品PASS。
+
 ## 2026-11-03｜B127 R-NC-AUX-001：Haas NGC与LinuxCNC刀长模态代际差异
 [7项官方/内生分级来源](sources/CAP-08-04-ngc-tlo-b127.json) → [8规则/32字段](traces/CAP-08-04-ngc-tlo-b127-v08.json) → [40正反+8合成Golden](../docs/capabilities/CAP-08-04/ngc-tlo-b127-fixtures-v08.json) → [研究与局限](../docs/capabilities/CAP-08-04/NGC-TLO-PERSIST-B127-2026-11-03.md)。Haas官方公开Group08 NOTE明确NGC固件版本差异；ISO13399只目录摘要，不声称全文；独立Node、真实OEM和签署未验。规划PASS≠产品PASS。
 
