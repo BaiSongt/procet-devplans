@@ -1,0 +1,381 @@
+{
+  "schemaVersion": "procet-b147-trace-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "workPackageId": "T5-03",
+  "capabilities": [
+    "CAP-01-04",
+    "CAP-01-07",
+    "CAP-09-06",
+    "CAP-10-03",
+    "CAP-10-08"
+  ],
+  "sourcePath": "research/sources/T5-03-consumer-qualification-b147.json",
+  "matrixPath": "docs/work-packages/T5-03/asset-consumer-matrix-b147-v08.json",
+  "fixturePath": "docs/work-packages/T5-03/consumer-qualification-b147-fixtures-v08.json",
+  "checkerPath": "tools/check_t503_consumers_b147_v08.cjs",
+  "reportPath": "docs/work-packages/T5-03/ASSET-CONSUMER-QUALIFICATION-B147-2026-11-04.md",
+  "originalWorkPackages": [
+    "T5-03",
+    "E3-06",
+    "B0-06",
+    "U4-05"
+  ],
+  "rules": [
+    {
+      "id": "B147-R01",
+      "description": "17资产ID与候选Owner枚举保持不变",
+      "failure": "ASSET_SET_MISMATCH",
+      "fields": [
+        "all17AssetsEnumerated",
+        "noDuplicateAssetId",
+        "baselineOwnerCandidateExact",
+        "ownerSignoffPending"
+      ],
+      "sourceIds": [
+        "B147-S05",
+        "B147-S03"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R01-P",
+        "B147-R01-N1",
+        "B147-R01-N2",
+        "B147-R01-N3",
+        "B147-R01-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "B147-R02",
+      "description": "每资产指定唯一生产者Owner Port与跨域读契约",
+      "failure": "OWNER_PORT_UNRESOLVED",
+      "fields": [
+        "producerPortDeclared",
+        "consumerPortDeclared",
+        "producerConsumerIdentityDistinct",
+        "commonOnlyMinimalIdentity"
+      ],
+      "sourceIds": [
+        "B147-S01",
+        "B147-S05"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R02-P",
+        "B147-R02-N1",
+        "B147-R02-N2",
+        "B147-R02-N3",
+        "B147-R02-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "B147-R03",
+      "description": "独立消费者具备可核进程/算法/Fixture来源",
+      "failure": "INDEPENDENCE_NOT_PROVEN",
+      "fields": [
+        "consumerIsSeparateImplementation",
+        "consumerExecutablePinned",
+        "oracleNotProducerSelfReported",
+        "positiveAndNegativeAcceptance"
+      ],
+      "sourceIds": [
+        "B147-S04",
+        "B147-S05"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R03-P",
+        "B147-R03-N1",
+        "B147-R03-N2",
+        "B147-R03-N3",
+        "B147-R03-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "B147-R04",
+      "description": "任何交接对象以exact Revision/hash/Frame及schema锁定",
+      "failure": "EXACT_REF_MISSING",
+      "fields": [
+        "revisionExactRequired",
+        "rawHashExactRequired",
+        "frameUnitScopeRequired",
+        "schemaAndAbiPinned"
+      ],
+      "sourceIds": [
+        "B147-S01",
+        "B147-S02",
+        "B147-S05"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R04-P",
+        "B147-R04-N1",
+        "B147-R04-N2",
+        "B147-R04-N3",
+        "B147-R04-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "B147-R05",
+      "description": "提交前CAS权限重验与取消晚回执必须拒绝",
+      "failure": "STALE_OR_REVOKED",
+      "fields": [
+        "expectedHeadCasStrong",
+        "aclScopeEpochRechecked",
+        "cancelAndGenerationRechecked",
+        "lateAckNeverPromoted"
+      ],
+      "sourceIds": [
+        "B147-S02",
+        "B147-S05"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R05-P",
+        "B147-R05-N1",
+        "B147-R05-N2",
+        "B147-R05-N3",
+        "B147-R05-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "B147-R06",
+      "description": "D04/D10与CL/NC链分层且UNKNOWN阻发布",
+      "failure": "NC_GATE_UNVERIFIED",
+      "fields": [
+        "d04D10Separation",
+        "d11ClOnlyNotD15",
+        "d12D13D14D15Chain",
+        "unknownBlocksD16"
+      ],
+      "sourceIds": [
+        "B147-S05"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R06-P",
+        "B147-R06-N1",
+        "B147-R06-N2",
+        "B147-R06-N3",
+        "B147-R06-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "B147-R07",
+      "description": "所有入口共域Owner且渲染只有单Babylon左容器",
+      "failure": "UI_PORT_DIVERGENCE",
+      "fields": [
+        "guiCliAgentSameDomainPort",
+        "singleBabylonWorld",
+        "leftUnifiedTaskPanel",
+        "previewNoBusinessWrite"
+      ],
+      "sourceIds": [
+        "B147-S05"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R07-P",
+        "B147-R07-N1",
+        "B147-R07-N2",
+        "B147-R07-N3",
+        "B147-R07-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "B147-R08",
+      "description": "真实签署/消费者仍未发生时不得由规划判为通过",
+      "failure": "FALSE_PRODUCT_ACCEPTANCE",
+      "fields": [
+        "humanSignoffNotSynthesized",
+        "consumerStatusNotRun",
+        "legacyReaderRollbackRetained",
+        "planningNeverProductPass"
+      ],
+      "sourceIds": [
+        "B147-S04",
+        "B147-S03",
+        "B147-S05"
+      ],
+      "workPackageId": "T5-03",
+      "assetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B147-R08-P",
+        "B147-R08-N1",
+        "B147-R08-N2",
+        "B147-R08-N3",
+        "B147-R08-N4"
+      ],
+      "level": "L3_PENDING_HUMAN",
+      "product": "NOT_RUN"
+    }
+  ],
+  "ownerSignoff": "0/17",
+  "independentConsumers": "0/17",
+  "planningPassNotProductPass": true
+}

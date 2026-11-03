@@ -1,0 +1,609 @@
+{
+  "schemaVersion": "procet-b147-fixtures-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "note": "构造性规则布尔旗仅检规划契约；不是模拟签名、真实消费者或真实业务Owner读写",
+  "cases": [
+    {
+      "id": "B147-R01-P",
+      "ruleId": "B147-R01",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "all17AssetsEnumerated": true,
+        "noDuplicateAssetId": true,
+        "baselineOwnerCandidateExact": true,
+        "ownerSignoffPending": true
+      }
+    },
+    {
+      "id": "B147-R01-N1",
+      "ruleId": "B147-R01",
+      "expected": "ASSET_SET_MISMATCH",
+      "changedField": "all17AssetsEnumerated",
+      "values": {
+        "all17AssetsEnumerated": false,
+        "noDuplicateAssetId": true,
+        "baselineOwnerCandidateExact": true,
+        "ownerSignoffPending": true
+      }
+    },
+    {
+      "id": "B147-R01-N2",
+      "ruleId": "B147-R01",
+      "expected": "ASSET_SET_MISMATCH",
+      "changedField": "noDuplicateAssetId",
+      "values": {
+        "all17AssetsEnumerated": true,
+        "noDuplicateAssetId": false,
+        "baselineOwnerCandidateExact": true,
+        "ownerSignoffPending": true
+      }
+    },
+    {
+      "id": "B147-R01-N3",
+      "ruleId": "B147-R01",
+      "expected": "ASSET_SET_MISMATCH",
+      "changedField": "baselineOwnerCandidateExact",
+      "values": {
+        "all17AssetsEnumerated": true,
+        "noDuplicateAssetId": true,
+        "baselineOwnerCandidateExact": false,
+        "ownerSignoffPending": true
+      }
+    },
+    {
+      "id": "B147-R01-N4",
+      "ruleId": "B147-R01",
+      "expected": "ASSET_SET_MISMATCH",
+      "changedField": "ownerSignoffPending",
+      "values": {
+        "all17AssetsEnumerated": true,
+        "noDuplicateAssetId": true,
+        "baselineOwnerCandidateExact": true,
+        "ownerSignoffPending": false
+      }
+    },
+    {
+      "id": "B147-R02-P",
+      "ruleId": "B147-R02",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "producerPortDeclared": true,
+        "consumerPortDeclared": true,
+        "producerConsumerIdentityDistinct": true,
+        "commonOnlyMinimalIdentity": true
+      }
+    },
+    {
+      "id": "B147-R02-N1",
+      "ruleId": "B147-R02",
+      "expected": "OWNER_PORT_UNRESOLVED",
+      "changedField": "producerPortDeclared",
+      "values": {
+        "producerPortDeclared": false,
+        "consumerPortDeclared": true,
+        "producerConsumerIdentityDistinct": true,
+        "commonOnlyMinimalIdentity": true
+      }
+    },
+    {
+      "id": "B147-R02-N2",
+      "ruleId": "B147-R02",
+      "expected": "OWNER_PORT_UNRESOLVED",
+      "changedField": "consumerPortDeclared",
+      "values": {
+        "producerPortDeclared": true,
+        "consumerPortDeclared": false,
+        "producerConsumerIdentityDistinct": true,
+        "commonOnlyMinimalIdentity": true
+      }
+    },
+    {
+      "id": "B147-R02-N3",
+      "ruleId": "B147-R02",
+      "expected": "OWNER_PORT_UNRESOLVED",
+      "changedField": "producerConsumerIdentityDistinct",
+      "values": {
+        "producerPortDeclared": true,
+        "consumerPortDeclared": true,
+        "producerConsumerIdentityDistinct": false,
+        "commonOnlyMinimalIdentity": true
+      }
+    },
+    {
+      "id": "B147-R02-N4",
+      "ruleId": "B147-R02",
+      "expected": "OWNER_PORT_UNRESOLVED",
+      "changedField": "commonOnlyMinimalIdentity",
+      "values": {
+        "producerPortDeclared": true,
+        "consumerPortDeclared": true,
+        "producerConsumerIdentityDistinct": true,
+        "commonOnlyMinimalIdentity": false
+      }
+    },
+    {
+      "id": "B147-R03-P",
+      "ruleId": "B147-R03",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "consumerIsSeparateImplementation": true,
+        "consumerExecutablePinned": true,
+        "oracleNotProducerSelfReported": true,
+        "positiveAndNegativeAcceptance": true
+      }
+    },
+    {
+      "id": "B147-R03-N1",
+      "ruleId": "B147-R03",
+      "expected": "INDEPENDENCE_NOT_PROVEN",
+      "changedField": "consumerIsSeparateImplementation",
+      "values": {
+        "consumerIsSeparateImplementation": false,
+        "consumerExecutablePinned": true,
+        "oracleNotProducerSelfReported": true,
+        "positiveAndNegativeAcceptance": true
+      }
+    },
+    {
+      "id": "B147-R03-N2",
+      "ruleId": "B147-R03",
+      "expected": "INDEPENDENCE_NOT_PROVEN",
+      "changedField": "consumerExecutablePinned",
+      "values": {
+        "consumerIsSeparateImplementation": true,
+        "consumerExecutablePinned": false,
+        "oracleNotProducerSelfReported": true,
+        "positiveAndNegativeAcceptance": true
+      }
+    },
+    {
+      "id": "B147-R03-N3",
+      "ruleId": "B147-R03",
+      "expected": "INDEPENDENCE_NOT_PROVEN",
+      "changedField": "oracleNotProducerSelfReported",
+      "values": {
+        "consumerIsSeparateImplementation": true,
+        "consumerExecutablePinned": true,
+        "oracleNotProducerSelfReported": false,
+        "positiveAndNegativeAcceptance": true
+      }
+    },
+    {
+      "id": "B147-R03-N4",
+      "ruleId": "B147-R03",
+      "expected": "INDEPENDENCE_NOT_PROVEN",
+      "changedField": "positiveAndNegativeAcceptance",
+      "values": {
+        "consumerIsSeparateImplementation": true,
+        "consumerExecutablePinned": true,
+        "oracleNotProducerSelfReported": true,
+        "positiveAndNegativeAcceptance": false
+      }
+    },
+    {
+      "id": "B147-R04-P",
+      "ruleId": "B147-R04",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "revisionExactRequired": true,
+        "rawHashExactRequired": true,
+        "frameUnitScopeRequired": true,
+        "schemaAndAbiPinned": true
+      }
+    },
+    {
+      "id": "B147-R04-N1",
+      "ruleId": "B147-R04",
+      "expected": "EXACT_REF_MISSING",
+      "changedField": "revisionExactRequired",
+      "values": {
+        "revisionExactRequired": false,
+        "rawHashExactRequired": true,
+        "frameUnitScopeRequired": true,
+        "schemaAndAbiPinned": true
+      }
+    },
+    {
+      "id": "B147-R04-N2",
+      "ruleId": "B147-R04",
+      "expected": "EXACT_REF_MISSING",
+      "changedField": "rawHashExactRequired",
+      "values": {
+        "revisionExactRequired": true,
+        "rawHashExactRequired": false,
+        "frameUnitScopeRequired": true,
+        "schemaAndAbiPinned": true
+      }
+    },
+    {
+      "id": "B147-R04-N3",
+      "ruleId": "B147-R04",
+      "expected": "EXACT_REF_MISSING",
+      "changedField": "frameUnitScopeRequired",
+      "values": {
+        "revisionExactRequired": true,
+        "rawHashExactRequired": true,
+        "frameUnitScopeRequired": false,
+        "schemaAndAbiPinned": true
+      }
+    },
+    {
+      "id": "B147-R04-N4",
+      "ruleId": "B147-R04",
+      "expected": "EXACT_REF_MISSING",
+      "changedField": "schemaAndAbiPinned",
+      "values": {
+        "revisionExactRequired": true,
+        "rawHashExactRequired": true,
+        "frameUnitScopeRequired": true,
+        "schemaAndAbiPinned": false
+      }
+    },
+    {
+      "id": "B147-R05-P",
+      "ruleId": "B147-R05",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "expectedHeadCasStrong": true,
+        "aclScopeEpochRechecked": true,
+        "cancelAndGenerationRechecked": true,
+        "lateAckNeverPromoted": true
+      }
+    },
+    {
+      "id": "B147-R05-N1",
+      "ruleId": "B147-R05",
+      "expected": "STALE_OR_REVOKED",
+      "changedField": "expectedHeadCasStrong",
+      "values": {
+        "expectedHeadCasStrong": false,
+        "aclScopeEpochRechecked": true,
+        "cancelAndGenerationRechecked": true,
+        "lateAckNeverPromoted": true
+      }
+    },
+    {
+      "id": "B147-R05-N2",
+      "ruleId": "B147-R05",
+      "expected": "STALE_OR_REVOKED",
+      "changedField": "aclScopeEpochRechecked",
+      "values": {
+        "expectedHeadCasStrong": true,
+        "aclScopeEpochRechecked": false,
+        "cancelAndGenerationRechecked": true,
+        "lateAckNeverPromoted": true
+      }
+    },
+    {
+      "id": "B147-R05-N3",
+      "ruleId": "B147-R05",
+      "expected": "STALE_OR_REVOKED",
+      "changedField": "cancelAndGenerationRechecked",
+      "values": {
+        "expectedHeadCasStrong": true,
+        "aclScopeEpochRechecked": true,
+        "cancelAndGenerationRechecked": false,
+        "lateAckNeverPromoted": true
+      }
+    },
+    {
+      "id": "B147-R05-N4",
+      "ruleId": "B147-R05",
+      "expected": "STALE_OR_REVOKED",
+      "changedField": "lateAckNeverPromoted",
+      "values": {
+        "expectedHeadCasStrong": true,
+        "aclScopeEpochRechecked": true,
+        "cancelAndGenerationRechecked": true,
+        "lateAckNeverPromoted": false
+      }
+    },
+    {
+      "id": "B147-R06-P",
+      "ruleId": "B147-R06",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "d04D10Separation": true,
+        "d11ClOnlyNotD15": true,
+        "d12D13D14D15Chain": true,
+        "unknownBlocksD16": true
+      }
+    },
+    {
+      "id": "B147-R06-N1",
+      "ruleId": "B147-R06",
+      "expected": "NC_GATE_UNVERIFIED",
+      "changedField": "d04D10Separation",
+      "values": {
+        "d04D10Separation": false,
+        "d11ClOnlyNotD15": true,
+        "d12D13D14D15Chain": true,
+        "unknownBlocksD16": true
+      }
+    },
+    {
+      "id": "B147-R06-N2",
+      "ruleId": "B147-R06",
+      "expected": "NC_GATE_UNVERIFIED",
+      "changedField": "d11ClOnlyNotD15",
+      "values": {
+        "d04D10Separation": true,
+        "d11ClOnlyNotD15": false,
+        "d12D13D14D15Chain": true,
+        "unknownBlocksD16": true
+      }
+    },
+    {
+      "id": "B147-R06-N3",
+      "ruleId": "B147-R06",
+      "expected": "NC_GATE_UNVERIFIED",
+      "changedField": "d12D13D14D15Chain",
+      "values": {
+        "d04D10Separation": true,
+        "d11ClOnlyNotD15": true,
+        "d12D13D14D15Chain": false,
+        "unknownBlocksD16": true
+      }
+    },
+    {
+      "id": "B147-R06-N4",
+      "ruleId": "B147-R06",
+      "expected": "NC_GATE_UNVERIFIED",
+      "changedField": "unknownBlocksD16",
+      "values": {
+        "d04D10Separation": true,
+        "d11ClOnlyNotD15": true,
+        "d12D13D14D15Chain": true,
+        "unknownBlocksD16": false
+      }
+    },
+    {
+      "id": "B147-R07-P",
+      "ruleId": "B147-R07",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "guiCliAgentSameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "previewNoBusinessWrite": true
+      }
+    },
+    {
+      "id": "B147-R07-N1",
+      "ruleId": "B147-R07",
+      "expected": "UI_PORT_DIVERGENCE",
+      "changedField": "guiCliAgentSameDomainPort",
+      "values": {
+        "guiCliAgentSameDomainPort": false,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "previewNoBusinessWrite": true
+      }
+    },
+    {
+      "id": "B147-R07-N2",
+      "ruleId": "B147-R07",
+      "expected": "UI_PORT_DIVERGENCE",
+      "changedField": "singleBabylonWorld",
+      "values": {
+        "guiCliAgentSameDomainPort": true,
+        "singleBabylonWorld": false,
+        "leftUnifiedTaskPanel": true,
+        "previewNoBusinessWrite": true
+      }
+    },
+    {
+      "id": "B147-R07-N3",
+      "ruleId": "B147-R07",
+      "expected": "UI_PORT_DIVERGENCE",
+      "changedField": "leftUnifiedTaskPanel",
+      "values": {
+        "guiCliAgentSameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": false,
+        "previewNoBusinessWrite": true
+      }
+    },
+    {
+      "id": "B147-R07-N4",
+      "ruleId": "B147-R07",
+      "expected": "UI_PORT_DIVERGENCE",
+      "changedField": "previewNoBusinessWrite",
+      "values": {
+        "guiCliAgentSameDomainPort": true,
+        "singleBabylonWorld": true,
+        "leftUnifiedTaskPanel": true,
+        "previewNoBusinessWrite": false
+      }
+    },
+    {
+      "id": "B147-R08-P",
+      "ruleId": "B147-R08",
+      "expected": "PLANNING_CANDIDATE_ONLY",
+      "values": {
+        "humanSignoffNotSynthesized": true,
+        "consumerStatusNotRun": true,
+        "legacyReaderRollbackRetained": true,
+        "planningNeverProductPass": true
+      }
+    },
+    {
+      "id": "B147-R08-N1",
+      "ruleId": "B147-R08",
+      "expected": "FALSE_PRODUCT_ACCEPTANCE",
+      "changedField": "humanSignoffNotSynthesized",
+      "values": {
+        "humanSignoffNotSynthesized": false,
+        "consumerStatusNotRun": true,
+        "legacyReaderRollbackRetained": true,
+        "planningNeverProductPass": true
+      }
+    },
+    {
+      "id": "B147-R08-N2",
+      "ruleId": "B147-R08",
+      "expected": "FALSE_PRODUCT_ACCEPTANCE",
+      "changedField": "consumerStatusNotRun",
+      "values": {
+        "humanSignoffNotSynthesized": true,
+        "consumerStatusNotRun": false,
+        "legacyReaderRollbackRetained": true,
+        "planningNeverProductPass": true
+      }
+    },
+    {
+      "id": "B147-R08-N3",
+      "ruleId": "B147-R08",
+      "expected": "FALSE_PRODUCT_ACCEPTANCE",
+      "changedField": "legacyReaderRollbackRetained",
+      "values": {
+        "humanSignoffNotSynthesized": true,
+        "consumerStatusNotRun": true,
+        "legacyReaderRollbackRetained": false,
+        "planningNeverProductPass": true
+      }
+    },
+    {
+      "id": "B147-R08-N4",
+      "ruleId": "B147-R08",
+      "expected": "FALSE_PRODUCT_ACCEPTANCE",
+      "changedField": "planningNeverProductPass",
+      "values": {
+        "humanSignoffNotSynthesized": true,
+        "consumerStatusNotRun": true,
+        "legacyReaderRollbackRetained": true,
+        "planningNeverProductPass": false
+      }
+    }
+  ],
+  "assetChecks": [
+    {
+      "assetId": "D01",
+      "consumerAssetId": "D04",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D02",
+      "consumerAssetId": "D05",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D03",
+      "consumerAssetId": "D04",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D04",
+      "consumerAssetId": "D05",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D05",
+      "consumerAssetId": "D06",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D06",
+      "consumerAssetId": "D05",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D07",
+      "consumerAssetId": "D09",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D08",
+      "consumerAssetId": "D09",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D09",
+      "consumerAssetId": "D11",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D10",
+      "consumerAssetId": "D13",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D11",
+      "consumerAssetId": "D16",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D12",
+      "consumerAssetId": "D15",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D13",
+      "consumerAssetId": "D14",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D14",
+      "consumerAssetId": "D15",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D15",
+      "consumerAssetId": "D16",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D16",
+      "consumerAssetId": "D17",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    },
+    {
+      "assetId": "D17",
+      "consumerAssetId": "D05",
+      "expected": "MATRIX_DECLARATION_ONLY"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "G01",
+      "event": "owner_unsigned",
+      "expected": "NO_PRODUCT_PASS"
+    },
+    {
+      "id": "G02",
+      "event": "consumer_not_run",
+      "expected": "NO_PRODUCT_PASS"
+    },
+    {
+      "id": "G03",
+      "event": "d11_cl_only",
+      "expected": "REJECT_NC_PROMOTION"
+    },
+    {
+      "id": "G04",
+      "event": "d13_unknown",
+      "expected": "BLOCK_D16"
+    },
+    {
+      "id": "G05",
+      "event": "cancel_late_ack",
+      "expected": "REJECT_COMMIT"
+    },
+    {
+      "id": "G06",
+      "event": "cas_old_head",
+      "expected": "REJECT_STALE"
+    },
+    {
+      "id": "G07",
+      "event": "d04_without_d10",
+      "expected": "UNKNOWN_EXECUTION_BINDING"
+    },
+    {
+      "id": "G08",
+      "event": "old_reader_migration_fail",
+      "expected": "ROLLBACK_READER_NO_OVERWRITE"
+    }
+  ]
+}

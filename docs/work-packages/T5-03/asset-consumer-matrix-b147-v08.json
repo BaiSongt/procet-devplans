@@ -1,0 +1,554 @@
+{
+  "schemaVersion": "procet-t503-asset-consumer-matrix-b147-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "reference": {
+    "sourcePath": "docs/architecture/v0.8/business-assets.json",
+    "sourceBlob": "dad461aec34aefa773a9a22b07b6b742be60e052",
+    "workPackageId": "T5-03",
+    "baseHead": "337a17c80cbe06a833b193b6aa71471d99a3ceda"
+  },
+  "declarationOnly": true,
+  "producerSignedCount": 0,
+  "independentConsumerPassCount": 0,
+  "requiredExactContractFields": [
+    "objectId",
+    "revision",
+    "hashAlgorithm",
+    "rawContentHash",
+    "schemaVersion",
+    "frameId",
+    "unit",
+    "scopeEpoch",
+    "producerPort",
+    "consumerPort",
+    "consumerBuildHash",
+    "expectedHeadCas",
+    "aclPolicyVersion",
+    "taskGeneration",
+    "cancelGeneration"
+  ],
+  "entries": [
+    {
+      "assetId": "D01",
+      "assetName": "设计基线与制造目标",
+      "ownerCandidate": "03 CAD / PMI 与制造特征",
+      "producerPort": "03.DesignBaselineOwnerPort",
+      "consumerAssetId": "D04",
+      "consumerOwnerCandidate": "04 装夹与坐标系",
+      "consumerPort": "04.ProcessSetupOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [],
+      "downstreamAssetIds": [
+        "D02",
+        "D04",
+        "D05",
+        "D06"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D02",
+      "assetName": "制造特征与加工要求",
+      "ownerCandidate": "03 CAD / PMI 与制造特征",
+      "producerPort": "03.FeatureOwnerPort",
+      "consumerAssetId": "D05",
+      "consumerOwnerCandidate": "05 工艺规划",
+      "consumerPort": "05.PlanOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D01"
+      ],
+      "downstreamAssetIds": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D03",
+      "assetName": "制造资源能力档案",
+      "ownerCandidate": "02 制造资源",
+      "producerPort": "02.ManufacturingResourceOwnerPort",
+      "consumerAssetId": "D04",
+      "consumerOwnerCandidate": "04 装夹与坐标系",
+      "consumerPort": "04.ProcessSetupOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [],
+      "downstreamAssetIds": [
+        "D04",
+        "D06",
+        "D09",
+        "D10"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D04",
+      "assetName": "工艺 Setup 与毛坯",
+      "ownerCandidate": "04 装夹与坐标系",
+      "producerPort": "04.ProcessSetupOwnerPort",
+      "consumerAssetId": "D05",
+      "consumerOwnerCandidate": "05 工艺规划",
+      "consumerPort": "05.PlanOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D01",
+        "D03"
+      ],
+      "downstreamAssetIds": [
+        "D05",
+        "D06",
+        "D07",
+        "D09",
+        "D10"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D05",
+      "assetName": "工艺规划与人工决策",
+      "ownerCandidate": "05 工艺规划",
+      "producerPort": "05.PlanOwnerPort",
+      "consumerAssetId": "D06",
+      "consumerOwnerCandidate": "06 工艺与几何求解",
+      "consumerPort": "06.SolverCandidateOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D01",
+        "D02",
+        "D04",
+        "D06",
+        "D07",
+        "D17"
+      ],
+      "downstreamAssetIds": [
+        "D06",
+        "D08"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D06",
+      "assetName": "求解候选与搜索结果",
+      "ownerCandidate": "06 工艺与几何求解",
+      "producerPort": "06.SolverCandidateOwnerPort",
+      "consumerAssetId": "D05",
+      "consumerOwnerCandidate": "05 工艺规划",
+      "consumerPort": "05.PlanOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D17"
+      ],
+      "downstreamAssetIds": [
+        "D05",
+        "D07",
+        "D08"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D07",
+      "assetName": "有序材料状态与局部几何",
+      "ownerCandidate": "06 工艺与几何求解",
+      "producerPort": "06.MaterialStateOwnerPort",
+      "consumerAssetId": "D09",
+      "consumerOwnerCandidate": "07 CAM 刀路",
+      "consumerPort": "07.ClOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D04",
+        "D06"
+      ],
+      "downstreamAssetIds": [
+        "D05",
+        "D08",
+        "D09"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D08",
+      "assetName": "工艺确认与冻结快照",
+      "ownerCandidate": "05 工艺规划",
+      "producerPort": "05.FreezeOwnerPort",
+      "consumerAssetId": "D09",
+      "consumerOwnerCandidate": "07 CAM 刀路",
+      "consumerPort": "07.ClOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D02",
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "downstreamAssetIds": [
+        "D09",
+        "D16"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D09",
+      "assetName": "中立刀路 CL",
+      "ownerCandidate": "07 CAM 刀路",
+      "producerPort": "07.ClOwnerPort",
+      "consumerAssetId": "D11",
+      "consumerOwnerCandidate": "09 机床运动与工程验证",
+      "consumerPort": "09.ClPrecheckOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D03",
+        "D04",
+        "D07",
+        "D08"
+      ],
+      "downstreamAssetIds": [
+        "D11",
+        "D12"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D10",
+      "assetName": "机床执行配置",
+      "ownerCandidate": "04 装夹与坐标系（引用 02 制造资源）",
+      "producerPort": "04.ExecutionBindingOwnerPort",
+      "consumerAssetId": "D13",
+      "consumerOwnerCandidate": "08 NC 与后处理 · NC 执行适配",
+      "consumerPort": "08.NcInterpreterOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D03",
+        "D04"
+      ],
+      "downstreamAssetIds": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D11",
+      "assetName": "CL 级运动预验证",
+      "ownerCandidate": "09 机床运动与工程验证",
+      "producerPort": "09.ClPrecheckOwnerPort",
+      "consumerAssetId": "D16",
+      "consumerOwnerCandidate": "10 程序发布与现场协同",
+      "consumerPort": "10.ReleaseOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D09",
+        "D10"
+      ],
+      "downstreamAssetIds": [
+        "D16"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D12",
+      "assetName": "NC 程序与后处理记录",
+      "ownerCandidate": "08 NC 与后处理 · NC 生成",
+      "producerPort": "08.NcArtifactOwnerPort",
+      "consumerAssetId": "D15",
+      "consumerOwnerCandidate": "09 机床运动与工程验证 · 程序验证",
+      "consumerPort": "09.NcVerificationOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D09",
+        "D10"
+      ],
+      "downstreamAssetIds": [
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D13",
+      "assetName": "NC 控制器执行语义",
+      "ownerCandidate": "08 NC 与后处理 · NC 执行适配",
+      "producerPort": "08.NcInterpreterOwnerPort",
+      "consumerAssetId": "D14",
+      "consumerOwnerCandidate": "09 机床运动与工程验证 · 运动学展开",
+      "consumerPort": "09.JointTraceOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D10",
+        "D12"
+      ],
+      "downstreamAssetIds": [
+        "D14",
+        "D15"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D14",
+      "assetName": "机床轴运动时序",
+      "ownerCandidate": "09 机床运动与工程验证 · 运动学展开",
+      "producerPort": "09.JointTraceOwnerPort",
+      "consumerAssetId": "D15",
+      "consumerOwnerCandidate": "09 机床运动与工程验证 · 程序验证",
+      "consumerPort": "09.NcVerificationOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D10",
+        "D13"
+      ],
+      "downstreamAssetIds": [
+        "D15"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D15",
+      "assetName": "NC 程序级仿真与验证记录",
+      "ownerCandidate": "09 机床运动与工程验证 · 程序验证",
+      "producerPort": "09.NcVerificationOwnerPort",
+      "consumerAssetId": "D16",
+      "consumerOwnerCandidate": "10 程序发布与现场协同",
+      "consumerPort": "10.ReleaseOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "downstreamAssetIds": [
+        "D16"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D16",
+      "assetName": "程序发布与审批包",
+      "ownerCandidate": "10 程序发布与现场协同",
+      "producerPort": "10.ReleaseOwnerPort",
+      "consumerAssetId": "D17",
+      "consumerOwnerCandidate": "10 程序发布与现场协同",
+      "consumerPort": "10.FieldFeedbackOwnerPort.readExact",
+      "independence": "INDEPENDENT_IMPLEMENTATION_WITHIN_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D08",
+        "D11",
+        "D12",
+        "D15"
+      ],
+      "downstreamAssetIds": [
+        "D17"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    },
+    {
+      "assetId": "D17",
+      "assetName": "现场执行与检测反馈",
+      "ownerCandidate": "10 程序发布与现场协同",
+      "producerPort": "10.FieldFeedbackOwnerPort",
+      "consumerAssetId": "D05",
+      "consumerOwnerCandidate": "05 工艺规划",
+      "consumerPort": "05.PlanOwnerPort.readExact",
+      "independence": "INDEPENDENT_CROSS_DOMAIN_REQUIRED",
+      "upstreamAssetIds": [
+        "D16"
+      ],
+      "downstreamAssetIds": [
+        "D05",
+        "D06"
+      ],
+      "signoff": "PENDING_HUMAN",
+      "consumerTest": "NOT_RUN",
+      "consumerExecutable": "NOT_ASSIGNED",
+      "realBusinessRevisionHashFrame": "NOT_SUPPLIED",
+      "positiveAcceptance": "exact_source_can_be_consumed_by_distinct_reader",
+      "negativeAcceptance": [
+        "wrong_revision_or_hash_reject",
+        "frame_or_schema_unknown",
+        "acl_revoked_or_cancelled_reject",
+        "legacy_reader_rollback_preserves_old"
+      ]
+    }
+  ],
+  "globalGuards": {
+    "d04NominalSetupIsNotD10ExecutionBinding": true,
+    "d11ClOnlyIsNotD15": true,
+    "d12D13D14D15IndependentChain": true,
+    "d16BlocksUnknown": true,
+    "guiCliAgentSameOwnerPort": true,
+    "oneBabylonScene": true,
+    "leftUnifiedTaskPanel": true,
+    "publicRepoNoPrivateRuntimeHashes": true
+  }
+}

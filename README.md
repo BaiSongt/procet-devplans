@@ -1,3 +1,6 @@
+## 2026-11-04｜B147 T5-03 17资产Owner/独立消费者独立资格矩阵
+[研究与阅读局限](docs/work-packages/T5-03/ASSET-CONSUMER-QUALIFICATION-B147-2026-11-04.md) → [5来源](research/sources/T5-03-consumer-qualification-b147.json) → [8规则32字段](research/traces/T5-03-consumer-qualification-b147-v08.json) → [17资产声明](docs/work-packages/T5-03/asset-consumer-matrix-b147-v08.json) → [8正32单字段反+17资产+8Goldens](docs/work-packages/T5-03/consumer-qualification-b147-fixtures-v08.json) → [Node只读规划入口](tools/check_t503_consumers_b147_v08.cjs)。完成正式会签/消费者**准备契约**，不制造签名。内存静态40正反与17矩阵结构符合预期；独立Node文件进程、真正17消费者/Owner、L3与产品均未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B146 CAP-02-06 在机热漂移模型与测量/NC资格隔离
 [专项研究与阅读限制](docs/capabilities/CAP-02-06/THERMAL-DRIFT-BOUNDARY-B146-2026-11-04.md) → [7来源](research/sources/CAP-02-06-thermal-drift-b146.json) → [8规则/32字段](research/traces/CAP-02-06-thermal-drift-b146-v08.json) → [8正32独立单字段反+8Golden](docs/capabilities/CAP-02-06/thermal-drift-b146-fixtures-v08.json) → [Node只读入口](tools/check_cap0206_thermal_drift_b146_v08.cjs) → [验证记录](tracking/cap0206-thermal-drift-b146-verification-2026-11-04.json)。NIST2026仅著录摘要、ISO230-3仅公开目录；D03资源热漂移预测不冒充D17实际计量结果，也不替代最终NC D13→D14→D15→D16。48/48仅内存合成；独立Node、量仪/NC、17 Owner/消费者、L3、历史原字节和全仓GFM AST仍未验。**规划PASS≠产品PASS。**
 

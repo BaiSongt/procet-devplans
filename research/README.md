@@ -1,3 +1,6 @@
+## 2026-11-04｜B147 T5-03 17资产消费者验收分级研究
+[5来源/访问深度](sources/T5-03-consumer-qualification-b147.json) → [8规则/32字段](traces/T5-03-consumer-qualification-b147-v08.json) → [17资产Owner/Consumer候选](../docs/work-packages/T5-03/asset-consumer-matrix-b147-v08.json) → [57项构造性与状态断言](../docs/work-packages/T5-03/consumer-qualification-b147-fixtures-v08.json) → [专项报告](../docs/work-packages/T5-03/ASSET-CONSUMER-QUALIFICATION-B147-2026-11-04.md)。RFC9110 §13.1.1可用于强前置条件的设计类比；NIST SP800-218只读官方摘要，JSON Schema官方版本概览实读，W3C仅来源概念；Owner正式签署0/17、独立消费者0/17，产品和L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B146 R-MET-001 在机热漂移/补偿证据资格
 [7条来源与实际阅读深度](sources/CAP-02-06-thermal-drift-b146.json) → [8规则与原F1-01/F1-02](traces/CAP-02-06-thermal-drift-b146-v08.json) → [48项正反/数学/状态合成](../docs/capabilities/CAP-02-06/thermal-drift-b146-fixtures-v08.json) → [研究范围](../docs/capabilities/CAP-02-06/THERMAL-DRIFT-BOUNDARY-B146-2026-11-04.md)。NIST 2026论文与2023论文仅NIST摘要，ISO230-3:2020只看公开目录，BIPM仅目录/DOI摘要，W3C公开摘要；规则中Owner/NC均为Procet内生约束。真实计量/NC/Owner及17消费者NOT_RUN、L3待审，规划PASS≠产品PASS。
 
