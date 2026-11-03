@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "procet-b136-cross-domain-handoff-v08",
+  "date": "2026-11-03",
+  "origin": "NEWLY_AUTHORED",
+  "sourceHead": "724355d2a221ae59e607e719499dcdfd8d597438",
+  "capability": "CAP-07-02",
+  "workPackages": [
+    "F1-03",
+    "E3-01",
+    "U4-04"
+  ],
+  "sourceToRuleToFieldToTest": {
+    "sources": "research/sources/CAP-07-02-scallop-boundary-b136.json",
+    "rules": "research/traces/CAP-07-02-scallop-boundary-b136-v08.json",
+    "fixtures": "docs/capabilities/CAP-07-02/scallop-boundary-b136-fixtures-v08.json",
+    "checker": "tools/check_cap0702_scallop_boundary_b136_v08.cjs"
+  },
+  "dataAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "domainOwner": "07.ToolpathOwnerPort (candidate only; PENDING_HUMAN)",
+  "exactInputs": [
+    "D01.geometrySHA/frame",
+    "D02.finishToleranceRev",
+    "D03.ballRadius/toolAssemblySHA",
+    "D04.nominalSetupRev/frame",
+    "D07.orderedStockRev",
+    "D08.frozenPlanRev"
+  ],
+  "readers": [
+    "GUI",
+    "CLI",
+    "Agent"
+  ],
+  "singleBabylonWorld": true,
+  "leftUnifiedTaskPanel": true,
+  "executionOrder": [
+    "D09-neutralCL",
+    "D12-finalNC",
+    "D13-controllerSemantic",
+    "D14-jointTimeline",
+    "D15-independentEvidence",
+    "D16-approval"
+  ],
+  "forbiddenPromotions": [
+    "analyticScallop=>measuredRa",
+    "flatScallop=>freeformCertified",
+    "CL-only=>D15-pass",
+    "3dAnimation=>MachinePass"
+  ],
+  "negativeEvidence": [
+    "nonball tool",
+    "bad radius",
+    "s>=2R",
+    "curved trimmed surface unverified",
+    "lost tool assembly provenance",
+    "D07 cross setup",
+    "ACL revoked",
+    "cancel late Ack",
+    "unknown OEM controller"
+  ],
+  "consumerTests": {
+    "status": "NOT_RUN",
+    "needed": "Independent OCCT/CAM and surface metrology consumer, then independent final-NC D13/D14/D15 and human L3"
+  },
+  "migration": "paired Reader, no overwrite D08 frozen or D16 released; original historic byte gaps still open"
+}

@@ -1,3 +1,5 @@
+> **B136研究增量（2026-11-03）**：[球头理想平面残高定义域与曲面独立Oracle](SCALLOP-BOUNDARY-B136-2026-11-03.md) → [7来源](../../../research/sources/CAP-07-02-scallop-boundary-b136.json) → [8规则与原F1-03/E3-01/U4-04](../../../research/traces/CAP-07-02-scallop-boundary-b136-v08.json) → [40正反+9数学/资格Golden](scallop-boundary-b136-fixtures-v08.json)。与B92 TrimFace补证互补；真实OCCT/测量/NC、Owner和消费者及L3均未通过。**规划PASS≠产品PASS**。
+
 # CAP-07-02｜三轴曲面加工：等高、平行、清根与残料
 **依据：** [原88项V0.8映射](../../architecture/v0.8/03_三级能力映射_88项.md)中07域CAP-07-02的原始表述；**阶段：L3待审的设计规格，不是功能开发/产品验收**。上一项[CAP-07-01](../CAP-07-01/README.md)的2.5D刀路契约提供可复用中立CL输出，但**不推导三轴自由曲面已实现**。
 

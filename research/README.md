@@ -1,3 +1,6 @@
+## 2026-11-03｜B136 R-3AXIS-SURFACE-001 理想平面残高与曲面/实测Ra分层
+[7条来源的作者版本/访问深度](sources/CAP-07-02-scallop-boundary-b136.json) → [8规则字段及原包](traces/CAP-07-02-scallop-boundary-b136-v08.json) → [40正反9数学/资格Golden](../docs/capabilities/CAP-07-02/scallop-boundary-b136-fixtures-v08.json) → [数学/实施/风险报告](../docs/capabilities/CAP-07-02/SCALLOP-BOUNDARY-B136-2026-11-03.md)。NIST/SAGE仅摘要、1994原论文仅二级索引；理想球头平面公式不授三轴自由曲面D15/D16或实测Ra产品验收。**规划PASS≠产品PASS**。
+
 ## 2026-11-03｜B135 R-NC-SOURCE-EDIT-001：Block Delete与M01模式快照
 [7条合法来源与真实阅读层级](sources/CAP-08-06-block-mode-b135.json) → [8项字段级规则](traces/CAP-08-06-block-mode-b135-v08.json) → [40正反及13语义Golden](../docs/capabilities/CAP-08-06/block-mode-b135-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-08-06/BLOCK-MODE-B135-2026-11-03.md)。Haas M01页只官方搜索摘要，其他指定HTML可核；不冒称完整OEM固件/现场开关/实际机床测试。**规划PASS≠产品PASS。**
 
