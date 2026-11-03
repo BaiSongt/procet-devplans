@@ -1,3 +1,6 @@
+## 2026-11-04｜B149 R-OFFLINE-MEDIA-001 离线介质写入耐久、拔插与独立接收证据
+[5条来源/章节/局限](sources/CAP-10-03-durable-media-b149.json) → [8规则32字段](traces/CAP-10-03-durable-media-b149-v08.json) → [8正32独立单字段反+8状态Golden](../docs/capabilities/CAP-10-03/durable-media-b149-fixtures-v08.json) → [专项正文](../docs/capabilities/CAP-10-03/DURABLE-MEDIA-B149-2026-11-04.md)。Microsoft官方Flush及移除策略、Linux man-pages 6.19 fsync/rename指定公开章节实读；Windows/Linux/U盘/真实签名与独立D17均NOT_RUN，8+32+8仅内存规划合成。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B148 R-ASM-001 发生实例递归与Location只一次
 [5项来源与访问深度](sources/CAP-03-02-occurrence-closure-b148.json) → [8规则字段及B0-02/F1-03/F1-04/T5-02](traces/CAP-03-02-occurrence-closure-b148-v08.json) → [8正32反5数学Golden](../docs/capabilities/CAP-03-02/occurrence-closure-b148-fixtures-v08.json) → [专项研究/局限](../docs/capabilities/CAP-03-02/OCCURRENCE-CLOSURE-B148-2026-11-04.md)。OCCT 8.0.1 API指定章节实读；ISO仅合法目录，NIST仅公开数据集摘要。本仓Owner/CAS/GUI为内生规则；独立Node完整文件进程、真实STEP/Consumer/Owner均未验。**规划PASS≠产品PASS。**
 

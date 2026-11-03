@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "procet-b149-trace-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "capabilityId": "CAP-10-03",
+  "originalWorkPackages": [
+    "E3-06",
+    "T5-03"
+  ],
+  "sourcePath": "research/sources/CAP-10-03-durable-media-b149.json",
+  "fixturePath": "docs/capabilities/CAP-10-03/durable-media-b149-fixtures-v08.json",
+  "checkerPath": "tools/check_cap1003_durable_media_b149_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-10-03/DURABLE-MEDIA-B149-2026-11-04.md",
+  "rules": [
+    {
+      "id": "B149-R01",
+      "description": "字节封闭及非覆盖写",
+      "failure": "WRITE_INCOMPLETE",
+      "fields": [
+        "pathScoped",
+        "expectedByteCountPinned",
+        "bytesClosedBeforeDigest",
+        "noDirectTrustedOverwrite"
+      ],
+      "sourceIds": [
+        "B149-S01",
+        "B149-S05"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D12",
+        "D16"
+      ],
+      "testIds": [
+        "B149-R01-P",
+        "B149-R01-N1",
+        "B149-R01-N2",
+        "B149-R01-N3",
+        "B149-R01-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B149-R02",
+      "description": "Flush返回与失败处理",
+      "failure": "FLUSH_UNVERIFIED",
+      "fields": [
+        "osFlushInvoked",
+        "flushResultChecked",
+        "ioErrorsFailClosed",
+        "flushNotPhysicalProof"
+      ],
+      "sourceIds": [
+        "B149-S01",
+        "B149-S03",
+        "B149-S05"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B149-R02-P",
+        "B149-R02-N1",
+        "B149-R02-N2",
+        "B149-R02-N3",
+        "B149-R02-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B149-R03",
+      "description": "目录与原子命名差异",
+      "failure": "PROMOTION_UNPROVEN",
+      "fields": [
+        "sameVolumeStaging",
+        "noReplaceExistingGeneration",
+        "directoryPersistenceCheckedOrUnknown",
+        "atomicVisibilityNotDurability"
+      ],
+      "sourceIds": [
+        "B149-S03",
+        "B149-S04",
+        "B149-S05"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B149-R03-P",
+        "B149-R03-N1",
+        "B149-R03-N2",
+        "B149-R03-N3",
+        "B149-R03-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B149-R04",
+      "description": "介质移除策略",
+      "failure": "REMOVAL_UNCERTAIN",
+      "fields": [
+        "removalPolicyRecorded",
+        "ejectRequirementSatisfied",
+        "unplugDuringWriteRejected",
+        "hardwareCacheUncertaintyExplicit"
+      ],
+      "sourceIds": [
+        "B149-S02",
+        "B149-S01",
+        "B149-S05"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B149-R04-P",
+        "B149-R04-N1",
+        "B149-R04-N2",
+        "B149-R04-N3",
+        "B149-R04-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B149-R05",
+      "description": "独立重新插入再哈希",
+      "failure": "REINSERT_REHASH_MISSING",
+      "fields": [
+        "physicalRemountOrIndependentReader",
+        "receiverRehashAllFiles",
+        "exactClosureMatchesD16",
+        "noMtimeOrSenderPassProxy"
+      ],
+      "sourceIds": [
+        "B149-S01",
+        "B149-S03",
+        "B149-S05"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B149-R05-P",
+        "B149-R05-N1",
+        "B149-R05-N2",
+        "B149-R05-N3",
+        "B149-R05-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B149-R06",
+      "description": "半写恢复与代际回退",
+      "failure": "ROLLBACK_AMBIGUOUS",
+      "fields": [
+        "previousPublishedGenerationImmutable",
+        "partialCopyQuarantined",
+        "retryCreatesNewGeneration",
+        "receiptSequenceMonotonic"
+      ],
+      "sourceIds": [
+        "B149-S03",
+        "B149-S04",
+        "B149-S05"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B149-R06-P",
+        "B149-R06-N1",
+        "B149-R06-N2",
+        "B149-R06-N3",
+        "B149-R06-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B149-R07",
+      "description": "签发/执行资格独立",
+      "failure": "RECEIVER_QUALIFICATION_MISSING",
+      "fields": [
+        "trustedD16RecheckedIndependently",
+        "d10ActualBindingHashFrameExact",
+        "d15IndependentD12D13D14Evidence",
+        "d17ReceiptNeverExecutionPass"
+      ],
+      "sourceIds": [
+        "B149-S05",
+        "B149-S02"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D03",
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B149-R07-P",
+        "B149-R07-N1",
+        "B149-R07-N2",
+        "B149-R07-N3",
+        "B149-R07-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B149-R08",
+      "description": "事务/GUI与旧Reader",
+      "failure": "TRANSACTION_REJECTED",
+      "fields": [
+        "guiCliAgentSame10DomainPort",
+        "singleBabylonLeftTaskPanel",
+        "ownerAclCasScopeCancelRechecked",
+        "lateAckRejectedAndPairedReaderRollback"
+      ],
+      "sourceIds": [
+        "B149-S05"
+      ],
+      "capabilityId": "CAP-10-03",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "businessAssetIds": [
+        "D16",
+        "D17"
+      ],
+      "testIds": [
+        "B149-R08-P",
+        "B149-R08-N1",
+        "B149-R08-N2",
+        "B149-R08-N3",
+        "B149-R08-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    }
+  ],
+  "formalOwnerSignoff": "0/17",
+  "realIndependentConsumers": "0/17",
+  "planningPassNotProductPass": true
+}

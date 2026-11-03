@@ -1,3 +1,6 @@
+## 2026-11-04｜B149 CAP-10-03 离线介质写入耐久与重插接收资格
+[专项研究及真实阅读深度](docs/capabilities/CAP-10-03/DURABLE-MEDIA-B149-2026-11-04.md) → [5分级来源](research/sources/CAP-10-03-durable-media-b149.json) → [8规则/32字段](research/traces/CAP-10-03-durable-media-b149-v08.json) → [8正32独立负+8状态Golden](docs/capabilities/CAP-10-03/durable-media-b149-fixtures-v08.json) → [Node只读门禁](tools/check_cap1003_durable_media_b149_v08.cjs) → [等级记录](tracking/cap1003-durable-media-b149-verification-2026-11-04.json)。写入、Flush、原子可见、安全移除、收件重读、D10/D15/D17分层；48/48内存合成，真实USB/OS/签名、17 Owner及消费者、L3/全仓GFM AST/历史原字节未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B148 CAP-03-02 装配Occurrence闭包与位置资格
 [研究和阅读深度](docs/capabilities/CAP-03-02/OCCURRENCE-CLOSURE-B148-2026-11-04.md) → [5分级来源](research/sources/CAP-03-02-occurrence-closure-b148.json) → [8规则/32字段及原包](research/traces/CAP-03-02-occurrence-closure-b148-v08.json) → [8正32单字段反、5矩阵Golden](docs/capabilities/CAP-03-02/occurrence-closure-b148-fixtures-v08.json) → [只读Node入口](tools/check_cap0302_occurrence_closure_b148_v08.cjs) → [校验分级](tracking/cap0302-occurrence-closure-b148-verification-2026-11-04.json)。区分共享定义与多Occurrence、完整递归与默认一层、已定位Shape与重复Location；当前仅规划数学/字段合成，真实STEP/Owner及消费者0/17、L3与历史字节/全仓GFM AST待验。**规划PASS≠产品PASS。**
 

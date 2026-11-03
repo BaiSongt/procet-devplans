@@ -1,0 +1,628 @@
+{
+  "schemaVersion": "procet-b149-durable-media-fixtures-v08",
+  "origin": "NEWLY_AUTHORED_SYNTHETIC",
+  "baselineExactHead": "43538390e81d130158118c0e982a05dc15ed0ad9",
+  "capabilityId": "CAP-10-03",
+  "cases": [
+    {
+      "id": "B149-R01-P",
+      "ruleId": "B149-R01",
+      "kind": "positive",
+      "values": {
+        "pathScoped": true,
+        "expectedByteCountPinned": true,
+        "bytesClosedBeforeDigest": true,
+        "noDirectTrustedOverwrite": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R01-N1",
+      "ruleId": "B149-R01",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "pathScoped": false,
+        "expectedByteCountPinned": true,
+        "bytesClosedBeforeDigest": true,
+        "noDirectTrustedOverwrite": true
+      },
+      "changedField": "pathScoped",
+      "expected": "WRITE_INCOMPLETE"
+    },
+    {
+      "id": "B149-R01-N2",
+      "ruleId": "B149-R01",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "pathScoped": true,
+        "expectedByteCountPinned": false,
+        "bytesClosedBeforeDigest": true,
+        "noDirectTrustedOverwrite": true
+      },
+      "changedField": "expectedByteCountPinned",
+      "expected": "WRITE_INCOMPLETE"
+    },
+    {
+      "id": "B149-R01-N3",
+      "ruleId": "B149-R01",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "pathScoped": true,
+        "expectedByteCountPinned": true,
+        "bytesClosedBeforeDigest": false,
+        "noDirectTrustedOverwrite": true
+      },
+      "changedField": "bytesClosedBeforeDigest",
+      "expected": "WRITE_INCOMPLETE"
+    },
+    {
+      "id": "B149-R01-N4",
+      "ruleId": "B149-R01",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "pathScoped": true,
+        "expectedByteCountPinned": true,
+        "bytesClosedBeforeDigest": true,
+        "noDirectTrustedOverwrite": false
+      },
+      "changedField": "noDirectTrustedOverwrite",
+      "expected": "WRITE_INCOMPLETE"
+    },
+    {
+      "id": "B149-R02-P",
+      "ruleId": "B149-R02",
+      "kind": "positive",
+      "values": {
+        "osFlushInvoked": true,
+        "flushResultChecked": true,
+        "ioErrorsFailClosed": true,
+        "flushNotPhysicalProof": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R02-N1",
+      "ruleId": "B149-R02",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "osFlushInvoked": false,
+        "flushResultChecked": true,
+        "ioErrorsFailClosed": true,
+        "flushNotPhysicalProof": true
+      },
+      "changedField": "osFlushInvoked",
+      "expected": "FLUSH_UNVERIFIED"
+    },
+    {
+      "id": "B149-R02-N2",
+      "ruleId": "B149-R02",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "osFlushInvoked": true,
+        "flushResultChecked": false,
+        "ioErrorsFailClosed": true,
+        "flushNotPhysicalProof": true
+      },
+      "changedField": "flushResultChecked",
+      "expected": "FLUSH_UNVERIFIED"
+    },
+    {
+      "id": "B149-R02-N3",
+      "ruleId": "B149-R02",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "osFlushInvoked": true,
+        "flushResultChecked": true,
+        "ioErrorsFailClosed": false,
+        "flushNotPhysicalProof": true
+      },
+      "changedField": "ioErrorsFailClosed",
+      "expected": "FLUSH_UNVERIFIED"
+    },
+    {
+      "id": "B149-R02-N4",
+      "ruleId": "B149-R02",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "osFlushInvoked": true,
+        "flushResultChecked": true,
+        "ioErrorsFailClosed": true,
+        "flushNotPhysicalProof": false
+      },
+      "changedField": "flushNotPhysicalProof",
+      "expected": "FLUSH_UNVERIFIED"
+    },
+    {
+      "id": "B149-R03-P",
+      "ruleId": "B149-R03",
+      "kind": "positive",
+      "values": {
+        "sameVolumeStaging": true,
+        "noReplaceExistingGeneration": true,
+        "directoryPersistenceCheckedOrUnknown": true,
+        "atomicVisibilityNotDurability": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R03-N1",
+      "ruleId": "B149-R03",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "sameVolumeStaging": false,
+        "noReplaceExistingGeneration": true,
+        "directoryPersistenceCheckedOrUnknown": true,
+        "atomicVisibilityNotDurability": true
+      },
+      "changedField": "sameVolumeStaging",
+      "expected": "PROMOTION_UNPROVEN"
+    },
+    {
+      "id": "B149-R03-N2",
+      "ruleId": "B149-R03",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "sameVolumeStaging": true,
+        "noReplaceExistingGeneration": false,
+        "directoryPersistenceCheckedOrUnknown": true,
+        "atomicVisibilityNotDurability": true
+      },
+      "changedField": "noReplaceExistingGeneration",
+      "expected": "PROMOTION_UNPROVEN"
+    },
+    {
+      "id": "B149-R03-N3",
+      "ruleId": "B149-R03",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "sameVolumeStaging": true,
+        "noReplaceExistingGeneration": true,
+        "directoryPersistenceCheckedOrUnknown": false,
+        "atomicVisibilityNotDurability": true
+      },
+      "changedField": "directoryPersistenceCheckedOrUnknown",
+      "expected": "PROMOTION_UNPROVEN"
+    },
+    {
+      "id": "B149-R03-N4",
+      "ruleId": "B149-R03",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "sameVolumeStaging": true,
+        "noReplaceExistingGeneration": true,
+        "directoryPersistenceCheckedOrUnknown": true,
+        "atomicVisibilityNotDurability": false
+      },
+      "changedField": "atomicVisibilityNotDurability",
+      "expected": "PROMOTION_UNPROVEN"
+    },
+    {
+      "id": "B149-R04-P",
+      "ruleId": "B149-R04",
+      "kind": "positive",
+      "values": {
+        "removalPolicyRecorded": true,
+        "ejectRequirementSatisfied": true,
+        "unplugDuringWriteRejected": true,
+        "hardwareCacheUncertaintyExplicit": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R04-N1",
+      "ruleId": "B149-R04",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "removalPolicyRecorded": false,
+        "ejectRequirementSatisfied": true,
+        "unplugDuringWriteRejected": true,
+        "hardwareCacheUncertaintyExplicit": true
+      },
+      "changedField": "removalPolicyRecorded",
+      "expected": "REMOVAL_UNCERTAIN"
+    },
+    {
+      "id": "B149-R04-N2",
+      "ruleId": "B149-R04",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "removalPolicyRecorded": true,
+        "ejectRequirementSatisfied": false,
+        "unplugDuringWriteRejected": true,
+        "hardwareCacheUncertaintyExplicit": true
+      },
+      "changedField": "ejectRequirementSatisfied",
+      "expected": "REMOVAL_UNCERTAIN"
+    },
+    {
+      "id": "B149-R04-N3",
+      "ruleId": "B149-R04",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "removalPolicyRecorded": true,
+        "ejectRequirementSatisfied": true,
+        "unplugDuringWriteRejected": false,
+        "hardwareCacheUncertaintyExplicit": true
+      },
+      "changedField": "unplugDuringWriteRejected",
+      "expected": "REMOVAL_UNCERTAIN"
+    },
+    {
+      "id": "B149-R04-N4",
+      "ruleId": "B149-R04",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "removalPolicyRecorded": true,
+        "ejectRequirementSatisfied": true,
+        "unplugDuringWriteRejected": true,
+        "hardwareCacheUncertaintyExplicit": false
+      },
+      "changedField": "hardwareCacheUncertaintyExplicit",
+      "expected": "REMOVAL_UNCERTAIN"
+    },
+    {
+      "id": "B149-R05-P",
+      "ruleId": "B149-R05",
+      "kind": "positive",
+      "values": {
+        "physicalRemountOrIndependentReader": true,
+        "receiverRehashAllFiles": true,
+        "exactClosureMatchesD16": true,
+        "noMtimeOrSenderPassProxy": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R05-N1",
+      "ruleId": "B149-R05",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "physicalRemountOrIndependentReader": false,
+        "receiverRehashAllFiles": true,
+        "exactClosureMatchesD16": true,
+        "noMtimeOrSenderPassProxy": true
+      },
+      "changedField": "physicalRemountOrIndependentReader",
+      "expected": "REINSERT_REHASH_MISSING"
+    },
+    {
+      "id": "B149-R05-N2",
+      "ruleId": "B149-R05",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "physicalRemountOrIndependentReader": true,
+        "receiverRehashAllFiles": false,
+        "exactClosureMatchesD16": true,
+        "noMtimeOrSenderPassProxy": true
+      },
+      "changedField": "receiverRehashAllFiles",
+      "expected": "REINSERT_REHASH_MISSING"
+    },
+    {
+      "id": "B149-R05-N3",
+      "ruleId": "B149-R05",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "physicalRemountOrIndependentReader": true,
+        "receiverRehashAllFiles": true,
+        "exactClosureMatchesD16": false,
+        "noMtimeOrSenderPassProxy": true
+      },
+      "changedField": "exactClosureMatchesD16",
+      "expected": "REINSERT_REHASH_MISSING"
+    },
+    {
+      "id": "B149-R05-N4",
+      "ruleId": "B149-R05",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "physicalRemountOrIndependentReader": true,
+        "receiverRehashAllFiles": true,
+        "exactClosureMatchesD16": true,
+        "noMtimeOrSenderPassProxy": false
+      },
+      "changedField": "noMtimeOrSenderPassProxy",
+      "expected": "REINSERT_REHASH_MISSING"
+    },
+    {
+      "id": "B149-R06-P",
+      "ruleId": "B149-R06",
+      "kind": "positive",
+      "values": {
+        "previousPublishedGenerationImmutable": true,
+        "partialCopyQuarantined": true,
+        "retryCreatesNewGeneration": true,
+        "receiptSequenceMonotonic": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R06-N1",
+      "ruleId": "B149-R06",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "previousPublishedGenerationImmutable": false,
+        "partialCopyQuarantined": true,
+        "retryCreatesNewGeneration": true,
+        "receiptSequenceMonotonic": true
+      },
+      "changedField": "previousPublishedGenerationImmutable",
+      "expected": "ROLLBACK_AMBIGUOUS"
+    },
+    {
+      "id": "B149-R06-N2",
+      "ruleId": "B149-R06",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "previousPublishedGenerationImmutable": true,
+        "partialCopyQuarantined": false,
+        "retryCreatesNewGeneration": true,
+        "receiptSequenceMonotonic": true
+      },
+      "changedField": "partialCopyQuarantined",
+      "expected": "ROLLBACK_AMBIGUOUS"
+    },
+    {
+      "id": "B149-R06-N3",
+      "ruleId": "B149-R06",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "previousPublishedGenerationImmutable": true,
+        "partialCopyQuarantined": true,
+        "retryCreatesNewGeneration": false,
+        "receiptSequenceMonotonic": true
+      },
+      "changedField": "retryCreatesNewGeneration",
+      "expected": "ROLLBACK_AMBIGUOUS"
+    },
+    {
+      "id": "B149-R06-N4",
+      "ruleId": "B149-R06",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "previousPublishedGenerationImmutable": true,
+        "partialCopyQuarantined": true,
+        "retryCreatesNewGeneration": true,
+        "receiptSequenceMonotonic": false
+      },
+      "changedField": "receiptSequenceMonotonic",
+      "expected": "ROLLBACK_AMBIGUOUS"
+    },
+    {
+      "id": "B149-R07-P",
+      "ruleId": "B149-R07",
+      "kind": "positive",
+      "values": {
+        "trustedD16RecheckedIndependently": true,
+        "d10ActualBindingHashFrameExact": true,
+        "d15IndependentD12D13D14Evidence": true,
+        "d17ReceiptNeverExecutionPass": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R07-N1",
+      "ruleId": "B149-R07",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "trustedD16RecheckedIndependently": false,
+        "d10ActualBindingHashFrameExact": true,
+        "d15IndependentD12D13D14Evidence": true,
+        "d17ReceiptNeverExecutionPass": true
+      },
+      "changedField": "trustedD16RecheckedIndependently",
+      "expected": "RECEIVER_QUALIFICATION_MISSING"
+    },
+    {
+      "id": "B149-R07-N2",
+      "ruleId": "B149-R07",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "trustedD16RecheckedIndependently": true,
+        "d10ActualBindingHashFrameExact": false,
+        "d15IndependentD12D13D14Evidence": true,
+        "d17ReceiptNeverExecutionPass": true
+      },
+      "changedField": "d10ActualBindingHashFrameExact",
+      "expected": "RECEIVER_QUALIFICATION_MISSING"
+    },
+    {
+      "id": "B149-R07-N3",
+      "ruleId": "B149-R07",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "trustedD16RecheckedIndependently": true,
+        "d10ActualBindingHashFrameExact": true,
+        "d15IndependentD12D13D14Evidence": false,
+        "d17ReceiptNeverExecutionPass": true
+      },
+      "changedField": "d15IndependentD12D13D14Evidence",
+      "expected": "RECEIVER_QUALIFICATION_MISSING"
+    },
+    {
+      "id": "B149-R07-N4",
+      "ruleId": "B149-R07",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "trustedD16RecheckedIndependently": true,
+        "d10ActualBindingHashFrameExact": true,
+        "d15IndependentD12D13D14Evidence": true,
+        "d17ReceiptNeverExecutionPass": false
+      },
+      "changedField": "d17ReceiptNeverExecutionPass",
+      "expected": "RECEIVER_QUALIFICATION_MISSING"
+    },
+    {
+      "id": "B149-R08-P",
+      "ruleId": "B149-R08",
+      "kind": "positive",
+      "values": {
+        "guiCliAgentSame10DomainPort": true,
+        "singleBabylonLeftTaskPanel": true,
+        "ownerAclCasScopeCancelRechecked": true,
+        "lateAckRejectedAndPairedReaderRollback": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B149-R08-N1",
+      "ruleId": "B149-R08",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "guiCliAgentSame10DomainPort": false,
+        "singleBabylonLeftTaskPanel": true,
+        "ownerAclCasScopeCancelRechecked": true,
+        "lateAckRejectedAndPairedReaderRollback": true
+      },
+      "changedField": "guiCliAgentSame10DomainPort",
+      "expected": "TRANSACTION_REJECTED"
+    },
+    {
+      "id": "B149-R08-N2",
+      "ruleId": "B149-R08",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "guiCliAgentSame10DomainPort": true,
+        "singleBabylonLeftTaskPanel": false,
+        "ownerAclCasScopeCancelRechecked": true,
+        "lateAckRejectedAndPairedReaderRollback": true
+      },
+      "changedField": "singleBabylonLeftTaskPanel",
+      "expected": "TRANSACTION_REJECTED"
+    },
+    {
+      "id": "B149-R08-N3",
+      "ruleId": "B149-R08",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "guiCliAgentSame10DomainPort": true,
+        "singleBabylonLeftTaskPanel": true,
+        "ownerAclCasScopeCancelRechecked": false,
+        "lateAckRejectedAndPairedReaderRollback": true
+      },
+      "changedField": "ownerAclCasScopeCancelRechecked",
+      "expected": "TRANSACTION_REJECTED"
+    },
+    {
+      "id": "B149-R08-N4",
+      "ruleId": "B149-R08",
+      "kind": "independent_single_field_negative",
+      "values": {
+        "guiCliAgentSame10DomainPort": true,
+        "singleBabylonLeftTaskPanel": true,
+        "ownerAclCasScopeCancelRechecked": true,
+        "lateAckRejectedAndPairedReaderRollback": false
+      },
+      "changedField": "lateAckRejectedAndPairedReaderRollback",
+      "expected": "TRANSACTION_REJECTED"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B149-G01",
+      "writeClosed": true,
+      "flushOk": false,
+      "renamed": true,
+      "reinsertRead": true,
+      "hashMatch": true,
+      "trustedFinal": true,
+      "bindingExact": true,
+      "independentD15": true,
+      "cancelled": false,
+      "expected": "UNKNOWN_FLUSH"
+    },
+    {
+      "id": "B149-G02",
+      "writeClosed": true,
+      "flushOk": true,
+      "renamed": false,
+      "reinsertRead": true,
+      "hashMatch": true,
+      "trustedFinal": true,
+      "bindingExact": true,
+      "independentD15": true,
+      "cancelled": false,
+      "expected": "STAGED_NOT_PROMOTED"
+    },
+    {
+      "id": "B149-G03",
+      "writeClosed": true,
+      "flushOk": true,
+      "renamed": true,
+      "reinsertRead": false,
+      "hashMatch": true,
+      "trustedFinal": true,
+      "bindingExact": true,
+      "independentD15": true,
+      "cancelled": false,
+      "expected": "IN_TRANSIT_UNVERIFIED"
+    },
+    {
+      "id": "B149-G04",
+      "writeClosed": true,
+      "flushOk": true,
+      "renamed": true,
+      "reinsertRead": true,
+      "hashMatch": false,
+      "trustedFinal": true,
+      "bindingExact": true,
+      "independentD15": true,
+      "cancelled": false,
+      "expected": "REJECT_HASH_MISMATCH"
+    },
+    {
+      "id": "B149-G05",
+      "writeClosed": true,
+      "flushOk": true,
+      "renamed": true,
+      "reinsertRead": true,
+      "hashMatch": true,
+      "trustedFinal": true,
+      "bindingExact": true,
+      "independentD15": true,
+      "cancelled": false,
+      "expected": "RECEIVED_VERIFIED_NOT_EXECUTED"
+    },
+    {
+      "id": "B149-G06",
+      "writeClosed": true,
+      "flushOk": true,
+      "renamed": true,
+      "reinsertRead": true,
+      "hashMatch": true,
+      "trustedFinal": false,
+      "bindingExact": true,
+      "independentD15": true,
+      "cancelled": false,
+      "expected": "UNKNOWN_TRUST_OR_NC"
+    },
+    {
+      "id": "B149-G07",
+      "writeClosed": true,
+      "flushOk": true,
+      "renamed": true,
+      "reinsertRead": true,
+      "hashMatch": true,
+      "trustedFinal": true,
+      "bindingExact": false,
+      "independentD15": true,
+      "cancelled": false,
+      "expected": "UNKNOWN_TRUST_OR_NC"
+    },
+    {
+      "id": "B149-G08",
+      "writeClosed": true,
+      "flushOk": true,
+      "renamed": true,
+      "reinsertRead": true,
+      "hashMatch": true,
+      "trustedFinal": true,
+      "bindingExact": true,
+      "independentD15": true,
+      "cancelled": true,
+      "expected": "REJECT_LATE_ACK"
+    }
+  ],
+  "physicalMediaTest": "NOT_RUN",
+  "realSignatureTest": "NOT_RUN"
+}
