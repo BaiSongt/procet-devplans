@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "procet-b151-trace-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "humanReview": "PENDING_L3",
+  "planningPassNotProductPass": true,
+  "productTests": "NOT_RUN",
+  "topic": "R-PLAYBACK-CLOCK-001",
+  "sourcePath": "research/sources/CAP-09-08-playback-clock-b151.json",
+  "fixturePath": "docs/capabilities/CAP-09-08/playback-clock-b151-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0908_playback_clock_b151_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-09-08/PLAYBACK-CLOCK-B151-2026-11-04.md",
+  "capabilityIds": [
+    "CAP-09-08"
+  ],
+  "originalWorkPackages": [
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "rules": [
+    {
+      "id": "B151-R01",
+      "description": "时钟域与时基",
+      "fields": [
+        "clock.displayMonotonic",
+        "clock.d14TimebaseExact",
+        "clock.noDateNowSourceOfTruth",
+        "clock.noControllerClockClaim"
+      ],
+      "sourceIds": [
+        "B151-S01",
+        "B151-S04"
+      ],
+      "failure": "CLOCK_DOMAIN_UNKNOWN",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D14"
+      ],
+      "testIds": [
+        "B151-R01-P",
+        "B151-R01-N1",
+        "B151-R01-N2",
+        "B151-R01-N3",
+        "B151-R01-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B151-R02",
+      "description": "暂停/隐藏/恢复/seek",
+      "fields": [
+        "pause.holdTimeFixed",
+        "pause.resumeReanchored",
+        "pause.noHiddenCatchup",
+        "pause.seekReadOnly"
+      ],
+      "sourceIds": [
+        "B151-S01",
+        "B151-S02"
+      ],
+      "failure": "PAUSE_SEEK_UNQUALIFIED",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D14"
+      ],
+      "testIds": [
+        "B151-R02-P",
+        "B151-R02-N1",
+        "B151-R02-N2",
+        "B151-R02-N3",
+        "B151-R02-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B151-R03",
+      "description": "刷新率与帧跳跃",
+      "fields": [
+        "raf.timestampUsed",
+        "raf.noFixedFpsStep",
+        "raf.backgroundPauseHandled",
+        "raf.renderCanSkipFrames"
+      ],
+      "sourceIds": [
+        "B151-S03",
+        "B151-S04"
+      ],
+      "failure": "FRAME_TIME_UNQUALIFIED",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D14"
+      ],
+      "testIds": [
+        "B151-R03-P",
+        "B151-R03-N1",
+        "B151-R03-N2",
+        "B151-R03-N3",
+        "B151-R03-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B151-R04",
+      "description": "时间缺口禁止插值",
+      "fields": [
+        "gap.coveragePinned",
+        "gap.unknownVisible",
+        "gap.noInterpolatedSafety",
+        "gap.halfOpenBoundaries"
+      ],
+      "sourceIds": [
+        "B151-S01",
+        "B151-S05"
+      ],
+      "failure": "TIMELINE_GAP_UNKNOWN",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B151-R04-P",
+        "B151-R04-N1",
+        "B151-R04-N2",
+        "B151-R04-N3",
+        "B151-R04-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B151-R05",
+      "description": "NC调用实例与Joint",
+      "fields": [
+        "instance.ncCallInstanceExact",
+        "instance.jointEventExact",
+        "instance.rotaryTurnsPreserved",
+        "instance.d03D10FrameExact"
+      ],
+      "sourceIds": [
+        "B151-S05"
+      ],
+      "failure": "INSTANCE_FRAME_UNKNOWN",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D03",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "testIds": [
+        "B151-R05-P",
+        "B151-R05-N1",
+        "B151-R05-N2",
+        "B151-R05-N3",
+        "B151-R05-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B151-R06",
+      "description": "D15工程资格分离",
+      "fields": [
+        "evidence.d15ReadOnly",
+        "evidence.clOnlyLabeled",
+        "evidence.noGreenSafetyClaim",
+        "evidence.d16UnknownBlocked"
+      ],
+      "sourceIds": [
+        "B151-S05"
+      ],
+      "failure": "ENGINEERING_QUALIFICATION_UNKNOWN",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D11",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B151-R06-P",
+        "B151-R06-N1",
+        "B151-R06-N2",
+        "B151-R06-N3",
+        "B151-R06-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B151-R07",
+      "description": "同域UI与事务",
+      "fields": [
+        "owner.guiCliAgentSamePort",
+        "owner.oneBabylonLeftPanel",
+        "owner.aclCasFrameEpochRecheck",
+        "owner.cancelLateAckIgnored"
+      ],
+      "sourceIds": [
+        "B151-S05"
+      ],
+      "failure": "OWNER_GATE_UNKNOWN",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D08",
+        "D14"
+      ],
+      "testIds": [
+        "B151-R07-P",
+        "B151-R07-N1",
+        "B151-R07-N2",
+        "B151-R07-N3",
+        "B151-R07-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B151-R08",
+      "description": "失效/旧Reader/独立消费者",
+      "fields": [
+        "migration.exactRevisionHash",
+        "migration.pairedOldReader",
+        "migration.independentNegativeCases",
+        "migration.frozenABPreserved"
+      ],
+      "sourceIds": [
+        "B151-S05"
+      ],
+      "failure": "CONSUMER_NOT_QUALIFIED",
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D08",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B151-R08-P",
+        "B151-R08-N1",
+        "B151-R08-N2",
+        "B151-R08-N3",
+        "B151-R08-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    }
+  ]
+}

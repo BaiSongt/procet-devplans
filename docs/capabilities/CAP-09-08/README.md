@@ -1,3 +1,5 @@
+> **B151研究增量（2026-11-04）：** [Web播放时钟与D14工程时间分离](PLAYBACK-CLOCK-B151-2026-11-04.md) → [5来源](../../../research/sources/CAP-09-08-playback-clock-b151.json) → [8规则32字段](../../../research/traces/CAP-09-08-playback-clock-b151-v08.json) → [8正32反+8Golden](playback-clock-b151-fixtures-v08.json) → [只读Node](../../../tools/check_cap0908_playback_clock_b151_v08.cjs)。48项仅规划合成；独立D15、真实Babylon/NC/OEM均NOT_RUN；L3待审。**规划PASS≠产品PASS**。
+
 > **B70（2026-10-31）新增：** [Joint整圈旋转与Babylon端点姿态不可混同](ROTARY-WINDING-B70-2026-10-31.md) → [7来源](../../../research/sources/CAP-09-08-joint-winding-b70.json) → [8规则](../../../research/traces/CAP-09-08-joint-winding-b70-v08.json) → [55条规划合成](joint-winding-b70-fixtures-v08.json)。真实D15/D16及B5/OEM未验，L3待审。
 
 # CAP-09-08｜仿真播放与校验报告（L3待审）

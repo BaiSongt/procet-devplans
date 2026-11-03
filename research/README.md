@@ -1,3 +1,6 @@
+## 2026-11-04｜B151 R-PLAYBACK-CLOCK-001浏览器时钟与D14真实NC运动分界
+[5份来源及真实阅读深度](sources/CAP-09-08-playback-clock-b151.json) → [8规则32字段](traces/CAP-09-08-playback-clock-b151-v08.json) → [8正32反8Golden](../docs/capabilities/CAP-09-08/playback-clock-b151-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-09-08/PLAYBACK-CLOCK-B151-2026-11-04.md)。W3C Web Animations、Page Visibility与MDN rAF/Performance指定HTML章节实读；Browser显示不提供OEM/D15资格。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B150 R-REPO-GFM-AST-001 T5-03全仓AST预审与独立门禁
 [来源作者/版本/章节/局限](sources/T5-03-gfm-ast-b150.json) → [8规则32字段/T5-03](traces/T5-03-gfm-ast-b150-v08.json) → [8正32单字段反+8语义Golden](../docs/work-packages/T5-03/gfm-ast-b150-fixtures-v08.json) → [方法报告](../docs/work-packages/T5-03/GFM-AST-AUDIT-B150-2026-11-04.md) → [只读校验器](../tools/check_t503_gfm_ast_b150_v08.py)。GFM0.29-gfm、GitHub帮助、git-ls-tree官方手册和markdown-it-py文档指定章节实读。子集预审不等于GitHub renderer parity；独立文件进程/全仓AST、Owner/Consumer/L3及产品均NOT_RUN。**规划PASS≠产品PASS。**
 

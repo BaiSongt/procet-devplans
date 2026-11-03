@@ -1,3 +1,6 @@
+## 2026-11-04｜B151 CAP-09-08播放时钟与工程时序隔离
+[研究/局限](docs/capabilities/CAP-09-08/PLAYBACK-CLOCK-B151-2026-11-04.md) → [来源](research/sources/CAP-09-08-playback-clock-b151.json) → [规则/字段](research/traces/CAP-09-08-playback-clock-b151-v08.json) → [48合成样例](docs/capabilities/CAP-09-08/playback-clock-b151-fixtures-v08.json) → [只读工具](tools/check_cap0908_playback_clock_b151_v08.cjs) → [核验等级](tracking/cap0908-playback-clock-b151-verification-2026-11-04.json)。暂停、seek、后台掉帧只影响显示，缺失D14时间段不能插值为安全；独立Node/实际浏览器、B5/OEM、17正式Owner与消费者、L3均未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B150 T5-03 Git树固定Markdown AST子集预审
 [新研究及未覆盖边界](docs/work-packages/T5-03/GFM-AST-AUDIT-B150-2026-11-04.md) → [5分级来源](research/sources/T5-03-gfm-ast-b150.json) → [8规则32字段](research/traces/T5-03-gfm-ast-b150-v08.json) → [8正32单字段反+8Golden](docs/work-packages/T5-03/gfm-ast-b150-fixtures-v08.json) → [只读Python入口](tools/check_t503_gfm_ast_b150_v08.py) → [校验分级](tracking/t503-gfm-ast-b150-verification-2026-11-04.json)。独立markdown-it-py语法令牌预审区别于旧B16/B18；9项本地等价小样例，仅构造性规划证据。**完整677份Markdown真实AST、GitHub renderer parity、17 Owner/消费者与L3仍未验。规划PASS≠产品PASS。**
 
