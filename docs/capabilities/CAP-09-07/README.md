@@ -1,3 +1,5 @@
+> **B134研究增量（2026-11-03）**：[Axis在界内仍可能物理Joint超限](AXIS-JOINT-LIMIT-B134-2026-11-03.md) → [7来源](../../../research/sources/CAP-09-07-joint-limits-b134.json) → [8规则40正反6教学Golden](../../../research/traces/CAP-09-07-joint-limits-b134-v08.json)；真实B5/OEM/独立D15未运行，L3待审。**规划PASS≠产品PASS。**
+
 > **B33研究增量（2026-10-30）：** [连续运动干涉区间资格与一维穿透见证](CCD-INTERVAL-B33-2026-10-30.md) → [8条规则](../../../research/traces/CAP-09-07-ccd-interval-b33-v08.json) → [2正30反合成](ccd-interval-b33-fixtures-v08.json)。端点安全不能证明中段安全；旋转Joint运动不能用线性Sweep冒充。真实D15/FCL/OCCT/B5与独立消费者NOT_RUN，L3待审。
 
 # CAP-09-07｜干涉、限位与可达性（V0.8原编号；L3待人类评审）

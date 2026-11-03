@@ -1,3 +1,6 @@
+## 2026-11-03｜B134 CAP-09-07 Axis/物理Joint限位非蕴含性研究
+[专项研究](docs/capabilities/CAP-09-07/AXIS-JOINT-LIMIT-B134-2026-11-03.md) → [7来源及阅读限制](research/sources/CAP-09-07-joint-limits-b134.json) → [8规则/原编号包](research/traces/CAP-09-07-joint-limits-b134-v08.json) → [8正32独立单字段反+6Golden](docs/capabilities/CAP-09-07/joint-limits-b134-fixtures-v08.json) → [Node只读工具](tools/check_cap0907_joint_limits_b134_v08.cjs)。LinuxCNC2.9公开资料指出非identity构型Axis合格仍可能物理Joint越界；ISO仅目录、NIST仅摘要；正式Owner/消费者0/17，L3/全仓AST/历史字节与实机待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B133 CAP-02-05炉批与检验文件/硬度换算的证据准入
 
 [专项研究与阅读限制](docs/capabilities/CAP-02-05/HEAT-LOT-HARDNESS-B133-2026-11-03.md) → [8条合法分级来源](research/sources/CAP-02-05-heat-lot-b133.json) → [9规则/36字段/原编号包](research/traces/CAP-02-05-heat-lot-b133-v08.json) → [9正36单字段反/4语义Golden](docs/capabilities/CAP-02-05/heat-lot-b133-fixtures-v08.json) → [只读Node](tools/check_cap0205_heat_lot_b133_v08.cjs) → [验证等级](tracking/cap0205-heat-lot-b133-verification-2026-11-03.json)。目录牌号不能冒充实际炉批，ISO 10474钢铁检验文件不能泛化所有材质，ISO 18265转换不替代正确材料的实际试验；ISO只官方目录、NIST仅摘要、W3C公开指定章节。累计239 Registry/1819登记非去重；正式Owner/消费者0/17、L3、历史字节、全仓GFM AST及产品待验。**规划PASS≠产品PASS。**

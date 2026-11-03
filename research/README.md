@@ -1,3 +1,6 @@
+## 2026-11-03｜B134 R-LIMIT-COLLISION-001 双层限位及切换同步
+[7项官方与固定Blob来源](sources/CAP-09-07-joint-limits-b134.json) → [8项字段级规则](traces/CAP-09-07-joint-limits-b134-v08.json) → [40正反/6教学Golden](../docs/capabilities/CAP-09-07/joint-limits-b134-fixtures-v08.json) → [专项报告及局限](../docs/capabilities/CAP-09-07/AXIS-JOINT-LIMIT-B134-2026-11-03.md)。LinuxCNC2.9公开节实读，ISO841仅合法目录，NIST2023仅摘要，真实产品NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B133 R-MS-001 炉批/检验文件与硬度换算的证据资格
 [8条来源和实际阅读深度](sources/CAP-02-05-heat-lot-b133.json) → [9条规则与原包](traces/CAP-02-05-heat-lot-b133-v08.json) → [45单字段正反/4语义Golden](../docs/capabilities/CAP-02-05/heat-lot-b133-fixtures-v08.json) → [专项报告与局限](../docs/capabilities/CAP-02-05/HEAT-LOT-HARDNESS-B133-2026-11-03.md)。ISO10474/18265/6508只读合法目录摘要，不取得收费正文；NIST仅摘要，W3C公开§1–3；真实炉批/量仪/消费者产品未验。**规划PASS≠产品PASS。**
 
