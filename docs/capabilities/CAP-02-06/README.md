@@ -1,3 +1,5 @@
+> **B146专项（2026-11-04）**：[在机热漂移模型的校准、时间窗与NC资格隔离](THERMAL-DRIFT-BOUNDARY-B146-2026-11-04.md) → [7条分级来源](../../../research/sources/CAP-02-06-thermal-drift-b146.json) → [8条规则32字段](../../../research/traces/CAP-02-06-thermal-drift-b146-v08.json) → [8正32独立字段反8数学/状态Golden](thermal-drift-b146-fixtures-v08.json) → [只读Node入口](../../../tools/check_cap0206_thermal_drift_b146_v08.cjs)。NIST2026仅摘要、ISO230-3:2020仅目录；D03预测≠D17本件实测，不能自动修改NC或授D15/D16工程资格。独立产品/Owner/L3未验。**规划PASS≠产品PASS。**
+
 > **B107专项（2026-11-02）**：[在机测头模式/2σ资格](PROBE-QUALIFICATION-B107-2026-11-02.md) → [6来源](../../../research/sources/CAP-02-06-probe-qualification-b107.json) → [8规则](../../../research/traces/CAP-02-06-probe-qualification-b107-v08.json) → [34正反/STALE/UNKNOWN](probe-qualification-b107-fixtures-v08.json)。ISO230-10仅公开摘要，CMM台架规格不可外推NC实际测量性能；L3/实机NOT_RUN。
 
 # CAP-02-06｜测量与检测资源
