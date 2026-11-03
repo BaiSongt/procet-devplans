@@ -1,3 +1,6 @@
+## 2026-11-03｜B132 R-PMI-001：圆弧尺寸Span/曲率与图形引线分离
+[7条官方PTC/ISO合法目录/固定业务Blob来源与章节深度](sources/CAP-03-04-arc-span-b132.json) → [8条来源—规则—字段—原包映射](traces/CAP-03-04-arc-span-b132-v08.json) → [32独立单字段正反/6解析Golden](../docs/capabilities/CAP-03-04/arc-span-b132-fixtures-v08.json) → [研究与局限](../docs/capabilities/CAP-03-04/ARC-SPAN-B132-2026-11-03.md) → [只读Node](../tools/check_cap0304_arc_span_b132_v08.cjs)。同一个圆弧两端点不决定大/小弧；PTC不同产品的点击行为不互推；真实CAD/完整Node进程、正式Owner和17消费者均未验证。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B131 R-CYCLES-MACROS-001：G84非同步与G33.1主轴同步的厂商差异
 [7条来源、作者版本及精确阅读深度](sources/CAP-08-05-g84-tapping-b131.json) → [8规则和原包](traces/CAP-08-05-g84-tapping-b131-v08.json) → [32字段独立正反及13 Goldens](../docs/capabilities/CAP-08-05/g84-tapping-b131-fixtures-v08.json) → [研究报告与局限](../docs/capabilities/CAP-08-05/G84-TAPPING-DIALECT-B131-2026-11-03.md)。LinuxCNC三章节同根，Haas限机型与实证选件；Owner/消费者0/17、产品/实机/独立Node未验。**规划PASS≠产品PASS。**
 

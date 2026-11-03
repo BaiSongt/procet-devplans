@@ -1,3 +1,6 @@
+## 2026-11-03｜B132 CAP-03-04 大/小弧尺寸与二维Z-radius资格
+[分层厂商研究/阅读限制](docs/capabilities/CAP-03-04/ARC-SPAN-B132-2026-11-03.md) → [7来源](research/sources/CAP-03-04-arc-span-b132.json) → [8规则/原B0-02 F1-03 F1-04 T5-02](research/traces/CAP-03-04-arc-span-b132-v08.json) → [8正24单字段反+6数学Golden](docs/capabilities/CAP-03-04/arc-span-b132-fixtures-v08.json) → [Node只读检查](tools/check_cap0304_arc_span_b132_v08.cjs)。区别Creo Parametric r12、Elements/Direct 20.8/20.9和Toolkit r12；同端点的大/小弧不可默认为短弧，Z-radius二维折线不改变真实圆心，B-Spline曲率半径必须有选点；ISO129-1:2018仅官方目录，未读收费正文。研究238份Registry/1811登记（非去重），17正式Owner及真实消费者0/17、L3/全仓AST/产品待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B131 CAP-08-05 G84/G33.1刚性/浮动攻丝跨控制器语义
 [厂商手册与工程边界](docs/capabilities/CAP-08-05/G84-TAPPING-DIALECT-B131-2026-11-03.md) → [7分级来源/访问范围](research/sources/CAP-08-05-g84-tapping-b131.json) → [8规则/24字段/原E3-02/E3-03/U4-04](research/traces/CAP-08-05-g84-tapping-b131-v08.json) → [32单字段正反、10语义+3算术Golden](docs/capabilities/CAP-08-05/g84-tapping-b131-fixtures-v08.json) → [Node只读入口](tools/check_cap0805_g84_tapping_b131_v08.cjs)。LinuxCNC2.9 G84非同步浮动而G33.1同步；Haas Mill G84刚性选件待实证、车床G95另义。**规划PASS≠产品PASS。** L3、真实Owner/消费者及NC工程验收未闭。
 

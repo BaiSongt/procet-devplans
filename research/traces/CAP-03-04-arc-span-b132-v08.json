@@ -1,0 +1,249 @@
+{
+  "schemaVersion": "procet-b132-trace-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-03-04",
+  "researchTopic": "R-PMI-001",
+  "sourceRegistry": "research/sources/CAP-03-04-arc-span-b132.json",
+  "capabilityDocument": "docs/capabilities/CAP-03-04/ARC-SPAN-B132-2026-11-03.md",
+  "fixturePath": "docs/capabilities/CAP-03-04/arc-span-b132-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0304_arc_span_b132_v08.cjs",
+  "workPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "B132-R01",
+      "description": "圆弧尺寸不可脱离D01对象及装配实例身份",
+      "fields": [
+        "identity.d01Hash",
+        "identity.occurrence",
+        "identity.frame"
+      ],
+      "sourceIds": [
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R01-P",
+        "B132-R01-N1",
+        "B132-R01-N2",
+        "B132-R01-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B132-R02",
+      "description": "仅有真实圆弧与确定半径及大于零的弧角才可计算",
+      "fields": [
+        "geometry.type",
+        "geometry.radius",
+        "geometry.sweepDeg"
+      ],
+      "sourceIds": [
+        "B132-S01",
+        "B132-S05",
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R02-P",
+        "B132-R02-N1",
+        "B132-R02-N2",
+        "B132-R02-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B132-R03",
+      "description": "大/小弧、首末点需显式保留而不可从两端点猜唯一弧",
+      "fields": [
+        "selection.span",
+        "selection.pickFirst",
+        "selection.pickSecond"
+      ],
+      "sourceIds": [
+        "B132-S02",
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R03-P",
+        "B132-R03-N1",
+        "B132-R03-N2",
+        "B132-R03-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B132-R04",
+      "description": "半径、直径、角度、弧长类型不可以数值和单位混淆",
+      "fields": [
+        "dimension.kind",
+        "dimension.nominal",
+        "dimension.unit"
+      ],
+      "sourceIds": [
+        "B132-S01",
+        "B132-S03",
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R04-P",
+        "B132-R04-N1",
+        "B132-R04-N2",
+        "B132-R04-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B132-R05",
+      "description": "二维投影及Plane来源不能替代真实曲率和参数测量",
+      "fields": [
+        "projection.trueCircle",
+        "projection.planeRevision",
+        "projection.planeOrigin"
+      ],
+      "sourceIds": [
+        "B132-S04",
+        "B132-S05",
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R05-P",
+        "B132-R05-N1",
+        "B132-R05-N2",
+        "B132-R05-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B132-R06",
+      "description": "渲染入口唯一Babylon、统一左TaskPanel、GUI/CLI/Agent共用",
+      "fields": [
+        "ui.worlds",
+        "ui.panel",
+        "ui.entry"
+      ],
+      "sourceIds": [
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R06-P",
+        "B132-R06-N1",
+        "B132-R06-N2",
+        "B132-R06-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B132-R07",
+      "description": "03域PMI Owner冻结，不以D04/D10或其他域替换业务语义",
+      "fields": [
+        "owner.port",
+        "owner.frozen",
+        "owner.d10Separate"
+      ],
+      "sourceIds": [
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R07-P",
+        "B132-R07-N1",
+        "B132-R07-N2",
+        "B132-R07-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B132-R08",
+      "description": "CAS/ACL/撤权/取消晚回执重验并保留迁移回退",
+      "fields": [
+        "transaction.acl",
+        "transaction.actualRevision",
+        "transaction.cancelled"
+      ],
+      "sourceIds": [
+        "B132-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "tests": [
+        "B132-R08-P",
+        "B132-R08-N1",
+        "B132-R08-N2",
+        "B132-R08-N3"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

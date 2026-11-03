@@ -1,3 +1,5 @@
+**B132专项（2026-11-03）：** [真圆弧大/小弧及显示Z-radius与BSpline曲率资格](ARC-SPAN-B132-2026-11-03.md) → [7项官方/内部有界来源](../../../research/sources/CAP-03-04-arc-span-b132.json) → [8规则字段及原包](../../../research/traces/CAP-03-04-arc-span-b132-v08.json) → [32正反+6解析Golden](arc-span-b132-fixtures-v08.json)。B121仅尺寸几何与Plane，此项补弧段双解、局部曲率和二维折线；L3/真实CAD未验。**规划PASS≠产品PASS。**
+
 **B121补证（2026-11-03）：** [尺寸类型×Plane几何关系与Ordinate Baseline共享](DIMENSION-PLANE-COMPAT-B121-2026-11-03.md) → [9来源](../../../research/sources/CAP-03-04-dimension-plane-b121.json) → [8规则及原包](../../../research/traces/CAP-03-04-dimension-plane-b121-v08.json) → [40正反/6向量/4图](dimension-plane-b121-fixtures-v08.json)。与B83方向/Capture分层不同，本轮补具体Driven尺寸准入和Baseline变更传播；真实CAD/独立消费者/L3待审。**规划PASS≠产品PASS。**
 
 **B103补证（2026-11-02）：** [AP242 2025/2022版次、NIST STC全部删除Datum Target的验收覆盖盲点](DATUM-TARGET-COVERAGE-B103-2026-11-02.md) → [7条来源](../../../research/sources/CAP-03-04-datum-target-b103.json) → [8条规则](../../../research/traces/CAP-03-04-datum-target-b103-v08.json) → [35合成正反UNKNOWN](datum-target-b103-fixtures-v08.json)。未执行真实FTC/OCCT/NIST Analyzer，L3待审，规划PASS≠产品PASS。
