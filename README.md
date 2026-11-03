@@ -1,3 +1,6 @@
+## 2026-11-04｜B148 CAP-03-02 装配Occurrence闭包与位置资格
+[研究和阅读深度](docs/capabilities/CAP-03-02/OCCURRENCE-CLOSURE-B148-2026-11-04.md) → [5分级来源](research/sources/CAP-03-02-occurrence-closure-b148.json) → [8规则/32字段及原包](research/traces/CAP-03-02-occurrence-closure-b148-v08.json) → [8正32单字段反、5矩阵Golden](docs/capabilities/CAP-03-02/occurrence-closure-b148-fixtures-v08.json) → [只读Node入口](tools/check_cap0302_occurrence_closure_b148_v08.cjs) → [校验分级](tracking/cap0302-occurrence-closure-b148-verification-2026-11-04.json)。区分共享定义与多Occurrence、完整递归与默认一层、已定位Shape与重复Location；当前仅规划数学/字段合成，真实STEP/Owner及消费者0/17、L3与历史字节/全仓GFM AST待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B147 T5-03 17资产Owner/独立消费者独立资格矩阵
 [研究与阅读局限](docs/work-packages/T5-03/ASSET-CONSUMER-QUALIFICATION-B147-2026-11-04.md) → [5来源](research/sources/T5-03-consumer-qualification-b147.json) → [8规则32字段](research/traces/T5-03-consumer-qualification-b147-v08.json) → [17资产声明](docs/work-packages/T5-03/asset-consumer-matrix-b147-v08.json) → [8正32单字段反+17资产+8Goldens](docs/work-packages/T5-03/consumer-qualification-b147-fixtures-v08.json) → [Node只读规划入口](tools/check_t503_consumers_b147_v08.cjs)。完成正式会签/消费者**准备契约**，不制造签名。内存静态40正反与17矩阵结构符合预期；独立Node文件进程、真正17消费者/Owner、L3与产品均未验。**规划PASS≠产品PASS。**
 

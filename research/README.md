@@ -1,3 +1,6 @@
+## 2026-11-04｜B148 R-ASM-001 发生实例递归与Location只一次
+[5项来源与访问深度](sources/CAP-03-02-occurrence-closure-b148.json) → [8规则字段及B0-02/F1-03/F1-04/T5-02](traces/CAP-03-02-occurrence-closure-b148-v08.json) → [8正32反5数学Golden](../docs/capabilities/CAP-03-02/occurrence-closure-b148-fixtures-v08.json) → [专项研究/局限](../docs/capabilities/CAP-03-02/OCCURRENCE-CLOSURE-B148-2026-11-04.md)。OCCT 8.0.1 API指定章节实读；ISO仅合法目录，NIST仅公开数据集摘要。本仓Owner/CAS/GUI为内生规则；独立Node完整文件进程、真实STEP/Consumer/Owner均未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B147 T5-03 17资产消费者验收分级研究
 [5来源/访问深度](sources/T5-03-consumer-qualification-b147.json) → [8规则/32字段](traces/T5-03-consumer-qualification-b147-v08.json) → [17资产Owner/Consumer候选](../docs/work-packages/T5-03/asset-consumer-matrix-b147-v08.json) → [57项构造性与状态断言](../docs/work-packages/T5-03/consumer-qualification-b147-fixtures-v08.json) → [专项报告](../docs/work-packages/T5-03/ASSET-CONSUMER-QUALIFICATION-B147-2026-11-04.md)。RFC9110 §13.1.1可用于强前置条件的设计类比；NIST SP800-218只读官方摘要，JSON Schema官方版本概览实读，W3C仅来源概念；Owner正式签署0/17、独立消费者0/17，产品和L3未验。**规划PASS≠产品PASS。**
 
