@@ -1,3 +1,6 @@
+## 2026-11-03｜B140 R-25D-TOOLPATH-001 螺旋入刀必要几何条件
+[6来源及日期/章节/阅读深度](sources/CAP-07-01-helix-entry-b140.json) → [8规则及32字段/原包](traces/CAP-07-01-helix-entry-b140-v08.json) → [40独立正反+10数学Golden](../docs/capabilities/CAP-07-01/helix-entry-b140-fixtures-v08.json) → [报告](../docs/capabilities/CAP-07-01/HELIX-ENTRY-B140-2026-11-03.md)。Autodesk Fusion帮助入刀章节实读，三篇支持文章仅检索摘录（直接页无可读文本），FreeCAD社区文档已归档；公式仅受限二维模型。正式Owner/消费者0/17，Node文件、L3及产品未验，规划PASS≠产品PASS。
+
 ## 2026-11-03｜B139 R-PLANREV-001 D05三方语义与跨分支边冲突
 [7分层来源](sources/CAP-05-07-merge-graph-b139.json) → [8规则32字段及原包](traces/CAP-05-07-merge-graph-b139-v08.json) → [40正反8图Golden](../docs/capabilities/CAP-05-07/merge-graph-b139-fixtures-v08.json) → [限定外推的报告](../docs/capabilities/CAP-05-07/MERGE-GRAPH-B139-2026-11-03.md)。Git官方合并仅为设计类比，Procet有向图反例为自建模型，未实际合并D05；L3/Owner/消费者/全仓AST未验。规划PASS≠产品PASS。
 

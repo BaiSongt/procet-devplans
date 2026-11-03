@@ -1,0 +1,578 @@
+{
+  "schemaVersion": "procet-b140-fixtures-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-07-01",
+  "sourceRegistry": "research/sources/CAP-07-01-helix-entry-b140.json",
+  "trace": "research/traces/CAP-07-01-helix-entry-b140-v08.json",
+  "groups": [
+    {
+      "ruleId": "B140-R01",
+      "positive": {
+        "id": "B140-R01-P",
+        "values": {
+          "input.d02Exact": true,
+          "input.d03Exact": true,
+          "input.d04FrameExact": true,
+          "input.d07StockExact": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R01-N1",
+          "mutatedField": "input.d02Exact",
+          "values": {
+            "input.d02Exact": false,
+            "input.d03Exact": true,
+            "input.d04FrameExact": true,
+            "input.d07StockExact": true
+          },
+          "expected": "STALE_INPUT"
+        },
+        {
+          "id": "B140-R01-N2",
+          "mutatedField": "input.d03Exact",
+          "values": {
+            "input.d02Exact": true,
+            "input.d03Exact": false,
+            "input.d04FrameExact": true,
+            "input.d07StockExact": true
+          },
+          "expected": "STALE_INPUT"
+        },
+        {
+          "id": "B140-R01-N3",
+          "mutatedField": "input.d04FrameExact",
+          "values": {
+            "input.d02Exact": true,
+            "input.d03Exact": true,
+            "input.d04FrameExact": false,
+            "input.d07StockExact": true
+          },
+          "expected": "STALE_INPUT"
+        },
+        {
+          "id": "B140-R01-N4",
+          "mutatedField": "input.d07StockExact",
+          "values": {
+            "input.d02Exact": true,
+            "input.d03Exact": true,
+            "input.d04FrameExact": true,
+            "input.d07StockExact": false
+          },
+          "expected": "STALE_INPUT"
+        }
+      ]
+    },
+    {
+      "ruleId": "B140-R02",
+      "positive": {
+        "id": "B140-R02-P",
+        "values": {
+          "geometry.toolDiameterExact": true,
+          "geometry.pathDiameterExact": true,
+          "geometry.clearanceIncluded": true,
+          "geometry.protectedIslandEvidence": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R02-N1",
+          "mutatedField": "geometry.toolDiameterExact",
+          "values": {
+            "geometry.toolDiameterExact": false,
+            "geometry.pathDiameterExact": true,
+            "geometry.clearanceIncluded": true,
+            "geometry.protectedIslandEvidence": true
+          },
+          "expected": "REJECT_ENVELOPE"
+        },
+        {
+          "id": "B140-R02-N2",
+          "mutatedField": "geometry.pathDiameterExact",
+          "values": {
+            "geometry.toolDiameterExact": true,
+            "geometry.pathDiameterExact": false,
+            "geometry.clearanceIncluded": true,
+            "geometry.protectedIslandEvidence": true
+          },
+          "expected": "REJECT_ENVELOPE"
+        },
+        {
+          "id": "B140-R02-N3",
+          "mutatedField": "geometry.clearanceIncluded",
+          "values": {
+            "geometry.toolDiameterExact": true,
+            "geometry.pathDiameterExact": true,
+            "geometry.clearanceIncluded": false,
+            "geometry.protectedIslandEvidence": true
+          },
+          "expected": "REJECT_ENVELOPE"
+        },
+        {
+          "id": "B140-R02-N4",
+          "mutatedField": "geometry.protectedIslandEvidence",
+          "values": {
+            "geometry.toolDiameterExact": true,
+            "geometry.pathDiameterExact": true,
+            "geometry.clearanceIncluded": true,
+            "geometry.protectedIslandEvidence": false
+          },
+          "expected": "REJECT_ENVELOPE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B140-R03",
+      "positive": {
+        "id": "B140-R03-P",
+        "values": {
+          "diameter.minLessThanMax": true,
+          "diameter.pathInsideRange": true,
+          "diameter.pathPositive": true,
+          "diameter.noSilentPlunge": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R03-N1",
+          "mutatedField": "diameter.minLessThanMax",
+          "values": {
+            "diameter.minLessThanMax": false,
+            "diameter.pathInsideRange": true,
+            "diameter.pathPositive": true,
+            "diameter.noSilentPlunge": true
+          },
+          "expected": "REJECT_DIAMETER"
+        },
+        {
+          "id": "B140-R03-N2",
+          "mutatedField": "diameter.pathInsideRange",
+          "values": {
+            "diameter.minLessThanMax": true,
+            "diameter.pathInsideRange": false,
+            "diameter.pathPositive": true,
+            "diameter.noSilentPlunge": true
+          },
+          "expected": "REJECT_DIAMETER"
+        },
+        {
+          "id": "B140-R03-N3",
+          "mutatedField": "diameter.pathPositive",
+          "values": {
+            "diameter.minLessThanMax": true,
+            "diameter.pathInsideRange": true,
+            "diameter.pathPositive": false,
+            "diameter.noSilentPlunge": true
+          },
+          "expected": "REJECT_DIAMETER"
+        },
+        {
+          "id": "B140-R03-N4",
+          "mutatedField": "diameter.noSilentPlunge",
+          "values": {
+            "diameter.minLessThanMax": true,
+            "diameter.pathInsideRange": true,
+            "diameter.pathPositive": true,
+            "diameter.noSilentPlunge": false
+          },
+          "expected": "REJECT_DIAMETER"
+        }
+      ]
+    },
+    {
+      "ruleId": "B140-R04",
+      "positive": {
+        "id": "B140-R04-P",
+        "values": {
+          "pitch.angleLimitPinned": true,
+          "pitch.stepdownLimitPinned": true,
+          "pitch.turnCountDerived": true,
+          "pitch.unitsPinned": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R04-N1",
+          "mutatedField": "pitch.angleLimitPinned",
+          "values": {
+            "pitch.angleLimitPinned": false,
+            "pitch.stepdownLimitPinned": true,
+            "pitch.turnCountDerived": true,
+            "pitch.unitsPinned": true
+          },
+          "expected": "REJECT_PITCH"
+        },
+        {
+          "id": "B140-R04-N2",
+          "mutatedField": "pitch.stepdownLimitPinned",
+          "values": {
+            "pitch.angleLimitPinned": true,
+            "pitch.stepdownLimitPinned": false,
+            "pitch.turnCountDerived": true,
+            "pitch.unitsPinned": true
+          },
+          "expected": "REJECT_PITCH"
+        },
+        {
+          "id": "B140-R04-N3",
+          "mutatedField": "pitch.turnCountDerived",
+          "values": {
+            "pitch.angleLimitPinned": true,
+            "pitch.stepdownLimitPinned": true,
+            "pitch.turnCountDerived": false,
+            "pitch.unitsPinned": true
+          },
+          "expected": "REJECT_PITCH"
+        },
+        {
+          "id": "B140-R04-N4",
+          "mutatedField": "pitch.unitsPinned",
+          "values": {
+            "pitch.angleLimitPinned": true,
+            "pitch.stepdownLimitPinned": true,
+            "pitch.turnCountDerived": true,
+            "pitch.unitsPinned": false
+          },
+          "expected": "REJECT_PITCH"
+        }
+      ]
+    },
+    {
+      "ruleId": "B140-R05",
+      "positive": {
+        "id": "B140-R05-P",
+        "values": {
+          "tool.helixCapabilityKnown": true,
+          "tool.entryFeedKnown": true,
+          "tool.holderEnvelopeKnown": true,
+          "tool.bossDispositionKnown": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R05-N1",
+          "mutatedField": "tool.helixCapabilityKnown",
+          "values": {
+            "tool.helixCapabilityKnown": false,
+            "tool.entryFeedKnown": true,
+            "tool.holderEnvelopeKnown": true,
+            "tool.bossDispositionKnown": true
+          },
+          "expected": "UNKNOWN_TOOL"
+        },
+        {
+          "id": "B140-R05-N2",
+          "mutatedField": "tool.entryFeedKnown",
+          "values": {
+            "tool.helixCapabilityKnown": true,
+            "tool.entryFeedKnown": false,
+            "tool.holderEnvelopeKnown": true,
+            "tool.bossDispositionKnown": true
+          },
+          "expected": "UNKNOWN_TOOL"
+        },
+        {
+          "id": "B140-R05-N3",
+          "mutatedField": "tool.holderEnvelopeKnown",
+          "values": {
+            "tool.helixCapabilityKnown": true,
+            "tool.entryFeedKnown": true,
+            "tool.holderEnvelopeKnown": false,
+            "tool.bossDispositionKnown": true
+          },
+          "expected": "UNKNOWN_TOOL"
+        },
+        {
+          "id": "B140-R05-N4",
+          "mutatedField": "tool.bossDispositionKnown",
+          "values": {
+            "tool.helixCapabilityKnown": true,
+            "tool.entryFeedKnown": true,
+            "tool.holderEnvelopeKnown": true,
+            "tool.bossDispositionKnown": false
+          },
+          "expected": "UNKNOWN_TOOL"
+        }
+      ]
+    },
+    {
+      "ruleId": "B140-R06",
+      "positive": {
+        "id": "B140-R06-P",
+        "values": {
+          "stock.prediHolePriorStateChecked": true,
+          "stock.openRegionExplicit": true,
+          "stock.startPointClearance": true,
+          "stock.generatedEntryKindVerified": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R06-N1",
+          "mutatedField": "stock.prediHolePriorStateChecked",
+          "values": {
+            "stock.prediHolePriorStateChecked": false,
+            "stock.openRegionExplicit": true,
+            "stock.startPointClearance": true,
+            "stock.generatedEntryKindVerified": true
+          },
+          "expected": "UNKNOWN_ENTRY"
+        },
+        {
+          "id": "B140-R06-N2",
+          "mutatedField": "stock.openRegionExplicit",
+          "values": {
+            "stock.prediHolePriorStateChecked": true,
+            "stock.openRegionExplicit": false,
+            "stock.startPointClearance": true,
+            "stock.generatedEntryKindVerified": true
+          },
+          "expected": "UNKNOWN_ENTRY"
+        },
+        {
+          "id": "B140-R06-N3",
+          "mutatedField": "stock.startPointClearance",
+          "values": {
+            "stock.prediHolePriorStateChecked": true,
+            "stock.openRegionExplicit": true,
+            "stock.startPointClearance": false,
+            "stock.generatedEntryKindVerified": true
+          },
+          "expected": "UNKNOWN_ENTRY"
+        },
+        {
+          "id": "B140-R06-N4",
+          "mutatedField": "stock.generatedEntryKindVerified",
+          "values": {
+            "stock.prediHolePriorStateChecked": true,
+            "stock.openRegionExplicit": true,
+            "stock.startPointClearance": true,
+            "stock.generatedEntryKindVerified": false
+          },
+          "expected": "UNKNOWN_ENTRY"
+        }
+      ]
+    },
+    {
+      "ruleId": "B140-R07",
+      "positive": {
+        "id": "B140-R07-P",
+        "values": {
+          "owner.samePortForGuiCliAgent": true,
+          "owner.casAclAtCommit": true,
+          "owner.lateAckRejected": true,
+          "owner.abFreezeNotOverwritten": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R07-N1",
+          "mutatedField": "owner.samePortForGuiCliAgent",
+          "values": {
+            "owner.samePortForGuiCliAgent": false,
+            "owner.casAclAtCommit": true,
+            "owner.lateAckRejected": true,
+            "owner.abFreezeNotOverwritten": true
+          },
+          "expected": "REJECT_TRANSACTION"
+        },
+        {
+          "id": "B140-R07-N2",
+          "mutatedField": "owner.casAclAtCommit",
+          "values": {
+            "owner.samePortForGuiCliAgent": true,
+            "owner.casAclAtCommit": false,
+            "owner.lateAckRejected": true,
+            "owner.abFreezeNotOverwritten": true
+          },
+          "expected": "REJECT_TRANSACTION"
+        },
+        {
+          "id": "B140-R07-N3",
+          "mutatedField": "owner.lateAckRejected",
+          "values": {
+            "owner.samePortForGuiCliAgent": true,
+            "owner.casAclAtCommit": true,
+            "owner.lateAckRejected": false,
+            "owner.abFreezeNotOverwritten": true
+          },
+          "expected": "REJECT_TRANSACTION"
+        },
+        {
+          "id": "B140-R07-N4",
+          "mutatedField": "owner.abFreezeNotOverwritten",
+          "values": {
+            "owner.samePortForGuiCliAgent": true,
+            "owner.casAclAtCommit": true,
+            "owner.lateAckRejected": true,
+            "owner.abFreezeNotOverwritten": false
+          },
+          "expected": "REJECT_TRANSACTION"
+        }
+      ]
+    },
+    {
+      "ruleId": "B140-R08",
+      "positive": {
+        "id": "B140-R08-P",
+        "values": {
+          "handoff.d09OnlyCandidate": true,
+          "handoff.finalD12ReadByD13": true,
+          "handoff.d14D15Independent": true,
+          "handoff.d16UnknownBlocked": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B140-R08-N1",
+          "mutatedField": "handoff.d09OnlyCandidate",
+          "values": {
+            "handoff.d09OnlyCandidate": false,
+            "handoff.finalD12ReadByD13": true,
+            "handoff.d14D15Independent": true,
+            "handoff.d16UnknownBlocked": true
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        },
+        {
+          "id": "B140-R08-N2",
+          "mutatedField": "handoff.finalD12ReadByD13",
+          "values": {
+            "handoff.d09OnlyCandidate": true,
+            "handoff.finalD12ReadByD13": false,
+            "handoff.d14D15Independent": true,
+            "handoff.d16UnknownBlocked": true
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        },
+        {
+          "id": "B140-R08-N3",
+          "mutatedField": "handoff.d14D15Independent",
+          "values": {
+            "handoff.d09OnlyCandidate": true,
+            "handoff.finalD12ReadByD13": true,
+            "handoff.d14D15Independent": false,
+            "handoff.d16UnknownBlocked": true
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        },
+        {
+          "id": "B140-R08-N4",
+          "mutatedField": "handoff.d16UnknownBlocked",
+          "values": {
+            "handoff.d09OnlyCandidate": true,
+            "handoff.finalD12ReadByD13": true,
+            "handoff.d14D15Independent": true,
+            "handoff.d16UnknownBlocked": false
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        }
+      ]
+    }
+  ],
+  "golden": {
+    "scope": "自建二维局部圆形开放区域与恒半径螺旋数学教学模型；非真实刀柄/材料/机床验证",
+    "formula": "Dswept=Dpath+Dtool+2c; pitch=min(maxStepdown,PI*Dpath*tan(angle)); turns=ceil(depth/pitch)",
+    "base": {
+      "pathDiameterMm": 4,
+      "toolDiameterMm": 10,
+      "freeDiameterMm": 15,
+      "clearanceMm": 0.4,
+      "minDiameterMm": 1,
+      "maxDiameterMm": 6,
+      "angleDeg": 2,
+      "maxStepdownMm": 0.6,
+      "depthMm": 2,
+      "helixCapable": true,
+      "centerBossResolved": true,
+      "protectionKnown": true,
+      "frameExact": true,
+      "actualHelix": true
+    },
+    "scenarios": [
+      {
+        "id": "B140-G01",
+        "change": {},
+        "expectedStatus": "CANDIDATE_GEOMETRY_ONLY",
+        "pitchMm": 0.438827331571909,
+        "turns": 5
+      },
+      {
+        "id": "B140-G02",
+        "change": {
+          "freeDiameterMm": 14
+        },
+        "expectedStatus": "REJECT_ENVELOPE"
+      },
+      {
+        "id": "B140-G03",
+        "change": {
+          "minDiameterMm": 5
+        },
+        "expectedStatus": "REJECT_DIAMETER"
+      },
+      {
+        "id": "B140-G04",
+        "change": {
+          "pathDiameterMm": 12,
+          "maxDiameterMm": 15,
+          "freeDiameterMm": 25,
+          "centerBossResolved": false
+        },
+        "expectedStatus": "UNKNOWN_BOSS"
+      },
+      {
+        "id": "B140-G05",
+        "change": {
+          "maxStepdownMm": 0.2
+        },
+        "expectedStatus": "CANDIDATE_GEOMETRY_ONLY",
+        "pitchMm": 0.2,
+        "turns": 10
+      },
+      {
+        "id": "B140-G06",
+        "change": {
+          "helixCapable": false
+        },
+        "expectedStatus": "UNKNOWN_TOOL"
+      },
+      {
+        "id": "B140-G07",
+        "change": {
+          "frameExact": false
+        },
+        "expectedStatus": "STALE_FRAME"
+      },
+      {
+        "id": "B140-G08",
+        "change": {
+          "protectionKnown": false
+        },
+        "expectedStatus": "UNKNOWN_PROTECTED"
+      },
+      {
+        "id": "B140-G09",
+        "change": {
+          "actualHelix": false
+        },
+        "expectedStatus": "UNKNOWN_ENTRY_MODE"
+      },
+      {
+        "id": "B140-G10",
+        "change": {
+          "angleDeg": 0
+        },
+        "expectedStatus": "UNKNOWN_PITCH"
+      }
+    ]
+  }
+}

@@ -1,3 +1,6 @@
+## 2026-11-03｜B140 CAP-07-01 2.5D螺旋入刀包络与每圈Z预算
+[研究和真实阅读局限](docs/capabilities/CAP-07-01/HELIX-ENTRY-B140-2026-11-03.md) → [6条分级来源](research/sources/CAP-07-01-helix-entry-b140.json) → [8规则/原F1-03 E3-01 U4-04](research/traces/CAP-07-01-helix-entry-b140-v08.json) → [8正32独立单字段反+10数学/状态Golden](docs/capabilities/CAP-07-01/helix-entry-b140-fixtures-v08.json) → [只读Node入口](tools/check_cap0701_helix_entry_b140_v08.cjs)。区分Dpath与刀具扫掠外径、有效净空间/余量、倾角和每转深度；Fusion官方帮助实读，三篇2026年厂商支持页只有搜索摘录。Node完整文件进程/产品/17 Owner和消费者、L3/全仓GFM AST/历史原始字节仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B139 CAP-05-07 三方D05工序DAG删改/跨边冲突
 [专项研究与阅读分级](docs/capabilities/CAP-05-07/MERGE-GRAPH-B139-2026-11-03.md) → [7来源](research/sources/CAP-05-07-merge-graph-b139.json) → [8规则/32字段与原W2-02/03/05](research/traces/CAP-05-07-merge-graph-b139-v08.json) → [8正32单字段反例+8有向图Golden](docs/capabilities/CAP-05-07/merge-graph-b139-fixtures-v08.json) → [只读Node入口](tools/check_cap0507_merge_graph_b139_v08.cjs)。新增删除-引用悬挂边、两侧新增边合成环及冻结无损回退的机器合成，独立Node文件进程及实际D05/NC/17消费者仍NOT_RUN，正式Owner0/17、L3/全仓AST/历史原字节待审。**规划PASS≠产品PASS。**
 
