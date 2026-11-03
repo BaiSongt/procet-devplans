@@ -1,3 +1,6 @@
+## 2026-11-04｜B146 CAP-02-06 在机热漂移模型与测量/NC资格隔离
+[专项研究与阅读限制](docs/capabilities/CAP-02-06/THERMAL-DRIFT-BOUNDARY-B146-2026-11-04.md) → [7来源](research/sources/CAP-02-06-thermal-drift-b146.json) → [8规则/32字段](research/traces/CAP-02-06-thermal-drift-b146-v08.json) → [8正32独立单字段反+8Golden](docs/capabilities/CAP-02-06/thermal-drift-b146-fixtures-v08.json) → [Node只读入口](tools/check_cap0206_thermal_drift_b146_v08.cjs) → [验证记录](tracking/cap0206-thermal-drift-b146-verification-2026-11-04.json)。NIST2026仅著录摘要、ISO230-3仅公开目录；D03资源热漂移预测不冒充D17实际计量结果，也不替代最终NC D13→D14→D15→D16。48/48仅内存合成；独立Node、量仪/NC、17 Owner/消费者、L3、历史原字节和全仓GFM AST仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B145 CAP-03-03 Wire有向遍历与完整性补证
 [专项研究与真实阅读范围](docs/capabilities/CAP-03-03/WIRE-TRAVERSAL-B145-2026-11-04.md) → [7来源](research/sources/CAP-03-03-wire-traversal-b145.json) → [8规则及原B0-02/F1-03/F1-04/T5-02](research/traces/CAP-03-03-wire-traversal-b145-v08.json) → [8正32反+8图Golden](docs/capabilities/CAP-03-03/wire-traversal-b145-fixtures-v08.json) → [只读Node入口](tools/check_cap0303_wire_traversal_b145_v08.cjs) → [验证等级](tracking/cap0303-wire-traversal-b145-verification-2026-11-04.json)。普通TopExp子形状列表不等于连通Wire次序，WireExplorer可能因拓扑缺陷提前停止。48/48内存规划合成；独立Node完整文件、真实OCCT、17 Owner和消费者、L3/全仓GFM AST/历史原始字节仍未验。**规划PASS≠产品PASS。**
 
