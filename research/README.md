@@ -1,3 +1,6 @@
+## 2026-11-03｜B130 R-STOCKREG-001：留出目标点、相关协方差与不确定度报告
+[7来源：NIST TN1297章节+论文摘要/数据目录及固定内部Blob](sources/CAP-04-02-target-uncertainty-b130.json) → [8规则、字段与原F1-02/F1-04/W2-05/E3-04/E3-05/U4-02/U4-03](traces/CAP-04-02-target-uncertainty-b130-v08.json) → [32正反及5解析Golden](../docs/capabilities/CAP-04-02/target-uncertainty-b130-fixtures-v08.json) → [研究报告/局限](../docs/capabilities/CAP-04-02/TARGET-UNCERTAINTY-B130-2026-11-03.md) → [只读校验器](../tools/check_cap0402_target_uncertainty_b130_v08.cjs)。TN1297三个章节同一出版物；两NIST论文仅摘要，NIST数据CSV未下载。数学Golden仅合成，不代表实际B5/OCCT/测量/CNC/独立消费者。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B129 CAP-02-03拉钉/刀柄/主轴接口资格
 [研究与阅读限制](../docs/capabilities/CAP-02-03/RETENTION-KNOB-QUALIFICATION-B129-2026-11-03.md) → [7来源](sources/CAP-02-03-retention-knob-b129.json) → [8规则](traces/CAP-02-03-retention-knob-b129-v08.json) → [8正32反](../docs/capabilities/CAP-02-03/retention-knob-b129-fixtures-v08.json) → [只读Node](../tools/check_cap0203_retention_knob_b129_v08.cjs)。Haas特定04-0201拉钉不能外推B5/OEM，ISO只读官方目录；真实主轴、Owner/消费者及L3待验。**规划PASS≠产品PASS。**
 
