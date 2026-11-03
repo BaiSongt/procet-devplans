@@ -1,3 +1,5 @@
+> **B145 Wire遍历完整性、累计方向和Face证据（2026-11-04）**：[专项论证](WIRE-TRAVERSAL-B145-2026-11-04.md) → [7来源](../../../research/sources/CAP-03-03-wire-traversal-b145.json) → [8规则/原工作包](../../../research/traces/CAP-03-03-wire-traversal-b145-v08.json) → [8正32独立单字段反+8图Golden](wire-traversal-b145-fixtures-v08.json)。规划合成不等于真实OCCT/STEP/NC工程验证；Owner/L3和消费者待审。**规划PASS≠产品PASS。**
+
 # CAP-03-03｜稳定拓扑引用：精确定位、演化证据与跨修订重绑定
 
 > **v0.1｜2026-10-18｜本地已编制、待人类评审、待远端入库。** 原V0.8编号 `CAP-03-03`；不增加88项CAP分母。原工作包 `B0-02 / F1-03 / F1-04 / T5-02`。本说明、[GUI/3D详细规格](UI.md)、[R-TOP-001研究](../../../research/topics/R-TOP-001.md)、[来源→规则→验收追踪](../../../research/traces/CAP-03-03.json)、[20组正反fixture](fixtures.json)共同构成单项编制交付。产品实现、审批、测试**均未在本任务执行**。已存在的CAP-03-01是远端规划资料；CAP-03-02「零件/装配及版本」当前仅本地待入库，相关跨项连接在GitHub入库时再同步。

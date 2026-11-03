@@ -1,3 +1,6 @@
+## 2026-11-04｜B145 R-TOP-001 Wire遍历完整性与方向累计
+[7条分级来源](sources/CAP-03-03-wire-traversal-b145.json) → [8规则/32字段及原包](traces/CAP-03-03-wire-traversal-b145-v08.json) → [48合成用例](../docs/capabilities/CAP-03-03/wire-traversal-b145-fixtures-v08.json) → [专项技术论证](../docs/capabilities/CAP-03-03/WIRE-TRAVERSAL-B145-2026-11-04.md)。OCCT8.0.1指定公开API可见，五页同一工程不计独立出版物；PROV-O仅读引言/§2，原CAP为内生规格；真实Node/OCCT/Owner及消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
+
 ## 2026-11-04｜B144 数字主线检查点与外部见证
 [5来源及真实阅读深度](sources/CAP-10-08-checkpoint-witness-b144.json) → [8规则/原E3-06/T5-03](traces/CAP-10-08-checkpoint-witness-b144-v08.json) → [40独立正反+10状态Golden](../docs/capabilities/CAP-10-08/checkpoint-witness-b144-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-10-08/AUDIT-CHECKPOINT-WITNESS-B144-2026-11-04.md)。RFC9162/8785指定公开章节实读，NIST SP800-92只官方元数据和摘要；规划同状态机检查不含真实Merkle/签名，L3和17Owner/消费者待审。**规划PASS≠产品PASS。**
 

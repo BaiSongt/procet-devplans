@@ -1,3 +1,6 @@
+## 2026-11-04｜B145 CAP-03-03 Wire有向遍历与完整性补证
+[专项研究与真实阅读范围](docs/capabilities/CAP-03-03/WIRE-TRAVERSAL-B145-2026-11-04.md) → [7来源](research/sources/CAP-03-03-wire-traversal-b145.json) → [8规则及原B0-02/F1-03/F1-04/T5-02](research/traces/CAP-03-03-wire-traversal-b145-v08.json) → [8正32反+8图Golden](docs/capabilities/CAP-03-03/wire-traversal-b145-fixtures-v08.json) → [只读Node入口](tools/check_cap0303_wire_traversal_b145_v08.cjs) → [验证等级](tracking/cap0303-wire-traversal-b145-verification-2026-11-04.json)。普通TopExp子形状列表不等于连通Wire次序，WireExplorer可能因拓扑缺陷提前停止。48/48内存规划合成；独立Node完整文件、真实OCCT、17 Owner和消费者、L3/全仓GFM AST/历史原始字节仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B144 CAP-10-08 独立审计检查点与防双视图资格
 [专项研究与边界](docs/capabilities/CAP-10-08/AUDIT-CHECKPOINT-WITNESS-B144-2026-11-04.md) → [5分层来源](research/sources/CAP-10-08-checkpoint-witness-b144.json) → [8规则32字段](research/traces/CAP-10-08-checkpoint-witness-b144-v08.json) → [8正32单字段反+10状态Golden](docs/capabilities/CAP-10-08/checkpoint-witness-b144-fixtures-v08.json) → [只读校验器](tools/check_cap1008_checkpoint_witness_b144_v08.cjs) → [验证状态](tracking/cap1008-checkpoint-witness-b144-verification-2026-11-04.json)。RFC9162的包含/一致性仅借鉴数据结构；RFC8785限定字节规范化；NIST只读摘要。原业务T04哈希链不能证明未回滚/无双视图，需要独立可信检查点与实际证明。V8内存50/50规划合成，独立Node文件/实际签名、D16/D17、17资产Owner与消费者、全仓AST及历史原件未验。**规划PASS≠产品PASS。**
 
