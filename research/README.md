@@ -1,3 +1,6 @@
+## 2026-11-03｜B131 R-CYCLES-MACROS-001：G84非同步与G33.1主轴同步的厂商差异
+[7条来源、作者版本及精确阅读深度](sources/CAP-08-05-g84-tapping-b131.json) → [8规则和原包](traces/CAP-08-05-g84-tapping-b131-v08.json) → [32字段独立正反及13 Goldens](../docs/capabilities/CAP-08-05/g84-tapping-b131-fixtures-v08.json) → [研究报告与局限](../docs/capabilities/CAP-08-05/G84-TAPPING-DIALECT-B131-2026-11-03.md)。LinuxCNC三章节同根，Haas限机型与实证选件；Owner/消费者0/17、产品/实机/独立Node未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B130 R-STOCKREG-001：留出目标点、相关协方差与不确定度报告
 [7来源：NIST TN1297章节+论文摘要/数据目录及固定内部Blob](sources/CAP-04-02-target-uncertainty-b130.json) → [8规则、字段与原F1-02/F1-04/W2-05/E3-04/E3-05/U4-02/U4-03](traces/CAP-04-02-target-uncertainty-b130-v08.json) → [32正反及5解析Golden](../docs/capabilities/CAP-04-02/target-uncertainty-b130-fixtures-v08.json) → [研究报告/局限](../docs/capabilities/CAP-04-02/TARGET-UNCERTAINTY-B130-2026-11-03.md) → [只读校验器](../tools/check_cap0402_target_uncertainty_b130_v08.cjs)。TN1297三个章节同一出版物；两NIST论文仅摘要，NIST数据CSV未下载。数学Golden仅合成，不代表实际B5/OCCT/测量/CNC/独立消费者。**规划PASS≠产品PASS。**
 

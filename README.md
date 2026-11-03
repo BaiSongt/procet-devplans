@@ -1,3 +1,6 @@
+## 2026-11-03｜B131 CAP-08-05 G84/G33.1刚性/浮动攻丝跨控制器语义
+[厂商手册与工程边界](docs/capabilities/CAP-08-05/G84-TAPPING-DIALECT-B131-2026-11-03.md) → [7分级来源/访问范围](research/sources/CAP-08-05-g84-tapping-b131.json) → [8规则/24字段/原E3-02/E3-03/U4-04](research/traces/CAP-08-05-g84-tapping-b131-v08.json) → [32单字段正反、10语义+3算术Golden](docs/capabilities/CAP-08-05/g84-tapping-b131-fixtures-v08.json) → [Node只读入口](tools/check_cap0805_g84_tapping_b131_v08.cjs)。LinuxCNC2.9 G84非同步浮动而G33.1同步；Haas Mill G84刚性选件待实证、车床G95另义。**规划PASS≠产品PASS。** L3、真实Owner/消费者及NC工程验收未闭。
+
 ## 2026-11-03｜B130 CAP-04-02目标点不确定度与相关协方差
 [专项研究/实际阅读深度](docs/capabilities/CAP-04-02/TARGET-UNCERTAINTY-B130-2026-11-03.md) → [7条来源](research/sources/CAP-04-02-target-uncertainty-b130.json) → [8条规则/字段/原包](research/traces/CAP-04-02-target-uncertainty-b130-v08.json) → [8正24反+5解析Golden](docs/capabilities/CAP-04-02/target-uncertainty-b130-fixtures-v08.json) → [只读Node工具](tools/check_cap0402_target_uncertainty_b130_v08.cjs) → [分级验证](tracking/cap0402-target-uncertainty-b130-verification-2026-11-03.json)。B20/B75以外新增fiducial/target分离与协方差相关项；NIST TN1297公开章节实读、两篇NIST论文仅摘要、NIST数据CSV未取。236 Registry/1797来源登记（非去重）；正式Owner/消费者0/17，L3、历史原字节、全仓GFM AST及产品验证待办。**规划PASS≠产品PASS。**
 
