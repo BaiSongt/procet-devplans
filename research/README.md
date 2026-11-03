@@ -1,3 +1,6 @@
+## 2026-11-03｜B133 R-MS-001 炉批/检验文件与硬度换算的证据资格
+[8条来源和实际阅读深度](sources/CAP-02-05-heat-lot-b133.json) → [9条规则与原包](traces/CAP-02-05-heat-lot-b133-v08.json) → [45单字段正反/4语义Golden](../docs/capabilities/CAP-02-05/heat-lot-b133-fixtures-v08.json) → [专项报告与局限](../docs/capabilities/CAP-02-05/HEAT-LOT-HARDNESS-B133-2026-11-03.md)。ISO10474/18265/6508只读合法目录摘要，不取得收费正文；NIST仅摘要，W3C公开§1–3；真实炉批/量仪/消费者产品未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B132 R-PMI-001：圆弧尺寸Span/曲率与图形引线分离
 [7条官方PTC/ISO合法目录/固定业务Blob来源与章节深度](sources/CAP-03-04-arc-span-b132.json) → [8条来源—规则—字段—原包映射](traces/CAP-03-04-arc-span-b132-v08.json) → [32独立单字段正反/6解析Golden](../docs/capabilities/CAP-03-04/arc-span-b132-fixtures-v08.json) → [研究与局限](../docs/capabilities/CAP-03-04/ARC-SPAN-B132-2026-11-03.md) → [只读Node](../tools/check_cap0304_arc_span_b132_v08.cjs)。同一个圆弧两端点不决定大/小弧；PTC不同产品的点击行为不互推；真实CAD/完整Node进程、正式Owner和17消费者均未验证。**规划PASS≠产品PASS。**
 

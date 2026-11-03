@@ -1,3 +1,7 @@
+## 2026-11-03｜B133 CAP-02-05炉批与检验文件/硬度换算的证据准入
+
+[专项研究与阅读限制](docs/capabilities/CAP-02-05/HEAT-LOT-HARDNESS-B133-2026-11-03.md) → [8条合法分级来源](research/sources/CAP-02-05-heat-lot-b133.json) → [9规则/36字段/原编号包](research/traces/CAP-02-05-heat-lot-b133-v08.json) → [9正36单字段反/4语义Golden](docs/capabilities/CAP-02-05/heat-lot-b133-fixtures-v08.json) → [只读Node](tools/check_cap0205_heat_lot_b133_v08.cjs) → [验证等级](tracking/cap0205-heat-lot-b133-verification-2026-11-03.json)。目录牌号不能冒充实际炉批，ISO 10474钢铁检验文件不能泛化所有材质，ISO 18265转换不替代正确材料的实际试验；ISO只官方目录、NIST仅摘要、W3C公开指定章节。累计239 Registry/1819登记非去重；正式Owner/消费者0/17、L3、历史字节、全仓GFM AST及产品待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B132 CAP-03-04 大/小弧尺寸与二维Z-radius资格
 [分层厂商研究/阅读限制](docs/capabilities/CAP-03-04/ARC-SPAN-B132-2026-11-03.md) → [7来源](research/sources/CAP-03-04-arc-span-b132.json) → [8规则/原B0-02 F1-03 F1-04 T5-02](research/traces/CAP-03-04-arc-span-b132-v08.json) → [8正24单字段反+6数学Golden](docs/capabilities/CAP-03-04/arc-span-b132-fixtures-v08.json) → [Node只读检查](tools/check_cap0304_arc_span_b132_v08.cjs)。区别Creo Parametric r12、Elements/Direct 20.8/20.9和Toolkit r12；同端点的大/小弧不可默认为短弧，Z-radius二维折线不改变真实圆心，B-Spline曲率半径必须有选点；ISO129-1:2018仅官方目录，未读收费正文。研究238份Registry/1811登记（非去重），17正式Owner及真实消费者0/17、L3/全仓AST/产品待验。**规划PASS≠产品PASS。**
 
