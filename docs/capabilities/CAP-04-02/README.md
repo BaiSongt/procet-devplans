@@ -1,5 +1,8 @@
 # CAP-04-02｜毛坯/零件定位配准
 
+**B130目标点不确定度补证（2026-11-03）**：[一阶相关传播、留出点与计量证据](TARGET-UNCERTAINTY-B130-2026-11-03.md) → [7来源](../../../research/sources/CAP-04-02-target-uncertainty-b130.json) → [8规则和原包](../../../research/traces/CAP-04-02-target-uncertainty-b130-v08.json) → [8正24反+5解析Golden](target-uncertainty-b130-fixtures-v08.json) → [Node只读校验入口](../../../tools/check_cap0402_target_uncertainty_b130_v08.cjs)。与B20刚体非退化、B75执行WCS隔离分离；真实量仪/CSV/D06独立消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
+
 **B75补证（2026-11-01）**：[D04名义Frame与D10实际WCS/G52/G92执行状态隔离](WCS-EVIDENCE-B75-2026-11-01.md) → [8字段规则](../../../research/traces/CAP-04-02-offset-evidence-b75-v08.json) → [24预期合成](offset-evidence-b75-fixtures-v08.json)。LinuxCNC G10 L2配置不自动选中坐标系，后叠加旋转不可交换；真实NC/消费者NOT_RUN。**规划PASS≠产品PASS。**
 
 **B20补充研究（2026-10-29）**：[非退化点集与严格刚体、ICP资格](ROBUST-REGISTRATION-B20-2026-10-29.md)；[9规则追踪](../../../research/traces/CAP-04-02-robust-b20-v08.json)；[39合成案例](robust-b20-fixtures-v08.json)。不替代原REG-R01..R10及20项验收。规划PASS≠产品PASS。
