@@ -1,3 +1,6 @@
+## 2026-11-03｜B128 CAP-08-03 G10 L2/L20跨控制器坐标偏置与G52/G92持久化
+[研究报告及阅读限制](docs/capabilities/CAP-08-03/WCS-OFFSET-DIALECT-B128-2026-11-03.md) → [7分级来源](research/sources/CAP-08-03-wcs-offset-b128.json) → [8规则/32字段及原编号包](research/traces/CAP-08-03-wcs-offset-b128-v08.json) → [8正32反/8标量Golden](docs/capabilities/CAP-08-03/wcs-offset-b128-fixtures-v08.json) → [只读Node校验](tools/check_cap0803_wcs_offset_b128_v08.cjs)。LinuxCNC2.9 G10 L20计算当前点、Haas L20为辅助WCS；同名G10 L2在G91下行为不同。G52/G92残留不得被当作M30/重启自动清零。累计**234 Registry/1783条登记记录（非去重）**；正式Owner/消费者0/17，L3/全仓AST/历史原字节/真实NC NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B127 CAP-08-04 Haas NGC刀长偏置固件差异与LinuxCNC G43
 [专项合同/阅读边界](docs/capabilities/CAP-08-04/NGC-TLO-PERSIST-B127-2026-11-03.md) → [7分级来源](research/sources/CAP-08-04-ngc-tlo-b127.json) → [8规则字段与原编号包](research/traces/CAP-08-04-ngc-tlo-b127-v08.json) → [8正32反/8合成Offset Golden](docs/capabilities/CAP-08-04/ngc-tlo-b127-fixtures-v08.json) → [Node只读校验](tools/check_cap0804_ngc_tlo_b127_v08.cjs)。Haas NGC 100.21.000.1100+自动TLO/跨上电状态与LinuxCNC的G43.1替换、G43.2叠加严格分流；ISO13399只官方目录摘要。累计**233 Registry/1776登记非去重**；17Owner签署0/17，独立消费者0/17，L3/全仓AST/历史字节和产品NOT_RUN。**规划PASS≠产品PASS。**
 
