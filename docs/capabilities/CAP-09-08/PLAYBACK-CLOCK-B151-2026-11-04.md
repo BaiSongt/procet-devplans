@@ -10,15 +10,17 @@ B70已补旋转Joint整圈/短角错配，本轮不重复。新缺口是**播放
 
 ## 已核阅资料（阅读深度/局限）
 
+来源校正：旧W3C Page Visibility页面标注**已退役且MUST NOT用于新技术工作**；故B151-S02以WHATWG HTML Living Standard（2026-11-03更新）§6.2为当前规范来源；旧页仅作为废止识别，不列为设计依据。
+
 | ID | 作者/文档/章节与时间 | 适用与禁止外推 |
 |---|---|---|
 | B151-S01 | W3C Web Animations Working Group，Web Animations Level 1，W3C TR在线版，日期未固定；访问2026-11-04；[原始URL](https://www.w3.org/TR/web-animations-1/)；§4.3.2 §4.4.3 §4.4.4 §4.4.15 | 官方公开HTML指定章节实读；hold/seek/playbackRate仅是浏览器播放时钟模型，非NC轴控制器标准 |
-| B151-S02 | W3C Web Performance Working Group，Page Visibility Level 2，编辑草案，发布日期未核定；访问2026-11-04；[原始URL](https://w3c.github.io/page-visibility/)；§3-6 | 官方编辑草案HTML指定章节实读；hidden/visible及事件可作显示暂停依据，非各浏览器实测 |
+| B151-S02 | WHATWG HTML Standard editors，HTML Living Standard — 6.2 Page visibility，HTML Living Standard（2026-11-03更新，2026-11-04访问）；访问2026-11-04；[原始URL](https://html.spec.whatwg.org/multipage/interaction.html#page-visibility)；§6.2 Page visibility（Document.visibilityState/hidden、visibilitychange），§6.2.1 VisibilityStateEntry | WHATWG官方Living Standard公开HTML指定章节实读；§6.2有明确规范算法；替代原W3C已退役Page Visibility草案（原页明确MUST NOT用于新技术工作）；只为网页显示时钟事件提供事实，不证明真实Browser行为/OEM机床 |
 | B151-S03 | Mozilla/MDN contributors，Window.requestAnimationFrame，在线文档未标固定版次/日期；访问2026-11-04；[原始URL](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame)；timestamp/背景标签页/高刷新率 | 官方开发者文档指定章节实读；rAF后台常暂停、帧率不定，不能推NC时标 |
 | B151-S04 | Mozilla/MDN contributors，High precision timing，在线文档未标固定版次/日期；访问2026-11-04；[原始URL](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API/High_precision_timing)；Performance.now vs Date.now; Time origins | 官方开发者文档指定章节实读；单调显示时钟非机器控制器时钟同步证据 |
 | B151-S05 | BaiSongt/procet-devplans，CAP-09-08原业务规格，exact 35a24b79c00b2d2da8a451a4ca7ce05d3ec42ecf; blob d10b5b53ecf98e86d9dd6d15424343fea349ac19；访问2026-11-04；[原始URL](https://github.com/BaiSongt/procet-devplans/blob/35a24b79c00b2d2da8a451a4ca7ce05d3ec42ecf/docs/capabilities/CAP-09-08/README.md)；T02/T03/T05/T06/T07与R02/R03/R05/R06 | GitHub固定HEAD Blob全文实读；单Babylon、左TaskPanel、D14/D15隔离、ACL/CAS均为本仓内生规则，非外部标准 |
 
-本轮只实读W3C/MDN指定公开HTML章节和固定HEAD原CAP，不编造标准页码/未读正文/厂商参数。源详细元数据见[5项来源](../../../research/sources/CAP-09-08-playback-clock-b151.json)。
+本轮实读W3C Web Animations、WHATWG HTML §6.2、MDN指定公开章节和固定HEAD原CAP，不编造标准页码/未读正文/厂商参数。源详细元数据见[5项来源](../../../research/sources/CAP-09-08-playback-clock-b151.json)。
 
 ## 规则、端口与可验收字段
 
