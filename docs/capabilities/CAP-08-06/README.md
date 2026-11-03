@@ -37,3 +37,7 @@
 
 ## B56（2026-10-31）字节补丁专项增量｜L3待审
 [UTF-16字符位置与原NC byteSpan不混用的专项研究](BYTE-EDIT-B56-2026-10-31.md) → [5项官方/内生来源](../../../research/sources/CAP-08-06-byte-edit-b56.json) → [8规则与字段可检追踪](../../../research/traces/CAP-08-06-byte-edit-b56-v08.json) → [5正62反5 UNKNOWN合成fixture](byte-edit-b56-fixtures-v08.json) → [只读Node入口](../../../tools/check_cap0806_byte_edit_b56_v08.cjs)。UTF-8 only为本轮合成范围，实际OEM编码和设备测试UNKNOWN/NOT_RUN；每次改动生成不可变新D12，D13-D15证据STALE、D16 BLOCKED，D04与D10分离；17真实消费者0/17、Owner0/17、L3待审，**规划PASS≠产品PASS**。
+
+
+## B135（2026-11-03）｜Block Delete、M01与现场运行模式修订资格
+[专项研究](BLOCK-MODE-B135-2026-11-03.md) → [7条来源](../../../research/sources/CAP-08-06-block-mode-b135.json) → [8条规则](../../../research/traces/CAP-08-06-block-mode-b135-v08.json) → [40单字段正反+13玩具语义Golden](block-mode-b135-fixtures-v08.json) → [只读Node检查](../../../tools/check_cap0806_block_mode_b135_v08.cjs)。同一D12字节的Block Delete/Optional Stop运行开关可导致不同执行分支；Haas带斜杠行还可能改变预读。D10现场配置需exact/Hash/epoch；D04名义Setup不替代、D13-D16按运行配置重新资格。L3、实际OEM/17消费者与Owner、GFM AST/历史字节待审；**规划PASS≠产品PASS。**

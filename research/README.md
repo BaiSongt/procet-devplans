@@ -1,3 +1,6 @@
+## 2026-11-03｜B135 R-NC-SOURCE-EDIT-001：Block Delete与M01模式快照
+[7条合法来源与真实阅读层级](sources/CAP-08-06-block-mode-b135.json) → [8项字段级规则](traces/CAP-08-06-block-mode-b135-v08.json) → [40正反及13语义Golden](../docs/capabilities/CAP-08-06/block-mode-b135-fixtures-v08.json) → [研究报告](../docs/capabilities/CAP-08-06/BLOCK-MODE-B135-2026-11-03.md)。Haas M01页只官方搜索摘要，其他指定HTML可核；不冒称完整OEM固件/现场开关/实际机床测试。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B134 R-LIMIT-COLLISION-001 双层限位及切换同步
 [7项官方与固定Blob来源](sources/CAP-09-07-joint-limits-b134.json) → [8项字段级规则](traces/CAP-09-07-joint-limits-b134-v08.json) → [40正反/6教学Golden](../docs/capabilities/CAP-09-07/joint-limits-b134-fixtures-v08.json) → [专项报告及局限](../docs/capabilities/CAP-09-07/AXIS-JOINT-LIMIT-B134-2026-11-03.md)。LinuxCNC2.9公开节实读，ISO841仅合法目录，NIST2023仅摘要，真实产品NOT_RUN。**规划PASS≠产品PASS。**
 

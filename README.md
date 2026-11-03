@@ -1,3 +1,6 @@
+## 2026-11-03｜B135 CAP-08-06：Block Delete/M01现场运行模式的D13资格
+[专项研究与阅读限制](docs/capabilities/CAP-08-06/BLOCK-MODE-B135-2026-11-03.md) → [7条分级官方/本仓来源](research/sources/CAP-08-06-block-mode-b135.json) → [8规则/32字段及原包](research/traces/CAP-08-06-block-mode-b135-v08.json) → [8正32单字段反例/13语义Golden](docs/capabilities/CAP-08-06/block-mode-b135-fixtures-v08.json) → [Node只读入口](tools/check_cap0806_block_mode_b135_v08.cjs)。LinuxCNC2.9行首/及M0/M1、Haas Settings17/18与斜杠预读副作用必须分开；实际开关/固件未知不可默认为OFF。本轮规划合成40/40+13/13符合预期；Node独立文件进程、真实控制器/D13-D15/17消费者均NOT_RUN；正式Owner0/17、L3、历史原字节及全仓AST待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B134 CAP-09-07 Axis/物理Joint限位非蕴含性研究
 [专项研究](docs/capabilities/CAP-09-07/AXIS-JOINT-LIMIT-B134-2026-11-03.md) → [7来源及阅读限制](research/sources/CAP-09-07-joint-limits-b134.json) → [8规则/原编号包](research/traces/CAP-09-07-joint-limits-b134-v08.json) → [8正32独立单字段反+6Golden](docs/capabilities/CAP-09-07/joint-limits-b134-fixtures-v08.json) → [Node只读工具](tools/check_cap0907_joint_limits_b134_v08.cjs)。LinuxCNC2.9公开资料指出非identity构型Axis合格仍可能物理Joint越界；ISO仅目录、NIST仅摘要；正式Owner/消费者0/17，L3/全仓AST/历史字节与实机待审。**规划PASS≠产品PASS。**
 
