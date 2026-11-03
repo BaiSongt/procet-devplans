@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "procet-b128-trace-v08",
+  "date": "2026-11-03",
+  "traceId": "CAP-08-03-WCS-OFFSET-DIALECT-B128",
+  "primaryCapability": "CAP-08-03",
+  "relatedCapabilities": [
+    "CAP-04-04",
+    "CAP-08-02",
+    "CAP-09-06"
+  ],
+  "researchTopic": "R-WCS-MOTION-001",
+  "sourceRegistry": "research/sources/CAP-08-03-wcs-offset-b128.json",
+  "fixtures": "docs/capabilities/CAP-08-03/wcs-offset-b128-fixtures-v08.json",
+  "validator": "tools/check_cap0803_wcs_offset_b128_v08.cjs",
+  "report": "docs/capabilities/CAP-08-03/WCS-OFFSET-DIALECT-B128-2026-11-03.md",
+  "rules": [
+    {
+      "id": "B128-R01",
+      "summary": "区分控制器与固件Profile，禁止凭同名G10套用默认规则",
+      "fields": [
+        "profile.controllerFamilyExact",
+        "profile.firmwareOptionsHashExact",
+        "profile.g10DialectSelected",
+        "profile.noCrossDialectFallback"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B128-S01",
+        "B128-S04",
+        "B128-S05"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "B128-P01"
+      ],
+      "negative": [
+        "B128-N01-1",
+        "B128-N01-2",
+        "B128-N01-3",
+        "B128-N01-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B128-R02",
+      "summary": "G10 L2的P编号及绝对/增量语义须按方言分支",
+      "fields": [
+        "l2.pTargetNamespaceResolved",
+        "l2.linuxG91IgnoredForL2",
+        "l2.haasG91IncrementModeExplicit",
+        "l2.offsetBeforeAfterCaptured"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "REJECT",
+        "REJECT",
+        "UNKNOWN"
+      ],
+      "sourceIds": [
+        "B128-S01",
+        "B128-S04"
+      ],
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B128-P02"
+      ],
+      "negative": [
+        "B128-N02-1",
+        "B128-N02-2",
+        "B128-N02-3",
+        "B128-N02-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B128-R03",
+      "summary": "同为G10 L20，LinuxCNC计算当前点与Haas辅助WCS不得同判",
+      "fields": [
+        "l20.linuxCalculatedFromCurrent",
+        "l20.haasAuxiliaryWcsMapping",
+        "l20.currentMachinePoseAndFrameExact",
+        "l20.ambiguousDialectUnknown"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "STALE",
+        "UNKNOWN"
+      ],
+      "sourceIds": [
+        "B128-S02",
+        "B128-S04"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B128-P03"
+      ],
+      "negative": [
+        "B128-N03-1",
+        "B128-N03-2",
+        "B128-N03-3",
+        "B128-N03-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B128-R04",
+      "summary": "改写非活动WCS与选择活动WCS是两件事",
+      "fields": [
+        "wcs.selectedBeforeAfterSnapshot",
+        "wcs.p0ActiveMappingQualified",
+        "wcs.p1G54MappingQualified",
+        "wcs.noImplicitWcsSelection"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B128-S01",
+        "B128-S04"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "B128-P04"
+      ],
+      "negative": [
+        "B128-N04-1",
+        "B128-N04-2",
+        "B128-N04-3",
+        "B128-N04-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B128-R05",
+      "summary": "G52与G92在LinuxCNC共享槽位且持久化受INI配置影响",
+      "fields": [
+        "local.g52G92SharedRegisterModeled",
+        "local.persistenceIniRevisionExact",
+        "local.restartRegisterSnapshot",
+        "local.abortDoesNotAssumeClear"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B128-S02",
+        "B128-S03"
+      ],
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-05"
+      ],
+      "positive": [
+        "B128-P05"
+      ],
+      "negative": [
+        "B128-N05-1",
+        "B128-N05-2",
+        "B128-N05-3",
+        "B128-N05-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B128-R06",
+      "summary": "G92.1清零、G92.2停用保留、G92.3恢复需独立模态事件",
+      "fields": [
+        "g92.g921ClearsSavedRegisters",
+        "g92.g922DisablesButKeeps",
+        "g92.g923RestoresSaved",
+        "g92.g54UnaffectedByG921"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B128-S02",
+        "B128-S03"
+      ],
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-05"
+      ],
+      "positive": [
+        "B128-P06"
+      ],
+      "negative": [
+        "B128-N06-1",
+        "B128-N06-2",
+        "B128-N06-3",
+        "B128-N06-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B128-R07",
+      "summary": "D04名义Frame不可冒充D10实际偏置，变更失效必须按exact沿依赖传播",
+      "fields": [
+        "binding.d04NominalFrameExact",
+        "binding.d10ControllerOffsetsExact",
+        "binding.d12FinalNcBytesHashExact",
+        "binding.d13D14D15RecomputedOrStale"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "STALE",
+        "STALE",
+        "STALE"
+      ],
+      "sourceIds": [
+        "B128-S05",
+        "B128-S06",
+        "B128-S07"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05"
+      ],
+      "positive": [
+        "B128-P07"
+      ],
+      "negative": [
+        "B128-N07-1",
+        "B128-N07-2",
+        "B128-N07-3",
+        "B128-N07-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B128-R08",
+      "summary": "同Owner多入口提交必须重验ACL/CAS与取消晚回执，CL不能冒充工程验证",
+      "fields": [
+        "commit.guiCliAgentOneOwnerPort",
+        "commit.oneBabylonLeftTaskPanel",
+        "commit.casAclEpochCancelRecheck",
+        "commit.d15IndependentNoClPass"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "STALE",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B128-S05",
+        "B128-S06",
+        "B128-S07"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-05",
+        "U4-04"
+      ],
+      "positive": [
+        "B128-P08"
+      ],
+      "negative": [
+        "B128-N08-1",
+        "B128-N08-2",
+        "B128-N08-3",
+        "B128-N08-4"
+      ],
+      "derivation": "PROCET_INTERNAL_RULE_BOUND_TO_CITED_VENDOR_DOCUMENTATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}
