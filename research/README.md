@@ -1,3 +1,6 @@
+## 2026-11-04｜B146 R-MET-001 在机热漂移/补偿证据资格
+[7条来源与实际阅读深度](sources/CAP-02-06-thermal-drift-b146.json) → [8规则与原F1-01/F1-02](traces/CAP-02-06-thermal-drift-b146-v08.json) → [48项正反/数学/状态合成](../docs/capabilities/CAP-02-06/thermal-drift-b146-fixtures-v08.json) → [研究范围](../docs/capabilities/CAP-02-06/THERMAL-DRIFT-BOUNDARY-B146-2026-11-04.md)。NIST 2026论文与2023论文仅NIST摘要，ISO230-3:2020只看公开目录，BIPM仅目录/DOI摘要，W3C公开摘要；规则中Owner/NC均为Procet内生约束。真实计量/NC/Owner及17消费者NOT_RUN、L3待审，规划PASS≠产品PASS。
+
 ## 2026-11-04｜B145 R-TOP-001 Wire遍历完整性与方向累计
 [7条分级来源](sources/CAP-03-03-wire-traversal-b145.json) → [8规则/32字段及原包](traces/CAP-03-03-wire-traversal-b145-v08.json) → [48合成用例](../docs/capabilities/CAP-03-03/wire-traversal-b145-fixtures-v08.json) → [专项技术论证](../docs/capabilities/CAP-03-03/WIRE-TRAVERSAL-B145-2026-11-04.md)。OCCT8.0.1指定公开API可见，五页同一工程不计独立出版物；PROV-O仅读引言/§2，原CAP为内生规格；真实Node/OCCT/Owner及消费者NOT_RUN，L3待审。规划PASS≠产品PASS。
 
