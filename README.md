@@ -1,3 +1,6 @@
+## 2026-11-03｜B130 CAP-04-02目标点不确定度与相关协方差
+[专项研究/实际阅读深度](docs/capabilities/CAP-04-02/TARGET-UNCERTAINTY-B130-2026-11-03.md) → [7条来源](research/sources/CAP-04-02-target-uncertainty-b130.json) → [8条规则/字段/原包](research/traces/CAP-04-02-target-uncertainty-b130-v08.json) → [8正24反+5解析Golden](docs/capabilities/CAP-04-02/target-uncertainty-b130-fixtures-v08.json) → [只读Node工具](tools/check_cap0402_target_uncertainty_b130_v08.cjs) → [分级验证](tracking/cap0402-target-uncertainty-b130-verification-2026-11-03.json)。B20/B75以外新增fiducial/target分离与协方差相关项；NIST TN1297公开章节实读、两篇NIST论文仅摘要、NIST数据CSV未取。236 Registry/1797来源登记（非去重）；正式Owner/消费者0/17，L3、历史原字节、全仓GFM AST及产品验证待办。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B129 CAP-02-03拉钉/刀柄/主轴接口资格
 [研究与阅读限制](docs/capabilities/CAP-02-03/RETENTION-KNOB-QUALIFICATION-B129-2026-11-03.md) → [7来源](research/sources/CAP-02-03-retention-knob-b129.json) → [8规则](research/traces/CAP-02-03-retention-knob-b129-v08.json) → [8正32反](docs/capabilities/CAP-02-03/retention-knob-b129-fixtures-v08.json) → [只读Node](tools/check_cap0203_retention_knob_b129_v08.cjs)。Haas特定04-0201拉钉不能外推B5/OEM，ISO只读官方目录；真实主轴、Owner/消费者及L3待验。**规划PASS≠产品PASS。**
 
