@@ -1,3 +1,6 @@
+## 2026-11-03｜B138 R-STAGE-MACHINING-001：倾斜面余量方向、策略能力与阶段残料真实证据
+[7项有界来源](sources/CAP-07-05-stock-projection-b138.json) → [8条规则字段与原F1-03/E3-01/U4-04](traces/CAP-07-05-stock-projection-b138-v08.json) → [40单字段正反及8数值Golden](../docs/capabilities/CAP-07-05/stock-projection-b138-fixtures-v08.json) → [报告](../docs/capabilities/CAP-07-05/STOCK-ALLOWANCE-PROJECTION-B138-2026-11-03.md)。Autodesk 2D Adaptive选段实读；另两篇厂商答疑只读检索摘录（直接页无可读正文）；OCCT8.0.1 API与master指南分层，NIST1992只出版元数据。投影数学不等于Fusion内部插值/OCCT布尔、独立Node/产品/Owner/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B137 R-INCREMENTAL-FREEZE-001：负依赖和动态读集的失效闭包
 [7条来源及阅读限制](sources/CAP-06-08-negative-reads-b137.json) → [8规则字段](traces/CAP-06-08-negative-reads-b137-v08.json) → [40单字段正反+8图Golden](../docs/capabilities/CAP-06-08/negative-reads-b137-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-06-08/NEGATIVE-DEPENDENCIES-B137-2026-11-03.md)。Bazel与Salsa增量依赖只作类比，NIST IR8536 Final仅出版摘要；负读取token属Procet规划。独立Node、真实Owner事件、17签署/消费者、L3、全仓GFM AST与历史原字节均待审。**规划PASS≠产品PASS。**
 

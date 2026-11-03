@@ -1,3 +1,6 @@
+## 2026-11-03｜B138 CAP-07-05 斜面余量、局部法向投影与阶段D07残料分层
+[专项研究和阅读深度](docs/capabilities/CAP-07-05/STOCK-ALLOWANCE-PROJECTION-B138-2026-11-03.md) → [7条分级来源](research/sources/CAP-07-05-stock-projection-b138.json) → [8规则/32字段](research/traces/CAP-07-05-stock-projection-b138-v08.json) → [8正32反+8解析/UNKNOWN Golden](docs/capabilities/CAP-07-05/stock-projection-b138-fixtures-v08.json) → [只读Node入口](tools/check_cap0705_stock_projection_b138_v08.cjs)。Autodesk Fusion帮助明确倾斜面径向/轴向余量插值；本轮法向点积只是自建教学模型，不冒充厂商算法或实测去料。正式Owner/消费者0/17、L3与全仓AST、历史原件待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B137 CAP-06-08负依赖、动态读集与冻结闭包
 [专项研究和官方来源阅读分级](docs/capabilities/CAP-06-08/NEGATIVE-DEPENDENCIES-B137-2026-11-03.md) → [8规则字段](research/traces/CAP-06-08-negative-reads-b137-v08.json) → [40单字段正反+8图Golden](docs/capabilities/CAP-06-08/negative-reads-b137-fixtures-v08.json) → [只读Node检查入口](tools/check_cap0608_negative_reads_b137_v08.cjs)。动态D05不存在/新增会改变D06，不能因没读到对象就当没依赖；真实D05事件/Owner、Node独立文件进程、17签署/消费者、GFM全仓AST及历史字节仍未验。**规划PASS≠产品PASS。**
 

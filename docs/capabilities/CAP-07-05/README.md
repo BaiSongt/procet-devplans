@@ -32,3 +32,6 @@
 
 ## B62 理想球刀残高与真实纹理质量补证
 [公式与43项合成验收](SCALLOP-QUALIFICATION-B62-2026-10-31.md)；理想h≠Ra/GD&T/D17，真实产品及17消费者NOT_RUN。L3待审。
+
+## B138｜斜面局部余量/材料侧与阶段封存（2026-11-03）
+[专项补证](STOCK-ALLOWANCE-PROJECTION-B138-2026-11-03.md) → [7来源](../../../research/sources/CAP-07-05-stock-projection-b138.json) → [8规则/原F1-03/E3-01/U4-04](../../../research/traces/CAP-07-05-stock-projection-b138-v08.json) → [40字段正反+8数学Golden](stock-projection-b138-fixtures-v08.json) → [只读Node检查](../../../tools/check_cap0705_stock_projection_b138_v08.cjs)。Radial/axial有厂商语义与策略资格，法向点积仅教学，实际D07封存残料/OCCT/独立消费者均未验；L3和Owner/消费者待审。规划PASS≠产品PASS。

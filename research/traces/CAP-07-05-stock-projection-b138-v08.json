@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "procet-b138-trace-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-03",
+  "topic": "R-STAGE-MACHINING-001",
+  "capabilityId": "CAP-07-05",
+  "sourceRegistry": "research/sources/CAP-07-05-stock-projection-b138.json",
+  "specification": "docs/capabilities/CAP-07-05/STOCK-ALLOWANCE-PROJECTION-B138-2026-11-03.md",
+  "rules": [
+    {
+      "id": "B138-R01",
+      "capabilityId": "CAP-07-05",
+      "description": "精确锁定设计/Setup/阶段前态与冻结工序Hash",
+      "sourceIds": [
+        "B138-S07"
+      ],
+      "fields": [
+        "refs.d01DesignExact",
+        "refs.d04SetupFrameExact",
+        "refs.d07StockPrestateExact",
+        "refs.d08FreezeHashIntact"
+      ],
+      "failureStatuses": [
+        "STALE_REF",
+        "STALE_FRAME",
+        "STALE_D07",
+        "REJECT_FROZEN_OVERWRITE"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R01-P",
+        "B138-R01-N1",
+        "B138-R01-N2",
+        "B138-R01-N3",
+        "B138-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B138-R02",
+      "capabilityId": "CAP-07-05",
+      "description": "径向轴向余量定义与策略支持范围独立标识",
+      "sourceIds": [
+        "B138-S01",
+        "B138-S02",
+        "B138-S07"
+      ],
+      "fields": [
+        "allowance.radialAxialUnitsExplicit",
+        "allowance.signSemanticsVersioned",
+        "allowance.strategyCapabilityVerified",
+        "allowance.nonDefaultNegativeReview"
+      ],
+      "failureStatuses": [
+        "UNKNOWN_UNITS",
+        "UNKNOWN_SIGN",
+        "UNKNOWN_STRATEGY",
+        "REJECT_NEGATIVE_DEFAULT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R02-P",
+        "B138-R02-N1",
+        "B138-R02-N2",
+        "B138-R02-N3",
+        "B138-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B138-R03",
+      "capabilityId": "CAP-07-05",
+      "description": "局部法向、材料侧和Frame均须有被测/设计几何证据",
+      "sourceIds": [
+        "B138-S01",
+        "B138-S07"
+      ],
+      "fields": [
+        "normal.facePatchAndNormalExact",
+        "normal.materialSideKnown",
+        "normal.normalFrameConsistent",
+        "normal.normalUnitLengthVerified"
+      ],
+      "failureStatuses": [
+        "UNKNOWN_PATCH",
+        "UNKNOWN_MATERIAL_SIDE",
+        "STALE_FRAME",
+        "UNKNOWN_NORMAL"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R03-P",
+        "B138-R03-N1",
+        "B138-R03-N2",
+        "B138-R03-N3",
+        "B138-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B138-R04",
+      "capabilityId": "CAP-07-05",
+      "description": "示范向量投影不等于Fusion内部插值或曲面实际剩余厚度",
+      "sourceIds": [
+        "B138-S01",
+        "B138-S03",
+        "B138-S04",
+        "B138-S07"
+      ],
+      "fields": [
+        "projection.directionModelLabeledSynthetic",
+        "projection.normalProjectionNotFusionFormula",
+        "projection.noThicknessClaimFromParameters",
+        "projection.realBrepOracleRequired"
+      ],
+      "failureStatuses": [
+        "REJECT_MISLABELED_MODEL",
+        "REJECT_VENDOR_FORMULA_CLAIM",
+        "REJECT_THICKNESS_CLAIM",
+        "UNKNOWN_GEOMETRY"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R04-P",
+        "B138-R04-N1",
+        "B138-R04-N2",
+        "B138-R04-N3",
+        "B138-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B138-R05",
+      "capabilityId": "CAP-07-05",
+      "description": "各加工阶段严格引用上一阶段封存D07状态，残余不明不可继承",
+      "sourceIds": [
+        "B138-S05",
+        "B138-S06",
+        "B138-S07"
+      ],
+      "fields": [
+        "stage.prestateMatchesPreviousSeal",
+        "stage.stageOrderingAndScopeExact",
+        "stage.residualMaterialNotInitialStock",
+        "stage.unknownResidualBlocksNextPhase"
+      ],
+      "failureStatuses": [
+        "STALE_STAGE",
+        "REJECT_PHASE",
+        "REJECT_RESIDUAL_ALIAS",
+        "UNKNOWN_RESIDUAL"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R05-P",
+        "B138-R05-N1",
+        "B138-R05-N2",
+        "B138-R05-N3",
+        "B138-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B138-R06",
+      "capabilityId": "CAP-07-05",
+      "description": "OCCT偏置候选不是去料实体或安全性验收",
+      "sourceIds": [
+        "B138-S03",
+        "B138-S04",
+        "B138-S07"
+      ],
+      "fields": [
+        "geometry.offsetModeAndTolerancePinned",
+        "geometry.selfIntersectionTopologyOracle",
+        "geometry.protectedVolumeChecked",
+        "geometry.noOffsetEqualsRemovalClaim"
+      ],
+      "failureStatuses": [
+        "UNKNOWN_OFFSET_MODE",
+        "UNKNOWN_TOPOLOGY",
+        "REJECT_PROTECTED",
+        "REJECT_GEOMETRY_CLAIM"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R06-P",
+        "B138-R06-N1",
+        "B138-R06-N2",
+        "B138-R06-N3",
+        "B138-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B138-R07",
+      "capabilityId": "CAP-07-05",
+      "description": "GUI/CLI/Agent同一07域Owner端口与CAS/ACL/取消Fence",
+      "sourceIds": [
+        "B138-S07"
+      ],
+      "fields": [
+        "transaction.sameOwnerPortGuiCliAgent",
+        "transaction.casAclScopeRecheckAtCommit",
+        "transaction.cancelledLateReceiptRejected",
+        "transaction.singleBabylonLeftPanel"
+      ],
+      "failureStatuses": [
+        "REJECT_OWNER",
+        "REJECT_CAS_ACL",
+        "REJECT_LATE_ACK",
+        "REJECT_GUI_BYPASS"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R07-P",
+        "B138-R07-N1",
+        "B138-R07-N2",
+        "B138-R07-N3",
+        "B138-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B138-R08",
+      "capabilityId": "CAP-07-05",
+      "description": "D04/D10隔离、NC工程门禁及独立消费者迁移回退",
+      "sourceIds": [
+        "B138-S07",
+        "B138-S03"
+      ],
+      "fields": [
+        "handoff.d04SeparatedFromD10",
+        "handoff.clNcD13D14D15D16Gates",
+        "handoff.unknownNeverBecomesPass",
+        "handoff.independentConsumerMigrationRollback"
+      ],
+      "failureStatuses": [
+        "REJECT_BINDING",
+        "REJECT_NC_GATE",
+        "UNKNOWN_SEMANTICS",
+        "UNKNOWN_CONSUMER"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B138-R08-P",
+        "B138-R08-N1",
+        "B138-R08-N2",
+        "B138-R08-N3",
+        "B138-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}
