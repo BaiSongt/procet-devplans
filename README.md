@@ -1,3 +1,6 @@
+## 2026-11-03｜B141 CAP-08-08 后处理插件构建来源与离线验签资格
+[专项研究与阅读深度](docs/capabilities/CAP-08-08/POST-PROVENANCE-B141-2026-11-03.md) → [7条分级来源](research/sources/CAP-08-08-post-provenance-b141.json) → [8规则/32字段/原E3-02 E3-03 U4-04](research/traces/CAP-08-08-post-provenance-b141-v08.json) → [8正32独立字段反+8状态Golden](docs/capabilities/CAP-08-08/post-provenance-b141-fixtures-v08.json) → [Node规划工具](tools/check_cap0808_post_provenance_b141_v08.cjs)。SLSA v1.2、Sigstore Bundle和NIST元数据证据分层；签名、构建级别、OEM兼容、NC工程验收不能互相替代。正式Owner/独立消费者0/17、真实离线验签与Node进程、L3/历史字节/全仓AST均未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B140 CAP-07-01 2.5D螺旋入刀包络与每圈Z预算
 [研究和真实阅读局限](docs/capabilities/CAP-07-01/HELIX-ENTRY-B140-2026-11-03.md) → [6条分级来源](research/sources/CAP-07-01-helix-entry-b140.json) → [8规则/原F1-03 E3-01 U4-04](research/traces/CAP-07-01-helix-entry-b140-v08.json) → [8正32独立单字段反+10数学/状态Golden](docs/capabilities/CAP-07-01/helix-entry-b140-fixtures-v08.json) → [只读Node入口](tools/check_cap0701_helix_entry_b140_v08.cjs)。区分Dpath与刀具扫掠外径、有效净空间/余量、倾角和每转深度；Fusion官方帮助实读，三篇2026年厂商支持页只有搜索摘录。Node完整文件进程/产品/17 Owner和消费者、L3/全仓GFM AST/历史原始字节仍未验。**规划PASS≠产品PASS。**
 

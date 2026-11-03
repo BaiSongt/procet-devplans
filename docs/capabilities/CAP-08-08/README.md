@@ -1,3 +1,5 @@
+> **B141专项研究（2026-11-03）：** [SLSA/Sigstore的后处理插件来源和离线Bundle验签](POST-PROVENANCE-B141-2026-11-03.md) → [7来源](../../../research/sources/CAP-08-08-post-provenance-b141.json) → [8规则与原包](../../../research/traces/CAP-08-08-post-provenance-b141-v08.json) → [8正32独立反+8状态Golden](post-provenance-b141-fixtures-v08.json)。密码学验证/控制器许可及真实D13–D15独立验证均未运行，L3待审。**规划PASS≠产品PASS。**
+
 # CAP-08-08｜后处理配置与一致性（V0.8原编号，L3待审）
 
 **原目标**：配置版本、语法静态检查和生成记录。原编号关联工作包 **E3-02 / E3-03 / U4-04**（据《03_三级能力映射_88项》原文）。本规格只规划，不暗改11域/L1/L2、88 CAP、36包和17资产分母；L3、17 Owner正式会签待人类决定。

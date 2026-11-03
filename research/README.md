@@ -1,3 +1,6 @@
+## 2026-11-03｜B141 R-POST-SUPPLYCHAIN-001 后处理插件来源与可信时间
+[7项合法来源及深度](sources/CAP-08-08-post-provenance-b141.json) → [8规则及字段/原编号包](traces/CAP-08-08-post-provenance-b141-v08.json) → [8正32单字段反+8合成Golden](../docs/capabilities/CAP-08-08/post-provenance-b141-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-08-08/POST-PROVENANCE-B141-2026-11-03.md)。SLSA相同规范体系章节非独立论文；NIST SP800-218仅出版元数据及摘要；实际密码学/OEM/NC工程测试NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B140 R-25D-TOOLPATH-001 螺旋入刀必要几何条件
 [6来源及日期/章节/阅读深度](sources/CAP-07-01-helix-entry-b140.json) → [8规则及32字段/原包](traces/CAP-07-01-helix-entry-b140-v08.json) → [40独立正反+10数学Golden](../docs/capabilities/CAP-07-01/helix-entry-b140-fixtures-v08.json) → [报告](../docs/capabilities/CAP-07-01/HELIX-ENTRY-B140-2026-11-03.md)。Autodesk Fusion帮助入刀章节实读，三篇支持文章仅检索摘录（直接页无可读文本），FreeCAD社区文档已归档；公式仅受限二维模型。正式Owner/消费者0/17，Node文件、L3及产品未验，规划PASS≠产品PASS。
 
