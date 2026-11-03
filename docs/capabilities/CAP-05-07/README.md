@@ -1,3 +1,5 @@
+> **B139专项（2026-11-03）：** [D05三方节点删改与跨边/联合环冲突](MERGE-GRAPH-B139-2026-11-03.md) → [7来源](../../../research/sources/CAP-05-07-merge-graph-b139.json) → [8规则/32字段](../../../research/traces/CAP-05-07-merge-graph-b139-v08.json) → [8正32反+8图Golden](merge-graph-b139-fixtures-v08.json)。真实Owner/消费者、Node文件执行及L3未验。**规划PASS≠产品PASS。**
+
 # CAP-05-07｜计划修订与差异（V0.8原编号）
 > 05域D05计划业务Owner；L1/L2不变、L3待人类评审。本文为规划候选，产品Rust/TS/OCCT/NC、独立消费者与17资产正式会签均NOT_RUN/PENDING。
 

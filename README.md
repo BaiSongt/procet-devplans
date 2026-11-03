@@ -1,3 +1,6 @@
+## 2026-11-03｜B139 CAP-05-07 三方D05工序DAG删改/跨边冲突
+[专项研究与阅读分级](docs/capabilities/CAP-05-07/MERGE-GRAPH-B139-2026-11-03.md) → [7来源](research/sources/CAP-05-07-merge-graph-b139.json) → [8规则/32字段与原W2-02/03/05](research/traces/CAP-05-07-merge-graph-b139-v08.json) → [8正32单字段反例+8有向图Golden](docs/capabilities/CAP-05-07/merge-graph-b139-fixtures-v08.json) → [只读Node入口](tools/check_cap0507_merge_graph_b139_v08.cjs)。新增删除-引用悬挂边、两侧新增边合成环及冻结无损回退的机器合成，独立Node文件进程及实际D05/NC/17消费者仍NOT_RUN，正式Owner0/17、L3/全仓AST/历史原字节待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B138 CAP-07-05 斜面余量、局部法向投影与阶段D07残料分层
 [专项研究和阅读深度](docs/capabilities/CAP-07-05/STOCK-ALLOWANCE-PROJECTION-B138-2026-11-03.md) → [7条分级来源](research/sources/CAP-07-05-stock-projection-b138.json) → [8规则/32字段](research/traces/CAP-07-05-stock-projection-b138-v08.json) → [8正32反+8解析/UNKNOWN Golden](docs/capabilities/CAP-07-05/stock-projection-b138-fixtures-v08.json) → [只读Node入口](tools/check_cap0705_stock_projection_b138_v08.cjs)。Autodesk Fusion帮助明确倾斜面径向/轴向余量插值；本轮法向点积只是自建教学模型，不冒充厂商算法或实测去料。正式Owner/消费者0/17、L3与全仓AST、历史原件待审。**规划PASS≠产品PASS。**
 

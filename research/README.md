@@ -1,3 +1,6 @@
+## 2026-11-03｜B139 R-PLANREV-001 D05三方语义与跨分支边冲突
+[7分层来源](sources/CAP-05-07-merge-graph-b139.json) → [8规则32字段及原包](traces/CAP-05-07-merge-graph-b139-v08.json) → [40正反8图Golden](../docs/capabilities/CAP-05-07/merge-graph-b139-fixtures-v08.json) → [限定外推的报告](../docs/capabilities/CAP-05-07/MERGE-GRAPH-B139-2026-11-03.md)。Git官方合并仅为设计类比，Procet有向图反例为自建模型，未实际合并D05；L3/Owner/消费者/全仓AST未验。规划PASS≠产品PASS。
+
 ## 2026-11-03｜B138 R-STAGE-MACHINING-001：倾斜面余量方向、策略能力与阶段残料真实证据
 [7项有界来源](sources/CAP-07-05-stock-projection-b138.json) → [8条规则字段与原F1-03/E3-01/U4-04](traces/CAP-07-05-stock-projection-b138-v08.json) → [40单字段正反及8数值Golden](../docs/capabilities/CAP-07-05/stock-projection-b138-fixtures-v08.json) → [报告](../docs/capabilities/CAP-07-05/STOCK-ALLOWANCE-PROJECTION-B138-2026-11-03.md)。Autodesk 2D Adaptive选段实读；另两篇厂商答疑只读检索摘录（直接页无可读正文）；OCCT8.0.1 API与master指南分层，NIST1992只出版元数据。投影数学不等于Fusion内部插值/OCCT布尔、独立Node/产品/Owner/L3未验。**规划PASS≠产品PASS。**
 
