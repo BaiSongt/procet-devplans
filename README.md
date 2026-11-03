@@ -1,3 +1,6 @@
+## 2026-11-03｜B142 CAP-11-03 RAG间接注入与Owner权限隔离
+[专项研究](docs/capabilities/CAP-11-03/RAG-TRUST-B142-2026-11-03.md) → [6来源](research/sources/CAP-11-03-rag-trust-b142.json) → [8规则32字段](research/traces/CAP-11-03-rag-trust-b142.json) → [8正32独立反10 Golden](docs/capabilities/CAP-11-03/rag-trust-b142-fixtures.json) → [校验入口](tools/check_rag_trust_b142.cjs)。RAG Chunk/MCP Hint不能赋予Agent业务写权限，Owner真实ACL/CAS重验；实际RAG、17消费者/Owner、Node/L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B141 CAP-08-08 后处理插件构建来源与离线验签资格
 [专项研究与阅读深度](docs/capabilities/CAP-08-08/POST-PROVENANCE-B141-2026-11-03.md) → [7条分级来源](research/sources/CAP-08-08-post-provenance-b141.json) → [8规则/32字段/原E3-02 E3-03 U4-04](research/traces/CAP-08-08-post-provenance-b141-v08.json) → [8正32独立字段反+8状态Golden](docs/capabilities/CAP-08-08/post-provenance-b141-fixtures-v08.json) → [Node规划工具](tools/check_cap0808_post_provenance_b141_v08.cjs)。SLSA v1.2、Sigstore Bundle和NIST元数据证据分层；签名、构建级别、OEM兼容、NC工程验收不能互相替代。正式Owner/独立消费者0/17、真实离线验签与Node进程、L3/历史字节/全仓AST均未验。**规划PASS≠产品PASS。**
 

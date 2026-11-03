@@ -1,3 +1,5 @@
+> **B142补证（2026-11-03）**：[RAG间接注入与Owner执行权限](RAG-TRUST-B142-2026-11-03.md) → [6来源](../../../research/sources/CAP-11-03-rag-trust-b142.json) → [8规则](../../../research/traces/CAP-11-03-rag-trust-b142.json) → [40正反10 Golden](rag-trust-b142-fixtures.json) → [工具](../../../tools/check_rag_trust_b142.cjs)。真实攻防/独立消费者0/17，L3待审。**规划PASS≠产品PASS。**
+
 # CAP-11-03｜检索增强与证据（V0.8，L3待审）
 
 **原88项原文：**「可引用数据检索和文档知识联动」。原编号[T5-01](../../work-packages/T5-01.md)、[T5-02](../../work-packages/T5-02.md)，保持11域/88 CAP/36包/17资产及L1/L2不变；L3仍待人类审批，C0仅共享身份、修订、hash、Scope、单位/Frame和Port，不新增D18或全局巨型common。

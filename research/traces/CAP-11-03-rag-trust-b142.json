@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "procet-b142-trace-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-11-03",
+  "researchTopic": "R-RAG-TRUST-BOUNDARY-001",
+  "sourceRegistry": "research/sources/CAP-11-03-rag-trust-b142.json",
+  "originalWorkPackages": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "B142-R01",
+      "description": "数据块不获得指令权限",
+      "sourceIds": [
+        "B142-S01",
+        "B142-S06"
+      ],
+      "fields": [
+        "source.dataOnly",
+        "source.ownerHashExact",
+        "source.selectorVerified",
+        "source.noInstructionPromotion"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "UNTRUSTED_SOURCE",
+      "tests": [
+        "B142-R01-P",
+        "B142-R01-N1",
+        "B142-R01-N2",
+        "B142-R01-N3",
+        "B142-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B142-R02",
+      "description": "当前授权与撤权重验",
+      "sourceIds": [
+        "B142-S01",
+        "B142-S06"
+      ],
+      "fields": [
+        "acl.ownerAclCurrent",
+        "acl.scopeEpochCurrent",
+        "acl.tenantExact",
+        "acl.cacheRevoked"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "REJECT_ACL",
+      "tests": [
+        "B142-R02-P",
+        "B142-R02-N1",
+        "B142-R02-N2",
+        "B142-R02-N3",
+        "B142-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B142-R03",
+      "description": "模型输出不形成隐式工具调用",
+      "sourceIds": [
+        "B142-S01",
+        "B142-S02",
+        "B142-S04"
+      ],
+      "fields": [
+        "output.untrustedBoundary",
+        "output.noChunkDirectedTool",
+        "output.schemaValidated",
+        "output.injectionFlagKept"
+      ],
+      "assets": [
+        "D05",
+        "D16"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "BLOCK_PROMPT_INJECTION",
+      "tests": [
+        "B142-R03-P",
+        "B142-R03-N1",
+        "B142-R03-N2",
+        "B142-R03-N3",
+        "B142-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B142-R04",
+      "description": "Claim→Chunk→源字节独立可核",
+      "sourceIds": [
+        "B142-S02",
+        "B142-S03",
+        "B142-S06"
+      ],
+      "fields": [
+        "citation.claimLinked",
+        "citation.rawBytesChecked",
+        "citation.readingDepthHonest",
+        "citation.noAuthorityFromCitation"
+      ],
+      "assets": [
+        "D02",
+        "D05"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "UNKNOWN_EVIDENCE",
+      "tests": [
+        "B142-R04-P",
+        "B142-R04-N1",
+        "B142-R04-N2",
+        "B142-R04-N3",
+        "B142-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B142-R05",
+      "description": "MCP hint不能替代Owner",
+      "sourceIds": [
+        "B142-S05",
+        "B142-S06"
+      ],
+      "fields": [
+        "tool.registryPinned",
+        "tool.schemaDigestExact",
+        "tool.hintNotTrusted",
+        "tool.noExternalToolFromChunk"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D16"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "REJECT_TOOL_HINT",
+      "tests": [
+        "B142-R05-P",
+        "B142-R05-N1",
+        "B142-R05-N2",
+        "B142-R05-N3",
+        "B142-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B142-R06",
+      "description": "人类确认、Owner CAS与取消Fence",
+      "sourceIds": [
+        "B142-S02",
+        "B142-S06"
+      ],
+      "fields": [
+        "write.humanDigestConfirmed",
+        "write.ownerAclRechecked",
+        "write.revisionHashFrameCas",
+        "write.cancelFenceChecked"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "BLOCK_OWNER_WRITE",
+      "tests": [
+        "B142-R06-P",
+        "B142-R06-N1",
+        "B142-R06-N2",
+        "B142-R06-N3",
+        "B142-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B142-R07",
+      "description": "GUI/CLI/Agent同Port与唯一3D",
+      "sourceIds": [
+        "B142-S06"
+      ],
+      "fields": [
+        "entry.sameOwnerPort",
+        "entry.singleBabylonWorld",
+        "entry.unifiedLeftPanel",
+        "entry.previewNotCommit"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "REJECT_UI_CONTRACT",
+      "tests": [
+        "B142-R07-P",
+        "B142-R07-N1",
+        "B142-R07-N2",
+        "B142-R07-N3",
+        "B142-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B142-R08",
+      "description": "NC验证与CL检索建议隔离",
+      "sourceIds": [
+        "B142-S06"
+      ],
+      "fields": [
+        "nc.d04NotD10",
+        "nc.clNotD15",
+        "nc.finalNcChainVerified",
+        "nc.unknownBlocksRelease"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityId": "CAP-11-03",
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "failureStatus": "BLOCK_NC_RELEASE",
+      "tests": [
+        "B142-R08-P",
+        "B142-R08-N1",
+        "B142-R08-N2",
+        "B142-R08-N3",
+        "B142-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

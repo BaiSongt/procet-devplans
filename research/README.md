@@ -1,3 +1,6 @@
+## 2026-11-03｜B142 R-RAG-TRUST-BOUNDARY-001 RAG间接注入与Tool Port资格
+[6分级来源](sources/CAP-11-03-rag-trust-b142.json) → [8规则和原T5-01/T5-02](traces/CAP-11-03-rag-trust-b142.json) → [40正反及10 Golden](../docs/capabilities/CAP-11-03/rag-trust-b142-fixtures.json) → [专项报告](../docs/capabilities/CAP-11-03/RAG-TRUST-B142-2026-11-03.md)。OWASP/MCP官网指定HTML实读，NIST仅官方摘要、论文仅摘要和引言选段；真实防护/Owner/产品NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B141 R-POST-SUPPLYCHAIN-001 后处理插件来源与可信时间
 [7项合法来源及深度](sources/CAP-08-08-post-provenance-b141.json) → [8规则及字段/原编号包](traces/CAP-08-08-post-provenance-b141-v08.json) → [8正32单字段反+8合成Golden](../docs/capabilities/CAP-08-08/post-provenance-b141-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-08-08/POST-PROVENANCE-B141-2026-11-03.md)。SLSA相同规范体系章节非独立论文；NIST SP800-218仅出版元数据及摘要；实际密码学/OEM/NC工程测试NOT_RUN。**规划PASS≠产品PASS。**
 
