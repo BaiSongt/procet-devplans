@@ -1,3 +1,6 @@
+## 2026-11-04｜B144 数字主线检查点与外部见证
+[5来源及真实阅读深度](sources/CAP-10-08-checkpoint-witness-b144.json) → [8规则/原E3-06/T5-03](traces/CAP-10-08-checkpoint-witness-b144-v08.json) → [40独立正反+10状态Golden](../docs/capabilities/CAP-10-08/checkpoint-witness-b144-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-10-08/AUDIT-CHECKPOINT-WITNESS-B144-2026-11-04.md)。RFC9162/8785指定公开章节实读，NIST SP800-92只官方元数据和摘要；规划同状态机检查不含真实Merkle/签名，L3和17Owner/消费者待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B143 CAP-02-07网格偏差与用途资格
 [5条分层来源](sources/CAP-02-07-mesh-deflection-b143.json) → [8规则32字段/原F1-02/F1-06/E3-04](traces/CAP-02-07-mesh-deflection-b143-v08.json) → [40正反+7 Golden](../docs/capabilities/CAP-02-07/mesh-deflection-b143-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-02-07/MESH-DEFLECTION-B143-2026-11-03.md)。OCCT同项目章节不去重算论文，真实引擎/产品/Owner/L3未验。**规划PASS≠产品PASS。**
 

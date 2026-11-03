@@ -1,3 +1,6 @@
+## 2026-11-04｜B144 CAP-10-08 独立审计检查点与防双视图资格
+[专项研究与边界](docs/capabilities/CAP-10-08/AUDIT-CHECKPOINT-WITNESS-B144-2026-11-04.md) → [5分层来源](research/sources/CAP-10-08-checkpoint-witness-b144.json) → [8规则32字段](research/traces/CAP-10-08-checkpoint-witness-b144-v08.json) → [8正32单字段反+10状态Golden](docs/capabilities/CAP-10-08/checkpoint-witness-b144-fixtures-v08.json) → [只读校验器](tools/check_cap1008_checkpoint_witness_b144_v08.cjs) → [验证状态](tracking/cap1008-checkpoint-witness-b144-verification-2026-11-04.json)。RFC9162的包含/一致性仅借鉴数据结构；RFC8785限定字节规范化；NIST只读摘要。原业务T04哈希链不能证明未回滚/无双视图，需要独立可信检查点与实际证明。V8内存50/50规划合成，独立Node文件/实际签名、D16/D17、17资产Owner与消费者、全仓AST及历史原件未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B142 CAP-11-03 RAG间接注入与Owner权限隔离
 [专项研究](docs/capabilities/CAP-11-03/RAG-TRUST-B142-2026-11-03.md) → [6来源](research/sources/CAP-11-03-rag-trust-b142.json) → [8规则32字段](research/traces/CAP-11-03-rag-trust-b142.json) → [8正32独立反10 Golden](docs/capabilities/CAP-11-03/rag-trust-b142-fixtures.json) → [校验入口](tools/check_rag_trust_b142.cjs)。RAG Chunk/MCP Hint不能赋予Agent业务写权限，Owner真实ACL/CAS重验；实际RAG、17消费者/Owner、Node/L3待审。**规划PASS≠产品PASS。**
 

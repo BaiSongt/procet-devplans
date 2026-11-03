@@ -1,0 +1,625 @@
+{
+  "schemaVersion": "procet-b144-fixtures-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "capabilityId": "CAP-10-08",
+  "trace": "research/traces/CAP-10-08-checkpoint-witness-b144-v08.json",
+  "syntheticOnly": true,
+  "groups": [
+    {
+      "ruleId": "B144-R01",
+      "positive": {
+        "id": "B144-R01-P",
+        "values": {
+          "bytes.jcsVersionPinned": true,
+          "bytes.schemaAndDomainPinned": true,
+          "bytes.exactContentSha": true,
+          "bytes.canonicalReaderCompatible": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R01-N1",
+          "mutatedField": "bytes.jcsVersionPinned",
+          "values": {
+            "bytes.jcsVersionPinned": false,
+            "bytes.schemaAndDomainPinned": true,
+            "bytes.exactContentSha": true,
+            "bytes.canonicalReaderCompatible": true
+          },
+          "expected": "UNKNOWN_CANONICAL"
+        },
+        {
+          "id": "B144-R01-N2",
+          "mutatedField": "bytes.schemaAndDomainPinned",
+          "values": {
+            "bytes.jcsVersionPinned": true,
+            "bytes.schemaAndDomainPinned": false,
+            "bytes.exactContentSha": true,
+            "bytes.canonicalReaderCompatible": true
+          },
+          "expected": "UNKNOWN_CANONICAL"
+        },
+        {
+          "id": "B144-R01-N3",
+          "mutatedField": "bytes.exactContentSha",
+          "values": {
+            "bytes.jcsVersionPinned": true,
+            "bytes.schemaAndDomainPinned": true,
+            "bytes.exactContentSha": false,
+            "bytes.canonicalReaderCompatible": true
+          },
+          "expected": "UNKNOWN_CANONICAL"
+        },
+        {
+          "id": "B144-R01-N4",
+          "mutatedField": "bytes.canonicalReaderCompatible",
+          "values": {
+            "bytes.jcsVersionPinned": true,
+            "bytes.schemaAndDomainPinned": true,
+            "bytes.exactContentSha": true,
+            "bytes.canonicalReaderCompatible": false
+          },
+          "expected": "UNKNOWN_CANONICAL"
+        }
+      ]
+    },
+    {
+      "ruleId": "B144-R02",
+      "positive": {
+        "id": "B144-R02-P",
+        "values": {
+          "log.logIdExact": true,
+          "log.epochSeparate": true,
+          "log.treeSizeMonotonic": true,
+          "log.rootAlgorithmPinned": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R02-N1",
+          "mutatedField": "log.logIdExact",
+          "values": {
+            "log.logIdExact": false,
+            "log.epochSeparate": true,
+            "log.treeSizeMonotonic": true,
+            "log.rootAlgorithmPinned": true
+          },
+          "expected": "UNKNOWN_LOG_ID"
+        },
+        {
+          "id": "B144-R02-N2",
+          "mutatedField": "log.epochSeparate",
+          "values": {
+            "log.logIdExact": true,
+            "log.epochSeparate": false,
+            "log.treeSizeMonotonic": true,
+            "log.rootAlgorithmPinned": true
+          },
+          "expected": "UNKNOWN_LOG_ID"
+        },
+        {
+          "id": "B144-R02-N3",
+          "mutatedField": "log.treeSizeMonotonic",
+          "values": {
+            "log.logIdExact": true,
+            "log.epochSeparate": true,
+            "log.treeSizeMonotonic": false,
+            "log.rootAlgorithmPinned": true
+          },
+          "expected": "UNKNOWN_LOG_ID"
+        },
+        {
+          "id": "B144-R02-N4",
+          "mutatedField": "log.rootAlgorithmPinned",
+          "values": {
+            "log.logIdExact": true,
+            "log.epochSeparate": true,
+            "log.treeSizeMonotonic": true,
+            "log.rootAlgorithmPinned": false
+          },
+          "expected": "UNKNOWN_LOG_ID"
+        }
+      ]
+    },
+    {
+      "ruleId": "B144-R03",
+      "positive": {
+        "id": "B144-R03-P",
+        "values": {
+          "proof.leafHashExact": true,
+          "proof.leafIndexAndSize": true,
+          "proof.inclusionPathVerified": true,
+          "proof.rootHashPinned": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R03-N1",
+          "mutatedField": "proof.leafHashExact",
+          "values": {
+            "proof.leafHashExact": false,
+            "proof.leafIndexAndSize": true,
+            "proof.inclusionPathVerified": true,
+            "proof.rootHashPinned": true
+          },
+          "expected": "UNKNOWN_INCLUSION"
+        },
+        {
+          "id": "B144-R03-N2",
+          "mutatedField": "proof.leafIndexAndSize",
+          "values": {
+            "proof.leafHashExact": true,
+            "proof.leafIndexAndSize": false,
+            "proof.inclusionPathVerified": true,
+            "proof.rootHashPinned": true
+          },
+          "expected": "UNKNOWN_INCLUSION"
+        },
+        {
+          "id": "B144-R03-N3",
+          "mutatedField": "proof.inclusionPathVerified",
+          "values": {
+            "proof.leafHashExact": true,
+            "proof.leafIndexAndSize": true,
+            "proof.inclusionPathVerified": false,
+            "proof.rootHashPinned": true
+          },
+          "expected": "UNKNOWN_INCLUSION"
+        },
+        {
+          "id": "B144-R03-N4",
+          "mutatedField": "proof.rootHashPinned",
+          "values": {
+            "proof.leafHashExact": true,
+            "proof.leafIndexAndSize": true,
+            "proof.inclusionPathVerified": true,
+            "proof.rootHashPinned": false
+          },
+          "expected": "UNKNOWN_INCLUSION"
+        }
+      ]
+    },
+    {
+      "ruleId": "B144-R04",
+      "positive": {
+        "id": "B144-R04-P",
+        "values": {
+          "growth.previousCheckpointPinned": true,
+          "growth.consistencyProofVerified": true,
+          "growth.firstSizeLessThanSecond": true,
+          "growth.noSilentRollback": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R04-N1",
+          "mutatedField": "growth.previousCheckpointPinned",
+          "values": {
+            "growth.previousCheckpointPinned": false,
+            "growth.consistencyProofVerified": true,
+            "growth.firstSizeLessThanSecond": true,
+            "growth.noSilentRollback": true
+          },
+          "expected": "UNKNOWN_CONSISTENCY"
+        },
+        {
+          "id": "B144-R04-N2",
+          "mutatedField": "growth.consistencyProofVerified",
+          "values": {
+            "growth.previousCheckpointPinned": true,
+            "growth.consistencyProofVerified": false,
+            "growth.firstSizeLessThanSecond": true,
+            "growth.noSilentRollback": true
+          },
+          "expected": "UNKNOWN_CONSISTENCY"
+        },
+        {
+          "id": "B144-R04-N3",
+          "mutatedField": "growth.firstSizeLessThanSecond",
+          "values": {
+            "growth.previousCheckpointPinned": true,
+            "growth.consistencyProofVerified": true,
+            "growth.firstSizeLessThanSecond": false,
+            "growth.noSilentRollback": true
+          },
+          "expected": "UNKNOWN_CONSISTENCY"
+        },
+        {
+          "id": "B144-R04-N4",
+          "mutatedField": "growth.noSilentRollback",
+          "values": {
+            "growth.previousCheckpointPinned": true,
+            "growth.consistencyProofVerified": true,
+            "growth.firstSizeLessThanSecond": true,
+            "growth.noSilentRollback": false
+          },
+          "expected": "UNKNOWN_CONSISTENCY"
+        }
+      ]
+    },
+    {
+      "ruleId": "B144-R05",
+      "positive": {
+        "id": "B144-R05-P",
+        "values": {
+          "witness.independentAnchorStored": true,
+          "witness.signerTrustChecked": true,
+          "witness.sameSizeForkRejected": true,
+          "witness.scopeEpochCompared": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R05-N1",
+          "mutatedField": "witness.independentAnchorStored",
+          "values": {
+            "witness.independentAnchorStored": false,
+            "witness.signerTrustChecked": true,
+            "witness.sameSizeForkRejected": true,
+            "witness.scopeEpochCompared": true
+          },
+          "expected": "UNKNOWN_WITNESS"
+        },
+        {
+          "id": "B144-R05-N2",
+          "mutatedField": "witness.signerTrustChecked",
+          "values": {
+            "witness.independentAnchorStored": true,
+            "witness.signerTrustChecked": false,
+            "witness.sameSizeForkRejected": true,
+            "witness.scopeEpochCompared": true
+          },
+          "expected": "UNKNOWN_WITNESS"
+        },
+        {
+          "id": "B144-R05-N3",
+          "mutatedField": "witness.sameSizeForkRejected",
+          "values": {
+            "witness.independentAnchorStored": true,
+            "witness.signerTrustChecked": true,
+            "witness.sameSizeForkRejected": false,
+            "witness.scopeEpochCompared": true
+          },
+          "expected": "UNKNOWN_WITNESS"
+        },
+        {
+          "id": "B144-R05-N4",
+          "mutatedField": "witness.scopeEpochCompared",
+          "values": {
+            "witness.independentAnchorStored": true,
+            "witness.signerTrustChecked": true,
+            "witness.sameSizeForkRejected": true,
+            "witness.scopeEpochCompared": false
+          },
+          "expected": "UNKNOWN_WITNESS"
+        }
+      ]
+    },
+    {
+      "ruleId": "B144-R06",
+      "positive": {
+        "id": "B144-R06-P",
+        "values": {
+          "amend.appendOnlyCorrection": true,
+          "amend.originalStillResolvable": true,
+          "amend.frozenABUnaffected": true,
+          "amend.noPhysicalFactClaim": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R06-N1",
+          "mutatedField": "amend.appendOnlyCorrection",
+          "values": {
+            "amend.appendOnlyCorrection": false,
+            "amend.originalStillResolvable": true,
+            "amend.frozenABUnaffected": true,
+            "amend.noPhysicalFactClaim": true
+          },
+          "expected": "UNKNOWN_CORRECTION"
+        },
+        {
+          "id": "B144-R06-N2",
+          "mutatedField": "amend.originalStillResolvable",
+          "values": {
+            "amend.appendOnlyCorrection": true,
+            "amend.originalStillResolvable": false,
+            "amend.frozenABUnaffected": true,
+            "amend.noPhysicalFactClaim": true
+          },
+          "expected": "UNKNOWN_CORRECTION"
+        },
+        {
+          "id": "B144-R06-N3",
+          "mutatedField": "amend.frozenABUnaffected",
+          "values": {
+            "amend.appendOnlyCorrection": true,
+            "amend.originalStillResolvable": true,
+            "amend.frozenABUnaffected": false,
+            "amend.noPhysicalFactClaim": true
+          },
+          "expected": "UNKNOWN_CORRECTION"
+        },
+        {
+          "id": "B144-R06-N4",
+          "mutatedField": "amend.noPhysicalFactClaim",
+          "values": {
+            "amend.appendOnlyCorrection": true,
+            "amend.originalStillResolvable": true,
+            "amend.frozenABUnaffected": true,
+            "amend.noPhysicalFactClaim": false
+          },
+          "expected": "UNKNOWN_CORRECTION"
+        }
+      ]
+    },
+    {
+      "ruleId": "B144-R07",
+      "positive": {
+        "id": "B144-R07-P",
+        "values": {
+          "time.sourceAndIngestSeparate": true,
+          "time.clockQualityRecorded": true,
+          "time.noCausalityByTimestamp": true,
+          "time.replayAndDuplicateDetected": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R07-N1",
+          "mutatedField": "time.sourceAndIngestSeparate",
+          "values": {
+            "time.sourceAndIngestSeparate": false,
+            "time.clockQualityRecorded": true,
+            "time.noCausalityByTimestamp": true,
+            "time.replayAndDuplicateDetected": true
+          },
+          "expected": "UNKNOWN_CLOCK"
+        },
+        {
+          "id": "B144-R07-N2",
+          "mutatedField": "time.clockQualityRecorded",
+          "values": {
+            "time.sourceAndIngestSeparate": true,
+            "time.clockQualityRecorded": false,
+            "time.noCausalityByTimestamp": true,
+            "time.replayAndDuplicateDetected": true
+          },
+          "expected": "UNKNOWN_CLOCK"
+        },
+        {
+          "id": "B144-R07-N3",
+          "mutatedField": "time.noCausalityByTimestamp",
+          "values": {
+            "time.sourceAndIngestSeparate": true,
+            "time.clockQualityRecorded": true,
+            "time.noCausalityByTimestamp": false,
+            "time.replayAndDuplicateDetected": true
+          },
+          "expected": "UNKNOWN_CLOCK"
+        },
+        {
+          "id": "B144-R07-N4",
+          "mutatedField": "time.replayAndDuplicateDetected",
+          "values": {
+            "time.sourceAndIngestSeparate": true,
+            "time.clockQualityRecorded": true,
+            "time.noCausalityByTimestamp": true,
+            "time.replayAndDuplicateDetected": false
+          },
+          "expected": "UNKNOWN_CLOCK"
+        }
+      ]
+    },
+    {
+      "ruleId": "B144-R08",
+      "positive": {
+        "id": "B144-R08-P",
+        "values": {
+          "owner.aclScopeCasRechecked": true,
+          "owner.cancelLateAckRejected": true,
+          "owner.independentConsumerRequired": true,
+          "owner.ncD15D16NotConflated": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B144-R08-N1",
+          "mutatedField": "owner.aclScopeCasRechecked",
+          "values": {
+            "owner.aclScopeCasRechecked": false,
+            "owner.cancelLateAckRejected": true,
+            "owner.independentConsumerRequired": true,
+            "owner.ncD15D16NotConflated": true
+          },
+          "expected": "REJECT_COMMIT"
+        },
+        {
+          "id": "B144-R08-N2",
+          "mutatedField": "owner.cancelLateAckRejected",
+          "values": {
+            "owner.aclScopeCasRechecked": true,
+            "owner.cancelLateAckRejected": false,
+            "owner.independentConsumerRequired": true,
+            "owner.ncD15D16NotConflated": true
+          },
+          "expected": "REJECT_COMMIT"
+        },
+        {
+          "id": "B144-R08-N3",
+          "mutatedField": "owner.independentConsumerRequired",
+          "values": {
+            "owner.aclScopeCasRechecked": true,
+            "owner.cancelLateAckRejected": true,
+            "owner.independentConsumerRequired": false,
+            "owner.ncD15D16NotConflated": true
+          },
+          "expected": "REJECT_COMMIT"
+        },
+        {
+          "id": "B144-R08-N4",
+          "mutatedField": "owner.ncD15D16NotConflated",
+          "values": {
+            "owner.aclScopeCasRechecked": true,
+            "owner.cancelLateAckRejected": true,
+            "owner.independentConsumerRequired": true,
+            "owner.ncD15D16NotConflated": false
+          },
+          "expected": "REJECT_COMMIT"
+        }
+      ]
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B144-G01",
+      "input": {
+        "oldSize": 1,
+        "newSize": 1,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": true,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B144-G02",
+      "input": {
+        "oldSize": 2,
+        "newSize": 2,
+        "sameSizeRootEqual": false,
+        "consistencyVerified": true,
+        "witnessVerified": true,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "CONFLICT_EQUIVOCATION"
+    },
+    {
+      "id": "B144-G03",
+      "input": {
+        "oldSize": 2,
+        "newSize": 3,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": false,
+        "witnessVerified": true,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "UNKNOWN_CONSISTENCY"
+    },
+    {
+      "id": "B144-G04",
+      "input": {
+        "oldSize": 2,
+        "newSize": 3,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": false,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "UNKNOWN_WITNESS"
+    },
+    {
+      "id": "B144-G05",
+      "input": {
+        "oldSize": 5,
+        "newSize": 3,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": true,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "INVALID_TREE_ORDER"
+    },
+    {
+      "id": "B144-G06",
+      "input": {
+        "oldSize": 1,
+        "newSize": 2,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": true,
+        "ownerAclLive": false,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "REJECT_PERMISSION"
+    },
+    {
+      "id": "B144-G07",
+      "input": {
+        "oldSize": 1,
+        "newSize": 2,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": true,
+        "ownerAclLive": true,
+        "cancelled": true,
+        "d15Independent": true
+      },
+      "expected": "REJECT_CANCEL"
+    },
+    {
+      "id": "B144-G08",
+      "input": {
+        "oldSize": 1,
+        "newSize": 2,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": true,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": false
+      },
+      "expected": "BLOCK_D16"
+    },
+    {
+      "id": "B144-G09",
+      "input": {
+        "oldSize": 4,
+        "newSize": 4,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": false,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "UNKNOWN_WITNESS"
+    },
+    {
+      "id": "B144-G10",
+      "input": {
+        "oldSize": 2,
+        "newSize": 5,
+        "sameSizeRootEqual": true,
+        "consistencyVerified": true,
+        "witnessVerified": true,
+        "ownerAclLive": true,
+        "cancelled": false,
+        "d15Independent": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    }
+  ],
+  "meaning": "8正32独立单字段负例+10状态Golden；不执行密码学、不模拟控制器、不视为产品验收"
+}

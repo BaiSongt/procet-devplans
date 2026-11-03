@@ -1,3 +1,5 @@
+> **B144专项（2026-11-04）：** [独立检查点、同尺寸双视图和一致性资格](AUDIT-CHECKPOINT-WITNESS-B144-2026-11-04.md) → [8规则](../../../research/traces/CAP-10-08-checkpoint-witness-b144-v08.json) → [40字段正反+10状态Golden](checkpoint-witness-b144-fixtures-v08.json)。实际密码学、D16/D17真实独立消费与L3均未验；规划PASS≠产品PASS。
+
 # CAP-10-08｜数字主线与审计（V0.8，L3待审）
 
 **原88项能力目标原文：**「零件-工序-刀路-NC-机床-执行溯源」。关联原工作包 **E3-06 / T5-03**，不重编号、不新增D18。10域拥有数字主线**受管审计索引与查询投影**，并不接管原D01—D17领域数据Owner。
