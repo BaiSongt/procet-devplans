@@ -1,0 +1,630 @@
+{
+  "schemaVersion": "procet-b128-fixtures-v08",
+  "date": "2026-11-03",
+  "syntheticOnly": true,
+  "oracleIndependence": "40字段单字段变异构成规划契约自检；8个手算的标量数学Goldens作为第二种检查，仍不等于控制器独立实测",
+  "cases": [
+    {
+      "id": "B128-P01",
+      "rule": "B128-R01",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareOptionsHashExact": true,
+        "profile.g10DialectSelected": true,
+        "profile.noCrossDialectFallback": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N01-1",
+      "rule": "B128-R01",
+      "mutatedField": "profile.controllerFamilyExact",
+      "input": {
+        "profile.controllerFamilyExact": false,
+        "profile.firmwareOptionsHashExact": true,
+        "profile.g10DialectSelected": true,
+        "profile.noCrossDialectFallback": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N01-2",
+      "rule": "B128-R01",
+      "mutatedField": "profile.firmwareOptionsHashExact",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareOptionsHashExact": false,
+        "profile.g10DialectSelected": true,
+        "profile.noCrossDialectFallback": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N01-3",
+      "rule": "B128-R01",
+      "mutatedField": "profile.g10DialectSelected",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareOptionsHashExact": true,
+        "profile.g10DialectSelected": false,
+        "profile.noCrossDialectFallback": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N01-4",
+      "rule": "B128-R01",
+      "mutatedField": "profile.noCrossDialectFallback",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareOptionsHashExact": true,
+        "profile.g10DialectSelected": true,
+        "profile.noCrossDialectFallback": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-P02",
+      "rule": "B128-R02",
+      "input": {
+        "l2.pTargetNamespaceResolved": true,
+        "l2.linuxG91IgnoredForL2": true,
+        "l2.haasG91IncrementModeExplicit": true,
+        "l2.offsetBeforeAfterCaptured": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N02-1",
+      "rule": "B128-R02",
+      "mutatedField": "l2.pTargetNamespaceResolved",
+      "input": {
+        "l2.pTargetNamespaceResolved": false,
+        "l2.linuxG91IgnoredForL2": true,
+        "l2.haasG91IncrementModeExplicit": true,
+        "l2.offsetBeforeAfterCaptured": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N02-2",
+      "rule": "B128-R02",
+      "mutatedField": "l2.linuxG91IgnoredForL2",
+      "input": {
+        "l2.pTargetNamespaceResolved": true,
+        "l2.linuxG91IgnoredForL2": false,
+        "l2.haasG91IncrementModeExplicit": true,
+        "l2.offsetBeforeAfterCaptured": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N02-3",
+      "rule": "B128-R02",
+      "mutatedField": "l2.haasG91IncrementModeExplicit",
+      "input": {
+        "l2.pTargetNamespaceResolved": true,
+        "l2.linuxG91IgnoredForL2": true,
+        "l2.haasG91IncrementModeExplicit": false,
+        "l2.offsetBeforeAfterCaptured": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N02-4",
+      "rule": "B128-R02",
+      "mutatedField": "l2.offsetBeforeAfterCaptured",
+      "input": {
+        "l2.pTargetNamespaceResolved": true,
+        "l2.linuxG91IgnoredForL2": true,
+        "l2.haasG91IncrementModeExplicit": true,
+        "l2.offsetBeforeAfterCaptured": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B128-P03",
+      "rule": "B128-R03",
+      "input": {
+        "l20.linuxCalculatedFromCurrent": true,
+        "l20.haasAuxiliaryWcsMapping": true,
+        "l20.currentMachinePoseAndFrameExact": true,
+        "l20.ambiguousDialectUnknown": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N03-1",
+      "rule": "B128-R03",
+      "mutatedField": "l20.linuxCalculatedFromCurrent",
+      "input": {
+        "l20.linuxCalculatedFromCurrent": false,
+        "l20.haasAuxiliaryWcsMapping": true,
+        "l20.currentMachinePoseAndFrameExact": true,
+        "l20.ambiguousDialectUnknown": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N03-2",
+      "rule": "B128-R03",
+      "mutatedField": "l20.haasAuxiliaryWcsMapping",
+      "input": {
+        "l20.linuxCalculatedFromCurrent": true,
+        "l20.haasAuxiliaryWcsMapping": false,
+        "l20.currentMachinePoseAndFrameExact": true,
+        "l20.ambiguousDialectUnknown": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N03-3",
+      "rule": "B128-R03",
+      "mutatedField": "l20.currentMachinePoseAndFrameExact",
+      "input": {
+        "l20.linuxCalculatedFromCurrent": true,
+        "l20.haasAuxiliaryWcsMapping": true,
+        "l20.currentMachinePoseAndFrameExact": false,
+        "l20.ambiguousDialectUnknown": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N03-4",
+      "rule": "B128-R03",
+      "mutatedField": "l20.ambiguousDialectUnknown",
+      "input": {
+        "l20.linuxCalculatedFromCurrent": true,
+        "l20.haasAuxiliaryWcsMapping": true,
+        "l20.currentMachinePoseAndFrameExact": true,
+        "l20.ambiguousDialectUnknown": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B128-P04",
+      "rule": "B128-R04",
+      "input": {
+        "wcs.selectedBeforeAfterSnapshot": true,
+        "wcs.p0ActiveMappingQualified": true,
+        "wcs.p1G54MappingQualified": true,
+        "wcs.noImplicitWcsSelection": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N04-1",
+      "rule": "B128-R04",
+      "mutatedField": "wcs.selectedBeforeAfterSnapshot",
+      "input": {
+        "wcs.selectedBeforeAfterSnapshot": false,
+        "wcs.p0ActiveMappingQualified": true,
+        "wcs.p1G54MappingQualified": true,
+        "wcs.noImplicitWcsSelection": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N04-2",
+      "rule": "B128-R04",
+      "mutatedField": "wcs.p0ActiveMappingQualified",
+      "input": {
+        "wcs.selectedBeforeAfterSnapshot": true,
+        "wcs.p0ActiveMappingQualified": false,
+        "wcs.p1G54MappingQualified": true,
+        "wcs.noImplicitWcsSelection": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N04-3",
+      "rule": "B128-R04",
+      "mutatedField": "wcs.p1G54MappingQualified",
+      "input": {
+        "wcs.selectedBeforeAfterSnapshot": true,
+        "wcs.p0ActiveMappingQualified": true,
+        "wcs.p1G54MappingQualified": false,
+        "wcs.noImplicitWcsSelection": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N04-4",
+      "rule": "B128-R04",
+      "mutatedField": "wcs.noImplicitWcsSelection",
+      "input": {
+        "wcs.selectedBeforeAfterSnapshot": true,
+        "wcs.p0ActiveMappingQualified": true,
+        "wcs.p1G54MappingQualified": true,
+        "wcs.noImplicitWcsSelection": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-P05",
+      "rule": "B128-R05",
+      "input": {
+        "local.g52G92SharedRegisterModeled": true,
+        "local.persistenceIniRevisionExact": true,
+        "local.restartRegisterSnapshot": true,
+        "local.abortDoesNotAssumeClear": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N05-1",
+      "rule": "B128-R05",
+      "mutatedField": "local.g52G92SharedRegisterModeled",
+      "input": {
+        "local.g52G92SharedRegisterModeled": false,
+        "local.persistenceIniRevisionExact": true,
+        "local.restartRegisterSnapshot": true,
+        "local.abortDoesNotAssumeClear": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N05-2",
+      "rule": "B128-R05",
+      "mutatedField": "local.persistenceIniRevisionExact",
+      "input": {
+        "local.g52G92SharedRegisterModeled": true,
+        "local.persistenceIniRevisionExact": false,
+        "local.restartRegisterSnapshot": true,
+        "local.abortDoesNotAssumeClear": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N05-3",
+      "rule": "B128-R05",
+      "mutatedField": "local.restartRegisterSnapshot",
+      "input": {
+        "local.g52G92SharedRegisterModeled": true,
+        "local.persistenceIniRevisionExact": true,
+        "local.restartRegisterSnapshot": false,
+        "local.abortDoesNotAssumeClear": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N05-4",
+      "rule": "B128-R05",
+      "mutatedField": "local.abortDoesNotAssumeClear",
+      "input": {
+        "local.g52G92SharedRegisterModeled": true,
+        "local.persistenceIniRevisionExact": true,
+        "local.restartRegisterSnapshot": true,
+        "local.abortDoesNotAssumeClear": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-P06",
+      "rule": "B128-R06",
+      "input": {
+        "g92.g921ClearsSavedRegisters": true,
+        "g92.g922DisablesButKeeps": true,
+        "g92.g923RestoresSaved": true,
+        "g92.g54UnaffectedByG921": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N06-1",
+      "rule": "B128-R06",
+      "mutatedField": "g92.g921ClearsSavedRegisters",
+      "input": {
+        "g92.g921ClearsSavedRegisters": false,
+        "g92.g922DisablesButKeeps": true,
+        "g92.g923RestoresSaved": true,
+        "g92.g54UnaffectedByG921": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N06-2",
+      "rule": "B128-R06",
+      "mutatedField": "g92.g922DisablesButKeeps",
+      "input": {
+        "g92.g921ClearsSavedRegisters": true,
+        "g92.g922DisablesButKeeps": false,
+        "g92.g923RestoresSaved": true,
+        "g92.g54UnaffectedByG921": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N06-3",
+      "rule": "B128-R06",
+      "mutatedField": "g92.g923RestoresSaved",
+      "input": {
+        "g92.g921ClearsSavedRegisters": true,
+        "g92.g922DisablesButKeeps": true,
+        "g92.g923RestoresSaved": false,
+        "g92.g54UnaffectedByG921": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N06-4",
+      "rule": "B128-R06",
+      "mutatedField": "g92.g54UnaffectedByG921",
+      "input": {
+        "g92.g921ClearsSavedRegisters": true,
+        "g92.g922DisablesButKeeps": true,
+        "g92.g923RestoresSaved": true,
+        "g92.g54UnaffectedByG921": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-P07",
+      "rule": "B128-R07",
+      "input": {
+        "binding.d04NominalFrameExact": true,
+        "binding.d10ControllerOffsetsExact": true,
+        "binding.d12FinalNcBytesHashExact": true,
+        "binding.d13D14D15RecomputedOrStale": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N07-1",
+      "rule": "B128-R07",
+      "mutatedField": "binding.d04NominalFrameExact",
+      "input": {
+        "binding.d04NominalFrameExact": false,
+        "binding.d10ControllerOffsetsExact": true,
+        "binding.d12FinalNcBytesHashExact": true,
+        "binding.d13D14D15RecomputedOrStale": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N07-2",
+      "rule": "B128-R07",
+      "mutatedField": "binding.d10ControllerOffsetsExact",
+      "input": {
+        "binding.d04NominalFrameExact": true,
+        "binding.d10ControllerOffsetsExact": false,
+        "binding.d12FinalNcBytesHashExact": true,
+        "binding.d13D14D15RecomputedOrStale": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N07-3",
+      "rule": "B128-R07",
+      "mutatedField": "binding.d12FinalNcBytesHashExact",
+      "input": {
+        "binding.d04NominalFrameExact": true,
+        "binding.d10ControllerOffsetsExact": true,
+        "binding.d12FinalNcBytesHashExact": false,
+        "binding.d13D14D15RecomputedOrStale": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N07-4",
+      "rule": "B128-R07",
+      "mutatedField": "binding.d13D14D15RecomputedOrStale",
+      "input": {
+        "binding.d04NominalFrameExact": true,
+        "binding.d10ControllerOffsetsExact": true,
+        "binding.d12FinalNcBytesHashExact": true,
+        "binding.d13D14D15RecomputedOrStale": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-P08",
+      "rule": "B128-R08",
+      "input": {
+        "commit.guiCliAgentOneOwnerPort": true,
+        "commit.oneBabylonLeftTaskPanel": true,
+        "commit.casAclEpochCancelRecheck": true,
+        "commit.d15IndependentNoClPass": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N08-1",
+      "rule": "B128-R08",
+      "mutatedField": "commit.guiCliAgentOneOwnerPort",
+      "input": {
+        "commit.guiCliAgentOneOwnerPort": false,
+        "commit.oneBabylonLeftTaskPanel": true,
+        "commit.casAclEpochCancelRecheck": true,
+        "commit.d15IndependentNoClPass": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N08-2",
+      "rule": "B128-R08",
+      "mutatedField": "commit.oneBabylonLeftTaskPanel",
+      "input": {
+        "commit.guiCliAgentOneOwnerPort": true,
+        "commit.oneBabylonLeftTaskPanel": false,
+        "commit.casAclEpochCancelRecheck": true,
+        "commit.d15IndependentNoClPass": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N08-3",
+      "rule": "B128-R08",
+      "mutatedField": "commit.casAclEpochCancelRecheck",
+      "input": {
+        "commit.guiCliAgentOneOwnerPort": true,
+        "commit.oneBabylonLeftTaskPanel": true,
+        "commit.casAclEpochCancelRecheck": false,
+        "commit.d15IndependentNoClPass": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B128-N08-4",
+      "rule": "B128-R08",
+      "mutatedField": "commit.d15IndependentNoClPass",
+      "input": {
+        "commit.guiCliAgentOneOwnerPort": true,
+        "commit.oneBabylonLeftTaskPanel": true,
+        "commit.casAclEpochCancelRecheck": true,
+        "commit.d15IndependentNoClPass": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B128-G01",
+      "kind": "L2",
+      "profile": "LINUXCNC_2_9",
+      "oldOffset": 10,
+      "value": 6,
+      "distance": "G91",
+      "selected": "G55",
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "offset": 6,
+        "selected": "G55"
+      }
+    },
+    {
+      "id": "B128-G02",
+      "kind": "L2",
+      "profile": "HAAS_MILL_DOC",
+      "oldOffset": 10,
+      "value": 6,
+      "distance": "G91",
+      "selected": "G55",
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "offset": 16,
+        "selected": "G55"
+      }
+    },
+    {
+      "id": "B128-G03",
+      "kind": "L20",
+      "profile": "LINUXCNC_2_9",
+      "machineX": 20,
+      "desiredWorkX": 1.5,
+      "otherOffset": 0,
+      "selected": "G55",
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "offset": 18.5,
+        "selected": "G55"
+      }
+    },
+    {
+      "id": "B128-G04",
+      "kind": "L20",
+      "profile": "HAAS_MILL_DOC",
+      "p": 2,
+      "value": 10,
+      "selected": "G54",
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "aux": "G111",
+        "offset": 10,
+        "selected": "G54"
+      }
+    },
+    {
+      "id": "B128-G05",
+      "kind": "G92_RESET",
+      "profile": "LINUXCNC_2_9",
+      "saved": 3,
+      "operations": [
+        "G92.2",
+        "G92.3"
+      ],
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "enabled": true,
+        "saved": 3
+      }
+    },
+    {
+      "id": "B128-G06",
+      "kind": "G92_RESET",
+      "profile": "LINUXCNC_2_9",
+      "saved": 3,
+      "operations": [
+        "G92.1",
+        "G92.3"
+      ],
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "enabled": true,
+        "saved": 0
+      }
+    },
+    {
+      "id": "B128-G07",
+      "kind": "G52_RESTART",
+      "profile": "LINUXCNC_2_9",
+      "g52X": 2,
+      "persistenceEnabled": true,
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "restored": 2
+      }
+    },
+    {
+      "id": "B128-G08",
+      "kind": "G52_RESTART",
+      "profile": "LINUXCNC_2_9",
+      "g52X": 2,
+      "persistenceEnabled": false,
+      "expect": {
+        "status": "SYNTHETIC_ONLY",
+        "restored": 0
+      }
+    }
+  ]
+}
