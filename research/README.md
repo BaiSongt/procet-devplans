@@ -1,3 +1,6 @@
+## 2026-11-03｜B129 CAP-02-03拉钉/刀柄/主轴接口资格
+[研究与阅读限制](../docs/capabilities/CAP-02-03/RETENTION-KNOB-QUALIFICATION-B129-2026-11-03.md) → [7来源](sources/CAP-02-03-retention-knob-b129.json) → [8规则](traces/CAP-02-03-retention-knob-b129-v08.json) → [8正32反](../docs/capabilities/CAP-02-03/retention-knob-b129-fixtures-v08.json) → [只读Node](../tools/check_cap0203_retention_knob_b129_v08.cjs)。Haas特定04-0201拉钉不能外推B5/OEM，ISO只读官方目录；真实主轴、Owner/消费者及L3待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B128 R-WCS-MOTION-001：G10 L2/L20方言、G52/G92寄存器持久化
 [7条官方及本仓固定Blob/章节及局限](sources/CAP-08-03-wcs-offset-b128.json) → [8规则32字段原包](traces/CAP-08-03-wcs-offset-b128-v08.json) → [40正反/8解析标量Golden](../docs/capabilities/CAP-08-03/wcs-offset-b128-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-03/WCS-OFFSET-DIALECT-B128-2026-11-03.md)。LinuxCNC同出版物多节不算多篇，stable版本与2.9不等价；Haas Mill网页不能泛化OEM。真实D10寄存器、独立Node、Owner、L3和产品均未验证；规划PASS≠产品PASS。
 

@@ -1,0 +1,455 @@
+{
+  "schemaVersion": "procet-b129-trace-v08",
+  "date": "2026-11-03",
+  "sourceRegistry": "research/sources/CAP-02-03-retention-knob-b129.json",
+  "capabilityId": "CAP-02-03",
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-06",
+    "E3-04",
+    "U4-02",
+    "U4-03"
+  ],
+  "ruleCount": 8,
+  "acceptanceFixture": "docs/capabilities/CAP-02-03/retention-knob-b129-fixtures-v08.json",
+  "validator": "tools/check_cap0203_retention_knob_b129_v08.cjs",
+  "actualOwner": "PENDING_HUMAN",
+  "independentConsumer": "NOT_RUN",
+  "rules": [
+    {
+      "id": "RK129-R1",
+      "statement": "机器/主轴唯一身份、精确修订、SHA和Frame必须具备",
+      "sourceIds": [
+        "RK129-S7"
+      ],
+      "fields": [
+        "machine.id",
+        "machine.revision",
+        "machine.spindleHash",
+        "machine.frame"
+      ],
+      "guards": [
+        {
+          "path": "machine.id",
+          "op": "nonempty",
+          "rhs": null
+        },
+        {
+          "path": "machine.revision",
+          "op": "nonempty",
+          "rhs": null
+        },
+        {
+          "path": "machine.spindleHash",
+          "op": "sha",
+          "rhs": null
+        },
+        {
+          "path": "machine.frame",
+          "op": "nonempty",
+          "rhs": null
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "positiveIds": [
+        "RK129-P1"
+      ],
+      "negativeIds": [
+        "RK129-N1-1",
+        "RK129-N1-2",
+        "RK129-N1-3",
+        "RK129-N1-4"
+      ]
+    },
+    {
+      "id": "RK129-R2",
+      "statement": "刀柄锥、主轴范围与OEM适配矩阵分开，不可由40号推断互换",
+      "sourceIds": [
+        "RK129-S1",
+        "RK129-S2",
+        "RK129-S5",
+        "RK129-S7"
+      ],
+      "fields": [
+        "holder.taper",
+        "compat.status",
+        "compat.machineHash",
+        "compat.oemEvidence"
+      ],
+      "guards": [
+        {
+          "path": "holder.taper",
+          "op": "eq",
+          "rhs": "CT40"
+        },
+        {
+          "path": "compat.status",
+          "op": "eq",
+          "rhs": "APPROVED"
+        },
+        {
+          "path": "compat.machineHash",
+          "op": "same",
+          "rhs": "machine.spindleHash"
+        },
+        {
+          "path": "compat.oemEvidence",
+          "op": "nonempty",
+          "rhs": null
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "RK129-P2"
+      ],
+      "negativeIds": [
+        "RK129-N2-1",
+        "RK129-N2-2",
+        "RK129-N2-3",
+        "RK129-N2-4"
+      ]
+    },
+    {
+      "id": "RK129-R3",
+      "statement": "Haas 04-0201具体45度和螺纹只用于对应SKU实例",
+      "sourceIds": [
+        "RK129-S2",
+        "RK129-S3"
+      ],
+      "fields": [
+        "knob.part",
+        "knob.angle",
+        "knob.thread",
+        "knob.hash"
+      ],
+      "guards": [
+        {
+          "path": "knob.part",
+          "op": "eq",
+          "rhs": "04-0201"
+        },
+        {
+          "path": "knob.angle",
+          "op": "eq",
+          "rhs": 45
+        },
+        {
+          "path": "knob.thread",
+          "op": "eq",
+          "rhs": "5/8-11"
+        },
+        {
+          "path": "knob.hash",
+          "op": "sha",
+          "rhs": null
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "positiveIds": [
+        "RK129-P3"
+      ],
+      "negativeIds": [
+        "RK129-N3-1",
+        "RK129-N3-2",
+        "RK129-N3-3",
+        "RK129-N3-4"
+      ]
+    },
+    {
+      "id": "RK129-R4",
+      "statement": "现场磨损/扭矩检查是独立于资源目录的事实",
+      "sourceIds": [
+        "RK129-S4",
+        "RK129-S7"
+      ],
+      "fields": [
+        "inspection.done",
+        "inspection.wear",
+        "inspection.torqueEvidence",
+        "inspection.machineId"
+      ],
+      "guards": [
+        {
+          "path": "inspection.done",
+          "op": "eq",
+          "rhs": true
+        },
+        {
+          "path": "inspection.wear",
+          "op": "eq",
+          "rhs": "OK"
+        },
+        {
+          "path": "inspection.torqueEvidence",
+          "op": "nonempty",
+          "rhs": null
+        },
+        {
+          "path": "inspection.machineId",
+          "op": "same",
+          "rhs": "machine.id"
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03",
+        "D10",
+        "D17"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "RK129-P4"
+      ],
+      "negativeIds": [
+        "RK129-N4-1",
+        "RK129-N4-2",
+        "RK129-N4-3",
+        "RK129-N4-4"
+      ]
+    },
+    {
+      "id": "RK129-R5",
+      "statement": "TSC拉钉通孔不能取代管路与密封实际证据",
+      "sourceIds": [
+        "RK129-S3",
+        "RK129-S4"
+      ],
+      "fields": [
+        "knob.tsc",
+        "coolant.pathObserved",
+        "coolant.sealEvidence",
+        "coolant.claimUniversal"
+      ],
+      "guards": [
+        {
+          "path": "knob.tsc",
+          "op": "eq",
+          "rhs": true
+        },
+        {
+          "path": "coolant.pathObserved",
+          "op": "eq",
+          "rhs": true
+        },
+        {
+          "path": "coolant.sealEvidence",
+          "op": "nonempty",
+          "rhs": null
+        },
+        {
+          "path": "coolant.claimUniversal",
+          "op": "eq",
+          "rhs": false
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "RK129-P5"
+      ],
+      "negativeIds": [
+        "RK129-N5-1",
+        "RK129-N5-2",
+        "RK129-N5-3",
+        "RK129-N5-4"
+      ]
+    },
+    {
+      "id": "RK129-R6",
+      "statement": "D03发布定义不等于D10主轴实装，D04 Setup不具实装写权",
+      "sourceIds": [
+        "RK129-S5",
+        "RK129-S7"
+      ],
+      "fields": [
+        "install.holderHash",
+        "install.knobHash",
+        "install.d10Receipt",
+        "install.d04AsReal"
+      ],
+      "guards": [
+        {
+          "path": "install.holderHash",
+          "op": "same",
+          "rhs": "holder.hash"
+        },
+        {
+          "path": "install.knobHash",
+          "op": "same",
+          "rhs": "knob.hash"
+        },
+        {
+          "path": "install.d10Receipt",
+          "op": "nonempty",
+          "rhs": null
+        },
+        {
+          "path": "install.d04AsReal",
+          "op": "eq",
+          "rhs": false
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "RK129-P6"
+      ],
+      "negativeIds": [
+        "RK129-N6-1",
+        "RK129-N6-2",
+        "RK129-N6-3",
+        "RK129-N6-4"
+      ]
+    },
+    {
+      "id": "RK129-R7",
+      "statement": "Owner CAS与ACL、scopeEpoch、取消晚回执服务端重验",
+      "sourceIds": [
+        "RK129-S6",
+        "RK129-S7"
+      ],
+      "fields": [
+        "tx.expectedRev",
+        "tx.acl",
+        "tx.lateAck",
+        "tx.epoch"
+      ],
+      "guards": [
+        {
+          "path": "tx.expectedRev",
+          "op": "same",
+          "rhs": "tx.actualRev"
+        },
+        {
+          "path": "tx.acl",
+          "op": "eq",
+          "rhs": true
+        },
+        {
+          "path": "tx.lateAck",
+          "op": "eq",
+          "rhs": false
+        },
+        {
+          "path": "tx.epoch",
+          "op": "same",
+          "rhs": "tx.currentEpoch"
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "positiveIds": [
+        "RK129-P7"
+      ],
+      "negativeIds": [
+        "RK129-N7-1",
+        "RK129-N7-2",
+        "RK129-N7-3",
+        "RK129-N7-4"
+      ]
+    },
+    {
+      "id": "RK129-R8",
+      "statement": "GUI/CLI/Agent共用Owner Port，单Babylon且左TaskPanel",
+      "sourceIds": [
+        "RK129-S7"
+      ],
+      "fields": [
+        "ui.gui",
+        "ui.agent",
+        "ui.worldCount",
+        "ui.panel"
+      ],
+      "guards": [
+        {
+          "path": "ui.gui",
+          "op": "same",
+          "rhs": "ui.cli"
+        },
+        {
+          "path": "ui.agent",
+          "op": "same",
+          "rhs": "ui.cli"
+        },
+        {
+          "path": "ui.worldCount",
+          "op": "eq",
+          "rhs": 1
+        },
+        {
+          "path": "ui.panel",
+          "op": "eq",
+          "rhs": "LEFT_UNIFIED"
+        }
+      ],
+      "capabilityId": "CAP-02-03",
+      "assets": [
+        "D03",
+        "D10",
+        "D15"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "U4-02",
+        "U4-03"
+      ],
+      "positiveIds": [
+        "RK129-P8"
+      ],
+      "negativeIds": [
+        "RK129-N8-1",
+        "RK129-N8-2",
+        "RK129-N8-3",
+        "RK129-N8-4"
+      ]
+    }
+  ]
+}

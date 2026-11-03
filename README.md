@@ -1,3 +1,6 @@
+## 2026-11-03｜B129 CAP-02-03拉钉/刀柄/主轴接口资格
+[研究与阅读限制](docs/capabilities/CAP-02-03/RETENTION-KNOB-QUALIFICATION-B129-2026-11-03.md) → [7来源](research/sources/CAP-02-03-retention-knob-b129.json) → [8规则](research/traces/CAP-02-03-retention-knob-b129-v08.json) → [8正32反](docs/capabilities/CAP-02-03/retention-knob-b129-fixtures-v08.json) → [只读Node](tools/check_cap0203_retention_knob_b129_v08.cjs)。Haas特定04-0201拉钉不能外推B5/OEM，ISO只读官方目录；真实主轴、Owner/消费者及L3待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B128 CAP-08-03 G10 L2/L20跨控制器坐标偏置与G52/G92持久化
 [研究报告及阅读限制](docs/capabilities/CAP-08-03/WCS-OFFSET-DIALECT-B128-2026-11-03.md) → [7分级来源](research/sources/CAP-08-03-wcs-offset-b128.json) → [8规则/32字段及原编号包](research/traces/CAP-08-03-wcs-offset-b128-v08.json) → [8正32反/8标量Golden](docs/capabilities/CAP-08-03/wcs-offset-b128-fixtures-v08.json) → [只读Node校验](tools/check_cap0803_wcs_offset_b128_v08.cjs)。LinuxCNC2.9 G10 L20计算当前点、Haas L20为辅助WCS；同名G10 L2在G91下行为不同。G52/G92残留不得被当作M30/重启自动清零。累计**234 Registry/1783条登记记录（非去重）**；正式Owner/消费者0/17，L3/全仓AST/历史原字节/真实NC NOT_RUN。**规划PASS≠产品PASS。**
 
