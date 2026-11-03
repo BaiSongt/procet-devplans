@@ -1,3 +1,6 @@
+## 2026-11-03｜B143 CAP-02-07网格偏差与用途资格
+[5条分层来源](sources/CAP-02-07-mesh-deflection-b143.json) → [8规则32字段/原F1-02/F1-06/E3-04](traces/CAP-02-07-mesh-deflection-b143-v08.json) → [40正反+7 Golden](../docs/capabilities/CAP-02-07/mesh-deflection-b143-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-02-07/MESH-DEFLECTION-B143-2026-11-03.md)。OCCT同项目章节不去重算论文，真实引擎/产品/Owner/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B142 R-RAG-TRUST-BOUNDARY-001 RAG间接注入与Tool Port资格
 [6分级来源](sources/CAP-11-03-rag-trust-b142.json) → [8规则和原T5-01/T5-02](traces/CAP-11-03-rag-trust-b142.json) → [40正反及10 Golden](../docs/capabilities/CAP-11-03/rag-trust-b142-fixtures.json) → [专项报告](../docs/capabilities/CAP-11-03/RAG-TRUST-B142-2026-11-03.md)。OWASP/MCP官网指定HTML实读，NIST仅官方摘要、论文仅摘要和引言选段；真实防护/Owner/产品NOT_RUN。**规划PASS≠产品PASS。**
 

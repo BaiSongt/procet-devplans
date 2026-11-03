@@ -1,3 +1,5 @@
+> **B143（2026-11-03）网格精度与LOD资格**：[专项研究](MESH-DEFLECTION-B143-2026-11-03.md) → [5来源](../../../research/sources/CAP-02-07-mesh-deflection-b143.json) → [8规则](../../../research/traces/CAP-02-07-mesh-deflection-b143-v08.json) → [40正反+7 Golden](mesh-deflection-b143-fixtures-v08.json) → [Node规划校验入口](../../../tools/check_cap0207_mesh_deflection_b143_v08.cjs)。显示网格不等于制造精度或D15工程安全资格，正式Owner/产品/L3未验。**规划PASS≠产品PASS。**
+
 > **B59实例拾取与B-Rep源身份专项（2026-10-31）：** [研究/矩阵Golden](RENDER-PICK-IDENTITY-B59-2026-10-31.md) → [6来源](../../../research/sources/CAP-02-07-render-pick-b59.json) → [8规则字段](../../../research/traces/CAP-02-07-render-pick-b59-v08.json) → [44合成](render-pick-b59-fixtures-v08.json) → [独立Node只读入口](../../../tools/check_cap0207_render_pick_b59_v08.cjs)。共享Mesh多实例不能以meshId写资源，triangle到Face无证明只DISPLAY_ONLY。真正OCCT/GPU/Owner/17消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 
 # CAP-02-07｜资源几何与参数化
