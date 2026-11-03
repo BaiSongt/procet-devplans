@@ -1,3 +1,5 @@
+> **B148 XDE装配Occurrence递归闭包与Location单次应用（2026-11-04）**：[研究、官方章节与局限](OCCURRENCE-CLOSURE-B148-2026-11-04.md) → [5来源](../../../research/sources/CAP-03-02-occurrence-closure-b148.json) → [8规则/32字段](../../../research/traces/CAP-03-02-occurrence-closure-b148-v08.json) → [8正32反/5数学Golden](occurrence-closure-b148-fixtures-v08.json) → [Node只读门禁](../../../tools/check_cap0302_occurrence_closure_b148_v08.cjs)。真实STEP、Owner及消费者未验，**规划PASS≠产品PASS**。
+
 > **B106 XDE/SHUO实例显隐专项补证（2026-11-02）**：[官方文档与业务资格](INSTANCE-STYLE-EVIDENCE-B106-2026-11-02.md) · [8规则/原包](../../../research/traces/CAP-03-02-instance-style-b106-v08.json) · [50合成](instance-style-b106-fixtures-v08.json)。无SHUO的false不能判断明确隐藏；禁用ColorMode后的缺色不能判断原件无色。L3/真实STEP与消费者待审。
 
 # CAP-03-02｜零件、装配及版本：定义—实例—修订一致性
