@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "procet-b128-sources-v08",
+  "accessedOn": "2026-11-03",
+  "origin": "NEWLY_AUTHORED_NOT_HISTORICAL_RECOVERY",
+  "registeredRecords": 7,
+  "meaning": "4条官方HTML章节登记（LinuxCNC 2.9同页面两节为同一出版根、stable另有滚动版；Haas 1页）；3条仓库内部固定Git Blob。不是7篇独立文献，未读取收费标准或PDF正文。",
+  "sources": [
+    {
+      "id": "B128-S01",
+      "title": "LinuxCNC 2.9 G10 L2 Set Coordinate System",
+      "authors": "LinuxCNC Project documentation contributors",
+      "version": "2.9在线官方章节，页面可滚动更新；未锁发布Git SHA",
+      "publishedOn": null,
+      "url": "https://www.linuxcnc.org/docs/2.9/html/gcode/g-code.html",
+      "section": "§14 G10 L2：P0–9映射、G91对L2无影响、保留G52/G92、当前WCS不自动切换",
+      "depth": "official_public_html_specific_section_read",
+      "limitation": "仅LinuxCNC 2.9官方说明，实际机床INI/插件/参数版本未验证",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B128-S02",
+      "title": "LinuxCNC 2.9 G10 L20及G92.1/.2/.3",
+      "authors": "LinuxCNC Project documentation contributors",
+      "version": "2.9在线官方章节，与B128-S01为同一出版根",
+      "publishedOn": null,
+      "url": "https://www.linuxcnc.org/docs/2.9/html/gcode/g-code.html",
+      "section": "§17 G10 L20；§56 G92；§57 G92.1/G92.2；§58 G92.3",
+      "depth": "official_public_html_specific_sections_read",
+      "limitation": "L20以当前位置反算WCS原点；G92.2保留寄存器，G92.1清零；不等于其他控制器；真实持久化需读取机器配置",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B128-S03",
+      "title": "LinuxCNC Coordinate Systems—G52/G92共享寄存器及持久化",
+      "authors": "LinuxCNC Project documentation contributors",
+      "version": "官方stable滚动HTML（非精确2.9快照）",
+      "publishedOn": null,
+      "url": "https://linuxcnc.org/docs/stable/html/gcode/coordinates.html",
+      "section": "§4.1 G52；§5.3 G92 Persistence Cautions；§5.4 G92 and G52 Interaction Cautions",
+      "depth": "official_public_html_specific_sections_read",
+      "limitation": "stable与2.9版本可能不同；DISABLE_G92_PERSISTENCE由机器INI决定，不能不核配置直接推断重启行为",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B128-S04",
+      "title": "Haas Mill G10 Set Offsets (Group 00)",
+      "authors": "Haas Automation",
+      "version": "Haas官方Mill G10滚动服务页；未见确切发布日和全固件矩阵",
+      "publishedOn": null,
+      "url": "https://haascnc.com/service/codes-settings.type=gcode.machine=mill.value=G10.html",
+      "section": "L2 G52/G54-G59；L20 G110-G129/G154；P映射；G10 L2 P1 G91 X6示例",
+      "depth": "official_public_html_specific_paragraphs_read",
+      "limitation": "仅Haas Mill公开页；不能当成LinuxCNC G10 L20计算语义，更不能推断所有Haas OEM机型和固件版本",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B128-S05",
+      "title": "Procet CAP-08-03坐标与运动指令原规划",
+      "authors": "Procet planning team",
+      "version": "exactGitBlob:b826fdab5df2107bc90e01f2869f002dd367d5fb",
+      "publishedOn": "2026-10",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/25a911f758490424956e4f6cd7289bf3f64a4197/docs/capabilities/CAP-08-03/README.md",
+      "section": "业务原目标、WCS/G52/G92、D04/D10、D13-D16及GUI事务",
+      "depth": "internal_exact_blob_read",
+      "limitation": "内部L3未批规划，不是控制器实验结果或外部标准",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B128-S06",
+      "title": "Procet CAP-09-06 NC程序驱动验证",
+      "authors": "Procet planning team",
+      "version": "exactGitBlob:7f72eb46ccb6d37591a0d2275d90196d381c4b89",
+      "publishedOn": "2026-10",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/25a911f758490424956e4f6cd7289bf3f64a4197/docs/capabilities/CAP-09-06/README.md",
+      "section": "最终NC D12→D13事件→D14轴时序→独立D15→D16发布",
+      "depth": "internal_exact_blob_read",
+      "limitation": "还未获得真实OEM D13/D14/D15或独立消费者证据",
+      "accessedOn": "2026-11-03"
+    },
+    {
+      "id": "B128-S07",
+      "title": "Procet CAP-04-04工件FrameGraph与D04/D10边界",
+      "authors": "Procet planning team",
+      "version": "exactGitBlob:d3e22969d82d67fb790156026404e34ee9362265",
+      "publishedOn": "2026-10",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/25a911f758490424956e4f6cd7289bf3f64a4197/docs/capabilities/CAP-04-04/README.md",
+      "section": "变换图、名义Setup与实际控制器偏置隔离、CAS权限与冻结",
+      "depth": "internal_exact_blob_read",
+      "limitation": "内部工程设计推导，尚未签署正式Owner或完成产品互操作",
+      "accessedOn": "2026-11-03"
+    }
+  ]
+}
