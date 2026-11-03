@@ -1,3 +1,6 @@
+## 2026-11-04｜B150 R-REPO-GFM-AST-001 T5-03全仓AST预审与独立门禁
+[来源作者/版本/章节/局限](sources/T5-03-gfm-ast-b150.json) → [8规则32字段/T5-03](traces/T5-03-gfm-ast-b150-v08.json) → [8正32单字段反+8语义Golden](../docs/work-packages/T5-03/gfm-ast-b150-fixtures-v08.json) → [方法报告](../docs/work-packages/T5-03/GFM-AST-AUDIT-B150-2026-11-04.md) → [只读校验器](../tools/check_t503_gfm_ast_b150_v08.py)。GFM0.29-gfm、GitHub帮助、git-ls-tree官方手册和markdown-it-py文档指定章节实读。子集预审不等于GitHub renderer parity；独立文件进程/全仓AST、Owner/Consumer/L3及产品均NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B149 R-OFFLINE-MEDIA-001 离线介质写入耐久、拔插与独立接收证据
 [5条来源/章节/局限](sources/CAP-10-03-durable-media-b149.json) → [8规则32字段](traces/CAP-10-03-durable-media-b149-v08.json) → [8正32独立单字段反+8状态Golden](../docs/capabilities/CAP-10-03/durable-media-b149-fixtures-v08.json) → [专项正文](../docs/capabilities/CAP-10-03/DURABLE-MEDIA-B149-2026-11-04.md)。Microsoft官方Flush及移除策略、Linux man-pages 6.19 fsync/rename指定公开章节实读；Windows/Linux/U盘/真实签名与独立D17均NOT_RUN，8+32+8仅内存规划合成。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-11-04｜B150 T5-03 Git树固定Markdown AST子集预审
+[新研究及未覆盖边界](docs/work-packages/T5-03/GFM-AST-AUDIT-B150-2026-11-04.md) → [5分级来源](research/sources/T5-03-gfm-ast-b150.json) → [8规则32字段](research/traces/T5-03-gfm-ast-b150-v08.json) → [8正32单字段反+8Golden](docs/work-packages/T5-03/gfm-ast-b150-fixtures-v08.json) → [只读Python入口](tools/check_t503_gfm_ast_b150_v08.py) → [校验分级](tracking/t503-gfm-ast-b150-verification-2026-11-04.json)。独立markdown-it-py语法令牌预审区别于旧B16/B18；9项本地等价小样例，仅构造性规划证据。**完整677份Markdown真实AST、GitHub renderer parity、17 Owner/消费者与L3仍未验。规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B149 CAP-10-03 离线介质写入耐久与重插接收资格
 [专项研究及真实阅读深度](docs/capabilities/CAP-10-03/DURABLE-MEDIA-B149-2026-11-04.md) → [5分级来源](research/sources/CAP-10-03-durable-media-b149.json) → [8规则/32字段](research/traces/CAP-10-03-durable-media-b149-v08.json) → [8正32独立负+8状态Golden](docs/capabilities/CAP-10-03/durable-media-b149-fixtures-v08.json) → [Node只读门禁](tools/check_cap1003_durable_media_b149_v08.cjs) → [等级记录](tracking/cap1003-durable-media-b149-verification-2026-11-04.json)。写入、Flush、原子可见、安全移除、收件重读、D10/D15/D17分层；48/48内存合成，真实USB/OS/签名、17 Owner及消费者、L3/全仓GFM AST/历史原字节未验。**规划PASS≠产品PASS。**
 
