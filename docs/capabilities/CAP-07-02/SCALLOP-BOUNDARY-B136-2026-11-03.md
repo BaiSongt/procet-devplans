@@ -4,7 +4,7 @@
 
 ## 新增工程决策
 
-前序[CAP-07-02原业务规格](README.md)已列出球头平面残高公式；B92解决修剪Face/UV投影的资格，本轮专门将**理想平面残高值、曲面局部残高、表面粗糙度Ra、D15真实机床工程验证**四种不同证据解耦。厂商Fusion的Stepover/Cusp Height输入存在，但不构成对任意自由曲面/实际加工质量的数学认证。BobCAD V32还明确不同路径模式的Stepover度量不同。单凭UV参数间距、面中心点RMS或刀路画面不允许自动给“等残高已验证”。
+前序[CAP-07-02原业务规格](README.md)已列出球头平面残高公式；B92解决修剪Face/UV投影的资格，本轮专门将**理想平面残高值、曲面局部残高、表面粗糙度Ra、D15真实机床工程验证**四种不同证据解耦。厂商Fusion的Stepover/Cusp Height输入存在，但不构成对任意自由曲面/实际加工质量的数学认证。BobCAD V32官方帮助检索摘录提示不同路径模式的Stepover度量可能不同；网页正文未能打开，因此仅作为待核对的厂商线索，不作为已证工程规则。单凭UV参数间距、面中心点RMS或刀路画面不允许自动给“等残高已验证”。
 
 ## 实际读取7项来源（2026-11-03）
 
@@ -12,7 +12,7 @@
 |---|---|---|
 | B136-S01 | [Autodesk Fusion Scallop步骤](https://help.autodesk.com/cloudhelp/ENU/Fusion-CAM/files/3D-SCALLOP-STEPS.htm)，Autodesk，在线文档，步骤3–6 HTML实读 | Stepover、加工边界、Contact Point Boundary是不同参数；不含全曲面验证证明 |
 | B136-S02 | [Autodesk Fusion Morph步骤](https://help.autodesk.com/cloudhelp/ENU/Fusion-CAM/files/3D-MORPH-STEPS.htm)，Autodesk，步骤3–5 HTML实读 | Cusp Height可作为步距输入；不等于已读具体内部算法 |
-| B136-S03 | [BobCAD-CAM V32 Step Over](https://bobcad.com/components/webhelp/BobCADCAMV32/en/Content/Merge/CAM/Mill/Mill_Wizard/Mill_Multiaxis/Mulitaxis_Wizard/Settings/Surface_Paths_Linked/Step_Over.htm)，官方Help，指定Stepover章节 | 不同路径策略量度不相同；厂家产品行为不是普适标准 |
+| B136-S03 | [BobCAD-CAM V32 Step Over](https://bobcad.com/components/webhelp/BobCADCAMV32/en/Content/Merge/CAM/Mill/Mill_Wizard/Mill_Multiaxis/Mulitaxis_Wizard/Settings/Surface_Paths_Linked/Step_Over.htm)，官方Help检索摘录；直接打开重定向失败，正文未读 | 不同路径策略量度不相同；厂家产品行为不是普适标准 |
 | B136-S04 | [NIST Davies等2001](https://www.nist.gov/publications/tool-wear-and-surface-finish-high-speed-milling-aluminum-bronze-0)，出版页摘要 | 加工表面质量受磨耗/工艺与测量影响；**全文和实验数据未读** |
 | B136-S05 | [Kharat等SAGE](https://journals.sagepub.com/doi/10.1177/09544054231202386)，首次上线2023-10-21，2024卷次，出版页摘要 | 自由曲面残高与走刀策略存在联系；本轮**仅使用摘要** |
 | B136-S06 | [Suresh/Yang 1994 CiNii记录](https://cir.nii.ac.jp/crid/1363388844950883072)，二级索引目录及摘要 | 常步距与等残高的研究背景；**原论文ASME正文未读** |
