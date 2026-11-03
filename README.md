@@ -1,3 +1,6 @@
+## 2026-11-03｜B137 CAP-06-08负依赖、动态读集与冻结闭包
+[专项研究和官方来源阅读分级](docs/capabilities/CAP-06-08/NEGATIVE-DEPENDENCIES-B137-2026-11-03.md) → [8规则字段](research/traces/CAP-06-08-negative-reads-b137-v08.json) → [40单字段正反+8图Golden](docs/capabilities/CAP-06-08/negative-reads-b137-fixtures-v08.json) → [只读Node检查入口](tools/check_cap0608_negative_reads_b137_v08.cjs)。动态D05不存在/新增会改变D06，不能因没读到对象就当没依赖；真实D05事件/Owner、Node独立文件进程、17签署/消费者、GFM全仓AST及历史字节仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B135 CAP-08-06：Block Delete/M01现场运行模式的D13资格
 [专项研究与阅读限制](docs/capabilities/CAP-08-06/BLOCK-MODE-B135-2026-11-03.md) → [7条分级官方/本仓来源](research/sources/CAP-08-06-block-mode-b135.json) → [8规则/32字段及原包](research/traces/CAP-08-06-block-mode-b135-v08.json) → [8正32单字段反例/13语义Golden](docs/capabilities/CAP-08-06/block-mode-b135-fixtures-v08.json) → [Node只读入口](tools/check_cap0806_block_mode_b135_v08.cjs)。LinuxCNC2.9行首/及M0/M1、Haas Settings17/18与斜杠预读副作用必须分开；实际开关/固件未知不可默认为OFF。本轮规划合成40/40+13/13符合预期；Node独立文件进程、真实控制器/D13-D15/17消费者均NOT_RUN；正式Owner0/17、L3、历史原字节及全仓AST待审。**规划PASS≠产品PASS。**
 

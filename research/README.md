@@ -1,3 +1,6 @@
+## 2026-11-03｜B137 R-INCREMENTAL-FREEZE-001：负依赖和动态读集的失效闭包
+[7条来源及阅读限制](sources/CAP-06-08-negative-reads-b137.json) → [8规则字段](traces/CAP-06-08-negative-reads-b137-v08.json) → [40单字段正反+8图Golden](../docs/capabilities/CAP-06-08/negative-reads-b137-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-06-08/NEGATIVE-DEPENDENCIES-B137-2026-11-03.md)。Bazel与Salsa增量依赖只作类比，NIST IR8536 Final仅出版摘要；负读取token属Procet规划。独立Node、真实Owner事件、17签署/消费者、L3、全仓GFM AST与历史原字节均待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-03｜B136 R-3AXIS-SURFACE-001 理想平面残高与曲面/实测Ra分层
 [7条来源的作者版本/访问深度](sources/CAP-07-02-scallop-boundary-b136.json) → [8规则字段及原包](traces/CAP-07-02-scallop-boundary-b136-v08.json) → [40正反9数学/资格Golden](../docs/capabilities/CAP-07-02/scallop-boundary-b136-fixtures-v08.json) → [数学/实施/风险报告](../docs/capabilities/CAP-07-02/SCALLOP-BOUNDARY-B136-2026-11-03.md)。NIST/SAGE仅摘要、1994原论文仅二级索引；理想球头平面公式不授三轴自由曲面D15/D16或实测Ra产品验收。**规划PASS≠产品PASS**。
 
