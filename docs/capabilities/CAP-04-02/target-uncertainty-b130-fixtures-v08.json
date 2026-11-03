@@ -1,0 +1,2202 @@
+{
+  "schemaVersion": "procet-b130-fixtures-v08",
+  "date": "2026-11-03",
+  "origin": "NEWLY_AUTHORED",
+  "capabilityId": "CAP-04-02",
+  "classification": "PLANNING_SYNTHETIC_NOT_PRODUCT",
+  "tolerance": "1e-12 mathematical comparison only, not industrial tolerance",
+  "positive": 8,
+  "negative": 24,
+  "baseline": {
+    "source": {
+      "cadRevision": "D01-r4",
+      "cadHash": "sha256:cad",
+      "stockRevision": "stock-r2",
+      "stockHash": "sha256:stock",
+      "occurrence": "/asm/part1"
+    },
+    "frame": {
+      "from": "PART",
+      "to": "SETUP",
+      "unit": "mm",
+      "angleUnit": "rad"
+    },
+    "cov": {
+      "sigmaT": 0.02,
+      "sigmaTheta": 0.001,
+      "rho": 0.5,
+      "frame": "PART",
+      "ref": "cov-v1"
+    },
+    "quality": {
+      "heldout": true,
+      "biasAssessed": true,
+      "metric": "targetRms"
+    },
+    "policy": {
+      "k": 2,
+      "hash": "policy-v1"
+    },
+    "point": {
+      "distance": 100,
+      "clearance": 0.25
+    },
+    "ui": {
+      "worlds": 1,
+      "panel": "UnifiedTaskPanel:left",
+      "port": "StockPartRegistrationPort",
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ]
+    },
+    "gate": {
+      "acl": true,
+      "cas": true,
+      "cancelled": false,
+      "scopeEpoch": 3,
+      "ackEpoch": 3
+    },
+    "chain": {
+      "d10Separate": true,
+      "clIsNc": false,
+      "freezeUnchanged": true,
+      "rollback": "D04-r3"
+    }
+  },
+  "tests": [
+    {
+      "id": "B130-R01-P",
+      "ruleId": "B130-R01",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R01-N1",
+      "ruleId": "B130-R01",
+      "kind": "single_field_negative",
+      "changedField": "source.cadHash",
+      "expect": "UNKNOWN",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R01-N2",
+      "ruleId": "B130-R01",
+      "kind": "single_field_negative",
+      "changedField": "source.stockHash",
+      "expect": "UNKNOWN",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R01-N3",
+      "ruleId": "B130-R01",
+      "kind": "single_field_negative",
+      "changedField": "source.occurrence",
+      "expect": "UNKNOWN",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": ""
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R02-P",
+      "ruleId": "B130-R02",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R02-N1",
+      "ruleId": "B130-R02",
+      "kind": "single_field_negative",
+      "changedField": "frame.from",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "MACHINE",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R02-N2",
+      "ruleId": "B130-R02",
+      "kind": "single_field_negative",
+      "changedField": "frame.to",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "STOCK",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R02-N3",
+      "ruleId": "B130-R02",
+      "kind": "single_field_negative",
+      "changedField": "frame.unit",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "inch",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R03-P",
+      "ruleId": "B130-R03",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R03-N1",
+      "ruleId": "B130-R03",
+      "kind": "single_field_negative",
+      "changedField": "cov.sigmaT",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": -0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R03-N2",
+      "ruleId": "B130-R03",
+      "kind": "single_field_negative",
+      "changedField": "cov.sigmaTheta",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": -0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R03-N3",
+      "ruleId": "B130-R03",
+      "kind": "single_field_negative",
+      "changedField": "cov.rho",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 1.1,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R04-P",
+      "ruleId": "B130-R04",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R04-N1",
+      "ruleId": "B130-R04",
+      "kind": "single_field_negative",
+      "changedField": "quality.heldout",
+      "expect": "UNKNOWN",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": false,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R04-N2",
+      "ruleId": "B130-R04",
+      "kind": "single_field_negative",
+      "changedField": "quality.biasAssessed",
+      "expect": "UNKNOWN",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": false,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R04-N3",
+      "ruleId": "B130-R04",
+      "kind": "single_field_negative",
+      "changedField": "quality.metric",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "fiducialRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R05-P",
+      "ruleId": "B130-R05",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R05-N1",
+      "ruleId": "B130-R05",
+      "kind": "single_field_negative",
+      "changedField": "policy.k",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 0,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R05-N2",
+      "ruleId": "B130-R05",
+      "kind": "single_field_negative",
+      "changedField": "policy.hash",
+      "expect": "UNKNOWN",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": ""
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R05-N3",
+      "ruleId": "B130-R05",
+      "kind": "single_field_negative",
+      "changedField": "point.clearance",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.1
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R06-P",
+      "ruleId": "B130-R06",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R06-N1",
+      "ruleId": "B130-R06",
+      "kind": "single_field_negative",
+      "changedField": "ui.worlds",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 2,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R06-N2",
+      "ruleId": "B130-R06",
+      "kind": "single_field_negative",
+      "changedField": "ui.panel",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "RightDrawer",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R06-N3",
+      "ruleId": "B130-R06",
+      "kind": "single_field_negative",
+      "changedField": "ui.port",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "PrivateUIPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R07-P",
+      "ruleId": "B130-R07",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R07-N1",
+      "ruleId": "B130-R07",
+      "kind": "single_field_negative",
+      "changedField": "gate.acl",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": false,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R07-N2",
+      "ruleId": "B130-R07",
+      "kind": "single_field_negative",
+      "changedField": "gate.cas",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": false,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R07-N3",
+      "ruleId": "B130-R07",
+      "kind": "single_field_negative",
+      "changedField": "gate.cancelled",
+      "expect": "STALE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": true,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R08-P",
+      "ruleId": "B130-R08",
+      "kind": "positive",
+      "changedField": null,
+      "expect": "QUALIFIED_CANDIDATE",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R08-N1",
+      "ruleId": "B130-R08",
+      "kind": "single_field_negative",
+      "changedField": "chain.d10Separate",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": false,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R08-N2",
+      "ruleId": "B130-R08",
+      "kind": "single_field_negative",
+      "changedField": "chain.clIsNc",
+      "expect": "REJECT",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": true,
+          "freezeUnchanged": true,
+          "rollback": "D04-r3"
+        }
+      }
+    },
+    {
+      "id": "B130-R08-N3",
+      "ruleId": "B130-R08",
+      "kind": "single_field_negative",
+      "changedField": "chain.rollback",
+      "expect": "UNKNOWN",
+      "input": {
+        "source": {
+          "cadRevision": "D01-r4",
+          "cadHash": "sha256:cad",
+          "stockRevision": "stock-r2",
+          "stockHash": "sha256:stock",
+          "occurrence": "/asm/part1"
+        },
+        "frame": {
+          "from": "PART",
+          "to": "SETUP",
+          "unit": "mm",
+          "angleUnit": "rad"
+        },
+        "cov": {
+          "sigmaT": 0.02,
+          "sigmaTheta": 0.001,
+          "rho": 0.5,
+          "frame": "PART",
+          "ref": "cov-v1"
+        },
+        "quality": {
+          "heldout": true,
+          "biasAssessed": true,
+          "metric": "targetRms"
+        },
+        "policy": {
+          "k": 2,
+          "hash": "policy-v1"
+        },
+        "point": {
+          "distance": 100,
+          "clearance": 0.25
+        },
+        "ui": {
+          "worlds": 1,
+          "panel": "UnifiedTaskPanel:left",
+          "port": "StockPartRegistrationPort",
+          "channels": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ]
+        },
+        "gate": {
+          "acl": true,
+          "cas": true,
+          "cancelled": false,
+          "scopeEpoch": 3,
+          "ackEpoch": 3
+        },
+        "chain": {
+          "d10Separate": true,
+          "clIsNc": false,
+          "freezeUnchanged": true,
+          "rollback": ""
+        }
+      }
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B130-G1",
+      "radius": 100,
+      "rho": 0.5,
+      "clearance": 0.25,
+      "variance": 0.012400000000000001,
+      "u": 0.11135528725660045,
+      "expanded": 0.2227105745132009,
+      "margin": 0.027289425486799107
+    },
+    {
+      "id": "B130-G2",
+      "radius": 100,
+      "rho": 0,
+      "clearance": 0.25,
+      "variance": 0.010400000000000001,
+      "u": 0.10198039027185571,
+      "expanded": 0.20396078054371142,
+      "margin": 0.04603921945628858
+    },
+    {
+      "id": "B130-G3",
+      "radius": 100,
+      "rho": -0.5,
+      "clearance": 0.25,
+      "variance": 0.008400000000000001,
+      "u": 0.09165151389911681,
+      "expanded": 0.18330302779823363,
+      "margin": 0.06669697220176637
+    },
+    {
+      "id": "B130-G4",
+      "radius": 0,
+      "rho": 0.5,
+      "clearance": 0.25,
+      "variance": 0.0004,
+      "u": 0.02,
+      "expanded": 0.04,
+      "margin": 0.21
+    },
+    {
+      "id": "B130-G5",
+      "radius": 100,
+      "rho": 0.5,
+      "clearance": 0.2,
+      "variance": 0.012400000000000001,
+      "u": 0.11135528725660045,
+      "expanded": 0.2227105745132009,
+      "margin": -0.022710574513200882
+    }
+  ]
+}
