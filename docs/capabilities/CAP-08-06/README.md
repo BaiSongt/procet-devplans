@@ -41,3 +41,7 @@
 
 ## B135（2026-11-03）｜Block Delete、M01与现场运行模式修订资格
 [专项研究](BLOCK-MODE-B135-2026-11-03.md) → [7条来源](../../../research/sources/CAP-08-06-block-mode-b135.json) → [8条规则](../../../research/traces/CAP-08-06-block-mode-b135-v08.json) → [40单字段正反+13玩具语义Golden](block-mode-b135-fixtures-v08.json) → [只读Node检查](../../../tools/check_cap0806_block_mode_b135_v08.cjs)。同一D12字节的Block Delete/Optional Stop运行开关可导致不同执行分支；Haas带斜杠行还可能改变预读。D10现场配置需exact/Hash/epoch；D04名义Setup不替代、D13-D16按运行配置重新资格。L3、实际OEM/17消费者与Owner、GFM AST/历史字节待审；**规划PASS≠产品PASS。**
+
+
+## B164｜2026-11-04 多文件Bundle原子提交专项（L3待审）
+[专项研究](BUNDLE-CAS-B164-2026-11-04.md) → [7来源](../../../research/sources/CAP-08-06-bundle-cas-b164.json) → [8规则](../../../research/traces/CAP-08-06-bundle-cas-b164-v08.json) → [8正32反8Golden](bundle-cas-b164-fixtures-v08.json) → [Node](../../../tools/check_cap0806_bundle_cas_b164_v08.cjs)。区别于B56单文件字节补丁与B76子程序闭包：必须拒绝主NC新/子文件旧的撕裂提交，未知原子性UNKNOWN。真实Owner/消费者/产品均未验证。

@@ -1,3 +1,6 @@
+## 2026-11-04｜B164 CAP-08-06 多文件NC原子Bundle与强CAS
+[专题](docs/capabilities/CAP-08-06/BUNDLE-CAS-B164-2026-11-04.md) → [7来源](research/sources/CAP-08-06-bundle-cas-b164.json) → [8规则32字段](research/traces/CAP-08-06-bundle-cas-b164-v08.json) → [8正32反8 Golden](docs/capabilities/CAP-08-06/bundle-cas-b164-fixtures-v08.json) → [Node](tools/check_cap0806_bundle_cas_b164_v08.cjs) → [等级](tracking/cap0806-bundle-cas-b164-verification-2026-11-04.json)。跨文件撕裂快照不因单文件SHA正确而获批；RFC9110强CAS仅类比，真实D12原子持久化/消费者/NC/Owner均未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B163 CAP-08-04 M0/M1暂停、M2/M30终止及版本化刀补模态
 [专项研究](docs/capabilities/CAP-08-04/M30-OPTIONAL-STOP-B163-2026-11-04.md) → [6来源](research/sources/CAP-08-04-m30-lifecycle-b163.json) → [8规则32字段](research/traces/CAP-08-04-m30-lifecycle-b163-v08.json) → [8正32反8状态Golden](docs/capabilities/CAP-08-04/m30-lifecycle-b163-fixtures-v08.json) → [Node只读工具](tools/check_cap0804_m30_lifecycle_b163_v08.cjs) → [核验等级](tracking/cap0804-m30-lifecycle-b163-verification-2026-11-04.json)。LinuxCNC2.9指定M-code公开正文、Haas官方M-code目录实读，Haas M30软件100.16.000.1041刀补NOTE仅**官方搜索摘录**、原页全文未读。V8合成48/48；独立Node、真实控制器、17Owner/消费者、L3、全仓AST与历史原字节未验。**规划PASS≠产品PASS。**
 

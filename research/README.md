@@ -1,3 +1,6 @@
+## 2026-11-04｜B164 R-NC-ATOMIC-BUNDLE-CAS-001
+[7分级来源](sources/CAP-08-06-bundle-cas-b164.json) → [8规则](traces/CAP-08-06-bundle-cas-b164-v08.json) → [48合成设计](../docs/capabilities/CAP-08-06/bundle-cas-b164-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-06/BUNDLE-CAS-B164-2026-11-04.md)。RFC9110 §13、RFC3629 §6、LinuxCNC2.9及Git/W3C公开定点正文均标明适用界限。真实D12事务、Node完整运行、17Owner/消费者及L3仍待核。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B163 R-NC-PROGRAM-END-OPTIONAL-STOP-001
 [6份有界来源](sources/CAP-08-04-m30-lifecycle-b163.json) → [8规则32字段](traces/CAP-08-04-m30-lifecycle-b163-v08.json) → [48正反状态Golden](../docs/capabilities/CAP-08-04/m30-lifecycle-b163-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-08-04/M30-OPTIONAL-STOP-B163-2026-11-04.md)。LinuxCNC2.9 §2/§3/§6官方HTML正文、Haas M-code目录实读；Haas M30新版刀补NOTE仅官方搜索摘录，不能据此宣称实机认证。真实Node/Owner/消费者/L3均未通过。**规划PASS≠产品PASS。**
 
