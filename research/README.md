@@ -1,3 +1,6 @@
+## 2026-11-05｜B175 R-TOOL-GAUGE-STACK-001
+[9条有界来源](sources/CAP-02-03-gauge-stack-b175.json) → [10规则/40字段](traces/CAP-02-03-gauge-stack-b175-v08.json) → [58合成](../docs/capabilities/CAP-02-03/gauge-stack-b175-fixtures-v08.json) → [专项](../docs/capabilities/CAP-02-03/GAUGE-STACK-B175-2026-11-05.md)。Haas/LinuxCNC/NIST指定段落实读；ISO只读合法目录。独立Node、实际机床/消费者、L3和全仓AST未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-05｜B174 CAP-03-04 Projection/Section/SectionCut资格
 [来源](sources/CAP-03-04-section-view-b174.json) → [10规则40字段](traces/CAP-03-04-section-view-b174-v08.json) → [60合成](../docs/capabilities/CAP-03-04/section-view-b174-fixtures-v08.json) → [研究](../docs/capabilities/CAP-03-04/SECTION-VIEW-ELIGIBILITY-B174-2026-11-05.md)。PTC R13/NIST实读公开段落，Dassault品牌帮助来自第三方镜像，ASME Y14.41-2026仅目录，CAD/Owner/消费者/L3/GFM AST未验。**规划PASS≠产品PASS。**
 

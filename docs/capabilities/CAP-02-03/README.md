@@ -1,3 +1,5 @@
+> **B175研究（2026-11-05）**：[Gauge/TCP/实测长度与控制器H表隔离](GAUGE-STACK-B175-2026-11-05.md) → [来源](../../../research/sources/CAP-02-03-gauge-stack-b175.json) → [规则](../../../research/traces/CAP-02-03-gauge-stack-b175-v08.json) → [58合成](gauge-stack-b175-fixtures-v08.json)。真实Owner/控制器/L3未验。**规划PASS≠产品PASS。**
+
 > **B129补证**：[拉钉与主轴OEM适配](RETENTION-KNOB-QUALIFICATION-B129-2026-11-03.md) · [来源](../../../research/sources/CAP-02-03-retention-knob-b129.json) · [规则](../../../research/traces/CAP-02-03-retention-knob-b129-v08.json) · [40合成](retention-knob-b129-fixtures-v08.json)。实机未验，规划PASS≠产品PASS。
 
 > **B86增量 2026-11-01**：[Haas刀塔工位与Offset Index研究](LATHE-TURRET-B86-2026-11-01.md) → [9来源](../../../research/sources/CAP-02-03-lathe-turret-b86.json) → [8字段规则](../../../research/traces/CAP-02-03-lathe-turret-b86-v08.json) → [32正反](lathe-turret-b86-fixtures-v08.json) → [Node](../../../tools/check_cap0203_lathe_turret_b86_v08.cjs)。D03名义总成≠D10实际补偿≠D13控制器T字；Owner/消费者/L3待审。**规划PASS≠产品PASS。**
