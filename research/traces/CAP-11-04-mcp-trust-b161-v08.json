@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "procet-b161-traces-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "topic": "R-AGENT-MCP-TRUST-BOUNDARY-001",
+  "capabilityIds": [
+    "CAP-11-04",
+    "CAP-11-08"
+  ],
+  "originalWorkPackages": [
+    "T5-01",
+    "T5-02"
+  ],
+  "sourcePath": "research/sources/CAP-11-04-mcp-trust-b161.json",
+  "fixturePath": "docs/capabilities/CAP-11-04/mcp-trust-b161-fixtures-v08.json",
+  "checkerPath": "tools/check_cap1104_mcp_trust_b161_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-11-04/MCP-TRUST-BOUNDARY-B161-2026-11-04.md",
+  "observationPath": "tracking/cap1104-mcp-trust-b161-verification-2026-11-04.json",
+  "humanReview": "PENDING_L3",
+  "rules": [
+    {
+      "id": "B161-R01",
+      "title": "工具枚举绑定可信注册源与目录修订",
+      "fields": [
+        "catalog.serverRegistrationDigest",
+        "catalog.qualifiedToolName",
+        "catalog.inputSchemaDigest",
+        "catalog.catalogEpoch"
+      ],
+      "sourceIds": [
+        "B161-S01",
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D03"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R01-P",
+        "B161-R01-N1",
+        "B161-R01-N2",
+        "B161-R01-N3",
+        "B161-R01-N4"
+      ]
+    },
+    {
+      "id": "B161-R02",
+      "title": "不可信ToolAnnotations不得提升写权限",
+      "fields": [
+        "hints.annotationTrustTreatment",
+        "hints.serverTrustVerified",
+        "hints.effectClass",
+        "hints.ownerApprovalRequired"
+      ],
+      "sourceIds": [
+        "B161-S01",
+        "B161-S04",
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D03"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R02-P",
+        "B161-R02-N1",
+        "B161-R02-N2",
+        "B161-R02-N3",
+        "B161-R02-N4"
+      ]
+    },
+    {
+      "id": "B161-R03",
+      "title": "Token audience与下游隔离",
+      "fields": [
+        "token.resourceAudience",
+        "token.boundAudienceValidated",
+        "token.rawTokenPassthrough",
+        "token.downstreamCredentialMode"
+      ],
+      "sourceIds": [
+        "B161-S02",
+        "B161-S03",
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D03"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R03-P",
+        "B161-R03-N1",
+        "B161-R03-N2",
+        "B161-R03-N3",
+        "B161-R03-N4"
+      ]
+    },
+    {
+      "id": "B161-R04",
+      "title": "返回内容不成为指令",
+      "fields": [
+        "result.trustLabel",
+        "result.outputSchemaChecked",
+        "result.embeddedInstructionDisposition",
+        "result.resultDrivenWriteAllowed"
+      ],
+      "sourceIds": [
+        "B161-S01",
+        "B161-S04",
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D03",
+        "D08"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R04-P",
+        "B161-R04-N1",
+        "B161-R04-N2",
+        "B161-R04-N3",
+        "B161-R04-N4"
+      ]
+    },
+    {
+      "id": "B161-R05",
+      "title": "Owner精确数据与Frame复验",
+      "fields": [
+        "context.ownerPort",
+        "context.ownerRevision",
+        "context.assetByteDigest",
+        "context.frameRevision"
+      ],
+      "sourceIds": [
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D07",
+        "D08"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R05-P",
+        "B161-R05-N1",
+        "B161-R05-N2",
+        "B161-R05-N3",
+        "B161-R05-N4"
+      ]
+    },
+    {
+      "id": "B161-R06",
+      "title": "高影响动作显式确认",
+      "fields": [
+        "approval.actionDigest",
+        "approval.approvalState",
+        "approval.scopeValidity",
+        "approval.approvalExpiry"
+      ],
+      "sourceIds": [
+        "B161-S01",
+        "B161-S04",
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D16"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R06-P",
+        "B161-R06-N1",
+        "B161-R06-N2",
+        "B161-R06-N3",
+        "B161-R06-N4"
+      ]
+    },
+    {
+      "id": "B161-R07",
+      "title": "最终CAS、ACL及取消栅栏",
+      "fields": [
+        "commit.finalCas",
+        "commit.aclRechecked",
+        "commit.cancelGenerationMatch",
+        "commit.lateReceiptDisposition"
+      ],
+      "sourceIds": [
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D08",
+        "D16"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R07-P",
+        "B161-R07-N1",
+        "B161-R07-N2",
+        "B161-R07-N3",
+        "B161-R07-N4"
+      ]
+    },
+    {
+      "id": "B161-R08",
+      "title": "规划资格不升级为NC工程发布资格",
+      "fields": [
+        "engineering.d04D10Separate",
+        "engineering.finalNcExecutionEvidence",
+        "engineering.d15IndependentConsumer",
+        "engineering.d16Publishing"
+      ],
+      "sourceIds": [
+        "B161-S06"
+      ],
+      "capabilityIds": [
+        "CAP-11-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "businessAssets": [
+        "D04",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "independentConsumer": "T5-03外部规划判据及D01/D07/D16实际消费者（真实消费者NOT_RUN）",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "testIds": [
+        "B161-R08-P",
+        "B161-R08-N1",
+        "B161-R08-N2",
+        "B161-R08-N3",
+        "B161-R08-N4"
+      ]
+    }
+  ]
+}

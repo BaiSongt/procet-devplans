@@ -1,3 +1,6 @@
+## 2026-11-04｜B161 R-AGENT-MCP-TRUST-BOUNDARY-001
+[6份来源真实阅读等级](sources/CAP-11-04-mcp-trust-b161.json) → [8规则32字段](traces/CAP-11-04-mcp-trust-b161-v08.json) → [48正反Golden](../docs/capabilities/CAP-11-04/mcp-trust-b161-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-11-04/MCP-TRUST-BOUNDARY-B161-2026-11-04.md)。2025-11-25 MCP Tools的非可信annotations、2026-07-28官方安全最佳实践的audience/Token透传，以及OWASP LLM06公开章节可读；NIST AI 600-1仅元数据摘要；内部Owner CAS/GUI/NC资格属Procet内生要求，不冒称标准原文。独立Node与真实消费者NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B160 R-T504-HISTORICAL-BYTE-PROVENANCE-001
 [6条来源及阅读等级](sources/T5-04-historical-original-b160.json) → [8规则32字段](traces/T5-04-historical-original-b160-v08.json) → [8正32反8状态Golden](../docs/work-packages/T5-04/historical-original-b160-fixtures-v08.json) → [报告](../docs/work-packages/T5-04/HISTORICAL-ORIGINAL-AUDIT-B160-2026-11-04.md)。GitHub REST Tree与路径查询实读、Git官方手册、W3C PROV-O公开章节；三历史JSON在固定B159 HEAD未找到，不能断言全历史或外部不存在，也不能把重新编制称原件恢复。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-11-04｜B161 CAP-11-04 MCP工具可信元数据与Agent权限边界
+[专项研究](docs/capabilities/CAP-11-04/MCP-TRUST-BOUNDARY-B161-2026-11-04.md) → [6来源](research/sources/CAP-11-04-mcp-trust-b161.json) → [8规则32字段](research/traces/CAP-11-04-mcp-trust-b161-v08.json) → [8正32反8状态Golden](docs/capabilities/CAP-11-04/mcp-trust-b161-fixtures-v08.json) → [只读Node门禁](tools/check_cap1104_mcp_trust_b161_v08.cjs) → [分层核验](tracking/cap1104-mcp-trust-b161-verification-2026-11-04.json)。官方MCP Tools/Authorization(2025-11-25)、安全建议(2026-07-28)的指定章节与OWASP LLM06公开正文实读；NIST AI600-1仅官方出版摘要。ToolAnnotations/工具结果不赋予写权限，Token不透传；业务Owner/CAS/撤权/NC工程链仍独立。V8内存合成48/48；独立Node、实际MCP、17 Owner/消费者、L3、全仓GFM AST与历史原字节仍开放。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B160 T5-04历史三JSON原字节负证据审计
 [专项调查](docs/work-packages/T5-04/HISTORICAL-ORIGINAL-AUDIT-B160-2026-11-04.md) → [6项来源](research/sources/T5-04-historical-original-b160.json) → [8规则字段](research/traces/T5-04-historical-original-b160-v08.json) → [8正32反8Goldens](docs/work-packages/T5-04/historical-original-b160-fixtures-v08.json) → [只读工具](tools/check_t504_historical_original_b160_v08.cjs) → [固定HEAD观察](tracking/historical-original-audit-b160-2026-11-04.json)。真实GitHub B159完整Tree 2494项不截断，旧三JSON皆不存在；规划分支/main三路径各查询历史0条，**并不证明其它重命名/外部原件不存在**，新补证不冒称原字节恢复。V8同谓词48/48，原字节缺失OPEN、真实Node/Owner/消费者/L3和全仓GFM AST未验。**规划PASS≠产品PASS。**
 
