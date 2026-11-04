@@ -1,0 +1,577 @@
+{
+  "schemaVersion": "procet-b168-fixture-v08",
+  "date": "2026-11-05",
+  "origin": "NEWLY_AUTHORED",
+  "scope": "Only synthetic quaternion/plan validators. D09/OCCT/D12-D16 and OEM NOT_RUN.",
+  "baseline": {
+    "q.start": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "q.end": [
+      0,
+      0,
+      0.8660254037844386,
+      0.5
+    ],
+    "q.layout": "XYZW",
+    "q.unitNormChecked": true,
+    "hemisphere.aligned": true,
+    "hemisphere.dot": -1,
+    "hemisphere.equalSO3": true,
+    "hemisphere.shortArcDeg": 0,
+    "slerp.t": 0.5,
+    "slerp.midQuat": [
+      0,
+      0,
+      0.5,
+      0.8660254037844386
+    ],
+    "slerp.midAngleDeg": 60,
+    "slerp.shortArc": true,
+    "sampling.angleDeg": 120,
+    "sampling.maxDeg": 15,
+    "sampling.steps": 8,
+    "sampling.notCertified": true,
+    "refs.frameExact": "D04/SETUP-A@r3",
+    "refs.revisionHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "refs.scope": "project-A",
+    "refs.d04D10Separated": true,
+    "ui.oneWorld": true,
+    "ui.leftTaskPanel": true,
+    "ui.sharedOwnerPort": true,
+    "ui.previewNoCommit": true,
+    "nc.clNeutral": true,
+    "nc.d13UnknownBlocks": true,
+    "nc.d15Independent": true,
+    "nc.d16NotApproved": true,
+    "commit.casRechecked": true,
+    "commit.aclRechecked": true,
+    "commit.cancelFenceFresh": true,
+    "commit.lateAckRejected": true
+  },
+  "cases": [
+    {
+      "id": "B168-R01-P",
+      "ruleId": "B168-R01",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R01-N1",
+      "ruleId": "B168-R01",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "q.start",
+      "patch": {
+        "q.start": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "B168-R01-N2",
+      "ruleId": "B168-R01",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "q.end",
+      "patch": {
+        "q.end": [
+          0,
+          0,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "id": "B168-R01-N3",
+      "ruleId": "B168-R01",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "q.layout",
+      "patch": {
+        "q.layout": "WXYZ"
+      }
+    },
+    {
+      "id": "B168-R01-N4",
+      "ruleId": "B168-R01",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "q.unitNormChecked",
+      "patch": {
+        "q.unitNormChecked": false
+      }
+    },
+    {
+      "id": "B168-R02-P",
+      "ruleId": "B168-R02",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R02-N1",
+      "ruleId": "B168-R02",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "hemisphere.aligned",
+      "patch": {
+        "hemisphere.aligned": false
+      }
+    },
+    {
+      "id": "B168-R02-N2",
+      "ruleId": "B168-R02",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "hemisphere.dot",
+      "patch": {
+        "hemisphere.dot": 1
+      }
+    },
+    {
+      "id": "B168-R02-N3",
+      "ruleId": "B168-R02",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "hemisphere.equalSO3",
+      "patch": {
+        "hemisphere.equalSO3": false
+      }
+    },
+    {
+      "id": "B168-R02-N4",
+      "ruleId": "B168-R02",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "hemisphere.shortArcDeg",
+      "patch": {
+        "hemisphere.shortArcDeg": 360
+      }
+    },
+    {
+      "id": "B168-R03-P",
+      "ruleId": "B168-R03",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R03-N1",
+      "ruleId": "B168-R03",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "slerp.t",
+      "patch": {
+        "slerp.t": 1.5
+      }
+    },
+    {
+      "id": "B168-R03-N2",
+      "ruleId": "B168-R03",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "slerp.midQuat",
+      "patch": {
+        "slerp.midQuat": [
+          0,
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "B168-R03-N3",
+      "ruleId": "B168-R03",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "slerp.midAngleDeg",
+      "patch": {
+        "slerp.midAngleDeg": 30
+      }
+    },
+    {
+      "id": "B168-R03-N4",
+      "ruleId": "B168-R03",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "slerp.shortArc",
+      "patch": {
+        "slerp.shortArc": false
+      }
+    },
+    {
+      "id": "B168-R04-P",
+      "ruleId": "B168-R04",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R04-N1",
+      "ruleId": "B168-R04",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "sampling.angleDeg",
+      "patch": {
+        "sampling.angleDeg": 90
+      }
+    },
+    {
+      "id": "B168-R04-N2",
+      "ruleId": "B168-R04",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "sampling.maxDeg",
+      "patch": {
+        "sampling.maxDeg": 0
+      }
+    },
+    {
+      "id": "B168-R04-N3",
+      "ruleId": "B168-R04",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "sampling.steps",
+      "patch": {
+        "sampling.steps": 7
+      }
+    },
+    {
+      "id": "B168-R04-N4",
+      "ruleId": "B168-R04",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "sampling.notCertified",
+      "patch": {
+        "sampling.notCertified": false
+      }
+    },
+    {
+      "id": "B168-R05-P",
+      "ruleId": "B168-R05",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R05-N1",
+      "ruleId": "B168-R05",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "refs.frameExact",
+      "patch": {
+        "refs.frameExact": ""
+      }
+    },
+    {
+      "id": "B168-R05-N2",
+      "ruleId": "B168-R05",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "refs.revisionHash",
+      "patch": {
+        "refs.revisionHash": "stale"
+      }
+    },
+    {
+      "id": "B168-R05-N3",
+      "ruleId": "B168-R05",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "refs.scope",
+      "patch": {
+        "refs.scope": "project-B"
+      }
+    },
+    {
+      "id": "B168-R05-N4",
+      "ruleId": "B168-R05",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "refs.d04D10Separated",
+      "patch": {
+        "refs.d04D10Separated": false
+      }
+    },
+    {
+      "id": "B168-R06-P",
+      "ruleId": "B168-R06",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R06-N1",
+      "ruleId": "B168-R06",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "ui.oneWorld",
+      "patch": {
+        "ui.oneWorld": false
+      }
+    },
+    {
+      "id": "B168-R06-N2",
+      "ruleId": "B168-R06",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "ui.leftTaskPanel",
+      "patch": {
+        "ui.leftTaskPanel": false
+      }
+    },
+    {
+      "id": "B168-R06-N3",
+      "ruleId": "B168-R06",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "ui.sharedOwnerPort",
+      "patch": {
+        "ui.sharedOwnerPort": false
+      }
+    },
+    {
+      "id": "B168-R06-N4",
+      "ruleId": "B168-R06",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "ui.previewNoCommit",
+      "patch": {
+        "ui.previewNoCommit": false
+      }
+    },
+    {
+      "id": "B168-R07-P",
+      "ruleId": "B168-R07",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R07-N1",
+      "ruleId": "B168-R07",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "nc.clNeutral",
+      "patch": {
+        "nc.clNeutral": false
+      }
+    },
+    {
+      "id": "B168-R07-N2",
+      "ruleId": "B168-R07",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "nc.d13UnknownBlocks",
+      "patch": {
+        "nc.d13UnknownBlocks": false
+      }
+    },
+    {
+      "id": "B168-R07-N3",
+      "ruleId": "B168-R07",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "nc.d15Independent",
+      "patch": {
+        "nc.d15Independent": false
+      }
+    },
+    {
+      "id": "B168-R07-N4",
+      "ruleId": "B168-R07",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "nc.d16NotApproved",
+      "patch": {
+        "nc.d16NotApproved": false
+      }
+    },
+    {
+      "id": "B168-R08-P",
+      "ruleId": "B168-R08",
+      "kind": "POSITIVE",
+      "expected": "REVIEW_ONLY",
+      "changedField": null,
+      "patch": {}
+    },
+    {
+      "id": "B168-R08-N1",
+      "ruleId": "B168-R08",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "commit.casRechecked",
+      "patch": {
+        "commit.casRechecked": false
+      }
+    },
+    {
+      "id": "B168-R08-N2",
+      "ruleId": "B168-R08",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "commit.aclRechecked",
+      "patch": {
+        "commit.aclRechecked": false
+      }
+    },
+    {
+      "id": "B168-R08-N3",
+      "ruleId": "B168-R08",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "commit.cancelFenceFresh",
+      "patch": {
+        "commit.cancelFenceFresh": false
+      }
+    },
+    {
+      "id": "B168-R08-N4",
+      "ruleId": "B168-R08",
+      "kind": "ONE_FIELD_NEGATIVE",
+      "expected": "REJECT",
+      "changedField": "commit.lateAckRejected",
+      "patch": {
+        "commit.lateAckRejected": false
+      }
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B168-G01",
+      "kind": "angle",
+      "start": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "end": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "expected": 0
+    },
+    {
+      "id": "B168-G02",
+      "kind": "angle",
+      "start": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "end": [
+        0,
+        0,
+        0.8660254037844386,
+        0.5
+      ],
+      "expected": 120
+    },
+    {
+      "id": "B168-G03",
+      "kind": "angle",
+      "start": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "end": [
+        0,
+        0,
+        -0.8660254037844386,
+        -0.5
+      ],
+      "expected": 120
+    },
+    {
+      "id": "B168-G04",
+      "kind": "slerpAngle",
+      "start": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "end": [
+        0,
+        0,
+        0.8660254037844386,
+        0.5
+      ],
+      "t": 0.5,
+      "expected": 60
+    },
+    {
+      "id": "B168-G05",
+      "kind": "slerpAngle",
+      "start": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "end": [
+        0,
+        0,
+        -0.8660254037844386,
+        -0.5
+      ],
+      "t": 0.5,
+      "expected": 60
+    },
+    {
+      "id": "B168-G06",
+      "kind": "slerpAngle",
+      "start": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "end": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "t": 0.5,
+      "expected": 90
+    },
+    {
+      "id": "B168-G07",
+      "kind": "samplingCount",
+      "angleDeg": 120,
+      "budgetDeg": 15,
+      "expected": 8
+    },
+    {
+      "id": "B168-G08",
+      "kind": "samplingCount",
+      "angleDeg": 120,
+      "budgetDeg": 20,
+      "expected": 6
+    }
+  ]
+}

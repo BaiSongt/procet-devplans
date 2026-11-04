@@ -1,4 +1,5 @@
 # CAP-07-04｜四/五轴连续刀路：刀轴场、刀触关系与曲面路径
+**B168研究补证（2026-11-05）：**[q/-q双覆盖、SLERP最短弧与角步长门禁](QUATERNION-SHORTARC-B168-2026-11-05.md) → [7分级来源](../../../research/sources/CAP-07-04-quaternion-shortarc-b168.json) → [8规则32字段](../../../research/traces/CAP-07-04-quaternion-shortarc-b168-v08.json) → [8正32反8数学Golden](quaternion-shortarc-b168-fixtures-v08.json)。真实五轴与独立Node测试仍NOT_RUN；L3待审，**规划PASS≠产品PASS。**
 **B61补证：**[G93逆时间进给名义时长与D14物理Joint时序分离](INVERSE-TIME-FEED-B61-2026-10-31.md)，含5来源、8规则与47项结构化正反/过期/UNKNOWN样例；实机、独立消费者NOT_RUN。L3待审。
 **原始目标：**[V0.8原88项映射](../../architecture/v0.8/03_三级能力映射_88项.md)的CAP-07-04：四/五轴连续刀路，包含**刀轴场、刀触关系、曲面路径**；关联原F1-03、E3-01、U4-04。保留原编号与L1/L2，L3待人类评审。属于长期扩展，**本轮是设计规划不是产品能力实现**。
 

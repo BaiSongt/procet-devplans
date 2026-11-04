@@ -1,3 +1,5 @@
+**B168（2026-11-05）：**[CAP-07-04 四元数双覆盖/最短弧新增研究](docs/capabilities/CAP-07-04/QUATERNION-SHORTARC-B168-2026-11-05.md) → [7分级来源](research/sources/CAP-07-04-quaternion-shortarc-b168.json) → [8规则/32字段](research/traces/CAP-07-04-quaternion-shortarc-b168-v08.json) → [8正32反8数学Golden](docs/capabilities/CAP-07-04/quaternion-shortarc-b168-fixtures-v08.json) → [Node只读门禁](tools/check_cap0704_quaternion_shortarc_b168_v08.cjs)。17 Owner/真实消费者0/17，L3/实际NC/全仓GFM AST/原字节审计未闭。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B167 CAP-05-05 候选采纳先祖闭包与D07前态
 [专项论证](docs/capabilities/CAP-05-05/DAG-ADOPTION-B167-2026-11-04.md) → [8有界来源](research/sources/CAP-05-05-dag-closure-b167.json) → [8规则32字段](research/traces/CAP-05-05-dag-closure-b167-v08.json) → [8正32单字段反例8图Golden](docs/capabilities/CAP-05-05/dag-closure-b167-fixtures-v08.json) → [只读Node](tools/check_cap0505_dag_adoption_b167_v08.cjs) → [核验](tracking/cap0505-dag-adoption-b167-verification-2026-11-04.json)。本轮V8内存48/48；正式Owner/独立消费者0/17、独立Node、真实D07/最终NC、L3、全仓AST、历史原字节均未验。**规划PASS≠产品PASS。**
 

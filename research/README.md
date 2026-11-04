@@ -1,3 +1,6 @@
+## 2026-11-05｜B168 R-5AXIS-SO3-SHORTESTARC
+[7项分级来源](sources/CAP-07-04-quaternion-shortarc-b168.json) → [CAP-07-04与原F1-03/E3-01/U4-04的8规则/32字段](traces/CAP-07-04-quaternion-shortarc-b168-v08.json) → [8正32独立字段反例及8数学Golden](../docs/capabilities/CAP-07-04/quaternion-shortarc-b168-fixtures-v08.json) → [研究与局限](../docs/capabilities/CAP-07-04/QUATERNION-SHORTARC-B168-2026-11-05.md)。SciPy1.18/OCCT8.0.1/Eigen nightly官方API，ROS2 rolling只读官方源码正文；真实产品/Node/独立消费者均NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B167 R-PARTIAL-ADOPTION-ANCESTOR-CLOSURE-001
 [8分级来源](sources/CAP-05-05-dag-closure-b167.json) → [8规则/原W2-02/03/05](traces/CAP-05-05-dag-closure-b167-v08.json) → [40单字段正反及8拓扑Golden](../docs/capabilities/CAP-05-05/dag-closure-b167-fixtures-v08.json) → [论证](../docs/capabilities/CAP-05-05/DAG-ADOPTION-B167-2026-11-04.md)。官方ISO仅目录/NIST仅摘要、独立消费者NOT_RUN；规划PASS≠产品PASS。
 
