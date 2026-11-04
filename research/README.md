@@ -1,3 +1,6 @@
+## 2026-11-05｜B170 R-UI3D-WEBGPU-BACKEND-001
+[7有界来源](sources/CAP-01-07-webgpu-backend-b170.json) → [8规则32字段/原U4-03/05/06](traces/CAP-01-07-webgpu-backend-b170-v08.json) → [8正32独立字段反8状态Golden](../docs/capabilities/CAP-01-07/webgpu-backend-b170-fixtures-v08.json) → [报告](../docs/capabilities/CAP-01-07/WEBGPU-BACKEND-QUALIFICATION-B170-2026-11-05.md)。W3C 2026-09-15公开文档、Babylon官方master两篇、MDN两篇与本仓固定规格已核对，真实GPU/Node、独立消费者与L3待验。规划PASS≠产品PASS。
+
 ## 2026-11-05｜B169 R-MFR-UV-SEAM-001
 [7分级来源](sources/CAP-03-05-seam-periodic-b169.json) → [9规则36字段与原F1-03/F1-04/W2-03/T5-02](traces/CAP-03-05-seam-periodic-b169-v08.json) → [9正36负8数值Golden](../docs/capabilities/CAP-03-05/seam-periodic-b169-fixtures-v08.json) → [研究与边界](../docs/capabilities/CAP-03-05/SEAM-PERIODIC-B169-2026-11-05.md)。OCCT8.0.1五份官方API定点实读、两份固定本仓原规格；Node/真实OCCT/Owner/消费者/L3未验。**规划PASS≠产品PASS。**
 
