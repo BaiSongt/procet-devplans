@@ -1,3 +1,6 @@
+## 2026-11-04｜B152 R-NC-ARC-DIALECT-001 圆弧方言、中心/半径格式的可机检资格
+[4个来源的版本/作者/访问深度](sources/CAP-08-03-arc-dialect-b152.json) → [8规则32字段](traces/CAP-08-03-arc-dialect-b152-v08.json) → [8正32单字段反8数学Golden](../docs/capabilities/CAP-08-03/arc-dialect-b152-fixtures-v08.json) → [规划论证](../docs/capabilities/CAP-08-03/ARC-MODAL-DIALECT-B152-2026-11-04.md)。LinuxCNC 2.9指定HTML实读；Haas仅搜索摘录且原文重定向错误，NISTIR6556仅官方出版摘要；内生CAS/GUI不冒称外部标准。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B151 R-PLAYBACK-CLOCK-001浏览器时钟与D14真实NC运动分界
 [5份来源及真实阅读深度](sources/CAP-09-08-playback-clock-b151.json) → [8规则32字段](traces/CAP-09-08-playback-clock-b151-v08.json) → [8正32反8Golden](../docs/capabilities/CAP-09-08/playback-clock-b151-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-09-08/PLAYBACK-CLOCK-B151-2026-11-04.md)。W3C Web Animations、WHATWG HTML Living Standard §6.2及MDN rAF/Performance指定HTML章节实读；已剔除退休的W3C Page Visibility独立规范；Browser显示不提供OEM/D15资格。**规划PASS≠产品PASS。**
 

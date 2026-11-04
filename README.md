@@ -1,3 +1,6 @@
+## 2026-11-04｜B152 CAP-08-03 圆弧R/IJK、平面与多圈方言的执行资格
+[实读与访问层级](docs/capabilities/CAP-08-03/ARC-MODAL-DIALECT-B152-2026-11-04.md) → [4项来源](research/sources/CAP-08-03-arc-dialect-b152.json) → [8规则/32字段](research/traces/CAP-08-03-arc-dialect-b152-v08.json) → [8正32反8Golden](docs/capabilities/CAP-08-03/arc-dialect-b152-fixtures-v08.json) → [Node规划检查](tools/check_cap0803_arc_dialect_b152_v08.cjs) → [执行等级](tracking/cap0803-arc-dialect-b152-verification-2026-11-04.json)。LinuxCNC 2.9的P多圈不得推断Haas/OEM，D13必须重读最终NC；真实解释器、Owner/消费者/L3/全仓AST仍NOT_RUN。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B151 CAP-09-08播放时钟与工程时序隔离
 [研究/局限](docs/capabilities/CAP-09-08/PLAYBACK-CLOCK-B151-2026-11-04.md) → [来源](research/sources/CAP-09-08-playback-clock-b151.json) → [规则/字段](research/traces/CAP-09-08-playback-clock-b151-v08.json) → [48合成样例](docs/capabilities/CAP-09-08/playback-clock-b151-fixtures-v08.json) → [只读工具](tools/check_cap0908_playback_clock_b151_v08.cjs) → [核验等级](tracking/cap0908-playback-clock-b151-verification-2026-11-04.json)。暂停、seek、后台掉帧只影响显示，缺失D14时间段不能插值为安全；独立Node/实际浏览器、B5/OEM、17正式Owner与消费者、L3均未验。**规划PASS≠产品PASS。**
 
