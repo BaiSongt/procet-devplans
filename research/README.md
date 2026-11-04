@@ -1,3 +1,6 @@
+## 2026-11-04｜B162 R-NC-TLO-MODAL-PROVENANCE-001
+[来源/作者/版本/章节/阅读深度](sources/CAP-08-02-tlo-stack-b162.json) → [8规则32字段及原E3-02/E3-03/U4-04](traces/CAP-08-02-tlo-stack-b162-v08.json) → [48正反状态Golden](../docs/capabilities/CAP-08-02/tlo-stack-b162-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-08-02/TLO-MODAL-STACK-B162-2026-11-04.md)。固定LinuxCNC2.9和Haas NGC特定版本，NISTIR6556仅官方检索元数据，未知控制器保持UNKNOWN；真实Node/NC/OEM/Owner/消费者/L3未通过。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B161 R-AGENT-MCP-TRUST-BOUNDARY-001
 [6份来源真实阅读等级](sources/CAP-11-04-mcp-trust-b161.json) → [8规则32字段](traces/CAP-11-04-mcp-trust-b161-v08.json) → [48正反Golden](../docs/capabilities/CAP-11-04/mcp-trust-b161-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-11-04/MCP-TRUST-BOUNDARY-B161-2026-11-04.md)。2025-11-25 MCP Tools的非可信annotations、2026-07-28官方安全最佳实践的audience/Token透传，以及OWASP LLM06公开章节可读；NIST AI 600-1仅元数据摘要；内部Owner CAS/GUI/NC资格属Procet内生要求，不冒称标准原文。独立Node与真实消费者NOT_RUN。**规划PASS≠产品PASS。**
 

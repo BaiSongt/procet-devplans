@@ -1,3 +1,6 @@
+## 2026-11-04｜B162 CAP-08-02 刀长补偿栈与控制器方言差异
+[专项论证](docs/capabilities/CAP-08-02/TLO-MODAL-STACK-B162-2026-11-04.md) → [7项分级来源](research/sources/CAP-08-02-tlo-stack-b162.json) → [8规则32字段](research/traces/CAP-08-02-tlo-stack-b162-v08.json) → [8正32反8状态Golden](docs/capabilities/CAP-08-02/tlo-stack-b162-fixtures-v08.json) → [只读Node](tools/check_cap0802_tlo_stack_b162_v08.cjs) → [核验等级](tracking/cap0802-tlo-stack-b162-verification-2026-11-04.json)。LinuxCNC2.9官方G43/G43.1替换/G43.2追加/G49取消/G53单块与H0换刀差异，Haas NGC 100.21.000.1100刀补行为不能跨方言通用；NIST6556仅检索元数据。V8同判据48/48，独立Node与实机/OEM/Owner消费者、L3/全仓GFM AST/历史原字节仍待核验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B161 CAP-11-04 MCP工具可信元数据与Agent权限边界
 [专项研究](docs/capabilities/CAP-11-04/MCP-TRUST-BOUNDARY-B161-2026-11-04.md) → [6来源](research/sources/CAP-11-04-mcp-trust-b161.json) → [8规则32字段](research/traces/CAP-11-04-mcp-trust-b161-v08.json) → [8正32反8状态Golden](docs/capabilities/CAP-11-04/mcp-trust-b161-fixtures-v08.json) → [只读Node门禁](tools/check_cap1104_mcp_trust_b161_v08.cjs) → [分层核验](tracking/cap1104-mcp-trust-b161-verification-2026-11-04.json)。官方MCP Tools/Authorization(2025-11-25)、安全建议(2026-07-28)的指定章节与OWASP LLM06公开正文实读；NIST AI600-1仅官方出版摘要。ToolAnnotations/工具结果不赋予写权限，Token不透传；业务Owner/CAS/撤权/NC工程链仍独立。V8内存合成48/48；独立Node、实际MCP、17 Owner/消费者、L3、全仓GFM AST与历史原字节仍开放。**规划PASS≠产品PASS。**
 

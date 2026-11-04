@@ -1,3 +1,5 @@
+> **B162专题补证（2026-11-04）**：[G43/G43.1/G43.2/G49/G53与Haas NGC刀补版本边界](TLO-MODAL-STACK-B162-2026-11-04.md) → [7项分级来源](../../../research/sources/CAP-08-02-tlo-stack-b162.json) → [8规则32字段](../../../research/traces/CAP-08-02-tlo-stack-b162-v08.json) → [8正32独立反/8 Golden](tlo-stack-b162-fixtures-v08.json)。真实D13、Haas/LinuxCNC、17正式Owner与消费者、L3和全仓AST仍未验。**规划PASS≠产品PASS**。
+
 # CAP-08-02｜控制器与机床方言（V0.8原编号，L3待审）
 
 **业务来源**：11域88 CAP中的08域第02项“控制器与机床方言”，原文定义“FANUC、SINUMERIK等命令适配”，原编号工作包 E3-02 / E3-03 / U4-04。当前是规划，不代表支持任何特定控制器。
