@@ -1,3 +1,6 @@
+## 2026-11-04｜B159 CAP-04-01 旋转B-Rep包围、gap与显式毛坯采用资格
+[专项研究](docs/capabilities/CAP-04-01/ROTATED-BOUNDS-B159-2026-11-04.md) → [5份官方/内生来源](research/sources/CAP-04-01-rotated-bounds-b159.json) → [8规则32字段](research/traces/CAP-04-01-rotated-bounds-b159-v08.json) → [8正32负8数学Golden](docs/capabilities/CAP-04-01/rotated-bounds-b159-fixtures-v08.json) → [只读Node](tools/check_cap0401_rotated_bounds_b159_v08.cjs) → [分层核验](tracking/cap0401-rotated-bounds-b159-verification-2026-11-04.json)。OCCT8.0.1的Bnd_Box::Transformed转旧AABB不能认证紧致性；AddClose不适于任意BRep，AddOptimal也不构成实机认证。V8同判据48/48，独立Node及真实OCCT/Owner/消费者0/17、L3和全仓AST仍NOT_RUN。累计265 Registry/1973登记，非去重出版物。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B158 CAP-06-03 D07体积账本与独立几何资格
 [专项研究](docs/capabilities/CAP-06-03/VOLUME-LEDGER-B158-2026-11-04.md) → [5分级来源](research/sources/CAP-06-03-volume-ledger-b158.json) → [10规则40字段](research/traces/CAP-06-03-volume-ledger-b158-v08.json) → [10正40负8Golden](docs/capabilities/CAP-06-03/volume-ledger-b158-fixtures-v08.json) → [只读Node入口](tools/check_cap0603_volume_ledger_b158_v08.cjs) → [核验等级](tracking/cap0603-volume-ledger-b158-verification-2026-11-04.json)。修复source-index顶层累计1957与真实263份登记合计1963不符，新增5后累计264 Registry/1968条；V8内存58/58，独立Node/OCCT/17 Owner和消费者/L3/全仓AST仍未验。**规划PASS≠产品PASS。**
 

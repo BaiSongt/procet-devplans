@@ -1,3 +1,6 @@
+## 2026-11-04｜B159 R-D04-TRANSFORMED-STOCK-BOUNDS-001
+[5份来源分级](sources/CAP-04-01-rotated-bounds-b159.json) → [8规则/32字段/5原包](traces/CAP-04-01-rotated-bounds-b159-v08.json) → [48项合成](../docs/capabilities/CAP-04-01/rotated-bounds-b159-fixtures-v08.json) → [工程论证](../docs/capabilities/CAP-04-01/ROTATED-BOUNDS-B159-2026-11-04.md)。OCCT8.0.1 Bnd_Box/BRepBndLib/ModelingData/TopLoc的公开指定API实读；不把包围预览当紧致实体库存、单例OCCT或NC/B5验证。17资产Owner与独立消费者均0/17，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B158 R-D07-VOLUME-LEDGER-001
 [来源/阅读层级](sources/CAP-06-03-volume-ledger-b158.json) → [规则与原包](traces/CAP-06-03-volume-ledger-b158-v08.json) → [58合成](../docs/capabilities/CAP-06-03/volume-ledger-b158-fixtures-v08.json) → [报告](../docs/capabilities/CAP-06-03/VOLUME-LEDGER-B158-2026-11-04.md)。OCCT8.0.1公开API定点实读，NISTIR7796仅摘要；VolumeProperties不自动验证Solid闭合/保护区安全。真实Node/OCCT与Owner和消费者0/17、L3待审。**规划PASS≠产品PASS。**
 
