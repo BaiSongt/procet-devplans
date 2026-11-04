@@ -1,3 +1,5 @@
+> **B171补证：** [可比候选、证据适用与Owner采纳隔离](COMPARABLE-RECOMMENDATION-B171-2026-11-05.md) · [来源](../../../research/sources/CAP-11-05-comparable-b171.json) · [规则](../../../research/traces/CAP-11-05-comparable-b171-v08.json)。仅规划合成，非实际工艺批准。
+
 # CAP-11-05｜工艺推荐与方案解释（V0.8，L3待审）
 
 **88项原文：**「参数建议、依据、替代方案和风险」。11域、88 CAP、36原编号工作包、17资产及L1/L2不变；归属原包 [T5-01](../../work-packages/T5-01.md) / [T5-02](../../work-packages/T5-02.md)。本文是规划规格，不是切削工艺参数批准或产品验收。

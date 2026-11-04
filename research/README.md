@@ -1,3 +1,6 @@
+## 2026-11-05｜B171 CAP-11-05可比工艺推荐
+[8项有界来源](sources/CAP-11-05-comparable-b171.json)→[8规则32字段](traces/CAP-11-05-comparable-b171-v08.json)→[48合成正反与Golden](../docs/capabilities/CAP-11-05/comparable-b171-fixtures-v08.json)→[研究报告](../docs/capabilities/CAP-11-05/COMPARABLE-RECOMMENDATION-B171-2026-11-05.md)。NIST Core/Playbook与W3C公开指定章节实读，NISTIR仅摘要、ISO仅合法目录、Sandvik仅有限官网/摘录；真实NC/Owner/消费者/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-05｜B170 R-UI3D-WEBGPU-BACKEND-001
 [7有界来源](sources/CAP-01-07-webgpu-backend-b170.json) → [8规则32字段/原U4-03/05/06](traces/CAP-01-07-webgpu-backend-b170-v08.json) → [8正32独立字段反8状态Golden](../docs/capabilities/CAP-01-07/webgpu-backend-b170-fixtures-v08.json) → [报告](../docs/capabilities/CAP-01-07/WEBGPU-BACKEND-QUALIFICATION-B170-2026-11-05.md)。W3C 2026-09-15公开文档、Babylon官方master两篇、MDN两篇与本仓固定规格已核对，真实GPU/Node、独立消费者与L3待验。规划PASS≠产品PASS。
 
