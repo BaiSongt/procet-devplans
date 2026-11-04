@@ -1,3 +1,6 @@
+## 2026-11-05｜B172 CAP-09-07 FERROR与Joint区间包络
+[8分级来源](sources/CAP-09-07-servo-envelope-b172.json) → [8规则32字段](traces/CAP-09-07-servo-envelope-b172-v08.json) → [8正32单字段反及8解析Golden](../docs/capabilities/CAP-09-07/servo-envelope-b172-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-09-07/SERVO-ENVELOPE-B172-2026-11-05.md)。LinuxCNC2.9/OCCT/W3C/RFC公开章节实读，MOTION为滚动版；真实反馈/独立Node/D15/Owner与消费者、全仓AST和L3仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-05｜B171 CAP-11-05可比工艺推荐
 [8项有界来源](sources/CAP-11-05-comparable-b171.json)→[8规则32字段](traces/CAP-11-05-comparable-b171-v08.json)→[48合成正反与Golden](../docs/capabilities/CAP-11-05/comparable-b171-fixtures-v08.json)→[研究报告](../docs/capabilities/CAP-11-05/COMPARABLE-RECOMMENDATION-B171-2026-11-05.md)。NIST Core/Playbook与W3C公开指定章节实读，NISTIR仅摘要、ISO仅合法目录、Sandvik仅有限官网/摘录；真实NC/Owner/消费者/L3未验。**规划PASS≠产品PASS。**
 
