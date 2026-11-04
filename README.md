@@ -1,3 +1,6 @@
+## 2026-11-04｜B160 T5-04历史三JSON原字节负证据审计
+[专项调查](docs/work-packages/T5-04/HISTORICAL-ORIGINAL-AUDIT-B160-2026-11-04.md) → [6项来源](research/sources/T5-04-historical-original-b160.json) → [8规则字段](research/traces/T5-04-historical-original-b160-v08.json) → [8正32反8Goldens](docs/work-packages/T5-04/historical-original-b160-fixtures-v08.json) → [只读工具](tools/check_t504_historical_original_b160_v08.cjs) → [固定HEAD观察](tracking/historical-original-audit-b160-2026-11-04.json)。真实GitHub B159完整Tree 2494项不截断，旧三JSON皆不存在；规划分支/main三路径各查询历史0条，**并不证明其它重命名/外部原件不存在**，新补证不冒称原字节恢复。V8同谓词48/48，原字节缺失OPEN、真实Node/Owner/消费者/L3和全仓GFM AST未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B159 CAP-04-01 旋转B-Rep包围、gap与显式毛坯采用资格
 [专项研究](docs/capabilities/CAP-04-01/ROTATED-BOUNDS-B159-2026-11-04.md) → [5份官方/内生来源](research/sources/CAP-04-01-rotated-bounds-b159.json) → [8规则32字段](research/traces/CAP-04-01-rotated-bounds-b159-v08.json) → [8正32负8数学Golden](docs/capabilities/CAP-04-01/rotated-bounds-b159-fixtures-v08.json) → [只读Node](tools/check_cap0401_rotated_bounds_b159_v08.cjs) → [分层核验](tracking/cap0401-rotated-bounds-b159-verification-2026-11-04.json)。OCCT8.0.1的Bnd_Box::Transformed转旧AABB不能认证紧致性；AddClose不适于任意BRep，AddOptimal也不构成实机认证。V8同判据48/48，独立Node及真实OCCT/Owner/消费者0/17、L3和全仓AST仍NOT_RUN。累计265 Registry/1973登记，非去重出版物。**规划PASS≠产品PASS。**
 

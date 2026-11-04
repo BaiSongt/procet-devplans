@@ -1,3 +1,6 @@
+## 2026-11-04｜B160 历史JSON文件存在性勘误（不改原始规划范围）
+下方原目录中列举的`capability-map.json`、`work-packages.json`和`code-evidence.json`是**原计划交付目标，并非当前Git树中实际存在的文件**。经[固定HEAD真实Git Tree与双分支限定历史查询](../../work-packages/T5-04/HISTORICAL-ORIGINAL-AUDIT-B160-2026-11-04.md)确认：三文件的原始字节均未找回。当前可读的[88项原范围](03_三级能力映射_88项.md)、[36包原范围](04_开发工作包_36项.md)保持不变；不得将未来新生成JSON冒名为历史原件，也不得据0条精确路径结果声称所有历史均无文件。**规划PASS≠产品PASS。**
+
 ## 2026-10-29｜B18 Git链接目标的对象模式与AST保守资格
 [来源与发现](第十八轮Git链接对象模式与保守审计_2026-10-29.md) → [5规则/字段/原包](../../../research/traces/FINAL-MD-B18-GITMODE-V08.json) → [13独立合成](final-md-b18-gitmode-fixtures-v08.json) · [工具](../../../tools/check_final_md_b18_gitmode_v08.py)。本地Python/临时Git模式样例通过，不等于真实规划仓AST全跑或GitHub渲染器验证。**规划PASS≠产品PASS。**
 
