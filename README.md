@@ -1,3 +1,6 @@
+## 2026-11-04｜B167 CAP-05-05 候选采纳先祖闭包与D07前态
+[专项论证](docs/capabilities/CAP-05-05/DAG-ADOPTION-B167-2026-11-04.md) → [8有界来源](research/sources/CAP-05-05-dag-closure-b167.json) → [8规则32字段](research/traces/CAP-05-05-dag-closure-b167-v08.json) → [8正32单字段反例8图Golden](docs/capabilities/CAP-05-05/dag-closure-b167-fixtures-v08.json) → [只读Node](tools/check_cap0505_dag_adoption_b167_v08.cjs) → [核验](tracking/cap0505-dag-adoption-b167-verification-2026-11-04.json)。本轮V8内存48/48；正式Owner/独立消费者0/17、独立Node、真实D07/最终NC、L3、全仓AST、历史原字节均未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B166 CAP-01-06任务事件断序、SSE游标和领域采纳资格
 [专项研究](docs/capabilities/CAP-01-06/EVENT-REPLAY-B166-2026-11-04.md) → [6份来源](research/sources/CAP-01-06-event-replay-b166.json) → [8规则32字段](research/traces/CAP-01-06-event-replay-b166-v08.json) → [8正32负8 Golden](docs/capabilities/CAP-01-06/event-replay-b166-fixtures-v08.json) → [Node只读工具](tools/check_cap0106_event_replay_b166_v08.cjs) → [状态](tracking/cap0106-event-replay-b166-verification-2026-11-04.json)。WHATWG 2026-11-04、W3C 2026-03-09、RFC9110指定官方正文实读；SSE Last-Event-ID不构成Host Journal持久或业务提交证据。规划内存48/48，独立Node、真实Host/浏览器/Owner0/17、消费者0/17、L3、全仓AST及历史附件原字节待核。**规划PASS≠产品PASS。**
 

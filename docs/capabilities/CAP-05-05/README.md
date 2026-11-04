@@ -1,3 +1,5 @@
+**B167研究补证：** [DAG先祖闭包与D07有序材料](DAG-ADOPTION-B167-2026-11-04.md) → [规则/字段](../../../research/traces/CAP-05-05-dag-closure-b167-v08.json) → [48合成用例](dag-closure-b167-fixtures-v08.json)。真实D05/D07/NC验收和L3待审。**规划PASS≠产品PASS。**
+
 ## B35｜求解候选多目标资格补证（2026-10-30）
 [补充研究](PARETO-ADOPTION-B35-2026-10-30.md) → [来源](../../../research/sources/CAP-05-05-pareto-adoption-b35.json) → [追踪](../../../research/traces/CAP-05-05-pareto-adoption-b35-v08.json) → [正反未知样例](pareto-adoption-b35-fixtures-v08.json) · [只读Node](../../../tools/check_cap0505_pareto_adoption_b35_v08.cjs)。仅合成，真实消费者/Owner/L3未完成。
 

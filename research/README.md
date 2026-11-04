@@ -1,3 +1,6 @@
+## 2026-11-04｜B167 R-PARTIAL-ADOPTION-ANCESTOR-CLOSURE-001
+[8分级来源](sources/CAP-05-05-dag-closure-b167.json) → [8规则/原W2-02/03/05](traces/CAP-05-05-dag-closure-b167-v08.json) → [40单字段正反及8拓扑Golden](../docs/capabilities/CAP-05-05/dag-closure-b167-fixtures-v08.json) → [论证](../docs/capabilities/CAP-05-05/DAG-ADOPTION-B167-2026-11-04.md)。官方ISO仅目录/NIST仅摘要、独立消费者NOT_RUN；规划PASS≠产品PASS。
+
 ## 2026-11-04｜B166 R-HOST-JOB-JOURNAL-SSE-REPLAY-001
 [来源/访问层级](sources/CAP-01-06-event-replay-b166.json) → [8规则32字段与原工作包](traces/CAP-01-06-event-replay-b166-v08.json) → [8正32独立单字段反8 Golden](../docs/capabilities/CAP-01-06/event-replay-b166-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-01-06/EVENT-REPLAY-B166-2026-11-04.md)。WHATWG/MDN/W3C/RFC官方公开章节和本仓固定原文实读；Host安全事务与统一GUI为内生规则，真实独立消费者、Node文件、Owner、L3仍未验。规划PASS≠产品PASS。
 
