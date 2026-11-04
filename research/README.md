@@ -1,3 +1,6 @@
+## 2026-11-04｜B166 R-HOST-JOB-JOURNAL-SSE-REPLAY-001
+[来源/访问层级](sources/CAP-01-06-event-replay-b166.json) → [8规则32字段与原工作包](traces/CAP-01-06-event-replay-b166-v08.json) → [8正32独立单字段反8 Golden](../docs/capabilities/CAP-01-06/event-replay-b166-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-01-06/EVENT-REPLAY-B166-2026-11-04.md)。WHATWG/MDN/W3C/RFC官方公开章节和本仓固定原文实读；Host安全事务与统一GUI为内生规则，真实独立消费者、Node文件、Owner、L3仍未验。规划PASS≠产品PASS。
+
 ## 2026-11-04｜B165 R-CUTTING-KINEMATICS-FEED-001
 [7项分级来源](sources/CAP-02-02-feed-kinematics-b165.json) → [8规则32字段](traces/CAP-02-02-feed-kinematics-b165-v08.json) → [8正32单字段负/8独立数值Golden](../docs/capabilities/CAP-02-02/feed-kinematics-b165-fixtures-v08.json) → [专题及限制](../docs/capabilities/CAP-02-02/FEED-KINEMATICS-B165-2026-11-04.md)。厂商PDF指定首页实读，ISO3002-1仅公开目录、NIST论文仅公开摘要；不把进给公式误认为已验可加工条件、D07材料去料或D15最终NC安全。**规划PASS≠产品PASS。**
 

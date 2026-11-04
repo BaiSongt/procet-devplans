@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "procet-b166-traces-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "topic": "R-HOST-JOB-JOURNAL-SSE-REPLAY-001",
+  "capabilityIds": [
+    "CAP-01-06"
+  ],
+  "originalWorkPackages": [
+    "B0-01",
+    "F1-05",
+    "W2-04",
+    "U4-02",
+    "U4-04",
+    "T5-01"
+  ],
+  "sourcePath": "research/sources/CAP-01-06-event-replay-b166.json",
+  "fixturePath": "docs/capabilities/CAP-01-06/event-replay-b166-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0106_event_replay_b166_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-01-06/EVENT-REPLAY-B166-2026-11-04.md",
+  "verificationPath": "tracking/cap0106-event-replay-b166-verification-2026-11-04.json",
+  "humanReview": "PENDING_L3",
+  "rules": [
+    {
+      "id": "B166-R01",
+      "title": "任务流不能跨工程Scope复用",
+      "fields": [
+        "stream.id",
+        "stream.scope",
+        "stream.epoch",
+        "stream.revision"
+      ],
+      "sourceIds": [
+        "B166-S01",
+        "B166-S05",
+        "B166-S06"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D01",
+        "D06"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R01-P",
+        "B166-R01-N1",
+        "B166-R01-N2",
+        "B166-R01-N3",
+        "B166-R01-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    },
+    {
+      "id": "B166-R02",
+      "title": "游标单调前进但不能越过缺口",
+      "fields": [
+        "cursor.lastApplied",
+        "cursor.received",
+        "cursor.contiguous",
+        "cursor.gapPolicy"
+      ],
+      "sourceIds": [
+        "B166-S01",
+        "B166-S02",
+        "B166-S05"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R02-P",
+        "B166-R02-N1",
+        "B166-R02-N2",
+        "B166-R02-N3",
+        "B166-R02-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    },
+    {
+      "id": "B166-R03",
+      "title": "Last-Event-ID须受Host持久Journal见证",
+      "fields": [
+        "resume.lastEventId",
+        "resume.journalPersisted",
+        "resume.replayComplete",
+        "resume.expiryPolicy"
+      ],
+      "sourceIds": [
+        "B166-S01",
+        "B166-S02",
+        "B166-S05"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R03-P",
+        "B166-R03-N1",
+        "B166-R03-N2",
+        "B166-R03-N3",
+        "B166-R03-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    },
+    {
+      "id": "B166-R04",
+      "title": "Job成功和成果提交是两种事实",
+      "fields": [
+        "result.jobState",
+        "result.adoptionState",
+        "result.ownerReceipt",
+        "result.autoAdopt"
+      ],
+      "sourceIds": [
+        "B166-S04",
+        "B166-S05"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D06",
+        "D09"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R04-P",
+        "B166-R04-N1",
+        "B166-R04-N2",
+        "B166-R04-N3",
+        "B166-R04-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    },
+    {
+      "id": "B166-R05",
+      "title": "取消Fence拦截迟到回执",
+      "fields": [
+        "cancel.fence",
+        "cancel.receiptEpoch",
+        "cancel.lateCommit",
+        "cancel.disposition"
+      ],
+      "sourceIds": [
+        "B166-S04",
+        "B166-S05"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R05-P",
+        "B166-R05-N1",
+        "B166-R05-N2",
+        "B166-R05-N3",
+        "B166-R05-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    },
+    {
+      "id": "B166-R06",
+      "title": "单Babylon世界、左TaskPanel与礼貌状态播报",
+      "fields": [
+        "ui.taskPanel",
+        "ui.sceneCount",
+        "ui.liveRegion",
+        "ui.fabricatedPercent"
+      ],
+      "sourceIds": [
+        "B166-S03",
+        "B166-S05",
+        "B166-S06"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D01",
+        "D06"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R06-P",
+        "B166-R06-N1",
+        "B166-R06-N2",
+        "B166-R06-N3",
+        "B166-R06-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    },
+    {
+      "id": "B166-R07",
+      "title": "GUI/CLI/Agent使用相同领域Owner并重验",
+      "fields": [
+        "owner.samePort",
+        "owner.exactRevision",
+        "owner.aclRechecked",
+        "owner.frameFresh"
+      ],
+      "sourceIds": [
+        "B166-S04",
+        "B166-S05",
+        "B166-S06"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D01",
+        "D06"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R07-P",
+        "B166-R07-N1",
+        "B166-R07-N2",
+        "B166-R07-N3",
+        "B166-R07-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    },
+    {
+      "id": "B166-R08",
+      "title": "版本迁移与NC下游安全资格独立",
+      "fields": [
+        "migration.dualRead",
+        "migration.frozenUnchanged",
+        "migration.rollbackTest",
+        "migration.ncIndependent"
+      ],
+      "sourceIds": [
+        "B166-S05",
+        "B166-S06"
+      ],
+      "capabilities": [
+        "CAP-01-06"
+      ],
+      "assets": [
+        "D06",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "F1-05",
+        "W2-04",
+        "U4-02",
+        "U4-04",
+        "T5-01"
+      ],
+      "testIds": [
+        "B166-R08-P",
+        "B166-R08-N1",
+        "B166-R08-N2",
+        "B166-R08-N3",
+        "B166-R08-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "真实Host Journal/领域Owner/客户端与跨域消费均NOT_RUN"
+    }
+  ]
+}

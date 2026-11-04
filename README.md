@@ -1,3 +1,6 @@
+## 2026-11-04｜B166 CAP-01-06任务事件断序、SSE游标和领域采纳资格
+[专项研究](docs/capabilities/CAP-01-06/EVENT-REPLAY-B166-2026-11-04.md) → [6份来源](research/sources/CAP-01-06-event-replay-b166.json) → [8规则32字段](research/traces/CAP-01-06-event-replay-b166-v08.json) → [8正32负8 Golden](docs/capabilities/CAP-01-06/event-replay-b166-fixtures-v08.json) → [Node只读工具](tools/check_cap0106_event_replay_b166_v08.cjs) → [状态](tracking/cap0106-event-replay-b166-verification-2026-11-04.json)。WHATWG 2026-11-04、W3C 2026-03-09、RFC9110指定官方正文实读；SSE Last-Event-ID不构成Host Journal持久或业务提交证据。规划内存48/48，独立Node、真实Host/浏览器/Owner0/17、消费者0/17、L3、全仓AST及历史附件原字节待核。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B165 CAP-02-02 周刃铣削切速/进给与转速限幅的显式采纳
 [专项研究](docs/capabilities/CAP-02-02/FEED-KINEMATICS-B165-2026-11-04.md) → [7份来源](research/sources/CAP-02-02-feed-kinematics-b165.json) → [8规则/32字段](research/traces/CAP-02-02-feed-kinematics-b165-v08.json) → [8正32单字段负/8数值Golden](docs/capabilities/CAP-02-02/feed-kinematics-b165-fixtures-v08.json) → [Node只读工具](tools/check_cap0202_feed_kinematics_b165_v08.cjs) → [执行等级](tracking/cap0202-feed-kinematics-b165-verification-2026-11-04.json)。Sandvik H79及Haas PDF第一页截图实读；ISO只读公开目录、NIST两份仅摘要。100m/min、D_eff10mm、fz0.05mm/齿、z4理论n≈3183.099、vf≈636.620；如用户显式采纳上限3000rpm，必须重算vf=600，不能静默限幅或将厂商公式当实机认证。V8内存48/48；独立Node、真实消费者/控制器、17 Owner、L3和全仓AST仍未验。**规划PASS≠产品PASS。**
 
