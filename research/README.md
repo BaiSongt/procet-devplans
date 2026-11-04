@@ -1,3 +1,6 @@
+## 2026-11-05｜B174 CAP-03-04 Projection/Section/SectionCut资格
+[来源](sources/CAP-03-04-section-view-b174.json) → [10规则40字段](traces/CAP-03-04-section-view-b174-v08.json) → [60合成](../docs/capabilities/CAP-03-04/section-view-b174-fixtures-v08.json) → [研究](../docs/capabilities/CAP-03-04/SECTION-VIEW-ELIGIBILITY-B174-2026-11-05.md)。PTC R13/NIST实读公开段落，Dassault品牌帮助来自第三方镜像，ASME Y14.41-2026仅目录，CAD/Owner/消费者/L3/GFM AST未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-05｜B173旧报警Branch/ConditionRefresh
 [来源](sources/CAP-10-07-alarm-branch-b173.json) → [规则](traces/CAP-10-07-alarm-branch-b173-v08.json) → [Fixture](../docs/capabilities/CAP-10-07/alarm-branch-b173-fixtures-v08.json) → [研究](../docs/capabilities/CAP-10-07/ALARM-BRANCH-RECOVERY-B173-2026-11-05.md)。OPC Part9正文、NIST仅摘要；L3/真实OPC未验。**规划PASS≠产品PASS。**
 

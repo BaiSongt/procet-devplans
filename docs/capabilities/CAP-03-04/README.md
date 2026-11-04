@@ -1,3 +1,5 @@
+**B174研究（2026-11-05）：** [Projection/Section/SectionCut局部Z与Capture资格](SECTION-VIEW-ELIGIBILITY-B174-2026-11-05.md) → [8来源](../../../research/sources/CAP-03-04-section-view-b174.json) → [10规则40字段](../../../research/traces/CAP-03-04-section-view-b174-v08.json) → [60正反及Golden](section-view-b174-fixtures-v08.json)。与B83方向Plane/B121尺寸几何资格不同，专门约束视图类型与剖切Z；规划合成不代表实际CAD验收。**规划PASS≠产品PASS。**
+
 **B132专项（2026-11-03）：** [真圆弧大/小弧及显示Z-radius与BSpline曲率资格](ARC-SPAN-B132-2026-11-03.md) → [7项官方/内部有界来源](../../../research/sources/CAP-03-04-arc-span-b132.json) → [8规则字段及原包](../../../research/traces/CAP-03-04-arc-span-b132-v08.json) → [32正反+6解析Golden](arc-span-b132-fixtures-v08.json)。B121仅尺寸几何与Plane，此项补弧段双解、局部曲率和二维折线；L3/真实CAD未验。**规划PASS≠产品PASS。**
 
 **B121补证（2026-11-03）：** [尺寸类型×Plane几何关系与Ordinate Baseline共享](DIMENSION-PLANE-COMPAT-B121-2026-11-03.md) → [9来源](../../../research/sources/CAP-03-04-dimension-plane-b121.json) → [8规则及原包](../../../research/traces/CAP-03-04-dimension-plane-b121-v08.json) → [40正反/6向量/4图](dimension-plane-b121-fixtures-v08.json)。与B83方向/Capture分层不同，本轮补具体Driven尺寸准入和Baseline变更传播；真实CAD/独立消费者/L3待审。**规划PASS≠产品PASS。**
