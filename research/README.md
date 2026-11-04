@@ -1,3 +1,6 @@
+## 2026-11-04｜B155 R-MACHINE-DUAL-BRANCH-FK-001 D03机床刚体树/双分支Frame与回零
+[6有界来源](sources/CAP-02-01-dual-branch-fk-b155.json) → [8规则与字段/原编号工作包](traces/CAP-02-01-dual-branch-fk-b155-v08.json) → [40独立正反+8数学Golden](../docs/capabilities/CAP-02-01/dual-branch-fk-b155-fixtures-v08.json) → [专项分析/真实阅读边界](../docs/capabilities/CAP-02-01/DUAL-BRANCH-FK-B155-2026-11-04.md)。LinuxCNC 2.9官方章节、OCCT8.0.1 API与Modern Robotics网页简介实读，ISO841仅官方目录；所有数学Golden为虚构SE(2)必要行为合成，不证明三维B5/OEM、独立消费者或D15，L3待审。规划PASS≠产品PASS。
+
 ## 2026-11-04｜B154 R-FRAME-TEMPORAL-001 动态Frame观测时间见证
 [6项作者/版本/日期/章节/局限](sources/CAP-04-04-temporal-witness-b154.json) → [8规则32字段](traces/CAP-04-04-temporal-witness-b154-v08.json) → [48合成](../docs/capabilities/CAP-04-04/temporal-witness-b154-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-04-04/TEMPORAL-SNAPSHOT-B154-2026-11-04.md)。ROS rolling仅指定公开教程，OCCT8.0.1/Eigen3.4.1/W3C2013定点实读；真实时钟同步及Node文件进程NOT_RUN。纠正progress与source-index B153后登记差异，当前260 Registry/1945登记，正式Owner/消费者0/17、L3待审。**规划PASS≠产品PASS。**
 

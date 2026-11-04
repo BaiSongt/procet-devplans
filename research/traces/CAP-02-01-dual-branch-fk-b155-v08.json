@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "procet-b155-trace-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "topic": "R-MACHINE-DUAL-BRANCH-FK-001",
+  "humanReview": "PENDING_L3",
+  "sourcePath": "research/sources/CAP-02-01-dual-branch-fk-b155.json",
+  "fixturePath": "docs/capabilities/CAP-02-01/dual-branch-fk-b155-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0201_dual_branch_fk_b155_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-02-01/DUAL-BRANCH-FK-B155-2026-11-04.md",
+  "capabilityIds": [
+    "CAP-02-01"
+  ],
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-06",
+    "E3-04",
+    "U4-02",
+    "U4-03"
+  ],
+  "rules": [
+    {
+      "id": "B155-R01",
+      "title": "物理刚体树须具真实父链、无环、单根及非空节点",
+      "sourceIds": [
+        "B155-S01",
+        "B155-S06"
+      ],
+      "fields": [
+        "parentLinksValid",
+        "acyclic",
+        "rootCount",
+        "nodeCount"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D14"
+      ],
+      "failure": "B155-R01_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R01-P",
+        "B155-R01-N1",
+        "B155-R01-N2",
+        "B155-R01-N3",
+        "B155-R01-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B155-R02",
+      "title": "局部Joint轴须单位化、父局部Frame、零姿态刚性及明确角单位",
+      "sourceIds": [
+        "B155-S03",
+        "B155-S06"
+      ],
+      "fields": [
+        "axisNorm",
+        "axisFrame",
+        "zeroRigid",
+        "angleUnit"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D14"
+      ],
+      "failure": "B155-R02_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R02-P",
+        "B155-R02-N1",
+        "B155-R02-N2",
+        "B155-R02-N3",
+        "B155-R02-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B155-R03",
+      "title": "主轴/工件承载端分支身份不同，快照可审计",
+      "sourceIds": [
+        "B155-S02",
+        "B155-S06"
+      ],
+      "fields": [
+        "spindleLeaf",
+        "workpieceLeaf",
+        "branchIndependent",
+        "snapshotHash"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "failure": "B155-R03_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R03-P",
+        "B155-R03-N1",
+        "B155-R03-N2",
+        "B155-R03-N3",
+        "B155-R03-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B155-R04",
+      "title": "相对位姿必须由工件世界姿态求逆乘主轴世界姿态",
+      "sourceIds": [
+        "B155-S02",
+        "B155-S03",
+        "B155-S06"
+      ],
+      "fields": [
+        "spindleWorldX",
+        "workpieceWorldX",
+        "relativeWorkX",
+        "relativeFrame"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D14"
+      ],
+      "failure": "B155-R04_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R04-P",
+        "B155-R04-N1",
+        "B155-R04-N2",
+        "B155-R04-N3",
+        "B155-R04-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B155-R05",
+      "title": "旋转位置须绕指定真实pivot，不可绕模型原点",
+      "sourceIds": [
+        "B155-S02",
+        "B155-S03",
+        "B155-S06"
+      ],
+      "fields": [
+        "pivotX",
+        "localOffsetX",
+        "angleDeg",
+        "observedWorldX"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D14"
+      ],
+      "failure": "B155-R05_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R05-P",
+        "B155-R05-N1",
+        "B155-R05-N2",
+        "B155-R05-N3",
+        "B155-R05-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B155-R06",
+      "title": "机床Home与数学零位独立记录，有证据的偏置",
+      "sourceIds": [
+        "B155-S01",
+        "B155-S06"
+      ],
+      "fields": [
+        "homeJointRad",
+        "zeroJointRad",
+        "homeMinusZeroRad",
+        "homeEvidence"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "failure": "B155-R06_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R06-P",
+        "B155-R06-N1",
+        "B155-R06-N2",
+        "B155-R06-N3",
+        "B155-R06-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B155-R07",
+      "title": "机床资源发布/选择核查exact修订、内容哈希和ACL",
+      "sourceIds": [
+        "B155-S06"
+      ],
+      "fields": [
+        "machineRevision",
+        "expectedRevision",
+        "contentHash",
+        "aclAllowed"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "failure": "B155-R07_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R07-P",
+        "B155-R07-N1",
+        "B155-R07-N2",
+        "B155-R07-N3",
+        "B155-R07-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B155-R08",
+      "title": "D03资源资格与D10执行绑定、D15工程验证和独立消费者隔离",
+      "sourceIds": [
+        "B155-S04",
+        "B155-S06"
+      ],
+      "fields": [
+        "resourceStage",
+        "executionBindingStage",
+        "ncProof",
+        "consumerGate"
+      ],
+      "capabilityIds": [
+        "CAP-02-01"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "U4-02",
+        "U4-03"
+      ],
+      "businessAssets": [
+        "D03",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "failure": "B155-R08_UNKNOWN_OR_REJECTED",
+      "testIds": [
+        "B155-R08-P",
+        "B155-R08-N1",
+        "B155-R08-N2",
+        "B155-R08-N3",
+        "B155-R08-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    }
+  ]
+}

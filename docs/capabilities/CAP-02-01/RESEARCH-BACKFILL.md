@@ -10,3 +10,8 @@
 **GUI/3D**：左侧唯一UnifiedTaskPanel五步“目录→轴树→Frame→能力来源→发布及返回Setup”，Ribbon联动；全局唯一Babylon世界，没实体几何仅显示线框并标明代理。用户资源不因默认3轴/B5资源变化而删除。
 
 **证据与验收**：ISO 841只读目录，ISO 230-1与ISO 10791-1用于界定检验范围，LinuxCNC公开文档说明joint/axis差异，OCCT 8.0.1只支持数学API，NIST仅论文摘要。不能以这些证明具体机床性能。[来源与阅读深度](../../../research/sources/CAP-02-01.json)→[10规则/字段/资产/工作包](../../../research/traces/CAP-02-01.json)→[20正反规格](fixtures.json)→[研究专题](../../../research/topics/R-MACH-001.md)。独立消费者真实产品/NC/机床测试NOT_RUN，L3待人类审议。
+
+
+## B155（2026-11-04）双分支Machine FK实施补证
+
+[研究报告](DUAL-BRANCH-FK-B155-2026-11-04.md)保留本能力原8项AT与10条旧研究规则，不覆盖旧来源；新增6项分级来源、8规则/32字段、8正32单字段反+8数学Golden。物理Joint及父局部Frame→spindle/workpiece双分支→相对位姿→D10实装及D14工程消费，独立Node与产品NOT_RUN，Owner与L3仍待审。
