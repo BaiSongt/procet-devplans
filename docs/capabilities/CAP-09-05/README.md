@@ -1,3 +1,5 @@
+> **B157连续区间测距专项（2026-11-04）**：[CL距离下界与缺失运动上界UNKNOWN](INTERVAL-CLEARANCE-B157-2026-11-04.md) → [6来源](../../../research/sources/CAP-09-05-interval-clearance-b157.json) → [8字段规则](../../../research/traces/CAP-09-05-interval-clearance-b157-v08.json) → [8正32反8Golden](interval-clearance-b157-fixtures-v08.json) → [Node只读入口](../../../tools/check_cap0905_interval_clearance_b157_v08.cjs)。仅D11 CL初筛，不能授D15/D16；真实OCCT/机床/消费者待验。**规划PASS≠产品PASS。**
+
 # CAP-09-05｜CL机床运动预验证（V0.8原编号；L3待审）
 **原88项目标**：从中立刀路驱动机床运动与行程判定。归09机床运动与工程验证域；原关联工作包F1-02/E3-04/E3-05/U4-04。L1/L2不修改，L3设计需人工评审。
 

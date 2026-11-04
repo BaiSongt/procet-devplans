@@ -1,3 +1,6 @@
+## 2026-11-04｜B157 R-CL-INTERVAL-CLEARANCE-001
+[6个分级来源](sources/CAP-09-05-interval-clearance-b157.json) → [8规则字段/原F1-02/E3-04/E3-05/U4-04](traces/CAP-09-05-interval-clearance-b157-v08.json) → [48个正反Golden](../docs/capabilities/CAP-09-05/interval-clearance-b157-fixtures-v08.json) → [正文/严格局限](../docs/capabilities/CAP-09-05/INTERVAL-CLEARANCE-B157-2026-11-04.md)。OCCT8.0.1公开指定API实读；Redon2003、Zhang2007仅论文/高校摘要；Guthrie2023仅公开HTML摘要与引言；ISO230-1:2012只读合法标准目录，未获得付费正文。连续CCD产品、实机NC与独立D15均NOT_RUN，L3待人类批准。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B156 R-CL-CHORD-TRAJECTORY-001
 [6来源/真实阅读深度](sources/CAP-07-07-chord-budget-b156.json) → [8规则/字段与原包](traces/CAP-07-07-chord-budget-b156-v08.json) → [48合成](../docs/capabilities/CAP-07-07/chord-budget-b156-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-07-07/CHORD-BUDGET-B156-2026-11-04.md)。OCCT8.0.1指定API、LinuxCNC2.9 G64正文实读；Autodesk仅方法签名，Jin等2015仅公开摘要。真实Post/NC/OEM与独立消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

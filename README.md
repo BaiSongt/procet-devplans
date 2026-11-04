@@ -1,3 +1,6 @@
+## 2026-11-04｜B157 CAP-09-05 CL相邻取样之间连续间隙下界专项
+[专项推导](docs/capabilities/CAP-09-05/INTERVAL-CLEARANCE-B157-2026-11-04.md) → [6来源](research/sources/CAP-09-05-interval-clearance-b157.json) → [8规则32字段](research/traces/CAP-09-05-interval-clearance-b157-v08.json) → [8正32独立反8数学Golden](docs/capabilities/CAP-09-05/interval-clearance-b157-fixtures-v08.json) → [Node规划入口](tools/check_cap0905_interval_clearance_b157_v08.cjs) → [核验等级](tracking/cap0905-interval-clearance-b157-verification-2026-11-04.json)。本轮CL_ONLY必要条件由OCCT单姿态距离和另证运动位移界保守合成；欠缺任一连续区间证据则UNKNOWN，不能冒充D13–D15最终NC工程验证。V8生成器同函数48/48，独立Node/真实OCCT、B5/OEM及17 Owner/消费者和L3/全仓AST仍未验。索引263 Registry、1963登记，非去重论文数。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B156 CAP-07-07 弦高/Post线性化/G64轨迹误差分层
 [研究报告](docs/capabilities/CAP-07-07/CHORD-BUDGET-B156-2026-11-04.md) → [6来源](research/sources/CAP-07-07-chord-budget-b156.json) → [8规则32字段](research/traces/CAP-07-07-chord-budget-b156-v08.json) → [8正32单字段反+8Golden](docs/capabilities/CAP-07-07/chord-budget-b156-fixtures-v08.json) → [Node只读工具](tools/check_cap0707_chord_budget_b156_v08.cjs) → [等级](tracking/cap0707-chord-budget-b156-verification-2026-11-04.json)。OCCT8.0.1 Quasi采样不等于全区间严格弦高认证；Autodesk后处理可另行线性化；LinuxCNC2.9 G64 P/Q不等于OEM真实轨迹。内存纯谓词48项符合预期，独立Node/真实NC及17Owner消费者、L3和全仓AST仍NOT_RUN。累计262 Registry/1957来源登记。**规划PASS≠产品PASS。**
 
