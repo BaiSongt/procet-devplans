@@ -1,3 +1,6 @@
+## 2026-11-04｜B154 CAP-04-04 动态Frame时间见证与来源登记对账
+[时间窗口研究及真实阅读深度](docs/capabilities/CAP-04-04/TEMPORAL-SNAPSHOT-B154-2026-11-04.md) → [6分级来源](research/sources/CAP-04-04-temporal-witness-b154.json) → [8规则32字段](research/traces/CAP-04-04-temporal-witness-b154-v08.json) → [8正32单字段反+8Golden](docs/capabilities/CAP-04-04/temporal-witness-b154-fixtures-v08.json) → [只读Node工具](tools/check_cap0404_temporal_witness_b154_v08.cjs) → [分级核验](tracking/cap0404-temporal-witness-b154-verification-2026-11-04.json)。多路径空间闭环不证明观测同一时刻有效；不得取latest补历史缺口。B153进度台账错滞后于真实来源索引，本轮纠正到**260 Registry/1945登记记录**。独立Node全文件、真实时钟与机床、17Owner/消费者、L3、全仓AST及历史附件原字节仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B153 CAP-08-05 Haas G83 IJK递减啄钻及Setting角色资格
 [阅读/版本边界](docs/capabilities/CAP-08-05/HAAS-G83-SETTINGS-B153-2026-11-04.md) → [6来源](research/sources/CAP-08-05-haas-g83-b153.json) → [8规则32字段](research/traces/CAP-08-05-haas-g83-b153-v08.json) → [8正32反8Golden](docs/capabilities/CAP-08-05/haas-g83-b153-fixtures-v08.json) → [只读Node](tools/check_cap0805_haas_g83_b153_v08.cjs) → [验证等级](tracking/cap0805-haas-g83-b153-verification-2026-11-04.json)。Haas G83 IJK≠Q，P值继承；S52控制G83退让、S22官方仅G73、S57影响XY精停。V8合成48/48不代表真实OEM或D15；独立Node、17Owner/消费者、L3与全仓AST仍待验。**规划PASS≠产品PASS。**
 

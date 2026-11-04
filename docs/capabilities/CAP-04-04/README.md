@@ -1,3 +1,5 @@
+> **B154增量（2026-11-04）**：[动态Frame时间见证、跨来源共同采样窗口及缓存资格](TEMPORAL-SNAPSHOT-B154-2026-11-04.md) → [6来源](../../../research/sources/CAP-04-04-temporal-witness-b154.json) → [8规则32字段](../../../research/traces/CAP-04-04-temporal-witness-b154-v08.json) → [8正32反8Golden](temporal-witness-b154-fixtures-v08.json)。B112仅静态空间闭环；时间交集/实测时效不由矩阵一致推得。真实Node/OCCT/计量/NC/Owner和L3未验。**规划PASS≠产品PASS。**
+
 # CAP-04-04｜工件坐标系与变换图（V0.8）
 > 第04域原编号详细稿；本次由2026-10-19真实待入库包的业务约束重新核对编制。L1/L2冻结、L3待人工评审，规划PASS≠产品PASS。
 

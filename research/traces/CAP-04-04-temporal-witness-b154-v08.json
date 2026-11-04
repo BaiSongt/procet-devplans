@@ -1,0 +1,324 @@
+{
+  "schemaVersion": "procet-b154-trace-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "humanReview": "PENDING_L3",
+  "topic": "R-FRAME-TEMPORAL-001",
+  "sourcePath": "research/sources/CAP-04-04-temporal-witness-b154.json",
+  "fixturePath": "docs/capabilities/CAP-04-04/temporal-witness-b154-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0404_temporal_witness_b154_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-04-04/TEMPORAL-SNAPSHOT-B154-2026-11-04.md",
+  "capabilityIds": [
+    "CAP-04-04"
+  ],
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "rules": [
+    {
+      "id": "B154-R01",
+      "title": "精确来源修订/内容摘要/Frame绑定，不以名称复用",
+      "sourceIds": [
+        "B154-S05",
+        "B154-S06"
+      ],
+      "fields": [
+        "sourceRevision",
+        "currentRevision",
+        "sourceHash",
+        "frameId"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D04"
+      ],
+      "failure": "SOURCE_REVISION_OR_FRAME_STALE",
+      "testIds": [
+        "B154-R01-P",
+        "B154-R01-N1",
+        "B154-R01-N2",
+        "B154-R01-N3",
+        "B154-R01-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B154-R02",
+      "title": "请求时点在单边可用闭区间且时钟域固定",
+      "sourceIds": [
+        "B154-S01",
+        "B154-S05"
+      ],
+      "fields": [
+        "queryTimeMs",
+        "validFromMs",
+        "validUntilMs",
+        "clockDomain"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D04"
+      ],
+      "failure": "FRAME_TIME_OUT_OF_RANGE",
+      "testIds": [
+        "B154-R02-P",
+        "B154-R02-N1",
+        "B154-R02-N2",
+        "B154-R02-N3",
+        "B154-R02-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B154-R03",
+      "title": "实测样本时效和独立摘要，不用CAD名义Frame冒充实测",
+      "sourceIds": [
+        "B154-S01",
+        "B154-S04",
+        "B154-S05"
+      ],
+      "fields": [
+        "measurementTimeMs",
+        "queryTimeMs",
+        "maxAgeMs",
+        "measurementHash"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D04",
+        "D10"
+      ],
+      "failure": "MEASUREMENT_STALE_OR_UNKNOWN",
+      "testIds": [
+        "B154-R03-P",
+        "B154-R03-N1",
+        "B154-R03-N2",
+        "B154-R03-N3",
+        "B154-R03-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B154-R04",
+      "title": "跨两来源动态边须具相同时间交集",
+      "sourceIds": [
+        "B154-S01",
+        "B154-S06"
+      ],
+      "fields": [
+        "edge1FromMs",
+        "edge1UntilMs",
+        "edge2FromMs",
+        "edge2UntilMs"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D01",
+        "D04"
+      ],
+      "failure": "NO_COMMON_TIME_WITNESS",
+      "testIds": [
+        "B154-R04-P",
+        "B154-R04-N1",
+        "B154-R04-N2",
+        "B154-R04-N3",
+        "B154-R04-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B154-R05",
+      "title": "跨传感器的时钟域/同步状态/最大偏移预算显式证实",
+      "sourceIds": [
+        "B154-S01",
+        "B154-S05"
+      ],
+      "fields": [
+        "domainsSame",
+        "clockSync",
+        "observedSkewMs",
+        "allowedSkewMs"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D04",
+        "D10"
+      ],
+      "failure": "CLOCK_SKEW_UNQUALIFIED",
+      "testIds": [
+        "B154-R05-P",
+        "B154-R05-N1",
+        "B154-R05-N2",
+        "B154-R05-N3",
+        "B154-R05-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B154-R06",
+      "title": "动态采样不允许最新样本替代指定时刻，不推断外插",
+      "sourceIds": [
+        "B154-S01",
+        "B154-S02",
+        "B154-S03"
+      ],
+      "fields": [
+        "edgeMode",
+        "requestedSampleMode",
+        "extrapolationAllowed",
+        "selectionPolicy"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D04",
+        "D14"
+      ],
+      "failure": "TEMPORAL_FALLBACK_UNSAFE",
+      "testIds": [
+        "B154-R06-P",
+        "B154-R06-N1",
+        "B154-R06-N2",
+        "B154-R06-N3",
+        "B154-R06-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B154-R07",
+      "title": "Owner提交时CAS、ACL、取消Fence同事务重验",
+      "sourceIds": [
+        "B154-S05",
+        "B154-S04"
+      ],
+      "fields": [
+        "expectedRevision",
+        "actualRevision",
+        "aclAllowed",
+        "cancelFence"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D04",
+        "D08"
+      ],
+      "failure": "STALE_CAS_OR_REVOKED",
+      "testIds": [
+        "B154-R07-P",
+        "B154-R07-N1",
+        "B154-R07-N2",
+        "B154-R07-N3",
+        "B154-R07-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B154-R08",
+      "title": "名义D04不冒充实装D10或D15，独立消费者限定资格",
+      "sourceIds": [
+        "B154-S05",
+        "B154-S06"
+      ],
+      "fields": [
+        "d04Kind",
+        "d10BindingSeparate",
+        "d15Status",
+        "consumerMode"
+      ],
+      "capabilityIds": [
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "businessAssets": [
+        "D04",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "failure": "EXECUTION_QUALIFICATION_CONFLATED",
+      "testIds": [
+        "B154-R08-P",
+        "B154-R08-N1",
+        "B154-R08-N2",
+        "B154-R08-N3",
+        "B154-R08-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    }
+  ]
+}
