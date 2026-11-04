@@ -1,3 +1,6 @@
+## 2026-11-05｜B169 R-MFR-UV-SEAM-001
+[7分级来源](sources/CAP-03-05-seam-periodic-b169.json) → [9规则36字段与原F1-03/F1-04/W2-03/T5-02](traces/CAP-03-05-seam-periodic-b169-v08.json) → [9正36负8数值Golden](../docs/capabilities/CAP-03-05/seam-periodic-b169-fixtures-v08.json) → [研究与边界](../docs/capabilities/CAP-03-05/SEAM-PERIODIC-B169-2026-11-05.md)。OCCT8.0.1五份官方API定点实读、两份固定本仓原规格；Node/真实OCCT/Owner/消费者/L3未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-05｜B168 R-5AXIS-SO3-SHORTESTARC
 [7项分级来源](sources/CAP-07-04-quaternion-shortarc-b168.json) → [CAP-07-04与原F1-03/E3-01/U4-04的8规则/32字段](traces/CAP-07-04-quaternion-shortarc-b168-v08.json) → [8正32独立字段反例及8数学Golden](../docs/capabilities/CAP-07-04/quaternion-shortarc-b168-fixtures-v08.json) → [研究与局限](../docs/capabilities/CAP-07-04/QUATERNION-SHORTARC-B168-2026-11-05.md)。SciPy1.18/OCCT8.0.1/Eigen nightly官方API，ROS2 rolling只读官方源码正文；真实产品/Node/独立消费者均NOT_RUN，L3待审。**规划PASS≠产品PASS。**
 

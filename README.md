@@ -1,3 +1,5 @@
+**B169（2026-11-05）：** [CAP-03-05周期接缝/双pcurve误判专项](docs/capabilities/CAP-03-05/SEAM-PERIODIC-B169-2026-11-05.md) → [来源](research/sources/CAP-03-05-seam-periodic-b169.json) → [规则](research/traces/CAP-03-05-seam-periodic-b169-v08.json) → [正反Golden](docs/capabilities/CAP-03-05/seam-periodic-b169-fixtures-v08.json) → [只读Node](tools/check_cap0305_seam_periodic_b169_v08.cjs)。17 Owner/实际消费者0/17，L3/全仓AST/历史原字节待办；**规划PASS≠产品PASS。**
+
 **B168（2026-11-05）：**[CAP-07-04 四元数双覆盖/最短弧新增研究](docs/capabilities/CAP-07-04/QUATERNION-SHORTARC-B168-2026-11-05.md) → [7分级来源](research/sources/CAP-07-04-quaternion-shortarc-b168.json) → [8规则/32字段](research/traces/CAP-07-04-quaternion-shortarc-b168-v08.json) → [8正32反8数学Golden](docs/capabilities/CAP-07-04/quaternion-shortarc-b168-fixtures-v08.json) → [Node只读门禁](tools/check_cap0704_quaternion_shortarc_b168_v08.cjs)。17 Owner/真实消费者0/17，L3/实际NC/全仓GFM AST/原字节审计未闭。**规划PASS≠产品PASS。**
 
 ## 2026-11-04｜B167 CAP-05-05 候选采纳先祖闭包与D07前态

@@ -1,3 +1,5 @@
+**B169（2026-11-05）补证：** [周期面Seam双pcurve与物理槽口误判](SEAM-PERIODIC-B169-2026-11-05.md) · [9规则36字段](../../../research/traces/CAP-03-05-seam-periodic-b169-v08.json) · [53规划合成](seam-periodic-b169-fixtures-v08.json)。真实OCCT/消费方/L3未验。
+
 **B109（2026-11-02）增量：** [圆柱材料侧/盲通孔证据补证](HOLE-MATERIAL-SIDE-B109-2026-11-02.md) · [8规则追踪](../../../research/traces/CAP-03-05-hole-material-b109-v08.json) · [36合成反例](hole-material-b109-fixtures-v08.json)。只读规划验证，不是OCCT真实加工识别产品验收。
 
 # CAP-03-05｜制造特征识别——从 B-Rep 证据到可复核的 D02 候选
