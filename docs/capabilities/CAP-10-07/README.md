@@ -1,3 +1,5 @@
+> **B173（2026-11-05）**：[历史Branch和刷新交错研究](ALARM-BRANCH-RECOVERY-B173-2026-11-05.md) → [源](../../../research/sources/CAP-10-07-alarm-branch-b173.json) → [规则](../../../research/traces/CAP-10-07-alarm-branch-b173-v08.json) → [合成](alarm-branch-b173-fixtures-v08.json)。规划58/58，实机/消费者L3未验。**规划PASS≠产品PASS。**
+
 # CAP-10-07｜异常反馈与工程变更（V0.8，L3待审）
 **88项基线目标原文**：「现场问题回流与新修订分支」；原编号工作包**E3-06 / T5-03**。本轮仅实施级规划，未授权机床控制，未提交产品代码。
 ## 责任和资产边界

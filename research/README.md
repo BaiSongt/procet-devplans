@@ -1,3 +1,6 @@
+## 2026-11-05｜B173旧报警Branch/ConditionRefresh
+[来源](sources/CAP-10-07-alarm-branch-b173.json) → [规则](traces/CAP-10-07-alarm-branch-b173-v08.json) → [Fixture](../docs/capabilities/CAP-10-07/alarm-branch-b173-fixtures-v08.json) → [研究](../docs/capabilities/CAP-10-07/ALARM-BRANCH-RECOVERY-B173-2026-11-05.md)。OPC Part9正文、NIST仅摘要；L3/真实OPC未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-05｜B172 CAP-09-07 FERROR与Joint区间包络
 [8分级来源](sources/CAP-09-07-servo-envelope-b172.json) → [8规则32字段](traces/CAP-09-07-servo-envelope-b172-v08.json) → [8正32单字段反及8解析Golden](../docs/capabilities/CAP-09-07/servo-envelope-b172-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-09-07/SERVO-ENVELOPE-B172-2026-11-05.md)。LinuxCNC2.9/OCCT/W3C/RFC公开章节实读，MOTION为滚动版；真实反馈/独立Node/D15/Owner与消费者、全仓AST和L3仍未验。**规划PASS≠产品PASS。**
 
