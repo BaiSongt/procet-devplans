@@ -2,7 +2,7 @@
 "use strict";
 // B152规划只读机器校验器：不调用OEM、不改产品文件，不表示工程验证。
 const fs=require("node:fs"),path=require("node:path"),assert=require("node:assert/strict");
-(id,x)=>{
+const valid=(id,x)=>{
  const vec2=a=>Array.isArray(a)&&a.length===2&&a.every(Number.isFinite);
  const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
  switch(id){
@@ -17,7 +17,7 @@ const fs=require("node:fs"),path=require("node:path"),assert=require("node:asser
  default:return false;
  }
 }
-(g)=>{
+const gold=(g)=>{
  const d=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
  const sweep=(s,e,c,dir)=>{const a=Math.atan2(s[1]-c[1],s[0]-c[0]),b=Math.atan2(e[1]-c[1],e[0]-c[0]);let v=dir==="CCW"?b-a:a-b;while(v<=0)v+=Math.PI*2;return v*180/Math.PI};
  switch(g.kind){
