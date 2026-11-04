@@ -1,3 +1,6 @@
+## 2026-11-04｜B163 R-NC-PROGRAM-END-OPTIONAL-STOP-001
+[6份有界来源](sources/CAP-08-04-m30-lifecycle-b163.json) → [8规则32字段](traces/CAP-08-04-m30-lifecycle-b163-v08.json) → [48正反状态Golden](../docs/capabilities/CAP-08-04/m30-lifecycle-b163-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-08-04/M30-OPTIONAL-STOP-B163-2026-11-04.md)。LinuxCNC2.9 §2/§3/§6官方HTML正文、Haas M-code目录实读；Haas M30新版刀补NOTE仅官方搜索摘录，不能据此宣称实机认证。真实Node/Owner/消费者/L3均未通过。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B162 R-NC-TLO-MODAL-PROVENANCE-001
 [来源/作者/版本/章节/阅读深度](sources/CAP-08-02-tlo-stack-b162.json) → [8规则32字段及原E3-02/E3-03/U4-04](traces/CAP-08-02-tlo-stack-b162-v08.json) → [48正反状态Golden](../docs/capabilities/CAP-08-02/tlo-stack-b162-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-08-02/TLO-MODAL-STACK-B162-2026-11-04.md)。固定LinuxCNC2.9和Haas NGC特定版本，NISTIR6556仅官方检索元数据，未知控制器保持UNKNOWN；真实Node/NC/OEM/Owner/消费者/L3未通过。**规划PASS≠产品PASS。**
 

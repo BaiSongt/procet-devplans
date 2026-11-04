@@ -1,3 +1,5 @@
+> **B163暂停与程序终止研究（2026-11-04）**：[专项论证](M30-OPTIONAL-STOP-B163-2026-11-04.md) → [6来源](../../../research/sources/CAP-08-04-m30-lifecycle-b163.json) → [8规则32字段](../../../research/traces/CAP-08-04-m30-lifecycle-b163-v08.json) → [8正32反8Golden](m30-lifecycle-b163-fixtures-v08.json)。LinuxCNC2.9正文、Haas M码目录实读，Haas M30版本NOTE仅官网搜索摘录。真实控制器/Owner/消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 > **B127新增研究（2026-11-03）**：[Haas NGC 100.21.000.1100+刀长偏置/上电保持与LinuxCNC G43差异](NGC-TLO-PERSIST-B127-2026-11-03.md) → [7来源](../../../research/sources/CAP-08-04-ngc-tlo-b127.json) → [8规则/32字段](../../../research/traces/CAP-08-04-ngc-tlo-b127-v08.json) → [8正32反+8简化偏置Golden](ngc-tlo-b127-fixtures-v08.json)。**禁止把“M6绝不自动应用G43”当普适语义**；只在已核Haas NGC固件/配置下使用官方NOTE，真实Haas/LinuxCNC/D15及17Owner/消费者NOT_RUN。
 
 # CAP-08-04｜主轴换刀与辅助动作（V0.8原编号，L3待审）

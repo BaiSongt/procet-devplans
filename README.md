@@ -1,3 +1,6 @@
+## 2026-11-04｜B163 CAP-08-04 M0/M1暂停、M2/M30终止及版本化刀补模态
+[专项研究](docs/capabilities/CAP-08-04/M30-OPTIONAL-STOP-B163-2026-11-04.md) → [6来源](research/sources/CAP-08-04-m30-lifecycle-b163.json) → [8规则32字段](research/traces/CAP-08-04-m30-lifecycle-b163-v08.json) → [8正32反8状态Golden](docs/capabilities/CAP-08-04/m30-lifecycle-b163-fixtures-v08.json) → [Node只读工具](tools/check_cap0804_m30_lifecycle_b163_v08.cjs) → [核验等级](tracking/cap0804-m30-lifecycle-b163-verification-2026-11-04.json)。LinuxCNC2.9指定M-code公开正文、Haas官方M-code目录实读，Haas M30软件100.16.000.1041刀补NOTE仅**官方搜索摘录**、原页全文未读。V8合成48/48；独立Node、真实控制器、17Owner/消费者、L3、全仓AST与历史原字节未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B162 CAP-08-02 刀长补偿栈与控制器方言差异
 [专项论证](docs/capabilities/CAP-08-02/TLO-MODAL-STACK-B162-2026-11-04.md) → [7项分级来源](research/sources/CAP-08-02-tlo-stack-b162.json) → [8规则32字段](research/traces/CAP-08-02-tlo-stack-b162-v08.json) → [8正32反8状态Golden](docs/capabilities/CAP-08-02/tlo-stack-b162-fixtures-v08.json) → [只读Node](tools/check_cap0802_tlo_stack_b162_v08.cjs) → [核验等级](tracking/cap0802-tlo-stack-b162-verification-2026-11-04.json)。LinuxCNC2.9官方G43/G43.1替换/G43.2追加/G49取消/G53单块与H0换刀差异，Haas NGC 100.21.000.1100刀补行为不能跨方言通用；NIST6556仅检索元数据。V8同判据48/48，独立Node与实机/OEM/Owner消费者、L3/全仓GFM AST/历史原字节仍待核验。**规划PASS≠产品PASS。**
 
