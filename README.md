@@ -1,3 +1,6 @@
+## 2026-11-04｜B153 CAP-08-05 Haas G83 IJK递减啄钻及Setting角色资格
+[阅读/版本边界](docs/capabilities/CAP-08-05/HAAS-G83-SETTINGS-B153-2026-11-04.md) → [6来源](research/sources/CAP-08-05-haas-g83-b153.json) → [8规则32字段](research/traces/CAP-08-05-haas-g83-b153-v08.json) → [8正32反8Golden](docs/capabilities/CAP-08-05/haas-g83-b153-fixtures-v08.json) → [只读Node](tools/check_cap0805_haas_g83_b153_v08.cjs) → [验证等级](tracking/cap0805-haas-g83-b153-verification-2026-11-04.json)。Haas G83 IJK≠Q，P值继承；S52控制G83退让、S22官方仅G73、S57影响XY精停。V8合成48/48不代表真实OEM或D15；独立Node、17Owner/消费者、L3与全仓AST仍待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B152 CAP-08-03 圆弧R/IJK、平面与多圈方言的执行资格
 [实读与访问层级](docs/capabilities/CAP-08-03/ARC-MODAL-DIALECT-B152-2026-11-04.md) → [4项来源](research/sources/CAP-08-03-arc-dialect-b152.json) → [8规则/32字段](research/traces/CAP-08-03-arc-dialect-b152-v08.json) → [8正32反8Golden](docs/capabilities/CAP-08-03/arc-dialect-b152-fixtures-v08.json) → [Node规划检查](tools/check_cap0803_arc_dialect_b152_v08.cjs) → [执行等级](tracking/cap0803-arc-dialect-b152-verification-2026-11-04.json)。LinuxCNC 2.9的P多圈不得推断Haas/OEM，D13必须重读最终NC；真实解释器、Owner/消费者/L3/全仓AST仍NOT_RUN。**规划PASS≠产品PASS。**
 

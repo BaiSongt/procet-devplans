@@ -1,3 +1,6 @@
+## 2026-11-04｜B153 R-HAAS-G83-SETTING-001
+[Haas G83/Setting22/52/57与LinuxCNC2.9分级实读](sources/CAP-08-05-haas-g83-b153.json) → [8规则/32字段](traces/CAP-08-05-haas-g83-b153-v08.json) → [48合成](../docs/capabilities/CAP-08-05/haas-g83-b153-fixtures-v08.json) → [论证](../docs/capabilities/CAP-08-05/HAAS-G83-SETTINGS-B153-2026-11-04.md)。Haas在线官方HTML指定正文直接阅读，未取得目标机控制器/固件证据，不将0.254mm跨方言移植。L3及实际消费者均待验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B152 R-NC-ARC-DIALECT-001 圆弧方言、中心/半径格式的可机检资格
 [4个来源的版本/作者/访问深度](sources/CAP-08-03-arc-dialect-b152.json) → [8规则32字段](traces/CAP-08-03-arc-dialect-b152-v08.json) → [8正32单字段反8数学Golden](../docs/capabilities/CAP-08-03/arc-dialect-b152-fixtures-v08.json) → [规划论证](../docs/capabilities/CAP-08-03/ARC-MODAL-DIALECT-B152-2026-11-04.md)。LinuxCNC 2.9指定HTML实读；Haas仅搜索摘录且原文重定向错误，NISTIR6556仅官方出版摘要；内生CAS/GUI不冒称外部标准。**规划PASS≠产品PASS。**
 
