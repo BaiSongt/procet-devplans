@@ -1,3 +1,6 @@
+## 2026-11-04｜B158 R-D07-VOLUME-LEDGER-001
+[来源/阅读层级](sources/CAP-06-03-volume-ledger-b158.json) → [规则与原包](traces/CAP-06-03-volume-ledger-b158-v08.json) → [58合成](../docs/capabilities/CAP-06-03/volume-ledger-b158-fixtures-v08.json) → [报告](../docs/capabilities/CAP-06-03/VOLUME-LEDGER-B158-2026-11-04.md)。OCCT8.0.1公开API定点实读，NISTIR7796仅摘要；VolumeProperties不自动验证Solid闭合/保护区安全。真实Node/OCCT与Owner和消费者0/17、L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B157 R-CL-INTERVAL-CLEARANCE-001
 [6个分级来源](sources/CAP-09-05-interval-clearance-b157.json) → [8规则字段/原F1-02/E3-04/E3-05/U4-04](traces/CAP-09-05-interval-clearance-b157-v08.json) → [48个正反Golden](../docs/capabilities/CAP-09-05/interval-clearance-b157-fixtures-v08.json) → [正文/严格局限](../docs/capabilities/CAP-09-05/INTERVAL-CLEARANCE-B157-2026-11-04.md)。OCCT8.0.1公开指定API实读；Redon2003、Zhang2007仅论文/高校摘要；Guthrie2023仅公开HTML摘要与引言；ISO230-1:2012只读合法标准目录，未获得付费正文。连续CCD产品、实机NC与独立D15均NOT_RUN，L3待人类批准。**规划PASS≠产品PASS。**
 

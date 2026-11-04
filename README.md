@@ -1,3 +1,6 @@
+## 2026-11-04｜B158 CAP-06-03 D07体积账本与独立几何资格
+[专项研究](docs/capabilities/CAP-06-03/VOLUME-LEDGER-B158-2026-11-04.md) → [5分级来源](research/sources/CAP-06-03-volume-ledger-b158.json) → [10规则40字段](research/traces/CAP-06-03-volume-ledger-b158-v08.json) → [10正40负8Golden](docs/capabilities/CAP-06-03/volume-ledger-b158-fixtures-v08.json) → [只读Node入口](tools/check_cap0603_volume_ledger_b158_v08.cjs) → [核验等级](tracking/cap0603-volume-ledger-b158-verification-2026-11-04.json)。修复source-index顶层累计1957与真实263份登记合计1963不符，新增5后累计264 Registry/1968条；V8内存58/58，独立Node/OCCT/17 Owner和消费者/L3/全仓AST仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B157 CAP-09-05 CL相邻取样之间连续间隙下界专项
 [专项推导](docs/capabilities/CAP-09-05/INTERVAL-CLEARANCE-B157-2026-11-04.md) → [6来源](research/sources/CAP-09-05-interval-clearance-b157.json) → [8规则32字段](research/traces/CAP-09-05-interval-clearance-b157-v08.json) → [8正32独立反8数学Golden](docs/capabilities/CAP-09-05/interval-clearance-b157-fixtures-v08.json) → [Node规划入口](tools/check_cap0905_interval_clearance_b157_v08.cjs) → [核验等级](tracking/cap0905-interval-clearance-b157-verification-2026-11-04.json)。本轮CL_ONLY必要条件由OCCT单姿态距离和另证运动位移界保守合成；欠缺任一连续区间证据则UNKNOWN，不能冒充D13–D15最终NC工程验证。V8生成器同函数48/48，独立Node/真实OCCT、B5/OEM及17 Owner/消费者和L3/全仓AST仍未验。索引263 Registry、1963登记，非去重论文数。**规划PASS≠产品PASS。**
 

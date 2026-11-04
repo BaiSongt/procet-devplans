@@ -1,3 +1,5 @@
+> **B158补证（2026-11-04）**：[D07体积账本与独立几何资格](VOLUME-LEDGER-B158-2026-11-04.md) → [40字段/十规则](../../../research/traces/CAP-06-03-volume-ledger-b158-v08.json) → [58正反Golden](volume-ledger-b158-fixtures-v08.json)。体积守恒不是工程安全证明，L3、独立消费者/Owner待审。
+
 > **B87增量（2026-11-01）：** [OCCT Fuzzy附加容差、Glue前提与简化历史](BOOLEAN-FUZZY-B87-2026-11-01.md)：7项分级来源/8规则/32显式正反UNKNOWN，禁止无独立证据启用Glue、以fuzzy消灭薄壁和把简化前拓扑ID当稳定身份。仅合成规划，不授产品通过；Owner/真实消费者0/17，L3待审。
 
 # CAP-06-03｜局部 B-Rep 去料计算（V0.8 L3待审）
