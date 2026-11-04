@@ -1,3 +1,6 @@
+## 2026-11-04｜B165 CAP-02-02 周刃铣削切速/进给与转速限幅的显式采纳
+[专项研究](docs/capabilities/CAP-02-02/FEED-KINEMATICS-B165-2026-11-04.md) → [7份来源](research/sources/CAP-02-02-feed-kinematics-b165.json) → [8规则/32字段](research/traces/CAP-02-02-feed-kinematics-b165-v08.json) → [8正32单字段负/8数值Golden](docs/capabilities/CAP-02-02/feed-kinematics-b165-fixtures-v08.json) → [Node只读工具](tools/check_cap0202_feed_kinematics_b165_v08.cjs) → [执行等级](tracking/cap0202-feed-kinematics-b165-verification-2026-11-04.json)。Sandvik H79及Haas PDF第一页截图实读；ISO只读公开目录、NIST两份仅摘要。100m/min、D_eff10mm、fz0.05mm/齿、z4理论n≈3183.099、vf≈636.620；如用户显式采纳上限3000rpm，必须重算vf=600，不能静默限幅或将厂商公式当实机认证。V8内存48/48；独立Node、真实消费者/控制器、17 Owner、L3和全仓AST仍未验。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B164 CAP-08-06 多文件NC原子Bundle与强CAS
 [专题](docs/capabilities/CAP-08-06/BUNDLE-CAS-B164-2026-11-04.md) → [7来源](research/sources/CAP-08-06-bundle-cas-b164.json) → [8规则32字段](research/traces/CAP-08-06-bundle-cas-b164-v08.json) → [8正32反8 Golden](docs/capabilities/CAP-08-06/bundle-cas-b164-fixtures-v08.json) → [Node](tools/check_cap0806_bundle_cas_b164_v08.cjs) → [等级](tracking/cap0806-bundle-cas-b164-verification-2026-11-04.json)。跨文件撕裂快照不因单文件SHA正确而获批；RFC9110强CAS仅类比，真实D12原子持久化/消费者/NC/Owner均未验。**规划PASS≠产品PASS。**
 

@@ -1,3 +1,6 @@
+## 2026-11-04｜B165 R-CUTTING-KINEMATICS-FEED-001
+[7项分级来源](sources/CAP-02-02-feed-kinematics-b165.json) → [8规则32字段](traces/CAP-02-02-feed-kinematics-b165-v08.json) → [8正32单字段负/8独立数值Golden](../docs/capabilities/CAP-02-02/feed-kinematics-b165-fixtures-v08.json) → [专题及限制](../docs/capabilities/CAP-02-02/FEED-KINEMATICS-B165-2026-11-04.md)。厂商PDF指定首页实读，ISO3002-1仅公开目录、NIST论文仅公开摘要；不把进给公式误认为已验可加工条件、D07材料去料或D15最终NC安全。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B164 R-NC-ATOMIC-BUNDLE-CAS-001
 [7分级来源](sources/CAP-08-06-bundle-cas-b164.json) → [8规则](traces/CAP-08-06-bundle-cas-b164-v08.json) → [48合成设计](../docs/capabilities/CAP-08-06/bundle-cas-b164-fixtures-v08.json) → [报告](../docs/capabilities/CAP-08-06/BUNDLE-CAS-B164-2026-11-04.md)。RFC9110 §13、RFC3629 §6、LinuxCNC2.9及Git/W3C公开定点正文均标明适用界限。真实D12事务、Node完整运行、17Owner/消费者及L3仍待核。**规划PASS≠产品PASS。**
 
