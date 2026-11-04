@@ -1,3 +1,5 @@
+> **B156研究增量**：[弦高/Post/G64容差分层](CHORD-BUDGET-B156-2026-11-04.md) · [6来源](../../../research/sources/CAP-07-07-chord-budget-b156.json) · [8规则](../../../research/traces/CAP-07-07-chord-budget-b156-v08.json) · [48合成](chord-budget-b156-fixtures-v08.json)。L3/Owner/消费者及真实产品待验。**规划PASS≠产品PASS**。
+
 # CAP-07-07｜中立CL轨迹契约（V0.8，L3待审）
 
 **B44专项研究**：[中立CL刀轴与后处理机床角隔离](CL-POST-SEMANTICS-B44-2026-10-30.md)。六来源八规则及合成正反未知；原十任务未改，L3/Owner/真实消费者待审。

@@ -1,3 +1,6 @@
+## 2026-11-04｜B156 R-CL-CHORD-TRAJECTORY-001
+[6来源/真实阅读深度](sources/CAP-07-07-chord-budget-b156.json) → [8规则/字段与原包](traces/CAP-07-07-chord-budget-b156-v08.json) → [48合成](../docs/capabilities/CAP-07-07/chord-budget-b156-fixtures-v08.json) → [专项论证](../docs/capabilities/CAP-07-07/CHORD-BUDGET-B156-2026-11-04.md)。OCCT8.0.1指定API、LinuxCNC2.9 G64正文实读；Autodesk仅方法签名，Jin等2015仅公开摘要。真实Post/NC/OEM与独立消费者NOT_RUN，L3待审。**规划PASS≠产品PASS。**
+
 ## 2026-11-04｜B155 R-MACHINE-DUAL-BRANCH-FK-001 D03机床刚体树/双分支Frame与回零
 [6有界来源](sources/CAP-02-01-dual-branch-fk-b155.json) → [8规则与字段/原编号工作包](traces/CAP-02-01-dual-branch-fk-b155-v08.json) → [40独立正反+8数学Golden](../docs/capabilities/CAP-02-01/dual-branch-fk-b155-fixtures-v08.json) → [专项分析/真实阅读边界](../docs/capabilities/CAP-02-01/DUAL-BRANCH-FK-B155-2026-11-04.md)。LinuxCNC 2.9官方章节、OCCT8.0.1 API与Modern Robotics网页简介实读，ISO841仅官方目录；所有数学Golden为虚构SE(2)必要行为合成，不证明三维B5/OEM、独立消费者或D15，L3待审。规划PASS≠产品PASS。
 
