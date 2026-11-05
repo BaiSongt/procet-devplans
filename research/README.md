@@ -1,3 +1,6 @@
+## 2026-11-05｜B179 CAP-04-08装夹变化「无影响」阴性见证
+[来源](sources/CAP-04-08-impact-witness-b179.json) → [规则与32字段](traces/CAP-04-08-impact-witness-b179-v08.json) → [48合成](../docs/capabilities/CAP-04-08/impact-witness-b179-fixtures-v08.json) → [研究](../docs/capabilities/CAP-04-08/IMPACT-WITNESS-B179-2026-11-05.md)。W3C/RFC/OCCT官网定点正文、NIST仅官方摘要、两份原仓固定Blob；无影响结论需要真实消费者独立证据。Owner、Node真实文件、NC、L3仍未验。规划PASS≠产品PASS。
+
 ## 2026-11-05｜B178 U盘介质隔离、扫描证据与发布资格
 [来源](sources/CAP-10-03-usb-quarantine-b178.json) → [规则](traces/CAP-10-03-usb-quarantine-b178-v08.json) → [48合成](../docs/capabilities/CAP-10-03/usb-quarantine-b178-fixtures-v08.json) → [专题](../docs/capabilities/CAP-10-03/USB-QUARANTINE-B178-2026-11-05.md)。CSA官方全文指定段落、NIST800-171目录和搜索摘录（直接正文未加载）、RFC8785正文、NIST800-88仅摘要。Owner/独立D17/真实USB/NC/L3仍NOT_RUN。
 

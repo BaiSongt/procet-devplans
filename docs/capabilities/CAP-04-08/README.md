@@ -1,3 +1,5 @@
+> **B179（2026-11-05）装夹变更的阴性见证补证**：[研究](IMPACT-WITNESS-B179-2026-11-05.md) → [7项分层来源](../../../research/sources/CAP-04-08-impact-witness-b179.json) → [8规则32字段](../../../research/traces/CAP-04-08-impact-witness-b179-v08.json) → [8正32单字段反8图Golden](impact-witness-b179-fixtures-v08.json)。依赖图没有路径不能单独证明未影响；真实跨域Owner/消费者、L3、NC未验。规划PASS≠产品PASS。
+
 # CAP-04-08｜装夹影响检查（V0.8详细实施规划）
 **基线定位：04域第08项，原业务定义为“调整引发的规划/求解/刀路失效分析”。规划编制2026-10-20。L1/L2不变，L3待人工评审；规划PASS≠产品PASS。**
 导航：[五任务界面](UI.md) · [7个合法来源](../../../research/sources/CAP-04-08.json) · [10条规则追踪](../../../research/traces/CAP-04-08.json) · [20项正反验收](fixtures.json) · [影响矩阵](impact-matrix.json) · [研究边界](../../../research/topics/R-FIMP-001.md)。
