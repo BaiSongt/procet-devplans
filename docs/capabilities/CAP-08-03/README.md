@@ -1,3 +1,5 @@
+> **B177 G61/G61.1/G64路径规划容差（2026-11-05）**：[专项](PATH-BLENDING-B177-2026-11-05.md) → [来源](../../../research/sources/CAP-08-03-path-blending-b177.json) → [规则](../../../research/traces/CAP-08-03-path-blending-b177-v08.json) → [50合成](path-blending-b177-fixtures-v08.json)；真实D14/D15、Owner/消费者未验。规划PASS≠产品PASS。
+
 > **B152圆弧方言专项补证（2026-11-04）**：[G17/G18/G19、G90.1/G91.1与R/IJK多圈资格](ARC-MODAL-DIALECT-B152-2026-11-04.md) → [4来源](../../../research/sources/CAP-08-03-arc-dialect-b152.json) → [8规则32字段](../../../research/traces/CAP-08-03-arc-dialect-b152-v08.json) → [48项合成](arc-dialect-b152-fixtures-v08.json)。具体LinuxCNC 2.9，不将P多圈扩展为任意OEM。规划PASS≠产品PASS。
 
 > **B128专项补证（2026-11-03）：** [G10 L2/L20方言、G52/G92残留和D10真实寄存器](WCS-OFFSET-DIALECT-B128-2026-11-03.md) → [7条合法分级来源](../../../research/sources/CAP-08-03-wcs-offset-b128.json) → [8规则字段/原包](../../../research/traces/CAP-08-03-wcs-offset-b128-v08.json) → [40正反+8一维Golden](wcs-offset-b128-fixtures-v08.json)。L3、真实OEM/Owner/消费者仍未验，规划PASS≠产品PASS。

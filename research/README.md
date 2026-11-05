@@ -1,3 +1,6 @@
+## 2026-11-05｜B177 G61/G64轨迹控制
+[来源](sources/CAP-08-03-path-blending-b177.json) → [规则](traces/CAP-08-03-path-blending-b177-v08.json) → [50合成](../docs/capabilities/CAP-08-03/path-blending-b177-fixtures-v08.json) → [专题](../docs/capabilities/CAP-08-03/PATH-BLENDING-B177-2026-11-05.md)。NIST仅元数据；独立消费者/控制器/L3未验，规划PASS≠产品PASS。
+
 ## 2026-11-05｜B176 知识撤销及反向依赖
 [来源](sources/CAP-11-07-revocation-fanout-b176.json) → [规则](traces/CAP-11-07-revocation-fanout-b176-v08.json) → [Fixture](../docs/capabilities/CAP-11-07/revocation-fanout-b176-fixtures-v08.json) → [报告](../docs/capabilities/CAP-11-07/REVOCATION-FANOUT-B176-2026-11-05.md)。6来源、8规则、32字段、8正32反8图Golden仅规划合成；Owner、产品/L3/历史原字节/全仓AST待验。
 
