@@ -1,3 +1,6 @@
+## 2026-11-05｜B176 知识撤销及反向依赖
+[来源](sources/CAP-11-07-revocation-fanout-b176.json) → [规则](traces/CAP-11-07-revocation-fanout-b176-v08.json) → [Fixture](../docs/capabilities/CAP-11-07/revocation-fanout-b176-fixtures-v08.json) → [报告](../docs/capabilities/CAP-11-07/REVOCATION-FANOUT-B176-2026-11-05.md)。6来源、8规则、32字段、8正32反8图Golden仅规划合成；Owner、产品/L3/历史原字节/全仓AST待验。
+
 ## 2026-11-05｜B175 R-TOOL-GAUGE-STACK-001
 [9条有界来源](sources/CAP-02-03-gauge-stack-b175.json) → [10规则/40字段](traces/CAP-02-03-gauge-stack-b175-v08.json) → [58合成](../docs/capabilities/CAP-02-03/gauge-stack-b175-fixtures-v08.json) → [专项](../docs/capabilities/CAP-02-03/GAUGE-STACK-B175-2026-11-05.md)。Haas/LinuxCNC/NIST指定段落实读；ISO只读合法目录。独立Node、实际机床/消费者、L3和全仓AST未验。**规划PASS≠产品PASS。**
 

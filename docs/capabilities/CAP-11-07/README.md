@@ -1,3 +1,5 @@
+> **B176撤销/依赖闭包（2026-11-05）**：[研究](REVOCATION-FANOUT-B176-2026-11-05.md) → [6来源](../../../research/sources/CAP-11-07-revocation-fanout-b176.json) → [8规则](../../../research/traces/CAP-11-07-revocation-fanout-b176-v08.json) → [48合成](revocation-fanout-b176-fixtures-v08.json)。旧知识原字节与D08冻结保护，Owner和消费者未实测。
+
 > **B68专项补证（2026-10-31）**：[不可信RAG文本→知识Revision晋级的来源Hash/Chunk/Scope、人工批准与CAS规则](POISON-PROMOTION-B68-2026-10-31.md)；[7来源](../../../research/sources/CAP-11-07-poison-gate-b68.json) → [8规则及49合成](../../../research/traces/CAP-11-07-poison-gate-b68-v08.json)。只读规划验证，Owner/L3/真实消费者未通过。
 
 # CAP-11-07｜知识反馈与版本管理（V0.8实施级，L3待审）

@@ -1,0 +1,514 @@
+{
+  "schemaVersion": "procet-b176-fixtures-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-05",
+  "syntheticOnly": true,
+  "baseline": {
+    "knowledge": {
+      "id": "K-001",
+      "revision": "krev-9",
+      "sourceSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "scopeEpoch": 7
+    },
+    "revoke": {
+      "eventId": "ev-11",
+      "reason": "EVIDENCE_WITHDRAWN",
+      "authorized": true,
+      "actor": "reviewer-1"
+    },
+    "provenance": {
+      "relation": "prov:wasInvalidatedBy",
+      "activityId": "REV-ACT",
+      "invalidatedAt": "2026-11-05T00:00:00Z",
+      "preservesHistory": true
+    },
+    "graph": {
+      "closureComplete": true,
+      "noCycle": true,
+      "noCrossScope": true,
+      "budgetWithin": true
+    },
+    "reader": {
+      "currentEpoch": 8,
+      "minEpoch": 8,
+      "gapFree": true,
+      "unknownBlocked": true
+    },
+    "commit": {
+      "expectedHead": "krev-9",
+      "aclRechecked": true,
+      "cancelFence": true,
+      "lateAckIgnored": true
+    },
+    "ui": {
+      "sameOwnerPort": true,
+      "singleWorld": true,
+      "leftTaskPanel": true,
+      "noRightDrawer": true
+    },
+    "consumers": {
+      "d05NewRevisionOnly": true,
+      "d08FrozenUntouched": true,
+      "d15NcIndependent": true,
+      "d16NoAutoGrant": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B176-R01-P",
+      "ruleId": "B176-R01",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R01-N1",
+      "ruleId": "B176-R01",
+      "kind": "single_field_negative",
+      "changedField": "knowledge.id",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B176-R01-N2",
+      "ruleId": "B176-R01",
+      "kind": "single_field_negative",
+      "changedField": "knowledge.revision",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B176-R01-N3",
+      "ruleId": "B176-R01",
+      "kind": "single_field_negative",
+      "changedField": "knowledge.sourceSha",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B176-R01-N4",
+      "ruleId": "B176-R01",
+      "kind": "single_field_negative",
+      "changedField": "knowledge.scopeEpoch",
+      "patchValue": -1,
+      "expected": false
+    },
+    {
+      "id": "B176-R02-P",
+      "ruleId": "B176-R02",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R02-N1",
+      "ruleId": "B176-R02",
+      "kind": "single_field_negative",
+      "changedField": "revoke.eventId",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B176-R02-N2",
+      "ruleId": "B176-R02",
+      "kind": "single_field_negative",
+      "changedField": "revoke.reason",
+      "patchValue": "UNKNOWN",
+      "expected": false
+    },
+    {
+      "id": "B176-R02-N3",
+      "ruleId": "B176-R02",
+      "kind": "single_field_negative",
+      "changedField": "revoke.authorized",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R02-N4",
+      "ruleId": "B176-R02",
+      "kind": "single_field_negative",
+      "changedField": "revoke.actor",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B176-R03-P",
+      "ruleId": "B176-R03",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R03-N1",
+      "ruleId": "B176-R03",
+      "kind": "single_field_negative",
+      "changedField": "provenance.relation",
+      "patchValue": "prov:wasGeneratedBy",
+      "expected": false
+    },
+    {
+      "id": "B176-R03-N2",
+      "ruleId": "B176-R03",
+      "kind": "single_field_negative",
+      "changedField": "provenance.activityId",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B176-R03-N3",
+      "ruleId": "B176-R03",
+      "kind": "single_field_negative",
+      "changedField": "provenance.invalidatedAt",
+      "patchValue": "not-a-time",
+      "expected": false
+    },
+    {
+      "id": "B176-R03-N4",
+      "ruleId": "B176-R03",
+      "kind": "single_field_negative",
+      "changedField": "provenance.preservesHistory",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R04-P",
+      "ruleId": "B176-R04",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R04-N1",
+      "ruleId": "B176-R04",
+      "kind": "single_field_negative",
+      "changedField": "graph.closureComplete",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R04-N2",
+      "ruleId": "B176-R04",
+      "kind": "single_field_negative",
+      "changedField": "graph.noCycle",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R04-N3",
+      "ruleId": "B176-R04",
+      "kind": "single_field_negative",
+      "changedField": "graph.noCrossScope",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R04-N4",
+      "ruleId": "B176-R04",
+      "kind": "single_field_negative",
+      "changedField": "graph.budgetWithin",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R05-P",
+      "ruleId": "B176-R05",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R05-N1",
+      "ruleId": "B176-R05",
+      "kind": "single_field_negative",
+      "changedField": "reader.currentEpoch",
+      "patchValue": -1,
+      "expected": false
+    },
+    {
+      "id": "B176-R05-N2",
+      "ruleId": "B176-R05",
+      "kind": "single_field_negative",
+      "changedField": "reader.minEpoch",
+      "patchValue": 9,
+      "expected": false
+    },
+    {
+      "id": "B176-R05-N3",
+      "ruleId": "B176-R05",
+      "kind": "single_field_negative",
+      "changedField": "reader.gapFree",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R05-N4",
+      "ruleId": "B176-R05",
+      "kind": "single_field_negative",
+      "changedField": "reader.unknownBlocked",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R06-P",
+      "ruleId": "B176-R06",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R06-N1",
+      "ruleId": "B176-R06",
+      "kind": "single_field_negative",
+      "changedField": "commit.expectedHead",
+      "patchValue": "krev-stale",
+      "expected": false
+    },
+    {
+      "id": "B176-R06-N2",
+      "ruleId": "B176-R06",
+      "kind": "single_field_negative",
+      "changedField": "commit.aclRechecked",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R06-N3",
+      "ruleId": "B176-R06",
+      "kind": "single_field_negative",
+      "changedField": "commit.cancelFence",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R06-N4",
+      "ruleId": "B176-R06",
+      "kind": "single_field_negative",
+      "changedField": "commit.lateAckIgnored",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R07-P",
+      "ruleId": "B176-R07",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R07-N1",
+      "ruleId": "B176-R07",
+      "kind": "single_field_negative",
+      "changedField": "ui.sameOwnerPort",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R07-N2",
+      "ruleId": "B176-R07",
+      "kind": "single_field_negative",
+      "changedField": "ui.singleWorld",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R07-N3",
+      "ruleId": "B176-R07",
+      "kind": "single_field_negative",
+      "changedField": "ui.leftTaskPanel",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R07-N4",
+      "ruleId": "B176-R07",
+      "kind": "single_field_negative",
+      "changedField": "ui.noRightDrawer",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R08-P",
+      "ruleId": "B176-R08",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B176-R08-N1",
+      "ruleId": "B176-R08",
+      "kind": "single_field_negative",
+      "changedField": "consumers.d05NewRevisionOnly",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R08-N2",
+      "ruleId": "B176-R08",
+      "kind": "single_field_negative",
+      "changedField": "consumers.d08FrozenUntouched",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R08-N3",
+      "ruleId": "B176-R08",
+      "kind": "single_field_negative",
+      "changedField": "consumers.d15NcIndependent",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B176-R08-N4",
+      "ruleId": "B176-R08",
+      "kind": "single_field_negative",
+      "changedField": "consumers.d16NoAutoGrant",
+      "patchValue": false,
+      "expected": false
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B176-G01",
+      "root": "A",
+      "nodes": {
+        "A": "p1",
+        "B": "p1",
+        "C": "p1",
+        "X": "p1"
+      },
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "budget": 8,
+      "expected": "IMPACT:B,C"
+    },
+    {
+      "id": "B176-G02",
+      "root": "A",
+      "nodes": {
+        "A": "p1",
+        "B": "p1",
+        "X": "p1"
+      },
+      "edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "budget": 8,
+      "expected": "IMPACT:B"
+    },
+    {
+      "id": "B176-G03",
+      "root": "A",
+      "nodes": {
+        "A": "p1",
+        "B": "p1"
+      },
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "A"
+        ]
+      ],
+      "budget": 8,
+      "expected": "UNKNOWN_CYCLE"
+    },
+    {
+      "id": "B176-G04",
+      "root": "A",
+      "nodes": {
+        "A": "p1"
+      },
+      "edges": [
+        [
+          "A",
+          "MISSING"
+        ]
+      ],
+      "budget": 8,
+      "expected": "UNKNOWN_GAP"
+    },
+    {
+      "id": "B176-G05",
+      "root": "A",
+      "nodes": {
+        "A": "p1",
+        "B": "p1",
+        "C": "p1"
+      },
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "budget": 2,
+      "expected": "UNKNOWN_BUDGET"
+    },
+    {
+      "id": "B176-G06",
+      "root": "A",
+      "nodes": {
+        "A": "p1",
+        "B": "p2"
+      },
+      "edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "budget": 8,
+      "expected": "UNKNOWN_SCOPE"
+    },
+    {
+      "id": "B176-G07",
+      "root": "A",
+      "nodes": {
+        "A": "p1",
+        "B": "p1"
+      },
+      "edges": [],
+      "budget": 8,
+      "expected": "IMPACT:NONE"
+    },
+    {
+      "id": "B176-G08",
+      "root": "A",
+      "nodes": {
+        "A": "p1",
+        "B": "p1"
+      },
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "budget": 8,
+      "expected": "IMPACT:B"
+    }
+  ]
+}
