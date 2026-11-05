@@ -26,7 +26,7 @@ assert.equal(src.records.length,7);assert.equal(new Set(src.records.map(x=>x.id)
 assert.equal(trace.rules.length,8);assert.equal(Object.keys(trace.fieldDefinitions).length,32);
 assert.equal(fixture.cases.length,40);assert.equal(fixture.goldens.length,8);
 const sourceIds=new Set(src.records.map(s=>s.id));const allFields=trace.rules.flatMap(r=>r.fields);
-assert.equal(new Set(allFields).size,32);const ids=new Set();let passed=0;
+assert.equal(new Set(allFields).size,32);assert.deepEqual([...new Set(trace.rules.flatMap(r=>r.sourceIds))].sort(),src.records.map(s=>s.id).sort(),'所有登记来源须具备规则追踪');const ids=new Set();let passed=0;
 for(const r of trace.rules){assert.equal(r.fields.length,4);assert.equal(r.testIds.length,5);assert.deepEqual(r.originalWorkPackages,["F1-02","F1-04","W2-05","E3-04","U4-02"]);for(const s of r.sourceIds)assert.ok(sourceIds.has(s));}
 for(const c of fixture.cases){
  assert.ok(!ids.has(c.id));ids.add(c.id);
