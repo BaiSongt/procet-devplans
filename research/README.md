@@ -1,3 +1,6 @@
+## 2026-11-05｜B182 球刀理想残高/实际Ra-Rz独立证据
+[8分级来源](sources/CAP-07-05-scallop-quality-b182.json) → [8规则/32字段](traces/CAP-07-05-scallop-quality-b182-v08.json) → [50结构/数学正反](../docs/capabilities/CAP-07-05/scallop-quality-b182-fixtures-v08.json) → [理论及交接](../docs/capabilities/CAP-07-05/SCALLOP-QUALITY-B182-2026-11-05.md)。ISO仅目录、NIST仅摘要；真实测量、NC、Owner和L3未验，规划PASS≠产品PASS。
+
 ## 2026-11-05｜B181 M48–M53倍率/停机回执
 [来源9条](sources/CAP-09-06-feed-override-b181.json) → [规则32字段](traces/CAP-09-06-feed-override-b181-v08.json) → [54合成](../docs/capabilities/CAP-09-06/feed-override-b181-fixtures-v08.json) → [研究](../docs/capabilities/CAP-09-06/FEED-OVERRIDE-B181-2026-11-05.md)。NIST仅元数据/摘要；独立NC/Owner/L3未验。规划PASS≠产品PASS。
 

@@ -1,0 +1,483 @@
+{
+  "schemaVersion": "procet-b182-fixtures-v08",
+  "date": "2026-11-05",
+  "origin": "NEWLY_AUTHORED_SYNTHETIC_NOT_PRODUCT",
+  "syntheticOnly": true,
+  "baseline": {
+    "identity": {
+      "d01Hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d03Hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "d04Hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "d07Hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    "geometry": {
+      "radiusMm": 5,
+      "stepoverMm": 2,
+      "unit": "mm",
+      "model": "PLANAR_NORMAL_BALL"
+    },
+    "assumptions": {
+      "normalAxis": true,
+      "noRunoutAssumed": true,
+      "noDeflectionAssumed": true,
+      "unsupportedSurfaceUnknown": true
+    },
+    "tolerance": {
+      "cutMm": 0.02,
+      "triangulationMm": 0.01,
+      "smoothingMm": 0.005,
+      "totalNotRa": true
+    },
+    "quality": {
+      "cuspNotRa": true,
+      "roughnessIndependent": true,
+      "isoCatalogOnly": true,
+      "nistAbstractOnly": true
+    },
+    "chain": {
+      "neutralCl": true,
+      "postToNc": true,
+      "finalNcReparsed": true,
+      "axisAndD15Separate": true
+    },
+    "ui": {
+      "oneOwnerPort": true,
+      "singleBabylonWorld": true,
+      "leftTaskPanel": true,
+      "previewNoCommit": true
+    },
+    "gate": {
+      "d04D10Separate": true,
+      "aclCasRecheck": true,
+      "cancelLateAckIgnored": true,
+      "unknownBlocksD16": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B182-R01-P",
+      "ruleId": "B182-R01",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R01-N1",
+      "ruleId": "B182-R01",
+      "mutation": {
+        "field": "identity.d01Hash",
+        "value": "sha256:invalid"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R01-N2",
+      "ruleId": "B182-R01",
+      "mutation": {
+        "field": "identity.d03Hash",
+        "value": "sha256:invalid"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R01-N3",
+      "ruleId": "B182-R01",
+      "mutation": {
+        "field": "identity.d04Hash",
+        "value": "sha256:invalid"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R01-N4",
+      "ruleId": "B182-R01",
+      "mutation": {
+        "field": "identity.d07Hash",
+        "value": "sha256:invalid"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R02-P",
+      "ruleId": "B182-R02",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R02-N1",
+      "ruleId": "B182-R02",
+      "mutation": {
+        "field": "geometry.radiusMm",
+        "value": 0
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R02-N2",
+      "ruleId": "B182-R02",
+      "mutation": {
+        "field": "geometry.stepoverMm",
+        "value": -1
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R02-N3",
+      "ruleId": "B182-R02",
+      "mutation": {
+        "field": "geometry.unit",
+        "value": "wrong-profile"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R02-N4",
+      "ruleId": "B182-R02",
+      "mutation": {
+        "field": "geometry.model",
+        "value": "wrong-profile"
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R03-P",
+      "ruleId": "B182-R03",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R03-N1",
+      "ruleId": "B182-R03",
+      "mutation": {
+        "field": "assumptions.normalAxis",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R03-N2",
+      "ruleId": "B182-R03",
+      "mutation": {
+        "field": "assumptions.noRunoutAssumed",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R03-N3",
+      "ruleId": "B182-R03",
+      "mutation": {
+        "field": "assumptions.noDeflectionAssumed",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R03-N4",
+      "ruleId": "B182-R03",
+      "mutation": {
+        "field": "assumptions.unsupportedSurfaceUnknown",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R04-P",
+      "ruleId": "B182-R04",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R04-N1",
+      "ruleId": "B182-R04",
+      "mutation": {
+        "field": "tolerance.cutMm",
+        "value": -1
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R04-N2",
+      "ruleId": "B182-R04",
+      "mutation": {
+        "field": "tolerance.triangulationMm",
+        "value": -1
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R04-N3",
+      "ruleId": "B182-R04",
+      "mutation": {
+        "field": "tolerance.smoothingMm",
+        "value": -1
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R04-N4",
+      "ruleId": "B182-R04",
+      "mutation": {
+        "field": "tolerance.totalNotRa",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R05-P",
+      "ruleId": "B182-R05",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R05-N1",
+      "ruleId": "B182-R05",
+      "mutation": {
+        "field": "quality.cuspNotRa",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R05-N2",
+      "ruleId": "B182-R05",
+      "mutation": {
+        "field": "quality.roughnessIndependent",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R05-N3",
+      "ruleId": "B182-R05",
+      "mutation": {
+        "field": "quality.isoCatalogOnly",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R05-N4",
+      "ruleId": "B182-R05",
+      "mutation": {
+        "field": "quality.nistAbstractOnly",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R06-P",
+      "ruleId": "B182-R06",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R06-N1",
+      "ruleId": "B182-R06",
+      "mutation": {
+        "field": "chain.neutralCl",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R06-N2",
+      "ruleId": "B182-R06",
+      "mutation": {
+        "field": "chain.postToNc",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R06-N3",
+      "ruleId": "B182-R06",
+      "mutation": {
+        "field": "chain.finalNcReparsed",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R06-N4",
+      "ruleId": "B182-R06",
+      "mutation": {
+        "field": "chain.axisAndD15Separate",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R07-P",
+      "ruleId": "B182-R07",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R07-N1",
+      "ruleId": "B182-R07",
+      "mutation": {
+        "field": "ui.oneOwnerPort",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R07-N2",
+      "ruleId": "B182-R07",
+      "mutation": {
+        "field": "ui.singleBabylonWorld",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R07-N3",
+      "ruleId": "B182-R07",
+      "mutation": {
+        "field": "ui.leftTaskPanel",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R07-N4",
+      "ruleId": "B182-R07",
+      "mutation": {
+        "field": "ui.previewNoCommit",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R08-P",
+      "ruleId": "B182-R08",
+      "mutation": null,
+      "expect": "PASS"
+    },
+    {
+      "id": "B182-R08-N1",
+      "ruleId": "B182-R08",
+      "mutation": {
+        "field": "gate.d04D10Separate",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R08-N2",
+      "ruleId": "B182-R08",
+      "mutation": {
+        "field": "gate.aclCasRecheck",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R08-N3",
+      "ruleId": "B182-R08",
+      "mutation": {
+        "field": "gate.cancelLateAckIgnored",
+        "value": false
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B182-R08-N4",
+      "ruleId": "B182-R08",
+      "mutation": {
+        "field": "gate.unknownBlocksD16",
+        "value": false
+      },
+      "expect": "REJECT"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B182-G01",
+      "op": "forward",
+      "r": 5,
+      "s": 2,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "OK",
+      "expected": 0.10102051443364424
+    },
+    {
+      "id": "B182-G02",
+      "op": "forward",
+      "r": 5,
+      "s": 0,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "OK",
+      "expected": 0
+    },
+    {
+      "id": "B182-G03",
+      "op": "forward",
+      "r": 5,
+      "s": 10,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "OK",
+      "expected": 5
+    },
+    {
+      "id": "B182-G04",
+      "op": "forward",
+      "r": 5,
+      "s": 10.01,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "INVALID_STEP_DOMAIN"
+    },
+    {
+      "id": "B182-G05",
+      "op": "forward",
+      "r": 0,
+      "s": 2,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "INVALID_RADIUS"
+    },
+    {
+      "id": "B182-G06",
+      "op": "inverse",
+      "r": 5,
+      "h": 0.1,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "OK",
+      "expected": 1.98997487421324
+    },
+    {
+      "id": "B182-G07",
+      "op": "inverse",
+      "r": 5,
+      "h": 5.01,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "INVALID_HEIGHT_DOMAIN"
+    },
+    {
+      "id": "B182-G08",
+      "op": "forward",
+      "r": 5,
+      "s": 2,
+      "model": "TILTED_BALL_COMPLEX_SURFACE",
+      "expect": "UNKNOWN_MODEL"
+    },
+    {
+      "id": "B182-G09",
+      "op": "monotonic",
+      "r": 5,
+      "s1": 1,
+      "s2": 2,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "OK",
+      "expected": true
+    },
+    {
+      "id": "B182-G10",
+      "op": "inverse",
+      "r": 5,
+      "h": 0,
+      "model": "PLANAR_NORMAL_BALL",
+      "expect": "OK",
+      "expected": 0
+    }
+  ]
+}

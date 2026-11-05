@@ -1,3 +1,5 @@
+> **B182新增研究（2026-11-05）**：[理论球刀残高与Ra/Rz独立证据](SCALLOP-QUALITY-B182-2026-11-05.md) → [8来源](../../../research/sources/CAP-07-05-scallop-quality-b182.json) → [8规则32字段](../../../research/traces/CAP-07-05-scallop-quality-b182-v08.json) → [8正32字段反与10 Golden](scallop-quality-b182-fixtures-v08.json)。不把数学残高当真实表面质量或NC安全，L3与Owner/消费者待审，**规划PASS≠产品PASS**。
+
 # CAP-07-05｜粗半精精策略族（V0.8，L3待审）
 **原88项编号及业务原文**：粗半精精策略族｜层切、余量、加工阶段与质量要求。关联原工作包 **F1-03 / E3-01 / U4-04**。保持11域、88 CAP、36包、17资产的L1/L2不变；此处是详细规划，不是产品实现或批准。
 
