@@ -37,3 +37,6 @@ D09中立CL候选段类型`APPROACH/LEAD_IN/CUT/LINK_STAY_DOWN/LINK_RETRACT/LEAD
 
 ## B118｜G00快速轨迹与D13-D15证据分离（2026-11-02）
 [专项研究](RAPID-PATH-B118-2026-11-02.md) → [8来源](../../../research/sources/CAP-07-06-rapid-b118.json) → [8规则](../../../research/traces/CAP-07-06-rapid-b118-v08.json) → [40合成/3解析](rapid-b118-fixtures-v08.json) → [只读校验器](../../../tools/check_cap0706_rapid_b118_v08.cjs)。不把CL端点/动画当实际NC安全验证；Owner与消费者0/17，L3待审。规划PASS≠产品PASS。
+
+## B180｜G28/G30/G53退刀语义研究补证（2026-11-05）
+[专题](REFERENCE-RETURN-B180-2026-11-05.md) → [来源](../../../research/sources/CAP-07-06-reference-return-b180.json) → [规则](../../../research/traces/CAP-07-06-reference-return-b180-v08.json) → [50合成](reference-return-b180-fixtures-v08.json) → [原E3-03](../../work-packages/E3-03/REFERENCE-RETURN-B180-2026-11-05.md)。机器回零点不代表安全退刀，D13最终NC解释/真实D14-D15未验；规划PASS≠产品PASS。

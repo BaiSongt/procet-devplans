@@ -1,3 +1,6 @@
+## 2026-11-05｜B180 G28/G30/G53归零及非模态执行语义
+[8项分级来源](sources/CAP-07-06-reference-return-b180.json) → [8规则32字段](traces/CAP-07-06-reference-return-b180-v08.json) → [50合成](../docs/capabilities/CAP-07-06/reference-return-b180-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-07-06/REFERENCE-RETURN-B180-2026-11-05.md)。LinuxCNC2.9官方章节和Haas G28/Setting108正文，Haas G53仅搜索摘录、NIST仅摘要；真实NC/Owner/消费者/L3未验，规划PASS≠产品PASS。
+
 ## 2026-11-05｜B179 CAP-04-08装夹变化「无影响」阴性见证
 [来源](sources/CAP-04-08-impact-witness-b179.json) → [规则与32字段](traces/CAP-04-08-impact-witness-b179-v08.json) → [48合成](../docs/capabilities/CAP-04-08/impact-witness-b179-fixtures-v08.json) → [研究](../docs/capabilities/CAP-04-08/IMPACT-WITNESS-B179-2026-11-05.md)。W3C/RFC/OCCT官网定点正文、NIST仅官方摘要、两份原仓固定Blob；无影响结论需要真实消费者独立证据。Owner、Node真实文件、NC、L3仍未验。规划PASS≠产品PASS。
 
