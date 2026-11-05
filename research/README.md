@@ -1,3 +1,6 @@
+## 2026-11-05｜B183 G93/G94/G95逆时间、主轴每转进给与Haas特定Profile
+[7分级来源](sources/CAP-08-03-inverse-feed-b183.json) → [8规则32字段](traces/CAP-08-03-inverse-feed-b183-v08.json) → [50合成](../docs/capabilities/CAP-08-03/inverse-feed-b183-fixtures-v08.json) → [专题研究](../docs/capabilities/CAP-08-03/INVERSE-FEED-B183-2026-11-05.md)。Haas PDF仅提取文本且截图失败，NIST仅元数据；真实NC/Owner/消费者/L3待验。规划PASS≠产品PASS。
+
 ## 2026-11-05｜B182 球刀理想残高/实际Ra-Rz独立证据
 [8分级来源](sources/CAP-07-05-scallop-quality-b182.json) → [8规则/32字段](traces/CAP-07-05-scallop-quality-b182-v08.json) → [50结构/数学正反](../docs/capabilities/CAP-07-05/scallop-quality-b182-fixtures-v08.json) → [理论及交接](../docs/capabilities/CAP-07-05/SCALLOP-QUALITY-B182-2026-11-05.md)。ISO仅目录、NIST仅摘要；真实测量、NC、Owner和L3未验，规划PASS≠产品PASS。
 
