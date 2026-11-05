@@ -1,3 +1,6 @@
+
+## 2026-11-05｜B184 CAP-06-02支配证书及Beam裁剪不完整性
+[7分级来源](sources/CAP-06-02-dominance-b184.json) → [8规则32字段](traces/CAP-06-02-dominance-b184-v08.json) → [8正32反8Golden](../docs/capabilities/CAP-06-02/dominance-b184-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-06-02/DOMINANCE-CERTIFICATE-B184-2026-11-05.md)。OR-Tools/OCCT官方指定HTML已读，NIST仅摘要，1968 A*仅索引摘要；真实OCCT/Node文件/D05与D15独立消费者/17正式Owner/L3均未验。规划PASS≠产品PASS。
 ## 2026-11-05｜B183 G93/G94/G95逆时间、主轴每转进给与Haas特定Profile
 [7分级来源](sources/CAP-08-03-inverse-feed-b183.json) → [8规则32字段](traces/CAP-08-03-inverse-feed-b183-v08.json) → [50合成](../docs/capabilities/CAP-08-03/inverse-feed-b183-fixtures-v08.json) → [专题研究](../docs/capabilities/CAP-08-03/INVERSE-FEED-B183-2026-11-05.md)。Haas PDF仅提取文本且截图失败，NIST仅元数据；真实NC/Owner/消费者/L3待验。规划PASS≠产品PASS。
 

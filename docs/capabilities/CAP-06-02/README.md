@@ -1,3 +1,5 @@
+> **B184补证（2026-11-05）**：[材料状态支配证书、可采纳下界与Beam截断不完整性](DOMINANCE-CERTIFICATE-B184-2026-11-05.md) → [7源](../../../research/sources/CAP-06-02-dominance-b184.json) → [8规则32字段](../../../research/traces/CAP-06-02-dominance-b184-v08.json) → [48正反及Golden](dominance-b184-fixtures-v08.json)，只做合成判据，独立Owner/OCCT/NC待验。**规划PASS≠产品PASS**。
+
 # CAP-06-02｜工序与几何联合搜索（原88 CAP编号）
 > 原始三级定义：次序、组合、替代方案和路径支配；关联F1-05/W2-02/W2-03/W2-06。保持11域/L1/L2原文，L3待审；本文件为规划，不是产品实现。
 

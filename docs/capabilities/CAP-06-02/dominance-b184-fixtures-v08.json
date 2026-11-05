@@ -1,0 +1,450 @@
+{
+  "schemaVersion": "procet-b184-fixtures-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-05",
+  "syntheticOnly": true,
+  "baseline": {
+    "state": {
+      "lhsStockHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "rhsStockHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "lhsFrame": "D04:setup-17:r5:frame",
+      "rhsFrame": "D04:setup-17:r5:frame"
+    },
+    "guards": {
+      "lhsRemaining": "step-A|step-C",
+      "rhsRemaining": "step-A|step-C",
+      "lhsGuardHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "rhsGuardHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "pareto": {
+      "lhsCost": [
+        10,
+        2
+      ],
+      "rhsCost": [
+        12,
+        2
+      ],
+      "units": [
+        "seconds",
+        "risk_score"
+      ],
+      "objectiveCertified": true
+    },
+    "bound": {
+      "lowerBound": 18,
+      "incumbentCost": 17,
+      "admissible": true,
+      "objectiveSame": true
+    },
+    "beam": {
+      "truncated": true,
+      "status": "UNKNOWN",
+      "assertsInfeasible": false,
+      "omittedCount": 2
+    },
+    "geometry": {
+      "booleanDone": true,
+      "exactBrepSha": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "checkerStatus": "VALID",
+      "protectedClear": true
+    },
+    "adoption": {
+      "solverOnlyD06": true,
+      "viaD05Owner": true,
+      "freezePreserved": true,
+      "branchScoped": true
+    },
+    "commit": {
+      "singleManagedPort": true,
+      "casAclRechecked": true,
+      "lateAckRejected": true,
+      "independentNcD15": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B184-R01-P",
+      "ruleId": "B184-R01",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R01-N1",
+      "ruleId": "B184-R01",
+      "kind": "single_field_negative",
+      "changedField": "state.lhsStockHash",
+      "patchValue": "invalid",
+      "expected": false
+    },
+    {
+      "id": "B184-R01-N2",
+      "ruleId": "B184-R01",
+      "kind": "single_field_negative",
+      "changedField": "state.rhsStockHash",
+      "patchValue": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "expected": false
+    },
+    {
+      "id": "B184-R01-N3",
+      "ruleId": "B184-R01",
+      "kind": "single_field_negative",
+      "changedField": "state.lhsFrame",
+      "patchValue": "D04:other:frame",
+      "expected": false
+    },
+    {
+      "id": "B184-R01-N4",
+      "ruleId": "B184-R01",
+      "kind": "single_field_negative",
+      "changedField": "state.rhsFrame",
+      "patchValue": "D04:other:frame",
+      "expected": false
+    },
+    {
+      "id": "B184-R02-P",
+      "ruleId": "B184-R02",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R02-N1",
+      "ruleId": "B184-R02",
+      "kind": "single_field_negative",
+      "changedField": "guards.lhsRemaining",
+      "patchValue": "step-X",
+      "expected": false
+    },
+    {
+      "id": "B184-R02-N2",
+      "ruleId": "B184-R02",
+      "kind": "single_field_negative",
+      "changedField": "guards.rhsRemaining",
+      "patchValue": "step-Z",
+      "expected": false
+    },
+    {
+      "id": "B184-R02-N3",
+      "ruleId": "B184-R02",
+      "kind": "single_field_negative",
+      "changedField": "guards.lhsGuardHash",
+      "patchValue": "bad",
+      "expected": false
+    },
+    {
+      "id": "B184-R02-N4",
+      "ruleId": "B184-R02",
+      "kind": "single_field_negative",
+      "changedField": "guards.rhsGuardHash",
+      "patchValue": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "expected": false
+    },
+    {
+      "id": "B184-R03-P",
+      "ruleId": "B184-R03",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R03-N1",
+      "ruleId": "B184-R03",
+      "kind": "single_field_negative",
+      "changedField": "pareto.lhsCost",
+      "patchValue": [
+        13,
+        2
+      ],
+      "expected": false
+    },
+    {
+      "id": "B184-R03-N2",
+      "ruleId": "B184-R03",
+      "kind": "single_field_negative",
+      "changedField": "pareto.rhsCost",
+      "patchValue": [
+        9,
+        2
+      ],
+      "expected": false
+    },
+    {
+      "id": "B184-R03-N3",
+      "ruleId": "B184-R03",
+      "kind": "single_field_negative",
+      "changedField": "pareto.units",
+      "patchValue": [],
+      "expected": false
+    },
+    {
+      "id": "B184-R03-N4",
+      "ruleId": "B184-R03",
+      "kind": "single_field_negative",
+      "changedField": "pareto.objectiveCertified",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R04-P",
+      "ruleId": "B184-R04",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R04-N1",
+      "ruleId": "B184-R04",
+      "kind": "single_field_negative",
+      "changedField": "bound.lowerBound",
+      "patchValue": 15,
+      "expected": false
+    },
+    {
+      "id": "B184-R04-N2",
+      "ruleId": "B184-R04",
+      "kind": "single_field_negative",
+      "changedField": "bound.incumbentCost",
+      "patchValue": "unknown",
+      "expected": false
+    },
+    {
+      "id": "B184-R04-N3",
+      "ruleId": "B184-R04",
+      "kind": "single_field_negative",
+      "changedField": "bound.admissible",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R04-N4",
+      "ruleId": "B184-R04",
+      "kind": "single_field_negative",
+      "changedField": "bound.objectiveSame",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R05-P",
+      "ruleId": "B184-R05",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R05-N1",
+      "ruleId": "B184-R05",
+      "kind": "single_field_negative",
+      "changedField": "beam.truncated",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R05-N2",
+      "ruleId": "B184-R05",
+      "kind": "single_field_negative",
+      "changedField": "beam.status",
+      "patchValue": "INFEASIBLE",
+      "expected": false
+    },
+    {
+      "id": "B184-R05-N3",
+      "ruleId": "B184-R05",
+      "kind": "single_field_negative",
+      "changedField": "beam.assertsInfeasible",
+      "patchValue": true,
+      "expected": false
+    },
+    {
+      "id": "B184-R05-N4",
+      "ruleId": "B184-R05",
+      "kind": "single_field_negative",
+      "changedField": "beam.omittedCount",
+      "patchValue": 0,
+      "expected": false
+    },
+    {
+      "id": "B184-R06-P",
+      "ruleId": "B184-R06",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R06-N1",
+      "ruleId": "B184-R06",
+      "kind": "single_field_negative",
+      "changedField": "geometry.booleanDone",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R06-N2",
+      "ruleId": "B184-R06",
+      "kind": "single_field_negative",
+      "changedField": "geometry.exactBrepSha",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B184-R06-N3",
+      "ruleId": "B184-R06",
+      "kind": "single_field_negative",
+      "changedField": "geometry.checkerStatus",
+      "patchValue": "UNKNOWN",
+      "expected": false
+    },
+    {
+      "id": "B184-R06-N4",
+      "ruleId": "B184-R06",
+      "kind": "single_field_negative",
+      "changedField": "geometry.protectedClear",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R07-P",
+      "ruleId": "B184-R07",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R07-N1",
+      "ruleId": "B184-R07",
+      "kind": "single_field_negative",
+      "changedField": "adoption.solverOnlyD06",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R07-N2",
+      "ruleId": "B184-R07",
+      "kind": "single_field_negative",
+      "changedField": "adoption.viaD05Owner",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R07-N3",
+      "ruleId": "B184-R07",
+      "kind": "single_field_negative",
+      "changedField": "adoption.freezePreserved",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R07-N4",
+      "ruleId": "B184-R07",
+      "kind": "single_field_negative",
+      "changedField": "adoption.branchScoped",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R08-P",
+      "ruleId": "B184-R08",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B184-R08-N1",
+      "ruleId": "B184-R08",
+      "kind": "single_field_negative",
+      "changedField": "commit.singleManagedPort",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R08-N2",
+      "ruleId": "B184-R08",
+      "kind": "single_field_negative",
+      "changedField": "commit.casAclRechecked",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R08-N3",
+      "ruleId": "B184-R08",
+      "kind": "single_field_negative",
+      "changedField": "commit.lateAckRejected",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-R08-N4",
+      "ruleId": "B184-R08",
+      "kind": "single_field_negative",
+      "changedField": "commit.independentNcD15",
+      "patchValue": false,
+      "expected": false
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B184-G-equal-cost-not-strict",
+      "ruleId": "B184-R03",
+      "changedField": "pareto.lhsCost",
+      "patchValue": [
+        12,
+        2
+      ],
+      "expected": false
+    },
+    {
+      "id": "B184-G-strictly-better-cost",
+      "ruleId": "B184-R03",
+      "changedField": "pareto.rhsCost",
+      "patchValue": [
+        12,
+        3
+      ],
+      "expected": true
+    },
+    {
+      "id": "B184-G-lower-bound-under-incumbent",
+      "ruleId": "B184-R04",
+      "changedField": "bound.lowerBound",
+      "patchValue": 16,
+      "expected": false
+    },
+    {
+      "id": "B184-G-lower-bound-tie",
+      "ruleId": "B184-R04",
+      "changedField": "bound.lowerBound",
+      "patchValue": 17,
+      "expected": true
+    },
+    {
+      "id": "B184-G-beam-says-infeasible",
+      "ruleId": "B184-R05",
+      "changedField": "beam.status",
+      "patchValue": "INFEASIBLE",
+      "expected": false
+    },
+    {
+      "id": "B184-G-geometry-unknown",
+      "ruleId": "B184-R06",
+      "changedField": "geometry.checkerStatus",
+      "patchValue": "UNKNOWN",
+      "expected": false
+    },
+    {
+      "id": "B184-G-frozen-overwrite",
+      "ruleId": "B184-R07",
+      "changedField": "adoption.freezePreserved",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B184-G-nc-independent-gate-missing",
+      "ruleId": "B184-R08",
+      "changedField": "commit.independentNcD15",
+      "patchValue": false,
+      "expected": false
+    }
+  ],
+  "assumptions": "本样例将证据状态按测试前提注入；验证规则守卫，不运行真实OCCT、求解器或NC"
+}
