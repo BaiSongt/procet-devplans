@@ -1,0 +1,1215 @@
+{
+  "schemaVersion": "procet-cap1004-fixtures-v1",
+  "capabilityId": "CAP-10-04",
+  "syntheticOnly": true,
+  "caseMeaning": "10正+40每字段独立负例+18状态门禁，共68项，不包含真实DNC链路",
+  "cases": [
+    {
+      "id": "1004-P01",
+      "ruleId": "CAP-10-04-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "identity": {
+          "signedD16EnvelopeExact": true,
+          "targetMachineExact": true,
+          "controllerProfileExact": true,
+          "d10BindingExact": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N01-1",
+      "ruleId": "CAP-10-04-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.signedD16EnvelopeExact",
+      "input": {
+        "identity": {
+          "signedD16EnvelopeExact": false,
+          "targetMachineExact": true,
+          "controllerProfileExact": true,
+          "d10BindingExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N01-2",
+      "ruleId": "CAP-10-04-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.targetMachineExact",
+      "input": {
+        "identity": {
+          "signedD16EnvelopeExact": true,
+          "targetMachineExact": false,
+          "controllerProfileExact": true,
+          "d10BindingExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N01-3",
+      "ruleId": "CAP-10-04-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.controllerProfileExact",
+      "input": {
+        "identity": {
+          "signedD16EnvelopeExact": true,
+          "targetMachineExact": true,
+          "controllerProfileExact": false,
+          "d10BindingExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N01-4",
+      "ruleId": "CAP-10-04-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.d10BindingExact",
+      "input": {
+        "identity": {
+          "signedD16EnvelopeExact": true,
+          "targetMachineExact": true,
+          "controllerProfileExact": true,
+          "d10BindingExact": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P02",
+      "ruleId": "CAP-10-04-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "capability": {
+          "controllerWritePortVerified": true,
+          "transferModeSupported": true,
+          "profileRevisionPinned": true,
+          "unknownFeatureFailClosed": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N02-1",
+      "ruleId": "CAP-10-04-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "capability.controllerWritePortVerified",
+      "input": {
+        "capability": {
+          "controllerWritePortVerified": false,
+          "transferModeSupported": true,
+          "profileRevisionPinned": true,
+          "unknownFeatureFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N02-2",
+      "ruleId": "CAP-10-04-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "capability.transferModeSupported",
+      "input": {
+        "capability": {
+          "controllerWritePortVerified": true,
+          "transferModeSupported": false,
+          "profileRevisionPinned": true,
+          "unknownFeatureFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N02-3",
+      "ruleId": "CAP-10-04-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "capability.profileRevisionPinned",
+      "input": {
+        "capability": {
+          "controllerWritePortVerified": true,
+          "transferModeSupported": true,
+          "profileRevisionPinned": false,
+          "unknownFeatureFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N02-4",
+      "ruleId": "CAP-10-04-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "capability.unknownFeatureFailClosed",
+      "input": {
+        "capability": {
+          "controllerWritePortVerified": true,
+          "transferModeSupported": true,
+          "profileRevisionPinned": true,
+          "unknownFeatureFailClosed": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P03",
+      "ruleId": "CAP-10-04-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "auth": {
+          "senderPrincipalBound": true,
+          "receiverIdentityBound": true,
+          "scopeAclRechecked": true,
+          "noExecutionPrivilegeEscalation": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N03-1",
+      "ruleId": "CAP-10-04-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "auth.senderPrincipalBound",
+      "input": {
+        "auth": {
+          "senderPrincipalBound": false,
+          "receiverIdentityBound": true,
+          "scopeAclRechecked": true,
+          "noExecutionPrivilegeEscalation": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N03-2",
+      "ruleId": "CAP-10-04-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "auth.receiverIdentityBound",
+      "input": {
+        "auth": {
+          "senderPrincipalBound": true,
+          "receiverIdentityBound": false,
+          "scopeAclRechecked": true,
+          "noExecutionPrivilegeEscalation": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N03-3",
+      "ruleId": "CAP-10-04-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "auth.scopeAclRechecked",
+      "input": {
+        "auth": {
+          "senderPrincipalBound": true,
+          "receiverIdentityBound": true,
+          "scopeAclRechecked": false,
+          "noExecutionPrivilegeEscalation": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N03-4",
+      "ruleId": "CAP-10-04-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "auth.noExecutionPrivilegeEscalation",
+      "input": {
+        "auth": {
+          "senderPrincipalBound": true,
+          "receiverIdentityBound": true,
+          "scopeAclRechecked": true,
+          "noExecutionPrivilegeEscalation": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P04",
+      "ruleId": "CAP-10-04-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "content": {
+          "finalNcRawHashExact": true,
+          "subprogramClosureExact": true,
+          "noLineEndingTranscode": true,
+          "manifestDigestExact": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N04-1",
+      "ruleId": "CAP-10-04-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "content.finalNcRawHashExact",
+      "input": {
+        "content": {
+          "finalNcRawHashExact": false,
+          "subprogramClosureExact": true,
+          "noLineEndingTranscode": true,
+          "manifestDigestExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N04-2",
+      "ruleId": "CAP-10-04-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "content.subprogramClosureExact",
+      "input": {
+        "content": {
+          "finalNcRawHashExact": true,
+          "subprogramClosureExact": false,
+          "noLineEndingTranscode": true,
+          "manifestDigestExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N04-3",
+      "ruleId": "CAP-10-04-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "content.noLineEndingTranscode",
+      "input": {
+        "content": {
+          "finalNcRawHashExact": true,
+          "subprogramClosureExact": true,
+          "noLineEndingTranscode": false,
+          "manifestDigestExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N04-4",
+      "ruleId": "CAP-10-04-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "content.manifestDigestExact",
+      "input": {
+        "content": {
+          "finalNcRawHashExact": true,
+          "subprogramClosureExact": true,
+          "noLineEndingTranscode": true,
+          "manifestDigestExact": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P05",
+      "ruleId": "CAP-10-04-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "staging": {
+          "receiverRehashIndependent": true,
+          "temporaryPathIsolated": true,
+          "noActiveProgramOverwrite": true,
+          "postTransferReadbackExact": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N05-1",
+      "ruleId": "CAP-10-04-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "staging.receiverRehashIndependent",
+      "input": {
+        "staging": {
+          "receiverRehashIndependent": false,
+          "temporaryPathIsolated": true,
+          "noActiveProgramOverwrite": true,
+          "postTransferReadbackExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N05-2",
+      "ruleId": "CAP-10-04-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "staging.temporaryPathIsolated",
+      "input": {
+        "staging": {
+          "receiverRehashIndependent": true,
+          "temporaryPathIsolated": false,
+          "noActiveProgramOverwrite": true,
+          "postTransferReadbackExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N05-3",
+      "ruleId": "CAP-10-04-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "staging.noActiveProgramOverwrite",
+      "input": {
+        "staging": {
+          "receiverRehashIndependent": true,
+          "temporaryPathIsolated": true,
+          "noActiveProgramOverwrite": false,
+          "postTransferReadbackExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N05-4",
+      "ruleId": "CAP-10-04-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "staging.postTransferReadbackExact",
+      "input": {
+        "staging": {
+          "receiverRehashIndependent": true,
+          "temporaryPathIsolated": true,
+          "noActiveProgramOverwrite": true,
+          "postTransferReadbackExact": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P06",
+      "ruleId": "CAP-10-04-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "transaction": {
+          "sessionNonceBound": true,
+          "chunkCoverageComplete": true,
+          "atomicCommitConfirmed": true,
+          "reconnectRevalidatesHash": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N06-1",
+      "ruleId": "CAP-10-04-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.sessionNonceBound",
+      "input": {
+        "transaction": {
+          "sessionNonceBound": false,
+          "chunkCoverageComplete": true,
+          "atomicCommitConfirmed": true,
+          "reconnectRevalidatesHash": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N06-2",
+      "ruleId": "CAP-10-04-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.chunkCoverageComplete",
+      "input": {
+        "transaction": {
+          "sessionNonceBound": true,
+          "chunkCoverageComplete": false,
+          "atomicCommitConfirmed": true,
+          "reconnectRevalidatesHash": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N06-3",
+      "ruleId": "CAP-10-04-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.atomicCommitConfirmed",
+      "input": {
+        "transaction": {
+          "sessionNonceBound": true,
+          "chunkCoverageComplete": true,
+          "atomicCommitConfirmed": false,
+          "reconnectRevalidatesHash": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N06-4",
+      "ruleId": "CAP-10-04-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.reconnectRevalidatesHash",
+      "input": {
+        "transaction": {
+          "sessionNonceBound": true,
+          "chunkCoverageComplete": true,
+          "atomicCommitConfirmed": true,
+          "reconnectRevalidatesHash": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P07",
+      "ruleId": "CAP-10-04-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "operation": {
+          "stageOnly": true,
+          "noCycleStart": true,
+          "noProgramActivate": true,
+          "humanMachineAuthorizationSeparate": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N07-1",
+      "ruleId": "CAP-10-04-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "operation.stageOnly",
+      "input": {
+        "operation": {
+          "stageOnly": false,
+          "noCycleStart": true,
+          "noProgramActivate": true,
+          "humanMachineAuthorizationSeparate": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N07-2",
+      "ruleId": "CAP-10-04-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "operation.noCycleStart",
+      "input": {
+        "operation": {
+          "stageOnly": true,
+          "noCycleStart": false,
+          "noProgramActivate": true,
+          "humanMachineAuthorizationSeparate": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N07-3",
+      "ruleId": "CAP-10-04-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "operation.noProgramActivate",
+      "input": {
+        "operation": {
+          "stageOnly": true,
+          "noCycleStart": true,
+          "noProgramActivate": false,
+          "humanMachineAuthorizationSeparate": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N07-4",
+      "ruleId": "CAP-10-04-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "operation.humanMachineAuthorizationSeparate",
+      "input": {
+        "operation": {
+          "stageOnly": true,
+          "noCycleStart": true,
+          "noProgramActivate": true,
+          "humanMachineAuthorizationSeparate": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P08",
+      "ruleId": "CAP-10-04-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "ack": {
+          "transferRevisionBound": true,
+          "idempotencyKeyPinned": true,
+          "cancelEpochChecked": true,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N08-1",
+      "ruleId": "CAP-10-04-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ack.transferRevisionBound",
+      "input": {
+        "ack": {
+          "transferRevisionBound": false,
+          "idempotencyKeyPinned": true,
+          "cancelEpochChecked": true,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N08-2",
+      "ruleId": "CAP-10-04-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ack.idempotencyKeyPinned",
+      "input": {
+        "ack": {
+          "transferRevisionBound": true,
+          "idempotencyKeyPinned": false,
+          "cancelEpochChecked": true,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N08-3",
+      "ruleId": "CAP-10-04-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ack.cancelEpochChecked",
+      "input": {
+        "ack": {
+          "transferRevisionBound": true,
+          "idempotencyKeyPinned": true,
+          "cancelEpochChecked": false,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N08-4",
+      "ruleId": "CAP-10-04-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ack.lateAckRejected",
+      "input": {
+        "ack": {
+          "transferRevisionBound": true,
+          "idempotencyKeyPinned": true,
+          "cancelEpochChecked": true,
+          "lateAckRejected": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P09",
+      "ruleId": "CAP-10-04-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "audit": {
+          "deviceReadbackSeparate": true,
+          "producerClaimNotOracle": true,
+          "d17AppendOnly": true,
+          "unknownReadbackNotPass": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N09-1",
+      "ruleId": "CAP-10-04-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "audit.deviceReadbackSeparate",
+      "input": {
+        "audit": {
+          "deviceReadbackSeparate": false,
+          "producerClaimNotOracle": true,
+          "d17AppendOnly": true,
+          "unknownReadbackNotPass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N09-2",
+      "ruleId": "CAP-10-04-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "audit.producerClaimNotOracle",
+      "input": {
+        "audit": {
+          "deviceReadbackSeparate": true,
+          "producerClaimNotOracle": false,
+          "d17AppendOnly": true,
+          "unknownReadbackNotPass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N09-3",
+      "ruleId": "CAP-10-04-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "audit.d17AppendOnly",
+      "input": {
+        "audit": {
+          "deviceReadbackSeparate": true,
+          "producerClaimNotOracle": true,
+          "d17AppendOnly": false,
+          "unknownReadbackNotPass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N09-4",
+      "ruleId": "CAP-10-04-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "audit.unknownReadbackNotPass",
+      "input": {
+        "audit": {
+          "deviceReadbackSeparate": true,
+          "producerClaimNotOracle": true,
+          "d17AppendOnly": true,
+          "unknownReadbackNotPass": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-P10",
+      "ruleId": "CAP-10-04-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "shadowReaderRollback": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N10-1",
+      "ruleId": "CAP-10-04-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.singleDomainPort",
+      "input": {
+        "ui": {
+          "singleDomainPort": false,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "shadowReaderRollback": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N10-2",
+      "ruleId": "CAP-10-04-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.singleBabylonWorld",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "singleBabylonWorld": false,
+          "leftUnifiedTaskPanel": true,
+          "shadowReaderRollback": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N10-3",
+      "ruleId": "CAP-10-04-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.leftUnifiedTaskPanel",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": false,
+          "shadowReaderRollback": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-N10-4",
+      "ruleId": "CAP-10-04-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.shadowReaderRollback",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "shadowReaderRollback": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "gateCases": [
+    {
+      "id": "1004-G-baseline",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "STAGED_AWAITING_HUMAN",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-unauthorized",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": false,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-unsigned",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": false,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-wrong-machine",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": false,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-wrong-profile",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": false,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-wrong-binding",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": false,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-unknown-semantics",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": false,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-partial-staging",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": false,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-no-readback",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": false,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-digest-mismatch",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": false,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-no-independent-D15",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": false,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-cancel",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": true,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-late-ACK",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": true,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-auto-run",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": true,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-CycleStart",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "CYCLE_START",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-network-loss",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-machine-change-and-late",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": false,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": true,
+        "readback": true,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": true,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1004-G-staging-and-readback-missing",
+      "scenario": "TRANSFER_STATE_GATE",
+      "input": {
+        "authorized": true,
+        "approvedD16": true,
+        "exactMachine": true,
+        "exactProfile": true,
+        "d10Exact": true,
+        "semanticsKnown": true,
+        "stagingComplete": false,
+        "readback": false,
+        "hashMatched": true,
+        "independentD15": true,
+        "cancelled": false,
+        "lateAck": false,
+        "autoRun": false,
+        "controllerCommand": "STAGE_ONLY",
+        "online": true
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    }
+  ],
+  "productAcceptance": "NOT_RUN"
+}

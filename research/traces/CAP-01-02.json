@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "procet-capability-trace-v1",
+  "capabilityId": "CAP-01-02",
+  "status": "drafted_pending_review",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "OBJ-R01",
+      "capabilityId": "CAP-01-02",
+      "statement": "将对象身份与视图实例分开，同一ExactRef可有多视图，关闭视图不删除对象",
+      "sourceIds": [
+        "SRC-OBJ-001"
+      ],
+      "fields": [
+        "documentId",
+        "viewInstanceId",
+        "exactRef"
+      ],
+      "workPackages": [
+        "F1-01",
+        "U4-06"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-01",
+        "CAP-01-02-AT-09"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R02",
+      "capabilityId": "CAP-01-02",
+      "statement": "导入经受控SourceHandle及格式/大小/许可审查，解析失败不得进入Project有效对象目录",
+      "sourceIds": [
+        "SRC-OBJ-002"
+      ],
+      "fields": [
+        "sourceHandle",
+        "importerId",
+        "sourceHash",
+        "readiness"
+      ],
+      "workPackages": [
+        "F1-03",
+        "W2-01"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-02",
+        "CAP-01-02-AT-10"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R03",
+      "capabilityId": "CAP-01-02",
+      "statement": "范围epoch、幂等请求、expectedRevision及最终receipt必须关联；晚到回执只能回写原Project",
+      "sourceIds": [
+        "SRC-OBJ-003"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "requestId",
+        "expectedRevision",
+        "receipt"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-03",
+        "CAP-01-02-AT-11"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R04",
+      "capabilityId": "CAP-01-02",
+      "statement": "关系导航使用exact目标和版本化边，不能强迫用户通过特征页面或猜测active tab",
+      "sourceIds": [
+        "SRC-OBJ-001",
+        "SRC-OBJ-003"
+      ],
+      "fields": [
+        "relationKind",
+        "targetExactRef",
+        "relationRevision"
+      ],
+      "workPackages": [
+        "U4-06",
+        "T5-02"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-04",
+        "CAP-01-02-AT-12"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R05",
+      "capabilityId": "CAP-01-02",
+      "statement": "解除关联先审查反向引用与冻结D16，后台清理不能被对象界面直接调用",
+      "sourceIds": [
+        "SRC-OBJ-004",
+        "SRC-OBJ-003"
+      ],
+      "fields": [
+        "reverseRefs",
+        "freezeRef",
+        "impactHash"
+      ],
+      "workPackages": [
+        "F1-06",
+        "W2-04"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-05",
+        "CAP-01-02-AT-13"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R06",
+      "capabilityId": "CAP-01-02",
+      "statement": "嵌入附件与外链按重要性独立标明，离线必需附件需字节闭包",
+      "sourceIds": [
+        "SRC-OBJ-002"
+      ],
+      "fields": [
+        "attachmentPolicy",
+        "contentHash",
+        "requiredForOffline"
+      ],
+      "workPackages": [
+        "F1-06"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-06",
+        "CAP-01-02-AT-14"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R07",
+      "capabilityId": "CAP-01-02",
+      "statement": "mesh-only可显示不可冒充B-Rep制造选面，3D拾取保持SelectionIntent只读",
+      "sourceIds": [
+        "SRC-OBJ-001"
+      ],
+      "fields": [
+        "geometryCapability",
+        "selectionIntent",
+        "topologyProof"
+      ],
+      "workPackages": [
+        "U4-06",
+        "T5-02"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-07",
+        "CAP-01-02-AT-15"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R08",
+      "capabilityId": "CAP-01-02",
+      "statement": "未知类型、未安装provider及旧schema保留原始引用和诊断，不静默删除",
+      "sourceIds": [
+        "SRC-OBJ-004"
+      ],
+      "fields": [
+        "typeDescriptor",
+        "providerState",
+        "rawDescriptor"
+      ],
+      "workPackages": [
+        "F1-01",
+        "U4-01"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-08",
+        "CAP-01-02-AT-16"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R09",
+      "capabilityId": "CAP-01-02",
+      "statement": "导入、关联、视图关闭和对象修订应各自有Owner及提交点授权/CAS校验",
+      "sourceIds": [
+        "SRC-OBJ-003",
+        "SRC-OBJ-002"
+      ],
+      "fields": [
+        "ownerId",
+        "expectedRevision",
+        "permit",
+        "idempotencyKey"
+      ],
+      "workPackages": [
+        "F1-03",
+        "W2-04"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-17",
+        "CAP-01-02-AT-18"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    },
+    {
+      "id": "OBJ-R10",
+      "capabilityId": "CAP-01-02",
+      "statement": "可定位注释应保留来源与目标修订；自定义业务标注不能自动升级为冻结制造要求",
+      "sourceIds": [
+        "SRC-OBJ-001"
+      ],
+      "fields": [
+        "annotationTarget",
+        "sourceRevision",
+        "originEvidence"
+      ],
+      "workPackages": [
+        "F1-03",
+        "T5-02"
+      ],
+      "testIds": [
+        "CAP-01-02-AT-19",
+        "CAP-01-02-AT-20"
+      ],
+      "status": "L3_PROPOSAL_REVIEW_PENDING"
+    }
+  ],
+  "caseIds": [
+    "CAP-01-02-AT-01",
+    "CAP-01-02-AT-02",
+    "CAP-01-02-AT-03",
+    "CAP-01-02-AT-04",
+    "CAP-01-02-AT-05",
+    "CAP-01-02-AT-06",
+    "CAP-01-02-AT-07",
+    "CAP-01-02-AT-08",
+    "CAP-01-02-AT-09",
+    "CAP-01-02-AT-10",
+    "CAP-01-02-AT-11",
+    "CAP-01-02-AT-12",
+    "CAP-01-02-AT-13",
+    "CAP-01-02-AT-14",
+    "CAP-01-02-AT-15",
+    "CAP-01-02-AT-16",
+    "CAP-01-02-AT-17",
+    "CAP-01-02-AT-18",
+    "CAP-01-02-AT-19",
+    "CAP-01-02-AT-20"
+  ],
+  "workPackages": [
+    "F1-01",
+    "U4-06",
+    "F1-03",
+    "W2-01",
+    "F1-06",
+    "T5-02",
+    "W2-04",
+    "U4-01"
+  ],
+  "sourceIds": [
+    "SRC-OBJ-001",
+    "SRC-OBJ-002",
+    "SRC-OBJ-003",
+    "SRC-OBJ-004"
+  ]
+}

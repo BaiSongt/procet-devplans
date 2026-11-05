@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "procet-v08-research-trace-v1",
+  "researchTopic": "R-FINAL-HISTORY-LINK-B08",
+  "auditPath": "research/audits/FINAL-HISTORY-LINK-B08-2026-10-29.json",
+  "rules": [
+    {
+      "id": "B08-R01",
+      "rule": "跨56份CAD/Setup/资源研究文档逐Git Blob SHA冻结并复核247个可识别相对链接；索引漂移和HEAD变化不继承PASS",
+      "sourceRefs": [
+        "B08-GHTREE",
+        "B08-PROV"
+      ],
+      "fields": [
+        "fileManifest[].gitBlobSha",
+        "markdownSnapshot.gitShaMatched",
+        "observedExactHead",
+        "observedRootTreeSha"
+      ],
+      "caps": [
+        "CAP-01-02",
+        "CAP-03-01",
+        "CAP-04-02"
+      ],
+      "packages": [
+        "B0-04",
+        "B0-05"
+      ],
+      "acceptance": [
+        "B08-P01",
+        "B08-N01",
+        "B08-N02",
+        "B08-N03",
+        "B08-N04",
+        "B08-N05",
+        "B08-N06"
+      ]
+    },
+    {
+      "id": "B08-R02",
+      "rule": "RFC3986路径段先分离再单次解码；非法百分号/转义分隔符/越仓路径拒绝；启发式regex不宣称GFM AST或标题锚点已验证",
+      "sourceRefs": [
+        "B08-CM",
+        "B08-GFM",
+        "B08-RFC"
+      ],
+      "fields": [
+        "markdownSnapshot.singleLineInlineRelativeLinks",
+        "markdownSnapshot.identifiedMissingPaths",
+        "markdownSnapshot.parser"
+      ],
+      "caps": [
+        "CAP-01-02",
+        "CAP-03-06"
+      ],
+      "packages": [
+        "B0-05"
+      ],
+      "acceptance": [
+        "B08-P01",
+        "B08-N07",
+        "B08-N08",
+        "B08-N09"
+      ]
+    },
+    {
+      "id": "B08-R03",
+      "rule": "资源、几何、毛坯与Setup的Owner必须通过exact revision/hash/frame契约资格，静态链接通过不授予资源或制造资格",
+      "sourceRefs": [
+        "B08-PROV",
+        "B08-GHTREE"
+      ],
+      "fields": [
+        "invariants.ownerExactRevisionHashFrame",
+        "scopeGates.assetPorts"
+      ],
+      "caps": [
+        "CAP-02-04",
+        "CAP-02-05",
+        "CAP-04-02"
+      ],
+      "packages": [
+        "B0-02",
+        "B0-05"
+      ],
+      "acceptance": [
+        "B08-P01",
+        "B08-N10",
+        "B08-N11",
+        "B08-N12"
+      ]
+    },
+    {
+      "id": "B08-R04",
+      "rule": "GUI/CLI/Agent使用同域Owner端口，3D保持唯一Babylon活动世界及左侧统一TaskPanel；C0仅最小公用元数据",
+      "sourceRefs": [
+        "B08-PROV"
+      ],
+      "fields": [
+        "invariants.guiCliAgentSameDomainOwnerPort",
+        "invariants.babylonWorlds",
+        "invariants.unifiedLeftTaskPanel"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-11-01"
+      ],
+      "packages": [
+        "U4-02",
+        "B0-02"
+      ],
+      "acceptance": [
+        "B08-P01",
+        "B08-N13",
+        "B08-N14",
+        "B08-N15"
+      ]
+    },
+    {
+      "id": "B08-R05",
+      "rule": "提交点ACL/CAS/权限Epoch重验，取消的晚回执不得提交；证据未完不得补签17资产Owner/消费者或L3",
+      "sourceRefs": [
+        "B08-PROV",
+        "B08-GHTREE"
+      ],
+      "fields": [
+        "invariants.casAndAclRecheck",
+        "invariants.cancelledLateAckMayCommit",
+        "scopeGates.ownerSignatures",
+        "scopeGates.independentConsumers",
+        "scopeGates.l3"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-02",
+        "B0-05"
+      ],
+      "acceptance": [
+        "B08-P01",
+        "B08-N16",
+        "B08-N17",
+        "B08-N18",
+        "B08-N19",
+        "B08-N20"
+      ]
+    },
+    {
+      "id": "B08-R06",
+      "rule": "D04 Setup与D10执行绑定独立；CL动画不能冒充D15，D13未知语义为unknown，D14轴时序和D15独立验证后才可D16发布，不做材料扫掠仿真",
+      "sourceRefs": [
+        "B08-PROV",
+        "B08-GHTREE"
+      ],
+      "fields": [
+        "invariants.d04EqualsD10",
+        "invariants.clAnimationAsD15",
+        "invariants.unknownNcSemantic",
+        "invariants.materialSweepSimulationRequired",
+        "scopeGates.productAcceptance"
+      ],
+      "caps": [
+        "CAP-04-06",
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-03",
+        "E3-04",
+        "B0-05"
+      ],
+      "acceptance": [
+        "B08-P01",
+        "B08-N21",
+        "B08-N22",
+        "B08-N23",
+        "B08-N24",
+        "B08-N25"
+      ]
+    }
+  ]
+}

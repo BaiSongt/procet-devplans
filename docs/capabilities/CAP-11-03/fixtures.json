@@ -1,0 +1,1668 @@
+{
+  "schemaVersion": "procet-cap1103-fixtures-v1",
+  "capabilityId": "CAP-11-03",
+  "syntheticOnly": true,
+  "caseMeaning": "50逐字段正反、28独立枚举安全门禁；不代表产品测试",
+  "cases": [
+    {
+      "id": "CAP-11-03-R01-P",
+      "ruleId": "CAP-11-03-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "request": {
+          "principal": true,
+          "ownerPort": true,
+          "scopeEpoch": true,
+          "assetAcl": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R01-N-request-principal",
+      "ruleId": "CAP-11-03-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "request.principal",
+      "input": {
+        "request": {
+          "principal": false,
+          "ownerPort": true,
+          "scopeEpoch": true,
+          "assetAcl": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R01-N-request-ownerPort",
+      "ruleId": "CAP-11-03-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "request.ownerPort",
+      "input": {
+        "request": {
+          "principal": true,
+          "ownerPort": false,
+          "scopeEpoch": true,
+          "assetAcl": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R01-N-request-scopeEpoch",
+      "ruleId": "CAP-11-03-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "request.scopeEpoch",
+      "input": {
+        "request": {
+          "principal": true,
+          "ownerPort": true,
+          "scopeEpoch": false,
+          "assetAcl": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R01-N-request-assetAcl",
+      "ruleId": "CAP-11-03-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "request.assetAcl",
+      "input": {
+        "request": {
+          "principal": true,
+          "ownerPort": true,
+          "scopeEpoch": true,
+          "assetAcl": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R02-P",
+      "ruleId": "CAP-11-03-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "index": {
+          "corpusRevision": true,
+          "embeddingRevision": true,
+          "chunkerRevision": true,
+          "snapshotId": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R02-N-index-corpusRevision",
+      "ruleId": "CAP-11-03-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "index.corpusRevision",
+      "input": {
+        "index": {
+          "corpusRevision": false,
+          "embeddingRevision": true,
+          "chunkerRevision": true,
+          "snapshotId": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R02-N-index-embeddingRevision",
+      "ruleId": "CAP-11-03-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "index.embeddingRevision",
+      "input": {
+        "index": {
+          "corpusRevision": true,
+          "embeddingRevision": false,
+          "chunkerRevision": true,
+          "snapshotId": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R02-N-index-chunkerRevision",
+      "ruleId": "CAP-11-03-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "index.chunkerRevision",
+      "input": {
+        "index": {
+          "corpusRevision": true,
+          "embeddingRevision": true,
+          "chunkerRevision": false,
+          "snapshotId": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R02-N-index-snapshotId",
+      "ruleId": "CAP-11-03-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "index.snapshotId",
+      "input": {
+        "index": {
+          "corpusRevision": true,
+          "embeddingRevision": true,
+          "chunkerRevision": true,
+          "snapshotId": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R03-P",
+      "ruleId": "CAP-11-03-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "chunk": {
+          "ownerRevision": true,
+          "rawHash": true,
+          "selector": true,
+          "licenseChecked": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R03-N-chunk-ownerRevision",
+      "ruleId": "CAP-11-03-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "chunk.ownerRevision",
+      "input": {
+        "chunk": {
+          "ownerRevision": false,
+          "rawHash": true,
+          "selector": true,
+          "licenseChecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R03-N-chunk-rawHash",
+      "ruleId": "CAP-11-03-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "chunk.rawHash",
+      "input": {
+        "chunk": {
+          "ownerRevision": true,
+          "rawHash": false,
+          "selector": true,
+          "licenseChecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R03-N-chunk-selector",
+      "ruleId": "CAP-11-03-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "chunk.selector",
+      "input": {
+        "chunk": {
+          "ownerRevision": true,
+          "rawHash": true,
+          "selector": false,
+          "licenseChecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R03-N-chunk-licenseChecked",
+      "ruleId": "CAP-11-03-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "chunk.licenseChecked",
+      "input": {
+        "chunk": {
+          "ownerRevision": true,
+          "rawHash": true,
+          "selector": true,
+          "licenseChecked": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R04-P",
+      "ruleId": "CAP-11-03-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "hit": {
+          "ownerPostAcl": true,
+          "projectIsolation": true,
+          "scopeEpochCurrent": true,
+          "cachePermissionRechecked": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R04-N-hit-ownerPostAcl",
+      "ruleId": "CAP-11-03-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "hit.ownerPostAcl",
+      "input": {
+        "hit": {
+          "ownerPostAcl": false,
+          "projectIsolation": true,
+          "scopeEpochCurrent": true,
+          "cachePermissionRechecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R04-N-hit-projectIsolation",
+      "ruleId": "CAP-11-03-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "hit.projectIsolation",
+      "input": {
+        "hit": {
+          "ownerPostAcl": true,
+          "projectIsolation": false,
+          "scopeEpochCurrent": true,
+          "cachePermissionRechecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R04-N-hit-scopeEpochCurrent",
+      "ruleId": "CAP-11-03-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "hit.scopeEpochCurrent",
+      "input": {
+        "hit": {
+          "ownerPostAcl": true,
+          "projectIsolation": true,
+          "scopeEpochCurrent": false,
+          "cachePermissionRechecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R04-N-hit-cachePermissionRechecked",
+      "ruleId": "CAP-11-03-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "hit.cachePermissionRechecked",
+      "input": {
+        "hit": {
+          "ownerPostAcl": true,
+          "projectIsolation": true,
+          "scopeEpochCurrent": true,
+          "cachePermissionRechecked": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R05-P",
+      "ruleId": "CAP-11-03-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "fresh": {
+          "revisionEqual": true,
+          "rawHashEqual": true,
+          "snapshotCurrent": true,
+          "revocationApplied": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R05-N-fresh-revisionEqual",
+      "ruleId": "CAP-11-03-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "fresh.revisionEqual",
+      "input": {
+        "fresh": {
+          "revisionEqual": false,
+          "rawHashEqual": true,
+          "snapshotCurrent": true,
+          "revocationApplied": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R05-N-fresh-rawHashEqual",
+      "ruleId": "CAP-11-03-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "fresh.rawHashEqual",
+      "input": {
+        "fresh": {
+          "revisionEqual": true,
+          "rawHashEqual": false,
+          "snapshotCurrent": true,
+          "revocationApplied": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R05-N-fresh-snapshotCurrent",
+      "ruleId": "CAP-11-03-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "fresh.snapshotCurrent",
+      "input": {
+        "fresh": {
+          "revisionEqual": true,
+          "rawHashEqual": true,
+          "snapshotCurrent": false,
+          "revocationApplied": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R05-N-fresh-revocationApplied",
+      "ruleId": "CAP-11-03-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "fresh.revocationApplied",
+      "input": {
+        "fresh": {
+          "revisionEqual": true,
+          "rawHashEqual": true,
+          "snapshotCurrent": true,
+          "revocationApplied": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R06-P",
+      "ruleId": "CAP-11-03-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "citation": {
+          "sourceUri": true,
+          "selectorVerified": true,
+          "claimToChunk": true,
+          "accessDepthHonest": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R06-N-citation-sourceUri",
+      "ruleId": "CAP-11-03-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "citation.sourceUri",
+      "input": {
+        "citation": {
+          "sourceUri": false,
+          "selectorVerified": true,
+          "claimToChunk": true,
+          "accessDepthHonest": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R06-N-citation-selectorVerified",
+      "ruleId": "CAP-11-03-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "citation.selectorVerified",
+      "input": {
+        "citation": {
+          "sourceUri": true,
+          "selectorVerified": false,
+          "claimToChunk": true,
+          "accessDepthHonest": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R06-N-citation-claimToChunk",
+      "ruleId": "CAP-11-03-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "citation.claimToChunk",
+      "input": {
+        "citation": {
+          "sourceUri": true,
+          "selectorVerified": true,
+          "claimToChunk": false,
+          "accessDepthHonest": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R06-N-citation-accessDepthHonest",
+      "ruleId": "CAP-11-03-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "citation.accessDepthHonest",
+      "input": {
+        "citation": {
+          "sourceUri": true,
+          "selectorVerified": true,
+          "claimToChunk": true,
+          "accessDepthHonest": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R07-P",
+      "ruleId": "CAP-11-03-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "security": {
+          "dataOnly": true,
+          "promptInjectionGate": true,
+          "noToolInvocation": true,
+          "noOwnerWrite": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R07-N-security-dataOnly",
+      "ruleId": "CAP-11-03-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "security.dataOnly",
+      "input": {
+        "security": {
+          "dataOnly": false,
+          "promptInjectionGate": true,
+          "noToolInvocation": true,
+          "noOwnerWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R07-N-security-promptInjectionGate",
+      "ruleId": "CAP-11-03-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "security.promptInjectionGate",
+      "input": {
+        "security": {
+          "dataOnly": true,
+          "promptInjectionGate": false,
+          "noToolInvocation": true,
+          "noOwnerWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R07-N-security-noToolInvocation",
+      "ruleId": "CAP-11-03-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "security.noToolInvocation",
+      "input": {
+        "security": {
+          "dataOnly": true,
+          "promptInjectionGate": true,
+          "noToolInvocation": false,
+          "noOwnerWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R07-N-security-noOwnerWrite",
+      "ruleId": "CAP-11-03-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "security.noOwnerWrite",
+      "input": {
+        "security": {
+          "dataOnly": true,
+          "promptInjectionGate": true,
+          "noToolInvocation": true,
+          "noOwnerWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R08-P",
+      "ruleId": "CAP-11-03-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "quality": {
+          "coverageMeasured": true,
+          "conflictShown": true,
+          "unknownExplicit": true,
+          "scoreNotSafety": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R08-N-quality-coverageMeasured",
+      "ruleId": "CAP-11-03-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "quality.coverageMeasured",
+      "input": {
+        "quality": {
+          "coverageMeasured": false,
+          "conflictShown": true,
+          "unknownExplicit": true,
+          "scoreNotSafety": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R08-N-quality-conflictShown",
+      "ruleId": "CAP-11-03-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "quality.conflictShown",
+      "input": {
+        "quality": {
+          "coverageMeasured": true,
+          "conflictShown": false,
+          "unknownExplicit": true,
+          "scoreNotSafety": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R08-N-quality-unknownExplicit",
+      "ruleId": "CAP-11-03-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "quality.unknownExplicit",
+      "input": {
+        "quality": {
+          "coverageMeasured": true,
+          "conflictShown": true,
+          "unknownExplicit": false,
+          "scoreNotSafety": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R08-N-quality-scoreNotSafety",
+      "ruleId": "CAP-11-03-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "quality.scoreNotSafety",
+      "input": {
+        "quality": {
+          "coverageMeasured": true,
+          "conflictShown": true,
+          "unknownExplicit": true,
+          "scoreNotSafety": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R09-P",
+      "ruleId": "CAP-11-03-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "guard": {
+          "d04NotD10": true,
+          "clNotD15": true,
+          "unknownBlocksD16": true,
+          "frozenD08Immutable": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R09-N-guard-d04NotD10",
+      "ruleId": "CAP-11-03-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.d04NotD10",
+      "input": {
+        "guard": {
+          "d04NotD10": false,
+          "clNotD15": true,
+          "unknownBlocksD16": true,
+          "frozenD08Immutable": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R09-N-guard-clNotD15",
+      "ruleId": "CAP-11-03-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.clNotD15",
+      "input": {
+        "guard": {
+          "d04NotD10": true,
+          "clNotD15": false,
+          "unknownBlocksD16": true,
+          "frozenD08Immutable": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R09-N-guard-unknownBlocksD16",
+      "ruleId": "CAP-11-03-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.unknownBlocksD16",
+      "input": {
+        "guard": {
+          "d04NotD10": true,
+          "clNotD15": true,
+          "unknownBlocksD16": false,
+          "frozenD08Immutable": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R09-N-guard-frozenD08Immutable",
+      "ruleId": "CAP-11-03-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "guard.frozenD08Immutable",
+      "input": {
+        "guard": {
+          "d04NotD10": true,
+          "clNotD15": true,
+          "unknownBlocksD16": true,
+          "frozenD08Immutable": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R10-P",
+      "ruleId": "CAP-11-03-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "delivery": {
+          "sharedPort": true,
+          "oneBabylonLeftPanel": true,
+          "casAclCancel": true,
+          "shadowRollback": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R10-N-delivery-sharedPort",
+      "ruleId": "CAP-11-03-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "delivery.sharedPort",
+      "input": {
+        "delivery": {
+          "sharedPort": false,
+          "oneBabylonLeftPanel": true,
+          "casAclCancel": true,
+          "shadowRollback": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R10-N-delivery-oneBabylonLeftPanel",
+      "ruleId": "CAP-11-03-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "delivery.oneBabylonLeftPanel",
+      "input": {
+        "delivery": {
+          "sharedPort": true,
+          "oneBabylonLeftPanel": false,
+          "casAclCancel": true,
+          "shadowRollback": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R10-N-delivery-casAclCancel",
+      "ruleId": "CAP-11-03-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "delivery.casAclCancel",
+      "input": {
+        "delivery": {
+          "sharedPort": true,
+          "oneBabylonLeftPanel": true,
+          "casAclCancel": false,
+          "shadowRollback": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-R10-N-delivery-shadowRollback",
+      "ruleId": "CAP-11-03-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "delivery.shadowRollback",
+      "input": {
+        "delivery": {
+          "sharedPort": true,
+          "oneBabylonLeftPanel": true,
+          "casAclCancel": true,
+          "shadowRollback": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "gateCases": [
+    {
+      "id": "CAP-11-03-G01",
+      "scenario": "正常授权且证据齐全",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "ADVISORY_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G02",
+      "scenario": "索引过期",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": false,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G03",
+      "scenario": "原件版本变化",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": false,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G04",
+      "scenario": "原件Hash变化",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": false,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G05",
+      "scenario": "撤权删除",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": true,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G06",
+      "scenario": "实际Frame变化",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": false,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G07",
+      "scenario": "未检索到证据",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": false,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G08",
+      "scenario": "Selector无效",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": false,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G09",
+      "scenario": "使用许可缺失",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": false,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G10",
+      "scenario": "未明示实读范围",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": false,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G11",
+      "scenario": "只有向量相似度",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": true,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G12",
+      "scenario": "CL冒充D15",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": true,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G13",
+      "scenario": "未知NC语义",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": true,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G14",
+      "scenario": "多个有效来源互相矛盾",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": true,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "CONFLICT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G15",
+      "scenario": "调用者无授权",
+      "input": {
+        "authorized": false,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G16",
+      "scenario": "命中后Owner重验失败",
+      "input": {
+        "authorized": true,
+        "postAcl": false,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G17",
+      "scenario": "Epoch权限变更",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": false,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G18",
+      "scenario": "租户数据混入",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": true,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G19",
+      "scenario": "索引间接注入",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": true,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G20",
+      "scenario": "Agent执行写入",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": true,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G21",
+      "scenario": "试图覆盖D08",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": true,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G22",
+      "scenario": "试图签发D16",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": true,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G23",
+      "scenario": "取消生效",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": true,
+        "lateAck": false
+      },
+      "expected": "CANCELLED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G24",
+      "scenario": "取消晚ACK",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": true
+      },
+      "expected": "CANCELLED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G25",
+      "scenario": "取消与过期并发",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": false,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": true,
+        "lateAck": false
+      },
+      "expected": "CANCELLED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G26",
+      "scenario": "越权与过期并发",
+      "input": {
+        "authorized": false,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": false,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G27",
+      "scenario": "冲突与Selector无效并发",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": true,
+        "evidence": true,
+        "selector": false,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "CONFLICT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-03-G28",
+      "scenario": "仅3D只读选择",
+      "input": {
+        "authorized": true,
+        "postAcl": true,
+        "scopeFresh": true,
+        "crossTenant": false,
+        "injected": false,
+        "writeAttempt": false,
+        "frozenRewrite": false,
+        "releaseAttempt": false,
+        "indexFresh": true,
+        "sourceExact": true,
+        "hashMatch": true,
+        "revoked": false,
+        "frameCurrent": true,
+        "conflict": false,
+        "evidence": true,
+        "selector": true,
+        "licensed": true,
+        "readDepth": true,
+        "scoreOnly": false,
+        "clAsD15": false,
+        "unknownController": false,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "expected": "ADVISORY_ONLY",
+      "synthetic": true
+    }
+  ]
+}

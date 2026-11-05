@@ -1,0 +1,546 @@
+{
+  "schemaVersion": "procet-b94-fixtures-v08",
+  "syntheticOnly": true,
+  "productPass": false,
+  "base": {
+    "source": {
+      "exact": true,
+      "hash": true,
+      "frozen": true,
+      "frame": "RIGHT_RIGID_MM",
+      "scopeEpoch": 4
+    },
+    "axis": {
+      "from": [
+        0,
+        0,
+        1
+      ],
+      "to": [
+        1,
+        0,
+        0
+      ],
+      "convention": "TIP_TO_HOLDER",
+      "reference": null
+    },
+    "pose": {
+      "start": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "end": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "order": "XYZW",
+      "hemisphere": true
+    },
+    "roll": {
+      "symmetry": "AXISYMMETRIC",
+      "source": null
+    },
+    "mode": {
+      "strategy": "CONTINUOUS_5AXIS",
+      "interpolation": "SPHERE_TOOL_AXIS",
+      "toleranceRad": 0.000001,
+      "fixedOnCut": false,
+      "kind": "CUT"
+    },
+    "nc": {
+      "clOnly": true,
+      "machineAxes": false,
+      "d04D10Separate": true,
+      "d13": "UNKNOWN",
+      "d15": "NOT_RUN",
+      "publish": false
+    },
+    "owner": {
+      "acl": true,
+      "expectedHead": true,
+      "generation": 9,
+      "receiptGeneration": 9,
+      "cancelled": false,
+      "port": "CAMDomainPort",
+      "singleBabylon": true,
+      "leftPanel": true,
+      "oldReader": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B94-P1",
+      "ruleId": "B94-R1",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-P2",
+      "ruleId": "B94-R2",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-P3",
+      "ruleId": "B94-R3",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-P4",
+      "ruleId": "B94-R4",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-P5",
+      "ruleId": "B94-R5",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-P6",
+      "ruleId": "B94-R6",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-P7",
+      "ruleId": "B94-R7",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-P8",
+      "ruleId": "B94-R8",
+      "expected": "PASS",
+      "changes": [],
+      "why": "规则基线正例"
+    },
+    {
+      "id": "B94-N1a",
+      "ruleId": "B94-R1",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "source.hash",
+          false
+        ]
+      ],
+      "why": "原数据Hash变化"
+    },
+    {
+      "id": "B94-N1b",
+      "ruleId": "B94-R1",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "source.frame",
+          "LEFT_MIRROR"
+        ]
+      ],
+      "why": "镜像坐标"
+    },
+    {
+      "id": "B94-U1c",
+      "ruleId": "B94-R1",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "source.exact",
+          null
+        ]
+      ],
+      "why": "Owner来源未读"
+    },
+    {
+      "id": "B94-N2a",
+      "ruleId": "B94-R2",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "axis.from",
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "why": "零刀轴"
+    },
+    {
+      "id": "B94-N2b",
+      "ruleId": "B94-R2",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "axis.convention",
+          "HOLDER_TO_TIP"
+        ]
+      ],
+      "why": "刀轴符号反向"
+    },
+    {
+      "id": "B94-U2c",
+      "ruleId": "B94-R2",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "axis.to",
+          null
+        ]
+      ],
+      "why": "终点刀轴未给"
+    },
+    {
+      "id": "B94-P3a",
+      "ruleId": "B94-R3",
+      "expected": "PASS",
+      "changes": [
+        [
+          "axis.to",
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        [
+          "axis.reference",
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "why": "反平行合法单位正交参考"
+    },
+    {
+      "id": "B94-N3b",
+      "ruleId": "B94-R3",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "axis.to",
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        [
+          "axis.reference",
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "why": "参考方向平行"
+    },
+    {
+      "id": "B94-N3c",
+      "ruleId": "B94-R3",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "axis.to",
+          [
+            0,
+            0,
+            -1
+          ]
+        ],
+        [
+          "axis.reference",
+          [
+            2,
+            0,
+            0
+          ]
+        ]
+      ],
+      "why": "参考方向非单位"
+    },
+    {
+      "id": "B94-U3d",
+      "ruleId": "B94-R3",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "axis.to",
+          [
+            0,
+            0,
+            -1
+          ]
+        ]
+      ],
+      "why": "反平行无参考"
+    },
+    {
+      "id": "B94-P4a",
+      "ruleId": "B94-R4",
+      "expected": "PASS",
+      "changes": [
+        [
+          "pose.end",
+          [
+            0,
+            0,
+            0,
+            -1
+          ]
+        ]
+      ],
+      "why": "q与-q同旋转"
+    },
+    {
+      "id": "B94-N4b",
+      "ruleId": "B94-R4",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "pose.end",
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "why": "零四元数"
+    },
+    {
+      "id": "B94-N4c",
+      "ruleId": "B94-R4",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "pose.hemisphere",
+          false
+        ]
+      ],
+      "why": "缺半球规约"
+    },
+    {
+      "id": "B94-U4d",
+      "ruleId": "B94-R4",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "pose.end",
+          null
+        ]
+      ],
+      "why": "无终姿态"
+    },
+    {
+      "id": "B94-P5a",
+      "ruleId": "B94-R5",
+      "expected": "PASS",
+      "changes": [
+        [
+          "roll.symmetry",
+          "NON_AXISYMMETRIC"
+        ],
+        [
+          "roll.source",
+          {
+            "owner": "D03",
+            "poseHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        ]
+      ],
+      "why": "非对称完整姿态来源"
+    },
+    {
+      "id": "B94-N5b",
+      "ruleId": "B94-R5",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "roll.symmetry",
+          "UNKNOWN_KIND"
+        ]
+      ],
+      "why": "对称类型错误"
+    },
+    {
+      "id": "B94-N5c",
+      "ruleId": "B94-R5",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "roll.symmetry",
+          "NON_AXISYMMETRIC"
+        ],
+        [
+          "roll.source",
+          {
+            "owner": "D03",
+            "poseHash": "short",
+            "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        ]
+      ],
+      "why": "来源Hash非法"
+    },
+    {
+      "id": "B94-U5d",
+      "ruleId": "B94-R5",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "roll.symmetry",
+          "NON_AXISYMMETRIC"
+        ]
+      ],
+      "why": "非对称缺Roll"
+    },
+    {
+      "id": "B94-N6a",
+      "ruleId": "B94-R6",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "mode.strategy",
+          "INDEXED_3_PLUS_2"
+        ]
+      ],
+      "why": "索引切削轴不恒定"
+    },
+    {
+      "id": "B94-N6b",
+      "ruleId": "B94-R6",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "mode.interpolation",
+          "LINEAR_COMPONENT"
+        ]
+      ],
+      "why": "分量插值冒充SLERP"
+    },
+    {
+      "id": "B94-U6c",
+      "ruleId": "B94-R6",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "mode.toleranceRad",
+          null
+        ]
+      ],
+      "why": "角度预算未定"
+    },
+    {
+      "id": "B94-N7a",
+      "ruleId": "B94-R7",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "nc.machineAxes",
+          true
+        ]
+      ],
+      "why": "混入机床轴"
+    },
+    {
+      "id": "B94-N7b",
+      "ruleId": "B94-R7",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "nc.publish",
+          true
+        ]
+      ],
+      "why": "未知语义未验证发布"
+    },
+    {
+      "id": "B94-U7c",
+      "ruleId": "B94-R7",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "nc.d04D10Separate",
+          null
+        ]
+      ],
+      "why": "Setup和执行绑定证据缺失"
+    },
+    {
+      "id": "B94-N8a",
+      "ruleId": "B94-R8",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "owner.acl",
+          false
+        ]
+      ],
+      "why": "权限撤销"
+    },
+    {
+      "id": "B94-N8b",
+      "ruleId": "B94-R8",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "owner.receiptGeneration",
+          8
+        ]
+      ],
+      "why": "旧代次晚回执"
+    },
+    {
+      "id": "B94-U8c",
+      "ruleId": "B94-R8",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "owner.expectedHead",
+          null
+        ]
+      ],
+      "why": "CAS HEAD未知"
+    }
+  ],
+  "mathGoldens": [
+    {
+      "id": "B94-G1",
+      "description": "反平行单位刀轴线性中点归一化失败",
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "B94-G2",
+      "description": "q与-q分量线性中点为零四元数",
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "B94-G3",
+      "description": "90度角t=0.25：球面与归一化线性角差",
+      "expected": 4.065051177,
+      "tolerance": 1e-8
+    }
+  ]
+}

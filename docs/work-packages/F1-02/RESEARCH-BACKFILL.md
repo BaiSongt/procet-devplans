@@ -1,0 +1,14 @@
+# F1-02｜来源、规则及合成验收追踪补证（2026-10-27）
+[原实施级工作包与10项原编号验收](../F1-02.md)保持原字节与原验收编号F1-02-T01..T10。仅补入研究追踪和新生合成fixture，不把补证当作已完成产品开发。
+[八份研究登记](../../../research/sources/F1-02.json)→[十条可机器执行的逐字段规则](../../../research/traces/F1-02.json)→[30项正反及独立字段变异+6数学反例](fixtures.json)；[研究适用边界](../../../research/topics/R-FRAME-OWNER-F1-02-001.md)与[规划校验器](../../../tools/check_f102_planning_2026_10_27.cjs)。
+1. **F1-02-T01**／F1-02-R01 有方向的变换及复合逆变换：`frames.fromToExplicit、frames.parentChildCompose、frames.inverseRoundTrip、frames.referencePinned`；来源F102-S01/F102-S02/F102-S03；正反变异P/N/M01；消费CAP-04-04/CAP-09-02/CAP-09-04。
+2. **F1-02-T02**／F1-02-R02 点/方向/法向及错帧：`vector.pointVersusDirection、vector.translationIgnoredForDirection、vector.normalTransformDeclared、vector.unknownFrameRejected`；来源F102-S02/F102-S03/F102-S07；正反变异P/N/M02；消费CAP-04-04/CAP-09-02/CAP-09-04。
+3. **F1-02-T03**／F1-02-R03 重定位幂等与毛坯不扩张：`placement.sourceAnchorImmutable、placement.recomputeNoAccumulation、placement.cancelLateAckRejected、placement.stockDimensionsNotExpanded`；来源F102-S02/F102-S03/F102-S06；正反变异P/N/M03；消费CAP-04-04/CAP-09-02/CAP-09-04。
+4. **F1-02-T04**／F1-02-R04 非刚体拒绝：`se3.rightHanded、se3.orthonormalRotation、se3.determinantPositive、se3.scaleMirrorNaNRejected`；来源F102-S02/F102-S03/F102-S01；正反变异P/N/M04；消费CAP-04-04/CAP-09-02/CAP-09-04。
+5. **F1-02-T05**／F1-02-R05 名义Setup与执行绑定区隔：`binding.d04NominalOnly、binding.d10ExecutionOwner、binding.controllerWcsNotFromCamera、binding.realProfileOrUnknown`；来源F102-S01/F102-S04/F102-S05；正反变异P/N/M05；消费CAP-04-04/CAP-09-02/CAP-09-04。
+6. **F1-02-T06**／F1-02-R06 撤权与取消晚回执：`scope.revisionHashExact、scope.epochGenerationMatched、scope.casAclRecheckedOnCommit、scope.lateAckNotResurrected`；来源F102-S06/F102-S07/F102-S03；正反变异P/N/M06；消费CAP-04-04/CAP-09-02/CAP-09-04。
+7. **F1-02-T07**／F1-02-R07 单位和容差归一化：`units.canonicalMmRadSpecified、units.sourceUnitRetained、units.conversionExplicitOnce、units.toleranceProvenanceNotHardcoded`；来源F102-S02/F102-S03/F102-S05；正反变异P/N/M07；消费CAP-04-04/CAP-09-02/CAP-09-04。
+8. **F1-02-T08**／F1-02-R08 OCCT与Babylon拾取逆映射：`render.oneBabylonWorld、render.ownerGeometryAuthority、render.pickInverseFrameVerified、render.meshOnlyNotManufacturingProof`；来源F102-S03/F102-S02/F102-S07；正反变异P/N/M08；消费CAP-04-04/CAP-09-02/CAP-09-04。
+9. **F1-02-T09**／F1-02-R09 静态/运行运动分层：`runtime.staticFrameFrozen、runtime.d10BindingSeparated、runtime.d13FinalNcReinterpreted、runtime.d14TemporalFromD13`；来源F102-S04/F102-S02/F102-S07；正反变异P/N/M09；消费CAP-04-04/CAP-09-02/CAP-09-04。
+10. **F1-02-T10**／F1-02-R10 旧数据解释、迁移、回退：`migration.legacyMissingFrameUnknown、migration.oldReaderStillAvailable、migration.noDatabaseDestruction、migration.d16FrozenHistoryPreserved`；来源F102-S06/F102-S07/F102-S08；正反变异P/N/M10；消费CAP-04-04/CAP-09-02/CAP-09-04。
+所有测试输入均为**NEWLY_AUTHORED**合成数据，不声称恢复历史22项原始脚本或满足真实Rust/TS/OCCT/GUI测试。数学1e-9仅用于合成解析数值，绝不可当机床默认精度、加工公差。变更旧Reader/schema/Frame字段后须提供按版本配对的迁移回退；ACL/CAS/epoch/cancel晚回执拒绝；D08冻结和历史D16不可被覆盖，用户数据库不删除。设计批准与17资产会签PENDING_HUMAN，产品及独立消费者NOT_RUN。**规划PASS≠产品PASS。**

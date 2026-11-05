@@ -1,0 +1,823 @@
+{
+  "schemaVersion": "procet-cap0207-research-fixtures-v08",
+  "capabilityId": "CAP-02-07",
+  "syntheticOnly": true,
+  "noRealCADHashes": true,
+  "sourceTrace": "research/traces/CAP-02-07-v08-supplement.json",
+  "positives": [
+    {
+      "id": "RG07-V08-R01-P",
+      "ruleId": "RG07-V08-R01",
+      "expected": "ACCEPT",
+      "input": {
+        "resource": {
+          "exactRevision": "res@r1"
+        },
+        "geometry": {
+          "sourceByteHash": "hash:cad",
+          "provenance": "VERIFIED",
+          "role": "DISPLAY_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R02-P",
+      "ruleId": "RG07-V08-R02",
+      "expected": "ACCEPT",
+      "input": {
+        "derive": {
+          "template": "tmpl@r2",
+          "inputPolicy": "CANONICAL_POLICY_FROZEN",
+          "kernel": "occt@8.0.1",
+          "outputByteHash": "hash:out"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R03-P",
+      "ruleId": "RG07-V08-R03",
+      "expected": "ACCEPT",
+      "input": {
+        "parameter": {
+          "unit": "mm",
+          "domain": "POSITIVE_BOUNDED",
+          "graph": "DAG",
+          "valueClass": "FINITE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R04-P",
+      "ruleId": "RG07-V08-R04",
+      "expected": "ACCEPT",
+      "input": {
+        "exact": {
+          "kind": "SOLID",
+          "kernelCheck": "VALID",
+          "closed": "YES",
+          "purpose": "NOT_AUTOMATICALLY_CERTIFIED"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R05-P",
+      "ruleId": "RG07-V08-R05",
+      "expected": "ACCEPT",
+      "input": {
+        "mesh": {
+          "sourceExact": "hash:cad",
+          "deflection": "LIN0_2_ANG0_5",
+          "outputHash": "hash:mesh",
+          "topologyMap": "EXPLICIT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R06-P",
+      "ruleId": "RG07-V08-R06",
+      "expected": "ACCEPT",
+      "input": {
+        "frame": {
+          "parent": "machine@r1",
+          "child": "holder@r1",
+          "kind": "SE3_RIGID",
+          "detR": 1
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R07-P",
+      "ruleId": "RG07-V08-R07",
+      "expected": "ACCEPT",
+      "input": {
+        "envelope": {
+          "method": "ADD_OPTIMAL",
+          "frame": "MachineCSYS@r1",
+          "role": "PRE_FILTER",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R08-P",
+      "ruleId": "RG07-V08-R08",
+      "expected": "ACCEPT",
+      "input": {
+        "write": {
+          "port": "D03_OWNER_PORT",
+          "acl": "RECHECK_ON_COMMIT",
+          "cas": "EXPECTED_REVISION",
+          "lateReceipt": "RECONCILE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R09-P",
+      "ruleId": "RG07-V08-R09",
+      "expected": "ACCEPT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "rendererRole": "PROJECTION_ONLY",
+          "domainPort": "D03_OWNER_PORT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R10-P",
+      "ruleId": "RG07-V08-R10",
+      "expected": "ACCEPT",
+      "input": {
+        "chain": {
+          "setup": "D04@r2",
+          "executionBinding": "D10@r8",
+          "controllerSemantic": "UNKNOWN",
+          "release": "BLOCKED"
+        }
+      }
+    }
+  ],
+  "negatives": [
+    {
+      "id": "RG07-V08-R01-N1",
+      "ruleId": "RG07-V08-R01",
+      "mutatedField": "resource.exactRevision",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "exactRevision": "WRONG"
+        },
+        "geometry": {
+          "sourceByteHash": "hash:cad",
+          "provenance": "VERIFIED",
+          "role": "DISPLAY_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R01-N2",
+      "ruleId": "RG07-V08-R01",
+      "mutatedField": "geometry.sourceByteHash",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "exactRevision": "res@r1"
+        },
+        "geometry": {
+          "sourceByteHash": "WRONG",
+          "provenance": "VERIFIED",
+          "role": "DISPLAY_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R01-N3",
+      "ruleId": "RG07-V08-R01",
+      "mutatedField": "geometry.provenance",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "exactRevision": "res@r1"
+        },
+        "geometry": {
+          "sourceByteHash": "hash:cad",
+          "provenance": "WRONG",
+          "role": "DISPLAY_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R01-N4",
+      "ruleId": "RG07-V08-R01",
+      "mutatedField": "geometry.role",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "exactRevision": "res@r1"
+        },
+        "geometry": {
+          "sourceByteHash": "hash:cad",
+          "provenance": "VERIFIED",
+          "role": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R02-N1",
+      "ruleId": "RG07-V08-R02",
+      "mutatedField": "derive.template",
+      "expected": "REJECT",
+      "input": {
+        "derive": {
+          "template": "WRONG",
+          "inputPolicy": "CANONICAL_POLICY_FROZEN",
+          "kernel": "occt@8.0.1",
+          "outputByteHash": "hash:out"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R02-N2",
+      "ruleId": "RG07-V08-R02",
+      "mutatedField": "derive.inputPolicy",
+      "expected": "REJECT",
+      "input": {
+        "derive": {
+          "template": "tmpl@r2",
+          "inputPolicy": "WRONG",
+          "kernel": "occt@8.0.1",
+          "outputByteHash": "hash:out"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R02-N3",
+      "ruleId": "RG07-V08-R02",
+      "mutatedField": "derive.kernel",
+      "expected": "REJECT",
+      "input": {
+        "derive": {
+          "template": "tmpl@r2",
+          "inputPolicy": "CANONICAL_POLICY_FROZEN",
+          "kernel": "WRONG",
+          "outputByteHash": "hash:out"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R02-N4",
+      "ruleId": "RG07-V08-R02",
+      "mutatedField": "derive.outputByteHash",
+      "expected": "REJECT",
+      "input": {
+        "derive": {
+          "template": "tmpl@r2",
+          "inputPolicy": "CANONICAL_POLICY_FROZEN",
+          "kernel": "occt@8.0.1",
+          "outputByteHash": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R03-N1",
+      "ruleId": "RG07-V08-R03",
+      "mutatedField": "parameter.unit",
+      "expected": "REJECT",
+      "input": {
+        "parameter": {
+          "unit": "WRONG",
+          "domain": "POSITIVE_BOUNDED",
+          "graph": "DAG",
+          "valueClass": "FINITE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R03-N2",
+      "ruleId": "RG07-V08-R03",
+      "mutatedField": "parameter.domain",
+      "expected": "REJECT",
+      "input": {
+        "parameter": {
+          "unit": "mm",
+          "domain": "WRONG",
+          "graph": "DAG",
+          "valueClass": "FINITE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R03-N3",
+      "ruleId": "RG07-V08-R03",
+      "mutatedField": "parameter.graph",
+      "expected": "REJECT",
+      "input": {
+        "parameter": {
+          "unit": "mm",
+          "domain": "POSITIVE_BOUNDED",
+          "graph": "WRONG",
+          "valueClass": "FINITE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R03-N4",
+      "ruleId": "RG07-V08-R03",
+      "mutatedField": "parameter.valueClass",
+      "expected": "REJECT",
+      "input": {
+        "parameter": {
+          "unit": "mm",
+          "domain": "POSITIVE_BOUNDED",
+          "graph": "DAG",
+          "valueClass": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R04-N1",
+      "ruleId": "RG07-V08-R04",
+      "mutatedField": "exact.kind",
+      "expected": "REJECT",
+      "input": {
+        "exact": {
+          "kind": "WRONG",
+          "kernelCheck": "VALID",
+          "closed": "YES",
+          "purpose": "NOT_AUTOMATICALLY_CERTIFIED"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R04-N2",
+      "ruleId": "RG07-V08-R04",
+      "mutatedField": "exact.kernelCheck",
+      "expected": "REJECT",
+      "input": {
+        "exact": {
+          "kind": "SOLID",
+          "kernelCheck": "WRONG",
+          "closed": "YES",
+          "purpose": "NOT_AUTOMATICALLY_CERTIFIED"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R04-N3",
+      "ruleId": "RG07-V08-R04",
+      "mutatedField": "exact.closed",
+      "expected": "REJECT",
+      "input": {
+        "exact": {
+          "kind": "SOLID",
+          "kernelCheck": "VALID",
+          "closed": "WRONG",
+          "purpose": "NOT_AUTOMATICALLY_CERTIFIED"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R04-N4",
+      "ruleId": "RG07-V08-R04",
+      "mutatedField": "exact.purpose",
+      "expected": "REJECT",
+      "input": {
+        "exact": {
+          "kind": "SOLID",
+          "kernelCheck": "VALID",
+          "closed": "YES",
+          "purpose": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R05-N1",
+      "ruleId": "RG07-V08-R05",
+      "mutatedField": "mesh.sourceExact",
+      "expected": "REJECT",
+      "input": {
+        "mesh": {
+          "sourceExact": "WRONG",
+          "deflection": "LIN0_2_ANG0_5",
+          "outputHash": "hash:mesh",
+          "topologyMap": "EXPLICIT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R05-N2",
+      "ruleId": "RG07-V08-R05",
+      "mutatedField": "mesh.deflection",
+      "expected": "REJECT",
+      "input": {
+        "mesh": {
+          "sourceExact": "hash:cad",
+          "deflection": "WRONG",
+          "outputHash": "hash:mesh",
+          "topologyMap": "EXPLICIT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R05-N3",
+      "ruleId": "RG07-V08-R05",
+      "mutatedField": "mesh.outputHash",
+      "expected": "REJECT",
+      "input": {
+        "mesh": {
+          "sourceExact": "hash:cad",
+          "deflection": "LIN0_2_ANG0_5",
+          "outputHash": "WRONG",
+          "topologyMap": "EXPLICIT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R05-N4",
+      "ruleId": "RG07-V08-R05",
+      "mutatedField": "mesh.topologyMap",
+      "expected": "REJECT",
+      "input": {
+        "mesh": {
+          "sourceExact": "hash:cad",
+          "deflection": "LIN0_2_ANG0_5",
+          "outputHash": "hash:mesh",
+          "topologyMap": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R06-N1",
+      "ruleId": "RG07-V08-R06",
+      "mutatedField": "frame.parent",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "parent": "WRONG",
+          "child": "holder@r1",
+          "kind": "SE3_RIGID",
+          "detR": 1
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R06-N2",
+      "ruleId": "RG07-V08-R06",
+      "mutatedField": "frame.child",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "parent": "machine@r1",
+          "child": "WRONG",
+          "kind": "SE3_RIGID",
+          "detR": 1
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R06-N3",
+      "ruleId": "RG07-V08-R06",
+      "mutatedField": "frame.kind",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "parent": "machine@r1",
+          "child": "holder@r1",
+          "kind": "WRONG",
+          "detR": 1
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R06-N4",
+      "ruleId": "RG07-V08-R06",
+      "mutatedField": "frame.detR",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "parent": "machine@r1",
+          "child": "holder@r1",
+          "kind": "SE3_RIGID",
+          "detR": 2
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R07-N1",
+      "ruleId": "RG07-V08-R07",
+      "mutatedField": "envelope.method",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "method": "WRONG",
+          "frame": "MachineCSYS@r1",
+          "role": "PRE_FILTER",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R07-N2",
+      "ruleId": "RG07-V08-R07",
+      "mutatedField": "envelope.frame",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "method": "ADD_OPTIMAL",
+          "frame": "WRONG",
+          "role": "PRE_FILTER",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R07-N3",
+      "ruleId": "RG07-V08-R07",
+      "mutatedField": "envelope.role",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "method": "ADD_OPTIMAL",
+          "frame": "MachineCSYS@r1",
+          "role": "WRONG",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R07-N4",
+      "ruleId": "RG07-V08-R07",
+      "mutatedField": "envelope.collisionAuthority",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "method": "ADD_OPTIMAL",
+          "frame": "MachineCSYS@r1",
+          "role": "PRE_FILTER",
+          "collisionAuthority": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R08-N1",
+      "ruleId": "RG07-V08-R08",
+      "mutatedField": "write.port",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "port": "WRONG",
+          "acl": "RECHECK_ON_COMMIT",
+          "cas": "EXPECTED_REVISION",
+          "lateReceipt": "RECONCILE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R08-N2",
+      "ruleId": "RG07-V08-R08",
+      "mutatedField": "write.acl",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "port": "D03_OWNER_PORT",
+          "acl": "WRONG",
+          "cas": "EXPECTED_REVISION",
+          "lateReceipt": "RECONCILE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R08-N3",
+      "ruleId": "RG07-V08-R08",
+      "mutatedField": "write.cas",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "port": "D03_OWNER_PORT",
+          "acl": "RECHECK_ON_COMMIT",
+          "cas": "WRONG",
+          "lateReceipt": "RECONCILE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R08-N4",
+      "ruleId": "RG07-V08-R08",
+      "mutatedField": "write.lateReceipt",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "port": "D03_OWNER_PORT",
+          "acl": "RECHECK_ON_COMMIT",
+          "cas": "EXPECTED_REVISION",
+          "lateReceipt": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R09-N1",
+      "ruleId": "RG07-V08-R09",
+      "mutatedField": "ui.worldCount",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 2,
+          "taskPanel": "UNIFIED_LEFT",
+          "rendererRole": "PROJECTION_ONLY",
+          "domainPort": "D03_OWNER_PORT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R09-N2",
+      "ruleId": "RG07-V08-R09",
+      "mutatedField": "ui.taskPanel",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "WRONG",
+          "rendererRole": "PROJECTION_ONLY",
+          "domainPort": "D03_OWNER_PORT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R09-N3",
+      "ruleId": "RG07-V08-R09",
+      "mutatedField": "ui.rendererRole",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "rendererRole": "WRONG",
+          "domainPort": "D03_OWNER_PORT"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R09-N4",
+      "ruleId": "RG07-V08-R09",
+      "mutatedField": "ui.domainPort",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "rendererRole": "PROJECTION_ONLY",
+          "domainPort": "WRONG"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R10-N1",
+      "ruleId": "RG07-V08-R10",
+      "mutatedField": "chain.setup",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "WRONG",
+          "executionBinding": "D10@r8",
+          "controllerSemantic": "UNKNOWN",
+          "release": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R10-N2",
+      "ruleId": "RG07-V08-R10",
+      "mutatedField": "chain.executionBinding",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "D04@r2",
+          "executionBinding": "WRONG",
+          "controllerSemantic": "UNKNOWN",
+          "release": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R10-N3",
+      "ruleId": "RG07-V08-R10",
+      "mutatedField": "chain.controllerSemantic",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "D04@r2",
+          "executionBinding": "D10@r8",
+          "controllerSemantic": "WRONG",
+          "release": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "RG07-V08-R10-N4",
+      "ruleId": "RG07-V08-R10",
+      "mutatedField": "chain.release",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "D04@r2",
+          "executionBinding": "D10@r8",
+          "controllerSemantic": "UNKNOWN",
+          "release": "WRONG"
+        }
+      }
+    }
+  ],
+  "mathCases": [
+    {
+      "id": "RG07-M01",
+      "kind": "MM_TO_M",
+      "input": {
+        "mm": 25.4
+      },
+      "expected": {
+        "value": 0.0254
+      }
+    },
+    {
+      "id": "RG07-M02",
+      "kind": "MIRROR_DETERMINANT",
+      "input": {
+        "diagonal": [
+          1,
+          1,
+          -1
+        ]
+      },
+      "expected": {
+        "value": -1
+      }
+    },
+    {
+      "id": "RG07-M03",
+      "kind": "L_SHAPE_BBOX_FALSE_POSITIVE",
+      "input": {
+        "point": [
+          2,
+          2
+        ],
+        "bbox": [
+          0,
+          0,
+          3,
+          3
+        ],
+        "armMax": 1
+      },
+      "expected": {
+        "value": true
+      }
+    },
+    {
+      "id": "RG07-M04",
+      "kind": "LOCAL_TRANSLATION",
+      "input": {
+        "parentX": 10,
+        "childX": 2
+      },
+      "expected": {
+        "value": 12
+      }
+    },
+    {
+      "id": "RG07-M05",
+      "kind": "MESH_LOD_NO_EXACT_CHANGE",
+      "input": {
+        "exactHash": "hashA",
+        "meshBefore": "mesh1",
+        "meshAfter": "mesh2"
+      },
+      "expected": {
+        "value": true
+      }
+    }
+  ],
+  "statusScenarios": [
+    {
+      "scenario": "OEM_UNVERIFIED",
+      "expected": "UNKNOWN_OR_BLOCK",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "BREP_VALID_BUT_PURPOSE_UNKNOWN",
+      "expected": "UNKNOWN_OR_BLOCK",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "TOPO_MAP_MISSING",
+      "expected": "UNKNOWN_OR_BLOCK",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "OFFLINE_HASH_MISMATCH",
+      "expected": "UNKNOWN_OR_BLOCK",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "CANCELLED_LATE_ACK",
+      "expected": "RECONCILE_ONLY",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "SETUP_EPOCH_CHANGED",
+      "expected": "DROP_LATE_PREVIEW",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "D10_NOT_COMPATIBLE",
+      "expected": "UNSUPPORTED",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "D13_UNKNOWN",
+      "expected": "BLOCK_RELEASE",
+      "execution": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN"
+}

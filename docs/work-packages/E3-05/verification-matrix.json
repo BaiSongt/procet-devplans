@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "procet-d15-coverage-matrix-v1",
+  "workPackageId": "E3-05",
+  "status": "DESIGN_NOT_EXECUTED",
+  "dimensions": [
+    {
+      "id": "NC_SEMANTICS",
+      "input": "D12原始NC+D13逐块解释",
+      "check": "全量行段覆盖/模态、宏循环、进给与辅助事件",
+      "passCondition": "独立解释所有被声明支持的语义、零未知",
+      "unknownCondition": "专有指令、缺控制器适配或解释超预算",
+      "consumer": "D16",
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "FRAME_OFFSETS",
+      "input": "D04+D10+D13",
+      "check": "各坐标系、偏置序列、刀长与机床原点",
+      "passCondition": "精确Frame与配置版本可追",
+      "unknownCondition": "WCS或刀具长度未知",
+      "consumer": "D16",
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "AXIS_LIMITS",
+      "input": "D03+D14",
+      "check": "全时序位置、关节极限、不可达和奇异",
+      "passCondition": "声明覆盖区间满足有证据限制",
+      "unknownCondition": "实际B5未标定/轴限位未知",
+      "consumer": "D16",
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "GEOMETRY_VALIDITY",
+      "input": "D01+D03+D04+D10",
+      "check": "所有用于干涉的B-Rep合法性及Frame",
+      "passCondition": "合法且版本稳定",
+      "unknownCondition": "几何代理/shape错误",
+      "consumer": "D16",
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "INTERFERENCE_DISCRETE",
+      "input": "D14+真实刀具刀柄夹具零件",
+      "check": "有限采样时刻静态布尔和最近距离",
+      "passCondition": "仅所声明样本/容差未观测碰撞",
+      "unknownCondition": "无几何/采样不足/布尔失败",
+      "consumer": "D16",
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "INTERFERENCE_CONTINUOUS",
+      "input": "D14时间连续轨迹+保守几何界",
+      "check": "连续碰撞证明或认证的保守界",
+      "passCondition": "仅有额外证明时允许连续安全声明",
+      "unknownCondition": "目前未提供连续证明；离散PASS不能升级",
+      "consumer": "D16",
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "REAL_CONTROLLER",
+      "input": "真实控制器与机床校验资料",
+      "check": "目标控制器语义/速度/加速度与实体机器差异",
+      "passCondition": "独立实测验证记录",
+      "unknownCondition": "默认UNKNOWN",
+      "consumer": "D16",
+      "verification": "NOT_RUN"
+    },
+    {
+      "id": "MATERIAL_REMOVAL_SWEEP",
+      "input": "无",
+      "check": "不在本轮范围",
+      "passCondition": "N/A",
+      "unknownCondition": "UNSUPPORTED",
+      "consumer": "D16",
+      "verification": "NOT_IMPLEMENTED"
+    }
+  ]
+}

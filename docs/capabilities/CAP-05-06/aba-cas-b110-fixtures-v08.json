@@ -1,0 +1,366 @@
+{
+  "schemaVersion": "procet-b110-aba-cas-fixtures-v08",
+  "date": "2026-11-02",
+  "capabilityId": "CAP-05-06",
+  "origin": "NEWLY_AUTHORED_NOT_HISTORICAL_BYTES",
+  "description": "规划合成输入；COMMIT_ELIGIBLE_ONLY不是持久化成功或业务许可，所有approval为合成占位",
+  "baseline": {
+    "head": {
+      "revision": 14,
+      "contentHash": "sha256:AAA",
+      "lineageEpoch": 9,
+      "scope": "project-1",
+      "id": "D05-P1"
+    },
+    "request": {
+      "expectedRevision": 14,
+      "expectedHash": "sha256:AAA",
+      "expectedLineageEpoch": 9,
+      "sourceExact": true,
+      "frameProofExact": true,
+      "canonicalProfileKnown": true,
+      "schemaCompatible": true
+    },
+    "transaction": {
+      "atomicConditionalWrite": true,
+      "transactionMode": "IMMEDIATE",
+      "affectedRows": 1
+    },
+    "idempotency": {
+      "keyStatus": "NEW",
+      "payloadHashMatches": true,
+      "receiptVerified": false
+    },
+    "workflow": {
+      "aclAtCommit": true,
+      "approvalAtCommit": true,
+      "freezeConflict": false,
+      "agentDirectWrite": false,
+      "scopeEpoch": 7,
+      "ackScopeEpoch": 7,
+      "taskGeneration": 8,
+      "ackGeneration": 8,
+      "cancelled": false,
+      "lateAck": false,
+      "sameDomainPort": true,
+      "sceneCount": 1,
+      "leftTaskPanel": true,
+      "previewWrites": false,
+      "appendOnly": true,
+      "d04EqualsD10": false,
+      "d13Semantic": "UNKNOWN",
+      "d15PassClaim": false,
+      "d16PublishClaim": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B110-P01",
+      "ruleId": "B110-R01",
+      "expected": "COMMIT_ELIGIBLE_ONLY",
+      "patch": {},
+      "why": "合法单点合成仅证明写入资格而非真正提交"
+    },
+    {
+      "id": "B110-P02",
+      "ruleId": "B110-R06",
+      "expected": "COMMIT_ELIGIBLE_ONLY",
+      "patch": {
+        "request.canonicalProfileKnown": true
+      },
+      "why": "明示canonicalProfile，不授D15"
+    },
+    {
+      "id": "B110-P03",
+      "ruleId": "B110-R08",
+      "expected": "COMMIT_ELIGIBLE_ONLY",
+      "patch": {
+        "workflow.d13Semantic": "KNOWN"
+      },
+      "why": "即使D13已知，本规划也不声明D15或D16合格"
+    },
+    {
+      "id": "B110-S01",
+      "ruleId": "B110-R01",
+      "expected": "STALE",
+      "patch": {
+        "head.revision": 16
+      },
+      "why": "ABA A→B→A，内容SHA相同但Head修订前进"
+    },
+    {
+      "id": "B110-S02",
+      "ruleId": "B110-R01",
+      "expected": "STALE",
+      "patch": {
+        "head.lineageEpoch": 11
+      },
+      "why": "ABA历史历元变化但内容SHA相同"
+    },
+    {
+      "id": "B110-S03",
+      "ruleId": "B110-R01",
+      "expected": "STALE",
+      "patch": {
+        "head.contentHash": "sha256:BBB"
+      },
+      "why": "普通内容漂移"
+    },
+    {
+      "id": "B110-S04",
+      "ruleId": "B110-R05",
+      "expected": "STALE",
+      "patch": {
+        "workflow.ackScopeEpoch": 6
+      },
+      "why": "旧Scope回执"
+    },
+    {
+      "id": "B110-S05",
+      "ruleId": "B110-R05",
+      "expected": "STALE",
+      "patch": {
+        "workflow.ackGeneration": 7
+      },
+      "why": "旧任务代次"
+    },
+    {
+      "id": "B110-S06",
+      "ruleId": "B110-R05",
+      "expected": "STALE",
+      "patch": {
+        "workflow.cancelled": true
+      },
+      "why": "取消后的候选不得写入"
+    },
+    {
+      "id": "B110-S07",
+      "ruleId": "B110-R05",
+      "expected": "STALE",
+      "patch": {
+        "workflow.lateAck": true
+      },
+      "why": "晚回执"
+    },
+    {
+      "id": "B110-S08",
+      "ruleId": "B110-R02",
+      "expected": "STALE",
+      "patch": {
+        "transaction.affectedRows": 0
+      },
+      "why": "WHERE谓词未命中必须回滚"
+    },
+    {
+      "id": "B110-N01",
+      "ruleId": "B110-R02",
+      "expected": "REJECT",
+      "patch": {
+        "transaction.affectedRows": 2
+      },
+      "why": "多行命中不是成功"
+    },
+    {
+      "id": "B110-U01",
+      "ruleId": "B110-R02",
+      "expected": "UNKNOWN",
+      "patch": {
+        "transaction.atomicConditionalWrite": false
+      },
+      "why": "未知跨边界原子性不得宣称通过"
+    },
+    {
+      "id": "B110-U02",
+      "ruleId": "B110-R02",
+      "expected": "UNKNOWN",
+      "patch": {
+        "transaction.transactionMode": "UNKNOWN"
+      },
+      "why": "未实证锁/事务协议"
+    },
+    {
+      "id": "B110-P04",
+      "ruleId": "B110-R03",
+      "expected": "RECONCILE_ONLY",
+      "patch": {
+        "idempotency.keyStatus": "EXISTING",
+        "idempotency.receiptVerified": true
+      },
+      "why": "同key同载荷且已有权威回执：零写入只对账"
+    },
+    {
+      "id": "B110-N02",
+      "ruleId": "B110-R03",
+      "expected": "REJECT",
+      "patch": {
+        "idempotency.keyStatus": "EXISTING",
+        "idempotency.payloadHashMatches": false
+      },
+      "why": "同Key异载荷冲突"
+    },
+    {
+      "id": "B110-U03",
+      "ruleId": "B110-R03",
+      "expected": "UNKNOWN",
+      "patch": {
+        "idempotency.keyStatus": "EXISTING",
+        "idempotency.receiptVerified": false
+      },
+      "why": "同Key同载荷但缺回执：不可重做"
+    },
+    {
+      "id": "B110-N03",
+      "ruleId": "B110-R04",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.aclAtCommit": false
+      },
+      "why": "预览权限旧值不能代替写点授权"
+    },
+    {
+      "id": "B110-N04",
+      "ruleId": "B110-R04",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.approvalAtCommit": false
+      },
+      "why": "缺受管审批"
+    },
+    {
+      "id": "B110-N05",
+      "ruleId": "B110-R04",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.freezeConflict": true
+      },
+      "why": "D08冻结原位覆盖"
+    },
+    {
+      "id": "B110-N06",
+      "ruleId": "B110-R04",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.agentDirectWrite": true
+      },
+      "why": "Agent绕过05域Owner"
+    },
+    {
+      "id": "B110-U04",
+      "ruleId": "B110-R06",
+      "expected": "UNKNOWN",
+      "patch": {
+        "request.sourceExact": false
+      },
+      "why": "跨域精确来源未证实"
+    },
+    {
+      "id": "B110-U05",
+      "ruleId": "B110-R06",
+      "expected": "UNKNOWN",
+      "patch": {
+        "request.frameProofExact": false
+      },
+      "why": "D04 Frame证明缺失"
+    },
+    {
+      "id": "B110-U06",
+      "ruleId": "B110-R06",
+      "expected": "UNKNOWN",
+      "patch": {
+        "request.canonicalProfileKnown": false
+      },
+      "why": "Hash编码规范不明"
+    },
+    {
+      "id": "B110-U07",
+      "ruleId": "B110-R06",
+      "expected": "UNKNOWN",
+      "patch": {
+        "request.schemaCompatible": false
+      },
+      "why": "旧schema无法证明兼容"
+    },
+    {
+      "id": "B110-N07",
+      "ruleId": "B110-R07",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.sameDomainPort": false
+      },
+      "why": "多写侧绕过Owner"
+    },
+    {
+      "id": "B110-N08",
+      "ruleId": "B110-R07",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.sceneCount": 2
+      },
+      "why": "双Babylon世界违反GUI边界"
+    },
+    {
+      "id": "B110-N09",
+      "ruleId": "B110-R07",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.leftTaskPanel": false
+      },
+      "why": "绕过统一左TaskPanel"
+    },
+    {
+      "id": "B110-N10",
+      "ruleId": "B110-R07",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.previewWrites": true
+      },
+      "why": "preview产生D05正式写"
+    },
+    {
+      "id": "B110-N11",
+      "ruleId": "B110-R08",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.appendOnly": false
+      },
+      "why": "修改旧冻结/修订而非append"
+    },
+    {
+      "id": "B110-N12",
+      "ruleId": "B110-R08",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.d04EqualsD10": true
+      },
+      "why": "D04工艺Setup被当成D10执行绑定"
+    },
+    {
+      "id": "B110-N13",
+      "ruleId": "B110-R08",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.d15PassClaim": true
+      },
+      "why": "未经独立D15认证宣称PASS"
+    },
+    {
+      "id": "B110-N14",
+      "ruleId": "B110-R08",
+      "expected": "REJECT",
+      "patch": {
+        "workflow.d16PublishClaim": true
+      },
+      "why": "候选直接发布"
+    }
+  ],
+  "caseCount": 33,
+  "breakdown": {
+    "COMMIT_ELIGIBLE_ONLY": 3,
+    "STALE": 8,
+    "REJECT": 14,
+    "UNKNOWN": 7,
+    "RECONCILE_ONLY": 1
+  },
+  "testEntry": "tools/check_cap0506_aba_cas_b110_v08.cjs",
+  "independentConsumer": "NOT_RUN"
+}

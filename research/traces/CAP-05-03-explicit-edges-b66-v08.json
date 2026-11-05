@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "procet-b66-trace-v1",
+  "capabilityId": "CAP-05-03",
+  "sourceRegistry": "research/sources/CAP-05-03-explicit-edges-b66.json",
+  "researchTopic": "R-ROUTEEDIT-001",
+  "originalWorkPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "ruleCount": 8,
+  "rules": [
+    {
+      "id": "B66-R01",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "稳定Operation/显式Edge身份",
+      "fields": [
+        "graph.nodes, graph.edges[].id/from/to"
+      ],
+      "sourceIds": [
+        "B66-S02",
+        "B66-S06",
+        "B66-S09"
+      ],
+      "workPackageIds": [
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R01-P",
+        "B66-R01-DUP-OP",
+        "B66-R01-EMPTY-OP",
+        "B66-R01-DUP-EDGE",
+        "B66-R01-DANGLING",
+        "B66-R01-MISSING-ID"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    },
+    {
+      "id": "B66-R02",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "来源级直接约束保护",
+      "fields": [
+        "graph.edges[].reason/sourceRef/actor",
+        "command.type"
+      ],
+      "sourceIds": [
+        "B66-S01",
+        "B66-S03",
+        "B66-S06",
+        "B66-S07"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R02-P",
+        "B66-R02-MISSING-REASON",
+        "B66-R02-MISSING-REF",
+        "B66-R02-MISSING-ACTOR",
+        "B66-R02-REDUCTION-COMMIT",
+        "B66-R02-REDUCED-WRITE"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    },
+    {
+      "id": "B66-R03",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "DAG与环见证",
+      "fields": [
+        "graph.edges",
+        "command.edge"
+      ],
+      "sourceIds": [
+        "B66-S01",
+        "B66-S02",
+        "B66-S06"
+      ],
+      "workPackageIds": [
+        "W2-03"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R03-P",
+        "B66-R03-CYCLE",
+        "B66-R03-SELF-EDGE",
+        "B66-R03-MISSING-PATCH",
+        "B66-R03-VALID-ADD"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    },
+    {
+      "id": "B66-R04",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "显示顺序/传递约简只读",
+      "fields": [
+        "graph.displayOrder",
+        "impact.invalidate"
+      ],
+      "sourceIds": [
+        "B66-S01",
+        "B66-S02",
+        "B66-S06"
+      ],
+      "workPackageIds": [
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R04-P",
+        "B66-R04-DISPLAY",
+        "B66-R04-TR-VIEW",
+        "B66-R04-DISPLAY-WRITE",
+        "B66-R04-DISPLAY-INVALIDATION",
+        "B66-R04-INVALID-ORDER"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    },
+    {
+      "id": "B66-R05",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "跨Setup Frame与D04/D10隔离",
+      "fields": [
+        "source.d04Current",
+        "command.transfer"
+      ],
+      "sourceIds": [
+        "B66-S06",
+        "B66-S09"
+      ],
+      "workPackageIds": [
+        "W2-05"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R05-P",
+        "B66-R05-TRANSFER-VALID",
+        "B66-R05-TRANSFER-ABSENT",
+        "B66-R05-TRANSFER-BAD-FRAME",
+        "B66-R05-TRANSFER-UNQUALIFIED",
+        "B66-R05-D04-STALE",
+        "B66-R05-D10-AS-D04"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    },
+    {
+      "id": "B66-R06",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "ACL/CAS/Scope/取消晚回执",
+      "fields": [
+        "owner.aclEpoch/scopeEpoch/generation",
+        "source.expectedHash/currentHash"
+      ],
+      "sourceIds": [
+        "B66-S04",
+        "B66-S06",
+        "B66-S07"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R06-P",
+        "B66-R06-NO-WRITER",
+        "B66-R06-ACL-EPOCH",
+        "B66-R06-SCOPE-EPOCH",
+        "B66-R06-CANCEL",
+        "B66-R06-LATE-ACK",
+        "B66-R06-REV-STALE",
+        "B66-R06-HASH-STALE",
+        "B66-R06-FRAME-STALE",
+        "B66-R06-FREEZE-STALE"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    },
+    {
+      "id": "B66-R07",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "精细失效/冻结/CL隔离",
+      "fields": [
+        "impact.exactClosure/sourceHashes/rollbackHistory",
+        "command.clAsD15"
+      ],
+      "sourceIds": [
+        "B66-S06",
+        "B66-S07",
+        "B66-S08"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R07-P",
+        "B66-R07-CLOSURE-UNKNOWN",
+        "B66-R07-HASHES-UNKNOWN",
+        "B66-R07-ROLLBACK-UNKNOWN",
+        "B66-R07-NO-FROZEN-REWRITE",
+        "B66-R07-NO-PUBLISH-REWRITE",
+        "B66-R07-NO-CL-AS-D15",
+        "B66-R07-DIRECT-EDGE-PROTECTED",
+        "B66-R07-DIRECT-EDGE-FORK"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    },
+    {
+      "id": "B66-R08",
+      "capabilityId": "CAP-05-03",
+      "businessOwner": "D05",
+      "rule": "三入口同领域Port/单Babylon",
+      "fields": [
+        "owner.port",
+        "ui.entry/singleBabylon/leftTaskPanel/sharedPort"
+      ],
+      "sourceIds": [
+        "B66-S06",
+        "B66-S08",
+        "B66-S09"
+      ],
+      "workPackageIds": [
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceCaseIds": [
+        "B66-R08-P",
+        "B66-R08-WRONG-PORT",
+        "B66-R08-WRONG-ENTRY",
+        "B66-R08-MULTI-CANVAS",
+        "B66-R08-RIGHT-DRAWER",
+        "B66-R08-SEPARATE-AGENT-PORT",
+        "B66-R08-LEGACY-UNMAPPED"
+      ],
+      "evidenceClassification": "外部算法/协议参考+内部待审业务规则，不属于产品实现"
+    }
+  ],
+  "fixturePath": "docs/capabilities/CAP-05-03/explicit-edges-b66-fixtures-v08.json",
+  "validatorPath": "tools/check_cap0503_explicit_edges_b66_v08.cjs",
+  "approval": "L3_PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

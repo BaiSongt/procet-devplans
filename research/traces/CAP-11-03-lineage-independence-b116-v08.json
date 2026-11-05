@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "procet-b116-trace-v08",
+  "date": "2026-11-02",
+  "sourceRegistry": "research/sources/CAP-11-03-lineage-independence-b116.json",
+  "fixtures": "docs/capabilities/CAP-11-03/lineage-independence-b116-fixtures-v08.json",
+  "checker": "tools/check_cap1103_lineage_independence_b116_v08.cjs",
+  "rules": [
+    {
+      "id": "B116-R01",
+      "summary": "上游派生图必须绑定原始版本/hash，缺边、循环不能当可靠双重证据",
+      "sourceIds": [
+        "B116-S01",
+        "B116-S07"
+      ],
+      "fields": [
+        "rootPinned",
+        "rootDigestMatches",
+        "graphAllEdgesResolved",
+        "hasUnresolvedCycle"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-01-03"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "positive": [
+        "B116-P01"
+      ],
+      "negative": [
+        "B116-N01-1",
+        "B116-N01-2",
+        "B116-N01-3",
+        "B116-N01-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B116-R02",
+      "summary": "两篇转载同一源仅计一根，独立性不是URL数量或向量命中数",
+      "sourceIds": [
+        "B116-S01",
+        "B116-S03",
+        "B116-S07"
+      ],
+      "fields": [
+        "independentClaimCount",
+        "distinctPrimaryRoots",
+        "lineageComplete",
+        "aliasesResolved",
+        "sameSourceNotDoubleCount"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D05"
+      ],
+      "positive": [
+        "B116-P02"
+      ],
+      "negative": [
+        "B116-N02-1",
+        "B116-N02-2",
+        "B116-N02-3",
+        "B116-N02-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B116-R03",
+      "summary": "同适用条件下的反对意见需CONFLICT，不可用转载多数压制",
+      "sourceIds": [
+        "B116-S01",
+        "B116-S03",
+        "B116-S07"
+      ],
+      "fields": [
+        "claimContextsComparable",
+        "opposingEvidencePresent",
+        "conflictDisclosed",
+        "versionPinned"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D08"
+      ],
+      "positive": [
+        "B116-P03"
+      ],
+      "negative": [
+        "B116-N03-1",
+        "B116-N03-2",
+        "B116-N03-3",
+        "B116-N03-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B116-R04",
+      "summary": "证据原始字节、Selector、唯一定位及许可逐条校验",
+      "sourceIds": [
+        "B116-S02",
+        "B116-S07"
+      ],
+      "fields": [
+        "exactSourceHash",
+        "normalizedSelectorMatch",
+        "uniqueTarget",
+        "accessLicenseValid"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-03-04"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "positive": [
+        "B116-P04"
+      ],
+      "negative": [
+        "B116-N04-1",
+        "B116-N04-2",
+        "B116-N04-3",
+        "B116-N04-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B116-R05",
+      "summary": "正文/摘要/WG Note与内生准则分层，禁止编造未读规范",
+      "sourceIds": [
+        "B116-S01",
+        "B116-S03",
+        "B116-S04",
+        "B116-S05",
+        "B116-S06",
+        "B116-S07"
+      ],
+      "fields": [
+        "officialTextSectionRead",
+        "claimWithinAccessDepth",
+        "policySeparated",
+        "noInventedNorms"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-01-08"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "positive": [
+        "B116-P05"
+      ],
+      "negative": [
+        "B116-N05-1",
+        "B116-N05-2",
+        "B116-N05-3",
+        "B116-N05-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B116-R06",
+      "summary": "检索和引用测量需固定分母，不把召回分数等同安全性",
+      "sourceIds": [
+        "B116-S03",
+        "B116-S04",
+        "B116-S06",
+        "B116-S07"
+      ],
+      "fields": [
+        "qualityMetricDefined",
+        "denominatorPinned",
+        "independentRootsCounted",
+        "notEquatingScoreToEvidence"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D05",
+        "D15",
+        "D17"
+      ],
+      "positive": [
+        "B116-P06"
+      ],
+      "negative": [
+        "B116-N06-1",
+        "B116-N06-2",
+        "B116-N06-3",
+        "B116-N06-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B116-R07",
+      "summary": "召回后Owner权限、Scope、exact Revision/Hash/Frame与取消Fence重验",
+      "sourceIds": [
+        "B116-S07"
+      ],
+      "fields": [
+        "postFilterOwnerAcl",
+        "scopeEpochExact",
+        "revocationInvalidatesCache",
+        "cancelFenceVerified",
+        "ownerRevisionHashFrameExact"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-01-04"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05",
+        "D10"
+      ],
+      "positive": [
+        "B116-P07"
+      ],
+      "negative": [
+        "B116-N07-1",
+        "B116-N07-2",
+        "B116-N07-3",
+        "B116-N07-4",
+        "B116-N07-5"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B116-R08",
+      "summary": "GUI/CLI/Agent同Port，单3D左TaskPanel、D04/D10、冻结及NC责任分离",
+      "sourceIds": [
+        "B116-S07"
+      ],
+      "fields": [
+        "sameDomainPort",
+        "singleBabylonWorld",
+        "leftUnifiedTaskPanel",
+        "d04SeparatedFromD10",
+        "frozenD08Preserved",
+        "d13UnknownBlocksRelease",
+        "ownerCasAtWrite",
+        "lateCancelReceiptIgnored"
+      ],
+      "caps": [
+        "CAP-11-03",
+        "CAP-04-02",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B116-P08"
+      ],
+      "negative": [
+        "B116-N08-1",
+        "B116-N08-2",
+        "B116-N08-3",
+        "B116-N08-4",
+        "B116-N08-5",
+        "B116-N08-6",
+        "B116-N08-7",
+        "B116-N08-8"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "scope": "来源→8规则→字段→CAP/原T5-01/T5-02→45正反案例；L3待审，Owner及消费者未验"
+}

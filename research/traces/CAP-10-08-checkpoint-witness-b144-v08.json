@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "procet-b144-trace-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "sourceRegistry": "research/sources/CAP-10-08-checkpoint-witness-b144.json",
+  "capabilityId": "CAP-10-08",
+  "fixture": "docs/capabilities/CAP-10-08/checkpoint-witness-b144-fixtures-v08.json",
+  "originalWorkPackages": [
+    "E3-06",
+    "T5-03"
+  ],
+  "rules": [
+    {
+      "id": "B144-R01",
+      "description": "锚点字节的确定性编码",
+      "failureStatus": "UNKNOWN_CANONICAL",
+      "fields": [
+        "bytes.jcsVersionPinned",
+        "bytes.schemaAndDomainPinned",
+        "bytes.exactContentSha",
+        "bytes.canonicalReaderCompatible"
+      ],
+      "sourceIds": [
+        "B144-S02",
+        "B144-S04"
+      ],
+      "assets": [
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R01-P",
+        "B144-R01-N1",
+        "B144-R01-N2",
+        "B144-R01-N3",
+        "B144-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B144-R02",
+      "description": "日志身份与单调序列",
+      "failureStatus": "UNKNOWN_LOG_ID",
+      "fields": [
+        "log.logIdExact",
+        "log.epochSeparate",
+        "log.treeSizeMonotonic",
+        "log.rootAlgorithmPinned"
+      ],
+      "sourceIds": [
+        "B144-S01",
+        "B144-S04"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R02-P",
+        "B144-R02-N1",
+        "B144-R02-N2",
+        "B144-R02-N3",
+        "B144-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B144-R03",
+      "description": "包含证明≠自述包含",
+      "failureStatus": "UNKNOWN_INCLUSION",
+      "fields": [
+        "proof.leafHashExact",
+        "proof.leafIndexAndSize",
+        "proof.inclusionPathVerified",
+        "proof.rootHashPinned"
+      ],
+      "sourceIds": [
+        "B144-S01",
+        "B144-S05"
+      ],
+      "assets": [
+        "D12",
+        "D16"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R03-P",
+        "B144-R03-N1",
+        "B144-R03-N2",
+        "B144-R03-N3",
+        "B144-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B144-R04",
+      "description": "旧根到新根的一致性证明",
+      "failureStatus": "UNKNOWN_CONSISTENCY",
+      "fields": [
+        "growth.previousCheckpointPinned",
+        "growth.consistencyProofVerified",
+        "growth.firstSizeLessThanSecond",
+        "growth.noSilentRollback"
+      ],
+      "sourceIds": [
+        "B144-S01",
+        "B144-S04"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R04-P",
+        "B144-R04-N1",
+        "B144-R04-N2",
+        "B144-R04-N3",
+        "B144-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B144-R05",
+      "description": "外部锚点与同尺寸双视图",
+      "failureStatus": "UNKNOWN_WITNESS",
+      "fields": [
+        "witness.independentAnchorStored",
+        "witness.signerTrustChecked",
+        "witness.sameSizeForkRejected",
+        "witness.scopeEpochCompared"
+      ],
+      "sourceIds": [
+        "B144-S01",
+        "B144-S03",
+        "B144-S04"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R05-P",
+        "B144-R05-N1",
+        "B144-R05-N2",
+        "B144-R05-N3",
+        "B144-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B144-R06",
+      "description": "纠错事件只追加与历史冻结",
+      "failureStatus": "UNKNOWN_CORRECTION",
+      "fields": [
+        "amend.appendOnlyCorrection",
+        "amend.originalStillResolvable",
+        "amend.frozenABUnaffected",
+        "amend.noPhysicalFactClaim"
+      ],
+      "sourceIds": [
+        "B144-S03",
+        "B144-S04"
+      ],
+      "assets": [
+        "D08",
+        "D17"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R06-P",
+        "B144-R06-N1",
+        "B144-R06-N2",
+        "B144-R06-N3",
+        "B144-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B144-R07",
+      "description": "观察时间与可信排序分离",
+      "failureStatus": "UNKNOWN_CLOCK",
+      "fields": [
+        "time.sourceAndIngestSeparate",
+        "time.clockQualityRecorded",
+        "time.noCausalityByTimestamp",
+        "time.replayAndDuplicateDetected"
+      ],
+      "sourceIds": [
+        "B144-S03",
+        "B144-S04"
+      ],
+      "assets": [
+        "D15",
+        "D17"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R07-P",
+        "B144-R07-N1",
+        "B144-R07-N2",
+        "B144-R07-N3",
+        "B144-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B144-R08",
+      "description": "受管Owner提交与独立消费",
+      "failureStatus": "REJECT_COMMIT",
+      "fields": [
+        "owner.aclScopeCasRechecked",
+        "owner.cancelLateAckRejected",
+        "owner.independentConsumerRequired",
+        "owner.ncD15D16NotConflated"
+      ],
+      "sourceIds": [
+        "B144-S04",
+        "B144-S05"
+      ],
+      "assets": [
+        "D12",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "capabilityId": "CAP-10-08",
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "tests": [
+        "B144-R08-P",
+        "B144-R08-N1",
+        "B144-R08-N2",
+        "B144-R08-N3",
+        "B144-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "claimBoundary": "规划级一致性资格，真实签名/一致性证明/可信时间及生产者消费者均未测试"
+}

@@ -1,0 +1,486 @@
+{
+  "schemaVersion": "procet-cap0702-synthetic-v1",
+  "capabilityId": "CAP-07-02",
+  "syntheticOnly": true,
+  "notOcctExecution": true,
+  "notActualScallopTest": true,
+  "notRealNCController": true,
+  "cases": [
+    {
+      "id": "CAP-07-02-T01",
+      "ruleId": "C0702-R01",
+      "expected": "PASS",
+      "input": {
+        "revision": 7,
+        "designHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "stockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "toolHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frozenBytesPreserved": true
+      },
+      "synthetic": true,
+      "scenario": "曲面加工精确输入与Frame/冻结来源 正例"
+    },
+    {
+      "id": "CAP-07-02-T02",
+      "ruleId": "C0702-R01",
+      "expected": "REJECT",
+      "input": {
+        "revision": 7,
+        "designHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "unresolved-frame",
+        "stockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "toolHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frozenBytesPreserved": true
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R01",
+      "scenario": "曲面加工精确输入与Frame/冻结来源 反例：frameHash"
+    },
+    {
+      "id": "CAP-07-02-T03",
+      "ruleId": "C0702-R02",
+      "expected": "PASS",
+      "input": {
+        "projectionSolutions": 2,
+        "pointInsideTrim": true,
+        "projectionResidualMm": 0.008,
+        "surfaceToleranceMm": 0.02,
+        "uvBoundaryClass": "IN_FACE"
+      },
+      "synthetic": true,
+      "scenario": "UV投影和修剪Face有效域 正例"
+    },
+    {
+      "id": "CAP-07-02-T04",
+      "ruleId": "C0702-R02",
+      "expected": "REJECT",
+      "input": {
+        "projectionSolutions": 2,
+        "pointInsideTrim": false,
+        "projectionResidualMm": 0.008,
+        "surfaceToleranceMm": 0.02,
+        "uvBoundaryClass": "IN_FACE"
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R02",
+      "scenario": "UV投影和修剪Face有效域 反例：pointInsideTrim"
+    },
+    {
+      "id": "CAP-07-02-T05",
+      "ruleId": "C0702-R03",
+      "expected": "PASS",
+      "input": {
+        "steepMethod": "CONSTANT_Z",
+        "shallowMethod": "PARALLEL_OR_SCALLOP",
+        "partitionThresholdDeg": 50,
+        "overlapBoundaryCovered": true,
+        "regionClassified": true
+      },
+      "synthetic": true,
+      "scenario": "陡缓分区与策略重叠交界 正例"
+    },
+    {
+      "id": "CAP-07-02-T06",
+      "ruleId": "C0702-R03",
+      "expected": "REJECT",
+      "input": {
+        "steepMethod": "CONSTANT_Z",
+        "shallowMethod": "PARALLEL_OR_SCALLOP",
+        "partitionThresholdDeg": 50,
+        "overlapBoundaryCovered": false,
+        "regionClassified": true
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R03",
+      "scenario": "陡缓分区与策略重叠交界 反例：overlapBoundaryCovered"
+    },
+    {
+      "id": "CAP-07-02-T07",
+      "ruleId": "C0702-R04",
+      "expected": "PASS",
+      "input": {
+        "ballRadiusMm": 5,
+        "ballDiameterMm": 10,
+        "stepoverMm": 1,
+        "estimatedScallopMm": 0.025063,
+        "maxRequestedScallopMm": 0.04,
+        "approximationScope": "LOCAL_PLANAR_ESTIMATE",
+        "surfaceResultCertified": false
+      },
+      "synthetic": true,
+      "scenario": "球头局部残高估计边界 正例"
+    },
+    {
+      "id": "CAP-07-02-T08",
+      "ruleId": "C0702-R04",
+      "expected": "REJECT",
+      "input": {
+        "ballRadiusMm": 5,
+        "ballDiameterMm": 10,
+        "stepoverMm": 1,
+        "estimatedScallopMm": 0.025063,
+        "maxRequestedScallopMm": 0.04,
+        "approximationScope": "GLOBAL_SURFACE_CERTIFIED",
+        "surfaceResultCertified": false
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R04",
+      "scenario": "球头局部残高估计边界 反例：approximationScope"
+    },
+    {
+      "id": "CAP-07-02-T09",
+      "ruleId": "C0702-R05",
+      "expected": "PASS",
+      "input": {
+        "toolCenterMethod": "SURFACE_NORMAL_WITH_TRIM_CHECK",
+        "gougeCount": 0,
+        "protectedHits": 0,
+        "geometryOracleStatus": "INDEPENDENT_GEOMETRY_VERIFIED",
+        "clearanceResultScope": "LOCAL_CL_GEOMETRY_ONLY"
+      },
+      "synthetic": true,
+      "scenario": "曲面刀心补偿与防过切独立Oracle 正例"
+    },
+    {
+      "id": "CAP-07-02-T10",
+      "ruleId": "C0702-R05",
+      "expected": "REJECT",
+      "input": {
+        "toolCenterMethod": "SURFACE_NORMAL_WITH_TRIM_CHECK",
+        "gougeCount": 1,
+        "protectedHits": 0,
+        "geometryOracleStatus": "INDEPENDENT_GEOMETRY_VERIFIED",
+        "clearanceResultScope": "LOCAL_CL_GEOMETRY_ONLY"
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R05",
+      "scenario": "曲面刀心补偿与防过切独立Oracle 反例：gougeCount"
+    },
+    {
+      "id": "CAP-07-02-T11",
+      "ruleId": "C0702-R06",
+      "expected": "PASS",
+      "input": {
+        "stockStateHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "restSource": "ORDERED_D07_STOCK",
+        "orderedPriorState": true,
+        "setupFrameMatched": true,
+        "restStatus": "NONEMPTY_VERIFIED"
+      },
+      "synthetic": true,
+      "scenario": "残料必须来自有序D07状态 正例"
+    },
+    {
+      "id": "CAP-07-02-T12",
+      "ruleId": "C0702-R06",
+      "expected": "REJECT",
+      "input": {
+        "stockStateHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "restSource": "INITIAL_SETUP_BOX",
+        "orderedPriorState": true,
+        "setupFrameMatched": true,
+        "restStatus": "NONEMPTY_VERIFIED"
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R06",
+      "scenario": "残料必须来自有序D07状态 反例：restSource"
+    },
+    {
+      "id": "CAP-07-02-T13",
+      "ruleId": "C0702-R07",
+      "expected": "PASS",
+      "input": {
+        "chordToleranceMm": 0.02,
+        "observedChordErrorMm": 0.011,
+        "normalJumpDeg": 1,
+        "maxNormalJumpDeg": 5,
+        "seamContinuityVerified": true
+      },
+      "synthetic": true,
+      "scenario": "曲面采样、公差及拼缝 正例"
+    },
+    {
+      "id": "CAP-07-02-T14",
+      "ruleId": "C0702-R07",
+      "expected": "REJECT",
+      "input": {
+        "chordToleranceMm": 0.02,
+        "observedChordErrorMm": 0.011,
+        "normalJumpDeg": 1,
+        "maxNormalJumpDeg": 5,
+        "seamContinuityVerified": false
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R07",
+      "scenario": "曲面采样、公差及拼缝 反例：seamContinuityVerified"
+    },
+    {
+      "id": "CAP-07-02-T15",
+      "ruleId": "C0702-R08",
+      "expected": "PASS",
+      "input": {
+        "axisMode": "THREE_AXIS_FIXED",
+        "undercutDetected": false,
+        "toolHolderPrecheck": "CANDIDATE_CHECKED",
+        "entryLinkPrecheck": "CANDIDATE_CHECKED",
+        "noKinematicPassClaim": true
+      },
+      "synthetic": true,
+      "scenario": "固定三轴可达性、刀柄及转接 正例"
+    },
+    {
+      "id": "CAP-07-02-T16",
+      "ruleId": "C0702-R08",
+      "expected": "REJECT",
+      "input": {
+        "axisMode": "THREE_AXIS_FIXED",
+        "undercutDetected": true,
+        "toolHolderPrecheck": "CANDIDATE_CHECKED",
+        "entryLinkPrecheck": "CANDIDATE_CHECKED",
+        "noKinematicPassClaim": true
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R08",
+      "scenario": "固定三轴可达性、刀柄及转接 反例：undercutDetected"
+    },
+    {
+      "id": "CAP-07-02-T17",
+      "ruleId": "C0702-R09",
+      "expected": "PASS",
+      "input": {
+        "clOwner": "07_CAM",
+        "controllerId": null,
+        "d12Status": "NOT_RUN",
+        "d13Status": "UNKNOWN",
+        "d15Status": "NOT_RUN",
+        "releaseEligible": false,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "scenario": "中立D09与NC验证/发布严格隔离 正例"
+    },
+    {
+      "id": "CAP-07-02-T18",
+      "ruleId": "C0702-R09",
+      "expected": "REJECT",
+      "input": {
+        "clOwner": "07_CAM",
+        "controllerId": null,
+        "d12Status": "NOT_RUN",
+        "d13Status": "UNKNOWN",
+        "d15Status": "NOT_RUN",
+        "releaseEligible": true,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R09",
+      "scenario": "中立D09与NC验证/发布严格隔离 反例：releaseEligible"
+    },
+    {
+      "id": "CAP-07-02-T19",
+      "ruleId": "C0702-R10",
+      "expected": "PASS",
+      "input": {
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actualHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclAllowed": true,
+        "taskGeneration": 4,
+        "receiptGeneration": 4,
+        "cancelled": false,
+        "lateReceiptDiscarded": true,
+        "nonDestructiveRollback": true
+      },
+      "synthetic": true,
+      "scenario": "Owner CAS/ACL/取消晚回执与无损回退 正例"
+    },
+    {
+      "id": "CAP-07-02-T20",
+      "ruleId": "C0702-R10",
+      "expected": "REJECT",
+      "input": {
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actualHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclAllowed": false,
+        "taskGeneration": 4,
+        "receiptGeneration": 4,
+        "cancelled": false,
+        "lateReceiptDiscarded": true,
+        "nonDestructiveRollback": true
+      },
+      "synthetic": true,
+      "rejectionReason": "REJECT_C0702_R10",
+      "scenario": "Owner CAS/ACL/取消晚回执与无损回退 反例：aclAllowed"
+    }
+  ],
+  "mutationCases": [
+    {
+      "id": "CAP-07-02-M01",
+      "ruleId": "C0702-R01",
+      "expected": "REJECT",
+      "input": {
+        "revision": 0,
+        "designHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "stockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "toolHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frozenBytesPreserved": true
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T01",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：revision"
+    },
+    {
+      "id": "CAP-07-02-M02",
+      "ruleId": "C0702-R02",
+      "expected": "REJECT",
+      "input": {
+        "projectionSolutions": 2,
+        "pointInsideTrim": true,
+        "projectionResidualMm": 0.12,
+        "surfaceToleranceMm": 0.02,
+        "uvBoundaryClass": "IN_FACE"
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T03",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：projectionResidualMm"
+    },
+    {
+      "id": "CAP-07-02-M03",
+      "ruleId": "C0702-R03",
+      "expected": "REJECT",
+      "input": {
+        "steepMethod": "CONSTANT_Z",
+        "shallowMethod": "PARALLEL_OR_SCALLOP",
+        "partitionThresholdDeg": 110,
+        "overlapBoundaryCovered": true,
+        "regionClassified": true
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T05",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：partitionThresholdDeg"
+    },
+    {
+      "id": "CAP-07-02-M04",
+      "ruleId": "C0702-R04",
+      "expected": "REJECT",
+      "input": {
+        "ballRadiusMm": 5,
+        "ballDiameterMm": 10,
+        "stepoverMm": 1,
+        "estimatedScallopMm": 0.08,
+        "maxRequestedScallopMm": 0.04,
+        "approximationScope": "LOCAL_PLANAR_ESTIMATE",
+        "surfaceResultCertified": false
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T07",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：estimatedScallopMm"
+    },
+    {
+      "id": "CAP-07-02-M05",
+      "ruleId": "C0702-R05",
+      "expected": "REJECT",
+      "input": {
+        "toolCenterMethod": "SURFACE_NORMAL_WITH_TRIM_CHECK",
+        "gougeCount": 0,
+        "protectedHits": 0,
+        "geometryOracleStatus": "UNKNOWN",
+        "clearanceResultScope": "LOCAL_CL_GEOMETRY_ONLY"
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T09",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：geometryOracleStatus"
+    },
+    {
+      "id": "CAP-07-02-M06",
+      "ruleId": "C0702-R06",
+      "expected": "REJECT",
+      "input": {
+        "stockStateHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "restSource": "ORDERED_D07_STOCK",
+        "orderedPriorState": true,
+        "setupFrameMatched": false,
+        "restStatus": "NONEMPTY_VERIFIED"
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T11",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：setupFrameMatched"
+    },
+    {
+      "id": "CAP-07-02-M07",
+      "ruleId": "C0702-R07",
+      "expected": "REJECT",
+      "input": {
+        "chordToleranceMm": 0.02,
+        "observedChordErrorMm": 0.08,
+        "normalJumpDeg": 1,
+        "maxNormalJumpDeg": 5,
+        "seamContinuityVerified": true
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T13",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：observedChordErrorMm"
+    },
+    {
+      "id": "CAP-07-02-M08",
+      "ruleId": "C0702-R08",
+      "expected": "REJECT",
+      "input": {
+        "axisMode": "CONTINUOUS_5AXIS",
+        "undercutDetected": false,
+        "toolHolderPrecheck": "CANDIDATE_CHECKED",
+        "entryLinkPrecheck": "CANDIDATE_CHECKED",
+        "noKinematicPassClaim": true
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T15",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：axisMode"
+    },
+    {
+      "id": "CAP-07-02-M09",
+      "ruleId": "C0702-R09",
+      "expected": "REJECT",
+      "input": {
+        "clOwner": "07_CAM",
+        "controllerId": null,
+        "d12Status": "NOT_RUN",
+        "d13Status": "PASS",
+        "d15Status": "NOT_RUN",
+        "releaseEligible": false,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T17",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：d13Status"
+    },
+    {
+      "id": "CAP-07-02-M10",
+      "ruleId": "C0702-R10",
+      "expected": "REJECT",
+      "input": {
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "actualHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclAllowed": true,
+        "taskGeneration": 4,
+        "receiptGeneration": 3,
+        "cancelled": false,
+        "lateReceiptDiscarded": true,
+        "nonDestructiveRollback": true
+      },
+      "synthetic": true,
+      "mutantOf": "CAP-07-02-T19",
+      "distinctFromNegativeField": true,
+      "scenario": "独立变异：receiptGeneration"
+    }
+  ]
+}

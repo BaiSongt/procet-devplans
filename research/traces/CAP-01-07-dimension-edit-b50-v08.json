@@ -1,0 +1,440 @@
+{
+  "schemaVersion": "procet-b50-dimension-trace-v1",
+  "date": "2026-10-31",
+  "capability": "CAP-01-07",
+  "originalTrace": "research/traces/CAP-01-07.json",
+  "sourceRegistry": "research/sources/CAP-01-07-dimension-edit-b50.json",
+  "specification": "docs/capabilities/CAP-01-07/DIMENSION-EDIT-B50-2026-10-31.md",
+  "fixture": "docs/capabilities/CAP-01-07/dimension-edit-b50-fixtures-v08.json",
+  "validator": "tools/check_cap0107_dimension_edit_b50_v08.cjs",
+  "rules": [
+    {
+      "id": "B50-R1",
+      "title": "确切Owner及源几何/Frame/实例闭包",
+      "sourceIds": [
+        "B50-S08",
+        "B50-S09"
+      ],
+      "fields": [
+        "source.projectId",
+        "source.domain",
+        "source.revision",
+        "source.contentHash",
+        "source.geometryHash",
+        "source.frameRef",
+        "source.frameHash",
+        "source.occurrencePath"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "F1-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R2",
+      "title": "测量尺寸/PMI标注只读，与可驱动参数尺寸区别，D01仅只读",
+      "sourceIds": [
+        "B50-S02",
+        "B50-S07",
+        "B50-S08"
+      ],
+      "fields": [
+        "dimension.kind",
+        "dimension.editAllowed",
+        "dimension.parameterRef",
+        "dimension.requestedValue",
+        "owner.commitRequested"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N06",
+        "N07",
+        "N08",
+        "N09"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R3",
+      "title": "数值单位明确、非有限/非法值拒绝；不依赖已废弃的TDataStd_Real单位持久化",
+      "sourceIds": [
+        "B50-S03",
+        "B50-S04",
+        "B50-S08"
+      ],
+      "fields": [
+        "dimension.sourceValue",
+        "dimension.requestedValue",
+        "dimension.unit",
+        "dimension.numericPolicyRef",
+        "regen.parameterUnitSource",
+        "regen.deprecatedDimensionStorage"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "U4-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14",
+        "N15"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R4",
+      "title": "尺寸锚点必须对应源Hash/Occurrence/Frame，命名拓扑重绑含歧义UNKNOWN",
+      "sourceIds": [
+        "B50-S01",
+        "B50-S04"
+      ],
+      "fields": [
+        "dimension.anchor.geometryRef",
+        "dimension.anchor.topologyRef",
+        "dimension.anchor.occurrencePath",
+        "dimension.anchor.frameRef",
+        "dimension.anchor.rebindState",
+        "source.geometryQualification"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-03",
+        "F1-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N16",
+        "N17",
+        "N18",
+        "N19"
+      ],
+      "unknownIds": [
+        "U01",
+        "U02",
+        "U05"
+      ],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R5",
+      "title": "求解器再生必须独立生成新几何Hash、约束求解验证、只产生Proposal",
+      "sourceIds": [
+        "B50-S01",
+        "B50-S02"
+      ],
+      "fields": [
+        "regen.status",
+        "regen.constraintStatus",
+        "regen.newGeometryHash",
+        "regen.previewWroteAsset",
+        "dimension.recomputeProfileRef"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "U4-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N24"
+      ],
+      "unknownIds": [
+        "U03",
+        "U04"
+      ],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R6",
+      "title": "一个Babylon Engine/Scene，左TaskPanel，拖拽预览+数值/单指替代，GUI/CLI/Agent同Port",
+      "sourceIds": [
+        "B50-S05",
+        "B50-S06",
+        "B50-S08"
+      ],
+      "fields": [
+        "ui.engineCount",
+        "ui.sceneCount",
+        "ui.taskPanel",
+        "ui.numericInputAvailable",
+        "ui.singlePointerAlternative",
+        "ui.port",
+        "ui.entrypoints"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "U4-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N25",
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R7",
+      "title": "提交点ACL/expectedRev/hash/scopeEpoch/CAS及取消晚回执重验",
+      "sourceIds": [
+        "B50-S08",
+        "B50-S09"
+      ],
+      "fields": [
+        "owner.acl",
+        "owner.expectedRevision",
+        "owner.actualRevision",
+        "owner.expectedHash",
+        "owner.actualHash",
+        "owner.scopeEpoch",
+        "owner.currentEpoch",
+        "owner.cancelled",
+        "owner.lateAck"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "B0-02"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R8",
+      "title": "保留旧版与冻结字节、回退证据，衍生Consumer显式stale",
+      "sourceIds": [
+        "B50-S08",
+        "B50-S09"
+      ],
+      "fields": [
+        "down.d08FrozenUnchanged",
+        "down.d16FrozenUnchanged",
+        "down.rollbackRef",
+        "down.legacyBytesPreserved",
+        "down.staleConsumers"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "F1-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R9",
+      "title": "D03资源派生新修订，D04仅改本Setup，D10保持独立",
+      "sourceIds": [
+        "B50-S09",
+        "B50-S08"
+      ],
+      "fields": [
+        "source.domain",
+        "owner.writerDomain",
+        "owner.writeMode",
+        "owner.releasedResourceWriteInPlace",
+        "down.d04D10Separate"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "F1-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N43",
+        "N44",
+        "N45"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B50-R10",
+      "title": "CL显示不能代替NC执行验证，UNKNOWN语义不可授权D16",
+      "sourceIds": [
+        "B50-S08",
+        "B50-S09"
+      ],
+      "fields": [
+        "down.clPreviewIsNcEvidence",
+        "down.d13UnknownPromoted",
+        "down.d16ReleaseAllowed"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "relatedCapabilityIds": [
+        "CAP-02-05",
+        "CAP-03-06"
+      ],
+      "workPackageIds": [
+        "U4-04",
+        "F1-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeIds": [
+        "N46",
+        "N47",
+        "N48"
+      ],
+      "unknownIds": [],
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

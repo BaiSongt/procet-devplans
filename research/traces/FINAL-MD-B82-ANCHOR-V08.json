@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "procet-final-md-b82-trace-v08",
+  "date": "2026-11-01",
+  "scope": "PLANNING_RESEARCH_SUPPLEMENT",
+  "sourceRegistry": "research/sources/FINAL-MD-B82.json",
+  "fixturePath": "docs/architecture/v0.8/final-md-b82-anchor-fixtures-v08.json",
+  "checkerPath": "tools/check_final_md_b82_anchor_v08.py",
+  "rules": [
+    {
+      "id": "B82-R01",
+      "summary": "固定Git commit与Tree mode为候选校核前提，不完整不能报告全仓通过",
+      "sourceIds": [
+        "B82-S04",
+        "B82-S06"
+      ],
+      "fields": [
+        "git.exactCommit",
+        "git.treeTruncated",
+        "git.mode",
+        "git.blobSha"
+      ],
+      "caps": [
+        "CAP-01-03"
+      ],
+      "workPackages": [
+        "B0-05"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N01",
+        "U05",
+        "U06"
+      ]
+    },
+    {
+      "id": "B82-R02",
+      "summary": "仅真实Markdown AST链接、图片、HTML属性参与；code inert与reference解析不可用正则代替",
+      "sourceIds": [
+        "B82-S01",
+        "B82-S02",
+        "B82-S05"
+      ],
+      "fields": [
+        "md.token.type",
+        "md.link.destination",
+        "md.referenceBinding"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03",
+        "U4-06"
+      ],
+      "acceptanceIds": [
+        "P05",
+        "P07",
+        "P08",
+        "I01",
+        "I02"
+      ]
+    },
+    {
+      "id": "B82-R03",
+      "summary": "URI percent解码、源相对路径、仓根与越界单独判定",
+      "sourceIds": [
+        "B82-S01",
+        "B82-S03"
+      ],
+      "fields": [
+        "link.sourcePath",
+        "link.destination",
+        "link.resolvedPath",
+        "link.percentNormalized"
+      ],
+      "caps": [
+        "CAP-01-03"
+      ],
+      "workPackages": [
+        "B0-05",
+        "U4-06"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "P04",
+        "N03",
+        "N04"
+      ]
+    },
+    {
+      "id": "B82-R04",
+      "summary": "标题自动锚点全局冲突、去重后缀与字面slug竞争需保守UNKNOWN",
+      "sourceIds": [
+        "B82-S03",
+        "B82-S05"
+      ],
+      "fields": [
+        "heading.baseSlug",
+        "heading.usedSlugs",
+        "heading.generatedSlug",
+        "heading.collision"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03",
+        "U4-06"
+      ],
+      "acceptanceIds": [
+        "P02",
+        "P06",
+        "U01",
+        "U02"
+      ]
+    },
+    {
+      "id": "B82-R05",
+      "summary": "HTML自定义id与name对照，重复名称不当PASS",
+      "sourceIds": [
+        "B82-S01",
+        "B82-S03"
+      ],
+      "fields": [
+        "html.id",
+        "html.anchorName",
+        "html.anchorDuplicate"
+      ],
+      "caps": [
+        "CAP-01-08"
+      ],
+      "workPackages": [
+        "U4-03"
+      ],
+      "acceptanceIds": [
+        "P03",
+        "U04"
+      ]
+    },
+    {
+      "id": "B82-R06",
+      "summary": "Unicode标题、符号链接、gitlink、查询、外部页面无独立验证时显式UNKNOWN/NOT_CHECKED",
+      "sourceIds": [
+        "B82-S01",
+        "B82-S04",
+        "B82-S05"
+      ],
+      "fields": [
+        "audit.unknownReason",
+        "git.mode",
+        "renderer.parity"
+      ],
+      "caps": [
+        "CAP-01-08"
+      ],
+      "workPackages": [
+        "U4-06",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "U03",
+        "U05",
+        "U06",
+        "U07",
+        "U08"
+      ]
+    },
+    {
+      "id": "B82-R07",
+      "summary": "缺失路径、已知缺失锚点、越界和不安全编码为独立负例，不被其他PASS覆盖",
+      "sourceIds": [
+        "B82-S02",
+        "B82-S03"
+      ],
+      "fields": [
+        "audit.rejectedPath",
+        "audit.rejectedAnchor",
+        "audit.errorEvidence"
+      ],
+      "caps": [
+        "CAP-01-03"
+      ],
+      "workPackages": [
+        "B0-05",
+        "U4-06"
+      ],
+      "acceptanceIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04"
+      ]
+    },
+    {
+      "id": "B82-R08",
+      "summary": "文档验证证据与Owner、独立消费者、人审及产品测试不同级别，禁止资格跃迁",
+      "sourceIds": [
+        "B82-S03",
+        "B82-S06"
+      ],
+      "fields": [
+        "audit.scope",
+        "audit.gate",
+        "consumer.verifiedBy",
+        "owner.signedAt",
+        "approval.l3"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-01-08"
+      ],
+      "workPackages": [
+        "U4-03",
+        "U4-06"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "P02",
+        "U01",
+        "N02"
+      ]
+    }
+  ],
+  "negativeGate": "UNKNOWN/REJECT不等于规划PASS或产品PASS",
+  "constraints": "L1/L2不变L3待审；C0最小；单Babylon/左TaskPanel；CAS ACL/Scope/取消晚ACK/迁移回退属于领域Owner而非Markdown审计脚本；独立消费者未运行"
+}

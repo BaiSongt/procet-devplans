@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "procet-u401-navigation-fsm-v1",
+  "states": [
+    "IDLE",
+    "GUARD_EDIT",
+    "CANCEL_OLD_SCOPE",
+    "LOAD_EXACT",
+    "CONFIRM_SCOPE",
+    "RENDER",
+    "DIRTY_EDIT_REJECTED",
+    "STALE_MISSING",
+    "ACCESS_REVOKED",
+    "REVISION_CHANGED",
+    "TASK_CANCELLED",
+    "UNKNOWN_RECOVERY"
+  ],
+  "transitions": [
+    {
+      "from": "IDLE",
+      "event": "NAVIGATE",
+      "to": "GUARD_EDIT"
+    },
+    {
+      "from": "GUARD_EDIT",
+      "event": "ACCEPT_SAVE_OR_EXPLICIT_DISCARD",
+      "to": "CANCEL_OLD_SCOPE"
+    },
+    {
+      "from": "GUARD_EDIT",
+      "event": "CANCEL",
+      "to": "DIRTY_EDIT_REJECTED"
+    },
+    {
+      "from": "CANCEL_OLD_SCOPE",
+      "event": "SCOPE_EPOCH_ADVANCE",
+      "to": "LOAD_EXACT"
+    },
+    {
+      "from": "LOAD_EXACT",
+      "event": "OWNER_EXACT_RESOLVED",
+      "to": "CONFIRM_SCOPE"
+    },
+    {
+      "from": "LOAD_EXACT",
+      "event": "MISSING",
+      "to": "STALE_MISSING"
+    },
+    {
+      "from": "LOAD_EXACT",
+      "event": "DENIED",
+      "to": "ACCESS_REVOKED"
+    },
+    {
+      "from": "LOAD_EXACT",
+      "event": "HEAD_CHANGED",
+      "to": "REVISION_CHANGED"
+    },
+    {
+      "from": "CONFIRM_SCOPE",
+      "event": "RECHECK_EPOCH_AND_GENERATION",
+      "to": "RENDER"
+    },
+    {
+      "from": "CONFIRM_SCOPE",
+      "event": "STALE_OR_CANCELLED",
+      "to": "TASK_CANCELLED"
+    }
+  ],
+  "invariants": [
+    "render_requires_exact_scope",
+    "navigation_has_zero_implicit_manufacturing_writes",
+    "single_babylon_scene",
+    "owner_cas_for_domain_commit",
+    "unknown_is_not_pass"
+  ],
+  "rollback": "old-route-adapter + read-only historical context; never rewrite frozen Owner assets"
+}

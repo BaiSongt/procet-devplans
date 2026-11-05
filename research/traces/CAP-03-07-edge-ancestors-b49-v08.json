@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "procet-b49-trace-v1",
+  "date": "2026-10-31",
+  "capability": "CAP-03-07",
+  "originalTrace": "research/traces/CAP-03-07.json",
+  "sourceRegistry": "research/sources/CAP-03-07-edge-ancestors-b49.json",
+  "specification": "docs/capabilities/CAP-03-07/TOPOLOGICAL-EDGE-ANCESTORS-B49-2026-10-31.md",
+  "fixture": "docs/capabilities/CAP-03-07/edge-ancestors-b49-fixtures-v08.json",
+  "validator": "tools/check_cap0307_edge_ancestors_b49_v08.cjs",
+  "rules": [
+    {
+      "id": "B49-R1",
+      "title": "来源实例、Hash、修订及Frame exact绑定",
+      "sourceIds": [
+        "B49-S05",
+        "B49-S06"
+      ],
+      "fields": [
+        "source.projectId",
+        "source.occurrencePath",
+        "source.d01Revision",
+        "source.d01Hash",
+        "source.d02Revision",
+        "source.frameRef"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "B0-02",
+        "F1-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B49-R2",
+      "title": "TopExp映射生命周期：每Run重建并记录Unique祖先策略",
+      "sourceIds": [
+        "B49-S01",
+        "B49-S03"
+      ],
+      "fields": [
+        "topology.mapReset",
+        "topology.mapRunId",
+        "topology.ancestorMode"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "F1-04"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N06",
+        "N07",
+        "N08"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B49-R3",
+      "title": "TShape及Location同一，Orientation允许相反；Partner不能代替Same",
+      "sourceIds": [
+        "B49-S02"
+      ],
+      "fields": [
+        "topology.edge.tShape",
+        "topology.comparedEdge.tShape",
+        "topology.edge.location",
+        "topology.comparedEdge.location"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N09",
+        "N10",
+        "N11"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B49-R4",
+      "title": "两个唯一Face才构成邻接候选；顶点/网格非共边，边界/非流形未知",
+      "sourceIds": [
+        "B49-S01",
+        "B49-S03"
+      ],
+      "fields": [
+        "topology.ancestorFaces",
+        "topology.edgeConnected",
+        "topology.vertexOnly",
+        "topology.meshOnly"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "F1-04"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N12",
+        "N13",
+        "N14",
+        "N15"
+      ],
+      "unknownIds": [
+        "U01",
+        "U02",
+        "U03"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B49-R5",
+      "title": "几何边邻接不得升级为材料包含或D05工序依赖",
+      "sourceIds": [
+        "B49-S04",
+        "B49-S06"
+      ],
+      "fields": [
+        "semantics.relationKind",
+        "semantics.graphLayer",
+        "semantics.materialRole",
+        "semantics.promotedToD05"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N16",
+        "N17",
+        "N18",
+        "N19"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B49-R6",
+      "title": "跨Revision不复用运行内索引，D08及D16冻结不覆写",
+      "sourceIds": [
+        "B49-S05",
+        "B49-S06"
+      ],
+      "fields": [
+        "topology.transferredAcrossRevision",
+        "semantics.d08FrozenUnchanged",
+        "semantics.d16FrozenUnchanged"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "B0-02",
+        "F1-04"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N20",
+        "N21"
+      ],
+      "unknownIds": [
+        "U04"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B49-R7",
+      "title": "Owner CAS、ACL、epoch、取消晚回执提交点重验",
+      "sourceIds": [
+        "B49-S05",
+        "B49-S06"
+      ],
+      "fields": [
+        "owner.expectedRevision",
+        "owner.actualRevision",
+        "owner.acl",
+        "owner.scopeEpoch",
+        "owner.currentEpoch",
+        "owner.cancelled",
+        "owner.lateAck"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "B0-02",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N22",
+        "N23",
+        "N24",
+        "N25",
+        "N26",
+        "N27"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B49-R8",
+      "title": "三入口共Port、唯一Babylon与左TaskPanel、迁移回退及D15隔离",
+      "sourceIds": [
+        "B49-S06"
+      ],
+      "fields": [
+        "owner.entrypoints",
+        "owner.port",
+        "owner.worldCount",
+        "owner.taskPanel",
+        "owner.readerRollback",
+        "owner.historyPreserved",
+        "gate.d15",
+        "gate.d16Publish"
+      ],
+      "capabilityIds": [
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "B0-02",
+        "T5-02"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34"
+      ],
+      "unknownIds": [
+        "U05"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "realConsumer": "NOT_RUN"
+    }
+  ]
+}

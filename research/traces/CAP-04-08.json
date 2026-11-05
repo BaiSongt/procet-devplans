@@ -1,0 +1,416 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-04-08",
+  "topic": "R-FIMP-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "capability": "docs/capabilities/CAP-04-08/README.md",
+    "ui": "docs/capabilities/CAP-04-08/UI.md",
+    "topic": "research/topics/R-FIMP-001.md",
+    "fixtures": "docs/capabilities/CAP-04-08/fixtures.json",
+    "sources": "research/sources/CAP-04-08.json",
+    "impactMatrix": "docs/capabilities/CAP-04-08/impact-matrix.json"
+  },
+  "registeredSources": [
+    "SRC-FIMP-001",
+    "SRC-FIMP-002",
+    "SRC-FIMP-003",
+    "SRC-FIMP-004",
+    "SRC-FIMP-005",
+    "SRC-FIMP-006",
+    "SRC-FIMP-007"
+  ],
+  "workPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "assetOwner": "04 装夹与坐标系 / D04",
+  "relatedAssets": [
+    "D01",
+    "D03",
+    "D04",
+    "D09",
+    "D11",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D10",
+    "D15",
+    "D16",
+    "D12",
+    "D13",
+    "D14"
+  ],
+  "notes": "2026-10-20原创规划，L1/L2不改L3待审；CAP-04-06/07若仍未正式入库不能假设其已有产品能力；无材料扫掠验证；Python产品测试及独立消费者NOT_RUN",
+  "rules": [
+    {
+      "id": "FIMP-R01",
+      "capabilityId": "CAP-04-08",
+      "description": "固定装夹影响检查的工程/文档/Setup作用域及D04、资源和CAD精确revision/hash/frame，不能用同名形状替代",
+      "sourceIds": [
+        "SRC-FIMP-001",
+        "SRC-FIMP-006"
+      ],
+      "fields": [
+        "fixtureExactRef",
+        "setupExactRef",
+        "cadOccurrenceExactRef",
+        "dependencyHash",
+        "frameId"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T01",
+        "CAP-04-08-T02"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "evidence_supported_engineering_rule_with_explicit_procet_bounds",
+      "failureCode": "STALE_OR_CROSS_SCOPE_REFERENCE"
+    },
+    {
+      "id": "FIMP-R02",
+      "capabilityId": "CAP-04-08",
+      "description": "精确几何检查必须先确认B-Rep有效与表达质量，粗网格/包围盒只允许预筛",
+      "sourceIds": [
+        "SRC-FIMP-003",
+        "SRC-FIMP-002"
+      ],
+      "fields": [
+        "brepValidity",
+        "representationQuality",
+        "fixtureBodyExactRef",
+        "partBodyExactRef"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T03",
+        "CAP-04-08-T04"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "evidence_supported_engineering_rule_with_explicit_procet_bounds",
+      "failureCode": "GEOMETRY_QUALITY_UNKNOWN"
+    },
+    {
+      "id": "FIMP-R03",
+      "capabilityId": "CAP-04-08",
+      "description": "静态实体的间隙、接触与体积相交必须区分算法证据和容差，计算失败显式UNKNOWN",
+      "sourceIds": [
+        "SRC-FIMP-002",
+        "SRC-FIMP-004",
+        "SRC-FIMP-003"
+      ],
+      "fields": [
+        "distanceResult",
+        "intersectionStatus",
+        "tolerancePolicy",
+        "contactClassification"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T05",
+        "CAP-04-08-T06"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "evidence_supported_engineering_rule_with_explicit_procet_bounds",
+      "failureCode": "STATIC_INTERFERENCE_UNKNOWN"
+    },
+    {
+      "id": "FIMP-R04",
+      "capabilityId": "CAP-04-08",
+      "description": "保护区、夹紧点及刀具接近方向只能据已建模范围形成受限风险候选，不承诺动态全程安全",
+      "sourceIds": [
+        "SRC-FIMP-001",
+        "SRC-FIMP-002",
+        "SRC-FIMP-004"
+      ],
+      "fields": [
+        "protectedVolumeExactRef",
+        "accessDirection",
+        "toolAssemblyExactRef",
+        "checkCoverage"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D09",
+        "D11"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T07",
+        "CAP-04-08-T08"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "evidence_supported_engineering_rule_with_explicit_procet_bounds",
+      "failureCode": "PROTECTION_OR_COVERAGE_GAP"
+    },
+    {
+      "id": "FIMP-R05",
+      "capabilityId": "CAP-04-08",
+      "description": "以old/new exact依赖图区分改变项/受影响项/无关项，逐Owner产生原因可追溯的失效传播清单",
+      "sourceIds": [
+        "SRC-FIMP-005",
+        "SRC-FIMP-006"
+      ],
+      "fields": [
+        "changeSet",
+        "consumerDependencyEdges",
+        "oldDependencyHash",
+        "newDependencyHash",
+        "impactManifest"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T09",
+        "CAP-04-08-T10"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "evidence_supported_engineering_rule_with_explicit_procet_bounds",
+      "failureCode": "IMPACT_GRAPH_INCONSISTENT"
+    },
+    {
+      "id": "FIMP-R06",
+      "capabilityId": "CAP-04-08",
+      "description": "失效重算不能覆盖D08冻结工艺或D16已发布记录，发布须新版本和审批闭包",
+      "sourceIds": [
+        "SRC-FIMP-005",
+        "SRC-FIMP-006"
+      ],
+      "fields": [
+        "frozenProcessExactRef",
+        "publishedReleaseExactRef",
+        "supersedesRef",
+        "rollbackRef"
+      ],
+      "assets": [
+        "D08",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T11",
+        "CAP-04-08-T12"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "evidence_supported_engineering_rule_with_explicit_procet_bounds",
+      "failureCode": "FROZEN_OR_RELEASE_OVERWRITE"
+    },
+    {
+      "id": "FIMP-R07",
+      "capabilityId": "CAP-04-08",
+      "description": "GUI/CLI/Agent统一经04域Host port执行预览与提交，单Babylon世界及统一左TaskPanel",
+      "sourceIds": [
+        "SRC-FIMP-006",
+        "SRC-FIMP-007"
+      ],
+      "fields": [
+        "domainPortCommand",
+        "previewLease",
+        "selectedOccurrence",
+        "taskPanelScope"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T13",
+        "CAP-04-08-T14"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "explicit_procet_project_policy_with_background_sources",
+      "failureCode": "DOMAIN_ENTRY_BYPASS"
+    },
+    {
+      "id": "FIMP-R08",
+      "capabilityId": "CAP-04-08",
+      "description": "权限重验、scopeEpoch、依赖CAS与取消竞态构成单次提交门禁，晚回执不得改变活动工程",
+      "sourceIds": [
+        "SRC-FIMP-005",
+        "SRC-FIMP-006"
+      ],
+      "fields": [
+        "expectedRevision",
+        "expectedDependencyHashes",
+        "scopeEpoch",
+        "requestId",
+        "commitReceipt"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T15",
+        "CAP-04-08-T16"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "explicit_procet_project_policy_with_background_sources",
+      "failureCode": "STALE_SCOPE_PERMISSION_OR_CAS"
+    },
+    {
+      "id": "FIMP-R09",
+      "capabilityId": "CAP-04-08",
+      "description": "D04装夹影响为规划预筛，D10机床绑定独立，D09 CL动画不替代D12→D13→D14→D15 NC验证",
+      "sourceIds": [
+        "SRC-FIMP-007",
+        "SRC-FIMP-006"
+      ],
+      "fields": [
+        "processSetupExactRef",
+        "machineExecutionExactRef",
+        "controllerSemanticCoverage",
+        "verificationGrade"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T17",
+        "CAP-04-08-T18"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "explicit_procet_project_policy_with_background_sources",
+      "failureCode": "NC_ENGINEERING_EVIDENCE_MISSING"
+    },
+    {
+      "id": "FIMP-R10",
+      "capabilityId": "CAP-04-08",
+      "description": "旧装夹文件缺Frame/资源版本时只读迁移，独立消费者正反验收含失败注入与回退入口",
+      "sourceIds": [
+        "SRC-FIMP-003",
+        "SRC-FIMP-005",
+        "SRC-FIMP-006"
+      ],
+      "fields": [
+        "legacyRawRef",
+        "migrationProposal",
+        "unknownSemantics",
+        "consumerEvidence",
+        "rollbackRef"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D06",
+        "D09",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-08-T19",
+        "CAP-04-08-T20"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "explicit_procet_project_policy_with_background_sources",
+      "failureCode": "LEGACY_EVIDENCE_OR_CONSUMER_MISSING"
+    }
+  ]
+}

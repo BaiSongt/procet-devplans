@@ -1,0 +1,461 @@
+{
+  "schemaVersion": "procet-b87-fuzzy-fixtures-v08",
+  "capabilityId": "CAP-06-03",
+  "syntheticOnly": true,
+  "notOcctExecution": true,
+  "count": 32,
+  "cases": [
+    {
+      "id": "F87-01",
+      "ruleId": "F87-R1",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "revision": 3,
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "scope": "P/S1",
+        "expectedScope": "P/S1",
+        "frame": "PartFrame@r3",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-02",
+      "ruleId": "F87-R1",
+      "expected": "REJECT_EXACT",
+      "input": {
+        "revision": 3,
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "scope": "P/S2",
+        "expectedScope": "P/S1",
+        "frame": "PartFrame@r3",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-03",
+      "ruleId": "F87-R1",
+      "expected": "REJECT_EXACT",
+      "input": {
+        "revision": 0,
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "scope": "P/S1",
+        "expectedScope": "P/S1",
+        "frame": "PartFrame@r3",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-04",
+      "ruleId": "F87-R1",
+      "expected": "UNKNOWN_EXACT",
+      "input": {
+        "revision": 3,
+        "hash": null,
+        "scope": "P/S1",
+        "expectedScope": "P/S1",
+        "frame": "PartFrame@r3",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-05",
+      "ruleId": "F87-R2",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "fuzzy": 0.002,
+        "maxFuzzy": 0.01,
+        "minFeature": 0.2,
+        "measuredGap": 0.001,
+        "policyVersion": "tolerance-v1",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-06",
+      "ruleId": "F87-R2",
+      "expected": "REJECT_FUZZY_BUDGET",
+      "input": {
+        "fuzzy": 0.1,
+        "maxFuzzy": 0.01,
+        "minFeature": 0.2,
+        "measuredGap": 0.001,
+        "policyVersion": "tolerance-v1",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-07",
+      "ruleId": "F87-R2",
+      "expected": "UNKNOWN_THIN_WALL",
+      "input": {
+        "fuzzy": 0.002,
+        "maxFuzzy": 0.01,
+        "minFeature": 0.003,
+        "measuredGap": 0.001,
+        "policyVersion": "tolerance-v1",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-08",
+      "ruleId": "F87-R2",
+      "expected": "UNKNOWN_GEOMETRY_MARGIN",
+      "input": {
+        "fuzzy": 0.002,
+        "maxFuzzy": 0.01,
+        "minFeature": 0.2,
+        "measuredGap": null,
+        "policyVersion": "tolerance-v1",
+        "unit": "mm"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-09",
+      "ruleId": "F87-R3",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "glue": "OFF",
+        "realIntersection": true,
+        "coincidenceProof": null
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-10",
+      "ruleId": "F87-R3",
+      "expected": "REJECT_GLUE_INTERSECTION",
+      "input": {
+        "glue": "SHIFT",
+        "realIntersection": true,
+        "coincidenceProof": null
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-11",
+      "ruleId": "F87-R3",
+      "expected": "UNKNOWN_GLUE_PRECONDITION",
+      "input": {
+        "glue": "FULL",
+        "realIntersection": false,
+        "coincidenceProof": null
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-12",
+      "ruleId": "F87-R3",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "glue": "SHIFT",
+        "realIntersection": false,
+        "coincidenceProof": "VERIFIED_EXACT"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-13",
+      "ruleId": "F87-R4",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "nonDestructive": true,
+        "beforeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "afterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-14",
+      "ruleId": "F87-R4",
+      "expected": "REJECT_MUTABLE_INPUT",
+      "input": {
+        "nonDestructive": false,
+        "beforeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "afterHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-15",
+      "ruleId": "F87-R4",
+      "expected": "UNKNOWN_INPUT_BYTES",
+      "input": {
+        "nonDestructive": true,
+        "beforeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "afterHash": null
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-16",
+      "ruleId": "F87-R4",
+      "expected": "REJECT_INPUT_CHANGED",
+      "input": {
+        "nonDestructive": true,
+        "beforeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "afterHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-17",
+      "ruleId": "F87-R5",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "historyEnabled": true,
+        "simplify": true,
+        "mergedHistory": true,
+        "multiOrigin": true,
+        "uniqueOriginClaim": false,
+        "finalHistoryResolved": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-18",
+      "ruleId": "F87-R5",
+      "expected": "REJECT_HISTORY_DISABLED",
+      "input": {
+        "historyEnabled": false,
+        "simplify": true,
+        "mergedHistory": true,
+        "multiOrigin": true,
+        "uniqueOriginClaim": false,
+        "finalHistoryResolved": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-19",
+      "ruleId": "F87-R5",
+      "expected": "REJECT_FALSE_UNIQUENESS",
+      "input": {
+        "historyEnabled": true,
+        "simplify": true,
+        "mergedHistory": true,
+        "multiOrigin": true,
+        "uniqueOriginClaim": true,
+        "finalHistoryResolved": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-20",
+      "ruleId": "F87-R5",
+      "expected": "UNKNOWN_HISTORY",
+      "input": {
+        "historyEnabled": true,
+        "simplify": true,
+        "mergedHistory": true,
+        "multiOrigin": true,
+        "uniqueOriginClaim": false,
+        "finalHistoryResolved": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-21",
+      "ruleId": "F87-R6",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "hasErrors": false,
+        "hasWarnings": false,
+        "isDone": true,
+        "reportCaptured": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-22",
+      "ruleId": "F87-R6",
+      "expected": "REJECT_OCCT_ERROR",
+      "input": {
+        "hasErrors": true,
+        "hasWarnings": false,
+        "isDone": true,
+        "reportCaptured": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-23",
+      "ruleId": "F87-R6",
+      "expected": "UNKNOWN_OCCT_WARNING",
+      "input": {
+        "hasErrors": false,
+        "hasWarnings": true,
+        "isDone": true,
+        "reportCaptured": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-24",
+      "ruleId": "F87-R6",
+      "expected": "UNKNOWN_OCCT_REPORT",
+      "input": {
+        "hasErrors": false,
+        "hasWarnings": false,
+        "isDone": true,
+        "reportCaptured": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-25",
+      "ruleId": "F87-R7",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "shapeValid": true,
+        "solidCount": 2,
+        "checkedCount": 2,
+        "protectedOverlap": 0,
+        "maxOverlap": 0.001,
+        "independentPath": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-26",
+      "ruleId": "F87-R7",
+      "expected": "REJECT_TOPOLOGY",
+      "input": {
+        "shapeValid": false,
+        "solidCount": 2,
+        "checkedCount": 2,
+        "protectedOverlap": 0,
+        "maxOverlap": 0.001,
+        "independentPath": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-27",
+      "ruleId": "F87-R7",
+      "expected": "REJECT_PROTECTION",
+      "input": {
+        "shapeValid": true,
+        "solidCount": 2,
+        "checkedCount": 2,
+        "protectedOverlap": 0.2,
+        "maxOverlap": 0.001,
+        "independentPath": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-28",
+      "ruleId": "F87-R7",
+      "expected": "UNKNOWN_ORACLE",
+      "input": {
+        "shapeValid": true,
+        "solidCount": 2,
+        "checkedCount": 2,
+        "protectedOverlap": 0,
+        "maxOverlap": 0.001,
+        "independentPath": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-29",
+      "ruleId": "F87-R8",
+      "expected": "PASS_SYNTHETIC_ONLY",
+      "input": {
+        "port": "06.LocalBRepRemovalDomainPort",
+        "channel": "GUI",
+        "worlds": 1,
+        "panel": "LEFT_UNIFIED",
+        "cancelled": false,
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclEpoch": 4,
+        "observedAclEpoch": 4,
+        "generation": 7,
+        "observedGeneration": 7,
+        "d08FrozenUnchanged": true,
+        "clClaimsNc": false,
+        "d13UnknownAsPass": false,
+        "rollbackRef": "legacy-readonly@v1"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-30",
+      "ruleId": "F87-R8",
+      "expected": "REJECT_ENTRY",
+      "input": {
+        "port": "06.LocalBRepRemovalDomainPort",
+        "channel": "GUI",
+        "worlds": 2,
+        "panel": "LEFT_UNIFIED",
+        "cancelled": false,
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclEpoch": 4,
+        "observedAclEpoch": 4,
+        "generation": 7,
+        "observedGeneration": 7,
+        "d08FrozenUnchanged": true,
+        "clClaimsNc": false,
+        "d13UnknownAsPass": false,
+        "rollbackRef": "legacy-readonly@v1"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-31",
+      "ruleId": "F87-R8",
+      "expected": "STALE_OWNER",
+      "input": {
+        "port": "06.LocalBRepRemovalDomainPort",
+        "channel": "GUI",
+        "worlds": 1,
+        "panel": "LEFT_UNIFIED",
+        "cancelled": false,
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclEpoch": 4,
+        "observedAclEpoch": 4,
+        "generation": 7,
+        "observedGeneration": 8,
+        "d08FrozenUnchanged": true,
+        "clClaimsNc": false,
+        "d13UnknownAsPass": false,
+        "rollbackRef": "legacy-readonly@v1"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "F87-32",
+      "ruleId": "F87-R8",
+      "expected": "REJECT_CANCELLED",
+      "input": {
+        "port": "06.LocalBRepRemovalDomainPort",
+        "channel": "GUI",
+        "worlds": 1,
+        "panel": "LEFT_UNIFIED",
+        "cancelled": true,
+        "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aclEpoch": 4,
+        "observedAclEpoch": 4,
+        "generation": 7,
+        "observedGeneration": 7,
+        "d08FrozenUnchanged": true,
+        "clClaimsNc": false,
+        "d13UnknownAsPass": false,
+        "rollbackRef": "legacy-readonly@v1"
+      },
+      "synthetic": true
+    }
+  ]
+}

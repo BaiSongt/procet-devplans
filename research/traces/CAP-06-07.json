@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-07",
+  "researchTopic": "R-ORACLE-CONVERGENCE-001",
+  "sourceRegistry": "research/sources/CAP-06-07.json",
+  "specification": "docs/capabilities/CAP-06-07/README.md",
+  "ui": "docs/capabilities/CAP-06-07/UI.md",
+  "fixtures": "docs/capabilities/CAP-06-07/fixtures.json",
+  "validator": "tools/check_cap0607_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0607-R01",
+      "capabilityId": "CAP-06-07",
+      "summary": "Owner签发Project/Document/Setup的exact revision/hash/frame/head闭包",
+      "fields": [
+        "revision",
+        "contentHash",
+        "frameHash",
+        "headHash",
+        "observedHead"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S07",
+        "SRC-C0607-S08",
+        "SRC-C0607-S09"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T01",
+      "negativeTestId": "CAP-06-07-T02",
+      "mutationTestId": "CAP-06-07-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R02",
+      "capabilityId": "CAP-06-07",
+      "summary": "Oracle必须独立进程、二进制和重算路径，不能自证通过",
+      "fields": [
+        "processId",
+        "generatorProcessId",
+        "binaryHash",
+        "generatorBinaryHash",
+        "recomputed"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S01",
+        "SRC-C0607-S04"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T03",
+      "negativeTestId": "CAP-06-07-T04",
+      "mutationTestId": "CAP-06-07-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R03",
+      "capabilityId": "CAP-06-07",
+      "summary": "BRep合法闭合、全部Solid检查完成才允许判几何合格",
+      "fields": [
+        "valid",
+        "closed",
+        "solidCount",
+        "checkedCount"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S01",
+        "SRC-C0607-S05"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T05",
+      "negativeTestId": "CAP-06-07-T06",
+      "mutationTestId": "CAP-06-07-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R04",
+      "capabilityId": "CAP-06-07",
+      "summary": "前Stock-实际去料-后Stock体积残差必须在受控阈值内",
+      "fields": [
+        "before",
+        "removed",
+        "after",
+        "absTol",
+        "relTol"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S02",
+        "SRC-C0607-S04"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T07",
+      "negativeTestId": "CAP-06-07-T08",
+      "mutationTestId": "CAP-06-07-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R05",
+      "capabilityId": "CAP-06-07",
+      "summary": "保护区不得侵入且岛屿与多环结果必须保留",
+      "fields": [
+        "intersection",
+        "maxIntersection",
+        "islandsBefore",
+        "islandsAfter"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S03",
+        "SRC-C0607-S04"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T09",
+      "negativeTestId": "CAP-06-07-T10",
+      "mutationTestId": "CAP-06-07-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R06",
+      "capabilityId": "CAP-06-07",
+      "summary": "容差单位、政策版本、数值正区间必须显式锁定",
+      "fields": [
+        "unit",
+        "sourceUnit",
+        "epsilon",
+        "minEpsilon",
+        "maxEpsilon",
+        "policyVersion"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S01",
+        "SRC-C0607-S09"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T11",
+      "negativeTestId": "CAP-06-07-T12",
+      "mutationTestId": "CAP-06-07-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R07",
+      "capabilityId": "CAP-06-07",
+      "summary": "可靠值只能经独立留出集且足量样本完成校准",
+      "fields": [
+        "holdoutDisjoint",
+        "n",
+        "minN",
+        "trainHash",
+        "holdoutHash",
+        "ece",
+        "maxEce"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S06",
+        "SRC-C0607-S10"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T13",
+      "negativeTestId": "CAP-06-07-T14",
+      "mutationTestId": "CAP-06-07-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R08",
+      "capabilityId": "CAP-06-07",
+      "summary": "完整迭代残差含反弹点，稳定窗且独立Oracle才准称观测收敛",
+      "fields": [
+        "raw",
+        "iterations",
+        "stableSteps",
+        "oraclePass"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S02",
+        "SRC-C0607-S06",
+        "SRC-C0607-S07"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-07-T15",
+      "negativeTestId": "CAP-06-07-T16",
+      "mutationTestId": "CAP-06-07-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R09",
+      "capabilityId": "CAP-06-07",
+      "summary": "预算耗尽/未知是UNKNOWN，不是已证明无解且不得发布",
+      "fields": [
+        "budgetExhausted",
+        "status",
+        "publishAllowed"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S06",
+        "SRC-C0607-S10"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08",
+        "D15"
+      ],
+      "positiveTestId": "CAP-06-07-T17",
+      "negativeTestId": "CAP-06-07-T18",
+      "mutationTestId": "CAP-06-07-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0607-R10",
+      "capabilityId": "CAP-06-07",
+      "summary": "Owner提交复核Seal、HEAD CAS、ACL、任务代次、取消状态与D08",
+      "fields": [
+        "stageSealed",
+        "expectedHead",
+        "observedHead",
+        "acl",
+        "generation",
+        "receiptGeneration",
+        "cancelGeneration",
+        "d08Preserved"
+      ],
+      "sourceIds": [
+        "SRC-C0607-S07",
+        "SRC-C0607-S08",
+        "SRC-C0607-S10"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-07-T19",
+      "negativeTestId": "CAP-06-07-T20",
+      "mutationTestId": "CAP-06-07-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

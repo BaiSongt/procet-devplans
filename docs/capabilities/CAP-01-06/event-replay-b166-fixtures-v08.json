@@ -1,0 +1,594 @@
+{
+  "schemaVersion": "procet-b166-fixtures-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "scope": "预设状态的字段级必要条件与游标Golden，不是完整EventSource解析或跨进程事务测试",
+  "cases": [
+    {
+      "id": "B166-R01-P",
+      "ruleId": "B166-R01",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "stream.id": "job-7",
+        "stream.scope": "project:A",
+        "stream.epoch": 4,
+        "stream.revision": "rev:7"
+      }
+    },
+    {
+      "id": "B166-R01-N1",
+      "ruleId": "B166-R01",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "stream.id",
+      "expected": "REJECT",
+      "record": {
+        "stream.id": "job-8",
+        "stream.scope": "project:A",
+        "stream.epoch": 4,
+        "stream.revision": "rev:7"
+      }
+    },
+    {
+      "id": "B166-R01-N2",
+      "ruleId": "B166-R01",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "stream.scope",
+      "expected": "REJECT",
+      "record": {
+        "stream.id": "job-7",
+        "stream.scope": "project:B",
+        "stream.epoch": 4,
+        "stream.revision": "rev:7"
+      }
+    },
+    {
+      "id": "B166-R01-N3",
+      "ruleId": "B166-R01",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "stream.epoch",
+      "expected": "REJECT",
+      "record": {
+        "stream.id": "job-7",
+        "stream.scope": "project:A",
+        "stream.epoch": 3,
+        "stream.revision": "rev:7"
+      }
+    },
+    {
+      "id": "B166-R01-N4",
+      "ruleId": "B166-R01",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "stream.revision",
+      "expected": "REJECT",
+      "record": {
+        "stream.id": "job-7",
+        "stream.scope": "project:A",
+        "stream.epoch": 4,
+        "stream.revision": "rev:8"
+      }
+    },
+    {
+      "id": "B166-R02-P",
+      "ruleId": "B166-R02",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "cursor.lastApplied": 11,
+        "cursor.received": 12,
+        "cursor.contiguous": true,
+        "cursor.gapPolicy": "REPLAY"
+      }
+    },
+    {
+      "id": "B166-R02-N1",
+      "ruleId": "B166-R02",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cursor.lastApplied",
+      "expected": "REJECT",
+      "record": {
+        "cursor.lastApplied": 12,
+        "cursor.received": 12,
+        "cursor.contiguous": true,
+        "cursor.gapPolicy": "REPLAY"
+      }
+    },
+    {
+      "id": "B166-R02-N2",
+      "ruleId": "B166-R02",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cursor.received",
+      "expected": "REJECT",
+      "record": {
+        "cursor.lastApplied": 11,
+        "cursor.received": 14,
+        "cursor.contiguous": true,
+        "cursor.gapPolicy": "REPLAY"
+      }
+    },
+    {
+      "id": "B166-R02-N3",
+      "ruleId": "B166-R02",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cursor.contiguous",
+      "expected": "REJECT",
+      "record": {
+        "cursor.lastApplied": 11,
+        "cursor.received": 12,
+        "cursor.contiguous": false,
+        "cursor.gapPolicy": "REPLAY"
+      }
+    },
+    {
+      "id": "B166-R02-N4",
+      "ruleId": "B166-R02",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cursor.gapPolicy",
+      "expected": "REJECT",
+      "record": {
+        "cursor.lastApplied": 11,
+        "cursor.received": 12,
+        "cursor.contiguous": true,
+        "cursor.gapPolicy": "SKIP"
+      }
+    },
+    {
+      "id": "B166-R03-P",
+      "ruleId": "B166-R03",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "resume.lastEventId": "11",
+        "resume.journalPersisted": true,
+        "resume.replayComplete": true,
+        "resume.expiryPolicy": "UNKNOWN_RESYNC"
+      }
+    },
+    {
+      "id": "B166-R03-N1",
+      "ruleId": "B166-R03",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "resume.lastEventId",
+      "expected": "REJECT",
+      "record": {
+        "resume.lastEventId": "not_numeric",
+        "resume.journalPersisted": true,
+        "resume.replayComplete": true,
+        "resume.expiryPolicy": "UNKNOWN_RESYNC"
+      }
+    },
+    {
+      "id": "B166-R03-N2",
+      "ruleId": "B166-R03",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "resume.journalPersisted",
+      "expected": "REJECT",
+      "record": {
+        "resume.lastEventId": "11",
+        "resume.journalPersisted": false,
+        "resume.replayComplete": true,
+        "resume.expiryPolicy": "UNKNOWN_RESYNC"
+      }
+    },
+    {
+      "id": "B166-R03-N3",
+      "ruleId": "B166-R03",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "resume.replayComplete",
+      "expected": "REJECT",
+      "record": {
+        "resume.lastEventId": "11",
+        "resume.journalPersisted": true,
+        "resume.replayComplete": false,
+        "resume.expiryPolicy": "UNKNOWN_RESYNC"
+      }
+    },
+    {
+      "id": "B166-R03-N4",
+      "ruleId": "B166-R03",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "resume.expiryPolicy",
+      "expected": "REJECT",
+      "record": {
+        "resume.lastEventId": "11",
+        "resume.journalPersisted": true,
+        "resume.replayComplete": true,
+        "resume.expiryPolicy": "LATEST"
+      }
+    },
+    {
+      "id": "B166-R04-P",
+      "ruleId": "B166-R04",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "result.jobState": "SUCCEEDED",
+        "result.adoptionState": "UNADOPTED",
+        "result.ownerReceipt": "NONE",
+        "result.autoAdopt": false
+      }
+    },
+    {
+      "id": "B166-R04-N1",
+      "ruleId": "B166-R04",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "result.jobState",
+      "expected": "REJECT",
+      "record": {
+        "result.jobState": "FAILED",
+        "result.adoptionState": "UNADOPTED",
+        "result.ownerReceipt": "NONE",
+        "result.autoAdopt": false
+      }
+    },
+    {
+      "id": "B166-R04-N2",
+      "ruleId": "B166-R04",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "result.adoptionState",
+      "expected": "REJECT",
+      "record": {
+        "result.jobState": "SUCCEEDED",
+        "result.adoptionState": "ADOPTED",
+        "result.ownerReceipt": "NONE",
+        "result.autoAdopt": false
+      }
+    },
+    {
+      "id": "B166-R04-N3",
+      "ruleId": "B166-R04",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "result.ownerReceipt",
+      "expected": "REJECT",
+      "record": {
+        "result.jobState": "SUCCEEDED",
+        "result.adoptionState": "UNADOPTED",
+        "result.ownerReceipt": "SYNTHETIC",
+        "result.autoAdopt": false
+      }
+    },
+    {
+      "id": "B166-R04-N4",
+      "ruleId": "B166-R04",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "result.autoAdopt",
+      "expected": "REJECT",
+      "record": {
+        "result.jobState": "SUCCEEDED",
+        "result.adoptionState": "UNADOPTED",
+        "result.ownerReceipt": "NONE",
+        "result.autoAdopt": true
+      }
+    },
+    {
+      "id": "B166-R05-P",
+      "ruleId": "B166-R05",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "cancel.fence": 7,
+        "cancel.receiptEpoch": 6,
+        "cancel.lateCommit": false,
+        "cancel.disposition": "QUARANTINE"
+      }
+    },
+    {
+      "id": "B166-R05-N1",
+      "ruleId": "B166-R05",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cancel.fence",
+      "expected": "REJECT",
+      "record": {
+        "cancel.fence": 5,
+        "cancel.receiptEpoch": 6,
+        "cancel.lateCommit": false,
+        "cancel.disposition": "QUARANTINE"
+      }
+    },
+    {
+      "id": "B166-R05-N2",
+      "ruleId": "B166-R05",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cancel.receiptEpoch",
+      "expected": "REJECT",
+      "record": {
+        "cancel.fence": 7,
+        "cancel.receiptEpoch": 8,
+        "cancel.lateCommit": false,
+        "cancel.disposition": "QUARANTINE"
+      }
+    },
+    {
+      "id": "B166-R05-N3",
+      "ruleId": "B166-R05",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cancel.lateCommit",
+      "expected": "REJECT",
+      "record": {
+        "cancel.fence": 7,
+        "cancel.receiptEpoch": 6,
+        "cancel.lateCommit": true,
+        "cancel.disposition": "QUARANTINE"
+      }
+    },
+    {
+      "id": "B166-R05-N4",
+      "ruleId": "B166-R05",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "cancel.disposition",
+      "expected": "REJECT",
+      "record": {
+        "cancel.fence": 7,
+        "cancel.receiptEpoch": 6,
+        "cancel.lateCommit": false,
+        "cancel.disposition": "ADOPT"
+      }
+    },
+    {
+      "id": "B166-R06-P",
+      "ruleId": "B166-R06",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "ui.taskPanel": "LEFT_UNIFIED",
+        "ui.sceneCount": 1,
+        "ui.liveRegion": "POLITE_PHASE_ONLY",
+        "ui.fabricatedPercent": false
+      }
+    },
+    {
+      "id": "B166-R06-N1",
+      "ruleId": "B166-R06",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "ui.taskPanel",
+      "expected": "REJECT",
+      "record": {
+        "ui.taskPanel": "RIGHT_DRAWER",
+        "ui.sceneCount": 1,
+        "ui.liveRegion": "POLITE_PHASE_ONLY",
+        "ui.fabricatedPercent": false
+      }
+    },
+    {
+      "id": "B166-R06-N2",
+      "ruleId": "B166-R06",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "ui.sceneCount",
+      "expected": "REJECT",
+      "record": {
+        "ui.taskPanel": "LEFT_UNIFIED",
+        "ui.sceneCount": 2,
+        "ui.liveRegion": "POLITE_PHASE_ONLY",
+        "ui.fabricatedPercent": false
+      }
+    },
+    {
+      "id": "B166-R06-N3",
+      "ruleId": "B166-R06",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "ui.liveRegion",
+      "expected": "REJECT",
+      "record": {
+        "ui.taskPanel": "LEFT_UNIFIED",
+        "ui.sceneCount": 1,
+        "ui.liveRegion": "ASSERTIVE_EVERY_FRAME",
+        "ui.fabricatedPercent": false
+      }
+    },
+    {
+      "id": "B166-R06-N4",
+      "ruleId": "B166-R06",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "ui.fabricatedPercent",
+      "expected": "REJECT",
+      "record": {
+        "ui.taskPanel": "LEFT_UNIFIED",
+        "ui.sceneCount": 1,
+        "ui.liveRegion": "POLITE_PHASE_ONLY",
+        "ui.fabricatedPercent": true
+      }
+    },
+    {
+      "id": "B166-R07-P",
+      "ruleId": "B166-R07",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "owner.samePort": true,
+        "owner.exactRevision": true,
+        "owner.aclRechecked": true,
+        "owner.frameFresh": true
+      }
+    },
+    {
+      "id": "B166-R07-N1",
+      "ruleId": "B166-R07",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "owner.samePort",
+      "expected": "REJECT",
+      "record": {
+        "owner.samePort": false,
+        "owner.exactRevision": true,
+        "owner.aclRechecked": true,
+        "owner.frameFresh": true
+      }
+    },
+    {
+      "id": "B166-R07-N2",
+      "ruleId": "B166-R07",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "owner.exactRevision",
+      "expected": "REJECT",
+      "record": {
+        "owner.samePort": true,
+        "owner.exactRevision": false,
+        "owner.aclRechecked": true,
+        "owner.frameFresh": true
+      }
+    },
+    {
+      "id": "B166-R07-N3",
+      "ruleId": "B166-R07",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "owner.aclRechecked",
+      "expected": "REJECT",
+      "record": {
+        "owner.samePort": true,
+        "owner.exactRevision": true,
+        "owner.aclRechecked": false,
+        "owner.frameFresh": true
+      }
+    },
+    {
+      "id": "B166-R07-N4",
+      "ruleId": "B166-R07",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "owner.frameFresh",
+      "expected": "REJECT",
+      "record": {
+        "owner.samePort": true,
+        "owner.exactRevision": true,
+        "owner.aclRechecked": true,
+        "owner.frameFresh": false
+      }
+    },
+    {
+      "id": "B166-R08-P",
+      "ruleId": "B166-R08",
+      "kind": "POSITIVE",
+      "changedField": null,
+      "expected": "REVIEW_CANDIDATE_ONLY",
+      "record": {
+        "migration.dualRead": true,
+        "migration.frozenUnchanged": true,
+        "migration.rollbackTest": true,
+        "migration.ncIndependent": true
+      }
+    },
+    {
+      "id": "B166-R08-N1",
+      "ruleId": "B166-R08",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "migration.dualRead",
+      "expected": "REJECT",
+      "record": {
+        "migration.dualRead": false,
+        "migration.frozenUnchanged": true,
+        "migration.rollbackTest": true,
+        "migration.ncIndependent": true
+      }
+    },
+    {
+      "id": "B166-R08-N2",
+      "ruleId": "B166-R08",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "migration.frozenUnchanged",
+      "expected": "REJECT",
+      "record": {
+        "migration.dualRead": true,
+        "migration.frozenUnchanged": false,
+        "migration.rollbackTest": true,
+        "migration.ncIndependent": true
+      }
+    },
+    {
+      "id": "B166-R08-N3",
+      "ruleId": "B166-R08",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "migration.rollbackTest",
+      "expected": "REJECT",
+      "record": {
+        "migration.dualRead": true,
+        "migration.frozenUnchanged": true,
+        "migration.rollbackTest": false,
+        "migration.ncIndependent": true
+      }
+    },
+    {
+      "id": "B166-R08-N4",
+      "ruleId": "B166-R08",
+      "kind": "SINGLE_FIELD_NEGATIVE",
+      "changedField": "migration.ncIndependent",
+      "expected": "REJECT",
+      "record": {
+        "migration.dualRead": true,
+        "migration.frozenUnchanged": true,
+        "migration.rollbackTest": true,
+        "migration.ncIndependent": false
+      }
+    }
+  ],
+  "golden": [
+    {
+      "id": "B166-G01",
+      "description": "11→12按序",
+      "type": "SEQUENCE",
+      "a": 11,
+      "b": 12,
+      "expected": "APPLY"
+    },
+    {
+      "id": "B166-G02",
+      "description": "11→13漏12",
+      "type": "SEQUENCE",
+      "a": 11,
+      "b": 13,
+      "expected": "REPLAY_REQUIRED"
+    },
+    {
+      "id": "B166-G03",
+      "description": "11→11重复",
+      "type": "SEQUENCE",
+      "a": 11,
+      "b": 11,
+      "expected": "DUPLICATE_IGNORE"
+    },
+    {
+      "id": "B166-G04",
+      "description": "11→10旧包",
+      "type": "SEQUENCE",
+      "a": 11,
+      "b": 10,
+      "expected": "DUPLICATE_IGNORE"
+    },
+    {
+      "id": "B166-G05",
+      "description": "Journal缺失不可补造",
+      "type": "JOURNAL",
+      "a": false,
+      "b": null,
+      "expected": "UNKNOWN_RESYNC"
+    },
+    {
+      "id": "B166-G06",
+      "description": "计算成功无Owner回执",
+      "type": "ADOPTION",
+      "a": "SUCCEEDED",
+      "b": "NONE",
+      "expected": "UNADOPTED"
+    },
+    {
+      "id": "B166-G07",
+      "description": "取消代次高于旧回执",
+      "type": "CANCEL",
+      "a": 7,
+      "b": 6,
+      "expected": "QUARANTINE"
+    },
+    {
+      "id": "B166-G08",
+      "description": "SSE空id清传输游标",
+      "type": "SSE_ID",
+      "a": "",
+      "b": null,
+      "expected": "CLEAR_TRANSPORT_ONLY"
+    }
+  ]
+}

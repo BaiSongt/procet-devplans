@@ -1,0 +1,440 @@
+{
+  "schemaVersion": "procet-b114-fixtures-v08",
+  "date": "2026-11-02",
+  "synthetic": true,
+  "note": "SYNTHETIC_A/B仅为不代表真实SHA256的占位不等价字符串；不得作为签发或机器验证证据",
+  "cases": [
+    {
+      "id": "B114-P01",
+      "rule": "B114-R01",
+      "input": {
+        "profilePinned": true,
+        "methodDiscovered": true,
+        "tempTypeSupported": true,
+        "autoActivation": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N01-1",
+      "rule": "B114-R01",
+      "input": {
+        "profilePinned": false,
+        "methodDiscovered": true,
+        "tempTypeSupported": true,
+        "autoActivation": false
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "profilePinned"
+    },
+    {
+      "id": "B114-N01-2",
+      "rule": "B114-R01",
+      "input": {
+        "profilePinned": true,
+        "methodDiscovered": false,
+        "tempTypeSupported": true,
+        "autoActivation": false
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "methodDiscovered"
+    },
+    {
+      "id": "B114-N01-3",
+      "rule": "B114-R01",
+      "input": {
+        "profilePinned": true,
+        "methodDiscovered": true,
+        "tempTypeSupported": true,
+        "autoActivation": true
+      },
+      "expect": "REJECT",
+      "mutatedField": "autoActivation"
+    },
+    {
+      "id": "B114-P02",
+      "rule": "B114-R02",
+      "input": {
+        "activeSession": "S2",
+        "handleSession": "S2",
+        "currentEpoch": 7,
+        "handleEpoch": 7,
+        "handleValid": true,
+        "lateAck": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N02-1",
+      "rule": "B114-R02",
+      "input": {
+        "activeSession": "S2",
+        "handleSession": "S1",
+        "currentEpoch": 7,
+        "handleEpoch": 7,
+        "handleValid": true,
+        "lateAck": false
+      },
+      "expect": "STALE",
+      "mutatedField": "handleSession"
+    },
+    {
+      "id": "B114-N02-2",
+      "rule": "B114-R02",
+      "input": {
+        "activeSession": "S2",
+        "handleSession": "S2",
+        "currentEpoch": 7,
+        "handleEpoch": 7,
+        "handleValid": false,
+        "lateAck": false
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "handleValid"
+    },
+    {
+      "id": "B114-N02-3",
+      "rule": "B114-R02",
+      "input": {
+        "activeSession": "S2",
+        "handleSession": "S2",
+        "currentEpoch": 7,
+        "handleEpoch": 7,
+        "handleValid": true,
+        "lateAck": true
+      },
+      "expect": "STALE",
+      "mutatedField": "lateAck"
+    },
+    {
+      "id": "B114-P03",
+      "rule": "B114-R03",
+      "input": {
+        "completionToken": "FSM-1",
+        "observedState": "Idle",
+        "serverApplied": true,
+        "transactionExact": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N03-1",
+      "rule": "B114-R03",
+      "input": {
+        "completionToken": "FSM-1",
+        "observedState": "ApplyWrite",
+        "serverApplied": true,
+        "transactionExact": true
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "observedState"
+    },
+    {
+      "id": "B114-N03-2",
+      "rule": "B114-R03",
+      "input": {
+        "completionToken": "FSM-1",
+        "observedState": "Error",
+        "serverApplied": true,
+        "transactionExact": true
+      },
+      "expect": "REJECT",
+      "mutatedField": "observedState"
+    },
+    {
+      "id": "B114-N03-3",
+      "rule": "B114-R03",
+      "input": {
+        "completionToken": "FSM-1",
+        "observedState": "Idle",
+        "serverApplied": true,
+        "transactionExact": false
+      },
+      "expect": "STALE",
+      "mutatedField": "transactionExact"
+    },
+    {
+      "id": "B114-P03-SYNC",
+      "rule": "B114-R03",
+      "input": {
+        "completionToken": null,
+        "observedState": "Idle",
+        "serverApplied": true,
+        "transactionExact": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-P04",
+      "rule": "B114-R04",
+      "input": {
+        "pathScoped": true,
+        "activeOverwrite": false,
+        "newNodeIdResolved": true,
+        "claimsAtomic": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N04-1",
+      "rule": "B114-R04",
+      "input": {
+        "pathScoped": false,
+        "activeOverwrite": false,
+        "newNodeIdResolved": true,
+        "claimsAtomic": false
+      },
+      "expect": "REJECT",
+      "mutatedField": "pathScoped"
+    },
+    {
+      "id": "B114-N04-2",
+      "rule": "B114-R04",
+      "input": {
+        "pathScoped": true,
+        "activeOverwrite": true,
+        "newNodeIdResolved": true,
+        "claimsAtomic": false
+      },
+      "expect": "REJECT",
+      "mutatedField": "activeOverwrite"
+    },
+    {
+      "id": "B114-N04-3",
+      "rule": "B114-R04",
+      "input": {
+        "pathScoped": true,
+        "activeOverwrite": false,
+        "newNodeIdResolved": false,
+        "claimsAtomic": false
+      },
+      "expect": "STALE",
+      "mutatedField": "newNodeIdResolved"
+    },
+    {
+      "id": "B114-N04-4",
+      "rule": "B114-R04",
+      "input": {
+        "pathScoped": true,
+        "activeOverwrite": false,
+        "newNodeIdResolved": true,
+        "claimsAtomic": true
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "claimsAtomic"
+    },
+    {
+      "id": "B114-P05",
+      "rule": "B114-R05",
+      "input": {
+        "receiverReadback": true,
+        "sourceHash": "SYNTHETIC_A",
+        "receiverHash": "SYNTHETIC_A",
+        "applicationShaVerified": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N05-1",
+      "rule": "B114-R05",
+      "input": {
+        "receiverReadback": false,
+        "sourceHash": "SYNTHETIC_A",
+        "receiverHash": "SYNTHETIC_A",
+        "applicationShaVerified": true
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "receiverReadback"
+    },
+    {
+      "id": "B114-N05-2",
+      "rule": "B114-R05",
+      "input": {
+        "receiverReadback": true,
+        "sourceHash": "SYNTHETIC_A",
+        "receiverHash": "SYNTHETIC_B",
+        "applicationShaVerified": true
+      },
+      "expect": "REJECT",
+      "mutatedField": "receiverHash"
+    },
+    {
+      "id": "B114-N05-3",
+      "rule": "B114-R05",
+      "input": {
+        "receiverReadback": true,
+        "sourceHash": "SYNTHETIC_A",
+        "receiverHash": "SYNTHETIC_A",
+        "applicationShaVerified": false
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "applicationShaVerified"
+    },
+    {
+      "id": "B114-P06",
+      "rule": "B114-R06",
+      "input": {
+        "allFilesPresent": true,
+        "closureHashMatches": true,
+        "manifestSignedExact": true,
+        "activated": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N06-1",
+      "rule": "B114-R06",
+      "input": {
+        "allFilesPresent": false,
+        "closureHashMatches": true,
+        "manifestSignedExact": true,
+        "activated": false
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "allFilesPresent"
+    },
+    {
+      "id": "B114-N06-2",
+      "rule": "B114-R06",
+      "input": {
+        "allFilesPresent": true,
+        "closureHashMatches": false,
+        "manifestSignedExact": true,
+        "activated": false
+      },
+      "expect": "REJECT",
+      "mutatedField": "closureHashMatches"
+    },
+    {
+      "id": "B114-N06-3",
+      "rule": "B114-R06",
+      "input": {
+        "allFilesPresent": true,
+        "closureHashMatches": true,
+        "manifestSignedExact": true,
+        "activated": true
+      },
+      "expect": "REJECT",
+      "mutatedField": "activated"
+    },
+    {
+      "id": "B114-P07",
+      "rule": "B114-R07",
+      "input": {
+        "d16Exact": true,
+        "d10Exact": true,
+        "frameExact": true,
+        "aclCurrent": true,
+        "scopeEpochMatches": true,
+        "casMatches": true,
+        "cancelled": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N07-1",
+      "rule": "B114-R07",
+      "input": {
+        "d16Exact": true,
+        "d10Exact": false,
+        "frameExact": true,
+        "aclCurrent": true,
+        "scopeEpochMatches": true,
+        "casMatches": true,
+        "cancelled": false
+      },
+      "expect": "STALE",
+      "mutatedField": "d10Exact"
+    },
+    {
+      "id": "B114-N07-2",
+      "rule": "B114-R07",
+      "input": {
+        "d16Exact": true,
+        "d10Exact": true,
+        "frameExact": true,
+        "aclCurrent": false,
+        "scopeEpochMatches": true,
+        "casMatches": true,
+        "cancelled": false
+      },
+      "expect": "REJECT",
+      "mutatedField": "aclCurrent"
+    },
+    {
+      "id": "B114-N07-3",
+      "rule": "B114-R07",
+      "input": {
+        "d16Exact": true,
+        "d10Exact": true,
+        "frameExact": true,
+        "aclCurrent": true,
+        "scopeEpochMatches": true,
+        "casMatches": true,
+        "cancelled": true
+      },
+      "expect": "STALE",
+      "mutatedField": "cancelled"
+    },
+    {
+      "id": "B114-P08",
+      "rule": "B114-R08",
+      "input": {
+        "samePort": true,
+        "singleBabylon": true,
+        "leftPanel": true,
+        "receiverIndependent": true,
+        "autoSelect": false,
+        "cycleStart": false,
+        "claimD15": false
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B114-N08-1",
+      "rule": "B114-R08",
+      "input": {
+        "samePort": false,
+        "singleBabylon": true,
+        "leftPanel": true,
+        "receiverIndependent": true,
+        "autoSelect": false,
+        "cycleStart": false,
+        "claimD15": false
+      },
+      "expect": "REJECT",
+      "mutatedField": "samePort"
+    },
+    {
+      "id": "B114-N08-2",
+      "rule": "B114-R08",
+      "input": {
+        "samePort": true,
+        "singleBabylon": true,
+        "leftPanel": true,
+        "receiverIndependent": false,
+        "autoSelect": false,
+        "cycleStart": false,
+        "claimD15": false
+      },
+      "expect": "UNKNOWN",
+      "mutatedField": "receiverIndependent"
+    },
+    {
+      "id": "B114-N08-3",
+      "rule": "B114-R08",
+      "input": {
+        "samePort": true,
+        "singleBabylon": true,
+        "leftPanel": true,
+        "receiverIndependent": true,
+        "autoSelect": false,
+        "cycleStart": true,
+        "claimD15": false
+      },
+      "expect": "REJECT",
+      "mutatedField": "cycleStart"
+    }
+  ],
+  "independentOEM": "NOT_RUN"
+}

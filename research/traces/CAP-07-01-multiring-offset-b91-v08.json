@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "procet-b91-trace-v08",
+  "origin": "NEWLY_AUTHORED_PLANNING_ONLY",
+  "sourceRegistry": "research/sources/CAP-07-01-multiring-offset-b91.json",
+  "fixturePath": "docs/capabilities/CAP-07-01/multiring-offset-b91-fixtures-v08.json",
+  "reportPath": "docs/capabilities/CAP-07-01/MULTIRING-OFFSET-B91-2026-11-01.md",
+  "validator": "tools/check_cap0701_multiring_offset_b91_v08.cjs",
+  "capabilityId": "CAP-07-01",
+  "originalWorkPackages": [
+    "F1-03",
+    "E3-01",
+    "U4-04"
+  ],
+  "assetOwner": "D09-07_CAM_TOOLPATH",
+  "l1l2": "UNCHANGED",
+  "l3": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "B91-R1",
+      "statement": "输入D02/D03/D04/D07/D08的精确Hash/Revision/Frame与范围一致",
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "sourceIds": [
+        "B91-S07"
+      ],
+      "fields": [
+        "refs.refHashes",
+        "refs.expectedRefHashes",
+        "refs.frameHash",
+        "refs.expectedFrameHash",
+        "refs.revisions",
+        "refs.scopeEpoch"
+      ],
+      "assets": [
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P1"
+      ],
+      "negativeIds": [
+        "B91-N1-1",
+        "B91-N1-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B91-R2",
+      "statement": "平面外环、孔环、嵌套和相交的拓扑前置条件不能由显示方向猜测",
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "sourceIds": [
+        "B91-S02",
+        "B91-S05"
+      ],
+      "fields": [
+        "topology.planeVerified",
+        "topology.wireClosed",
+        "topology.outerOrientation",
+        "topology.holesOrientation",
+        "topology.holesNested",
+        "topology.ringIntersections"
+      ],
+      "assets": [
+        "D02",
+        "D07",
+        "D09"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P2"
+      ],
+      "negativeIds": [
+        "B91-N2-1",
+        "B91-N2-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B91-R3",
+      "statement": "偏置必须记录内核/Join/结果状态/父孔映射，拓扑分裂不默默丢失",
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "sourceIds": [
+        "B91-S01",
+        "B91-S02",
+        "B91-S03"
+      ],
+      "fields": [
+        "topology.kernel",
+        "topology.offsetStatus",
+        "topology.offsetBuildDone",
+        "topology.holesMapped",
+        "topology.topologyChangeRecorded",
+        "topology.componentCount",
+        "topology.joinType",
+        "topology.legalReview"
+      ],
+      "assets": [
+        "D02",
+        "D07",
+        "D09"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P3"
+      ],
+      "negativeIds": [
+        "B91-N3-1",
+        "B91-N3-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B91-R4",
+      "statement": "仅理想平行直通道应用w−2(r+a)>内生margin，其他几何保持UNKNOWN",
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "sourceIds": [
+        "B91-S02",
+        "B91-S07"
+      ],
+      "fields": [
+        "corridor.geometryClass",
+        "corridor.analyticWidthEvidence",
+        "corridor.widthMm",
+        "corridor.toolRadiusMm",
+        "corridor.allowanceMm",
+        "corridor.minMarginMm"
+      ],
+      "assets": [
+        "D03",
+        "D07",
+        "D09"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P4"
+      ],
+      "negativeIds": [
+        "B91-N4-1",
+        "B91-N4-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B91-R5",
+      "statement": "解析B-Rep圆弧与离散弦高误差分别标注；离散近似以R(1−cos(Δθ/2))受控",
+      "ownerAsset": "D09",
+      "primaryPackage": "F1-03",
+      "sourceIds": [
+        "B91-S01",
+        "B91-S05"
+      ],
+      "fields": [
+        "arc.mode",
+        "arc.radiusMm",
+        "arc.maxSegmentDeg",
+        "arc.errorBudgetMm",
+        "arc.curveVerified",
+        "arc.sourceArcHash"
+      ],
+      "assets": [
+        "D02",
+        "D09"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P5"
+      ],
+      "negativeIds": [
+        "B91-N5-1",
+        "B91-N5-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B91-R6",
+      "statement": "保护岛及互不连通区域不得以切削高度虚假链接，提刀须有独立clearance证据",
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "sourceIds": [
+        "B91-S04",
+        "B91-S05",
+        "B91-S07"
+      ],
+      "fields": [
+        "protection.islandIntersections",
+        "protection.sweptDisk2DCertified",
+        "protection.componentsDisconnected",
+        "protection.safeRetractForSeparated",
+        "protection.linkEnvelopeCertified"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D09"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P6"
+      ],
+      "negativeIds": [
+        "B91-N6-1",
+        "B91-N6-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B91-R7",
+      "statement": "中立D09候选及CL动画无权授予D15/D16工程通过",
+      "ownerAsset": "D09",
+      "primaryPackage": "U4-04",
+      "sourceIds": [
+        "B91-S07"
+      ],
+      "fields": [
+        "workflow.previewEngineeringPass",
+        "workflow.d15Passed",
+        "workflow.d16Eligible",
+        "workflow.materialSweepSimulated"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P7"
+      ],
+      "negativeIds": [
+        "B91-N7-1",
+        "B91-N7-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B91-R8",
+      "statement": "07域统一GUI/CLI/Agent受控入口，写入重新验CAS/ACL/取消代数与冻结回退",
+      "ownerAsset": "D09",
+      "primaryPackage": "U4-04",
+      "sourceIds": [
+        "B91-S07"
+      ],
+      "fields": [
+        "workflow.cas",
+        "workflow.aclAllowed",
+        "workflow.cancelled",
+        "workflow.lateAck",
+        "workflow.sameDomainPort",
+        "workflow.babylonWorlds",
+        "workflow.leftTaskPanel",
+        "workflow.freezePreserved"
+      ],
+      "assets": [
+        "D08",
+        "D09"
+      ],
+      "capabilityId": "CAP-07-01",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "B91-P8"
+      ],
+      "negativeIds": [
+        "B91-N8-1",
+        "B91-N8-2",
+        "B91-N8-3",
+        "B91-N8-4"
+      ],
+      "acceptance": "SYNTHETIC_ONLY_NOT_PRODUCT_PASS"
+    }
+  ]
+}

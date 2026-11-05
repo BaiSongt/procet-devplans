@@ -1,0 +1,405 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-04-05",
+  "topic": "R-MSET-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "capability": "docs/capabilities/CAP-04-05/README.md",
+    "ui": "docs/capabilities/CAP-04-05/UI.md",
+    "topic": "research/topics/R-MSET-001.md",
+    "fixtures": "docs/capabilities/CAP-04-05/fixtures.json",
+    "sources": "research/sources/CAP-04-05.json",
+    "numerics": "docs/capabilities/CAP-04-05/transfer-examples.json"
+  },
+  "registeredSources": [
+    "SRC-MSET-001",
+    "SRC-MSET-002",
+    "SRC-MSET-003",
+    "SRC-MSET-004",
+    "SRC-MSET-005",
+    "SRC-MSET-006",
+    "SRC-MSET-007",
+    "SRC-MSET-008"
+  ],
+  "workPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "assetOwner": "04 装夹与坐标系 / D04",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "notes": "原创分项CAP04-05规划；CAP04-04为前置候选且目前在本轮起始HEAD尚未正式入库；业务字段待L3评审；产品与独立消费者NOT_RUN。",
+  "rules": [
+    {
+      "id": "MSET-R01",
+      "capabilityId": "CAP-04-05",
+      "description": "多个Setup有不同stageId、唯一作用域和不可变身份",
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "fields": [
+        "setupId",
+        "stageId",
+        "documentInstanceId",
+        "setupSequenceRevision",
+        "cadExactRef"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T01",
+        "CAP-04-05-T02"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_plus_explicit_project_design",
+      "failureCode": "STAGE_IDENTITY_SCOPE_CONFLICT"
+    },
+    {
+      "id": "MSET-R02",
+      "capabilityId": "CAP-04-05",
+      "description": "转序必须携带具名刚体变换，禁止在渲染空间偷偷改轴",
+      "sourceIds": [
+        "SRC-MSET-001",
+        "SRC-MSET-003"
+      ],
+      "fields": [
+        "T_S2_P",
+        "T_S1_P",
+        "frameGraphExactRef",
+        "transformPolicyRef"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T03",
+        "CAP-04-05-T04"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_plus_explicit_project_design",
+      "failureCode": "NON_RIGID_OR_UNKNOWN_FRAME"
+    },
+    {
+      "id": "MSET-R03",
+      "capabilityId": "CAP-04-05",
+      "description": "下一序毛坯状态须由上序精确几何状态证据显式交接",
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "fields": [
+        "previousMaterialStateExactRef",
+        "nextInputStockStateRef",
+        "materialEvidenceStatus"
+      ],
+      "assets": [
+        "D04",
+        "D07"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T05",
+        "CAP-04-05-T06"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_plus_explicit_project_design",
+      "failureCode": "MATERIAL_HANDOFF_UNKNOWN"
+    },
+    {
+      "id": "MSET-R04",
+      "capabilityId": "CAP-04-05",
+      "description": "翻面重装夹独立建立定位与夹具实例，设计datum不冒充实测接触",
+      "sourceIds": [
+        "SRC-MSET-002",
+        "SRC-MSET-007"
+      ],
+      "fields": [
+        "fixtureInstanceRef",
+        "datumExactRef",
+        "contactEvidenceRef",
+        "clampQualification"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T07",
+        "CAP-04-05-T08"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_plus_explicit_project_design",
+      "failureCode": "REFIXTURE_EVIDENCE_MISSING"
+    },
+    {
+      "id": "MSET-R05",
+      "capabilityId": "CAP-04-05",
+      "description": "工序转序遵守precedence DAG、先后关系和关键公差关联",
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-007"
+      ],
+      "fields": [
+        "stageEdges",
+        "featurePrecedenceRefs",
+        "datumContinuityEvidence"
+      ],
+      "assets": [
+        "D02",
+        "D04",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T09",
+        "CAP-04-05-T10"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_plus_explicit_project_design",
+      "failureCode": "SETUP_PRECEDENCE_CYCLE"
+    },
+    {
+      "id": "MSET-R06",
+      "capabilityId": "CAP-04-05",
+      "description": "工艺Setup保持机床中立，G54/G55只能由D10及控制器策略产生",
+      "sourceIds": [
+        "SRC-MSET-001",
+        "SRC-MSET-004",
+        "SRC-MSET-005"
+      ],
+      "fields": [
+        "processSetupExactRef",
+        "machineExecutionBindingExactRef",
+        "controllerDialectStatus"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T11",
+        "CAP-04-05-T12"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_plus_explicit_project_design",
+      "failureCode": "PROCESS_EXECUTION_BOUNDARY_BROKEN"
+    },
+    {
+      "id": "MSET-R07",
+      "capabilityId": "CAP-04-05",
+      "description": "GUI/CLI/Agent用同一个04域受管端口，3D和任务区不重复",
+      "sourceIds": [
+        "SRC-MSET-008",
+        "SRC-MSET-007"
+      ],
+      "fields": [
+        "domainPortCommand",
+        "scopeEpoch",
+        "previewLeaseRef",
+        "taskPanelTarget"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T13",
+        "CAP-04-05-T14"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "project_decision_with_external_context",
+      "failureCode": "DOMAIN_ENTRY_BYPASS"
+    },
+    {
+      "id": "MSET-R08",
+      "capabilityId": "CAP-04-05",
+      "description": "提交执行Host权限重验和CAS，取消/撤权后的晚回执弃置",
+      "sourceIds": [
+        "SRC-MSET-008",
+        "SRC-MSET-006"
+      ],
+      "fields": [
+        "expectedRevision",
+        "dependencyHashes",
+        "scopeEpoch",
+        "requestId",
+        "commitReceipt"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T15",
+        "CAP-04-05-T16"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "project_decision_with_external_context",
+      "failureCode": "STALE_SCOPE_OR_CAS"
+    },
+    {
+      "id": "MSET-R09",
+      "capabilityId": "CAP-04-05",
+      "description": "变更逐exact依赖失效且不覆盖已冻结D08/已发布D16",
+      "sourceIds": [
+        "SRC-MSET-006",
+        "SRC-MSET-008"
+      ],
+      "fields": [
+        "changeImpact",
+        "frozenProcessRefs",
+        "publishedReleaseRefs",
+        "rollbackRef"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T17",
+        "CAP-04-05-T18"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "project_decision_with_external_context",
+      "failureCode": "FROZEN_OR_PUBLISHED_OVERWRITE"
+    },
+    {
+      "id": "MSET-R10",
+      "capabilityId": "CAP-04-05",
+      "description": "旧多Setup数据未知坐标/顺序必须只读迁移，NC未知语义不通过",
+      "sourceIds": [
+        "SRC-MSET-003",
+        "SRC-MSET-005",
+        "SRC-MSET-008"
+      ],
+      "fields": [
+        "legacyRawRef",
+        "migrationProposalRef",
+        "unknownSemantics",
+        "independentConsumerEvidence"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-05-T19",
+        "CAP-04-05-T20"
+      ],
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_engineering_plus_explicit_project_design",
+      "failureCode": "LEGACY_OR_NC_SEMANTIC_UNKNOWN"
+    }
+  ]
+}

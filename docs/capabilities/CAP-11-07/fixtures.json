@@ -1,0 +1,1076 @@
+{
+  "schemaVersion": "procet-cap1107-fixtures-v1",
+  "capabilityId": "CAP-11-07",
+  "syntheticOnly": true,
+  "caseMeaning": "50独立字段正反+24状态+6来源DAG；仅规划合成",
+  "cases": [
+    {
+      "id": "CAP-11-07-R01-P",
+      "ruleId": "CAP-11-07-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "feedback": {
+          "sourceHashPinned": true,
+          "kindKnown": true,
+          "aclScopeCurrent": true,
+          "noAutoCommit": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R01-N-feedback-sourceHashPinned",
+      "ruleId": "CAP-11-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "feedback.sourceHashPinned",
+      "input": {
+        "feedback": {
+          "sourceHashPinned": false,
+          "kindKnown": true,
+          "aclScopeCurrent": true,
+          "noAutoCommit": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R01-N-feedback-kindKnown",
+      "ruleId": "CAP-11-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "feedback.kindKnown",
+      "input": {
+        "feedback": {
+          "sourceHashPinned": true,
+          "kindKnown": false,
+          "aclScopeCurrent": true,
+          "noAutoCommit": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R01-N-feedback-aclScopeCurrent",
+      "ruleId": "CAP-11-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "feedback.aclScopeCurrent",
+      "input": {
+        "feedback": {
+          "sourceHashPinned": true,
+          "kindKnown": true,
+          "aclScopeCurrent": false,
+          "noAutoCommit": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R01-N-feedback-noAutoCommit",
+      "ruleId": "CAP-11-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "feedback.noAutoCommit",
+      "input": {
+        "feedback": {
+          "sourceHashPinned": true,
+          "kindKnown": true,
+          "aclScopeCurrent": true,
+          "noAutoCommit": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R02-P",
+      "ruleId": "CAP-11-07-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "provenance": {
+          "parentRevisionPinned": true,
+          "sourceHashPinned": true,
+          "frameUnitPinned": true,
+          "dagAcyclic": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R02-N-provenance-parentRevisionPinned",
+      "ruleId": "CAP-11-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "provenance.parentRevisionPinned",
+      "input": {
+        "provenance": {
+          "parentRevisionPinned": false,
+          "sourceHashPinned": true,
+          "frameUnitPinned": true,
+          "dagAcyclic": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R02-N-provenance-sourceHashPinned",
+      "ruleId": "CAP-11-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "provenance.sourceHashPinned",
+      "input": {
+        "provenance": {
+          "parentRevisionPinned": true,
+          "sourceHashPinned": false,
+          "frameUnitPinned": true,
+          "dagAcyclic": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R02-N-provenance-frameUnitPinned",
+      "ruleId": "CAP-11-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "provenance.frameUnitPinned",
+      "input": {
+        "provenance": {
+          "parentRevisionPinned": true,
+          "sourceHashPinned": true,
+          "frameUnitPinned": false,
+          "dagAcyclic": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R02-N-provenance-dagAcyclic",
+      "ruleId": "CAP-11-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "provenance.dagAcyclic",
+      "input": {
+        "provenance": {
+          "parentRevisionPinned": true,
+          "sourceHashPinned": true,
+          "frameUnitPinned": true,
+          "dagAcyclic": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R03-P",
+      "ruleId": "CAP-11-07-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "conflict": {
+          "fingerprintChecked": true,
+          "counterEvidenceRetained": true,
+          "resolutionReviewed": true,
+          "d08FrozenProtected": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R03-N-conflict-fingerprintChecked",
+      "ruleId": "CAP-11-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "conflict.fingerprintChecked",
+      "input": {
+        "conflict": {
+          "fingerprintChecked": false,
+          "counterEvidenceRetained": true,
+          "resolutionReviewed": true,
+          "d08FrozenProtected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R03-N-conflict-counterEvidenceRetained",
+      "ruleId": "CAP-11-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "conflict.counterEvidenceRetained",
+      "input": {
+        "conflict": {
+          "fingerprintChecked": true,
+          "counterEvidenceRetained": false,
+          "resolutionReviewed": true,
+          "d08FrozenProtected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R03-N-conflict-resolutionReviewed",
+      "ruleId": "CAP-11-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "conflict.resolutionReviewed",
+      "input": {
+        "conflict": {
+          "fingerprintChecked": true,
+          "counterEvidenceRetained": true,
+          "resolutionReviewed": false,
+          "d08FrozenProtected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R03-N-conflict-d08FrozenProtected",
+      "ruleId": "CAP-11-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "conflict.d08FrozenProtected",
+      "input": {
+        "conflict": {
+          "fingerprintChecked": true,
+          "counterEvidenceRetained": true,
+          "resolutionReviewed": true,
+          "d08FrozenProtected": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R04-P",
+      "ruleId": "CAP-11-07-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "validity": {
+          "schemaRecognized": true,
+          "contextComplete": true,
+          "negativeCasesPresent": true,
+          "poisonContentIsolated": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R04-N-validity-schemaRecognized",
+      "ruleId": "CAP-11-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "validity.schemaRecognized",
+      "input": {
+        "validity": {
+          "schemaRecognized": false,
+          "contextComplete": true,
+          "negativeCasesPresent": true,
+          "poisonContentIsolated": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R04-N-validity-contextComplete",
+      "ruleId": "CAP-11-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "validity.contextComplete",
+      "input": {
+        "validity": {
+          "schemaRecognized": true,
+          "contextComplete": false,
+          "negativeCasesPresent": true,
+          "poisonContentIsolated": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R04-N-validity-negativeCasesPresent",
+      "ruleId": "CAP-11-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "validity.negativeCasesPresent",
+      "input": {
+        "validity": {
+          "schemaRecognized": true,
+          "contextComplete": true,
+          "negativeCasesPresent": false,
+          "poisonContentIsolated": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R04-N-validity-poisonContentIsolated",
+      "ruleId": "CAP-11-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "validity.poisonContentIsolated",
+      "input": {
+        "validity": {
+          "schemaRecognized": true,
+          "contextComplete": true,
+          "negativeCasesPresent": true,
+          "poisonContentIsolated": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R05-P",
+      "ruleId": "CAP-11-07-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "review": {
+          "humanSeparated": true,
+          "approvalDigestFixed": true,
+          "aclEpochFresh": true,
+          "ownerCASFresh": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R05-N-review-humanSeparated",
+      "ruleId": "CAP-11-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "review.humanSeparated",
+      "input": {
+        "review": {
+          "humanSeparated": false,
+          "approvalDigestFixed": true,
+          "aclEpochFresh": true,
+          "ownerCASFresh": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R05-N-review-approvalDigestFixed",
+      "ruleId": "CAP-11-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "review.approvalDigestFixed",
+      "input": {
+        "review": {
+          "humanSeparated": true,
+          "approvalDigestFixed": false,
+          "aclEpochFresh": true,
+          "ownerCASFresh": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R05-N-review-aclEpochFresh",
+      "ruleId": "CAP-11-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "review.aclEpochFresh",
+      "input": {
+        "review": {
+          "humanSeparated": true,
+          "approvalDigestFixed": true,
+          "aclEpochFresh": false,
+          "ownerCASFresh": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R05-N-review-ownerCASFresh",
+      "ruleId": "CAP-11-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "review.ownerCASFresh",
+      "input": {
+        "review": {
+          "humanSeparated": true,
+          "approvalDigestFixed": true,
+          "aclEpochFresh": true,
+          "ownerCASFresh": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R06-P",
+      "ruleId": "CAP-11-07-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "publish": {
+          "newRevision": true
+        },
+        "append": {
+          "canonicalHashFixed": true,
+          "ownerReceiptImmutable": true,
+          "cancelRechecked": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R06-N-publish-newRevision",
+      "ruleId": "CAP-11-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "publish.newRevision",
+      "input": {
+        "publish": {
+          "newRevision": false
+        },
+        "append": {
+          "canonicalHashFixed": true,
+          "ownerReceiptImmutable": true,
+          "cancelRechecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R06-N-append-canonicalHashFixed",
+      "ruleId": "CAP-11-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "append.canonicalHashFixed",
+      "input": {
+        "publish": {
+          "newRevision": true
+        },
+        "append": {
+          "canonicalHashFixed": false,
+          "ownerReceiptImmutable": true,
+          "cancelRechecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R06-N-append-ownerReceiptImmutable",
+      "ruleId": "CAP-11-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "append.ownerReceiptImmutable",
+      "input": {
+        "publish": {
+          "newRevision": true
+        },
+        "append": {
+          "canonicalHashFixed": true,
+          "ownerReceiptImmutable": false,
+          "cancelRechecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R06-N-append-cancelRechecked",
+      "ruleId": "CAP-11-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "append.cancelRechecked",
+      "input": {
+        "publish": {
+          "newRevision": true
+        },
+        "append": {
+          "canonicalHashFixed": true,
+          "ownerReceiptImmutable": true,
+          "cancelRechecked": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R07-P",
+      "ruleId": "CAP-11-07-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "rollback": {
+          "oldVersionReadable": true,
+          "newSupersessionOnly": true,
+          "lateAckQuarantined": true,
+          "revokedScopeRejected": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R07-N-rollback-oldVersionReadable",
+      "ruleId": "CAP-11-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "rollback.oldVersionReadable",
+      "input": {
+        "rollback": {
+          "oldVersionReadable": false,
+          "newSupersessionOnly": true,
+          "lateAckQuarantined": true,
+          "revokedScopeRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R07-N-rollback-newSupersessionOnly",
+      "ruleId": "CAP-11-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "rollback.newSupersessionOnly",
+      "input": {
+        "rollback": {
+          "oldVersionReadable": true,
+          "newSupersessionOnly": false,
+          "lateAckQuarantined": true,
+          "revokedScopeRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R07-N-rollback-lateAckQuarantined",
+      "ruleId": "CAP-11-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "rollback.lateAckQuarantined",
+      "input": {
+        "rollback": {
+          "oldVersionReadable": true,
+          "newSupersessionOnly": true,
+          "lateAckQuarantined": false,
+          "revokedScopeRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R07-N-rollback-revokedScopeRejected",
+      "ruleId": "CAP-11-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "rollback.revokedScopeRejected",
+      "input": {
+        "rollback": {
+          "oldVersionReadable": true,
+          "newSupersessionOnly": true,
+          "lateAckQuarantined": true,
+          "revokedScopeRejected": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R08-P",
+      "ruleId": "CAP-11-07-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "impact": {
+          "downstreamMapped": true,
+          "stalePropagated": true,
+          "finalNcValidationSeparate": true,
+          "unknownStopsRelease": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R08-N-impact-downstreamMapped",
+      "ruleId": "CAP-11-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.downstreamMapped",
+      "input": {
+        "impact": {
+          "downstreamMapped": false,
+          "stalePropagated": true,
+          "finalNcValidationSeparate": true,
+          "unknownStopsRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R08-N-impact-stalePropagated",
+      "ruleId": "CAP-11-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.stalePropagated",
+      "input": {
+        "impact": {
+          "downstreamMapped": true,
+          "stalePropagated": false,
+          "finalNcValidationSeparate": true,
+          "unknownStopsRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R08-N-impact-finalNcValidationSeparate",
+      "ruleId": "CAP-11-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.finalNcValidationSeparate",
+      "input": {
+        "impact": {
+          "downstreamMapped": true,
+          "stalePropagated": true,
+          "finalNcValidationSeparate": false,
+          "unknownStopsRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R08-N-impact-unknownStopsRelease",
+      "ruleId": "CAP-11-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "impact.unknownStopsRelease",
+      "input": {
+        "impact": {
+          "downstreamMapped": true,
+          "stalePropagated": true,
+          "finalNcValidationSeparate": true,
+          "unknownStopsRelease": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R09-P",
+      "ruleId": "CAP-11-07-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "ui": {
+          "sharedOwnerPort": true,
+          "singleWorld": true,
+          "leftTaskPanel": true,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R09-N-ui-sharedOwnerPort",
+      "ruleId": "CAP-11-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.sharedOwnerPort",
+      "input": {
+        "ui": {
+          "sharedOwnerPort": false,
+          "singleWorld": true,
+          "leftTaskPanel": true,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R09-N-ui-singleWorld",
+      "ruleId": "CAP-11-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.singleWorld",
+      "input": {
+        "ui": {
+          "sharedOwnerPort": true,
+          "singleWorld": false,
+          "leftTaskPanel": true,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R09-N-ui-leftTaskPanel",
+      "ruleId": "CAP-11-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.leftTaskPanel",
+      "input": {
+        "ui": {
+          "sharedOwnerPort": true,
+          "singleWorld": true,
+          "leftTaskPanel": false,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R09-N-ui-previewReadOnly",
+      "ruleId": "CAP-11-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.previewReadOnly",
+      "input": {
+        "ui": {
+          "sharedOwnerPort": true,
+          "singleWorld": true,
+          "leftTaskPanel": true,
+          "previewReadOnly": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R10-P",
+      "ruleId": "CAP-11-07-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "adapterVersionPinned": true,
+          "consumerAckRequired": true,
+          "auditPreserved": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R10-N-migration-expandBeforeContract",
+      "ruleId": "CAP-11-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.expandBeforeContract",
+      "input": {
+        "migration": {
+          "expandBeforeContract": false,
+          "adapterVersionPinned": true,
+          "consumerAckRequired": true,
+          "auditPreserved": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R10-N-migration-adapterVersionPinned",
+      "ruleId": "CAP-11-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.adapterVersionPinned",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "adapterVersionPinned": false,
+          "consumerAckRequired": true,
+          "auditPreserved": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R10-N-migration-consumerAckRequired",
+      "ruleId": "CAP-11-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.consumerAckRequired",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "adapterVersionPinned": true,
+          "consumerAckRequired": false,
+          "auditPreserved": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-R10-N-migration-auditPreserved",
+      "ruleId": "CAP-11-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.auditPreserved",
+      "input": {
+        "migration": {
+          "expandBeforeContract": true,
+          "adapterVersionPinned": true,
+          "consumerAckRequired": true,
+          "auditPreserved": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "gateCases": [
+    {
+      "id": "CAP-11-07-G-FEEDBACK_RECEIVED",
+      "signal": "FEEDBACK_RECEIVED",
+      "expected": "CANDIDATE",
+      "reason": "独立状态语义：FEEDBACK_RECEIVED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-D17_EVENT_IMPORTED",
+      "signal": "D17_EVENT_IMPORTED",
+      "expected": "CANDIDATE",
+      "reason": "独立状态语义：D17_EVENT_IMPORTED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-AI_CLASSIFICATION_ONLY",
+      "signal": "AI_CLASSIFICATION_ONLY",
+      "expected": "CANDIDATE",
+      "reason": "独立状态语义：AI_CLASSIFICATION_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-DUPLICATE_FOUND",
+      "signal": "DUPLICATE_FOUND",
+      "expected": "REVIEW_REQUIRED",
+      "reason": "独立状态语义：DUPLICATE_FOUND",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-CONTRADICTION_FOUND",
+      "signal": "CONTRADICTION_FOUND",
+      "expected": "REVIEW_REQUIRED",
+      "reason": "独立状态语义：CONTRADICTION_FOUND",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-EVIDENCE_REVIEW_REQUESTED",
+      "signal": "EVIDENCE_REVIEW_REQUESTED",
+      "expected": "REVIEW_REQUIRED",
+      "reason": "独立状态语义：EVIDENCE_REVIEW_REQUESTED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-HUMAN_APPROVAL_PENDING",
+      "signal": "HUMAN_APPROVAL_PENDING",
+      "expected": "REVIEW_REQUIRED",
+      "reason": "独立状态语义：HUMAN_APPROVAL_PENDING",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-HUMAN_APPROVED_DIGEST",
+      "signal": "HUMAN_APPROVED_DIGEST",
+      "expected": "APPROVED_PROPOSAL",
+      "reason": "独立状态语义：HUMAN_APPROVED_DIGEST",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-APPROVAL_SIGNED_ONLY",
+      "signal": "APPROVAL_SIGNED_ONLY",
+      "expected": "APPROVED_PROPOSAL",
+      "reason": "独立状态语义：APPROVAL_SIGNED_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-OWNER_CAS_COMMITTED",
+      "signal": "OWNER_CAS_COMMITTED",
+      "expected": "NEW_REVISION",
+      "reason": "独立状态语义：OWNER_CAS_COMMITTED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-ROLLBACK_CREATED_NEW_REVISION",
+      "signal": "ROLLBACK_CREATED_NEW_REVISION",
+      "expected": "NEW_REVISION",
+      "reason": "独立状态语义：ROLLBACK_CREATED_NEW_REVISION",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-PARENT_HASH_CHANGED",
+      "signal": "PARENT_HASH_CHANGED",
+      "expected": "STALE",
+      "reason": "独立状态语义：PARENT_HASH_CHANGED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-FRAME_CHANGED",
+      "signal": "FRAME_CHANGED",
+      "expected": "STALE",
+      "reason": "独立状态语义：FRAME_CHANGED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-SCOPE_EPOCH_CHANGED",
+      "signal": "SCOPE_EPOCH_CHANGED",
+      "expected": "STALE",
+      "reason": "独立状态语义：SCOPE_EPOCH_CHANGED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-DEPENDENCY_REVISION_CHANGED",
+      "signal": "DEPENDENCY_REVISION_CHANGED",
+      "expected": "STALE",
+      "reason": "独立状态语义：DEPENDENCY_REVISION_CHANGED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-ACL_REVOKED",
+      "signal": "ACL_REVOKED",
+      "expected": "REJECT",
+      "reason": "独立状态语义：ACL_REVOKED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-AGENT_SELF_APPROVAL",
+      "signal": "AGENT_SELF_APPROVAL",
+      "expected": "REJECT",
+      "reason": "独立状态语义：AGENT_SELF_APPROVAL",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-FROZEN_AB_OVERWRITE",
+      "signal": "FROZEN_AB_OVERWRITE",
+      "expected": "REJECT",
+      "reason": "独立状态语义：FROZEN_AB_OVERWRITE",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-LATE_ACK_AFTER_CANCEL",
+      "signal": "LATE_ACK_AFTER_CANCEL",
+      "expected": "REJECT",
+      "reason": "独立状态语义：LATE_ACK_AFTER_CANCEL",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-POISONED_RETRIEVAL",
+      "signal": "POISONED_RETRIEVAL",
+      "expected": "REJECT",
+      "reason": "独立状态语义：POISONED_RETRIEVAL",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-D13_UNKNOWN",
+      "signal": "D13_UNKNOWN",
+      "expected": "UNKNOWN",
+      "reason": "独立状态语义：D13_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-CL_ONLY_AS_NC_PROOF",
+      "signal": "CL_ONLY_AS_NC_PROOF",
+      "expected": "UNKNOWN",
+      "reason": "独立状态语义：CL_ONLY_AS_NC_PROOF",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-LEGACY_SCHEMA_UNVERIFIED",
+      "signal": "LEGACY_SCHEMA_UNVERIFIED",
+      "expected": "UNKNOWN",
+      "reason": "独立状态语义：LEGACY_SCHEMA_UNVERIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-11-07-G-INDEPENDENT_CONSUMER_NACK",
+      "signal": "INDEPENDENT_CONSUMER_NACK",
+      "expected": "SUSPENDED",
+      "reason": "独立状态语义：INDEPENDENT_CONSUMER_NACK",
+      "synthetic": true
+    }
+  ],
+  "lineageCases": [
+    {
+      "id": "L1",
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "expected": "PASS"
+    },
+    {
+      "id": "L2",
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "expected": "PASS"
+    },
+    {
+      "id": "L3",
+      "edges": [
+        [
+          "D17",
+          "C"
+        ],
+        [
+          "C",
+          "R"
+        ],
+        [
+          "R",
+          "K"
+        ]
+      ],
+      "expected": "PASS"
+    },
+    {
+      "id": "L4",
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "A"
+        ]
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "L5",
+      "edges": [
+        [
+          "A",
+          "A"
+        ]
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "L6",
+      "edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "A"
+        ]
+      ],
+      "expected": "REJECT"
+    }
+  ]
+}

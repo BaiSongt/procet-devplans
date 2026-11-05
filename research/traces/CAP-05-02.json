@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-05-02",
+  "topic": "R-STRAT-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "STRAT5-SRC-01",
+    "STRAT5-SRC-02",
+    "STRAT5-SRC-03",
+    "STRAT5-SRC-04",
+    "STRAT5-SRC-05",
+    "STRAT5-SRC-06",
+    "STRAT5-SRC-07",
+    "STRAT5-SRC-08",
+    "STRAT5-SRC-09"
+  ],
+  "assetOwner": "05 工艺规划/D05；Owner跨域签署PENDING",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "paths": {
+    "capability": "docs/capabilities/CAP-05-02/README.md",
+    "ui": "docs/capabilities/CAP-05-02/UI.md",
+    "sources": "research/sources/CAP-05-02.json",
+    "fixtures": "docs/capabilities/CAP-05-02/fixtures.json",
+    "topic": "research/topics/R-STRAT-001.md",
+    "checker": "tools/check_cap_05_02.mjs"
+  },
+  "rules": [
+    {
+      "id": "STRAT5-R01",
+      "capabilityId": "CAP-05-02",
+      "description": "精确projectScope/D01/D02/D04及CAD occurrence/frame/hash",
+      "fields": [
+        "projectScope",
+        "d01.hash",
+        "d02.hash",
+        "d04.frame"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-01",
+        "STRAT5-SRC-07",
+        "STRAT5-SRC-09"
+      ],
+      "negativeRequirement": "字段d01.hash错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT01-P",
+        "STRAT5-AT01-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R02",
+      "capabilityId": "CAP-05-02",
+      "description": "粗→半精→精阶段顺序保持原意图，更多阶段组合待L3扩展",
+      "fields": [
+        "policy.stages[].phase"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-01",
+        "STRAT5-SRC-02",
+        "STRAT5-SRC-05"
+      ],
+      "negativeRequirement": "字段policy.stages[1].phase错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT02-P",
+        "STRAT5-AT02-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R03",
+      "capabilityId": "CAP-05-02",
+      "description": "ap/ae/vc/fz有明确值及单位，不猜测转换",
+      "fields": [
+        "policy.params.ap",
+        "policy.params.ae",
+        "policy.params.vc",
+        "policy.params.fz"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-02",
+        "STRAT5-SRC-04"
+      ],
+      "negativeRequirement": "字段policy.params.vc.unit错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT03-P",
+        "STRAT5-AT03-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R04",
+      "capabilityId": "CAP-05-02",
+      "description": "D03刀具与材料必须精确引用，公式需要有效齿数",
+      "fields": [
+        "policy.toolRef.hash",
+        "policy.materialRef.hash",
+        "policy.effectiveTeeth"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-03",
+        "STRAT5-SRC-04"
+      ],
+      "negativeRequirement": "字段policy.effectiveTeeth错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT04-P",
+        "STRAT5-AT04-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R05",
+      "capabilityId": "CAP-05-02",
+      "description": "余量按同区域/同Frame逐阶段单调，不用平均",
+      "fields": [
+        "policy.stages[].allowance",
+        "policy.stages[].frame"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-02",
+        "STRAT5-SRC-05"
+      ],
+      "negativeRequirement": "字段policy.stages[1].allowance.web错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT05-P",
+        "STRAT5-AT05-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R06",
+      "capabilityId": "CAP-05-02",
+      "description": "精度/表面质量是目标，未知验证不能声称合格",
+      "fields": [
+        "policy.quality",
+        "verification.independentConsumer"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-05",
+        "STRAT5-SRC-06"
+      ],
+      "negativeRequirement": "字段policy.quality.verified错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT06-P",
+        "STRAT5-AT06-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R07",
+      "capabilityId": "CAP-05-02",
+      "description": "保护区释放须完整PMI来源和明确审批",
+      "fields": [
+        "policy.protection.cadRef",
+        "policy.protection.approvalRef"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-01",
+        "STRAT5-SRC-08"
+      ],
+      "negativeRequirement": "字段policy.protection.releaseAllowed错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT07-P",
+        "STRAT5-AT07-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R08",
+      "capabilityId": "CAP-05-02",
+      "description": "规则覆盖须来源审计，D05不跨域写D07/D08",
+      "fields": [
+        "policy.override",
+        "policy.writeAsset"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-08",
+        "STRAT5-SRC-05"
+      ],
+      "negativeRequirement": "字段policy.override.writeAsset错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT08-P",
+        "STRAT5-AT08-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R09",
+      "capabilityId": "CAP-05-02",
+      "description": "GUI/CLI/Agent采纳时重验权限、CAS、取消及代次",
+      "fields": [
+        "actor.canCommit",
+        "cas",
+        "task"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-08",
+        "STRAT5-SRC-09"
+      ],
+      "negativeRequirement": "字段cas.current错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT09-P",
+        "STRAT5-AT09-N"
+      ]
+    },
+    {
+      "id": "STRAT5-R10",
+      "capabilityId": "CAP-05-02",
+      "description": "不能把策略采纳当D10绑定、D13执行或D15验证",
+      "fields": [
+        "policy.executionBinding",
+        "verification.D13",
+        "verification.D15"
+      ],
+      "sourceIds": [
+        "STRAT5-SRC-06",
+        "STRAT5-SRC-01"
+      ],
+      "negativeRequirement": "字段verification.D15错误或缺失拒绝",
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "STRAT5-AT10-P",
+        "STRAT5-AT10-N"
+      ]
+    }
+  ]
+}

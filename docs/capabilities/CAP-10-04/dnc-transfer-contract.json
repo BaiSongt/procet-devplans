@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "procet-dnc-transfer-v0.8-draft",
+  "ownerDomain": "10",
+  "capabilityId": "CAP-10-04",
+  "recordKind": "DNC_TRANSFER_INTENT",
+  "authoritativeOwner": {
+    "D16": "10域发布包Owner，immutable",
+    "D17": "10域传输回执Owner，append_only",
+    "D04": "04域名义Setup，不替代实际装配",
+    "D10": "机床资源/执行端实装精确绑定",
+    "D12": "08域最终NC字节",
+    "D13": "08域控制器执行语义",
+    "D14": "09域实际物理Joint时序",
+    "D15": "09域独立NC工程验证"
+  },
+  "identity": {
+    "projectId": "SYNTH_PROJECT",
+    "requestId": "SYNTH_1004_001",
+    "scopeEpoch": 1,
+    "requestedBy": "SYNTH_USER",
+    "expectedRevision": "SYNTH_D16_REVISION",
+    "expectedHash": "sha256:SYNTHETIC_NOT_REAL_DIGEST",
+    "frameRef": {
+      "id": "SYNTH_D10_FRAME",
+      "revision": "SYNTH_FRAME_REV"
+    },
+    "candidateD16Ref": {
+      "id": "SYNTH_D16_APPROVED",
+      "revision": "SYNTH_REV",
+      "rawNcSha256": "SYNTH_NOT_REAL_HASH",
+      "approved": true
+    },
+    "target": {
+      "machineIdentity": "SYNTH_MACHINE_NOT_B5",
+      "controllerProfileId": "SYNTH_PROFILE",
+      "controllerProfileRevision": "SYNTH_PROFILE_REV",
+      "d10ExecutionBindingRevision": "SYNTH_BINDING_REV"
+    }
+  },
+  "transfer": {
+    "capabilityDiscovery": "UNKNOWN_UNTIL_REAL_MACHINE",
+    "adapterId": "UNSELECTED",
+    "adapterProfileRevision": "UNKNOWN",
+    "direction": "PUSH_STAGING_ONLY",
+    "sessionNonce": "SYNTH_NONCE",
+    "idempotencyKey": "SYNTH_IDEMPOTENCY",
+    "chunkManifest": [
+      {
+        "path": "test.nc",
+        "byteRange": [
+          0,
+          4
+        ],
+        "digest": "SYNTH_ONLY"
+      }
+    ],
+    "state": "DRAFT",
+    "allowedStates": [
+      "DRAFT",
+      "CAPABILITY_UNKNOWN",
+      "AUTHORIZED",
+      "UPLOADING",
+      "STAGED_UNVERIFIED",
+      "STAGED_VERIFIED",
+      "REJECTED",
+      "STALE",
+      "UNKNOWN"
+    ],
+    "activation": "NEVER_AUTOMATIC",
+    "controllerExecutionCommandAllowed": false
+  },
+  "acceptance": {
+    "readbackMethod": "UNVERIFIED",
+    "rawNcBytesRehashed": false,
+    "allSubprogramsConfirmed": false,
+    "independentOracleRef": "NOT_RUN",
+    "signoff": "PENDING_HUMAN",
+    "d15NcEngineeringResult": "NOT_RUN",
+    "transportResult": "NOT_RUN"
+  },
+  "ui": {
+    "singleBabylonWorld": true,
+    "leftUnifiedTaskPanel": true,
+    "guiCliAgentSameDomainPort": true,
+    "oneOwnerNoShadowWrite": true
+  },
+  "migration": {
+    "oldReaderRetained": true,
+    "shadowComparisonOnly": true,
+    "rollbackNonDestructive": true
+  },
+  "caveats": [
+    "全部字段为合成草案，不是实际控制器传输例子",
+    "文件到达不等于选中程序或CycleStart，更不等于D15独立工程安全",
+    "MTConnect只作为监测参考，不作为DNC下发接口"
+  ]
+}

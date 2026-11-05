@@ -1,0 +1,583 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-07",
+  "researchTopic": "R-KNOWLEDGE-FEEDBACK-001",
+  "sourceRegistry": "research/sources/CAP-11-07.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-07-R01",
+      "capabilityId": "CAP-11-07",
+      "summary": "反馈不直接更新权威知识",
+      "engineeringRule": "D17/人工反馈绑定真实来源与身份，只创建候选",
+      "fields": [
+        "feedback.sourceHashPinned",
+        "feedback.kindKnown",
+        "feedback.aclScopeCurrent",
+        "feedback.noAutoCommit"
+      ],
+      "sourceIds": [
+        "C1107-S03",
+        "C1107-S08",
+        "C1107-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D17",
+        "D05"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "feedback.sourceHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "feedback.kindKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "feedback.aclScopeCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "feedback.noAutoCommit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R02",
+      "capabilityId": "CAP-11-07",
+      "summary": "来源修订与Frame固定",
+      "engineeringRule": "父知识和原始实体exact Revision/Hash/Frame；来源图无环",
+      "fields": [
+        "provenance.parentRevisionPinned",
+        "provenance.sourceHashPinned",
+        "provenance.frameUnitPinned",
+        "provenance.dagAcyclic"
+      ],
+      "sourceIds": [
+        "C1107-S03",
+        "C1107-S05",
+        "C1107-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "provenance.parentRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.sourceHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.frameUnitPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "provenance.dagAcyclic",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R03",
+      "capabilityId": "CAP-11-07",
+      "summary": "去重冲突与冻结",
+      "engineeringRule": "重复检测且冲突保留，不能覆盖A/B D08冻结",
+      "fields": [
+        "conflict.fingerprintChecked",
+        "conflict.counterEvidenceRetained",
+        "conflict.resolutionReviewed",
+        "conflict.d08FrozenProtected"
+      ],
+      "sourceIds": [
+        "C1107-S01",
+        "C1107-S02",
+        "C1107-S03"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "conflict.fingerprintChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "conflict.counterEvidenceRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "conflict.resolutionReviewed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "conflict.d08FrozenProtected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R04",
+      "capabilityId": "CAP-11-07",
+      "summary": "适用域与反证",
+      "engineeringRule": "材料/刀具/机床/控制器适用域和负例必须核验",
+      "fields": [
+        "validity.schemaRecognized",
+        "validity.contextComplete",
+        "validity.negativeCasesPresent",
+        "validity.poisonContentIsolated"
+      ],
+      "sourceIds": [
+        "C1107-S04",
+        "C1107-S05",
+        "C1107-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D13"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "validity.schemaRecognized",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validity.contextComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validity.negativeCasesPresent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "validity.poisonContentIsolated",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R05",
+      "capabilityId": "CAP-11-07",
+      "summary": "批准与业务CAS",
+      "engineeringRule": "独立人工批准、绑定diff；Owner重新ACL/Scope/CAS",
+      "fields": [
+        "review.humanSeparated",
+        "review.approvalDigestFixed",
+        "review.aclEpochFresh",
+        "review.ownerCASFresh"
+      ],
+      "sourceIds": [
+        "C1107-S01",
+        "C1107-S06",
+        "C1107-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "review.humanSeparated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "review.approvalDigestFixed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "review.aclEpochFresh",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "review.ownerCASFresh",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R06",
+      "capabilityId": "CAP-11-07",
+      "summary": "知识新修订不可变",
+      "engineeringRule": "Owner新增版本、可复核Hash、回执且取消Generation重验",
+      "fields": [
+        "publish.newRevision",
+        "append.canonicalHashFixed",
+        "append.ownerReceiptImmutable",
+        "append.cancelRechecked"
+      ],
+      "sourceIds": [
+        "C1107-S03",
+        "C1107-S06",
+        "C1107-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "publish.newRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "append.canonicalHashFixed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "append.ownerReceiptImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "append.cancelRechecked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R07",
+      "capabilityId": "CAP-11-07",
+      "summary": "撤销只追加事件",
+      "engineeringRule": "回退建新修订，旧版本可读，迟到ACK不得复活Scope",
+      "fields": [
+        "rollback.oldVersionReadable",
+        "rollback.newSupersessionOnly",
+        "rollback.lateAckQuarantined",
+        "rollback.revokedScopeRejected"
+      ],
+      "sourceIds": [
+        "C1107-S01",
+        "C1107-S03",
+        "C1107-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "rollback.oldVersionReadable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rollback.newSupersessionOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rollback.lateAckQuarantined",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rollback.revokedScopeRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R08",
+      "capabilityId": "CAP-11-07",
+      "summary": "精确失效与NC验证",
+      "engineeringRule": "变更传播到下游，D15必须最终NC独立证据，UNKNOWN阻D16",
+      "fields": [
+        "impact.downstreamMapped",
+        "impact.stalePropagated",
+        "impact.finalNcValidationSeparate",
+        "impact.unknownStopsRelease"
+      ],
+      "sourceIds": [
+        "C1107-S03",
+        "C1107-S04",
+        "C1107-S08"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "impact.downstreamMapped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.stalePropagated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.finalNcValidationSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.unknownStopsRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R09",
+      "capabilityId": "CAP-11-07",
+      "summary": "统一入口及3D",
+      "engineeringRule": "三入口同Port、单Babylon与左TaskPanel，预览不写",
+      "fields": [
+        "ui.sharedOwnerPort",
+        "ui.singleWorld",
+        "ui.leftTaskPanel",
+        "ui.previewReadOnly"
+      ],
+      "sourceIds": [
+        "C1107-S05",
+        "C1107-S08",
+        "C1107-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "ui.sharedOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.singleWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.previewReadOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-07-R10",
+      "capabilityId": "CAP-11-07",
+      "summary": "迁移消费者与回退",
+      "engineeringRule": "扩读后切写，版本适配/独立验收，审计不丢",
+      "fields": [
+        "migration.expandBeforeContract",
+        "migration.adapterVersionPinned",
+        "migration.consumerAckRequired",
+        "migration.auditPreserved"
+      ],
+      "sourceIds": [
+        "C1107-S02",
+        "C1107-S03",
+        "C1107-S07"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "migration.expandBeforeContract",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.adapterVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.consumerAckRequired",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.auditPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "独立正例1+单字段负例4；24状态门禁、6来源图",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,760 @@
+{
+  "schemaVersion": "procet-b54-fixtures-v1",
+  "kind": "SYNTHETIC_ONLY",
+  "base": {
+    "syntheticOnly": true,
+    "protocol": {
+      "version": "2026-07-28",
+      "catalogScope": "principal",
+      "catalogKnown": true
+    },
+    "tool": {
+      "server": "MCP-Server-A",
+      "approvedServer": "MCP-Server-A",
+      "name": "stage_plan",
+      "approvedName": "stage_plan",
+      "schemaHash": "SCH-1",
+      "approvedSchemaHash": "SCH-1",
+      "catalogEpoch": "CAT-1",
+      "approvedCatalogEpoch": "CAT-1",
+      "argsHash": "ARGS-1",
+      "approvedArgsHash": "ARGS-1",
+      "untrustedTextIsCommand": false
+    },
+    "approval": {
+      "principal": "Human-1",
+      "approvedPrincipal": "Human-1",
+      "signer": "HUMAN",
+      "evidence": "SYNTHETIC_ONLY",
+      "intentHash": "INTENT-1",
+      "approvedIntentHash": "INTENT-1",
+      "nonce": "NONCE-1",
+      "approvedNonce": "NONCE-1",
+      "issued": "2026-10-31T00:00:00Z",
+      "expiry": "2026-10-31T02:00:00Z",
+      "now": "2026-10-31T01:00:00Z"
+    },
+    "oauth": {
+      "resource": "https://mcp.procet.example.invalid/plan",
+      "audience": "https://mcp.procet.example.invalid/plan",
+      "issuer": "Auth-A",
+      "approvedIssuer": "Auth-A",
+      "tokenPassThrough": false
+    },
+    "owner": {
+      "port": "05.PlanOwnerPort",
+      "asset": "D05",
+      "revision": "r12",
+      "approvedRevision": "r12",
+      "hash": "HASH-A",
+      "approvedHash": "HASH-A",
+      "frame": "SETUP",
+      "approvedFrame": "SETUP",
+      "scope": "SCOPE-1",
+      "approvedScope": "SCOPE-1",
+      "aclEpoch": 8,
+      "approvedAclEpoch": 8,
+      "aclAllowed": true,
+      "casAtomic": true,
+      "recheckAtCommit": true
+    },
+    "ack": {
+      "generation": 8,
+      "expectedGeneration": 8,
+      "cancelled": false,
+      "late": false,
+      "nonceConflict": false,
+      "ownerReceipt": "NOT_ISSUED",
+      "modelReportedCommit": false
+    },
+    "context": {
+      "d04": "NOMINAL_SETUP",
+      "d10": "SEPARATE_ACTUAL_BINDING",
+      "freezePreserved": true,
+      "abImmutable": true,
+      "readerCompatible": true
+    },
+    "ui": {
+      "entries": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "sharedPort": "11.ActionAuthorizationPort",
+      "babylonWorlds": 1,
+      "taskPanel": "LEFT_SINGLE",
+      "fontMaxPx": 12
+    },
+    "nc": {
+      "finalNc": false,
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED",
+      "clIsProof": false
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PLANNING_VALID",
+      "rule": null,
+      "changes": []
+    },
+    {
+      "id": "P02",
+      "expected": "PLANNING_VALID",
+      "rule": null,
+      "changes": [
+        [
+          "approval.now",
+          "2026-10-31T01:59:59Z"
+        ]
+      ]
+    },
+    {
+      "id": "P03",
+      "expected": "PLANNING_VALID",
+      "rule": null,
+      "changes": [
+        [
+          "tool.catalogEpoch",
+          "CAT-2"
+        ],
+        [
+          "tool.approvedCatalogEpoch",
+          "CAT-2"
+        ]
+      ]
+    },
+    {
+      "id": "N01",
+      "expected": "REJECT",
+      "rule": "B54-R01",
+      "changes": [
+        [
+          "protocol.version",
+          "2025-11-25"
+        ]
+      ]
+    },
+    {
+      "id": "N02",
+      "expected": "REJECT",
+      "rule": "B54-R01",
+      "changes": [
+        [
+          "protocol.catalogScope",
+          "connection"
+        ]
+      ]
+    },
+    {
+      "id": "N03",
+      "expected": "REJECT",
+      "rule": "B54-R01",
+      "changes": [
+        [
+          "protocol.catalogKnown",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N04",
+      "expected": "REJECT",
+      "rule": "B54-R01",
+      "changes": [
+        [
+          "syntheticOnly",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "U01",
+      "expected": "UNKNOWN",
+      "rule": "B54-R01",
+      "changes": [
+        [
+          "protocol.version",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N05",
+      "expected": "REJECT",
+      "rule": "B54-R02",
+      "changes": [
+        [
+          "tool.server",
+          "MCP-Server-B"
+        ]
+      ]
+    },
+    {
+      "id": "N06",
+      "expected": "REJECT",
+      "rule": "B54-R02",
+      "changes": [
+        [
+          "tool.name",
+          "Stage_plan"
+        ]
+      ]
+    },
+    {
+      "id": "N07",
+      "expected": "REJECT",
+      "rule": "B54-R02",
+      "changes": [
+        [
+          "tool.schemaHash",
+          "SCH-2"
+        ]
+      ]
+    },
+    {
+      "id": "N08",
+      "expected": "REJECT",
+      "rule": "B54-R02",
+      "changes": [
+        [
+          "tool.catalogEpoch",
+          "CAT-2"
+        ]
+      ]
+    },
+    {
+      "id": "U02",
+      "expected": "UNKNOWN",
+      "rule": "B54-R02",
+      "changes": [
+        [
+          "tool.server",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N09",
+      "expected": "REJECT",
+      "rule": "B54-R03",
+      "changes": [
+        [
+          "tool.argsHash",
+          "ARGS-2"
+        ]
+      ]
+    },
+    {
+      "id": "N10",
+      "expected": "REJECT",
+      "rule": "B54-R03",
+      "changes": [
+        [
+          "approval.intentHash",
+          "INTENT-2"
+        ]
+      ]
+    },
+    {
+      "id": "N11",
+      "expected": "REJECT",
+      "rule": "B54-R03",
+      "changes": [
+        [
+          "approval.nonce",
+          "NONCE-2"
+        ]
+      ]
+    },
+    {
+      "id": "N12",
+      "expected": "REJECT",
+      "rule": "B54-R03",
+      "changes": [
+        [
+          "tool.untrustedTextIsCommand",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "U03",
+      "expected": "UNKNOWN",
+      "rule": "B54-R03",
+      "changes": [
+        [
+          "tool.argsHash",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N13",
+      "expected": "REJECT",
+      "rule": "B54-R04",
+      "changes": [
+        [
+          "approval.signer",
+          "AGENT"
+        ]
+      ]
+    },
+    {
+      "id": "N14",
+      "expected": "REJECT",
+      "rule": "B54-R04",
+      "changes": [
+        [
+          "approval.principal",
+          "OTHER"
+        ]
+      ]
+    },
+    {
+      "id": "N15",
+      "expected": "REJECT",
+      "rule": "B54-R04",
+      "changes": [
+        [
+          "approval.now",
+          "2026-10-31T02:00:00Z"
+        ]
+      ]
+    },
+    {
+      "id": "N16",
+      "expected": "REJECT",
+      "rule": "B54-R04",
+      "changes": [
+        [
+          "approval.now",
+          "2026-10-30T23:59:59Z"
+        ]
+      ]
+    },
+    {
+      "id": "U04",
+      "expected": "UNKNOWN",
+      "rule": "B54-R04",
+      "changes": [
+        [
+          "approval.evidence",
+          "UNKNOWN"
+        ]
+      ]
+    },
+    {
+      "id": "N17",
+      "expected": "REJECT",
+      "rule": "B54-R05",
+      "changes": [
+        [
+          "oauth.audience",
+          "https://other.invalid"
+        ]
+      ]
+    },
+    {
+      "id": "N18",
+      "expected": "REJECT",
+      "rule": "B54-R05",
+      "changes": [
+        [
+          "oauth.issuer",
+          "Auth-B"
+        ]
+      ]
+    },
+    {
+      "id": "N19",
+      "expected": "REJECT",
+      "rule": "B54-R05",
+      "changes": [
+        [
+          "oauth.tokenPassThrough",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "U05",
+      "expected": "UNKNOWN",
+      "rule": "B54-R05",
+      "changes": [
+        [
+          "oauth.audience",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N20",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.revision",
+          "r13"
+        ]
+      ]
+    },
+    {
+      "id": "N21",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.hash",
+          "HASH-B"
+        ]
+      ]
+    },
+    {
+      "id": "N22",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.frame",
+          "MACHINE"
+        ]
+      ]
+    },
+    {
+      "id": "N23",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.scope",
+          "SCOPE-2"
+        ]
+      ]
+    },
+    {
+      "id": "N24",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.aclEpoch",
+          9
+        ]
+      ]
+    },
+    {
+      "id": "N25",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.aclAllowed",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N26",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.casAtomic",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N27",
+      "expected": "REJECT",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.recheckAtCommit",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "U06",
+      "expected": "UNKNOWN",
+      "rule": "B54-R06",
+      "changes": [
+        [
+          "owner.hash",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N28",
+      "expected": "REJECT",
+      "rule": "B54-R07",
+      "changes": [
+        [
+          "ack.generation",
+          9
+        ]
+      ]
+    },
+    {
+      "id": "N29",
+      "expected": "REJECT",
+      "rule": "B54-R07",
+      "changes": [
+        [
+          "ack.cancelled",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "N30",
+      "expected": "REJECT",
+      "rule": "B54-R07",
+      "changes": [
+        [
+          "ack.late",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "N31",
+      "expected": "REJECT",
+      "rule": "B54-R07",
+      "changes": [
+        [
+          "ack.nonceConflict",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "N32",
+      "expected": "REJECT",
+      "rule": "B54-R07",
+      "changes": [
+        [
+          "ack.ownerReceipt",
+          "COMMITTED"
+        ]
+      ]
+    },
+    {
+      "id": "N33",
+      "expected": "REJECT",
+      "rule": "B54-R07",
+      "changes": [
+        [
+          "ack.modelReportedCommit",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "U07",
+      "expected": "UNKNOWN",
+      "rule": "B54-R07",
+      "changes": [
+        [
+          "ack.expectedGeneration",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N34",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "context.d04",
+          "ACTUAL_BINDING"
+        ]
+      ]
+    },
+    {
+      "id": "N35",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "context.d10",
+          "NOMINAL_SETUP"
+        ]
+      ]
+    },
+    {
+      "id": "N36",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "context.freezePreserved",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N37",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "context.abImmutable",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N38",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "context.readerCompatible",
+          false
+        ]
+      ]
+    },
+    {
+      "id": "N39",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "ui.entries",
+          [
+            "Agent"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "N40",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "ui.babylonWorlds",
+          2
+        ]
+      ]
+    },
+    {
+      "id": "N41",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "ui.taskPanel",
+          "RIGHT"
+        ]
+      ]
+    },
+    {
+      "id": "N42",
+      "expected": "REJECT",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "ui.fontMaxPx",
+          14
+        ]
+      ]
+    },
+    {
+      "id": "U08",
+      "expected": "UNKNOWN",
+      "rule": "B54-R08",
+      "changes": [
+        [
+          "ui.entries",
+          null
+        ]
+      ]
+    },
+    {
+      "id": "N43",
+      "expected": "REJECT",
+      "rule": "B54-R09",
+      "changes": [
+        [
+          "nc.finalNc",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "N44",
+      "expected": "REJECT",
+      "rule": "B54-R09",
+      "changes": [
+        [
+          "nc.d13",
+          "PASS"
+        ]
+      ]
+    },
+    {
+      "id": "N45",
+      "expected": "REJECT",
+      "rule": "B54-R09",
+      "changes": [
+        [
+          "nc.d14",
+          "PASS"
+        ]
+      ]
+    },
+    {
+      "id": "N46",
+      "expected": "REJECT",
+      "rule": "B54-R09",
+      "changes": [
+        [
+          "nc.d15",
+          "PASS"
+        ]
+      ]
+    },
+    {
+      "id": "N47",
+      "expected": "REJECT",
+      "rule": "B54-R09",
+      "changes": [
+        [
+          "nc.d16",
+          "PUBLISHED"
+        ]
+      ]
+    },
+    {
+      "id": "N48",
+      "expected": "REJECT",
+      "rule": "B54-R09",
+      "changes": [
+        [
+          "nc.clIsProof",
+          true
+        ]
+      ]
+    },
+    {
+      "id": "U09",
+      "expected": "UNKNOWN",
+      "rule": "B54-R09",
+      "changes": [
+        [
+          "nc.d13",
+          null
+        ]
+      ]
+    }
+  ]
+}

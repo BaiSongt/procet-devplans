@@ -1,0 +1,522 @@
+{
+  "schemaVersion": "procet-cap0207-research-supplement-v08",
+  "capabilityId": "CAP-02-07",
+  "researchTopic": "R-RG-001",
+  "legacyTrace": "research/traces/CAP-02-07.json",
+  "sourceRegistry": "research/sources/CAP-02-07.json",
+  "engineeringGates": [
+    "C0只含最小身份/Hash/Frame，typed参数归D03",
+    "GUI/CLI/Agent同D03业务Owner Port，CAS/ACL/ScopeEpoch/cancelGeneration提交前重验",
+    "D04名义Setup≠D10实际执行绑定，A/B已冻结不得覆盖",
+    "单Babylon Engine/Scene/Canvas，左UnifiedTaskPanel，最大12px",
+    "D09中立CL→D12 NC→D13语义→D14轴时序→D15验证→D16发布，unknown不能发布，不做材料扫掠仿真"
+  ],
+  "rules": [
+    {
+      "id": "RG07-V08-R01",
+      "capabilityId": "CAP-02-07",
+      "summary": "用途与真实性分离",
+      "engineeringRule": "已发布资源、来源真实性、精确形体及其生产用途需独立验证",
+      "fields": [
+        "resource.exactRevision",
+        "geometry.sourceByteHash",
+        "geometry.provenance",
+        "geometry.role"
+      ],
+      "sourceIds": [
+        "RG07-S01",
+        "RG07-S08"
+      ],
+      "capTests": [
+        "RG-T01",
+        "RG-T02"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R01",
+      "criteria": [
+        {
+          "path": "resource.exactRevision",
+          "op": "eq",
+          "value": "res@r1"
+        },
+        {
+          "path": "geometry.sourceByteHash",
+          "op": "eq",
+          "value": "hash:cad"
+        },
+        {
+          "path": "geometry.provenance",
+          "op": "eq",
+          "value": "VERIFIED"
+        },
+        {
+          "path": "geometry.role",
+          "op": "eq",
+          "value": "DISPLAY_ONLY"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R02",
+      "capabilityId": "CAP-02-07",
+      "summary": "缓存输入与产出分离",
+      "engineeringRule": "输入指纹必须包含模板/规范化/内核，真实产物Hash独立计算",
+      "fields": [
+        "derive.template",
+        "derive.inputPolicy",
+        "derive.kernel",
+        "derive.outputByteHash"
+      ],
+      "sourceIds": [
+        "RG07-S06",
+        "RG07-S07"
+      ],
+      "capTests": [
+        "RG-T03",
+        "RG-T04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R02",
+      "criteria": [
+        {
+          "path": "derive.template",
+          "op": "eq",
+          "value": "tmpl@r2"
+        },
+        {
+          "path": "derive.inputPolicy",
+          "op": "eq",
+          "value": "CANONICAL_POLICY_FROZEN"
+        },
+        {
+          "path": "derive.kernel",
+          "op": "eq",
+          "value": "occt@8.0.1"
+        },
+        {
+          "path": "derive.outputByteHash",
+          "op": "eq",
+          "value": "hash:out"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R03",
+      "capabilityId": "CAP-02-07",
+      "summary": "参数边界",
+      "engineeringRule": "参数值应具单位、上下限、合法表达式图与非有限数拒绝",
+      "fields": [
+        "parameter.unit",
+        "parameter.domain",
+        "parameter.graph",
+        "parameter.valueClass"
+      ],
+      "sourceIds": [
+        "RG07-S01",
+        "RG07-S02"
+      ],
+      "capTests": [
+        "RG-T05",
+        "RG-T06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R03",
+      "criteria": [
+        {
+          "path": "parameter.unit",
+          "op": "eq",
+          "value": "mm"
+        },
+        {
+          "path": "parameter.domain",
+          "op": "eq",
+          "value": "POSITIVE_BOUNDED"
+        },
+        {
+          "path": "parameter.graph",
+          "op": "eq",
+          "value": "DAG"
+        },
+        {
+          "path": "parameter.valueClass",
+          "op": "eq",
+          "value": "FINITE"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R04",
+      "capabilityId": "CAP-02-07",
+      "summary": "精确BRep用途门禁",
+      "engineeringRule": "OCCT IsValid还须区分Solid、闭合与具体用途资格",
+      "fields": [
+        "exact.kind",
+        "exact.kernelCheck",
+        "exact.closed",
+        "exact.purpose"
+      ],
+      "sourceIds": [
+        "RG07-S02"
+      ],
+      "capTests": [
+        "RG-T07",
+        "RG-T08"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R04",
+      "criteria": [
+        {
+          "path": "exact.kind",
+          "op": "eq",
+          "value": "SOLID"
+        },
+        {
+          "path": "exact.kernelCheck",
+          "op": "eq",
+          "value": "VALID"
+        },
+        {
+          "path": "exact.closed",
+          "op": "eq",
+          "value": "YES"
+        },
+        {
+          "path": "exact.purpose",
+          "op": "eq",
+          "value": "NOT_AUTOMATICALLY_CERTIFIED"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R05",
+      "capabilityId": "CAP-02-07",
+      "summary": "网格拓扑证明",
+      "engineeringRule": "LOD离散与原BRep身份分离，拓扑映射缺失禁止精确面选",
+      "fields": [
+        "mesh.sourceExact",
+        "mesh.deflection",
+        "mesh.outputHash",
+        "mesh.topologyMap"
+      ],
+      "sourceIds": [
+        "RG07-S03"
+      ],
+      "capTests": [
+        "RG-T09",
+        "RG-T10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R05",
+      "criteria": [
+        {
+          "path": "mesh.sourceExact",
+          "op": "eq",
+          "value": "hash:cad"
+        },
+        {
+          "path": "mesh.deflection",
+          "op": "eq",
+          "value": "LIN0_2_ANG0_5"
+        },
+        {
+          "path": "mesh.outputHash",
+          "op": "eq",
+          "value": "hash:mesh"
+        },
+        {
+          "path": "mesh.topologyMap",
+          "op": "eq",
+          "value": "EXPLICIT"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R06",
+      "capabilityId": "CAP-02-07",
+      "summary": "父子局部位姿",
+      "engineeringRule": "安装必须明确parent-local Frame、SE3正手和09域权威FK",
+      "fields": [
+        "frame.parent",
+        "frame.child",
+        "frame.kind",
+        "frame.detR"
+      ],
+      "sourceIds": [
+        "RG07-S04"
+      ],
+      "capTests": [
+        "RG-T11",
+        "RG-T12"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R06",
+      "criteria": [
+        {
+          "path": "frame.parent",
+          "op": "eq",
+          "value": "machine@r1"
+        },
+        {
+          "path": "frame.child",
+          "op": "eq",
+          "value": "holder@r1"
+        },
+        {
+          "path": "frame.kind",
+          "op": "eq",
+          "value": "SE3_RIGID"
+        },
+        {
+          "path": "frame.detR",
+          "op": "eq",
+          "value": 1
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R07",
+      "capabilityId": "CAP-02-07",
+      "summary": "包络只能预筛",
+      "engineeringRule": "AABB只预筛，不认定机床可达或碰撞安全",
+      "fields": [
+        "envelope.method",
+        "envelope.frame",
+        "envelope.role",
+        "envelope.collisionAuthority"
+      ],
+      "sourceIds": [
+        "RG07-S05"
+      ],
+      "capTests": [
+        "RG-T13",
+        "RG-T14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R07",
+      "criteria": [
+        {
+          "path": "envelope.method",
+          "op": "eq",
+          "value": "ADD_OPTIMAL"
+        },
+        {
+          "path": "envelope.frame",
+          "op": "eq",
+          "value": "MachineCSYS@r1"
+        },
+        {
+          "path": "envelope.role",
+          "op": "eq",
+          "value": "PRE_FILTER"
+        },
+        {
+          "path": "envelope.collisionAuthority",
+          "op": "eq",
+          "value": "NONE"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R08",
+      "capabilityId": "CAP-02-07",
+      "summary": "CAS与取消晚回执",
+      "engineeringRule": "Owner提交前重验ACL/ScopeEpoch/CAS/取消；晚ACK只审计",
+      "fields": [
+        "write.port",
+        "write.acl",
+        "write.cas",
+        "write.lateReceipt"
+      ],
+      "sourceIds": [
+        "RG07-S06",
+        "RG07-S07"
+      ],
+      "capTests": [
+        "RG-T15",
+        "RG-T16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R08",
+      "criteria": [
+        {
+          "path": "write.port",
+          "op": "eq",
+          "value": "D03_OWNER_PORT"
+        },
+        {
+          "path": "write.acl",
+          "op": "eq",
+          "value": "RECHECK_ON_COMMIT"
+        },
+        {
+          "path": "write.cas",
+          "op": "eq",
+          "value": "EXPECTED_REVISION"
+        },
+        {
+          "path": "write.lateReceipt",
+          "op": "eq",
+          "value": "RECONCILE_ONLY"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R09",
+      "capabilityId": "CAP-02-07",
+      "summary": "GUI/CLI/Agent同入口",
+      "engineeringRule": "主工程和资源切换共用单Babylon，统一左TaskPanel；CLI/Agent经Owner同Port",
+      "fields": [
+        "ui.worldCount",
+        "ui.taskPanel",
+        "ui.rendererRole",
+        "ui.domainPort"
+      ],
+      "sourceIds": [
+        "RG07-S08"
+      ],
+      "capTests": [
+        "RG-T17",
+        "RG-T18"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R09",
+      "criteria": [
+        {
+          "path": "ui.worldCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.taskPanel",
+          "op": "eq",
+          "value": "UNIFIED_LEFT"
+        },
+        {
+          "path": "ui.rendererRole",
+          "op": "eq",
+          "value": "PROJECTION_ONLY"
+        },
+        {
+          "path": "ui.domainPort",
+          "op": "eq",
+          "value": "D03_OWNER_PORT"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "RG07-V08-R10",
+      "capabilityId": "CAP-02-07",
+      "summary": "Setup和NC执行分离",
+      "engineeringRule": "D04名义Setup与D10执行绑定分离，D13未知语义阻D16",
+      "fields": [
+        "chain.setup",
+        "chain.executionBinding",
+        "chain.controllerSemantic",
+        "chain.release"
+      ],
+      "sourceIds": [
+        "RG07-S06",
+        "RG07-S08"
+      ],
+      "capTests": [
+        "RG-T19",
+        "RG-T20"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "mappingPolicy": "研究相关性，不重写原CAP直接映射",
+      "legacyRule": "RG-R10",
+      "criteria": [
+        {
+          "path": "chain.setup",
+          "op": "eq",
+          "value": "D04@r2"
+        },
+        {
+          "path": "chain.executionBinding",
+          "op": "eq",
+          "value": "D10@r8"
+        },
+        {
+          "path": "chain.controllerSemantic",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "chain.release",
+          "op": "eq",
+          "value": "BLOCKED"
+        }
+      ],
+      "claimBoundary": "来源只支持范围性事实；具名字段和业务门禁是待审Procet内部设计",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN"
+}

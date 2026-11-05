@@ -1,0 +1,315 @@
+{
+  "schemaVersion": "procet-b22-pmi-loss-fixtures-v1",
+  "scope": "NEWLY_AUTHORED_SYNTHETIC_ONLY",
+  "positive": {
+    "id": "B22-P01",
+    "input": {
+      "source": {
+        "sha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "revision": "D01-r17",
+        "occurrence": "asm/inst1",
+        "frame": "part",
+        "declaredCount": 3
+      },
+      "reader": {
+        "version": "OCCT-8.0.1",
+        "profile": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "standard": "AP242-2025-reviewed",
+        "supported": [
+          "dimension",
+          "datum"
+        ]
+      },
+      "inventory": [
+        {
+          "id": "d1",
+          "expectSemantic": true,
+          "kind": "dimension"
+        },
+        {
+          "id": "a1",
+          "expectSemantic": true,
+          "kind": "datum"
+        },
+        {
+          "id": "g1",
+          "expectSemantic": false,
+          "kind": "graphic"
+        }
+      ],
+      "outcomes": [
+        {
+          "id": "d1",
+          "state": "semantic",
+          "kind": "dimension",
+          "anchor": "D01-r17|asm/inst1|part",
+          "modifier": "supported"
+        },
+        {
+          "id": "a1",
+          "state": "semantic",
+          "kind": "datum",
+          "anchor": "D01-r17|asm/inst1|part",
+          "modifier": "supported"
+        },
+        {
+          "id": "g1",
+          "state": "graphic_only",
+          "kind": "graphic",
+          "reason": "presentation only"
+        }
+      ],
+      "summary": {
+        "semantic": 2,
+        "graphic_only": 1,
+        "unsupported": 0,
+        "rejected": 0,
+        "unread": 0
+      },
+      "approvedIds": [
+        "d1",
+        "a1"
+      ],
+      "approval": {
+        "state": "frozen",
+        "sourceSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "readerProfile": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "targetSha": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "policy": "pmi-policy-r3"
+      },
+      "command": {
+        "owner": "CAD-PMI-Owner",
+        "routes": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "cas": true,
+        "acl": true,
+        "scopeEpoch": 3,
+        "generation": 2,
+        "cancelled": false,
+        "lateReceipt": false
+      },
+      "boundary": {
+        "d04VsD10Separate": true,
+        "clNotD15": true,
+        "chain": "D09>D12>D13>D14>D15>D16",
+        "unknownBlocks": true,
+        "noMaterialSweep": true
+      }
+    },
+    "expect": []
+  },
+  "negative": [
+    {
+      "id": "B22-N01",
+      "rule": "PMI22-R1",
+      "path": "source.declaredCount",
+      "value": 2,
+      "code": "SOURCE_INVENTORY"
+    },
+    {
+      "id": "B22-N02",
+      "rule": "PMI22-R1",
+      "path": "inventory.1.id",
+      "value": "d1",
+      "code": "SOURCE_INVENTORY"
+    },
+    {
+      "id": "B22-N03",
+      "rule": "PMI22-R2",
+      "path": "outcomes.1.id",
+      "value": "d1",
+      "code": "OUTCOME_SET"
+    },
+    {
+      "id": "B22-N04",
+      "rule": "PMI22-R2",
+      "path": "outcomes.2.state",
+      "value": "silent_dropped",
+      "code": "UNCLASSIFIED"
+    },
+    {
+      "id": "B22-N05",
+      "rule": "PMI22-R2",
+      "path": "summary.semantic",
+      "value": 1,
+      "code": "COUNTS_UNRECONCILED"
+    },
+    {
+      "id": "B22-N06",
+      "rule": "PMI22-R2",
+      "path": "outcomes.2.reason",
+      "value": "",
+      "code": "LOSS_REASON"
+    },
+    {
+      "id": "B22-N07",
+      "rule": "PMI22-R3",
+      "path": "outcomes.1.state",
+      "value": "graphic_only",
+      "code": "SEMANTIC_LOSS"
+    },
+    {
+      "id": "B22-N08",
+      "rule": "PMI22-R3",
+      "path": "approvedIds.1",
+      "value": "g1",
+      "code": "FALSE_APPROVAL_SET"
+    },
+    {
+      "id": "B22-N09",
+      "rule": "PMI22-R4",
+      "path": "outcomes.0.anchor",
+      "value": "D01-r18|asm/inst1|part",
+      "code": "ANCHOR_STALE"
+    },
+    {
+      "id": "B22-N10",
+      "rule": "PMI22-R4",
+      "path": "outcomes.1.anchor",
+      "value": "D01-r17|asm/inst2|part",
+      "code": "ANCHOR_STALE"
+    },
+    {
+      "id": "B22-N11",
+      "rule": "PMI22-R4",
+      "path": "outcomes.0.anchor",
+      "value": "D01-r17|asm/inst1|render",
+      "code": "ANCHOR_STALE"
+    },
+    {
+      "id": "B22-N12",
+      "rule": "PMI22-R5",
+      "path": "outcomes.0.modifier",
+      "value": "unknown",
+      "code": "SEMANTIC_UNSUPPORTED"
+    },
+    {
+      "id": "B22-N13",
+      "rule": "PMI22-R5",
+      "path": "reader.supported",
+      "value": [
+        "dimension"
+      ],
+      "code": "SEMANTIC_UNSUPPORTED"
+    },
+    {
+      "id": "B22-N14",
+      "rule": "PMI22-R6",
+      "path": "reader.version",
+      "value": "",
+      "code": "READER_UNPINNED"
+    },
+    {
+      "id": "B22-N15",
+      "rule": "PMI22-R6",
+      "path": "reader.profile",
+      "value": "",
+      "code": "READER_UNPINNED"
+    },
+    {
+      "id": "B22-N16",
+      "rule": "PMI22-R6",
+      "path": "approval.readerProfile",
+      "value": "sha256:other",
+      "code": "FREEZE_BINDING"
+    },
+    {
+      "id": "B22-N17",
+      "rule": "PMI22-R6",
+      "path": "approval.sourceSha",
+      "value": "sha256:other",
+      "code": "FREEZE_BINDING"
+    },
+    {
+      "id": "B22-N18",
+      "rule": "PMI22-R6",
+      "path": "source.sha",
+      "value": "",
+      "code": "SOURCE_EXACT"
+    },
+    {
+      "id": "B22-N19",
+      "rule": "PMI22-R7",
+      "path": "approval.state",
+      "value": "draft",
+      "code": "FREEZE_BINDING"
+    },
+    {
+      "id": "B22-N20",
+      "rule": "PMI22-R7",
+      "path": "command.routes",
+      "value": [
+        "GUI",
+        "CLI"
+      ],
+      "code": "OWNER_ROUTE"
+    },
+    {
+      "id": "B22-N21",
+      "rule": "PMI22-R7",
+      "path": "command.cas",
+      "value": false,
+      "code": "COMMIT_RECHECK"
+    },
+    {
+      "id": "B22-N22",
+      "rule": "PMI22-R7",
+      "path": "command.acl",
+      "value": false,
+      "code": "COMMIT_RECHECK"
+    },
+    {
+      "id": "B22-N23",
+      "rule": "PMI22-R7",
+      "path": "command.cancelled",
+      "value": true,
+      "code": "CANCELLED_ACK"
+    },
+    {
+      "id": "B22-N24",
+      "rule": "PMI22-R7",
+      "path": "command.lateReceipt",
+      "value": true,
+      "code": "CANCELLED_ACK"
+    },
+    {
+      "id": "B22-N25",
+      "rule": "PMI22-R8",
+      "path": "boundary.d04VsD10Separate",
+      "value": false,
+      "code": "DOMAIN_CLOSURE"
+    },
+    {
+      "id": "B22-N26",
+      "rule": "PMI22-R8",
+      "path": "boundary.clNotD15",
+      "value": false,
+      "code": "DOMAIN_CLOSURE"
+    },
+    {
+      "id": "B22-N27",
+      "rule": "PMI22-R8",
+      "path": "boundary.chain",
+      "value": "D09>D12>D14>D15>D16",
+      "code": "DOMAIN_CLOSURE"
+    },
+    {
+      "id": "B22-N28",
+      "rule": "PMI22-R8",
+      "path": "boundary.unknownBlocks",
+      "value": false,
+      "code": "DOMAIN_CLOSURE"
+    },
+    {
+      "id": "B22-N29",
+      "rule": "PMI22-R8",
+      "path": "boundary.noMaterialSweep",
+      "value": false,
+      "code": "DOMAIN_CLOSURE"
+    }
+  ],
+  "hashWarning": "sha256示意值并非真实STEP计算结果"
+}

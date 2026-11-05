@@ -1,0 +1,423 @@
+{
+  "schemaVersion": "procet-b23-brep-history-fixtures-v1",
+  "scope": "NEWLY_AUTHORED_SYNTHETIC_NOT_OCCT_RUN",
+  "positive": {
+    "id": "B23-P01",
+    "input": {
+      "refs": {
+        "stock": {
+          "id": "D07-stock",
+          "revision": "r17",
+          "sha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "setupA",
+          "unit": "mm",
+          "scope": "P1/B1"
+        },
+        "candidate": {
+          "id": "D06-removal",
+          "revision": "r5",
+          "sha": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "frame": "setupA",
+          "unit": "mm",
+          "scope": "P1/B1"
+        },
+        "result": {
+          "id": "D07-after-candidate",
+          "revision": "r18",
+          "sha": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "frame": "setupA",
+          "unit": "mm",
+          "scope": "P1/B1"
+        }
+      },
+      "operator": {
+        "version": "OCCT-8.0.1",
+        "kind": "CUT",
+        "nonDestructive": true,
+        "fillHistory": true,
+        "hasHistory": true,
+        "hasErrors": false,
+        "hasWarnings": false,
+        "warningsReviewed": true,
+        "fuzzy": 0.001,
+        "approvedMaxFuzzy": 0.01,
+        "simplificationUsed": true,
+        "simplificationHistoryMerged": true
+      },
+      "history": {
+        "requestedInputUids": [
+          "F-stock",
+          "F-tool",
+          "S-stock"
+        ],
+        "outputUids": [
+          "F-after",
+          "S-after",
+          "E-int"
+        ],
+        "origins": [
+          {
+            "uid": "F-stock",
+            "kind": "FACE",
+            "deleted": false,
+            "modified": [
+              "F-after"
+            ],
+            "generated": [
+              {
+                "uid": "E-int",
+                "kind": "EDGE"
+              }
+            ]
+          },
+          {
+            "uid": "F-tool",
+            "kind": "FACE",
+            "deleted": true,
+            "modified": [],
+            "generated": []
+          },
+          {
+            "uid": "S-stock",
+            "kind": "SOLID",
+            "deleted": false,
+            "modified": [
+              "S-after"
+            ],
+            "generated": []
+          }
+        ]
+      },
+      "audit": {
+        "beforeValid": true,
+        "afterValid": true,
+        "geomControls": true,
+        "exactMethod": true,
+        "solidClosed": true,
+        "volume": {
+          "before": 100,
+          "removed": 20,
+          "after": 80,
+          "absTolerance": 0.001
+        },
+        "protectedIntersection": 0
+      },
+      "command": {
+        "owner": "LocalBRepRemovalDomainPort",
+        "routes": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "casRechecked": true,
+        "aclRechecked": true,
+        "scopeEpoch": 5,
+        "jobGeneration": 7,
+        "cancelled": false,
+        "lateReceipt": false,
+        "headStale": false
+      },
+      "handoff": {
+        "status": "CANDIDATE_ONLY",
+        "independentD07": "NOT_RUN",
+        "d08FrozenUnchanged": true,
+        "d04SeparateFromD10": true,
+        "chain": "D09>D12>D13>D14>D15>D16",
+        "d13": "UNKNOWN",
+        "d15": "BLOCKED",
+        "d16": "BLOCKED",
+        "singleBabylon": true,
+        "leftTaskPanel": true,
+        "noMaterialSweep": true
+      }
+    },
+    "expected": []
+  },
+  "negative": [
+    {
+      "id": "B23-N01",
+      "rule": "H23-R1",
+      "path": "refs.stock.sha",
+      "value": "sha256:broken",
+      "code": "SOURCE_IDENTITY"
+    },
+    {
+      "id": "B23-N02",
+      "rule": "H23-R1",
+      "path": "refs.candidate.frame",
+      "value": "part",
+      "code": "FRAME_SCOPE_MISMATCH"
+    },
+    {
+      "id": "B23-N03",
+      "rule": "H23-R1",
+      "path": "refs.result.scope",
+      "value": "P1/B2",
+      "code": "FRAME_SCOPE_MISMATCH"
+    },
+    {
+      "id": "B23-N04",
+      "rule": "H23-R1",
+      "path": "refs.result.revision",
+      "value": "r17",
+      "code": "RESULT_REVISION_REUSE"
+    },
+    {
+      "id": "B23-N05",
+      "rule": "H23-R1",
+      "path": "refs.result.unit",
+      "value": "inch",
+      "code": "FRAME_SCOPE_MISMATCH"
+    },
+    {
+      "id": "B23-N06",
+      "rule": "H23-R2",
+      "path": "operator.version",
+      "value": "unknown",
+      "code": "BOOLEAN_OPERATOR"
+    },
+    {
+      "id": "B23-N07",
+      "rule": "H23-R2",
+      "path": "operator.nonDestructive",
+      "value": false,
+      "code": "BOOLEAN_OPERATOR"
+    },
+    {
+      "id": "B23-N08",
+      "rule": "H23-R2",
+      "path": "operator.fillHistory",
+      "value": false,
+      "code": "HISTORY_DISABLED"
+    },
+    {
+      "id": "B23-N09",
+      "rule": "H23-R2",
+      "path": "operator.hasHistory",
+      "value": false,
+      "code": "HISTORY_DISABLED"
+    },
+    {
+      "id": "B23-N10",
+      "rule": "H23-R2",
+      "path": "operator.hasErrors",
+      "value": true,
+      "code": "BOOLEAN_REPORT"
+    },
+    {
+      "id": "B23-N11",
+      "rule": "H23-R2",
+      "path": "operator.fuzzy",
+      "value": 0.1,
+      "code": "FUZZY_BUDGET"
+    },
+    {
+      "id": "B23-N12",
+      "rule": "H23-R3",
+      "path": "operator.simplificationHistoryMerged",
+      "value": false,
+      "code": "SIMPLIFICATION_HISTORY"
+    },
+    {
+      "id": "B23-N13",
+      "rule": "H23-R3",
+      "path": "history.requestedInputUids.0",
+      "value": "F-foreign",
+      "code": "HISTORY_INPUT_COVERAGE"
+    },
+    {
+      "id": "B23-N14",
+      "rule": "H23-R3",
+      "path": "history.origins.0.deleted",
+      "value": true,
+      "code": "DELETED_MODIFIED_CONFLICT"
+    },
+    {
+      "id": "B23-N15",
+      "rule": "H23-R3",
+      "path": "history.origins.0.modified.0",
+      "value": "F-missing",
+      "code": "HISTORY_OUTPUT_UNRESOLVED"
+    },
+    {
+      "id": "B23-N16",
+      "rule": "H23-R4",
+      "path": "history.origins.0.generated.0.kind",
+      "value": "FACE",
+      "code": "GENERATED_KIND_INVALID"
+    },
+    {
+      "id": "B23-N17",
+      "rule": "H23-R4",
+      "path": "history.origins.2.generated",
+      "value": [
+        {
+          "uid": "E-int",
+          "kind": "EDGE"
+        }
+      ],
+      "code": "GENERATED_KIND_INVALID"
+    },
+    {
+      "id": "B23-N18",
+      "rule": "H23-R4",
+      "path": "history.origins.0.generated.0.uid",
+      "value": "E-missing",
+      "code": "HISTORY_OUTPUT_UNRESOLVED"
+    },
+    {
+      "id": "B23-N19",
+      "rule": "H23-R5",
+      "path": "audit.beforeValid",
+      "value": false,
+      "code": "BREP_CHECK_INCOMPLETE"
+    },
+    {
+      "id": "B23-N20",
+      "rule": "H23-R5",
+      "path": "audit.exactMethod",
+      "value": false,
+      "code": "BREP_CHECK_INCOMPLETE"
+    },
+    {
+      "id": "B23-N21",
+      "rule": "H23-R5",
+      "path": "audit.solidClosed",
+      "value": false,
+      "code": "BREP_CHECK_INCOMPLETE"
+    },
+    {
+      "id": "B23-N22",
+      "rule": "H23-R5",
+      "path": "audit.volume.after",
+      "value": 81,
+      "code": "VOLUME_LEDGER"
+    },
+    {
+      "id": "B23-N23",
+      "rule": "H23-R5",
+      "path": "audit.volume.absTolerance",
+      "value": 0,
+      "code": "VOLUME_LEDGER"
+    },
+    {
+      "id": "B23-N24",
+      "rule": "H23-R5",
+      "path": "audit.protectedIntersection",
+      "value": 1,
+      "code": "PROTECTION_INTERSECTION"
+    },
+    {
+      "id": "B23-N25",
+      "rule": "H23-R6",
+      "path": "command.routes.2",
+      "value": "GUI",
+      "code": "OWNER_ENTRYPOINT"
+    },
+    {
+      "id": "B23-N26",
+      "rule": "H23-R6",
+      "path": "command.casRechecked",
+      "value": false,
+      "code": "COMMIT_LEASE"
+    },
+    {
+      "id": "B23-N27",
+      "rule": "H23-R6",
+      "path": "command.aclRechecked",
+      "value": false,
+      "code": "COMMIT_LEASE"
+    },
+    {
+      "id": "B23-N28",
+      "rule": "H23-R6",
+      "path": "command.jobGeneration",
+      "value": 0,
+      "code": "COMMIT_LEASE"
+    },
+    {
+      "id": "B23-N29",
+      "rule": "H23-R6",
+      "path": "command.cancelled",
+      "value": true,
+      "code": "CANCEL_LATE_RECEIPT"
+    },
+    {
+      "id": "B23-N30",
+      "rule": "H23-R6",
+      "path": "command.lateReceipt",
+      "value": true,
+      "code": "CANCEL_LATE_RECEIPT"
+    },
+    {
+      "id": "B23-N31",
+      "rule": "H23-R6",
+      "path": "command.headStale",
+      "value": true,
+      "code": "COMMIT_LEASE"
+    },
+    {
+      "id": "B23-N32",
+      "rule": "H23-R7",
+      "path": "handoff.status",
+      "value": "PASSED",
+      "code": "D07_CONSUMER_UNVERIFIED"
+    },
+    {
+      "id": "B23-N33",
+      "rule": "H23-R7",
+      "path": "handoff.independentD07",
+      "value": "PASS",
+      "code": "D07_CONSUMER_UNVERIFIED"
+    },
+    {
+      "id": "B23-N34",
+      "rule": "H23-R7",
+      "path": "handoff.d08FrozenUnchanged",
+      "value": false,
+      "code": "D07_CONSUMER_UNVERIFIED"
+    },
+    {
+      "id": "B23-N35",
+      "rule": "H23-R7",
+      "path": "handoff.d04SeparateFromD10",
+      "value": false,
+      "code": "NC_VERIFICATION_BOUNDARY"
+    },
+    {
+      "id": "B23-N36",
+      "rule": "H23-R7",
+      "path": "handoff.d13",
+      "value": "PASS",
+      "code": "NC_VERIFICATION_BOUNDARY"
+    },
+    {
+      "id": "B23-N37",
+      "rule": "H23-R7",
+      "path": "handoff.d16",
+      "value": "PASS",
+      "code": "NC_VERIFICATION_BOUNDARY"
+    },
+    {
+      "id": "B23-N38",
+      "rule": "H23-R7",
+      "path": "handoff.noMaterialSweep",
+      "value": false,
+      "code": "NC_VERIFICATION_BOUNDARY"
+    },
+    {
+      "id": "B23-N39",
+      "rule": "H23-R7",
+      "path": "handoff.singleBabylon",
+      "value": false,
+      "code": "GUI_WORLD_BOUNDARY"
+    },
+    {
+      "id": "B23-N40",
+      "rule": "H23-R7",
+      "path": "handoff.leftTaskPanel",
+      "value": false,
+      "code": "GUI_WORLD_BOUNDARY"
+    }
+  ]
+}

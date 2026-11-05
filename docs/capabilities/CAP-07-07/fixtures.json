@@ -1,0 +1,436 @@
+{
+  "schemaVersion": "procet-cap0707-synthetic-fixtures-v1",
+  "capabilityId": "CAP-07-07",
+  "syntheticOnly": true,
+  "notActualOCCT": true,
+  "notActualController": true,
+  "notActualMachine": true,
+  "notActualIndependentConsumer": true,
+  "cases": [
+    {
+      "id": "CAP-07-07-T01",
+      "ruleId": "C0707-R01",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "sourceRevision": 5,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frozenHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "currentFrozenHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "frozenUnchanged": true
+      },
+      "scenario": "精确修订与冻结前提：正例"
+    },
+    {
+      "id": "CAP-07-07-T02",
+      "ruleId": "C0707-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frozenHead",
+      "input": {
+        "sourceRevision": 5,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frozenHead": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "currentFrozenHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "frozenUnchanged": true
+      },
+      "scenario": "精确修订与冻结前提：反例"
+    },
+    {
+      "id": "CAP-07-07-M01",
+      "ruleId": "C0707-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frozenUnchanged",
+      "input": {
+        "sourceRevision": 5,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frozenHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "currentFrozenHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "frozenUnchanged": false
+      },
+      "scenario": "精确修订与冻结前提：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T03",
+      "ruleId": "C0707-R02",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "frameHandedness": "RIGHT",
+        "frameRigid": true,
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "lengthUnit": "MM",
+        "inverseRoundTrip": true
+      },
+      "scenario": "显式右手Frame和坐标单位：正例"
+    },
+    {
+      "id": "CAP-07-07-T04",
+      "ruleId": "C0707-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frameHandedness",
+      "input": {
+        "frameHandedness": "LEFT",
+        "frameRigid": true,
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "lengthUnit": "MM",
+        "inverseRoundTrip": true
+      },
+      "scenario": "显式右手Frame和坐标单位：反例"
+    },
+    {
+      "id": "CAP-07-07-M02",
+      "ruleId": "C0707-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "inverseRoundTrip",
+      "input": {
+        "frameHandedness": "RIGHT",
+        "frameRigid": true,
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "lengthUnit": "MM",
+        "inverseRoundTrip": false
+      },
+      "scenario": "显式右手Frame和坐标单位：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T05",
+      "ruleId": "C0707-R03",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "tcpRole": "TOOL_TIP",
+        "toolAxisNormalized": true,
+        "gaugeReferenceKnown": true,
+        "ccSeparateFromTcp": true
+      },
+      "scenario": "刀尖TCP与刀轴约定：正例"
+    },
+    {
+      "id": "CAP-07-07-T06",
+      "ruleId": "C0707-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "tcpRole",
+      "input": {
+        "tcpRole": "CONTACT_POINT",
+        "toolAxisNormalized": true,
+        "gaugeReferenceKnown": true,
+        "ccSeparateFromTcp": true
+      },
+      "scenario": "刀尖TCP与刀轴约定：反例"
+    },
+    {
+      "id": "CAP-07-07-M03",
+      "ruleId": "C0707-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "toolAxisNormalized",
+      "input": {
+        "tcpRole": "TOOL_TIP",
+        "toolAxisNormalized": false,
+        "gaugeReferenceKnown": true,
+        "ccSeparateFromTcp": true
+      },
+      "scenario": "刀尖TCP与刀轴约定：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T07",
+      "ruleId": "C0707-R04",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "sequenceContiguous": true,
+        "motionKindsKnown": true,
+        "endpointContinuity": true,
+        "segmentIdsUnique": true
+      },
+      "scenario": "有序typed运动段及端点连续性：正例"
+    },
+    {
+      "id": "CAP-07-07-T08",
+      "ruleId": "C0707-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "endpointContinuity",
+      "input": {
+        "sequenceContiguous": true,
+        "motionKindsKnown": true,
+        "endpointContinuity": false,
+        "segmentIdsUnique": true
+      },
+      "scenario": "有序typed运动段及端点连续性：反例"
+    },
+    {
+      "id": "CAP-07-07-M04",
+      "ruleId": "C0707-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "segmentIdsUnique",
+      "input": {
+        "sequenceContiguous": true,
+        "motionKindsKnown": true,
+        "endpointContinuity": true,
+        "segmentIdsUnique": false
+      },
+      "scenario": "有序typed运动段及端点连续性：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T09",
+      "ruleId": "C0707-R05",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "feedIntentMode": "CUT_FEED",
+        "feedPositive": true,
+        "feedUnit": "MM_MIN",
+        "controllerWordsExcluded": true
+      },
+      "scenario": "进给意图与NC模态解耦：正例"
+    },
+    {
+      "id": "CAP-07-07-T10",
+      "ruleId": "C0707-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "feedIntentMode",
+      "input": {
+        "feedIntentMode": "G94",
+        "feedPositive": true,
+        "feedUnit": "MM_MIN",
+        "controllerWordsExcluded": true
+      },
+      "scenario": "进给意图与NC模态解耦：反例"
+    },
+    {
+      "id": "CAP-07-07-M05",
+      "ruleId": "C0707-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "controllerWordsExcluded",
+      "input": {
+        "feedIntentMode": "CUT_FEED",
+        "feedPositive": true,
+        "feedUnit": "MM_MIN",
+        "controllerWordsExcluded": false
+      },
+      "scenario": "进给意图与NC模态解耦：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T11",
+      "ruleId": "C0707-R06",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "arcPlaneDefined": true,
+        "arcRadiusPositive": true,
+        "arcEndsOnCircle": true,
+        "toleranceExplicit": true
+      },
+      "scenario": "圆弧与螺旋的几何自洽：正例"
+    },
+    {
+      "id": "CAP-07-07-T12",
+      "ruleId": "C0707-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "arcEndsOnCircle",
+      "input": {
+        "arcPlaneDefined": true,
+        "arcRadiusPositive": true,
+        "arcEndsOnCircle": false,
+        "toleranceExplicit": true
+      },
+      "scenario": "圆弧与螺旋的几何自洽：反例"
+    },
+    {
+      "id": "CAP-07-07-M06",
+      "ruleId": "C0707-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "toleranceExplicit",
+      "input": {
+        "arcPlaneDefined": true,
+        "arcRadiusPositive": true,
+        "arcEndsOnCircle": true,
+        "toleranceExplicit": false
+      },
+      "scenario": "圆弧与螺旋的几何自洽：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T13",
+      "ruleId": "C0707-R07",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "cutMode": "INDEXED_3_PLUS_2",
+        "indexedAxisConstant": true,
+        "machineAxesEmbedded": false,
+        "executionBindingAttached": false
+      },
+      "scenario": "3轴/3+2/连续五轴与D10分离：正例"
+    },
+    {
+      "id": "CAP-07-07-T14",
+      "ruleId": "C0707-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "indexedAxisConstant",
+      "input": {
+        "cutMode": "INDEXED_3_PLUS_2",
+        "indexedAxisConstant": false,
+        "machineAxesEmbedded": false,
+        "executionBindingAttached": false
+      },
+      "scenario": "3轴/3+2/连续五轴与D10分离：反例"
+    },
+    {
+      "id": "CAP-07-07-M07",
+      "ruleId": "C0707-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "machineAxesEmbedded",
+      "input": {
+        "cutMode": "INDEXED_3_PLUS_2",
+        "indexedAxisConstant": true,
+        "machineAxesEmbedded": true,
+        "executionBindingAttached": false
+      },
+      "scenario": "3轴/3+2/连续五轴与D10分离：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T15",
+      "ruleId": "C0707-R08",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "operationRevision": 6,
+        "orderedMaterialHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "segmentLineageClosed": true,
+        "sourceSnapshotCurrent": true
+      },
+      "scenario": "段级来源链、材料前态与冻结版本：正例"
+    },
+    {
+      "id": "CAP-07-07-T16",
+      "ruleId": "C0707-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "segmentLineageClosed",
+      "input": {
+        "operationRevision": 6,
+        "orderedMaterialHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "segmentLineageClosed": false,
+        "sourceSnapshotCurrent": true
+      },
+      "scenario": "段级来源链、材料前态与冻结版本：反例"
+    },
+    {
+      "id": "CAP-07-07-M08",
+      "ruleId": "C0707-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "sourceSnapshotCurrent",
+      "input": {
+        "operationRevision": 6,
+        "orderedMaterialHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "segmentLineageClosed": true,
+        "sourceSnapshotCurrent": false
+      },
+      "scenario": "段级来源链、材料前态与冻结版本：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T17",
+      "ruleId": "C0707-R09",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "d13Semantic": "UNKNOWN",
+        "d15Evidence": "NOT_RUN",
+        "d16Allowed": false,
+        "previewOnly": true
+      },
+      "scenario": "CL预览与NC工程验证严格隔离：正例"
+    },
+    {
+      "id": "CAP-07-07-T18",
+      "ruleId": "C0707-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "d16Allowed",
+      "input": {
+        "d13Semantic": "UNKNOWN",
+        "d15Evidence": "NOT_RUN",
+        "d16Allowed": true,
+        "previewOnly": true
+      },
+      "scenario": "CL预览与NC工程验证严格隔离：反例"
+    },
+    {
+      "id": "CAP-07-07-M09",
+      "ruleId": "C0707-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "previewOnly",
+      "input": {
+        "d13Semantic": "UNKNOWN",
+        "d15Evidence": "NOT_RUN",
+        "d16Allowed": false,
+        "previewOnly": false
+      },
+      "scenario": "CL预览与NC工程验证严格隔离：不同字段独立变异"
+    },
+    {
+      "id": "CAP-07-07-T19",
+      "ruleId": "C0707-R10",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": false,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS权限代次与无损回退：正例"
+    },
+    {
+      "id": "CAP-07-07-T20",
+      "ruleId": "C0707-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "actualHead",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": false,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS权限代次与无损回退：反例"
+    },
+    {
+      "id": "CAP-07-07-M10",
+      "ruleId": "C0707-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "cancelled",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": true,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS权限代次与无损回退：不同字段独立变异"
+    }
+  ]
+}

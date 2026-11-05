@@ -1,0 +1,568 @@
+{
+  "schemaVersion": "procet-t502-trace-v1",
+  "workPackageId": "T5-02",
+  "researchTopic": "R-2D-DOC-EVIDENCE-001",
+  "sourceRegistry": "research/sources/T5-02.json",
+  "specification": "docs/work-packages/T5-02.md",
+  "ui": "docs/work-packages/T5-02/UI.md",
+  "fixtures": "docs/work-packages/T5-02/fixtures.json",
+  "validator": "tools/check_t502_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "T5-02-R01",
+      "workPackageId": "T5-02",
+      "summary": "锁定2D/Docs组合与原始字节；浮动develop不得当验收",
+      "fields": [
+        "raw.sourceHash",
+        "raw.twoDLock",
+        "raw.docsLock",
+        "raw.converterPinned",
+        "raw.floatingAccepted"
+      ],
+      "sourceIds": [
+        "SRC-T502-DXF-CODES",
+        "SRC-T502-PDF-ISO",
+        "SRC-T502-NIST-DT"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "criteria": [
+        {
+          "path": "raw.sourceHash",
+          "op": "eq",
+          "value": "sha256:fixture-A"
+        },
+        {
+          "path": "raw.twoDLock",
+          "op": "eq",
+          "value": "git:fixed-2d"
+        },
+        {
+          "path": "raw.docsLock",
+          "op": "eq",
+          "value": "git:fixed-docs"
+        },
+        {
+          "path": "raw.converterPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "raw.floatingAccepted",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T01",
+      "negativeTestId": "T5-02-T02",
+      "mutationTestId": "T5-02-M01",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R02",
+      "workPackageId": "T5-02",
+      "summary": "DXF实体handle、单位、OCS/WCS、块实例完整且不把屏幕px作mm",
+      "fields": [
+        "dxf.entityHandle",
+        "dxf.unit",
+        "dxf.ocsToWcsKnown",
+        "dxf.blockInsertResolved",
+        "dxf.pixelIsMillimeter"
+      ],
+      "sourceIds": [
+        "SRC-T502-DXF-CODES",
+        "SRC-T502-DXF-BLOCK",
+        "SRC-T502-DXF-OCS"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "criteria": [
+        {
+          "path": "dxf.entityHandle",
+          "op": "eq",
+          "value": "7B2"
+        },
+        {
+          "path": "dxf.unit",
+          "op": "eq",
+          "value": "mm"
+        },
+        {
+          "path": "dxf.ocsToWcsKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dxf.blockInsertResolved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dxf.pixelIsMillimeter",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T03",
+      "negativeTestId": "T5-02-T04",
+      "mutationTestId": "T5-02-M02",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R03",
+      "workPackageId": "T5-02",
+      "summary": "PDF页、CropBox/旋转、标定坐标链不可丢失",
+      "fields": [
+        "pdf.pageIndex",
+        "pdf.cropBoxRecorded",
+        "pdf.rotationHandled",
+        "pdf.scaleVerified",
+        "pdf.unscaledPixelsCommitted"
+      ],
+      "sourceIds": [
+        "SRC-T502-PDF-ISO",
+        "SRC-T502-PDF-INDEX",
+        "SRC-T502-SVG2"
+      ],
+      "assets": [
+        "D01"
+      ],
+      "criteria": [
+        {
+          "path": "pdf.pageIndex",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "pdf.cropBoxRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pdf.rotationHandled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pdf.scaleVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pdf.unscaledPixelsCommitted",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T05",
+      "negativeTestId": "T5-02-T06",
+      "mutationTestId": "T5-02-M03",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R04",
+      "workPackageId": "T5-02",
+      "summary": "OCR证据必须保存bbox、引擎锁与候选状态，绝不自动权威PMI",
+      "fields": [
+        "ocr.bboxRecorded",
+        "ocr.engineLocked",
+        "ocr.candidateOnly",
+        "ocr.confidenceIsApproval",
+        "ocr.autoPromotedPMI"
+      ],
+      "sourceIds": [
+        "SRC-T502-OCR",
+        "SRC-T502-PROV",
+        "SRC-T502-NISTIR"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "criteria": [
+        {
+          "path": "ocr.bboxRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ocr.engineLocked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ocr.candidateOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ocr.confidenceIsApproval",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "ocr.autoPromotedPMI",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T07",
+      "negativeTestId": "T5-02-T08",
+      "mutationTestId": "T5-02-M04",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R05",
+      "workPackageId": "T5-02",
+      "summary": "证据连到目标几何的exact revision/hash/frame且歧义拒绝",
+      "fields": [
+        "link.sourceLocator",
+        "link.targetRevision",
+        "link.targetFrameHash",
+        "link.ambiguityAutoAccepted",
+        "link.missingTargetRejected"
+      ],
+      "sourceIds": [
+        "SRC-T502-DXF-OCS",
+        "SRC-T502-SVG2",
+        "SRC-T502-PROV",
+        "SRC-T502-NIST-DT"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "criteria": [
+        {
+          "path": "link.sourceLocator",
+          "op": "eq",
+          "value": "page:2/box:7"
+        },
+        {
+          "path": "link.targetRevision",
+          "op": "eq",
+          "value": "CAD:rev1"
+        },
+        {
+          "path": "link.targetFrameHash",
+          "op": "eq",
+          "value": "sha256:frame-1"
+        },
+        {
+          "path": "link.ambiguityAutoAccepted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "link.missingTargetRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "T5-02-T09",
+      "negativeTestId": "T5-02-T10",
+      "mutationTestId": "T5-02-M05",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R06",
+      "workPackageId": "T5-02",
+      "summary": "人工确认+ACL重验才可采用，禁止AI自批与覆盖D08",
+      "fields": [
+        "adoption.humanDecision",
+        "adoption.ownerAclRechecked",
+        "adoption.rawEvidencePreserved",
+        "adoption.agentSelfApproved",
+        "adoption.d08FrozenOverwritten"
+      ],
+      "sourceIds": [
+        "SRC-T502-PROV",
+        "SRC-T502-RFC",
+        "SRC-T502-NISTIR"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D05",
+        "D08"
+      ],
+      "criteria": [
+        {
+          "path": "adoption.humanDecision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "adoption.ownerAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "adoption.rawEvidencePreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "adoption.agentSelfApproved",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "adoption.d08FrozenOverwritten",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T11",
+      "negativeTestId": "T5-02-T12",
+      "mutationTestId": "T5-02-M06",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R07",
+      "workPackageId": "T5-02",
+      "summary": "恢复校验原始hash/产品锁/Frame，失败只读不删除数据",
+      "fields": [
+        "restore.snapshotHashVerified",
+        "restore.productLockVerified",
+        "restore.frameVerified",
+        "restore.originalDeleted",
+        "restore.unknownLegacyAccepted"
+      ],
+      "sourceIds": [
+        "SRC-T502-DXF-CODES",
+        "SRC-T502-PDF-ISO",
+        "SRC-T502-PROV"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "criteria": [
+        {
+          "path": "restore.snapshotHashVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "restore.productLockVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "restore.frameVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "restore.originalDeleted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "restore.unknownLegacyAccepted",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T13",
+      "negativeTestId": "T5-02-T14",
+      "mutationTestId": "T5-02-M07",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R08",
+      "workPackageId": "T5-02",
+      "summary": "GUI/CLI/Agent统一03域Owner；一个Babylon世界与左TaskPanel，预览不写",
+      "fields": [
+        "ui.guiPort",
+        "ui.cliPort",
+        "ui.agentPort",
+        "ui.sceneCount",
+        "ui.taskPanelCount",
+        "ui.previewWrites"
+      ],
+      "sourceIds": [
+        "SRC-T502-SVG2",
+        "SRC-T502-PROV"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "criteria": [
+        {
+          "path": "ui.guiPort",
+          "op": "eq",
+          "value": "EvidenceOwnerPort"
+        },
+        {
+          "path": "ui.cliPort",
+          "op": "eq",
+          "value": "EvidenceOwnerPort"
+        },
+        {
+          "path": "ui.agentPort",
+          "op": "eq",
+          "value": "EvidenceOwnerPort"
+        },
+        {
+          "path": "ui.sceneCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.taskPanelCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.previewWrites",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T15",
+      "negativeTestId": "T5-02-T16",
+      "mutationTestId": "T5-02-M08",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R09",
+      "workPackageId": "T5-02",
+      "summary": "Owner写前CAS与ACL/Frame/scope复验；取消晚回执丢弃",
+      "fields": [
+        "commit.expectedHead",
+        "commit.actualHead",
+        "commit.aclEpochChecked",
+        "commit.frameChecked",
+        "commit.scopeEpochChecked",
+        "commit.lateReceiptWrites"
+      ],
+      "sourceIds": [
+        "SRC-T502-RFC",
+        "SRC-T502-PROV"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D05"
+      ],
+      "criteria": [
+        {
+          "path": "commit.expectedHead",
+          "op": "eq",
+          "value": "rev:1"
+        },
+        {
+          "path": "commit.actualHead",
+          "op": "eq",
+          "value": "rev:1"
+        },
+        {
+          "path": "commit.aclEpochChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.frameChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.scopeEpochChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.lateReceiptWrites",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T17",
+      "negativeTestId": "T5-02-T18",
+      "mutationTestId": "T5-02-M09",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    },
+    {
+      "id": "T5-02-R10",
+      "workPackageId": "T5-02",
+      "summary": "OCR候选不直接发布；D04/D10分离，未知D13阻D16，CL动画不是验证",
+      "fields": [
+        "nc.d04SeparateD10",
+        "nc.d09Neutral",
+        "nc.d13Status",
+        "nc.d16Released",
+        "nc.clAnimationEqualsD15",
+        "nc.materialSweepSimulation"
+      ],
+      "sourceIds": [
+        "SRC-T502-NIST-DT",
+        "SRC-T502-NISTIR",
+        "SRC-T502-PROV"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "nc.d04SeparateD10",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d09Neutral",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d13Status",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "nc.d16Released",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "nc.clAnimationEqualsD15",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "nc.materialSweepSimulation",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-02-T19",
+      "negativeTestId": "T5-02-T20",
+      "mutationTestId": "T5-02-M10",
+      "independentConsumer": "NOT_RUN",
+      "designApproval": "PENDING_HUMAN"
+    }
+  ]
+}

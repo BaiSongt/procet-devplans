@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "procet-b103-trace-v08",
+  "date": "2026-11-02",
+  "capabilityId": "CAP-03-04",
+  "sourceRegistry": "research/sources/CAP-03-04-datum-target-b103.json",
+  "fixtures": "docs/capabilities/CAP-03-04/datum-target-b103-fixtures-v08.json",
+  "validator": "tools/check_cap0304_datum_target_b103_v08.cjs",
+  "workPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "owner": "03-D01/D02",
+  "l3": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "B103-R01",
+      "statement": "标准版次及历史上下文不可被当前版覆盖",
+      "fields": [
+        "source.edition",
+        "source.claimsCurrent"
+      ],
+      "sourceIds": [
+        "B103-S01",
+        "B103-S02"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02"
+      ],
+      "positiveIds": [
+        "B103-R01-P"
+      ],
+      "negativeIds": [
+        "B103-R01-N1"
+      ],
+      "unknownIds": [
+        "B103-R01-U1",
+        "B103-R01-U2"
+      ]
+    },
+    {
+      "id": "B103-R02",
+      "statement": "STC不含Datum Targets，不能将STC全通过当Datum Target覆盖",
+      "fields": [
+        "corpus.family",
+        "corpus.targetPresent",
+        "corpus.rawHash",
+        "corpus.claimsTargetCoverage"
+      ],
+      "sourceIds": [
+        "B103-S03"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02"
+      ],
+      "positiveIds": [
+        "B103-R02-P"
+      ],
+      "negativeIds": [
+        "B103-R02-N1",
+        "B103-R02-N2"
+      ],
+      "unknownIds": [
+        "B103-R02-U1",
+        "B103-R02-U2"
+      ]
+    },
+    {
+      "id": "B103-R03",
+      "statement": "目标来源实体、装配实例、确切拓扑、语义Frame与单位必须绑定",
+      "fields": [
+        "target.sourceEntity",
+        "target.topologyRef",
+        "target.occurrence",
+        "target.frame",
+        "target.unit"
+      ],
+      "sourceIds": [
+        "B103-S05",
+        "B103-S06"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02"
+      ],
+      "positiveIds": [
+        "B103-R03-P"
+      ],
+      "negativeIds": [
+        "B103-R03-N1",
+        "B103-R03-N2"
+      ],
+      "unknownIds": [
+        "B103-R03-U1"
+      ]
+    },
+    {
+      "id": "B103-R04",
+      "statement": "Datum Target类别与位置以及修饰符原有顺序分别保留",
+      "fields": [
+        "target.kind",
+        "target.position",
+        "target.modifiers"
+      ],
+      "sourceIds": [
+        "B103-S05"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02"
+      ],
+      "positiveIds": [
+        "B103-R04-P"
+      ],
+      "negativeIds": [
+        "B103-R04-N1",
+        "B103-R04-N2"
+      ],
+      "unknownIds": [
+        "B103-R04-U1"
+      ]
+    },
+    {
+      "id": "B103-R05",
+      "statement": "Graphic PMI不能作为Semantic PMI完整覆盖或制造消费资格",
+      "fields": [
+        "semantic.kind",
+        "semantic.claim",
+        "semantic.sourceEntity"
+      ],
+      "sourceIds": [
+        "B103-S04",
+        "B103-S06"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02"
+      ],
+      "positiveIds": [
+        "B103-R05-P"
+      ],
+      "negativeIds": [
+        "B103-R05-N1"
+      ],
+      "unknownIds": [
+        "B103-R05-U1"
+      ]
+    },
+    {
+      "id": "B103-R06",
+      "statement": "OCCT对象API存在不能代替固定Reader进程实际测试",
+      "fields": [
+        "reader.apiPresent",
+        "reader.run",
+        "reader.version",
+        "reader.coverage",
+        "reader.claimsPassed"
+      ],
+      "sourceIds": [
+        "B103-S04",
+        "B103-S05",
+        "B103-S06"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02"
+      ],
+      "positiveIds": [
+        "B103-R06-P"
+      ],
+      "negativeIds": [
+        "B103-R06-N1"
+      ],
+      "unknownIds": [
+        "B103-R06-U1",
+        "B103-R06-U2"
+      ]
+    },
+    {
+      "id": "B103-R07",
+      "statement": "来源分母与解析/跳过/不支持/歧义四分项守恒，零目标非正向通过",
+      "fields": [
+        "coverage.expected",
+        "coverage.parsed",
+        "coverage.skipped",
+        "coverage.unsupported",
+        "coverage.ambiguous"
+      ],
+      "sourceIds": [
+        "B103-S03",
+        "B103-S04"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02"
+      ],
+      "positiveIds": [
+        "B103-R07-P"
+      ],
+      "negativeIds": [
+        "B103-R07-N1",
+        "B103-R07-N2"
+      ],
+      "unknownIds": [
+        "B103-R07-U1",
+        "B103-R07-U2"
+      ]
+    },
+    {
+      "id": "B103-R08",
+      "statement": "D02唯一Owner重新校验D01原字节Hash与ACL/CAS/取消，禁止冻结覆盖及假D16发布",
+      "fields": [
+        "commit.d01Expected",
+        "commit.d01Read",
+        "commit.writer",
+        "commit.acl",
+        "commit.cas",
+        "commit.epoch",
+        "commit.frozen",
+        "commit.releaseClaim",
+        "commit.independentReal"
+      ],
+      "sourceIds": [
+        "B103-S05",
+        "B103-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D02",
+        "D08",
+        "D16"
+      ],
+      "positiveIds": [
+        "B103-R08-P"
+      ],
+      "negativeIds": [
+        "B103-R08-N1",
+        "B103-R08-N2",
+        "B103-R08-N3",
+        "B103-R08-N4"
+      ],
+      "unknownIds": [
+        "B103-R08-U1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "procet-risk-handoff-trace-v08",
+  "researchTopic": "R-FINAL-HANDOFF-B02",
+  "audit": "research/audits/FINAL-RISK-HANDOFF-B02-2026-10-29.json",
+  "sourceRecordStatus": "NEW_PUBLIC_WEB_METADATA_REVISIT_NOT_REGISTRY_INSERT",
+  "rules": [
+    {
+      "id": "H02-F01",
+      "rule": "签署与消费证明是两个独立门禁：17资产候选Owner具名Port不能替代人类签署，独立消费者仍需实际执行。",
+      "sourceRefs": [
+        "B02-OAS",
+        "B02-NIST"
+      ],
+      "fields": [
+        "assets[].signoff",
+        "assets[].consumer",
+        "assets[].producerPort"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "T5-05",
+        "T5-06"
+      ]
+    },
+    {
+      "id": "H02-F02",
+      "rule": "验收引用必须固定revision/contentHash/schemaVersion/scope及适用frame，三个业务入口走同一Port，提交时做权限epoch、CAS和取消代际重验。",
+      "sourceRefs": [
+        "B02-OAS",
+        "B02-W3C"
+      ],
+      "fields": [
+        "assets[].independentConsumerPlan.reference",
+        "assets[].entrypoints",
+        "globalGates.sameDomainEntry"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-01-04",
+        "CAP-01-07"
+      ],
+      "packages": [
+        "B0-01",
+        "U4-02"
+      ]
+    },
+    {
+      "id": "H02-F03",
+      "rule": "结构与来源登记覆盖不升级为全文实读、正式Owner签署或NC工程验证；证据失效时保持降级并不可发布。",
+      "sourceRefs": [
+        "B02-NIST",
+        "B02-W3C"
+      ],
+      "fields": [
+        "freshObservations.fullExternalSourceReview",
+        "productVerification",
+        "globalGates.unknownSemanticsPublish"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-10-01"
+      ],
+      "packages": [
+        "T5-05",
+        "T5-06"
+      ]
+    },
+    {
+      "id": "H02-F04",
+      "rule": "只允许原工作包直接CAP边作为历史事实；十个零边包仅产生待审候选，不能误写原312条；缺失附件不冒充恢复。",
+      "sourceRefs": [
+        "B02-W3C"
+      ],
+      "fields": [
+        "baseline.originalCapPackageEdges",
+        "zeroOriginalEdgeWorkPackages[].policy",
+        "risks[].gate"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05"
+      ]
+    },
+    {
+      "id": "H02-F05",
+      "rule": "D04 Setup、D10机床执行绑定分离，中立CL不能冒充最终NC；D13/D14/D15任何UNKNOWN不得给D16发布资格，不做扫掠材料仿真。",
+      "sourceRefs": [
+        "B02-W3C",
+        "B02-NIST"
+      ],
+      "fields": [
+        "globalGates.setupExecutionBindingSeparated",
+        "globalGates.sourceExecutionStages",
+        "globalGates.unknownSemanticsPublish"
+      ],
+      "caps": [
+        "CAP-04-06",
+        "CAP-07-07",
+        "CAP-09-07",
+        "CAP-10-01"
+      ],
+      "packages": [
+        "W2-06",
+        "T5-05"
+      ]
+    },
+    {
+      "id": "H02-F06",
+      "rule": "历史快照只读保留失效线索；Markdown局部检查结果不能计为全仓通过；L1/L2锁定，L3待人工审批。",
+      "sourceRefs": [
+        "B02-W3C"
+      ],
+      "fields": [
+        "freshObservations.fullMarkdownScan",
+        "humanL3",
+        "freshObservations.subsetRelativeLinksChecked"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "T5-05",
+        "T5-06"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "procet-b136-trace-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-07-02",
+  "researchTopic": "R-3AXIS-SURFACE-001",
+  "sourceRegistry": "research/sources/CAP-07-02-scallop-boundary-b136.json",
+  "capabilityDocument": "docs/capabilities/CAP-07-02/SCALLOP-BOUNDARY-B136-2026-11-03.md",
+  "fixturePath": "docs/capabilities/CAP-07-02/scallop-boundary-b136-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0702_scallop_boundary_b136_v08.cjs",
+  "workPackages": [
+    "F1-03",
+    "E3-01",
+    "U4-04"
+  ],
+  "rules": [
+    {
+      "id": "B136-R01",
+      "capabilityId": "CAP-07-02",
+      "description": "D01/D02/D03/D04/D07/D08必须持有精确revision/hash/frame与保护冻结",
+      "sourceIds": [
+        "B136-S07",
+        "B136-S01"
+      ],
+      "fields": [
+        "refs.designRevisionHashExact",
+        "refs.setupFrameExact",
+        "refs.finishToleranceFromD02",
+        "refs.d08FrozenUnchanged"
+      ],
+      "failureStatuses": [
+        "STALE",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R01-P",
+        "B136-R01-N1",
+        "B136-R01-N2",
+        "B136-R01-N3",
+        "B136-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B136-R02",
+      "capabilityId": "CAP-07-02",
+      "description": "D03球头半径、直径、实际工具组件与磨耗资格分别固定",
+      "sourceIds": [
+        "B136-S03",
+        "B136-S04",
+        "B136-S07"
+      ],
+      "fields": [
+        "tool.actualBallGeometryPinned",
+        "tool.radiusDiameterConsistent",
+        "tool.wearNotAssumedZero",
+        "tool.assemblyHashExact"
+      ],
+      "failureStatuses": [
+        "UNKNOWN",
+        "REJECT_INPUT",
+        "UNKNOWN",
+        "STALE"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R02-P",
+        "B136-R02-N1",
+        "B136-R02-N2",
+        "B136-R02-N3",
+        "B136-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B136-R03",
+      "capabilityId": "CAP-07-02",
+      "description": "侧向间距的度量、局部平面假设与接触几何必须明确",
+      "sourceIds": [
+        "B136-S01",
+        "B136-S02",
+        "B136-S03",
+        "B136-S07"
+      ],
+      "fields": [
+        "metric.localStepInMm",
+        "metric.parallelPlanarEvidence",
+        "metric.realContactNormalQualified",
+        "metric.uvDistanceNotSubstituted"
+      ],
+      "failureStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT_INPUT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R03-P",
+        "B136-R03-N1",
+        "B136-R03-N2",
+        "B136-R03-N3",
+        "B136-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B136-R04",
+      "capabilityId": "CAP-07-02",
+      "description": "理想平面球头残高函数的定义域、稳定计算、反算及版本固定",
+      "sourceIds": [
+        "B136-S03",
+        "B136-S06",
+        "B136-S07"
+      ],
+      "fields": [
+        "math.radiusPositive",
+        "math.stepStrictlyWithinDiameter",
+        "math.stableSagittaFormula",
+        "math.inverseDomainGuarded"
+      ],
+      "failureStatuses": [
+        "REJECT_INPUT",
+        "REJECT_INPUT",
+        "UNKNOWN",
+        "REJECT_INPUT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R04-P",
+        "B136-R04-N1",
+        "B136-R04-N2",
+        "B136-R04-N3",
+        "B136-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B136-R05",
+      "capabilityId": "CAP-07-02",
+      "description": "修剪区域、曲率和刀柄夹具独立Oracle缺失不能凭平面残高认证",
+      "sourceIds": [
+        "B136-S01",
+        "B136-S05",
+        "B136-S06",
+        "B136-S07"
+      ],
+      "fields": [
+        "oracle.trimmedFaceCertified",
+        "oracle.curvatureVariationQualified",
+        "oracle.holderFixtureIndependent",
+        "oracle.unknownStopsQualityCertification"
+      ],
+      "failureStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R05-P",
+        "B136-R05-N1",
+        "B136-R05-N2",
+        "B136-R05-N3",
+        "B136-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B136-R06",
+      "capabilityId": "CAP-07-02",
+      "description": "有序D07剩余材料和D04 Setup边界保持准确，不做材料扫掠仿真",
+      "sourceIds": [
+        "B136-S07",
+        "B136-S01"
+      ],
+      "fields": [
+        "stock.orderedD07HashExact",
+        "stock.d04SeparateFromD10",
+        "stock.protectionAndRestKnown",
+        "stock.noMaterialSweepClaim"
+      ],
+      "failureStatuses": [
+        "STALE",
+        "REJECT",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R06-P",
+        "B136-R06-N1",
+        "B136-R06-N2",
+        "B136-R06-N3",
+        "B136-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B136-R07",
+      "capabilityId": "CAP-07-02",
+      "description": "07域Owner提交时重验CAS、ACL、Scope与取消Fence并可非破坏回退",
+      "sourceIds": [
+        "B136-S07"
+      ],
+      "fields": [
+        "commit.casRevisionHashFrameExact",
+        "commit.aclFreshAtWrite",
+        "commit.scopeEpochAndCancelFence",
+        "commit.freezeHistoryRollback"
+      ],
+      "failureStatuses": [
+        "STALE",
+        "REJECT",
+        "IGNORED_LATE_RECEIPT",
+        "REJECT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R07-P",
+        "B136-R07-N1",
+        "B136-R07-N2",
+        "B136-R07-N3",
+        "B136-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B136-R08",
+      "capabilityId": "CAP-07-02",
+      "description": "统一07域三入口/单Babylon左TaskPanel及D12–D16实际NC链独立",
+      "sourceIds": [
+        "B136-S07",
+        "B136-S04"
+      ],
+      "fields": [
+        "handoff.guiCliAgentSamePort",
+        "handoff.oneBabylonLeftPanel",
+        "handoff.d13D14D15IndependentFromNc",
+        "handoff.unknownBlocksD16"
+      ],
+      "failureStatuses": [
+        "REJECT",
+        "REJECT_UI",
+        "UNKNOWN",
+        "REJECT_RELEASE"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "tests": [
+        "B136-R08-P",
+        "B136-R08-N1",
+        "B136-R08-N2",
+        "B136-R08-N3",
+        "B136-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

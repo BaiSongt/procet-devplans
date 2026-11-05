@@ -1,0 +1,360 @@
+{
+  "schemaVersion": "procet-b122-trace-v08",
+  "date": "2026-11-03",
+  "topicId": "R-NC-AUX-001",
+  "capabilityId": "CAP-08-04",
+  "sourceRegistry": "research/sources/CAP-08-04-css-spindle-b122.json",
+  "fixtures": "docs/capabilities/CAP-08-04/css-spindle-b122-fixtures-v08.json",
+  "checker": "tools/check_cap0804_css_spindle_b122_v08.cjs",
+  "originalWorkPackages": [
+    "E3-02",
+    "E3-03",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "realIndependentConsumerPassCount": 0,
+  "rules": [
+    {
+      "id": "B122-R01",
+      "summary": "锁定控制器家族/车床机类/固件Profile，拒绝按同G码猜跨厂兼容",
+      "fields": [
+        "family",
+        "machineClass",
+        "firmwarePinned",
+        "profilePinned"
+      ],
+      "sourceIds": [
+        "B122-S01",
+        "B122-S03",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-02",
+        "CAP-08-04"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positive": [
+        "B122-P01"
+      ],
+      "negative": [
+        "B122-N01-1",
+        "B122-N01-2",
+        "B122-N01-3",
+        "B122-N01-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B122-R02",
+      "summary": "Haas G50 S与LinuxCNC G96 D限速语法不互换，缺实证先UNKNOWN",
+      "fields": [
+        "family",
+        "limitSyntax",
+        "maxRpm",
+        "capProfileKnown"
+      ],
+      "sourceIds": [
+        "B122-S01",
+        "B122-S05",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-02",
+        "CAP-08-04"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positive": [
+        "B122-P02"
+      ],
+      "negative": [
+        "B122-N02-1",
+        "B122-N02-2",
+        "B122-N02-3",
+        "B122-N02-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B122-R03",
+      "summary": "G96单位、实径及Exact Frame强绑定；n=1000Vc/(πD)只作理论候选",
+      "fields": [
+        "surfaceSpeedMMin",
+        "diameterMm",
+        "units",
+        "centerlinePinned",
+        "sourceAxisFramePinned"
+      ],
+      "sourceIds": [
+        "B122-S01",
+        "B122-S03",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "positive": [
+        "B122-P03"
+      ],
+      "negative": [
+        "B122-N03-1",
+        "B122-N03-2",
+        "B122-N03-3",
+        "B122-N03-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B122-R04",
+      "summary": "物理上限需有四类独立来源并采用最小额定值，参数超限拒绝",
+      "fields": [
+        "rawRpm",
+        "caps",
+        "approvedCapRpm",
+        "approvalRevPinned"
+      ],
+      "sourceIds": [
+        "B122-S03",
+        "B122-S05",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-05"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13",
+        "D15"
+      ],
+      "positive": [
+        "B122-P04"
+      ],
+      "negative": [
+        "B122-N04-1",
+        "B122-N04-2",
+        "B122-N04-3",
+        "B122-N04-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B122-R05",
+      "summary": "LinuxCNC G7/G8程序X与真实半径关系须由D10验证，G96取物理实径而非文本X",
+      "fields": [
+        "family",
+        "axisMode",
+        "xWordMm",
+        "axisCenterPinned",
+        "actualDiameterMm"
+      ],
+      "sourceIds": [
+        "B122-S01",
+        "B122-S02",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-03",
+        "CAP-08-04"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "positive": [
+        "B122-P05"
+      ],
+      "negative": [
+        "B122-N05-1",
+        "B122-N05-2",
+        "B122-N05-3",
+        "B122-N05-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B122-R06",
+      "summary": "车床Haas G98/G99与LinuxCNC G94/G95进给单位不混同",
+      "fields": [
+        "family",
+        "feedCode",
+        "fValue",
+        "rpm",
+        "unitPolicyPinned"
+      ],
+      "sourceIds": [
+        "B122-S02",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-02",
+        "CAP-08-04"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "positive": [
+        "B122-P06"
+      ],
+      "negative": [
+        "B122-N06-1",
+        "B122-N06-2",
+        "B122-N06-3",
+        "B122-N06-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B122-R07",
+      "summary": "主轴计划速度与实测反馈/时序证据分级；未知I/O不伪造ACK",
+      "fields": [
+        "commandState",
+        "physicalAckPresent",
+        "ackProvenanceExact",
+        "d14TimingIndependent",
+        "revisionStillCurrent"
+      ],
+      "sourceIds": [
+        "B122-S07",
+        "B122-S08",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positive": [
+        "B122-P07"
+      ],
+      "negative": [
+        "B122-N07-1",
+        "B122-N07-2",
+        "B122-N07-3",
+        "B122-N07-4",
+        "B122-N07-5"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B122-R08",
+      "summary": "同Owner GUI/CLI/Agent、单Babylon左容器、D04/D10隔离和CAS取消Fence阻断D16",
+      "fields": [
+        "d04Exact",
+        "d10Exact",
+        "clNeutral",
+        "finalNcExact",
+        "sameOwnerPort",
+        "oneSceneLeftPanel",
+        "acl",
+        "cas",
+        "cancelFence",
+        "d15Independent",
+        "d16Requested"
+      ],
+      "sourceIds": [
+        "B122-S08",
+        "B122-S09"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-09-06",
+        "CAP-10-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B122-P08"
+      ],
+      "negative": [
+        "B122-N08-1",
+        "B122-N08-2",
+        "B122-N08-3",
+        "B122-N08-4",
+        "B122-N08-5",
+        "B122-N08-6"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

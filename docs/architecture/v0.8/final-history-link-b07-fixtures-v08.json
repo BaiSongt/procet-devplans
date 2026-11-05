@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "procet-v08-final-link-b07-fixtures-v1",
+  "observedActual": {
+    "head": "bd0eb8a6cc6c9214539e20c9a0c4c593f1c84e8f",
+    "rootTree": "c460fb8bf9ed474ed34ec3c7d91d94e3fd4bd633",
+    "mdTotal": 534,
+    "read": 36,
+    "shaMatched": 36,
+    "links": 130,
+    "missingBefore": 1,
+    "missingAfter": 0,
+    "taskCount": 10,
+    "taskOrigin": "NEWLY_AUTHORED",
+    "owner": 0,
+    "consumer": 0,
+    "l3": "PENDING_HUMAN",
+    "node": "NOT_RUN",
+    "ast": "NOT_RUN",
+    "product": "NOT_RUN",
+    "history": "NOT_RECOVERED",
+    "babylon": 1,
+    "leftPanel": true,
+    "casRecheck": true,
+    "lateAckCanCommit": false,
+    "d04EqualsD10": false,
+    "clAsD15": false,
+    "unknownNc": "UNKNOWN"
+  },
+  "cases": [
+    {
+      "id": "B07-P01",
+      "expected": true
+    },
+    {
+      "id": "B07-N01",
+      "oneFieldOverride": {
+        "head": "stale"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N02",
+      "oneFieldOverride": {
+        "rootTree": "invalid"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N03",
+      "oneFieldOverride": {
+        "mdTotal": 533
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N04",
+      "oneFieldOverride": {
+        "read": 35
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N05",
+      "oneFieldOverride": {
+        "shaMatched": 35
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N06",
+      "oneFieldOverride": {
+        "links": 129
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N07",
+      "oneFieldOverride": {
+        "missingBefore": 0
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N08",
+      "oneFieldOverride": {
+        "missingAfter": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N09",
+      "oneFieldOverride": {
+        "taskCount": 9
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N10",
+      "oneFieldOverride": {
+        "taskOrigin": "HISTORIC_RECOVERED"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N11",
+      "oneFieldOverride": {
+        "owner": 17
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N12",
+      "oneFieldOverride": {
+        "consumer": 17
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N13",
+      "oneFieldOverride": {
+        "l3": "APPROVED"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N14",
+      "oneFieldOverride": {
+        "node": "PASS"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N15",
+      "oneFieldOverride": {
+        "ast": "PASS"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N16",
+      "oneFieldOverride": {
+        "product": "PASS"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N17",
+      "oneFieldOverride": {
+        "history": "RECOVERED"
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N18",
+      "oneFieldOverride": {
+        "babylon": 2
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N19",
+      "oneFieldOverride": {
+        "leftPanel": false
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N20",
+      "oneFieldOverride": {
+        "casRecheck": false
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N21",
+      "oneFieldOverride": {
+        "lateAckCanCommit": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N22",
+      "oneFieldOverride": {
+        "d04EqualsD10": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N23",
+      "oneFieldOverride": {
+        "clAsD15": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B07-N24",
+      "oneFieldOverride": {
+        "unknownNc": "KNOWN"
+      },
+      "expected": false
+    }
+  ],
+  "domainGates": [
+    {
+      "id": "B07-G01",
+      "scenario": "DEV_OVERRIDE_AS_RELEASE",
+      "expected": "BLOCK"
+    },
+    {
+      "id": "B07-G02",
+      "scenario": "MISSING_PNPM_OFFLINE_STORE",
+      "expected": "BLOCK"
+    },
+    {
+      "id": "B07-G03",
+      "scenario": "CANCELLED_LATE_ACK",
+      "expected": "REJECT"
+    },
+    {
+      "id": "B07-G04",
+      "scenario": "CL_PREVIEW_WITHOUT_FINAL_NC_D15",
+      "expected": "BLOCK_D16"
+    },
+    {
+      "id": "B07-G05",
+      "scenario": "MISSING_REAL_NATIVE_WORKER",
+      "expected": "UNKNOWN"
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-02-03",
+  "topic": "R-TA-001",
+  "status": "NEW_RESEARCH_BACKFILL_PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "legacyResearch": "research/topics/R-TA-001.md",
+    "legacyRegistry": "research/references.json",
+    "sourceRegistry": "research/sources/CAP-02-03.json",
+    "fixtures": "docs/capabilities/CAP-02-03/research-fixtures-v08.json",
+    "checker": "tools/check_cap0203_research_v08.cjs",
+    "capDetail": "docs/capabilities/CAP-02-03/README.md"
+  },
+  "ruleCount": 10,
+  "claimedPass": "PLANNING_STATIC_ONLY",
+  "rules": [
+    {
+      "id": "TA03-R01",
+      "capabilityId": "CAP-02-03",
+      "summary": "精确子件身份与总成修订",
+      "engineeringRule": "D03每个节点必须绑定exact resourceRevision/hash；不能从latest隐式替代，冻结A/B保留旧引用",
+      "fields": [
+        "identity.exactRef",
+        "identity.contentHash",
+        "identity.noLatestFallback",
+        "identity.frozenAB"
+      ],
+      "sourceIds": [
+        "TA03-S01",
+        "TA03-S06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "capTests": [
+        "TA-AC-11",
+        "TA-AC-12",
+        "TA-AC-15"
+      ],
+      "acceptanceFixtureId": "TA03-P01",
+      "criteria": [
+        {
+          "path": "identity.exactRef",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.contentHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.noLatestFallback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.frozenAB",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R02",
+      "capabilityId": "CAP-02-03",
+      "summary": "连接接口由受控证据决定",
+      "engineeringRule": "接口类型、主/从配合端、定位基准及兼容性证据齐备；仅字符串相似不可授予装配资格",
+      "fields": [
+        "interface.parentPort",
+        "interface.childPort",
+        "interface.evidenceBound",
+        "interface.unknownFailClosed"
+      ],
+      "sourceIds": [
+        "TA03-S02"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "capTests": [
+        "TA-AC-04",
+        "TA-AC-05",
+        "TA-AC-06"
+      ],
+      "acceptanceFixtureId": "TA03-P02",
+      "criteria": [
+        {
+          "path": "interface.parentPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.childPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.evidenceBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.unknownFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R03",
+      "capabilityId": "CAP-02-03",
+      "summary": "具名右手父局部刚体链",
+      "engineeringRule": "变换必须标明from/to frame、右手无镜像、parent-local复合次序及单位约定，Renderer不得反向定义业务Frame",
+      "fields": [
+        "frame.namedFromTo",
+        "frame.rightHanded",
+        "frame.parentLocalOrder",
+        "frame.mmAndRad"
+      ],
+      "sourceIds": [
+        "TA03-S03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "capTests": [
+        "TA-AC-02",
+        "TA-AC-03",
+        "TA-AC-16"
+      ],
+      "acceptanceFixtureId": "TA03-P03",
+      "criteria": [
+        {
+          "path": "frame.namedFromTo",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.rightHanded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.parentLocalOrder",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.mmAndRad",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R04",
+      "capabilityId": "CAP-02-03",
+      "summary": "TCP声明类型与来源",
+      "engineeringRule": "刀尖/球心等TCP带显式类型，名义值与校准值隔离；不得以场景mesh或包围盒推算工程TCP",
+      "fields": [
+        "tcp.typedControlPoint",
+        "tcp.assemblyTransform",
+        "tcp.nominalCalibrationSeparate",
+        "tcp.noSceneBackwrite"
+      ],
+      "sourceIds": [
+        "TA03-S03",
+        "TA03-S01"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "capTests": [
+        "TA-AC-01",
+        "TA-AC-07",
+        "TA-AC-10"
+      ],
+      "acceptanceFixtureId": "TA03-P04",
+      "criteria": [
+        {
+          "path": "tcp.typedControlPoint",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.assemblyTransform",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.nominalCalibrationSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tcp.noSceneBackwrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R05",
+      "capabilityId": "CAP-02-03",
+      "summary": "Gauge、Stickout、Engagement、H分离",
+      "engineeringRule": "量规面与夹持面均有具名基准，夹持长度需另证，不将任何控制器H视为通用Gauge Length",
+      "fields": [
+        "length.gaugeDatumKnown",
+        "length.stickoutDatumKnown",
+        "length.engagementDistinct",
+        "length.hNotGauge"
+      ],
+      "sourceIds": [
+        "TA03-S01",
+        "TA03-S04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-03"
+      ],
+      "capTests": [
+        "TA-AC-01",
+        "TA-AC-06",
+        "TA-AC-08"
+      ],
+      "acceptanceFixtureId": "TA03-P05",
+      "criteria": [
+        {
+          "path": "length.gaugeDatumKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "length.stickoutDatumKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "length.engagementDistinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "length.hNotGauge",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R06",
+      "capabilityId": "CAP-02-03",
+      "summary": "D03/D04/D10/D13业务写权分离",
+      "engineeringRule": "D03拥有名义总成，D04拥有名义Setup采用，D10拥有机床执行绑定与校准，D13拥有最终NC刀补状态",
+      "fields": [
+        "owner.d03Nominal",
+        "owner.d04Setup",
+        "owner.d10ActualBinding",
+        "owner.d13Interpreter"
+      ],
+      "sourceIds": [
+        "TA03-S04",
+        "TA03-S06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-03",
+        "E3-04"
+      ],
+      "capTests": [
+        "TA-AC-08",
+        "TA-AC-09",
+        "TA-AC-13"
+      ],
+      "acceptanceFixtureId": "TA03-P06",
+      "criteria": [
+        {
+          "path": "owner.d03Nominal",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.d04Setup",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.d10ActualBinding",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.d13Interpreter",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R07",
+      "capabilityId": "CAP-02-03",
+      "summary": "Owner提交时二次校验与CAS",
+      "engineeringRule": "GUI/CLI/Agent只能同Owner Port命令提交，事务重验ACL、ScopeEpoch、exactRef/Hash/Frame、CAS和cancelGeneration",
+      "fields": [
+        "commit.aclRecheck",
+        "commit.scopeEpochRecheck",
+        "commit.exactCasHashFrame",
+        "commit.cancelRecheck"
+      ],
+      "sourceIds": [
+        "TA03-S05"
+      ],
+      "workPackages": [
+        "B0-03",
+        "F1-02",
+        "U4-02"
+      ],
+      "capTests": [
+        "TA-AC-11",
+        "TA-AC-13"
+      ],
+      "acceptanceFixtureId": "TA03-P07",
+      "criteria": [
+        {
+          "path": "commit.aclRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.scopeEpochRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.exactCasHashFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelRecheck",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R08",
+      "capabilityId": "CAP-02-03",
+      "summary": "晚回执、失效迁移与撤销",
+      "engineeringRule": "取消后迟到ACK不恢复写资格；已提交回执仍对账；退役或修订派生新引用并明确下游依赖失效/回退",
+      "fields": [
+        "lifecycle.cancelLateAckNoWrite",
+        "lifecycle.committedReceiptReconcile",
+        "lifecycle.noSilentMigration",
+        "lifecycle.invalidationRollback"
+      ],
+      "sourceIds": [
+        "TA03-S06",
+        "TA03-S05"
+      ],
+      "workPackages": [
+        "F1-06",
+        "E3-03"
+      ],
+      "capTests": [
+        "TA-AC-11",
+        "TA-AC-12",
+        "TA-AC-15"
+      ],
+      "acceptanceFixtureId": "TA03-P08",
+      "criteria": [
+        {
+          "path": "lifecycle.cancelLateAckNoWrite",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.committedReceiptReconcile",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.noSilentMigration",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.invalidationRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R09",
+      "capabilityId": "CAP-02-03",
+      "summary": "单一3D与统一任务入口",
+      "engineeringRule": "GUI/CLI/Agent共用领域Port；一个活动Babylon Engine/Scene/Canvas；统一左TaskPanel，字号最大12px，3D预览不可视为提交",
+      "fields": [
+        "ui.oneBabylonWorld",
+        "ui.unifiedLeftPanel",
+        "ui.sameOwnerPort",
+        "ui.fontMax12"
+      ],
+      "sourceIds": [
+        "TA03-S03",
+        "TA03-S05"
+      ],
+      "workPackages": [
+        "U4-02",
+        "U4-03"
+      ],
+      "capTests": [
+        "TA-AC-10",
+        "TA-AC-13"
+      ],
+      "acceptanceFixtureId": "TA03-P09",
+      "criteria": [
+        {
+          "path": "ui.oneBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.unifiedLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.sameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.fontMax12",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TA03-R10",
+      "capabilityId": "CAP-02-03",
+      "summary": "NC独立验证与未知状态隔离",
+      "engineeringRule": "中立D09 CL经D12后处理→D13语义→D14轴时序→D15独立验证→D16发布；UNKNOWN不得发布，CL播放不能冒充NC工程验证",
+      "fields": [
+        "nc.finalD12Provenance",
+        "nc.d13UnknownBlocks",
+        "nc.d14D15Independent",
+        "nc.clPreviewNotPass"
+      ],
+      "sourceIds": [
+        "TA03-S04",
+        "TA03-S06"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "capTests": [
+        "TA-AC-09",
+        "TA-AC-14"
+      ],
+      "acceptanceFixtureId": "TA03-P10",
+      "criteria": [
+        {
+          "path": "nc.finalD12Provenance",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d13UnknownBlocks",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d14D15Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.clPreviewNotPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1个独立正例及4个一次只改一字段负例",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "engineeringGates": {
+    "singleBabylon": true,
+    "leftTaskPanel": true,
+    "ownerExactRevisionHashFrameCas": true,
+    "ownerCancelLateAck": true,
+    "d04D10Separate": true,
+    "immutableAB": true,
+    "ncChain": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "unknownNotPublishable": true,
+    "noMaterialSweep": true,
+    "humanL3": "PENDING_HUMAN",
+    "independentConsumer": "NOT_RUN"
+  },
+  "claimBoundary": "仅来源/规则/字段/正反合成追踪；历史TA-AC01..16产品测试未执行；官方目录非全文，不作特定控制器和B5机床认证"
+}

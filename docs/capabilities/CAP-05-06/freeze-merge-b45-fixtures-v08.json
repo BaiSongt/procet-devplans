@@ -1,0 +1,483 @@
+{
+  "schemaVersion": "procet-b45-fixture-v1",
+  "date": "2026-10-30",
+  "syntheticOnly": true,
+  "baseline": {
+    "exact": {
+      "scope": "project-1",
+      "sourceHash": "sha256:s1",
+      "frameHash": "sha256:f1",
+      "d05Revision": "c1",
+      "d08Hash": "sha256:snap1",
+      "canonicalProfile": "JCS-v1"
+    },
+    "revisions": {
+      "b0": [],
+      "c1": [
+        "b0"
+      ],
+      "p1": [
+        "b0"
+      ],
+      "z0": []
+    },
+    "baseRef": "b0",
+    "currentRef": "c1",
+    "proposedRef": "p1",
+    "baseNodes": {
+      "A": "a0",
+      "B": "b0",
+      "C": "c0",
+      "D": "d0"
+    },
+    "currentNodes": {
+      "A": "a0",
+      "B": "b0",
+      "C": "c1",
+      "D": "d0"
+    },
+    "proposedNodes": {
+      "A": "a0",
+      "B": "b0",
+      "C": "c0",
+      "D": "d0",
+      "E": "e0"
+    },
+    "baseEdges": [
+      [
+        "A",
+        "B"
+      ]
+    ],
+    "currentEdges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "D",
+        "C"
+      ]
+    ],
+    "proposedEdges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "C",
+        "E"
+      ]
+    ],
+    "freeze": {
+      "targets": [
+        "B"
+      ],
+      "owner": "D05",
+      "d08Before": "sha256:snap1",
+      "d08After": "sha256:snap1",
+      "historyRetained": true
+    },
+    "commit": {
+      "scope": "project-1",
+      "expected": "c1",
+      "actual": "c1",
+      "acl": true,
+      "cancelled": false,
+      "generation": 7,
+      "currentGeneration": 7,
+      "scopeEpoch": 11,
+      "currentScopeEpoch": 11,
+      "observedSourceHash": "sha256:s1",
+      "actualSourceHash": "sha256:s1"
+    },
+    "downstream": {
+      "invalidationsComplete": true,
+      "d13": "UNKNOWN",
+      "d16": "BLOCKED",
+      "clPreviewQualified": false,
+      "writesFrozen": false
+    },
+    "entry": {
+      "port": "05.ProcessPlanFreezeDomainPort",
+      "singleBabylon": true,
+      "taskPanel": "LEFT",
+      "previewWrites": false,
+      "agentDirectWrites": false
+    },
+    "migration": {
+      "adapterKnown": true,
+      "missingPolicy": "UNKNOWN",
+      "rollbackAppendOnly": true
+    },
+    "mode": "COMMIT"
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "expected": "PASS",
+      "edits": []
+    },
+    {
+      "id": "P02",
+      "expected": "PASS",
+      "edits": [
+        {
+          "path": "proposedNodes.E",
+          "value": "e2"
+        }
+      ]
+    },
+    {
+      "id": "N01",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "exact.scope",
+          "value": "different-project"
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "revisions.p1",
+          "value": [
+            "z0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N03",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "proposedNodes.C",
+          "value": "c2"
+        }
+      ]
+    },
+    {
+      "id": "N04",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "proposedNodes.A",
+          "value": "a2"
+        }
+      ]
+    },
+    {
+      "id": "N05",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "proposedEdges",
+          "value": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "C",
+              "E"
+            ],
+            [
+              "C",
+              "D"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N06",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "proposedEdges",
+          "value": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "C",
+              "E"
+            ],
+            [
+              "X",
+              "E"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N07",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "proposedEdges",
+          "value": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "C",
+              "E"
+            ],
+            [
+              "B",
+              "E"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N08",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "freeze.d08After",
+          "value": "different"
+        }
+      ]
+    },
+    {
+      "id": "N09",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "freeze.historyRetained",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "freeze.owner",
+          "value": "D06"
+        }
+      ]
+    },
+    {
+      "id": "N11",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "commit.expected",
+          "value": "old"
+        }
+      ]
+    },
+    {
+      "id": "N12",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "commit.acl",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N13",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "commit.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N14",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "commit.generation",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "id": "N15",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "commit.scopeEpoch",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "N16",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "commit.observedSourceHash",
+          "value": "stale"
+        }
+      ]
+    },
+    {
+      "id": "N17",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "commit.scope",
+          "value": "other"
+        }
+      ]
+    },
+    {
+      "id": "N18",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "downstream.invalidationsComplete",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N19",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "downstream.d16",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "N20",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "downstream.clPreviewQualified",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N21",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "downstream.writesFrozen",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N22",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "entry.port",
+          "value": "06.SolverPort"
+        }
+      ]
+    },
+    {
+      "id": "N23",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "entry.singleBabylon",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "N24",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "entry.taskPanel",
+          "value": "RIGHT"
+        }
+      ]
+    },
+    {
+      "id": "N25",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "entry.previewWrites",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "N26",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "migration.missingPolicy",
+          "value": "INFER"
+        }
+      ]
+    },
+    {
+      "id": "N27",
+      "expected": "REJECT",
+      "edits": [
+        {
+          "path": "migration.rollbackAppendOnly",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "U01",
+      "expected": "UNKNOWN",
+      "edits": [
+        {
+          "path": "exact.frameHash",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "U02",
+      "expected": "UNKNOWN",
+      "edits": [
+        {
+          "path": "revisions.p1",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "U03",
+      "expected": "UNKNOWN",
+      "edits": [
+        {
+          "path": "commit.acl",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "U04",
+      "expected": "UNKNOWN",
+      "edits": [
+        {
+          "path": "migration.adapterKnown",
+          "value": null
+        }
+      ]
+    }
+  ]
+}

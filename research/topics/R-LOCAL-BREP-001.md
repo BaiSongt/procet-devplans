@@ -1,0 +1,6 @@
+# R-LOCAL-BREP-001｜局部B-Rep去料、重叠分解与修补证据
+**2026-10-25 检索与核查**：官方[OCCT Boolean Operations](https://www.occt3d.com/dev/doc/overview/html/specification__boolean_operations.html) 的CUT/COMMON/FUSE、历史生成关系已读；[BRepAlgoAPI_Cut](https://www.occt3d.com/dev/doc/refman/html/class_b_rep_algo_a_p_i___cut.html)、[BRepCheck_Analyzer](https://www.occt3d.com/dev/doc/refman/html/class_b_rep_check___analyzer.html)、[ShapeFix_Shape](https://www.occt3d.com/dev/doc/refman/html/class_shape_fix___shape.html)、[BOPAlgo_Options](https://www.occt3d.com/dev/doc/refman/html/class_b_o_p_algo___options.html)、[BRepGProp](https://www.occt3d.com/dev/doc/refman/html/class_b_rep_g_prop.html) 为8.0.1 API文档。
+ISO 14649-11:2004只访问官方目录/Abstract，不能证明布尔算法；NIST IR 8536 2026年9月最终版仅阅读官网元数据与摘要，不能声称PDF正文已读；W3C PROV-O和RFC 9110分别是谱系与CAS类比，而非几何行业标准。
+**数学原理**：对集合A/B，A∪B=(A\\B)∪(A∩B)∪(B\\A)，三者互不交。这个等式不涵盖有限精度B-Rep相切退化、顶点容差累积及可加工性；多集合N的通用分解要考虑不同交集超图和实际OCCT行为。独立验收应核算封闭Solid体积、拓扑、保护区、岛屿和修补谱系。
+**适用边界**：几何Valid != NC执行安全；volume correctness requires suitable closed oriented solids; ShapeFix修补改变几何并需要新hash/再校验。没有任何权威来源提供“适用于所有航空薄壁件”的默认容差阈值。
+[来源登记](../sources/CAP-06-03.json) · [10规则20正反](../traces/CAP-06-03.json) · [业务规格](../../docs/capabilities/CAP-06-03/README.md)。

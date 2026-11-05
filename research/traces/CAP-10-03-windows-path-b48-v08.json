@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "procet-b48-trace-v1",
+  "date": "2026-10-31",
+  "capability": "CAP-10-03",
+  "sourceRegistry": "research/sources/CAP-10-03-windows-path-b48.json",
+  "specification": "docs/capabilities/CAP-10-03/WINDOWS-PATH-ALIASES-B48-2026-10-31.md",
+  "fixture": "docs/capabilities/CAP-10-03/windows-path-b48-fixtures-v08.json",
+  "validator": "tools/check_cap1003_windows_path_b48_v08.cjs",
+  "rules": [
+    {
+      "id": "B48-R1",
+      "title": "ZIP成员只接受显式POSIX相对路径；不把自动消毒的重命名路径作为签发清单身份",
+      "sourceIds": [
+        "B48-S01",
+        "B48-S04",
+        "B48-S06"
+      ],
+      "fields": [
+        "archive.entries[].name",
+        "manifest.entries[].name"
+      ],
+      "capabilityIds": [
+        "CAP-10-03",
+        "CAP-10-04"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B48-R2",
+      "title": "保守Windows拒绝设备名/扩展别名、冒号ADS、尾点空格、控制字符和非法字元",
+      "sourceIds": [
+        "B48-S01",
+        "B48-S02"
+      ],
+      "fields": [
+        "archive.entries[].name",
+        "profile.policy"
+      ],
+      "capabilityIds": [
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B48-R3",
+      "title": "拒绝大小写路径折叠碰撞和文件作为另一成员父路径；未认证Unicode等价返回UNKNOWN",
+      "sourceIds": [
+        "B48-S01",
+        "B48-S06"
+      ],
+      "fields": [
+        "archive.entries[].name",
+        "profile.policy"
+      ],
+      "capabilityIds": [
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N12",
+        "N13"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B48-R4",
+      "title": "归档只接收regular；symlink/junction/hardlink/reparse拒绝；主机reparse审计不可证为UNKNOWN",
+      "sourceIds": [
+        "B48-S03",
+        "B48-S05",
+        "B48-S06"
+      ],
+      "fields": [
+        "archive.entries[].kind",
+        "profile.hostVerified",
+        "profile.reparseAuditAvailable"
+      ],
+      "capabilityIds": [
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N14",
+        "N15",
+        "N16",
+        "N17"
+      ],
+      "unknownIds": [
+        "U02",
+        "U03",
+        "U04"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B48-R5",
+      "title": "枚举成员数量/展开尺寸/单文件预算和Manifest逐成员原字节等价，先隔离后提取",
+      "sourceIds": [
+        "B48-S04",
+        "B48-S06"
+      ],
+      "fields": [
+        "budget.maxEntries",
+        "budget.maxTotalBytes",
+        "budget.maxEntryBytes",
+        "archive.entries[].rawHash",
+        "manifest.entries[].rawHash"
+      ],
+      "capabilityIds": [
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B48-R6",
+      "title": "D16/D12原字节及D10实际Frame和revision精确；收方签名未验证只给UNKNOWN",
+      "sourceIds": [
+        "B48-S02",
+        "B48-S06"
+      ],
+      "fields": [
+        "receiver.d12Hash",
+        "receiver.d16Hash",
+        "receiver.signatureEvidence",
+        "owner.d10Frame",
+        "owner.d10Revision"
+      ],
+      "capabilityIds": [
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N23",
+        "N24",
+        "N25",
+        "N26"
+      ],
+      "unknownIds": [
+        "U05"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B48-R7",
+      "title": "接收前ACL/CAS/epoch与取消晚回执重验，影子Reader可无损回退，D08冻结不变",
+      "sourceIds": [
+        "B48-S06"
+      ],
+      "fields": [
+        "owner.aclGranted",
+        "owner.casMatched",
+        "owner.scopeEpoch",
+        "owner.cancelled",
+        "owner.lateAck",
+        "owner.freezeAfter",
+        "owner.pairedReaderRollback"
+      ],
+      "capabilityIds": [
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B48-R8",
+      "title": "GUI/CLI/Agent同10域OwnerPort，唯一Babylon左TaskPanel；D15未实测不许凭路径验收升级发布",
+      "sourceIds": [
+        "B48-S06"
+      ],
+      "fields": [
+        "ui.entries",
+        "ui.babylonWorlds",
+        "gate.d15",
+        "gate.d16"
+      ],
+      "capabilityIds": [
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N34",
+        "N35",
+        "N36",
+        "N37"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "schemaVersion": "procet-b117-trace-v08",
+  "date": "2026-11-02",
+  "traceId": "CAP-02-07-GLTF-MIRROR-UNITS-B117",
+  "primaryCapability": "CAP-02-07",
+  "researchTopic": "R-RG-001",
+  "sourceRegistry": "research/sources/CAP-02-07-gltf-b117.json",
+  "fixtures": "docs/capabilities/CAP-02-07/gltf-b117-fixtures-v08.json",
+  "validator": "tools/check_cap0207_gltf_b117_v08.cjs",
+  "rules": [
+    {
+      "id": "B117-R01",
+      "summary": "米→毫米换算仅一次并锁定轴系及源身份",
+      "sourceIds": [
+        "B117-S01",
+        "B117-S07"
+      ],
+      "fields": [
+        "sourceMeters",
+        "unitConversionOnce",
+        "coordinateBasisPinned",
+        "sourceDigestPinned"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "positive": [
+        "B117-P01"
+      ],
+      "negative": [
+        "B117-N01-1",
+        "B117-N01-2",
+        "B117-N01-3",
+        "B117-N01-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B117-R02",
+      "summary": "节点必须单父无环并按父变换乘局部T·R·S",
+      "sourceIds": [
+        "B117-S01"
+      ],
+      "fields": [
+        "acyclicNodes",
+        "singleParent",
+        "parentTimesLocal",
+        "trsOrderPinned"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-03"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "positive": [
+        "B117-P02"
+      ],
+      "negative": [
+        "B117-N02-1",
+        "B117-N02-2",
+        "B117-N02-3",
+        "B117-N02-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B117-R03",
+      "summary": "全局负行列式影响三角面绕序但不自动批准制造",
+      "sourceIds": [
+        "B117-S02",
+        "B117-S05",
+        "B117-S06"
+      ],
+      "fields": [
+        "globalDeterminantComputed",
+        "windingParityCorrect",
+        "mirrorDisplayOnly",
+        "singularMatrixRejected"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "U4-03"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "positive": [
+        "B117-P03"
+      ],
+      "negative": [
+        "B117-N03-1",
+        "B117-N03-2",
+        "B117-N03-3",
+        "B117-N03-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B117-R04",
+      "summary": "非均匀缩放及反射不得升级为制造刚性Frame",
+      "sourceIds": [
+        "B117-S01",
+        "B117-S05",
+        "B117-S07"
+      ],
+      "fields": [
+        "manufacturingRigidValidated",
+        "nonUniformScaleNotCertified",
+        "negativeDetNotManufacturing",
+        "displayTransformSeparated"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-04-04"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "positive": [
+        "B117-P04"
+      ],
+      "negative": [
+        "B117-N04-1",
+        "B117-N04-2",
+        "B117-N04-3",
+        "B117-N04-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B117-R05",
+      "summary": "Reader场景选择、节点跳过及缩放策略必须同源固定",
+      "sourceIds": [
+        "B117-S03",
+        "B117-S07"
+      ],
+      "fields": [
+        "readerVersionPinned",
+        "applyScaleModePinned",
+        "sceneSelectionPinned",
+        "skipEmptyPolicyPinned"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-03-01"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "F1-06"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "positive": [
+        "B117-P05"
+      ],
+      "negative": [
+        "B117-N05-1",
+        "B117-N05-2",
+        "B117-N05-3",
+        "B117-N05-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B117-R06",
+      "summary": "Writer网格/合并/坐标策略完整记账，glTF不可冒充BRep",
+      "sourceIds": [
+        "B117-S04",
+        "B117-S07"
+      ],
+      "fields": [
+        "writerVersionPinned",
+        "triangulationHashPinned",
+        "faceMergeMappingExplicit",
+        "meshNotExactBrep"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-03-03"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "F1-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D07"
+      ],
+      "positive": [
+        "B117-P06"
+      ],
+      "negative": [
+        "B117-N06-1",
+        "B117-N06-2",
+        "B117-N06-3",
+        "B117-N06-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B117-R07",
+      "summary": "GUI/CLI/Agent同Owner Port并在提交点重验CAS权限和晚回执",
+      "sourceIds": [
+        "B117-S06",
+        "B117-S07"
+      ],
+      "fields": [
+        "ownerExactRevisionHashFrame",
+        "sameDomainPort",
+        "singleBabylonLeftTaskPanel",
+        "commitCasAclCancelRechecked"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "F1-06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08"
+      ],
+      "positive": [
+        "B117-P07"
+      ],
+      "negative": [
+        "B117-N07-1",
+        "B117-N07-2",
+        "B117-N07-3",
+        "B117-N07-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B117-R08",
+      "summary": "显示世界与D04/D10、D09中立CL及D13-D16工程签发隔离",
+      "sourceIds": [
+        "B117-S07"
+      ],
+      "fields": [
+        "d04D10Separated",
+        "neutralClNotNc",
+        "d13UnknownBlocksD16",
+        "frozenD08Preserved"
+      ],
+      "caps": [
+        "CAP-02-07",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "F1-03"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B117-P08"
+      ],
+      "negative": [
+        "B117-N08-1",
+        "B117-N08-2",
+        "B117-N08-3",
+        "B117-N08-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

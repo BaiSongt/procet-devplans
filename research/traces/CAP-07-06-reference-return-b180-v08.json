@@ -1,0 +1,461 @@
+{
+  "schemaVersion": "procet-b180-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-07-06",
+  "originalWorkPackages": [
+    "F1-03",
+    "E3-01",
+    "E3-03",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "sourceRegistry": "research/sources/CAP-07-06-reference-return-b180.json",
+  "fixtures": "docs/capabilities/CAP-07-06/reference-return-b180-fixtures-v08.json",
+  "checker": "tools/check_cap0706_reference_return_b180_v08.cjs",
+  "report": "docs/capabilities/CAP-07-06/REFERENCE-RETURN-B180-2026-11-05.md",
+  "fieldDefinitions": {
+    "identity.d12Hash": {
+      "kind": "regex",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identity.d10Hash": {
+      "kind": "regex",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identity.frameHash": {
+      "kind": "regex",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identity.scopeEpoch": {
+      "kind": "positive_integer"
+    },
+    "linux.homed": {
+      "kind": "equals",
+      "value": true
+    },
+    "linux.g28StoredPinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "linux.intermediateResolved": {
+      "kind": "equals",
+      "value": true
+    },
+    "linux.axesScoped": {
+      "kind": "equals",
+      "value": true
+    },
+    "linux.g30StoredPinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "linux.g30ConfigPinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "linux.g30IntermediateResolved": {
+      "kind": "equals",
+      "value": true
+    },
+    "linux.cutterCompOff": {
+      "kind": "equals",
+      "value": true
+    },
+    "haas.distanceModePinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "haas.intermediateBeforeHome": {
+      "kind": "equals",
+      "value": true
+    },
+    "haas.axisSetPinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "haas.setting108Pinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "g53.nonmodal": {
+      "kind": "equals",
+      "value": true
+    },
+    "g53.machineFrame": {
+      "kind": "equals",
+      "value": true
+    },
+    "g53.offsetProfilePinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "g53.motionAllowed": {
+      "kind": "equals",
+      "value": true
+    },
+    "safety.twoStagesChecked": {
+      "kind": "equals",
+      "value": true
+    },
+    "safety.fullToolHolder": {
+      "kind": "equals",
+      "value": true
+    },
+    "safety.homeNotCertified": {
+      "kind": "equals",
+      "value": true
+    },
+    "safety.unknownBlocksRelease": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d04NominalOnly": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d10BindingExact": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d13FinalNcReparsed": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d14D15Independent": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.sameOwnerPort": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.singleBabylon": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.leftTaskPanel": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.casAclCancelFence": {
+      "kind": "equals",
+      "value": true
+    }
+  },
+  "rules": [
+    {
+      "id": "B180-R01",
+      "summary": "最终NC、D10、Frame和Scope精确钉住",
+      "fields": [
+        "identity.d12Hash",
+        "identity.d10Hash",
+        "identity.frameHash",
+        "identity.scopeEpoch"
+      ],
+      "sourceIds": [
+        "B180-S07"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R01-P",
+        "B180-R01-N1",
+        "B180-R01-N2",
+        "B180-R01-N3",
+        "B180-R01-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B180-R02",
+      "summary": "LinuxCNC G28预存目标与经中间点的运动分开",
+      "fields": [
+        "linux.homed",
+        "linux.g28StoredPinned",
+        "linux.intermediateResolved",
+        "linux.axesScoped"
+      ],
+      "sourceIds": [
+        "B180-S01",
+        "B180-S07"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R02-P",
+        "B180-R02-N1",
+        "B180-R02-N2",
+        "B180-R02-N3",
+        "B180-R02-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B180-R03",
+      "summary": "G30独立预存点及M6配置准入",
+      "fields": [
+        "linux.g30StoredPinned",
+        "linux.g30ConfigPinned",
+        "linux.g30IntermediateResolved",
+        "linux.cutterCompOff"
+      ],
+      "sourceIds": [
+        "B180-S02",
+        "B180-S07"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R03-P",
+        "B180-R03-N1",
+        "B180-R03-N2",
+        "B180-R03-N3",
+        "B180-R03-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B180-R04",
+      "summary": "Haas G28 G90/G91与Setting108分支需单独解释",
+      "fields": [
+        "haas.distanceModePinned",
+        "haas.intermediateBeforeHome",
+        "haas.axisSetPinned",
+        "haas.setting108Pinned"
+      ],
+      "sourceIds": [
+        "B180-S04",
+        "B180-S06"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R04-P",
+        "B180-R04-N1",
+        "B180-R04-N2",
+        "B180-R04-N3",
+        "B180-R04-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B180-R05",
+      "summary": "G53机器坐标只对当前段有效且按Profile解补偿",
+      "fields": [
+        "g53.nonmodal",
+        "g53.machineFrame",
+        "g53.offsetProfilePinned",
+        "g53.motionAllowed"
+      ],
+      "sourceIds": [
+        "B180-S03",
+        "B180-S05"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R05-P",
+        "B180-R05-N1",
+        "B180-R05-N2",
+        "B180-R05-N3",
+        "B180-R05-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B180-R06",
+      "summary": "参考点和端点合法不是物理无碰证明",
+      "fields": [
+        "safety.twoStagesChecked",
+        "safety.fullToolHolder",
+        "safety.homeNotCertified",
+        "safety.unknownBlocksRelease"
+      ],
+      "sourceIds": [
+        "B180-S01",
+        "B180-S04",
+        "B180-S08"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-05"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R06-P",
+        "B180-R06-N1",
+        "B180-R06-N2",
+        "B180-R06-N3",
+        "B180-R06-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B180-R07",
+      "summary": "D04仅名义Setup；最终NC独立D13-D15验证",
+      "fields": [
+        "chain.d04NominalOnly",
+        "chain.d10BindingExact",
+        "chain.d13FinalNcReparsed",
+        "chain.d14D15Independent"
+      ],
+      "sourceIds": [
+        "B180-S03",
+        "B180-S07"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-01",
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R07-P",
+        "B180-R07-N1",
+        "B180-R07-N2",
+        "B180-R07-N3",
+        "B180-R07-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B180-R08",
+      "summary": "统一Owner入口、CAS/ACL/取消与单Babylon+左容器",
+      "fields": [
+        "ui.sameOwnerPort",
+        "ui.singleBabylon",
+        "ui.leftTaskPanel",
+        "ui.casAclCancelFence"
+      ],
+      "sourceIds": [
+        "B180-S07"
+      ],
+      "caps": [
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "U4-04",
+        "E3-03"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B180-R08-P",
+        "B180-R08-N1",
+        "B180-R08-N2",
+        "B180-R08-N3",
+        "B180-R08-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    }
+  ]
+}

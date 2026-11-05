@@ -1,0 +1,821 @@
+{
+  "schemaVersion": "procet-cap0205-research-fixtures-v08",
+  "capabilityId": "CAP-02-05",
+  "sourceTrace": "research/traces/CAP-02-05-v08-supplement.json",
+  "positives": [
+    {
+      "id": "MS05-V08-R01-POS",
+      "ruleId": "MS05-V08-R01",
+      "expected": "ACCEPT",
+      "input": {
+        "material": {
+          "exactSpecRevision": true,
+          "heatCondition": true,
+          "lotSeparate": true,
+          "noNameMerge": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R02-POS",
+      "ruleId": "MS05-V08-R02",
+      "expected": "ACCEPT",
+      "input": {
+        "property": {
+          "unit": true,
+          "methodCondition": true,
+          "sourceRevision": true,
+          "uncertaintyOrUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R03-POS",
+      "ruleId": "MS05-V08-R03",
+      "expected": "ACCEPT",
+      "input": {
+        "hardness": {
+          "scale": true,
+          "method": true,
+          "noSilentConversion": true,
+          "unknownBlocksCuttingAdvice": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R04-POS",
+      "ruleId": "MS05-V08-R04",
+      "expected": "ACCEPT",
+      "input": {
+        "classification": {
+          "toolMaterialScope": true,
+          "workpieceSchemeEvidence": true,
+          "noImplicitIsoProof": true,
+          "noUnsupportedSpeed": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R05-POS",
+      "ruleId": "MS05-V08-R05",
+      "expected": "ACCEPT",
+      "input": {
+        "stock": {
+          "unconfiguredDefault": true,
+          "explicitAdopt": true,
+          "noAutoExpand": true,
+          "previewNoWrite": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R06-POS",
+      "ruleId": "MS05-V08-R06",
+      "expected": "ACCEPT",
+      "input": {
+        "geometry": {
+          "bboxCandidate": true,
+          "meshOnlyCannotPass": true,
+          "validSolid": true,
+          "invalidUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R07-POS",
+      "ruleId": "MS05-V08-R07",
+      "expected": "ACCEPT",
+      "input": {
+        "fit": {
+          "frameRevision": true,
+          "cutAndResidual": true,
+          "toleranceEvidence": true,
+          "independentVerifier": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R08-POS",
+      "ruleId": "MS05-V08-R08",
+      "expected": "ACCEPT",
+      "input": {
+        "owner": {
+          "aclScopeRecheck": true,
+          "exactRevHashFrame": true,
+          "casCancelRecheck": true,
+          "lateAckNoRegrant": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R09-POS",
+      "ruleId": "MS05-V08-R09",
+      "expected": "ACCEPT",
+      "input": {
+        "migration": {
+          "legacyUnknown": true,
+          "immutableAB": true,
+          "scopedStale": true,
+          "rollbackPreservesReceipt": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R10-POS",
+      "ruleId": "MS05-V08-R10",
+      "expected": "ACCEPT",
+      "input": {
+        "entry": {
+          "sameOwnerPort": true,
+          "singleWorldLeftPanel": true,
+          "d04D10Separated": true,
+          "ncUnknownBlocksD16": true
+        }
+      }
+    }
+  ],
+  "negatives": [
+    {
+      "id": "MS05-V08-R01-NEG-1",
+      "ruleId": "MS05-V08-R01",
+      "mutatedField": "material.exactSpecRevision",
+      "expected": "REJECT",
+      "input": {
+        "material": {
+          "exactSpecRevision": false,
+          "heatCondition": true,
+          "lotSeparate": true,
+          "noNameMerge": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R01-NEG-2",
+      "ruleId": "MS05-V08-R01",
+      "mutatedField": "material.heatCondition",
+      "expected": "REJECT",
+      "input": {
+        "material": {
+          "exactSpecRevision": true,
+          "heatCondition": false,
+          "lotSeparate": true,
+          "noNameMerge": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R01-NEG-3",
+      "ruleId": "MS05-V08-R01",
+      "mutatedField": "material.lotSeparate",
+      "expected": "REJECT",
+      "input": {
+        "material": {
+          "exactSpecRevision": true,
+          "heatCondition": true,
+          "lotSeparate": false,
+          "noNameMerge": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R01-NEG-4",
+      "ruleId": "MS05-V08-R01",
+      "mutatedField": "material.noNameMerge",
+      "expected": "REJECT",
+      "input": {
+        "material": {
+          "exactSpecRevision": true,
+          "heatCondition": true,
+          "lotSeparate": true,
+          "noNameMerge": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R02-NEG-1",
+      "ruleId": "MS05-V08-R02",
+      "mutatedField": "property.unit",
+      "expected": "REJECT",
+      "input": {
+        "property": {
+          "unit": false,
+          "methodCondition": true,
+          "sourceRevision": true,
+          "uncertaintyOrUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R02-NEG-2",
+      "ruleId": "MS05-V08-R02",
+      "mutatedField": "property.methodCondition",
+      "expected": "REJECT",
+      "input": {
+        "property": {
+          "unit": true,
+          "methodCondition": false,
+          "sourceRevision": true,
+          "uncertaintyOrUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R02-NEG-3",
+      "ruleId": "MS05-V08-R02",
+      "mutatedField": "property.sourceRevision",
+      "expected": "REJECT",
+      "input": {
+        "property": {
+          "unit": true,
+          "methodCondition": true,
+          "sourceRevision": false,
+          "uncertaintyOrUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R02-NEG-4",
+      "ruleId": "MS05-V08-R02",
+      "mutatedField": "property.uncertaintyOrUnknown",
+      "expected": "REJECT",
+      "input": {
+        "property": {
+          "unit": true,
+          "methodCondition": true,
+          "sourceRevision": true,
+          "uncertaintyOrUnknown": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R03-NEG-1",
+      "ruleId": "MS05-V08-R03",
+      "mutatedField": "hardness.scale",
+      "expected": "REJECT",
+      "input": {
+        "hardness": {
+          "scale": false,
+          "method": true,
+          "noSilentConversion": true,
+          "unknownBlocksCuttingAdvice": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R03-NEG-2",
+      "ruleId": "MS05-V08-R03",
+      "mutatedField": "hardness.method",
+      "expected": "REJECT",
+      "input": {
+        "hardness": {
+          "scale": true,
+          "method": false,
+          "noSilentConversion": true,
+          "unknownBlocksCuttingAdvice": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R03-NEG-3",
+      "ruleId": "MS05-V08-R03",
+      "mutatedField": "hardness.noSilentConversion",
+      "expected": "REJECT",
+      "input": {
+        "hardness": {
+          "scale": true,
+          "method": true,
+          "noSilentConversion": false,
+          "unknownBlocksCuttingAdvice": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R03-NEG-4",
+      "ruleId": "MS05-V08-R03",
+      "mutatedField": "hardness.unknownBlocksCuttingAdvice",
+      "expected": "REJECT",
+      "input": {
+        "hardness": {
+          "scale": true,
+          "method": true,
+          "noSilentConversion": true,
+          "unknownBlocksCuttingAdvice": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R04-NEG-1",
+      "ruleId": "MS05-V08-R04",
+      "mutatedField": "classification.toolMaterialScope",
+      "expected": "REJECT",
+      "input": {
+        "classification": {
+          "toolMaterialScope": false,
+          "workpieceSchemeEvidence": true,
+          "noImplicitIsoProof": true,
+          "noUnsupportedSpeed": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R04-NEG-2",
+      "ruleId": "MS05-V08-R04",
+      "mutatedField": "classification.workpieceSchemeEvidence",
+      "expected": "REJECT",
+      "input": {
+        "classification": {
+          "toolMaterialScope": true,
+          "workpieceSchemeEvidence": false,
+          "noImplicitIsoProof": true,
+          "noUnsupportedSpeed": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R04-NEG-3",
+      "ruleId": "MS05-V08-R04",
+      "mutatedField": "classification.noImplicitIsoProof",
+      "expected": "REJECT",
+      "input": {
+        "classification": {
+          "toolMaterialScope": true,
+          "workpieceSchemeEvidence": true,
+          "noImplicitIsoProof": false,
+          "noUnsupportedSpeed": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R04-NEG-4",
+      "ruleId": "MS05-V08-R04",
+      "mutatedField": "classification.noUnsupportedSpeed",
+      "expected": "REJECT",
+      "input": {
+        "classification": {
+          "toolMaterialScope": true,
+          "workpieceSchemeEvidence": true,
+          "noImplicitIsoProof": true,
+          "noUnsupportedSpeed": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R05-NEG-1",
+      "ruleId": "MS05-V08-R05",
+      "mutatedField": "stock.unconfiguredDefault",
+      "expected": "REJECT",
+      "input": {
+        "stock": {
+          "unconfiguredDefault": false,
+          "explicitAdopt": true,
+          "noAutoExpand": true,
+          "previewNoWrite": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R05-NEG-2",
+      "ruleId": "MS05-V08-R05",
+      "mutatedField": "stock.explicitAdopt",
+      "expected": "REJECT",
+      "input": {
+        "stock": {
+          "unconfiguredDefault": true,
+          "explicitAdopt": false,
+          "noAutoExpand": true,
+          "previewNoWrite": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R05-NEG-3",
+      "ruleId": "MS05-V08-R05",
+      "mutatedField": "stock.noAutoExpand",
+      "expected": "REJECT",
+      "input": {
+        "stock": {
+          "unconfiguredDefault": true,
+          "explicitAdopt": true,
+          "noAutoExpand": false,
+          "previewNoWrite": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R05-NEG-4",
+      "ruleId": "MS05-V08-R05",
+      "mutatedField": "stock.previewNoWrite",
+      "expected": "REJECT",
+      "input": {
+        "stock": {
+          "unconfiguredDefault": true,
+          "explicitAdopt": true,
+          "noAutoExpand": true,
+          "previewNoWrite": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R06-NEG-1",
+      "ruleId": "MS05-V08-R06",
+      "mutatedField": "geometry.bboxCandidate",
+      "expected": "REJECT",
+      "input": {
+        "geometry": {
+          "bboxCandidate": false,
+          "meshOnlyCannotPass": true,
+          "validSolid": true,
+          "invalidUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R06-NEG-2",
+      "ruleId": "MS05-V08-R06",
+      "mutatedField": "geometry.meshOnlyCannotPass",
+      "expected": "REJECT",
+      "input": {
+        "geometry": {
+          "bboxCandidate": true,
+          "meshOnlyCannotPass": false,
+          "validSolid": true,
+          "invalidUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R06-NEG-3",
+      "ruleId": "MS05-V08-R06",
+      "mutatedField": "geometry.validSolid",
+      "expected": "REJECT",
+      "input": {
+        "geometry": {
+          "bboxCandidate": true,
+          "meshOnlyCannotPass": true,
+          "validSolid": false,
+          "invalidUnknown": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R06-NEG-4",
+      "ruleId": "MS05-V08-R06",
+      "mutatedField": "geometry.invalidUnknown",
+      "expected": "REJECT",
+      "input": {
+        "geometry": {
+          "bboxCandidate": true,
+          "meshOnlyCannotPass": true,
+          "validSolid": true,
+          "invalidUnknown": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R07-NEG-1",
+      "ruleId": "MS05-V08-R07",
+      "mutatedField": "fit.frameRevision",
+      "expected": "REJECT",
+      "input": {
+        "fit": {
+          "frameRevision": false,
+          "cutAndResidual": true,
+          "toleranceEvidence": true,
+          "independentVerifier": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R07-NEG-2",
+      "ruleId": "MS05-V08-R07",
+      "mutatedField": "fit.cutAndResidual",
+      "expected": "REJECT",
+      "input": {
+        "fit": {
+          "frameRevision": true,
+          "cutAndResidual": false,
+          "toleranceEvidence": true,
+          "independentVerifier": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R07-NEG-3",
+      "ruleId": "MS05-V08-R07",
+      "mutatedField": "fit.toleranceEvidence",
+      "expected": "REJECT",
+      "input": {
+        "fit": {
+          "frameRevision": true,
+          "cutAndResidual": true,
+          "toleranceEvidence": false,
+          "independentVerifier": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R07-NEG-4",
+      "ruleId": "MS05-V08-R07",
+      "mutatedField": "fit.independentVerifier",
+      "expected": "REJECT",
+      "input": {
+        "fit": {
+          "frameRevision": true,
+          "cutAndResidual": true,
+          "toleranceEvidence": true,
+          "independentVerifier": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R08-NEG-1",
+      "ruleId": "MS05-V08-R08",
+      "mutatedField": "owner.aclScopeRecheck",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "aclScopeRecheck": false,
+          "exactRevHashFrame": true,
+          "casCancelRecheck": true,
+          "lateAckNoRegrant": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R08-NEG-2",
+      "ruleId": "MS05-V08-R08",
+      "mutatedField": "owner.exactRevHashFrame",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "aclScopeRecheck": true,
+          "exactRevHashFrame": false,
+          "casCancelRecheck": true,
+          "lateAckNoRegrant": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R08-NEG-3",
+      "ruleId": "MS05-V08-R08",
+      "mutatedField": "owner.casCancelRecheck",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "aclScopeRecheck": true,
+          "exactRevHashFrame": true,
+          "casCancelRecheck": false,
+          "lateAckNoRegrant": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R08-NEG-4",
+      "ruleId": "MS05-V08-R08",
+      "mutatedField": "owner.lateAckNoRegrant",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "aclScopeRecheck": true,
+          "exactRevHashFrame": true,
+          "casCancelRecheck": true,
+          "lateAckNoRegrant": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R09-NEG-1",
+      "ruleId": "MS05-V08-R09",
+      "mutatedField": "migration.legacyUnknown",
+      "expected": "REJECT",
+      "input": {
+        "migration": {
+          "legacyUnknown": false,
+          "immutableAB": true,
+          "scopedStale": true,
+          "rollbackPreservesReceipt": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R09-NEG-2",
+      "ruleId": "MS05-V08-R09",
+      "mutatedField": "migration.immutableAB",
+      "expected": "REJECT",
+      "input": {
+        "migration": {
+          "legacyUnknown": true,
+          "immutableAB": false,
+          "scopedStale": true,
+          "rollbackPreservesReceipt": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R09-NEG-3",
+      "ruleId": "MS05-V08-R09",
+      "mutatedField": "migration.scopedStale",
+      "expected": "REJECT",
+      "input": {
+        "migration": {
+          "legacyUnknown": true,
+          "immutableAB": true,
+          "scopedStale": false,
+          "rollbackPreservesReceipt": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R09-NEG-4",
+      "ruleId": "MS05-V08-R09",
+      "mutatedField": "migration.rollbackPreservesReceipt",
+      "expected": "REJECT",
+      "input": {
+        "migration": {
+          "legacyUnknown": true,
+          "immutableAB": true,
+          "scopedStale": true,
+          "rollbackPreservesReceipt": false
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R10-NEG-1",
+      "ruleId": "MS05-V08-R10",
+      "mutatedField": "entry.sameOwnerPort",
+      "expected": "REJECT",
+      "input": {
+        "entry": {
+          "sameOwnerPort": false,
+          "singleWorldLeftPanel": true,
+          "d04D10Separated": true,
+          "ncUnknownBlocksD16": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R10-NEG-2",
+      "ruleId": "MS05-V08-R10",
+      "mutatedField": "entry.singleWorldLeftPanel",
+      "expected": "REJECT",
+      "input": {
+        "entry": {
+          "sameOwnerPort": true,
+          "singleWorldLeftPanel": false,
+          "d04D10Separated": true,
+          "ncUnknownBlocksD16": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R10-NEG-3",
+      "ruleId": "MS05-V08-R10",
+      "mutatedField": "entry.d04D10Separated",
+      "expected": "REJECT",
+      "input": {
+        "entry": {
+          "sameOwnerPort": true,
+          "singleWorldLeftPanel": true,
+          "d04D10Separated": false,
+          "ncUnknownBlocksD16": true
+        }
+      }
+    },
+    {
+      "id": "MS05-V08-R10-NEG-4",
+      "ruleId": "MS05-V08-R10",
+      "mutatedField": "entry.ncUnknownBlocksD16",
+      "expected": "REJECT",
+      "input": {
+        "entry": {
+          "sameOwnerPort": true,
+          "singleWorldLeftPanel": true,
+          "d04D10Separated": true,
+          "ncUnknownBlocksD16": false
+        }
+      }
+    }
+  ],
+  "mathScenarios": [
+    {
+      "id": "MS05-M01",
+      "kind": "density",
+      "value": 7.85,
+      "sourceUnit": "g/cm3",
+      "targetUnit": "kg/m3",
+      "expected": 7850,
+      "limit": "仅数值换算，非材料物性认证"
+    },
+    {
+      "id": "MS05-M02",
+      "kind": "density",
+      "value": 2500,
+      "sourceUnit": "kg/m3",
+      "targetUnit": "g/cm3",
+      "expected": 2.5,
+      "limit": "不改写历史源单位"
+    },
+    {
+      "id": "MS05-M03",
+      "kind": "bboxFalsePositive",
+      "stockRects": [
+        [
+          0,
+          0,
+          10,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          10
+        ]
+      ],
+      "partPoint": [
+        5,
+        5
+      ],
+      "boundingBox": [
+        0,
+        0,
+        10,
+        10
+      ],
+      "expectedBboxContains": true,
+      "expectedStockContains": false,
+      "limit": "二维L型截面，仅反驳bbox充分性，非Native几何验收"
+    },
+    {
+      "id": "MS05-M04",
+      "kind": "absolutePose",
+      "baseline": 12,
+      "offset": 3,
+      "repetitions": 3,
+      "expected": 15,
+      "limit": "从相同base重新计算的幂等示例"
+    }
+  ],
+  "stateScenarios": [
+    {
+      "id": "MS05-V08-S01",
+      "given": "新Setup无毛坯",
+      "then": "保留D04未配置，不自动生成",
+      "expectedState": "UNCONFIGURED",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-S02",
+      "given": "用户取消bbox候选",
+      "then": "D04 persistedRevision不变",
+      "expectedState": "NO_COMMIT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-S03",
+      "given": "bbox包含却缺精确Solid",
+      "then": "Fit不能返回passed",
+      "expectedState": "NOT_PASSED",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-S04",
+      "given": "历史material_id无revision",
+      "then": "旧Setup保持只读，状态unknown",
+      "expectedState": "UNKNOWN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-S05",
+      "given": "相同定位连续三次",
+      "then": "Pose不累计漂移",
+      "expectedState": "IDEMPOTENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-S06",
+      "given": "切换Setup后旧ScopeEpoch晚ACK",
+      "then": "不复权，已提交receipt保留对账",
+      "expectedState": "IGNORE_LATE_ACK",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-S07",
+      "given": "材料属性改变但Stock未变",
+      "then": "只失效依赖工艺证据，不盲目废弃几何",
+      "expectedState": "SCOPED_STALE",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "MS05-V08-S08",
+      "given": "D13最终NC执行语义未知",
+      "then": "D15未通过，D16阻止发布",
+      "expectedState": "BLOCKED_UNKNOWN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "product": "NOT_RUN",
+  "realConsumer": "NOT_RUN",
+  "independentNodeProcess": "NOT_RUN",
+  "note": "10正40独立单字段负4数学规划静态；8状态均未跑产品。"
+}

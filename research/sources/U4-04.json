@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "procet-research-register-v1",
+  "workPackageId": "U4-04",
+  "researchTopic": "R-DIAGNOSTIC-001",
+  "recordedOn": "2026-10-25",
+  "sources": [
+    {
+      "id": "SRC-U404-S01",
+      "title": "LinuxCNC 2.9 G-code Overview",
+      "authors": [
+        "LinuxCNC Documentation Team"
+      ],
+      "publisher": "LinuxCNC",
+      "edition": "2.9 online manual",
+      "published": "unknown",
+      "url": "https://www.linuxcnc.org/docs/2.9/html/gcode/overview.html",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "Overview; Format of a line; Line Number; Modal Groups",
+      "supports": "块号N可重复/乱序，原始NC字节位置与D12 hash才是稳定来源主键",
+      "limits": "仅LinuxCNC 2.9公开语义，不能推广到所有FANUC/SINUMERIK/私有宏",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S02",
+      "title": "The NIST RS274NGS interpreter - version 3",
+      "authors": [
+        "Thomas R. Kramer; Frederick M. Proctor; Elena Messna"
+      ],
+      "publisher": "NIST",
+      "edition": "NIST IR 6556 publication page",
+      "published": "2000-01-01",
+      "url": "https://www.nist.gov/publications/nist-rs274ngs-interpreter-version-3",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "catalog_abstract",
+      "locator": "Publication metadata; authors; DOI",
+      "supports": "说明RS274解释器有正式参考报告，可作为后续解释器研究入口",
+      "limits": "本轮仅访问官方出版条目，未下载/阅读全文，不声称算法细节",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S03",
+      "title": "OpenTelemetry Tracing API",
+      "authors": [
+        "OpenTelemetry Authors / CNCF"
+      ],
+      "publisher": "OpenTelemetry",
+      "edition": "Specification 1.62.0 web snapshot",
+      "published": "unknown",
+      "url": "https://opentelemetry.io/docs/specs/otel/trace/api/",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "Span; SpanContext; Link; Event; Status",
+      "supports": "Span/Link/事件是可观测关联原语，不是持久制造证据",
+      "limits": "Span Status=Ok或Unset不等于D15工程验证PASS，供应商实现/采样可能缺数据",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S04",
+      "title": "OpenTelemetry Tracing SDK",
+      "authors": [
+        "OpenTelemetry Authors / CNCF"
+      ],
+      "publisher": "OpenTelemetry",
+      "edition": "Specification 1.62.0 web snapshot",
+      "published": "unknown",
+      "url": "https://opentelemetry.io/docs/specs/otel/trace/sdk/",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "Sampling; IsRecording; Sampled; SamplingResult",
+      "supports": "采样DROP/不记录时仍要能通过Owner持久回执复核来源",
+      "limits": "不能靠采样Trace作为权威审计完整性证明",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S05",
+      "title": "PROV-O: The PROV Ontology",
+      "authors": [
+        "W3C Provenance Working Group"
+      ],
+      "publisher": "W3C",
+      "edition": "W3C Recommendation",
+      "published": "2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "Overview; wasDerivedFrom; Qualified Terms",
+      "supports": "以实体、活动和责任表达来源链；链条必须由业务精确引用验证",
+      "limits": "本体不校验NC字节、Frame/哈希，不保证真实制造来源正确",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S06",
+      "title": "RFC 9110 HTTP Semantics",
+      "authors": [
+        "R. Fielding; M. Nottingham; J. Reschke"
+      ],
+      "publisher": "IETF RFC Editor",
+      "edition": "RFC 9110",
+      "published": "2022-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "13.1.1 If-Match; 13.2 Preconditions",
+      "supports": "条件更新防止丢失更新，为Owner CAS提供语义类比",
+      "limits": "本地事务、ACL epoch/取消代次、回执持久化须Procet自行实现",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S07",
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "authors": [
+        "W3C Accessibility Guidelines Working Group"
+      ],
+      "publisher": "W3C",
+      "edition": "Recommendation 2024-12-12 edition",
+      "published": "2024-12-12",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "section_text",
+      "locator": "2.1.1 Keyboard; 2.4.7 Focus Visible; 2.4.11 Focus Not Obscured",
+      "supports": "诊断面板键盘可读、可聚焦，状态不可仅靠颜色表达",
+      "limits": "不保证GUI真实达标；产品键盘/DPI/屏幕阅读器尚未测试",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S08",
+      "title": "NIST IR 8536 Final release announcement",
+      "authors": [
+        "NIST NCCoE"
+      ],
+      "publisher": "NIST CSRC",
+      "edition": "IR 8536 final announcement",
+      "published": "2026-09-09",
+      "url": "https://csrc.nist.gov/News/2026/nccoe-releases-nist-ir-8536",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "official_summary",
+      "locator": "Final release announcement; traceability principles summary",
+      "supports": "来源和安全可核对的制造追踪方向，不是通用NC执行认证",
+      "limits": "本轮仅官方最终版新闻摘要，未读取IR PDF正文",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    },
+    {
+      "id": "SRC-U404-S09",
+      "title": "ISO 14649-10:2004 general process data",
+      "authors": [
+        "ISO/TC 184/SC 1"
+      ],
+      "publisher": "ISO",
+      "edition": "Edition 2; 2004-12 (confirmed 2024)",
+      "published": "2004-12",
+      "url": "https://www.iso.org/standard/40895.html",
+      "accessedOn": "2026-10-25",
+      "accessDepth": "catalog_abstract",
+      "locator": "Official standard catalog; Abstract; Life cycle",
+      "supports": "工作步骤与NC数据概念及对执行顺序的适用背景",
+      "limits": "仅合法ISO目录/摘要，未付费获取正文；不得声称标准要求本产品的诊断字段",
+      "evidenceKind": "EXTERNAL_NOT_PRODUCT_TEST"
+    }
+  ]
+}

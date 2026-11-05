@@ -1,0 +1,626 @@
+{
+  "schemaVersion": "procet-b139-fixtures-v08",
+  "origin": "NEWLY_AUTHORED",
+  "classification": "PLANNING_SYNTHETIC_ONLY",
+  "date": "2026-11-03",
+  "baseline": {
+    "identity": {
+      "stableIdsExact": true,
+      "d02OccurrenceExact": true,
+      "d04FramePinned": true,
+      "noNameAutoRename": true
+    },
+    "ancestor": {
+      "baseHeadExact": true,
+      "parentRefsExact": true,
+      "hashProfilePinned": true,
+      "newRevisionAppendOnly": true
+    },
+    "graph": {
+      "deleteUseChecked": true,
+      "unionAcyclic": true,
+      "edgeEndpointsExist": true,
+      "unknownEdgesFailClosed": true
+    },
+    "freeze": {
+      "d08FrozenImmutable": true,
+      "forkRequiresApproval": true,
+      "sharedFactNoOverwrite": true,
+      "oldReleasePreserved": true
+    },
+    "delta": {
+      "typedFieldDiff": true,
+      "dependencyClosureExact": true,
+      "absenceReadInvalidated": true,
+      "downstreamEvidenceStatusDistinct": true
+    },
+    "txn": {
+      "casCurrentAtCommit": true,
+      "aclScopeEpochCurrent": true,
+      "cancelEpochCurrent": true,
+      "lateAckRejected": true
+    },
+    "ui": {
+      "guiCliAgentSamePort": true,
+      "singleBabylonWorld": true,
+      "singleLeftTaskPanel": true,
+      "previewReadOnly": true
+    },
+    "handoff": {
+      "d04NotD10": true,
+      "finalNcInterpreterPipeline": true,
+      "unknownNotPass": true,
+      "pairedReaderRollbackAndIndependentOracle": true
+    }
+  },
+  "tests": [
+    {
+      "id": "B139-R01-P",
+      "ruleId": "B139-R01",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R01-N1",
+      "ruleId": "B139-R01",
+      "kind": "negative",
+      "mutation": {
+        "field": "identity.stableIdsExact",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_IDENTITY"
+    },
+    {
+      "id": "B139-R01-N2",
+      "ruleId": "B139-R01",
+      "kind": "negative",
+      "mutation": {
+        "field": "identity.d02OccurrenceExact",
+        "from": true,
+        "to": false
+      },
+      "expect": "STALE_OCCURRENCE"
+    },
+    {
+      "id": "B139-R01-N3",
+      "ruleId": "B139-R01",
+      "kind": "negative",
+      "mutation": {
+        "field": "identity.d04FramePinned",
+        "from": true,
+        "to": false
+      },
+      "expect": "STALE_FRAME"
+    },
+    {
+      "id": "B139-R01-N4",
+      "ruleId": "B139-R01",
+      "kind": "negative",
+      "mutation": {
+        "field": "identity.noNameAutoRename",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_RENAME"
+    },
+    {
+      "id": "B139-R02-P",
+      "ruleId": "B139-R02",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R02-N1",
+      "ruleId": "B139-R02",
+      "kind": "negative",
+      "mutation": {
+        "field": "ancestor.baseHeadExact",
+        "from": true,
+        "to": false
+      },
+      "expect": "STALE_BASE"
+    },
+    {
+      "id": "B139-R02-N2",
+      "ruleId": "B139-R02",
+      "kind": "negative",
+      "mutation": {
+        "field": "ancestor.parentRefsExact",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_PARENTS"
+    },
+    {
+      "id": "B139-R02-N3",
+      "ruleId": "B139-R02",
+      "kind": "negative",
+      "mutation": {
+        "field": "ancestor.hashProfilePinned",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_HASH_PROFILE"
+    },
+    {
+      "id": "B139-R02-N4",
+      "ruleId": "B139-R02",
+      "kind": "negative",
+      "mutation": {
+        "field": "ancestor.newRevisionAppendOnly",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_PROVENANCE"
+    },
+    {
+      "id": "B139-R03-P",
+      "ruleId": "B139-R03",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R03-N1",
+      "ruleId": "B139-R03",
+      "kind": "negative",
+      "mutation": {
+        "field": "graph.deleteUseChecked",
+        "from": true,
+        "to": false
+      },
+      "expect": "CONFLICT_DELETE_USE"
+    },
+    {
+      "id": "B139-R03-N2",
+      "ruleId": "B139-R03",
+      "kind": "negative",
+      "mutation": {
+        "field": "graph.unionAcyclic",
+        "from": true,
+        "to": false
+      },
+      "expect": "CONFLICT_CYCLE"
+    },
+    {
+      "id": "B139-R03-N3",
+      "ruleId": "B139-R03",
+      "kind": "negative",
+      "mutation": {
+        "field": "graph.edgeEndpointsExist",
+        "from": true,
+        "to": false
+      },
+      "expect": "CONFLICT_DANGLING"
+    },
+    {
+      "id": "B139-R03-N4",
+      "ruleId": "B139-R03",
+      "kind": "negative",
+      "mutation": {
+        "field": "graph.unknownEdgesFailClosed",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_GRAPH"
+    },
+    {
+      "id": "B139-R04-P",
+      "ruleId": "B139-R04",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R04-N1",
+      "ruleId": "B139-R04",
+      "kind": "negative",
+      "mutation": {
+        "field": "freeze.d08FrozenImmutable",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_FROZEN_MUTATION"
+    },
+    {
+      "id": "B139-R04-N2",
+      "ruleId": "B139-R04",
+      "kind": "negative",
+      "mutation": {
+        "field": "freeze.forkRequiresApproval",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_FORK_APPROVAL"
+    },
+    {
+      "id": "B139-R04-N3",
+      "ruleId": "B139-R04",
+      "kind": "negative",
+      "mutation": {
+        "field": "freeze.sharedFactNoOverwrite",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_AB_OVERWRITE"
+    },
+    {
+      "id": "B139-R04-N4",
+      "ruleId": "B139-R04",
+      "kind": "negative",
+      "mutation": {
+        "field": "freeze.oldReleasePreserved",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_HISTORY_LOSS"
+    },
+    {
+      "id": "B139-R05-P",
+      "ruleId": "B139-R05",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R05-N1",
+      "ruleId": "B139-R05",
+      "kind": "negative",
+      "mutation": {
+        "field": "delta.typedFieldDiff",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_DELTA"
+    },
+    {
+      "id": "B139-R05-N2",
+      "ruleId": "B139-R05",
+      "kind": "negative",
+      "mutation": {
+        "field": "delta.dependencyClosureExact",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_CLOSURE"
+    },
+    {
+      "id": "B139-R05-N3",
+      "ruleId": "B139-R05",
+      "kind": "negative",
+      "mutation": {
+        "field": "delta.absenceReadInvalidated",
+        "from": true,
+        "to": false
+      },
+      "expect": "STALE_NEGATIVE_READ"
+    },
+    {
+      "id": "B139-R05-N4",
+      "ruleId": "B139-R05",
+      "kind": "negative",
+      "mutation": {
+        "field": "delta.downstreamEvidenceStatusDistinct",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_D15_PROMOTION"
+    },
+    {
+      "id": "B139-R06-P",
+      "ruleId": "B139-R06",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R06-N1",
+      "ruleId": "B139-R06",
+      "kind": "negative",
+      "mutation": {
+        "field": "txn.casCurrentAtCommit",
+        "from": true,
+        "to": false
+      },
+      "expect": "STALE_CAS"
+    },
+    {
+      "id": "B139-R06-N2",
+      "ruleId": "B139-R06",
+      "kind": "negative",
+      "mutation": {
+        "field": "txn.aclScopeEpochCurrent",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_REVOKED"
+    },
+    {
+      "id": "B139-R06-N3",
+      "ruleId": "B139-R06",
+      "kind": "negative",
+      "mutation": {
+        "field": "txn.cancelEpochCurrent",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_CANCELLED"
+    },
+    {
+      "id": "B139-R06-N4",
+      "ruleId": "B139-R06",
+      "kind": "negative",
+      "mutation": {
+        "field": "txn.lateAckRejected",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_LATE_ACK"
+    },
+    {
+      "id": "B139-R07-P",
+      "ruleId": "B139-R07",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R07-N1",
+      "ruleId": "B139-R07",
+      "kind": "negative",
+      "mutation": {
+        "field": "ui.guiCliAgentSamePort",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_BYPASS"
+    },
+    {
+      "id": "B139-R07-N2",
+      "ruleId": "B139-R07",
+      "kind": "negative",
+      "mutation": {
+        "field": "ui.singleBabylonWorld",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_TWO_WORLDS"
+    },
+    {
+      "id": "B139-R07-N3",
+      "ruleId": "B139-R07",
+      "kind": "negative",
+      "mutation": {
+        "field": "ui.singleLeftTaskPanel",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_TWO_PANELS"
+    },
+    {
+      "id": "B139-R07-N4",
+      "ruleId": "B139-R07",
+      "kind": "negative",
+      "mutation": {
+        "field": "ui.previewReadOnly",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_PREVIEW_WRITE"
+    },
+    {
+      "id": "B139-R08-P",
+      "ruleId": "B139-R08",
+      "kind": "positive",
+      "mutation": null,
+      "expect": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B139-R08-N1",
+      "ruleId": "B139-R08",
+      "kind": "negative",
+      "mutation": {
+        "field": "handoff.d04NotD10",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_D10_BINDING"
+    },
+    {
+      "id": "B139-R08-N2",
+      "ruleId": "B139-R08",
+      "kind": "negative",
+      "mutation": {
+        "field": "handoff.finalNcInterpreterPipeline",
+        "from": true,
+        "to": false
+      },
+      "expect": "REJECT_NC_GATE"
+    },
+    {
+      "id": "B139-R08-N3",
+      "ruleId": "B139-R08",
+      "kind": "negative",
+      "mutation": {
+        "field": "handoff.unknownNotPass",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_SEMANTICS"
+    },
+    {
+      "id": "B139-R08-N4",
+      "ruleId": "B139-R08",
+      "kind": "negative",
+      "mutation": {
+        "field": "handoff.pairedReaderRollbackAndIndependentOracle",
+        "from": true,
+        "to": false
+      },
+      "expect": "UNKNOWN_CONSUMER"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B139-G01",
+      "why": "disjoint edits",
+      "input": {
+        "base": {
+          "A": "rough",
+          "B": "drill"
+        },
+        "current": {
+          "A": "semi",
+          "B": "drill"
+        },
+        "proposed": {
+          "A": "rough",
+          "B": "finish"
+        }
+      },
+      "expected": "CLEAN_CANDIDATE"
+    },
+    {
+      "id": "B139-G02",
+      "why": "same node edit",
+      "input": {
+        "base": {
+          "A": "rough"
+        },
+        "current": {
+          "A": "semi"
+        },
+        "proposed": {
+          "A": "finish"
+        }
+      },
+      "expected": "CONFLICT_SAME_NODE"
+    },
+    {
+      "id": "B139-G03",
+      "why": "modify/delete",
+      "input": {
+        "base": {
+          "A": "rough"
+        },
+        "current": {},
+        "proposed": {
+          "A": "finish"
+        }
+      },
+      "expected": "CONFLICT_MODIFY_DELETE"
+    },
+    {
+      "id": "B139-G04",
+      "why": "delete/use edge",
+      "input": {
+        "base": {
+          "A": "a",
+          "B": "b"
+        },
+        "current": {
+          "B": "b"
+        },
+        "proposed": {
+          "A": "a",
+          "B": "b",
+          "C": "c"
+        },
+        "proposedEdges": [
+          [
+            "C",
+            "A"
+          ]
+        ]
+      },
+      "expected": "CONFLICT_DANGLING"
+    },
+    {
+      "id": "B139-G05",
+      "why": "union cycle",
+      "input": {
+        "base": {
+          "A": "a",
+          "B": "b"
+        },
+        "current": {
+          "A": "a",
+          "B": "b"
+        },
+        "proposed": {
+          "A": "a",
+          "B": "b"
+        },
+        "currentEdges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "proposedEdges": [
+          [
+            "B",
+            "A"
+          ]
+        ]
+      },
+      "expected": "CONFLICT_CYCLE"
+    },
+    {
+      "id": "B139-G06",
+      "why": "unknown rename",
+      "input": {
+        "identityUnknown": true,
+        "base": {
+          "A": "rough"
+        },
+        "current": {
+          "B": "rough"
+        },
+        "proposed": {
+          "A": "rough"
+        }
+      },
+      "expected": "UNKNOWN_IDENTITY"
+    },
+    {
+      "id": "B139-G07",
+      "why": "frozen edit",
+      "input": {
+        "frozenIds": [
+          "A"
+        ],
+        "base": {
+          "A": "rough"
+        },
+        "current": {
+          "A": "rough"
+        },
+        "proposed": {
+          "A": "finish"
+        }
+      },
+      "expected": "FROZEN_REQUIRES_FORK"
+    },
+    {
+      "id": "B139-G08",
+      "why": "old base",
+      "input": {
+        "basePinned": false,
+        "base": {
+          "A": "a"
+        },
+        "current": {
+          "A": "a"
+        },
+        "proposed": {
+          "A": "a"
+        }
+      },
+      "expected": "STALE_BASE"
+    }
+  ]
+}

@@ -1,0 +1,414 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-05-06",
+  "syntheticOnly": true,
+  "productAcceptance": "NOT_RUN",
+  "cases": [
+    {
+      "id": "FRZ506-AT01-P",
+      "ruleId": "FRZ506-R01",
+      "expected": "PASS",
+      "input": {
+        "scope": "demo",
+        "refs": [
+          {
+            "id": "D01",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D02",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D04",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D05",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D08",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT01-N",
+      "ruleId": "FRZ506-R01",
+      "expected": "REJECT",
+      "input": {
+        "scope": "demo",
+        "refs": [
+          {
+            "id": "D01",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D02",
+            "revision": "r4",
+            "hash": "bad",
+            "frame": "PART",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D04",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D05",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          },
+          {
+            "id": "D08",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP",
+            "schemaVersion": "v0.8",
+            "scope": "demo"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT02-P",
+      "ruleId": "FRZ506-R02",
+      "expected": "PASS",
+      "input": {
+        "nodes": [
+          "op1",
+          "op2",
+          "op3"
+        ],
+        "edges": [
+          [
+            "op1",
+            "op2"
+          ],
+          [
+            "op2",
+            "op3"
+          ]
+        ],
+        "target": "op2"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT02-N",
+      "ruleId": "FRZ506-R02",
+      "expected": "REJECT",
+      "input": {
+        "nodes": [
+          "op1",
+          "op2",
+          "op3"
+        ],
+        "edges": [
+          [
+            "op1",
+            "op2"
+          ],
+          [
+            "op2",
+            "op1"
+          ]
+        ],
+        "target": "op2"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT03-P",
+      "ruleId": "FRZ506-R03",
+      "expected": "PASS",
+      "input": {
+        "decisionOwner": "D05",
+        "snapshotOwner": "D08",
+        "d08Overwritten": false,
+        "auditAppendOnly": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT03-N",
+      "ruleId": "FRZ506-R03",
+      "expected": "REJECT",
+      "input": {
+        "decisionOwner": "D05",
+        "snapshotOwner": "D08",
+        "d08Overwritten": true,
+        "auditAppendOnly": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT04-P",
+      "ruleId": "FRZ506-R04",
+      "expected": "PASS",
+      "input": {
+        "base": "r4",
+        "current": "r5",
+        "proposed": "r6",
+        "overlap": false,
+        "dependencyCross": false,
+        "approvedResolution": false,
+        "mergeMode": "REVIEW_NONOVERLAP"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT04-N",
+      "ruleId": "FRZ506-R04",
+      "expected": "REJECT",
+      "input": {
+        "base": "r4",
+        "current": "r5",
+        "proposed": "r6",
+        "overlap": true,
+        "dependencyCross": false,
+        "approvedResolution": false,
+        "mergeMode": "REVIEW_NONOVERLAP"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT05-P",
+      "ruleId": "FRZ506-R05",
+      "expected": "PASS",
+      "input": {
+        "thaw": true,
+        "approval": "human-approved-exact",
+        "mode": "FORK_NEW_D05",
+        "reason": "变更审批",
+        "historicKept": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT05-N",
+      "ruleId": "FRZ506-R05",
+      "expected": "REJECT",
+      "input": {
+        "thaw": true,
+        "approval": "",
+        "mode": "FORK_NEW_D05",
+        "reason": "变更审批",
+        "historicKept": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT06-P",
+      "ruleId": "FRZ506-R06",
+      "expected": "PASS",
+      "input": {
+        "a": "A",
+        "b": "B",
+        "sharedHash": true,
+        "overwriteA": false,
+        "overwriteB": false,
+        "frozenA": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT06-N",
+      "ruleId": "FRZ506-R06",
+      "expected": "REJECT",
+      "input": {
+        "a": "A",
+        "b": "B",
+        "sharedHash": true,
+        "overwriteA": true,
+        "overwriteB": false,
+        "frozenA": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT07-P",
+      "ruleId": "FRZ506-R07",
+      "expected": "PASS",
+      "input": {
+        "entries": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "sharedPort": true,
+        "worldCount": 1,
+        "panel": "LEFT_TASK_PANEL",
+        "previewWrites": 0,
+        "agentBypass": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT07-N",
+      "ruleId": "FRZ506-R07",
+      "expected": "REJECT",
+      "input": {
+        "entries": [
+          "GUI",
+          "CLI",
+          "Agent"
+        ],
+        "sharedPort": true,
+        "worldCount": 1,
+        "panel": "LEFT_TASK_PANEL",
+        "previewWrites": 1,
+        "agentBypass": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT08-P",
+      "ruleId": "FRZ506-R08",
+      "expected": "PASS",
+      "input": {
+        "authorized": true,
+        "rechecked": true,
+        "expected": "r4",
+        "current": "r4",
+        "epoch": 3,
+        "currentEpoch": 3,
+        "generation": 7,
+        "replyGeneration": 7,
+        "cancelled": false,
+        "lateReceipt": false,
+        "sourceHashesMatch": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT08-N",
+      "ruleId": "FRZ506-R08",
+      "expected": "REJECT",
+      "input": {
+        "authorized": true,
+        "rechecked": true,
+        "expected": "r4",
+        "current": "r4",
+        "epoch": 3,
+        "currentEpoch": 3,
+        "generation": 7,
+        "replyGeneration": 8,
+        "cancelled": false,
+        "lateReceipt": false,
+        "sourceHashesMatch": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT09-P",
+      "ruleId": "FRZ506-R09",
+      "expected": "PASS",
+      "input": {
+        "affected": [
+          "op2",
+          "op3"
+        ],
+        "stale": [
+          "op2",
+          "op3"
+        ],
+        "unaffected": [
+          "op1"
+        ],
+        "statusD13": "UNKNOWN",
+        "statusD15": "NOT_RUN",
+        "statusD16": "BLOCKED",
+        "clCertified": false,
+        "sweptMaterial": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT09-N",
+      "ruleId": "FRZ506-R09",
+      "expected": "REJECT",
+      "input": {
+        "affected": [
+          "op2",
+          "op3"
+        ],
+        "stale": [
+          "op2",
+          "op3"
+        ],
+        "unaffected": [
+          "op1"
+        ],
+        "statusD13": "UNKNOWN",
+        "statusD15": "PASS",
+        "statusD16": "BLOCKED",
+        "clCertified": false,
+        "sweptMaterial": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT10-P",
+      "ruleId": "FRZ506-R10",
+      "expected": "PASS",
+      "input": {
+        "adapter": "freeze-v0.8",
+        "rollback": "NEW_REVISION",
+        "deleteUserData": false,
+        "auditAppendOnly": true,
+        "productStatus": "NOT_RUN"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "FRZ506-AT10-N",
+      "ruleId": "FRZ506-R10",
+      "expected": "REJECT",
+      "input": {
+        "adapter": "freeze-v0.8",
+        "rollback": "NEW_REVISION",
+        "deleteUserData": true,
+        "auditAppendOnly": true,
+        "productStatus": "NOT_RUN"
+      },
+      "synthetic": true
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "schemaVersion": "procet-planning-fixture-backfill-v2",
+  "workPackageId": "B0-01",
+  "origin": "NEWLY_AUTHORED_FROM_SUBMITTED_RULES_NOT_HISTORICAL_BYTES",
+  "productExecution": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "B0-01-AT01",
+      "ruleId": "B001-R01",
+      "polarity": "positive",
+      "title": "正确分别登记三层SHA/二进制unknown",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "正确分别登记三层SHA/二进制unknown",
+      "expectedDisposition": "TRIAD_SEPARATE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT02",
+      "ruleId": "B001-R01",
+      "polarity": "negative",
+      "title": "以研发develop SHA填充runtimeBinaryDigest",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "以研发develop SHA填充runtimeBinaryDigest",
+      "expectedDisposition": "REJECT_LAYER_CONFUSION",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT03",
+      "ruleId": "B001-R02",
+      "polarity": "positive",
+      "title": "正确集成锁ref与path声明摘要标待核",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "正确集成锁ref与path声明摘要标待核",
+      "expectedDisposition": "DECLARE_UNVERIFIED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT04",
+      "ruleId": "B001-R02",
+      "polarity": "negative",
+      "title": "以path字符串计算的伪摘要宣称验证通过",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "以path字符串计算的伪摘要宣称验证通过",
+      "expectedDisposition": "REJECT_FAKE_DIGEST",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT05",
+      "ruleId": "B001-R03",
+      "polarity": "positive",
+      "title": "列出两个Cargo+pnpm根且分别锁定",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "列出两个Cargo+pnpm根且分别锁定",
+      "expectedDisposition": "MULTI_ROOTS",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT06",
+      "ruleId": "B001-R03",
+      "polarity": "negative",
+      "title": "把根Cargo测试PASS当Tauri桌面工作区PASS",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "把根Cargo测试PASS当Tauri桌面工作区PASS",
+      "expectedDisposition": "REJECT_WORKSPACE_CONFLATION",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT07",
+      "ruleId": "B001-R04",
+      "polarity": "positive",
+      "title": "原生OCCT和Worker未获得时标未知",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "原生OCCT和Worker未获得时标未知",
+      "expectedDisposition": "NATIVE_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT08",
+      "ruleId": "B001-R04",
+      "polarity": "negative",
+      "title": "只因native-occt feature启用便宣称已打包",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "只因native-occt feature启用便宣称已打包",
+      "expectedDisposition": "REJECT_FEATURE_AS_BINARY",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT09",
+      "ruleId": "B001-R05",
+      "polarity": "positive",
+      "title": "二进制缺失时阻断激活但保持草案",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "二进制缺失时阻断激活但保持草案",
+      "expectedDisposition": "FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT10",
+      "ruleId": "B001-R05",
+      "polarity": "negative",
+      "title": "用空字符串/0代替二进制SHA",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "用空字符串/0代替二进制SHA",
+      "expectedDisposition": "REJECT_EMPTY_BINARY",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT11",
+      "ruleId": "B001-R06",
+      "polarity": "positive",
+      "title": "区分GUI solver pinned b7e8与develop 4417",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "区分GUI solver pinned b7e8与develop 4417",
+      "expectedDisposition": "DIFF_WITH_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT12",
+      "ruleId": "B001-R06",
+      "polarity": "negative",
+      "title": "把develop HEAD变化自动升级桌面能力",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "把develop HEAD变化自动升级桌面能力",
+      "expectedDisposition": "REJECT_SILENT_UPGRADE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT13",
+      "ruleId": "B001-R07",
+      "polarity": "positive",
+      "title": "真实测试报告含组合和环境、NOT_RUN",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "真实测试报告含组合和环境、NOT_RUN",
+      "expectedDisposition": "TEST_SCOPED",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT14",
+      "ruleId": "B001-R07",
+      "polarity": "negative",
+      "title": "把旧工作流PASS套到新的未测组合",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "把旧工作流PASS套到新的未测组合",
+      "expectedDisposition": "REJECT_STALE_PASS",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT15",
+      "ruleId": "B001-R08",
+      "polarity": "positive",
+      "title": "预览GUI仅显示锁差异与采纳命令",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "预览GUI仅显示锁差异与采纳命令",
+      "expectedDisposition": "UI_READONLY",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT16",
+      "ruleId": "B001-R08",
+      "polarity": "negative",
+      "title": "3D点选后直接将组合改为已批准",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "3D点选后直接将组合改为已批准",
+      "expectedDisposition": "REJECT_UI_WRITES",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT17",
+      "ruleId": "B001-R09",
+      "polarity": "positive",
+      "title": "新组合验证失败维持旧active版本",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "新组合验证失败维持旧active版本",
+      "expectedDisposition": "ROLLBACK_PRESERVES",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT18",
+      "ruleId": "B001-R09",
+      "polarity": "negative",
+      "title": "失败后把旧锁文件覆盖为新失败状态",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "失败后把旧锁文件覆盖为新失败状态",
+      "expectedDisposition": "REJECT_DESTRUCTIVE_ROLLBACK",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT19",
+      "ruleId": "B001-R10",
+      "polarity": "positive",
+      "title": "明确NC执行尚缺证据不可发布验证通过",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "明确NC执行尚缺证据不可发布验证通过",
+      "expectedDisposition": "LIMITED_SCOPE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    },
+    {
+      "id": "B0-01-AT20",
+      "ruleId": "B001-R10",
+      "polarity": "negative",
+      "title": "CL视图正常即标实际控制器NC验证通过",
+      "given": "三层研发/集成/运行身份存在实际或UNKNOWN记录",
+      "when": "通过规划中的受管组合审查入口执行（产品测试未建立）",
+      "then": "CL视图正常即标实际控制器NC验证通过",
+      "expectedDisposition": "REJECT_FALSE_NC_VALIDATION",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "source HEAD",
+        "integration lock",
+        "measured binary digest or UNKNOWN",
+        "typed receipt"
+      ]
+    }
+  ]
+}

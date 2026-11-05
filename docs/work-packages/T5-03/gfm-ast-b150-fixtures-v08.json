@@ -1,0 +1,718 @@
+{
+  "schemaVersion": "procet-b150-fixtures-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-04",
+  "tracePath": "research/traces/T5-03-gfm-ast-b150-v08.json",
+  "rules": [
+    {
+      "id": "B150-R01",
+      "fields": [
+        "tree.headPinned",
+        "tree.completeTree",
+        "tree.modeEnumerated",
+        "tree.noSyntheticFiles"
+      ],
+      "failure": "TREE_SCOPE_UNKNOWN",
+      "testIds": [
+        "B150-R01-P",
+        "B150-R01-N1",
+        "B150-R01-N2",
+        "B150-R01-N3",
+        "B150-R01-N4"
+      ]
+    },
+    {
+      "id": "B150-R02",
+      "fields": [
+        "parser.commonmarkAst",
+        "parser.tableRule",
+        "parser.fencedCodeIgnored",
+        "parser.referenceLinksResolved"
+      ],
+      "failure": "AST_COVERAGE_UNKNOWN",
+      "testIds": [
+        "B150-R02-P",
+        "B150-R02-N1",
+        "B150-R02-N2",
+        "B150-R02-N3",
+        "B150-R02-N4"
+      ]
+    },
+    {
+      "id": "B150-R03",
+      "fields": [
+        "links.sourceRelative",
+        "links.percentDecoded",
+        "links.caseSensitive",
+        "links.escapeRejected"
+      ],
+      "failure": "LINK_TARGET_UNRESOLVED",
+      "testIds": [
+        "B150-R03-P",
+        "B150-R03-N1",
+        "B150-R03-N2",
+        "B150-R03-N3",
+        "B150-R03-N4"
+      ]
+    },
+    {
+      "id": "B150-R04",
+      "fields": [
+        "objects.fileModes",
+        "objects.symlinkUnknown",
+        "objects.gitlinkUnknown",
+        "objects.externalSeparate"
+      ],
+      "failure": "MODE_UNQUALIFIED",
+      "testIds": [
+        "B150-R04-P",
+        "B150-R04-N1",
+        "B150-R04-N2",
+        "B150-R04-N3",
+        "B150-R04-N4"
+      ]
+    },
+    {
+      "id": "B150-R05",
+      "fields": [
+        "fragments.headingSlugs",
+        "fragments.duplicateCounters",
+        "fragments.htmlIdsCaveat",
+        "fragments.rendererParityUnknown"
+      ],
+      "failure": "ANCHOR_UNQUALIFIED",
+      "testIds": [
+        "B150-R05-P",
+        "B150-R05-N1",
+        "B150-R05-N2",
+        "B150-R05-N3",
+        "B150-R05-N4"
+      ]
+    },
+    {
+      "id": "B150-R06",
+      "fields": [
+        "coverage.allMarkdown",
+        "coverage.nonMarkdownTargets",
+        "coverage.provenanceIncluded",
+        "coverage.unreadFilesUnknown"
+      ],
+      "failure": "INCOMPLETE_AUDIT",
+      "testIds": [
+        "B150-R06-P",
+        "B150-R06-N1",
+        "B150-R06-N2",
+        "B150-R06-N3",
+        "B150-R06-N4"
+      ]
+    },
+    {
+      "id": "B150-R07",
+      "fields": [
+        "acceptance.nonzeroOnBroken",
+        "acceptance.syntheticIndependentNegatives",
+        "acceptance.consumerIndependent",
+        "acceptance.notProductPass"
+      ],
+      "failure": "QUALIFICATION_UNPROVEN",
+      "testIds": [
+        "B150-R07-P",
+        "B150-R07-N1",
+        "B150-R07-N2",
+        "B150-R07-N3",
+        "B150-R07-N4"
+      ]
+    },
+    {
+      "id": "B150-R08",
+      "fields": [
+        "flow.guiCliAgentSameOwner",
+        "flow.singleBabylonLeftPanel",
+        "flow.aclCasCancelFence",
+        "flow.migrationRollback"
+      ],
+      "failure": "WORKFLOW_GATE_UNKNOWN",
+      "testIds": [
+        "B150-R08-P",
+        "B150-R08-N1",
+        "B150-R08-N2",
+        "B150-R08-N3",
+        "B150-R08-N4"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "B150-R01-P",
+      "ruleId": "B150-R01",
+      "type": "POSITIVE",
+      "values": {
+        "tree.headPinned": true,
+        "tree.completeTree": true,
+        "tree.modeEnumerated": true,
+        "tree.noSyntheticFiles": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R01-N1",
+      "ruleId": "B150-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "tree.headPinned",
+      "values": {
+        "tree.headPinned": false,
+        "tree.completeTree": true,
+        "tree.modeEnumerated": true,
+        "tree.noSyntheticFiles": true
+      },
+      "expected": "TREE_SCOPE_UNKNOWN"
+    },
+    {
+      "id": "B150-R01-N2",
+      "ruleId": "B150-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "tree.completeTree",
+      "values": {
+        "tree.headPinned": true,
+        "tree.completeTree": false,
+        "tree.modeEnumerated": true,
+        "tree.noSyntheticFiles": true
+      },
+      "expected": "TREE_SCOPE_UNKNOWN"
+    },
+    {
+      "id": "B150-R01-N3",
+      "ruleId": "B150-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "tree.modeEnumerated",
+      "values": {
+        "tree.headPinned": true,
+        "tree.completeTree": true,
+        "tree.modeEnumerated": false,
+        "tree.noSyntheticFiles": true
+      },
+      "expected": "TREE_SCOPE_UNKNOWN"
+    },
+    {
+      "id": "B150-R01-N4",
+      "ruleId": "B150-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "tree.noSyntheticFiles",
+      "values": {
+        "tree.headPinned": true,
+        "tree.completeTree": true,
+        "tree.modeEnumerated": true,
+        "tree.noSyntheticFiles": false
+      },
+      "expected": "TREE_SCOPE_UNKNOWN"
+    },
+    {
+      "id": "B150-R02-P",
+      "ruleId": "B150-R02",
+      "type": "POSITIVE",
+      "values": {
+        "parser.commonmarkAst": true,
+        "parser.tableRule": true,
+        "parser.fencedCodeIgnored": true,
+        "parser.referenceLinksResolved": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R02-N1",
+      "ruleId": "B150-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "parser.commonmarkAst",
+      "values": {
+        "parser.commonmarkAst": false,
+        "parser.tableRule": true,
+        "parser.fencedCodeIgnored": true,
+        "parser.referenceLinksResolved": true
+      },
+      "expected": "AST_COVERAGE_UNKNOWN"
+    },
+    {
+      "id": "B150-R02-N2",
+      "ruleId": "B150-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "parser.tableRule",
+      "values": {
+        "parser.commonmarkAst": true,
+        "parser.tableRule": false,
+        "parser.fencedCodeIgnored": true,
+        "parser.referenceLinksResolved": true
+      },
+      "expected": "AST_COVERAGE_UNKNOWN"
+    },
+    {
+      "id": "B150-R02-N3",
+      "ruleId": "B150-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "parser.fencedCodeIgnored",
+      "values": {
+        "parser.commonmarkAst": true,
+        "parser.tableRule": true,
+        "parser.fencedCodeIgnored": false,
+        "parser.referenceLinksResolved": true
+      },
+      "expected": "AST_COVERAGE_UNKNOWN"
+    },
+    {
+      "id": "B150-R02-N4",
+      "ruleId": "B150-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "parser.referenceLinksResolved",
+      "values": {
+        "parser.commonmarkAst": true,
+        "parser.tableRule": true,
+        "parser.fencedCodeIgnored": true,
+        "parser.referenceLinksResolved": false
+      },
+      "expected": "AST_COVERAGE_UNKNOWN"
+    },
+    {
+      "id": "B150-R03-P",
+      "ruleId": "B150-R03",
+      "type": "POSITIVE",
+      "values": {
+        "links.sourceRelative": true,
+        "links.percentDecoded": true,
+        "links.caseSensitive": true,
+        "links.escapeRejected": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R03-N1",
+      "ruleId": "B150-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "links.sourceRelative",
+      "values": {
+        "links.sourceRelative": false,
+        "links.percentDecoded": true,
+        "links.caseSensitive": true,
+        "links.escapeRejected": true
+      },
+      "expected": "LINK_TARGET_UNRESOLVED"
+    },
+    {
+      "id": "B150-R03-N2",
+      "ruleId": "B150-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "links.percentDecoded",
+      "values": {
+        "links.sourceRelative": true,
+        "links.percentDecoded": false,
+        "links.caseSensitive": true,
+        "links.escapeRejected": true
+      },
+      "expected": "LINK_TARGET_UNRESOLVED"
+    },
+    {
+      "id": "B150-R03-N3",
+      "ruleId": "B150-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "links.caseSensitive",
+      "values": {
+        "links.sourceRelative": true,
+        "links.percentDecoded": true,
+        "links.caseSensitive": false,
+        "links.escapeRejected": true
+      },
+      "expected": "LINK_TARGET_UNRESOLVED"
+    },
+    {
+      "id": "B150-R03-N4",
+      "ruleId": "B150-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "links.escapeRejected",
+      "values": {
+        "links.sourceRelative": true,
+        "links.percentDecoded": true,
+        "links.caseSensitive": true,
+        "links.escapeRejected": false
+      },
+      "expected": "LINK_TARGET_UNRESOLVED"
+    },
+    {
+      "id": "B150-R04-P",
+      "ruleId": "B150-R04",
+      "type": "POSITIVE",
+      "values": {
+        "objects.fileModes": true,
+        "objects.symlinkUnknown": true,
+        "objects.gitlinkUnknown": true,
+        "objects.externalSeparate": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R04-N1",
+      "ruleId": "B150-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "objects.fileModes",
+      "values": {
+        "objects.fileModes": false,
+        "objects.symlinkUnknown": true,
+        "objects.gitlinkUnknown": true,
+        "objects.externalSeparate": true
+      },
+      "expected": "MODE_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R04-N2",
+      "ruleId": "B150-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "objects.symlinkUnknown",
+      "values": {
+        "objects.fileModes": true,
+        "objects.symlinkUnknown": false,
+        "objects.gitlinkUnknown": true,
+        "objects.externalSeparate": true
+      },
+      "expected": "MODE_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R04-N3",
+      "ruleId": "B150-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "objects.gitlinkUnknown",
+      "values": {
+        "objects.fileModes": true,
+        "objects.symlinkUnknown": true,
+        "objects.gitlinkUnknown": false,
+        "objects.externalSeparate": true
+      },
+      "expected": "MODE_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R04-N4",
+      "ruleId": "B150-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "objects.externalSeparate",
+      "values": {
+        "objects.fileModes": true,
+        "objects.symlinkUnknown": true,
+        "objects.gitlinkUnknown": true,
+        "objects.externalSeparate": false
+      },
+      "expected": "MODE_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R05-P",
+      "ruleId": "B150-R05",
+      "type": "POSITIVE",
+      "values": {
+        "fragments.headingSlugs": true,
+        "fragments.duplicateCounters": true,
+        "fragments.htmlIdsCaveat": true,
+        "fragments.rendererParityUnknown": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R05-N1",
+      "ruleId": "B150-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "fragments.headingSlugs",
+      "values": {
+        "fragments.headingSlugs": false,
+        "fragments.duplicateCounters": true,
+        "fragments.htmlIdsCaveat": true,
+        "fragments.rendererParityUnknown": true
+      },
+      "expected": "ANCHOR_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R05-N2",
+      "ruleId": "B150-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "fragments.duplicateCounters",
+      "values": {
+        "fragments.headingSlugs": true,
+        "fragments.duplicateCounters": false,
+        "fragments.htmlIdsCaveat": true,
+        "fragments.rendererParityUnknown": true
+      },
+      "expected": "ANCHOR_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R05-N3",
+      "ruleId": "B150-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "fragments.htmlIdsCaveat",
+      "values": {
+        "fragments.headingSlugs": true,
+        "fragments.duplicateCounters": true,
+        "fragments.htmlIdsCaveat": false,
+        "fragments.rendererParityUnknown": true
+      },
+      "expected": "ANCHOR_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R05-N4",
+      "ruleId": "B150-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "fragments.rendererParityUnknown",
+      "values": {
+        "fragments.headingSlugs": true,
+        "fragments.duplicateCounters": true,
+        "fragments.htmlIdsCaveat": true,
+        "fragments.rendererParityUnknown": false
+      },
+      "expected": "ANCHOR_UNQUALIFIED"
+    },
+    {
+      "id": "B150-R06-P",
+      "ruleId": "B150-R06",
+      "type": "POSITIVE",
+      "values": {
+        "coverage.allMarkdown": true,
+        "coverage.nonMarkdownTargets": true,
+        "coverage.provenanceIncluded": true,
+        "coverage.unreadFilesUnknown": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R06-N1",
+      "ruleId": "B150-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "coverage.allMarkdown",
+      "values": {
+        "coverage.allMarkdown": false,
+        "coverage.nonMarkdownTargets": true,
+        "coverage.provenanceIncluded": true,
+        "coverage.unreadFilesUnknown": true
+      },
+      "expected": "INCOMPLETE_AUDIT"
+    },
+    {
+      "id": "B150-R06-N2",
+      "ruleId": "B150-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "coverage.nonMarkdownTargets",
+      "values": {
+        "coverage.allMarkdown": true,
+        "coverage.nonMarkdownTargets": false,
+        "coverage.provenanceIncluded": true,
+        "coverage.unreadFilesUnknown": true
+      },
+      "expected": "INCOMPLETE_AUDIT"
+    },
+    {
+      "id": "B150-R06-N3",
+      "ruleId": "B150-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "coverage.provenanceIncluded",
+      "values": {
+        "coverage.allMarkdown": true,
+        "coverage.nonMarkdownTargets": true,
+        "coverage.provenanceIncluded": false,
+        "coverage.unreadFilesUnknown": true
+      },
+      "expected": "INCOMPLETE_AUDIT"
+    },
+    {
+      "id": "B150-R06-N4",
+      "ruleId": "B150-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "coverage.unreadFilesUnknown",
+      "values": {
+        "coverage.allMarkdown": true,
+        "coverage.nonMarkdownTargets": true,
+        "coverage.provenanceIncluded": true,
+        "coverage.unreadFilesUnknown": false
+      },
+      "expected": "INCOMPLETE_AUDIT"
+    },
+    {
+      "id": "B150-R07-P",
+      "ruleId": "B150-R07",
+      "type": "POSITIVE",
+      "values": {
+        "acceptance.nonzeroOnBroken": true,
+        "acceptance.syntheticIndependentNegatives": true,
+        "acceptance.consumerIndependent": true,
+        "acceptance.notProductPass": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R07-N1",
+      "ruleId": "B150-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "acceptance.nonzeroOnBroken",
+      "values": {
+        "acceptance.nonzeroOnBroken": false,
+        "acceptance.syntheticIndependentNegatives": true,
+        "acceptance.consumerIndependent": true,
+        "acceptance.notProductPass": true
+      },
+      "expected": "QUALIFICATION_UNPROVEN"
+    },
+    {
+      "id": "B150-R07-N2",
+      "ruleId": "B150-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "acceptance.syntheticIndependentNegatives",
+      "values": {
+        "acceptance.nonzeroOnBroken": true,
+        "acceptance.syntheticIndependentNegatives": false,
+        "acceptance.consumerIndependent": true,
+        "acceptance.notProductPass": true
+      },
+      "expected": "QUALIFICATION_UNPROVEN"
+    },
+    {
+      "id": "B150-R07-N3",
+      "ruleId": "B150-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "acceptance.consumerIndependent",
+      "values": {
+        "acceptance.nonzeroOnBroken": true,
+        "acceptance.syntheticIndependentNegatives": true,
+        "acceptance.consumerIndependent": false,
+        "acceptance.notProductPass": true
+      },
+      "expected": "QUALIFICATION_UNPROVEN"
+    },
+    {
+      "id": "B150-R07-N4",
+      "ruleId": "B150-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "acceptance.notProductPass",
+      "values": {
+        "acceptance.nonzeroOnBroken": true,
+        "acceptance.syntheticIndependentNegatives": true,
+        "acceptance.consumerIndependent": true,
+        "acceptance.notProductPass": false
+      },
+      "expected": "QUALIFICATION_UNPROVEN"
+    },
+    {
+      "id": "B150-R08-P",
+      "ruleId": "B150-R08",
+      "type": "POSITIVE",
+      "values": {
+        "flow.guiCliAgentSameOwner": true,
+        "flow.singleBabylonLeftPanel": true,
+        "flow.aclCasCancelFence": true,
+        "flow.migrationRollback": true
+      },
+      "expected": "PASS_SYNTHETIC"
+    },
+    {
+      "id": "B150-R08-N1",
+      "ruleId": "B150-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "flow.guiCliAgentSameOwner",
+      "values": {
+        "flow.guiCliAgentSameOwner": false,
+        "flow.singleBabylonLeftPanel": true,
+        "flow.aclCasCancelFence": true,
+        "flow.migrationRollback": true
+      },
+      "expected": "WORKFLOW_GATE_UNKNOWN"
+    },
+    {
+      "id": "B150-R08-N2",
+      "ruleId": "B150-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "flow.singleBabylonLeftPanel",
+      "values": {
+        "flow.guiCliAgentSameOwner": true,
+        "flow.singleBabylonLeftPanel": false,
+        "flow.aclCasCancelFence": true,
+        "flow.migrationRollback": true
+      },
+      "expected": "WORKFLOW_GATE_UNKNOWN"
+    },
+    {
+      "id": "B150-R08-N3",
+      "ruleId": "B150-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "flow.aclCasCancelFence",
+      "values": {
+        "flow.guiCliAgentSameOwner": true,
+        "flow.singleBabylonLeftPanel": true,
+        "flow.aclCasCancelFence": false,
+        "flow.migrationRollback": true
+      },
+      "expected": "WORKFLOW_GATE_UNKNOWN"
+    },
+    {
+      "id": "B150-R08-N4",
+      "ruleId": "B150-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "changedField": "flow.migrationRollback",
+      "values": {
+        "flow.guiCliAgentSameOwner": true,
+        "flow.singleBabylonLeftPanel": true,
+        "flow.aclCasCancelFence": true,
+        "flow.migrationRollback": false
+      },
+      "expected": "WORKFLOW_GATE_UNKNOWN"
+    }
+  ],
+  "semanticGoldens": [
+    {
+      "id": "B150-G01",
+      "feature": "code_fence_ignore",
+      "sample": "```md\\n[none](absent.md)\\n```",
+      "expected": "NO_LINK_EXTRACTED",
+      "scope": "SUBSET_ONLY"
+    },
+    {
+      "id": "B150-G02",
+      "feature": "reference_definition",
+      "sample": "[link][x]\\n\\n[x]: doc.md",
+      "expected": "LINK_EXTRACTED",
+      "scope": "SUBSET_ONLY"
+    },
+    {
+      "id": "B150-G03",
+      "feature": "duplicate_heading",
+      "sample": "# 标题\\n# 标题\\n[link](#标题-1)",
+      "expected": "SECOND_ANCHOR",
+      "scope": "SUBSET_ONLY"
+    },
+    {
+      "id": "B150-G04",
+      "feature": "relative_parent",
+      "sample": "[image](../media/p.png)",
+      "expected": "NORMALIZE_IN_REPO",
+      "scope": "SUBSET_ONLY"
+    },
+    {
+      "id": "B150-G05",
+      "feature": "traversal_escape",
+      "sample": "[bad](../../outside.md)",
+      "expected": "OUTSIDE_REPO",
+      "scope": "SUBSET_ONLY"
+    },
+    {
+      "id": "B150-G06",
+      "feature": "git_symlink",
+      "sample": "[link](symlink)",
+      "expected": "SYMLINK_UNKNOWN",
+      "scope": "SUBSET_ONLY"
+    },
+    {
+      "id": "B150-G07",
+      "feature": "external_link",
+      "sample": "[site](https://example.com)",
+      "expected": "EXTERNAL_SEPARATE",
+      "scope": "SUBSET_ONLY"
+    },
+    {
+      "id": "B150-G08",
+      "feature": "unknown_html_id",
+      "sample": "<a id=\"custom\"></a>\\n[fragment](#custom)",
+      "expected": "FRAGMENT_UNKNOWN_NOT_PASS",
+      "scope": "SUBSET_ONLY"
+    }
+  ],
+  "scope": "STATIC_RULE_FIXTURES_AND_PARSER_SUBSET_ONLY",
+  "actualConsumerTests": "NOT_RUN"
+}

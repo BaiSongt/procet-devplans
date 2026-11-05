@@ -1,0 +1,804 @@
+{
+  "schemaVersion": "procet-cap-acceptance-v1",
+  "capabilityId": "CAP-04-02",
+  "status": "planned_only",
+  "productAcceptance": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "CAP-04-02-T01",
+      "ruleIds": [
+        "REG-R01"
+      ],
+      "polarity": "positive",
+      "given": "目标CAD修订r7、毛坯选用采购料批次B（nominal），同时携带确切hash与实例路径，并由04域创建配准草稿",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "SOURCE_SCOPES_PRESERVED",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "projectId",
+        "documentInstanceId",
+        "setupId",
+        "targetCadRef",
+        "cadOccurrencePath",
+        "stockRef",
+        "stockSourceKind",
+        "ownerDomain"
+      ],
+      "sourceIds": [
+        "SRC-REG-001",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T01",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T02",
+      "ruleIds": [
+        "REG-R01"
+      ],
+      "polarity": "negative",
+      "given": "将同shapeHash但另一CAD实例的stock/part匹配结果冒充当前Setup定位，或拿03域记录覆盖D04",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "SOURCE_OR_OWNER_MISMATCH",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "projectId",
+        "documentInstanceId",
+        "setupId",
+        "targetCadRef",
+        "cadOccurrencePath",
+        "stockRef",
+        "stockSourceKind",
+        "ownerDomain"
+      ],
+      "sourceIds": [
+        "SRC-REG-001",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T02",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T03",
+      "ruleIds": [
+        "REG-R02"
+      ],
+      "polarity": "positive",
+      "given": "将CAD和毛坯各自刚体位姿映射到Setup后执行正反变换并保存frame约定",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "RIGID_FRAME_ROUND_TRIP",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "partToSetupTransform",
+        "stockToSetupTransform",
+        "partToStockTransform",
+        "unitCode",
+        "frameConvention",
+        "frameNumericPolicyRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-002",
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T03",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T04",
+      "ruleIds": [
+        "REG-R02"
+      ],
+      "polarity": "negative",
+      "given": "传入x轴缩放1.01或det<0镜像，依靠Babylon左手显示转换绕过校验",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "INVALID_OR_AMBIGUOUS_FRAME",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "partToSetupTransform",
+        "stockToSetupTransform",
+        "partToStockTransform",
+        "unitCode",
+        "frameConvention",
+        "frameNumericPolicyRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-002",
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T04",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T05",
+      "ruleIds": [
+        "REG-R03"
+      ],
+      "polarity": "positive",
+      "given": "相同输入连续点三次自动落座与居中，得到逐位一致的候选变换且无额外revision",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "DETERMINISTIC_ABSOLUTE_CANDIDATE",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "alignmentInputHash",
+        "registrationConstraintRefs",
+        "solverAlgorithmRef",
+        "candidateTransform",
+        "solutionMultiplicity",
+        "registrationStatus"
+      ],
+      "sourceIds": [
+        "SRC-REG-001",
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T05",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T06",
+      "ruleIds": [
+        "REG-R03"
+      ],
+      "polarity": "negative",
+      "given": "只给单点而方向不足仍标approved，或第三次点击累计偏移三倍",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "UNDETERMINED_OR_CUMULATIVE_PLACEMENT",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "alignmentInputHash",
+        "registrationConstraintRefs",
+        "solverAlgorithmRef",
+        "candidateTransform",
+        "solutionMultiplicity",
+        "registrationStatus"
+      ],
+      "sourceIds": [
+        "SRC-REG-001",
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T06",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T07",
+      "ruleIds": [
+        "REG-R04"
+      ],
+      "polarity": "positive",
+      "given": "按按钮显式求目标Setup局部bbox，展示与既有毛坯尺寸差异，用户仅采用配准而不改原始库存规格",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "EXPLICIT_STOCK_ADOPTION_ONLY",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "stockGeometryRef",
+        "requestedBoundsFrameRef",
+        "stockNominalDimensions",
+        "proposalBounds",
+        "stockDimensionChangeIntent",
+        "stockAdoptionDecision"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-004"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T07",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T08",
+      "ruleIds": [
+        "REG-R04"
+      ],
+      "polarity": "negative",
+      "given": "CAD旋转后自动改库存毛坯外形或导入即补尺寸并提交新D04",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "IMPLICIT_STOCK_RESIZE",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "stockGeometryRef",
+        "requestedBoundsFrameRef",
+        "stockNominalDimensions",
+        "proposalBounds",
+        "stockDimensionChangeIntent",
+        "stockAdoptionDecision"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-004"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T08",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T09",
+      "ruleIds": [
+        "REG-R05"
+      ],
+      "polarity": "positive",
+      "given": "给出OCCT候选AABB筛查、几何后续核验门和unknown未测余量来源，明确不启动不满足条件的材料求解",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "BOUNDING_SCREENING_NOT_CERTIFICATION",
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "fields": [
+        "stockBoundaryRef",
+        "targetBoundaryRef",
+        "boundingAlgorithmRef",
+        "tolerancePolicyRef",
+        "containmentAssessment",
+        "localAllowanceEvidence"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-004"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T09",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T10",
+      "ruleIds": [
+        "REG-R05"
+      ],
+      "polarity": "negative",
+      "given": "只要两个AABB有交集就宣称目标完全包在stock且每处余量均为正",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "INSUFFICIENT_GEOMETRY_EVIDENCE",
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "fields": [
+        "stockBoundaryRef",
+        "targetBoundaryRef",
+        "boundingAlgorithmRef",
+        "tolerancePolicyRef",
+        "containmentAssessment",
+        "localAllowanceEvidence"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-004"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T10",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T11",
+      "ruleIds": [
+        "REG-R06"
+      ],
+      "polarity": "positive",
+      "given": "GUI拖拽ghost与CLI计算返回同一候选hash；切换3D空间仅切显示，未提交时D04 revision不变",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "ONE_SCENE_ONE_COMMAND_PATH",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "viewportSelectionRef",
+        "proposalId",
+        "scopeEpoch",
+        "previewOnly",
+        "entrySurface",
+        "topologySnapshotRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T11",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T12",
+      "ruleIds": [
+        "REG-R06"
+      ],
+      "polarity": "negative",
+      "given": "按住拖拽直接更新数据库或在资源3D开第二个Scene持久维护另一套毛坯姿态",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "UNAUTHORIZED_PREVIEW_WRITE",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "viewportSelectionRef",
+        "proposalId",
+        "scopeEpoch",
+        "previewOnly",
+        "entrySurface",
+        "topologySnapshotRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T12",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T13",
+      "ruleIds": [
+        "REG-R07"
+      ],
+      "polarity": "positive",
+      "given": "同一提交重试返回同一receipt；并发甲乙中仅匹配预期修订与权限的一个成功，另一个conflict",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "CAS_RECHECK_WITH_IDEMPOTENCY",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "requestId",
+        "expectedRevision",
+        "expectedCadHash",
+        "expectedStockHash",
+        "scopeEpoch",
+        "permissionProofRef",
+        "commitReceipt"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T13",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T14",
+      "ruleIds": [
+        "REG-R07"
+      ],
+      "polarity": "negative",
+      "given": "Agent请求被撤权或用户切换Setup后，旧对齐任务的晚回执仍自动提交到新Setup",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "LATE_ACK_OR_STALE_AUTH_REJECTED",
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "fields": [
+        "requestId",
+        "expectedRevision",
+        "expectedCadHash",
+        "expectedStockHash",
+        "scopeEpoch",
+        "permissionProofRef",
+        "commitReceipt"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T14",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T15",
+      "ruleIds": [
+        "REG-R08"
+      ],
+      "polarity": "positive",
+      "given": "Setup A新配准只使A相关未冻结消费结果stale，B Setup未变且A旧已签发布包保留",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "PRECISE_STALE_WITH_FROZEN_HISTORY",
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D16"
+      ],
+      "fields": [
+        "dependencyExactRefs",
+        "impactGraph",
+        "staleReasons",
+        "approvedSnapshotRef",
+        "replanDecisionRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T15",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T16",
+      "ruleIds": [
+        "REG-R08"
+      ],
+      "polarity": "negative",
+      "given": "新配准把已审批D08和D16自动换成新CL或把Setup B的工艺标为当前A",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "FROZEN_OR_OTHER_SETUP_MUTATED",
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D16"
+      ],
+      "fields": [
+        "dependencyExactRefs",
+        "impactGraph",
+        "staleReasons",
+        "approvedSnapshotRef",
+        "replanDecisionRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T16",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T17",
+      "ruleIds": [
+        "REG-R09"
+      ],
+      "polarity": "positive",
+      "given": "无机床时允许只读草稿几何探索；发布前要求D12程序及D13语义、D14轴时序、D15验证与D10同version",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "NC_VALIDATION_GATE_INTACT",
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "fields": [
+        "plannedWorkFrameRef",
+        "executionBindingRef",
+        "controllerDialectRef",
+        "ncProgramRef",
+        "executionSemanticsCoverage",
+        "validationEvidenceRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-002",
+        "SRC-REG-006",
+        "SRC-REG-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T17",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T18",
+      "ruleIds": [
+        "REG-R09"
+      ],
+      "polarity": "negative",
+      "given": "以Setup中的G54文字或CL动画视为机床偏置已校准且D15=PASS，或未知宏默认为直线运动",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "NC_SEMANTICS_UNKNOWN",
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "fields": [
+        "plannedWorkFrameRef",
+        "executionBindingRef",
+        "controllerDialectRef",
+        "ncProgramRef",
+        "executionSemanticsCoverage",
+        "validationEvidenceRef"
+      ],
+      "sourceIds": [
+        "SRC-REG-002",
+        "SRC-REG-006",
+        "SRC-REG-007"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T18",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T19",
+      "ruleIds": [
+        "REG-R10"
+      ],
+      "polarity": "positive",
+      "given": "将旧显示坐标转换为有来源的候选，并保留旧raw、迁移记录与可逆rollbackRef",
+      "expectedOutcome": "ACCEPT",
+      "expectedEvidence": "LOSSLESS_MIGRATION_ROLLBACK",
+      "assets": [
+        "D01",
+        "D04",
+        "D10"
+      ],
+      "fields": [
+        "schemaVersion",
+        "sourceClosureRefs",
+        "migrationDecision",
+        "rollbackRef",
+        "legacyRawPayloadRef",
+        "unknownFieldBag"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T19",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    },
+    {
+      "id": "CAP-04-02-T20",
+      "ruleIds": [
+        "REG-R10"
+      ],
+      "polarity": "negative",
+      "given": "缺毛坯原位置来源时自动填全0矩阵并覆写旧Setup，导致保存后无法恢复",
+      "expectedOutcome": "REJECT",
+      "expectedEvidence": "LEGACY_UNKNOWN_MUST_NOT_OVERWRITE",
+      "assets": [
+        "D01",
+        "D04",
+        "D10"
+      ],
+      "fields": [
+        "schemaVersion",
+        "sourceClosureRefs",
+        "migrationDecision",
+        "rollbackRef",
+        "legacyRawPayloadRef",
+        "unknownFieldBag"
+      ],
+      "sourceIds": [
+        "SRC-REG-003",
+        "SRC-REG-005"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "productStatus": "NOT_RUN",
+      "testEntry": "TODO_TEST_ENTRY:CAP-04-02/T20",
+      "acceptanceOwner": "04域D04 Owner＋独立03/06/08/09消费者＋测试Owner",
+      "scope": "project_document_instance_setup_exact_revision",
+      "mockOnly": false
+    }
+  ]
+}

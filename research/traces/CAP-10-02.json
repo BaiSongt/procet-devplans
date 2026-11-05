@@ -1,0 +1,512 @@
+{
+  "schemaVersion": "procet-cap1002-trace-v1",
+  "capabilityId": "CAP-10-02",
+  "researchTopic": "R-RELEASE-APPROVAL-001",
+  "sourceRegistry": "research/sources/CAP-10-02.json",
+  "specification": "docs/capabilities/CAP-10-02/README.md",
+  "ui": "docs/capabilities/CAP-10-02/UI.md",
+  "fixtures": "docs/capabilities/CAP-10-02/fixtures.json",
+  "validator": "tools/check_cap1002_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-10-02-R01",
+      "capabilityId": "CAP-10-02",
+      "summary": "职责隔离与双人批准",
+      "engineeringRule": "请求者不能自审自签；审批策略版本与申请人、审核人真实主体必须精确绑定",
+      "fields": [
+        "identity.requesterSeparation",
+        "identity.reviewerAuthenticated",
+        "identity.policyRevisionPinned",
+        "identity.noAgentAutoApproval"
+      ],
+      "sourceIds": [
+        "C1002-S01",
+        "C1002-S02",
+        "C1002-S06"
+      ],
+      "assets": [
+        "D08",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "identity.requesterSeparation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.reviewerAuthenticated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.policyRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.noAgentAutoApproval",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R02",
+      "capabilityId": "CAP-10-02",
+      "summary": "审批对象不可换包",
+      "engineeringRule": "复核目标必须是CAP-10-01不可变候选的精确修订、原字节Hash及全部依赖闭包",
+      "fields": [
+        "target.candidateRevisionExact",
+        "target.ncByteShaExact",
+        "target.manifestDigestExact",
+        "target.dependenciesClosed"
+      ],
+      "sourceIds": [
+        "C1002-S04",
+        "C1002-S06",
+        "C1002-S07",
+        "C1002-S09"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "target.candidateRevisionExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.ncByteShaExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.manifestDigestExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.dependenciesClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R03",
+      "capabilityId": "CAP-10-02",
+      "summary": "NC工程验证门禁",
+      "engineeringRule": "独立D15对最终NC及实际绑定覆盖充分，未知语义、CL_ONLY与旧验证不得签发",
+      "fields": [
+        "evidence.independentD15",
+        "evidence.finalNcCoverage",
+        "evidence.actualD10Matched",
+        "evidence.unknownBlocksSignoff"
+      ],
+      "sourceIds": [
+        "C1002-S07",
+        "C1002-S09",
+        "C1002-S01"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "evidence.independentD15",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.finalNcCoverage",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.actualD10Matched",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.unknownBlocksSignoff",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R04",
+      "capabilityId": "CAP-10-02",
+      "summary": "现场执行绑定核验",
+      "engineeringRule": "D04名义Setup不得冒充D10实装，机床控制器、工件Frame和刀具规长须确证",
+      "fields": [
+        "binding.nominalD04Separate",
+        "binding.actualD10Exact",
+        "binding.controllerProfileExact",
+        "binding.toolFrameRevisionExact"
+      ],
+      "sourceIds": [
+        "C1002-S07",
+        "C1002-S09",
+        "C1002-S06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "binding.nominalD04Separate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.actualD10Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.controllerProfileExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.toolFrameRevisionExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R05",
+      "capabilityId": "CAP-10-02",
+      "summary": "密钥与信任策略分离",
+      "engineeringRule": "人类批准记录与密码学签名分层；签名私钥不入公开仓，身份、信任根和密钥状态必须可审计",
+      "fields": [
+        "trust.signerIdentityAttested",
+        "trust.keyAuthorityCurrent",
+        "trust.privateKeyNeverExported",
+        "trust.trustRootPinned"
+      ],
+      "sourceIds": [
+        "C1002-S02",
+        "C1002-S03",
+        "C1002-S05"
+      ],
+      "assets": [
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "trust.signerIdentityAttested",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trust.keyAuthorityCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trust.privateKeyNeverExported",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trust.trustRootPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R06",
+      "capabilityId": "CAP-10-02",
+      "summary": "签署字节与算法明确",
+      "engineeringRule": "批准语义绑定JCS规范化候选摘要、签名算法/域分离和授权策略；不签易变UI文字",
+      "fields": [
+        "signature.payloadCanonicalDefined",
+        "signature.algorithmProfilePinned",
+        "signature.domainSeparated",
+        "signature.signatureNotSelfHashed"
+      ],
+      "sourceIds": [
+        "C1002-S03",
+        "C1002-S04",
+        "C1002-S05"
+      ],
+      "assets": [
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "signature.payloadCanonicalDefined",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "signature.algorithmProfilePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "signature.domainSeparated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "signature.signatureNotSelfHashed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R07",
+      "capabilityId": "CAP-10-02",
+      "summary": "撤销与失效不可静默",
+      "engineeringRule": "撤权、过期、NC变化、控制器变更和审签撤回必须使资格失效；历史签署追加事件不可改字节",
+      "fields": [
+        "lifecycle.revocationAppendOnly",
+        "lifecycle.ncChangeInvalidates",
+        "lifecycle.controllerChangeInvalidates",
+        "lifecycle.revokedCannotRelease"
+      ],
+      "sourceIds": [
+        "C1002-S01",
+        "C1002-S02",
+        "C1002-S05",
+        "C1002-S06"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "lifecycle.revocationAppendOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.ncChangeInvalidates",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.controllerChangeInvalidates",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.revokedCannotRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R08",
+      "capabilityId": "CAP-10-02",
+      "summary": "提交CAS与晚回执",
+      "engineeringRule": "签发提交点重验ACL、职责冲突、CAS、scopeEpoch与cancelToken，取消晚ACK不能变更冻结",
+      "fields": [
+        "commit.aclRechecked",
+        "commit.casExact",
+        "commit.scopeEpochCurrent",
+        "commit.lateAckDiscarded"
+      ],
+      "sourceIds": [
+        "C1002-S01",
+        "C1002-S06"
+      ],
+      "assets": [
+        "D08",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "commit.aclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.scopeEpochCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.lateAckDiscarded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R09",
+      "capabilityId": "CAP-10-02",
+      "summary": "独立离线验签交接",
+      "engineeringRule": "CAP-10-03独立消费者重算D12原始文件Hash、验证签名和信任根，未知吊销离线策略标UNKNOWN",
+      "fields": [
+        "receiver.byteHashRecomputed",
+        "receiver.signatureIndependentlyVerified",
+        "receiver.trustPolicyPinned",
+        "receiver.unknownRevocationBlocks"
+      ],
+      "sourceIds": [
+        "C1002-S03",
+        "C1002-S05",
+        "C1002-S08"
+      ],
+      "assets": [
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "receiver.byteHashRecomputed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "receiver.signatureIndependentlyVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "receiver.trustPolicyPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "receiver.unknownRevocationBlocks",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-02-R10",
+      "capabilityId": "CAP-10-02",
+      "summary": "同域界面与回退",
+      "engineeringRule": "GUI/CLI/Agent统一10域ApproveReleasePort，唯一Babylon Scene、左TaskPanel、A/B冻结共享且旧读者可回退",
+      "fields": [
+        "ui.singleDomainPort",
+        "ui.singleBabylonScene",
+        "ui.oneLeftTaskPanel",
+        "ui.backwardReaderAvailable"
+      ],
+      "sourceIds": [
+        "C1002-S01",
+        "C1002-S06",
+        "C1002-S08"
+      ],
+      "assets": [
+        "D08",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "ui.singleDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.singleBabylonScene",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.oneLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.backwardReaderAvailable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "本规则每个字段的独立反例均须REJECT；规划合成通过不构成签发或产品PASS",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "procet-b73-trace-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-10-06",
+  "sourcesPath": "research/sources/CAP-10-06-offline-events-b73.json",
+  "fixturePath": "docs/capabilities/CAP-10-06/offline-events-b73-fixtures-v08.json",
+  "checker": "tools/check_cap1006_offline_events_b73_v08.cjs",
+  "rules": [
+    {
+      "id": "B73-R1",
+      "title": "事件source+id/Hash去重、碰撞拒绝",
+      "sourceIds": [
+        "B73-S01",
+        "B73-S07"
+      ],
+      "fields": [
+        "event.source",
+        "event.id",
+        "event.payloadHash",
+        "event.seenHash"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-001",
+        "B73-007",
+        "B73-008",
+        "B73-009",
+        "B73-010"
+      ]
+    },
+    {
+      "id": "B73-R2",
+      "title": "租户/厂区/MES工单/机床/Frame/D16 exact联接",
+      "sourceIds": [
+        "B73-S05",
+        "B73-S07"
+      ],
+      "fields": [
+        "identity.tenant",
+        "identity.jobId",
+        "identity.machine",
+        "identity.frame",
+        "identity.d16Hash"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-011",
+        "B73-012",
+        "B73-013",
+        "B73-014",
+        "B73-015",
+        "B73-016",
+        "B73-017"
+      ]
+    },
+    {
+      "id": "B73-R3",
+      "title": "producerEpoch+十进制连续序号，不以time排序",
+      "sourceIds": [
+        "B73-S01",
+        "B73-S04",
+        "B73-S07"
+      ],
+      "fields": [
+        "event.producerEpoch",
+        "event.seq",
+        "event.lastSeq",
+        "event.time"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-002",
+        "B73-018",
+        "B73-019",
+        "B73-020",
+        "B73-021",
+        "B73-022"
+      ]
+    },
+    {
+      "id": "B73-R4",
+      "title": "OPC Store/StoreAndStart及JobResponse资格隔离",
+      "sourceIds": [
+        "B73-S02",
+        "B73-S03",
+        "B73-S07"
+      ],
+      "fields": [
+        "event.opcMethod",
+        "event.jobState",
+        "evidence.jobResponse",
+        "gate.remoteStart"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-003",
+        "B73-023",
+        "B73-024",
+        "B73-025",
+        "B73-026"
+      ]
+    },
+    {
+      "id": "B73-R5",
+      "title": "传输ACK/D17落库/Cycle/QA/MES回执五事实",
+      "sourceIds": [
+        "B73-S03",
+        "B73-S04",
+        "B73-S07"
+      ],
+      "fields": [
+        "evidence.receiptKind",
+        "evidence.persisted",
+        "evidence.cycle",
+        "evidence.quality",
+        "evidence.mes"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-004",
+        "B73-027",
+        "B73-028",
+        "B73-029",
+        "B73-030",
+        "B73-031"
+      ]
+    },
+    {
+      "id": "B73-R6",
+      "title": "Owner提交时ACL/CAS/Scope/取消晚ACK复查",
+      "sourceIds": [
+        "B73-S04",
+        "B73-S07"
+      ],
+      "fields": [
+        "gate.acl",
+        "gate.cas",
+        "gate.ownerRev",
+        "gate.scopeEpoch",
+        "gate.cancelled",
+        "gate.lateAck"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-032",
+        "B73-033",
+        "B73-034",
+        "B73-035",
+        "B73-036",
+        "B73-037"
+      ]
+    },
+    {
+      "id": "B73-R7",
+      "title": "GUI/CLI/Agent同Port及单Babylon左TaskPanel",
+      "sourceIds": [
+        "B73-S07"
+      ],
+      "fields": [
+        "gate.port",
+        "gate.channels",
+        "gate.sceneCount",
+        "gate.panel",
+        "gate.previewWrites"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-005",
+        "B73-038",
+        "B73-039",
+        "B73-040",
+        "B73-041",
+        "B73-042",
+        "B73-043"
+      ]
+    },
+    {
+      "id": "B73-R8",
+      "title": "Schema旧新Reader与A/B冻结可回滚交接",
+      "sourceIds": [
+        "B73-S05",
+        "B73-S06",
+        "B73-S07"
+      ],
+      "fields": [
+        "event.schemaMapped",
+        "gate.oldReader",
+        "gate.newReader",
+        "gate.freeze",
+        "gate.abOverwrite"
+      ],
+      "capabilityIds": [
+        "CAP-10-06"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "caseIds": [
+        "B73-006",
+        "B73-044",
+        "B73-045",
+        "B73-046",
+        "B73-047",
+        "B73-048"
+      ]
+    }
+  ]
+}

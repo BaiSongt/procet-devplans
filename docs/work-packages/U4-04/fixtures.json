@@ -1,0 +1,542 @@
+{
+  "schemaVersion": "procet-u404-synthetic-fixtures-v1",
+  "purpose": "仅规划字段断言与来源连通的合成验证；非产品NC/机床/真实时序测试",
+  "cases": [
+    {
+      "id": "U4-04-T01",
+      "ruleId": "U4-04-R01",
+      "input": {
+        "nc": {
+          "hash": "sha256:nc-v3"
+        },
+        "block": {
+          "ncHash": "sha256:nc-v3",
+          "startByte": 14,
+          "endByte": 34,
+          "byteRangeId": "offset14:34",
+          "lineLabelUnique": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T02",
+      "ruleId": "U4-04-R01",
+      "input": {
+        "nc": {
+          "hash": ""
+        },
+        "block": {
+          "ncHash": "sha256:nc-v3",
+          "startByte": 14,
+          "endByte": 34,
+          "byteRangeId": "offset14:34",
+          "lineLabelUnique": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T03",
+      "ruleId": "U4-04-R02",
+      "input": {
+        "semantic": {
+          "status": "UNKNOWN",
+          "reasonCode": "UNMODELLED_G_CODE"
+        },
+        "view": {
+          "badge": "UNKNOWN",
+          "inventedActionCount": 0
+        },
+        "release": {
+          "eligible": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T04",
+      "ruleId": "U4-04-R02",
+      "input": {
+        "semantic": {
+          "status": "INVALID_UNKNOWN",
+          "reasonCode": "UNMODELLED_G_CODE"
+        },
+        "view": {
+          "badge": "UNKNOWN",
+          "inventedActionCount": 0
+        },
+        "release": {
+          "eligible": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T05",
+      "ruleId": "U4-04-R03",
+      "input": {
+        "d12": {
+          "hash": "sha256:nc8"
+        },
+        "d13": {
+          "inputNcHash": "sha256:nc8",
+          "actionHash": "sha256:a8"
+        },
+        "d14": {
+          "inputActionHash": "sha256:a8",
+          "axesHash": "sha256:axes8"
+        },
+        "d15": {
+          "inputAxesHash": "sha256:axes8",
+          "inputBindingHash": "sha256:bind8",
+          "claimScope": "MODELLED_SUBSET_ONLY"
+        },
+        "d10": {
+          "hash": "sha256:bind8"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T06",
+      "ruleId": "U4-04-R03",
+      "input": {
+        "d12": {
+          "hash": "sha256:nc8"
+        },
+        "d13": {
+          "inputNcHash": "INVALID_sha256:nc8",
+          "actionHash": "sha256:a8"
+        },
+        "d14": {
+          "inputActionHash": "sha256:a8",
+          "axesHash": "sha256:axes8"
+        },
+        "d15": {
+          "inputAxesHash": "sha256:axes8",
+          "inputBindingHash": "sha256:bind8",
+          "claimScope": "MODELLED_SUBSET_ONLY"
+        },
+        "d10": {
+          "hash": "sha256:bind8"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T07",
+      "ruleId": "U4-04-R04",
+      "input": {
+        "preview": {
+          "kind": "CL_PREVIEW",
+          "engineeringPass": false,
+          "materialSweepSimulated": false
+        },
+        "view": {
+          "d15Status": "NOT_VERIFIED"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T08",
+      "ruleId": "U4-04-R04",
+      "input": {
+        "preview": {
+          "kind": "INVALID_CL_PREVIEW",
+          "engineeringPass": false,
+          "materialSweepSimulated": false
+        },
+        "view": {
+          "d15Status": "NOT_VERIFIED"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T09",
+      "ruleId": "U4-04-R05",
+      "input": {
+        "curve": {
+          "source": "RECORDED_OWNER_SAMPLES",
+          "sampleCount": 12,
+          "runHash": "sha256:solverrun12",
+          "fabricated": false,
+          "calibratedReliabilityClaim": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T10",
+      "ruleId": "U4-04-R05",
+      "input": {
+        "curve": {
+          "source": "INVALID_RECORDED_OWNER_SAMPLES",
+          "sampleCount": 12,
+          "runHash": "sha256:solverrun12",
+          "fabricated": false,
+          "calibratedReliabilityClaim": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T11",
+      "ruleId": "U4-04-R06",
+      "input": {
+        "diff": {
+          "changedAsset": "D12",
+          "preservedD09": true,
+          "preservedD08": true,
+          "otherSetupUnchanged": true,
+          "affectedChain": "D13>D14>D15>D16",
+          "oldEvidenceImmutable": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T12",
+      "ruleId": "U4-04-R06",
+      "input": {
+        "diff": {
+          "changedAsset": "INVALID_D12",
+          "preservedD09": true,
+          "preservedD08": true,
+          "otherSetupUnchanged": true,
+          "affectedChain": "D13>D14>D15>D16",
+          "oldEvidenceImmutable": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T13",
+      "ruleId": "U4-04-R07",
+      "input": {
+        "ui": {
+          "sceneCount": 1,
+          "taskPanelCount": 1,
+          "ncRefHash": "sha256:nc10",
+          "axisNcRefHash": "sha256:nc10",
+          "ownerWrites": 0,
+          "focusVisible": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T14",
+      "ruleId": "U4-04-R07",
+      "input": {
+        "ui": {
+          "sceneCount": 1000,
+          "taskPanelCount": 1,
+          "ncRefHash": "sha256:nc10",
+          "axisNcRefHash": "sha256:nc10",
+          "ownerWrites": 0,
+          "focusVisible": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T15",
+      "ruleId": "U4-04-R08",
+      "input": {
+        "commit": {
+          "ownerPort": "D05",
+          "expectedHead": "revision-r9",
+          "aclEpoch": 5,
+          "generation": 21,
+          "cancelled": false,
+          "directShellWrite": false
+        },
+        "owner": {
+          "currentHead": "revision-r9",
+          "currentAclEpoch": 5,
+          "currentGeneration": 21
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T16",
+      "ruleId": "U4-04-R08",
+      "input": {
+        "commit": {
+          "ownerPort": "INVALID_D05",
+          "expectedHead": "revision-r9",
+          "aclEpoch": 5,
+          "generation": 21,
+          "cancelled": false,
+          "directShellWrite": false
+        },
+        "owner": {
+          "currentHead": "revision-r9",
+          "currentAclEpoch": 5,
+          "currentGeneration": 21
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T17",
+      "ruleId": "U4-04-R09",
+      "input": {
+        "gap": {
+          "status": "SOURCE_GAP",
+          "guessed": false,
+          "nearestRevisionSubstitution": false,
+          "releaseEligible": false,
+          "diagnosticVisible": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T18",
+      "ruleId": "U4-04-R09",
+      "input": {
+        "gap": {
+          "status": "INVALID_SOURCE_GAP",
+          "guessed": false,
+          "nearestRevisionSubstitution": false,
+          "releaseEligible": false,
+          "diagnosticVisible": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-04-T19",
+      "ruleId": "U4-04-R10",
+      "input": {
+        "evidence": {
+          "ownerReceiptPersisted": true,
+          "telemetrySampled": false,
+          "reconstructableWithoutTelemetry": true,
+          "d15Coverage": "PARTIAL",
+          "claimedSafetyProbability": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-04-T20",
+      "ruleId": "U4-04-R10",
+      "input": {
+        "evidence": {
+          "ownerReceiptPersisted": false,
+          "telemetrySampled": false,
+          "reconstructableWithoutTelemetry": true,
+          "d15Coverage": "PARTIAL",
+          "claimedSafetyProbability": false
+        }
+      },
+      "expected": "REJECT"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "U4-04-M01",
+      "ruleId": "U4-04-R01",
+      "input": {
+        "nc": {
+          "hash": "sha256:nc-v3"
+        },
+        "block": {
+          "ncHash": "INVALID_sha256:nc-v3",
+          "startByte": 14,
+          "endByte": 34,
+          "byteRangeId": "offset14:34",
+          "lineLabelUnique": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "block.ncHash",
+      "pairedNegativeField": "nc.hash",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M02",
+      "ruleId": "U4-04-R02",
+      "input": {
+        "semantic": {
+          "status": "UNKNOWN",
+          "reasonCode": "UNMODELLED_G_CODE"
+        },
+        "view": {
+          "badge": "INVALID_UNKNOWN",
+          "inventedActionCount": 0
+        },
+        "release": {
+          "eligible": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "view.badge",
+      "pairedNegativeField": "semantic.status",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M03",
+      "ruleId": "U4-04-R03",
+      "input": {
+        "d12": {
+          "hash": "sha256:nc8"
+        },
+        "d13": {
+          "inputNcHash": "sha256:nc8",
+          "actionHash": "sha256:a8"
+        },
+        "d14": {
+          "inputActionHash": "INVALID_sha256:a8",
+          "axesHash": "sha256:axes8"
+        },
+        "d15": {
+          "inputAxesHash": "sha256:axes8",
+          "inputBindingHash": "sha256:bind8",
+          "claimScope": "MODELLED_SUBSET_ONLY"
+        },
+        "d10": {
+          "hash": "sha256:bind8"
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "d14.inputActionHash",
+      "pairedNegativeField": "d13.inputNcHash",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M04",
+      "ruleId": "U4-04-R04",
+      "input": {
+        "preview": {
+          "kind": "CL_PREVIEW",
+          "engineeringPass": true,
+          "materialSweepSimulated": false
+        },
+        "view": {
+          "d15Status": "NOT_VERIFIED"
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "preview.engineeringPass",
+      "pairedNegativeField": "preview.kind",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M05",
+      "ruleId": "U4-04-R05",
+      "input": {
+        "curve": {
+          "source": "RECORDED_OWNER_SAMPLES",
+          "sampleCount": -1,
+          "runHash": "sha256:solverrun12",
+          "fabricated": false,
+          "calibratedReliabilityClaim": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "curve.sampleCount",
+      "pairedNegativeField": "curve.source",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M06",
+      "ruleId": "U4-04-R06",
+      "input": {
+        "diff": {
+          "changedAsset": "D12",
+          "preservedD09": false,
+          "preservedD08": true,
+          "otherSetupUnchanged": true,
+          "affectedChain": "D13>D14>D15>D16",
+          "oldEvidenceImmutable": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "diff.preservedD09",
+      "pairedNegativeField": "diff.changedAsset",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M07",
+      "ruleId": "U4-04-R07",
+      "input": {
+        "ui": {
+          "sceneCount": 1,
+          "taskPanelCount": 1000,
+          "ncRefHash": "sha256:nc10",
+          "axisNcRefHash": "sha256:nc10",
+          "ownerWrites": 0,
+          "focusVisible": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "ui.taskPanelCount",
+      "pairedNegativeField": "ui.sceneCount",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M08",
+      "ruleId": "U4-04-R08",
+      "input": {
+        "commit": {
+          "ownerPort": "D05",
+          "expectedHead": "INVALID_revision-r9",
+          "aclEpoch": 5,
+          "generation": 21,
+          "cancelled": false,
+          "directShellWrite": false
+        },
+        "owner": {
+          "currentHead": "revision-r9",
+          "currentAclEpoch": 5,
+          "currentGeneration": 21
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "commit.expectedHead",
+      "pairedNegativeField": "commit.ownerPort",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M09",
+      "ruleId": "U4-04-R09",
+      "input": {
+        "gap": {
+          "status": "SOURCE_GAP",
+          "guessed": true,
+          "nearestRevisionSubstitution": false,
+          "releaseEligible": false,
+          "diagnosticVisible": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "gap.guessed",
+      "pairedNegativeField": "gap.status",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-04-M10",
+      "ruleId": "U4-04-R10",
+      "input": {
+        "evidence": {
+          "ownerReceiptPersisted": true,
+          "telemetrySampled": true,
+          "reconstructableWithoutTelemetry": true,
+          "d15Coverage": "PARTIAL",
+          "claimedSafetyProbability": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "evidence.telemetrySampled",
+      "pairedNegativeField": "evidence.ownerReceiptPersisted",
+      "differentFieldFromPairedNegative": true
+    }
+  ]
+}

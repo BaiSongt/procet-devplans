@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "procet-cap0906-invalidation-v1",
+  "changes": [
+    {
+      "changed": "D12最终NC任一原始字节/编码/子程序依赖",
+      "stale": [
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D10实际机床/刀柄/H偏置/控制器固件或选件",
+      "stale": [
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D04名义Setup Frame/WCS",
+      "stale": [
+        "D12.context",
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D03运动学/关节限位/资源模型",
+      "stale": [
+        "D10.compatibility",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D13方言解释器/Remap/子程序解析算法",
+      "stale": [
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D14运动学算法/IK分支/时间插补策略",
+      "stale": [
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D15几何模型/Oracle/覆盖阈值/接受策略",
+      "stale": [
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "ACL撤权/CAS冲突/取消/generation或scopeEpoch改变",
+      "stale": [
+        "currentAttemptOnly"
+      ],
+      "action": "REJECT_LATE_OR_UNAUTHORIZED"
+    }
+  ],
+  "preserve": [
+    "D08历史冻结不可变",
+    "D12旧NC只读修订",
+    "D16旧发布只读历史",
+    "所有客户及用户数据库"
+  ],
+  "rollback": "paired_versioned_D12_D13_D14_D15_Readers_and_ControllerProfile; NO_DESTRUCTIVE_ROLLBACK",
+  "compatibility": "旧消费者可使用旧Schema只读模式；无法解释新字段时UNKNOWN而非丢字段降级PASS"
+}

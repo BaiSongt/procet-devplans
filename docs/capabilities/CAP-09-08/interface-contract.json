@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "procet-cap0908-contract-v1",
+  "status": "PLANNING_DTO_UNFROZEN",
+  "domainOwner": "09机床运动与工程验证",
+  "C0": [
+    "objectId",
+    "schemaVersion",
+    "revision",
+    "sha256",
+    "frameRef",
+    "scopeRef"
+  ],
+  "readInputs": [
+    {
+      "id": "D03",
+      "fields": [
+        "machineRevision",
+        "linkGraphHash"
+      ]
+    },
+    {
+      "id": "D04",
+      "fields": [
+        "nominalSetupRevision",
+        "nominalFrame"
+      ],
+      "mode": "READ_ONLY"
+    },
+    {
+      "id": "D10",
+      "fields": [
+        "actualBindingRevision",
+        "actualFrame",
+        "controllerProfileHash"
+      ]
+    },
+    {
+      "id": "D12",
+      "fields": [
+        "finalNcBytesSHA",
+        "programRevision"
+      ]
+    },
+    {
+      "id": "D13",
+      "fields": [
+        "callInstanceId",
+        "byteRange",
+        "modalSnapshotHash"
+      ]
+    },
+    {
+      "id": "D14",
+      "fields": [
+        "jointSegmentId",
+        "t0",
+        "t1",
+        "timebase",
+        "eventHash"
+      ]
+    },
+    {
+      "id": "D15",
+      "fields": [
+        "oracleHash",
+        "coverage",
+        "findings",
+        "unknownReasons",
+        "status"
+      ]
+    }
+  ],
+  "port": {
+    "name": "PlaybackEvidencePort",
+    "operations": [
+      "loadExact",
+      "seekDisplayOnly",
+      "selectEvidence",
+      "exportReportReadOnly"
+    ],
+    "invokers": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "noDirectD15Write": true
+  },
+  "reportFields": [
+    "inputClosureHash",
+    "ncByteOffset",
+    "callInstanceId",
+    "jointTimelineEventId",
+    "timeRange",
+    "frame",
+    "oracleRevision",
+    "coverageGaps",
+    "staleness",
+    "approvalState",
+    "syntheticOnly"
+  ],
+  "releaseGate": "独立真实D15+10域审批；任何合成或UNKNOWN不可发布",
+  "notProductImplementation": true
+}

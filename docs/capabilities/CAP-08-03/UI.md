@@ -1,0 +1,2 @@
+# CAP-08-03｜统一GUI与3D
+NC ActivityRail进入左侧UnifiedTaskPanel，五组紧凑区：①Profile/D04与D10 exactRef ②WCS/G53/临时offset Frame链 ③G90/G91/弧心/圆弧/刀补模态 ④NC物理行→D13规范动作→D14轴时序 ⑤D15工程验证/权限/CAS/取消状态。只能一个Babylon世界，D11 CL只标“预览”，D14轴结果须真实数据，D15 NOT_RUN不可称验证。字体≤12px，仅浅/深主题；不同入口复用Owner UseCase，任务等待显示真实阶段而非虚构百分比。

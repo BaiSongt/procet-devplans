@@ -1,0 +1,431 @@
+{
+  "schemaVersion": "procet-w2-02-semantic-fixtures-v1",
+  "workPackageId": "W2-02",
+  "evidence": "SYNTHETIC_DESIGN_ORACLE_NOT_PRODUCT_CODE",
+  "baseScenario": {
+    "candidate": {
+      "candidateId": "c-023",
+      "bindingStepUid": "step-a1",
+      "source": {
+        "id": "D06-run-001",
+        "revision": "r3",
+        "hash": "sha256:synthetic-03",
+        "frame": "SETUP-1",
+        "unit": "mm",
+        "expectedRevision": "r3",
+        "expectedHash": "sha256:synthetic-03",
+        "expectedFrame": "SETUP-1"
+      },
+      "d07Evidence": {
+        "id": "D07-state-01",
+        "revision": "r2",
+        "hash": "sha256:synthetic-07",
+        "frame": "SETUP-1",
+        "unit": "mm",
+        "checker": "INDEPENDENT_PASS"
+      }
+    },
+    "plan": {
+      "planId": "D05-plan-01",
+      "branchId": "B",
+      "steps": [
+        {
+          "uid": "step-a1",
+          "displayIndex": 2
+        },
+        {
+          "uid": "step-b1",
+          "displayIndex": 1
+        }
+      ],
+      "freezeSet": [
+        {
+          "uid": "step-b1",
+          "revision": "f1",
+          "hash": "sha256:freeze-b1"
+        }
+      ],
+      "proposedTouched": [
+        "step-a1"
+      ],
+      "semanticDiff": {
+        "conflict": false,
+        "baseRevision": "r7",
+        "headRevision": "r7",
+        "proposedRevision": "r8"
+      }
+    },
+    "commit": {
+      "targetBranch": "B",
+      "expectedPlanRevision": "r7",
+      "currentPlanRevision": "r7",
+      "permission": "WRITE_D05",
+      "taskGeneration": 9,
+      "currentGeneration": 9,
+      "receipt": "ON_TIME",
+      "cancelled": false,
+      "idempotency": {
+        "key": "adopt-c-023",
+        "sameKeyDifferentPayload": false,
+        "previouslyCommittedSamePayload": false
+      }
+    },
+    "downstream": {
+      "qualifications": {
+        "d09": false,
+        "d15": false,
+        "d16": false
+      },
+      "invalidationAssets": [
+        "D07",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "W2-02-T01",
+      "ruleId": "W202-R01",
+      "polarity": "positive",
+      "description": "正例：稳定工序UID绑定",
+      "overrides": {
+        "plan": {
+          "steps": [
+            {
+              "uid": "step-b1",
+              "displayIndex": 2
+            },
+            {
+              "uid": "step-a1",
+              "displayIndex": 1
+            }
+          ]
+        }
+      },
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T02",
+      "ruleId": "W202-R01",
+      "polarity": "negative",
+      "description": "反例：稳定工序UID绑定",
+      "overrides": {
+        "candidate": {
+          "bindingStepUid": "step-c0"
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_STALE_STEP_UID",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T03",
+      "ruleId": "W202-R02",
+      "polarity": "positive",
+      "description": "正例：候选来源精确revision/hash/frame",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T04",
+      "ruleId": "W202-R02",
+      "polarity": "negative",
+      "description": "反例：候选来源精确revision/hash/frame",
+      "overrides": {
+        "candidate": {
+          "source": {
+            "expectedHash": "sha256:stale"
+          }
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_SOURCE_DRIFT",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T05",
+      "ruleId": "W202-R03",
+      "polarity": "positive",
+      "description": "正例：D07独立几何证据",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T06",
+      "ruleId": "W202-R03",
+      "polarity": "negative",
+      "description": "反例：D07独立几何证据",
+      "overrides": {
+        "candidate": {
+          "d07Evidence": {
+            "checker": "UNKNOWN"
+          }
+        }
+      },
+      "expected": {
+        "status": "UNKNOWN",
+        "reason": "UNKNOWN_GEOMETRY_EVIDENCE",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T07",
+      "ruleId": "W202-R04",
+      "polarity": "positive",
+      "description": "正例：冻结范围禁止交叠覆盖",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T08",
+      "ruleId": "W202-R04",
+      "polarity": "negative",
+      "description": "反例：冻结范围禁止交叠覆盖",
+      "overrides": {
+        "plan": {
+          "proposedTouched": [
+            "step-a1",
+            "step-b1"
+          ]
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_FROZEN_SCOPE",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T09",
+      "ruleId": "W202-R05",
+      "polarity": "positive",
+      "description": "正例：A/B分支隔离",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T10",
+      "ruleId": "W202-R05",
+      "polarity": "negative",
+      "description": "反例：A/B分支隔离",
+      "overrides": {
+        "commit": {
+          "targetBranch": "A"
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_BRANCH_CROSS_WRITE",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T11",
+      "ruleId": "W202-R06",
+      "polarity": "positive",
+      "description": "正例：三方语义差异显式冲突",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T12",
+      "ruleId": "W202-R06",
+      "polarity": "negative",
+      "description": "反例：三方语义差异显式冲突",
+      "overrides": {
+        "plan": {
+          "semanticDiff": {
+            "conflict": true,
+            "baseRevision": "r7",
+            "headRevision": "r9",
+            "proposedRevision": "r8"
+          }
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_SEMANTIC_CONFLICT",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T13",
+      "ruleId": "W202-R07",
+      "polarity": "positive",
+      "description": "正例：采纳幂等键与来源指纹",
+      "overrides": {
+        "commit": {
+          "idempotency": {
+            "previouslyCommittedSamePayload": true
+          }
+        }
+      },
+      "expected": {
+        "status": "IDEMPOTENT_REPLAY",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T14",
+      "ruleId": "W202-R07",
+      "polarity": "negative",
+      "description": "反例：采纳幂等键与来源指纹",
+      "overrides": {
+        "commit": {
+          "idempotency": {
+            "sameKeyDifferentPayload": true
+          }
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_IDEMPOTENCY_COLLISION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T15",
+      "ruleId": "W202-R08",
+      "polarity": "positive",
+      "description": "正例：提交瞬时CAS与权限重验",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T16",
+      "ruleId": "W202-R08",
+      "polarity": "negative",
+      "description": "反例：提交瞬时CAS与权限重验",
+      "overrides": {
+        "commit": {
+          "currentPlanRevision": "r8",
+          "permission": "VIEW_D05"
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_CAS_OR_ACL",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T17",
+      "ruleId": "W202-R09",
+      "polarity": "positive",
+      "description": "正例：取消与晚回执隔离",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T18",
+      "ruleId": "W202-R09",
+      "polarity": "negative",
+      "description": "反例：取消与晚回执隔离",
+      "overrides": {
+        "commit": {
+          "cancelled": true,
+          "receipt": "LATE"
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_CANCELLED_OR_LATE",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T19",
+      "ruleId": "W202-R10",
+      "polarity": "positive",
+      "description": "正例：下游失效和资格隔离",
+      "overrides": {},
+      "expected": {
+        "status": "ACCEPTED_DRAFT",
+        "reason": "NO_NC_QUALIFICATION",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "W2-02-T20",
+      "ruleId": "W202-R10",
+      "polarity": "negative",
+      "description": "反例：下游失效和资格隔离",
+      "overrides": {
+        "downstream": {
+          "qualifications": {
+            "d09": true,
+            "d15": false,
+            "d16": false
+          }
+        }
+      },
+      "expected": {
+        "status": "REJECTED",
+        "reason": "REJECT_QUALIFICATION_LEAK",
+        "mayPublish": false
+      },
+      "product": "NOT_RUN"
+    }
+  ]
+}

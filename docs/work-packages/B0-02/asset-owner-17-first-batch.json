@@ -1,0 +1,1080 @@
+{
+  "schemaVersion": "procet-b002-asset-owner-review-v1",
+  "asOf": "2026-10-19",
+  "baselineRef": "docs/architecture/v0.8/business-assets.json",
+  "baselineExpectedCount": 17,
+  "fieldContractsFrozen": false,
+  "ownerApproval": "pending",
+  "notes": [
+    "单个C1领域对象仅有一个权威写入域；01/11为横切接口而非D01-D17写入Owner",
+    "消费方角色只是待复核责任类，不代表当前团队已认可",
+    "不把17类数据投射为17个服务或17张表",
+    "具体接口均为提案，非已实现接口"
+  ],
+  "assets": [
+    {
+      "id": "D01",
+      "name": "设计基线与制造目标",
+      "ownerDomain": "03",
+      "ownerName": "CAD、PMI与制造特征",
+      "ownerReviewRole": "CAD/PMI与制造特征负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "designBaselineRef",
+      "businessBoundary": "模型/装配/PMI输入及精确版本",
+      "consumerAssetIds": [
+        "D02",
+        "D04",
+        "D05",
+        "D06"
+      ],
+      "proposedC1Fields": [
+        "geometryFrame",
+        "unitSpec",
+        "designRevision",
+        "modelContentHash"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "CAD/PMI与制造特征负责人",
+      "consumerReviewRoles": [
+        "CAD/PMI与制造特征负责人",
+        "Setup/坐标与执行绑定负责人",
+        "几何求解负责人",
+        "工艺规划负责人"
+      ],
+      "commandProposals": [
+        "QueryD01Exact",
+        "PrepareD01Revision",
+        "CommitD01Revision"
+      ],
+      "eventProposals": [
+        "designBaselineOpened",
+        "designRevisionChanged"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "CAD/PMI与制造特征负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D02",
+      "name": "制造特征与加工要求",
+      "ownerDomain": "03",
+      "ownerName": "CAD、PMI与制造特征",
+      "ownerReviewRole": "CAD/PMI与制造特征负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "featureSetRef",
+      "businessBoundary": "已确认特征/PMI目标，不将算法候选当批准事实",
+      "consumerAssetIds": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "proposedC1Fields": [
+        "featureRevision",
+        "topologyRef",
+        "sourceDesignHash",
+        "confirmationState"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "CAD/PMI与制造特征负责人",
+      "consumerReviewRoles": [
+        "几何求解负责人",
+        "工艺规划负责人"
+      ],
+      "commandProposals": [
+        "QueryD02Exact",
+        "PrepareD02Revision",
+        "CommitD02Revision"
+      ],
+      "eventProposals": [
+        "featureSetConfirmed",
+        "featureSetInvalidated"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "CAD/PMI与制造特征负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D03",
+      "name": "制造资源能力档案",
+      "ownerDomain": "02",
+      "ownerName": "制造资源",
+      "ownerReviewRole": "制造资源负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "resourceRevisionRef",
+      "businessBoundary": "机床刀具夹具能力和控制器兼容性",
+      "consumerAssetIds": [
+        "D04",
+        "D06",
+        "D09",
+        "D10"
+      ],
+      "proposedC1Fields": [
+        "capabilityProfileId",
+        "resourceRevision",
+        "capabilityScope"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "制造资源负责人",
+      "consumerReviewRoles": [
+        "Setup/坐标与执行绑定负责人",
+        "几何求解负责人",
+        "刀路负责人"
+      ],
+      "commandProposals": [
+        "QueryD03Exact",
+        "PrepareD03Revision",
+        "CommitD03Revision"
+      ],
+      "eventProposals": [
+        "resourceRevised",
+        "resourceRetired"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "制造资源负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D04",
+      "name": "工艺 Setup 与毛坯",
+      "ownerDomain": "04",
+      "ownerName": "装夹与坐标系",
+      "ownerReviewRole": "Setup/坐标与执行绑定负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "processSetupRef",
+      "businessBoundary": "工艺毛坯与装夹基准，不混机床执行配置",
+      "consumerAssetIds": [
+        "D05",
+        "D06",
+        "D07",
+        "D09",
+        "D10"
+      ],
+      "proposedC1Fields": [
+        "stockRevision",
+        "setupFrameId",
+        "stockGeometryHash",
+        "fixtureConstraints"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "Setup/坐标与执行绑定负责人",
+      "consumerReviewRoles": [
+        "Setup/坐标与执行绑定负责人",
+        "几何求解负责人",
+        "刀路负责人",
+        "工艺规划负责人"
+      ],
+      "commandProposals": [
+        "QueryD04Exact",
+        "PrepareD04Revision",
+        "CommitD04Revision"
+      ],
+      "eventProposals": [
+        "processSetupSaved",
+        "processSetupInvalidated"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "Setup/坐标与执行绑定负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D05",
+      "name": "工艺规划与人工决策",
+      "ownerDomain": "05",
+      "ownerName": "工艺规划",
+      "ownerReviewRole": "工艺规划负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "planRevisionRef",
+      "businessBoundary": "工序/顺序/工艺约束/人工决策",
+      "consumerAssetIds": [
+        "D06",
+        "D08"
+      ],
+      "proposedC1Fields": [
+        "planRevision",
+        "operationIds",
+        "frozenRanges",
+        "sourceRefs"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "工艺规划负责人",
+      "consumerReviewRoles": [
+        "几何求解负责人",
+        "工艺规划负责人"
+      ],
+      "commandProposals": [
+        "QueryD05Exact",
+        "PrepareD05Revision",
+        "CommitD05Revision"
+      ],
+      "eventProposals": [
+        "planRevised",
+        "planProposalRejected"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "工艺规划负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D06",
+      "name": "求解候选与搜索结果",
+      "ownerDomain": "06",
+      "ownerName": "工艺与几何求解",
+      "ownerReviewRole": "几何求解负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "solveRunRef",
+      "businessBoundary": "候选及搜索证据，未授权生成生产工艺",
+      "consumerAssetIds": [
+        "D05",
+        "D07",
+        "D08"
+      ],
+      "proposedC1Fields": [
+        "runProfileHash",
+        "searchBudget",
+        "solverIdentity",
+        "solverRunStatus"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "几何求解负责人",
+      "consumerReviewRoles": [
+        "几何求解负责人",
+        "工艺规划负责人"
+      ],
+      "commandProposals": [
+        "QueryD06Exact",
+        "PrepareD06Revision",
+        "CommitD06Revision"
+      ],
+      "eventProposals": [
+        "solveRunCompleted",
+        "solveRunPartiallyVerified"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "几何求解负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D07",
+      "name": "有序材料状态与局部几何",
+      "ownerDomain": "06",
+      "ownerName": "工艺与几何求解",
+      "ownerReviewRole": "几何求解负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "materialStateRef",
+      "businessBoundary": "局部去料体与前后材料状态",
+      "consumerAssetIds": [
+        "D05",
+        "D08",
+        "D09"
+      ],
+      "proposedC1Fields": [
+        "beforeStateHash",
+        "removedBrepHash",
+        "afterStateHash",
+        "sourceDAG"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "几何求解负责人",
+      "consumerReviewRoles": [
+        "刀路负责人",
+        "工艺规划负责人"
+      ],
+      "commandProposals": [
+        "QueryD07Exact",
+        "PrepareD07Revision",
+        "CommitD07Revision"
+      ],
+      "eventProposals": [
+        "materialStateDerived",
+        "materialStateUnknown"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "几何求解负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D08",
+      "name": "工艺确认与冻结快照",
+      "ownerDomain": "05",
+      "ownerName": "工艺规划",
+      "ownerReviewRole": "工艺规划负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "freezeRevisionRef",
+      "businessBoundary": "采纳结果和局部冻结边界",
+      "consumerAssetIds": [
+        "D09",
+        "D16"
+      ],
+      "proposedC1Fields": [
+        "approvedPlanRevision",
+        "freezeSetHash",
+        "approverEvidence"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "工艺规划负责人",
+      "consumerReviewRoles": [
+        "刀路负责人",
+        "发布与现场协同负责人"
+      ],
+      "commandProposals": [
+        "QueryD08Exact",
+        "PrepareD08Revision",
+        "CommitD08Revision"
+      ],
+      "eventProposals": [
+        "freezeAccepted",
+        "freezeInvalidated"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "工艺规划负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D09",
+      "name": "中立刀路 CL",
+      "ownerDomain": "07",
+      "ownerName": "CAM刀路",
+      "ownerReviewRole": "刀路负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "neutralClRef",
+      "businessBoundary": "中立运动意图，不存目标机床轴时序",
+      "consumerAssetIds": [
+        "D11",
+        "D12"
+      ],
+      "proposedC1Fields": [
+        "clContentHash",
+        "clFrame",
+        "toolAxisConvention",
+        "motionKinds"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "刀路负责人",
+      "consumerReviewRoles": [
+        "NC后处理与执行语义负责人",
+        "运动学与验证负责人"
+      ],
+      "commandProposals": [
+        "QueryD09Exact",
+        "PrepareD09Revision",
+        "CommitD09Revision"
+      ],
+      "eventProposals": [
+        "neutralClGenerated",
+        "neutralClInvalidated"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "刀路负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D10",
+      "name": "机床执行配置",
+      "ownerDomain": "04",
+      "ownerName": "装夹与坐标系",
+      "ownerReviewRole": "Setup/坐标与执行绑定负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "machineBindingRef",
+      "businessBoundary": "机床/控制器/轴树/TCP绑定，独立于工艺Setup",
+      "consumerAssetIds": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "proposedC1Fields": [
+        "resourceRef",
+        "kinematicProfileHash",
+        "controllerProfileHash",
+        "tcpDefinitionRef"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "Setup/坐标与执行绑定负责人",
+      "consumerReviewRoles": [
+        "NC后处理与执行语义负责人",
+        "运动学与验证负责人"
+      ],
+      "commandProposals": [
+        "QueryD10Exact",
+        "PrepareD10Revision",
+        "CommitD10Revision"
+      ],
+      "eventProposals": [
+        "executionBindingSaved",
+        "executionBindingInvalidated"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "Setup/坐标与执行绑定负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D11",
+      "name": "CL 级运动预验证",
+      "ownerDomain": "09",
+      "ownerName": "机床运动与工程验证",
+      "ownerReviewRole": "运动学与验证负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "clPrecheckRef",
+      "businessBoundary": "预检查不授NC程序级通过",
+      "consumerAssetIds": [
+        "D16"
+      ],
+      "proposedC1Fields": [
+        "clRef",
+        "machineBindingRef",
+        "coverage",
+        "precheckLimitations"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "运动学与验证负责人",
+      "consumerReviewRoles": [
+        "发布与现场协同负责人"
+      ],
+      "commandProposals": [
+        "QueryD11Exact",
+        "PrepareD11Revision",
+        "CommitD11Revision"
+      ],
+      "eventProposals": [
+        "clPrecheckReported",
+        "clPrecheckExpired"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "运动学与验证负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D12",
+      "name": "NC 程序与后处理记录",
+      "ownerDomain": "08",
+      "ownerName": "NC与后处理",
+      "ownerReviewRole": "NC后处理与执行语义负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "ncProgramRef",
+      "businessBoundary": "最终NC程序字节与post来源",
+      "consumerAssetIds": [
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "proposedC1Fields": [
+        "ncBytesHash",
+        "postProcessorRef",
+        "controllerDialectRef",
+        "lineMapRef"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "NC后处理与执行语义负责人",
+      "consumerReviewRoles": [
+        "NC后处理与执行语义负责人",
+        "发布与现场协同负责人",
+        "运动学与验证负责人"
+      ],
+      "commandProposals": [
+        "QueryD12Exact",
+        "PrepareD12Revision",
+        "CommitD12Revision"
+      ],
+      "eventProposals": [
+        "ncGenerated",
+        "ncManuallyRevised"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "NC后处理与执行语义负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D13",
+      "name": "NC 控制器执行语义",
+      "ownerDomain": "08",
+      "ownerName": "NC与后处理",
+      "ownerReviewRole": "NC后处理与执行语义负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "ncExecutionSemanticsRef",
+      "businessBoundary": "对最终NC和控制器状态进行显式解释",
+      "consumerAssetIds": [
+        "D14",
+        "D15"
+      ],
+      "proposedC1Fields": [
+        "ncProgramRef",
+        "modalStateRef",
+        "unsupportedCodes",
+        "semanticCoverage"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "NC后处理与执行语义负责人",
+      "consumerReviewRoles": [
+        "运动学与验证负责人"
+      ],
+      "commandProposals": [
+        "QueryD13Exact",
+        "PrepareD13Revision",
+        "CommitD13Revision"
+      ],
+      "eventProposals": [
+        "ncSemanticsInterpreted",
+        "ncSemanticsUnknown"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "NC后处理与执行语义负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D14",
+      "name": "机床轴运动时序",
+      "ownerDomain": "09",
+      "ownerName": "机床运动与工程验证",
+      "ownerReviewRole": "运动学与验证负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "axisTraceRef",
+      "businessBoundary": "执行解释+运动学求轴时序",
+      "consumerAssetIds": [
+        "D15"
+      ],
+      "proposedC1Fields": [
+        "ncSemanticRef",
+        "machineBindingRef",
+        "axisTimeSeriesHash",
+        "ikBranchStatus"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "运动学与验证负责人",
+      "consumerReviewRoles": [
+        "运动学与验证负责人"
+      ],
+      "commandProposals": [
+        "QueryD14Exact",
+        "PrepareD14Revision",
+        "CommitD14Revision"
+      ],
+      "eventProposals": [
+        "axisTraceDerived",
+        "axisTraceFailed"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "运动学与验证负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D15",
+      "name": "NC 程序级仿真与验证记录",
+      "ownerDomain": "09",
+      "ownerName": "机床运动与工程验证",
+      "ownerReviewRole": "运动学与验证负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "ncVerificationRef",
+      "businessBoundary": "实际声明覆盖内的NC程序验证证据",
+      "consumerAssetIds": [
+        "D16"
+      ],
+      "proposedC1Fields": [
+        "ncHash",
+        "bindingHash",
+        "axisTraceHash",
+        "verificationCoverage",
+        "unknownSemantics"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "运动学与验证负责人",
+      "consumerReviewRoles": [
+        "发布与现场协同负责人"
+      ],
+      "commandProposals": [
+        "QueryD15Exact",
+        "PrepareD15Revision",
+        "CommitD15Revision"
+      ],
+      "eventProposals": [
+        "ncVerificationRecorded",
+        "ncVerificationInvalidated"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "运动学与验证负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D16",
+      "name": "程序发布与审批包",
+      "ownerDomain": "10",
+      "ownerName": "程序发布与现场协同",
+      "ownerReviewRole": "发布与现场协同负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "releasePackageRef",
+      "businessBoundary": "授权发布同版本闭包",
+      "consumerAssetIds": [
+        "D17"
+      ],
+      "proposedC1Fields": [
+        "approvedNcHash",
+        "approvalRef",
+        "verificationRef",
+        "manifestHash",
+        "disclosurePolicy"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "发布与现场协同负责人",
+      "consumerReviewRoles": [
+        "发布与现场协同负责人"
+      ],
+      "commandProposals": [
+        "QueryD16Exact",
+        "PrepareD16Revision",
+        "CommitD16Revision"
+      ],
+      "eventProposals": [
+        "releaseSigned",        "releaseRevoked"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "发布与现场协同负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    },
+    {
+      "id": "D17",
+      "name": "现场执行与检测反馈",
+      "ownerDomain": "10",
+      "ownerName": "程序发布与现场协同",
+      "ownerReviewRole": "发布与现场协同负责人",
+      "authority": "single_domain_writes_proposed_not_implementation_verified",
+      "ownerRefField": "shopfloorFeedbackRef",
+      "businessBoundary": "现场回流先做工程变更提案",
+      "consumerAssetIds": [
+        "D05",
+        "D06"
+      ],
+      "proposedC1Fields": [
+        "releaseRef",
+        "executionEvidenceHash",
+        "inspectionRef",
+        "changeRequestRef"
+      ],
+      "proposedC0Envelope": [
+        "domain",
+        "kind",
+        "id",
+        "revision",
+        "schemaVersion",
+        "sourceRefs"
+      ],
+      "requiredWhenArtifact": [
+        "contentHash",
+        "contentType",
+        "producerProfileRef"
+      ],
+      "frameAndUnits": "required_for_geometric_fields_explicit_if_applicable_not_global_mm",
+      "producerRole": "发布与现场协同负责人",
+      "consumerReviewRoles": [
+        "几何求解负责人",
+        "工艺规划负责人"
+      ],
+      "commandProposals": [
+        "QueryD17Exact",
+        "PrepareD17Revision",
+        "CommitD17Revision"
+      ],
+      "eventProposals": [
+        "feedbackReceived",
+        "changeProposed"
+      ],
+      "receiptProposalFields": [
+        "requestId",
+        "expectedRevision",
+        "resultRevision",
+        "decision",
+        "domainError",
+        "appliedAt",
+        "sourceHashes"
+      ],
+      "writePermissionProposal": "domain_commit_checks_actor_scope_policy_exact_hash_and_request_lease",
+      "implementationReadiness": "unknown_requires_product_review",
+      "fieldContractLevel": "L3_proposal_not_frozen",
+      "producerReviewRole": "发布与现场协同负责人",
+      "proposedReviewStatus": "owner_and_consumer_signoff_pending"
+    }
+  ]
+}

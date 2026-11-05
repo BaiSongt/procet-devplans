@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "procet-planning-invalidation-v1",
+  "capabilityId": "CAP-05-05",
+  "businessOwner": "05/D05",
+  "selectionPolicy": "SELECTED_SUBGRAPH_AND_DEPENDENCY_CLOSURE_ONLY",
+  "edges": [
+    {
+      "upstream": "D06_candidate_exact",
+      "downstream": "D05_new_revision",
+      "condition": "human_selection_AND_commit_CAS",
+      "action": "NEW_REVISION_NO_OVERWRITE"
+    },
+    {
+      "upstream": "D05_changed_nodes",
+      "downstream": "D07",
+      "condition": "material_order_or_topology_changed",
+      "action": "RECOMPUTE_AFFECTED_WITH_06_OWNER"
+    },
+    {
+      "upstream": "D05_changed_nodes",
+      "downstream": "D09",
+      "condition": "toolpath_depends_on_changed_operation",
+      "action": "STALE_AFFECTED_ONLY"
+    },
+    {
+      "upstream": "D09_new_exact",
+      "downstream": "D12",
+      "condition": "postprocessor_input_changed",
+      "action": "REPOST_NC_REQUIRED"
+    },
+    {
+      "upstream": "D12_new_nc_bytes",
+      "downstream": "D13",
+      "condition": "controller_execution_context",
+      "action": "REINTERPRET_OR_UNKNOWN"
+    },
+    {
+      "upstream": "D13_interpreted",
+      "downstream": "D14",
+      "condition": "D10_motion_kinematics",
+      "action": "REGENERATE_AXIS_TIMELINE"
+    },
+    {
+      "upstream": "D14_new_timeline",
+      "downstream": "D15",
+      "condition": "independent_NC_validation",
+      "action": "NOT_RUN_UNTIL_REVALIDATED"
+    },
+    {
+      "upstream": "D15_verified",
+      "downstream": "D16",
+      "condition": "human_approval_and_exact_release_closure",
+      "action": "BLOCKED_UNTIL_ALL_GATES"
+    }
+  ],
+  "preserved": [
+    "D08_frozen_snapshot",
+    "D16_previous_release_history",
+    "D05_unaffected_nodes",
+    "D06_source_candidate_bytes"
+  ],
+  "prohibited": [
+    "CL_preview_grants_D15_PASS",
+    "UNKNOWN_controller_grants_D16",
+    "D04_setup_equals_D10_execution",
+    "material_swept_simulation_claim"
+  ],
+  "consumerState": "NOT_RUN"
+}

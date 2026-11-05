@@ -1,0 +1,3 @@
+# W2-04｜提交/恢复TaskPanel与三维边界（规划）
+[原工作包](../W2-04.md) · [DTO示例](contract.example.json) · [合成验收](fixtures.json)
+单Babylon世界与统一左TaskPanel。左侧活动栏切换“任务代次、暂存清单、冲突/差异、取消和晚回执、恢复证据、独立消费者”。字号不超过12px，浅/深主题。所有GUI、CLI、Agent入口共享CommitCoordinatorPort/OwnerCommitPort及提交时ACL、Head CAS与Job generation重验。提交前列sourceRef精确revision/hash/hashKind/frame/unit、Setup、branch；红色标示撤权、晚回执、跨Setup来源。流光等待动画和3D选择只是可视化，不触发提交。对D07/D09的3D高亮仅显示失效影响；D13 UNKNOWN必须可见，不将CL动画标为D15通过。规划合成、真实产品、独立消费者验收分列，后两者NOT_RUN。

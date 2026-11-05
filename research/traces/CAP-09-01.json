@@ -1,0 +1,569 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-09-01",
+  "researchTopic": "R-MACHINE-KINEMATICS-GRAPH-001",
+  "sourceRegistry": "research/sources/CAP-09-01.json",
+  "specification": "docs/capabilities/CAP-09-01/README.md",
+  "ui": "docs/capabilities/CAP-09-01/UI.md",
+  "fixtures": "docs/capabilities/CAP-09-01/fixtures.json",
+  "validator": "tools/check_cap0901_planning_2026_10_26.cjs",
+  "status": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-09-01-R01",
+      "capabilityId": "CAP-09-01",
+      "summary": "模型来源与D10绑定",
+      "sourceIds": [
+        "C0901-S01",
+        "C0901-S07",
+        "C0901-S09"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "machine.d03Exact",
+        "machine.d10Independent",
+        "machine.revisionHashExact",
+        "machine.controllerExact"
+      ],
+      "criteria": [
+        {
+          "path": "machine.d03Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.d10Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.revisionHashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.controllerExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P01",
+      "negativeTestId": "CAP-09-01-T-N01",
+      "mutationTestId": "CAP-09-01-M01"
+    },
+    {
+      "id": "CAP-09-01-R02",
+      "capabilityId": "CAP-09-01",
+      "summary": "单根无环运动链",
+      "sourceIds": [
+        "C0901-S02",
+        "C0901-S03",
+        "C0901-S08"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "graph.singleRoot",
+        "graph.uniqueJointParent",
+        "graph.noCycles",
+        "graph.branchesExplicit"
+      ],
+      "criteria": [
+        {
+          "path": "graph.singleRoot",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.uniqueJointParent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.noCycles",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.branchesExplicit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P02",
+      "negativeTestId": "CAP-09-01-T-N02",
+      "mutationTestId": "CAP-09-01-M02"
+    },
+    {
+      "id": "CAP-09-01-R03",
+      "capabilityId": "CAP-09-01",
+      "summary": "轴标识及单位手系",
+      "sourceIds": [
+        "C0901-S01",
+        "C0901-S02",
+        "C0901-S04"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "axis.jointIdsStable",
+        "axis.labelNotJointId",
+        "axis.unitsAndRightHandedness",
+        "axis.normalizedDirection"
+      ],
+      "criteria": [
+        {
+          "path": "axis.jointIdsStable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "axis.labelNotJointId",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "axis.unitsAndRightHandedness",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "axis.normalizedDirection",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P03",
+      "negativeTestId": "CAP-09-01-T-N03",
+      "mutationTestId": "CAP-09-01-M03"
+    },
+    {
+      "id": "CAP-09-01-R04",
+      "capabilityId": "CAP-09-01",
+      "summary": "枢轴、旋向与配置证据",
+      "sourceIds": [
+        "C0901-S01",
+        "C0901-S03",
+        "C0901-S08"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "pivot.centerKnown",
+        "pivot.positiveDirectionKnown",
+        "pivot.calibrationVersionPinned",
+        "pivot.noInventedB5Values"
+      ],
+      "criteria": [
+        {
+          "path": "pivot.centerKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pivot.positiveDirectionKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pivot.calibrationVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pivot.noInventedB5Values",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P04",
+      "negativeTestId": "CAP-09-01-T-N04",
+      "mutationTestId": "CAP-09-01-M04"
+    },
+    {
+      "id": "CAP-09-01-R05",
+      "capabilityId": "CAP-09-01",
+      "summary": "软硬限位的可追溯范围",
+      "sourceIds": [
+        "C0901-S01",
+        "C0901-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "limit.hardSoftDistinct",
+        "limit.unitNormalized",
+        "limit.sourceVersionPinned",
+        "limit.unknownBlocksPass"
+      ],
+      "criteria": [
+        {
+          "path": "limit.hardSoftDistinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limit.unitNormalized",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limit.sourceVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limit.unknownBlocksPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P05",
+      "negativeTestId": "CAP-09-01-T-N05",
+      "mutationTestId": "CAP-09-01-M05"
+    },
+    {
+      "id": "CAP-09-01-R06",
+      "capabilityId": "CAP-09-01",
+      "summary": "多驱龙门回零与耦合",
+      "sourceIds": [
+        "C0901-S02",
+        "C0901-S04"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "gantry.multiJointExplicit",
+        "gantry.homingSequenceKnown",
+        "gantry.couplingVerified",
+        "gantry.singleLetterNotSingleJoint"
+      ],
+      "criteria": [
+        {
+          "path": "gantry.multiJointExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gantry.homingSequenceKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gantry.couplingVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gantry.singleLetterNotSingleJoint",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P06",
+      "negativeTestId": "CAP-09-01-T-N06",
+      "mutationTestId": "CAP-09-01-M06"
+    },
+    {
+      "id": "CAP-09-01-R07",
+      "capabilityId": "CAP-09-01",
+      "summary": "正解数学与独立Oracle",
+      "sourceIds": [
+        "C0901-S03",
+        "C0901-S05",
+        "C0901-S06",
+        "C0901-S08"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "fk.framesOrdered",
+        "fk.inverseChecked",
+        "fk.determinantPositive",
+        "fk.independentMathOracle"
+      ],
+      "criteria": [
+        {
+          "path": "fk.framesOrdered",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fk.inverseChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fk.determinantPositive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fk.independentMathOracle",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P07",
+      "negativeTestId": "CAP-09-01-T-N07",
+      "mutationTestId": "CAP-09-01-M07"
+    },
+    {
+      "id": "CAP-09-01-R08",
+      "capabilityId": "CAP-09-01",
+      "summary": "D13到D14的NC执行链",
+      "sourceIds": [
+        "C0901-S02",
+        "C0901-S03",
+        "C0901-S08"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "pipeline.finalNcBytesExact",
+        "pipeline.d13Independent",
+        "pipeline.d14ConsumesD13",
+        "pipeline.clNotNcVerification"
+      ],
+      "criteria": [
+        {
+          "path": "pipeline.finalNcBytesExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pipeline.d13Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pipeline.d14ConsumesD13",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pipeline.clNotNcVerification",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P08",
+      "negativeTestId": "CAP-09-01-T-N08",
+      "mutationTestId": "CAP-09-01-M08"
+    },
+    {
+      "id": "CAP-09-01-R09",
+      "capabilityId": "CAP-09-01",
+      "summary": "变化失效与成套回退",
+      "sourceIds": [
+        "C0901-S09",
+        "C0901-S10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "change.dependencyClosure",
+        "change.downstreamStale",
+        "change.freezePreserved",
+        "change.rollbackPairVerified"
+      ],
+      "criteria": [
+        {
+          "path": "change.dependencyClosure",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "change.downstreamStale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "change.freezePreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "change.rollbackPairVerified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P09",
+      "negativeTestId": "CAP-09-01-T-N09",
+      "mutationTestId": "CAP-09-01-M09"
+    },
+    {
+      "id": "CAP-09-01-R10",
+      "capabilityId": "CAP-09-01",
+      "summary": "单Babylon GUI与提交事务",
+      "sourceIds": [
+        "C0901-S09",
+        "C0901-S10"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "fields": [
+        "ui.oneBabylonWorld",
+        "ui.unifiedLeftTaskPanel",
+        "commit.casAclFrameEpochChecked",
+        "commit.cancelLateAckRejected"
+      ],
+      "criteria": [
+        {
+          "path": "ui.oneBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.unifiedLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casAclFrameEpochChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelLateAckRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "不匹配REJECT、参数未测UNKNOWN、失效STALE；合成不授D15或D16资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-09-01-T-P10",
+      "negativeTestId": "CAP-09-01-T-N10",
+      "mutationTestId": "CAP-09-01-M10"
+    }
+  ]
+}

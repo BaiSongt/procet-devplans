@@ -1,0 +1,5493 @@
+{
+  "schemaVersion": "procet-b66-fixtures-v1",
+  "caseCount": 56,
+  "statusCounts": {
+    "CANDIDATE_ONLY": 11,
+    "REJECT": 27,
+    "DISPLAY_ONLY": 2,
+    "UNKNOWN": 7,
+    "STALE": 9
+  },
+  "syntheticOnly": true,
+  "cases": [
+    {
+      "id": "B66-R01-P",
+      "ruleId": "B66-R01",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R02-P",
+      "ruleId": "B66-R02",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R03-P",
+      "ruleId": "B66-R03",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R04-P",
+      "ruleId": "B66-R04",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R05-P",
+      "ruleId": "B66-R05",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-P",
+      "ruleId": "B66-R06",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-P",
+      "ruleId": "B66-R07",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R08-P",
+      "ruleId": "B66-R08",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R01-DUP-OP",
+      "ruleId": "B66-R01",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "NODES",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "A",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R01-EMPTY-OP",
+      "ruleId": "B66-R01",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "NODES",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R01-DUP-EDGE",
+      "ruleId": "B66-R01",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "EDGE_ID_OR_ENDPOINT",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R01-DANGLING",
+      "ruleId": "B66-R01",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "EDGE_ID_OR_ENDPOINT",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "X",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R01-MISSING-ID",
+      "ruleId": "B66-R01",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "EDGE_ID_OR_ENDPOINT",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R02-MISSING-REASON",
+      "ruleId": "B66-R02",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "DIRECT_EDGE_PROVENANCE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R02-MISSING-REF",
+      "ruleId": "B66-R02",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "DIRECT_EDGE_PROVENANCE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R02-MISSING-ACTOR",
+      "ruleId": "B66-R02",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "DIRECT_EDGE_PROVENANCE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R02-REDUCTION-COMMIT",
+      "ruleId": "B66-R02",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "REDUCTION_LOSES_DIRECT_EDGES",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "reduction_commit"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R02-REDUCED-WRITE",
+      "ruleId": "B66-R02",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "REDUCTION_LOSES_DIRECT_EDGES",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "writeReducedGraph": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R03-CYCLE",
+      "ruleId": "B66-R03",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "CYCLE:A>B>C>A",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "add",
+          "edge": {
+            "from": "C",
+            "to": "A",
+            "reason": "bad",
+            "sourceRef": "D02:f1@r3"
+          }
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R03-SELF-EDGE",
+      "ruleId": "B66-R03",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "EDGE_ID_OR_ENDPOINT",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R03-MISSING-PATCH",
+      "ruleId": "B66-R03",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "PATCH_EDGE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "add"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R03-VALID-ADD",
+      "ruleId": "B66-R03",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "add",
+          "edge": {
+            "from": "A",
+            "to": "D",
+            "reason": "人工",
+            "sourceRef": "D02:f1@r3"
+          }
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R04-DISPLAY",
+      "ruleId": "B66-R04",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "DISPLAY_ONLY",
+      "expectedReason": "VIEW_NOT_OWNER",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "D",
+            "A",
+            "B",
+            "C"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "display"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R04-TR-VIEW",
+      "ruleId": "B66-R04",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "DISPLAY_ONLY",
+      "expectedReason": "VIEW_NOT_OWNER",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "reduction_view"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R04-DISPLAY-WRITE",
+      "ruleId": "B66-R04",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "VIEW_WRITE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "display",
+          "write": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R04-DISPLAY-INVALIDATION",
+      "ruleId": "B66-R04",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "VIEW_WRITE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "display"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": true
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R04-INVALID-ORDER",
+      "ruleId": "B66-R04",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "GRAPH_OR_DISPLAY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "A",
+            "B",
+            "C"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R05-TRANSFER-VALID",
+      "ruleId": "B66-R05",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "crossSetup": true,
+          "transfer": {
+            "d04": "D04:r4@sha",
+            "frame": "F-setup2",
+            "unit": "mm",
+            "qualified": true
+          }
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R05-TRANSFER-ABSENT",
+      "ruleId": "B66-R05",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "UNKNOWN",
+      "expectedReason": "SETUP_FRAME",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "crossSetup": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R05-TRANSFER-BAD-FRAME",
+      "ruleId": "B66-R05",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "UNKNOWN",
+      "expectedReason": "SETUP_FRAME",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "crossSetup": true,
+          "transfer": {
+            "d04": "D04:r4@sha",
+            "frame": "wrong",
+            "unit": "mm",
+            "qualified": true
+          }
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R05-TRANSFER-UNQUALIFIED",
+      "ruleId": "B66-R05",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "UNKNOWN",
+      "expectedReason": "SETUP_FRAME",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "crossSetup": true,
+          "transfer": {
+            "d04": "D04:r4@sha",
+            "frame": "F-setup2",
+            "unit": "mm",
+            "qualified": false
+          }
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R05-D04-STALE",
+      "ruleId": "B66-R05",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "SOURCE_CAS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r5@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R05-D10-AS-D04",
+      "ruleId": "B66-R05",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "DOMAIN_BOUNDARY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": true
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-NO-WRITER",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "AUTH",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": false,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-ACL-EPOCH",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "FENCE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 8,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-SCOPE-EPOCH",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "FENCE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 8,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-CANCEL",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "FENCE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": true
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-LATE-ACK",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "FENCE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 2,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-REV-STALE",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "SOURCE_CAS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r8",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-HASH-STALE",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "SOURCE_CAS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:08",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-FRAME-STALE",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "SOURCE_CAS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "machine",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R06-FREEZE-STALE",
+      "ruleId": "B66-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "STALE",
+      "expectedReason": "SOURCE_CAS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r3",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-CLOSURE-UNKNOWN",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "UNKNOWN",
+      "expectedReason": "IMPACT_PROOF",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": false,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-HASHES-UNKNOWN",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "UNKNOWN",
+      "expectedReason": "IMPACT_PROOF",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": false,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-ROLLBACK-UNKNOWN",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "UNKNOWN",
+      "expectedReason": "IMPACT_PROOF",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": false,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-NO-FROZEN-REWRITE",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "DOMAIN_BOUNDARY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "rewriteFrozen": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-NO-PUBLISH-REWRITE",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "DOMAIN_BOUNDARY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "rewritePublished": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-NO-CL-AS-D15",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "DOMAIN_BOUNDARY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "clAsD15": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-DIRECT-EDGE-PROTECTED",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "PROTECTED_DIRECT_EDGE",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "remove",
+          "removeId": "eAC",
+          "reason": "提出删除",
+          "approved": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R07-DIRECT-EDGE-FORK",
+      "ruleId": "B66-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "D05_PREVIEW_NOT_PRODUCT_PASS",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "remove",
+          "removeId": "eAC",
+          "reason": "批准新分支",
+          "approved": true,
+          "fork": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R08-WRONG-PORT",
+      "ruleId": "B66-R08",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "AUTH",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "agent_direct_writer",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R08-WRONG-ENTRY",
+      "ruleId": "B66-R08",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "ENTRY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "drawer",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R08-MULTI-CANVAS",
+      "ruleId": "B66-R08",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "UI_BOUNDARY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": false,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R08-RIGHT-DRAWER",
+      "ruleId": "B66-R08",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "UI_BOUNDARY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": false,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R08-SEPARATE-AGENT-PORT",
+      "ruleId": "B66-R08",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "REJECT",
+      "expectedReason": "UI_BOUNDARY",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect"
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": false
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B66-R08-LEGACY-UNMAPPED",
+      "ruleId": "B66-R08",
+      "scenario": "INDEPENDENT_MUTATION",
+      "expected": "UNKNOWN",
+      "expectedReason": "LEGACY_ID",
+      "input": {
+        "owner": {
+          "actor": "planner",
+          "port": "D05.RouteEditDomainPort",
+          "aclRead": true,
+          "aclWrite": true,
+          "aclEpoch": 7,
+          "currentAclEpoch": 7,
+          "scopeEpoch": 5,
+          "currentScopeEpoch": 5,
+          "generation": 3,
+          "ackGeneration": 3,
+          "cancelled": false
+        },
+        "source": {
+          "expectedRevision": "D05:r7",
+          "currentRevision": "D05:r7",
+          "expectedHash": "sha256:07",
+          "currentHash": "sha256:07",
+          "expectedFrame": "part",
+          "currentFrame": "part",
+          "d04Expected": "D04:r4@sha",
+          "d04Current": "D04:r4@sha",
+          "freezeExpected": "D08:r2",
+          "freezeCurrent": "D08:r2",
+          "d10AsSetup": false
+        },
+        "graph": {
+          "nodes": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "displayOrder": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "edges": [
+            {
+              "id": "eAB",
+              "from": "A",
+              "to": "B",
+              "kind": "EXPLICIT",
+              "reason": "粗加工先于精加工",
+              "sourceRef": "D02:f1@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eBC",
+              "from": "B",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "工序顺序",
+              "sourceRef": "D02:f2@r3",
+              "actor": "planner",
+              "protected": false
+            },
+            {
+              "id": "eAC",
+              "from": "A",
+              "to": "C",
+              "kind": "EXPLICIT",
+              "reason": "独立夹紧约束（可达性相同但来源不同）",
+              "sourceRef": "D04:s1@r4",
+              "actor": "planner",
+              "protected": true
+            }
+          ]
+        },
+        "command": {
+          "type": "inspect",
+          "legacyUnmapped": true
+        },
+        "ui": {
+          "entry": "GUI",
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "sharedPort": true
+        },
+        "impact": {
+          "exactClosure": true,
+          "sourceHashes": true,
+          "rollbackHistory": true,
+          "invalidate": false
+        }
+      },
+      "synthetic": true
+    }
+  ]
+}

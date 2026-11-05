@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "procet-11-domain-research-crosscheck-v08",
+  "reviewOn": "2026-10-28",
+  "topic": "R-11DOMAIN-CROSSCHECK-001",
+  "status": "FIRST_PASS_11_DOMAINS_STATIC_ONLY_NOT_FINAL",
+  "baseline": {
+    "capabilities": 88,
+    "workPackages": 36,
+    "assets": 17,
+    "domains": 11,
+    "ownerCandidateMatrix": "docs/architecture/v0.8/owner-interface-review-v08.json"
+  },
+  "domains": [
+    {
+      "domainId": "01",
+      "name": "工程与公共工作台",
+      "ownerAssetIds": [],
+      "anchorCapability": "CAP-01-04",
+      "anchorWorkPackage": "B0-02",
+      "anchorTrace": "research/traces/CAP-01-04.json",
+      "anchorRegistry": "research/sources/CAP-01-04.json",
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S03"
+      ],
+      "boundary": "阅读入口与审计不等于D01—D17业务写入权",
+      "forbiddenWriteAsset": "D01",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "02",
+      "name": "制造资源",
+      "ownerAssetIds": [
+        "D03"
+      ],
+      "anchorCapability": "CAP-02-01",
+      "anchorWorkPackage": "F1-02",
+      "anchorTrace": "research/traces/CAP-02-01.json",
+      "anchorRegistry": "research/sources/CAP-02-01.json",
+      "sourceIds": [
+        "XDOM-S02",
+        "XDOM-S06"
+      ],
+      "boundary": "D03资源档案不等于D10实际安装位姿",
+      "forbiddenWriteAsset": "D10",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "03",
+      "name": "CAD/PMI与制造特征",
+      "ownerAssetIds": [
+        "D01",
+        "D02"
+      ],
+      "anchorCapability": "CAP-03-01",
+      "anchorWorkPackage": "F1-03",
+      "anchorTrace": "research/traces/CAP-03-01.json",
+      "anchorRegistry": "research/sources/CAP-03-01.json",
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S06"
+      ],
+      "boundary": "D01/D02输入真值不得被D07派生几何逆向覆写",
+      "forbiddenWriteAsset": "D07",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "04",
+      "name": "装夹与坐标系",
+      "ownerAssetIds": [
+        "D04",
+        "D10"
+      ],
+      "anchorCapability": "CAP-04-06",
+      "anchorWorkPackage": "F1-02",
+      "anchorTrace": "research/traces/CAP-04-06.json",
+      "anchorRegistry": "research/sources/CAP-04-06.json",
+      "sourceIds": [
+        "XDOM-S02",
+        "XDOM-S04"
+      ],
+      "boundary": "D04名义Setup与D10机床执行绑定独立版本与Frame",
+      "forbiddenWriteAsset": "D03",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "05",
+      "name": "工艺规划",
+      "ownerAssetIds": [
+        "D05",
+        "D08"
+      ],
+      "anchorCapability": "CAP-05-06",
+      "anchorWorkPackage": "W2-02",
+      "anchorTrace": "research/traces/CAP-05-06.json",
+      "anchorRegistry": "research/sources/CAP-05-06.json",
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S03"
+      ],
+      "boundary": "只有05域采纳冻结D08，A/B同事实不覆盖已冻结修订",
+      "forbiddenWriteAsset": "D06",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "06",
+      "name": "几何与工艺求解",
+      "ownerAssetIds": [
+        "D06",
+        "D07"
+      ],
+      "anchorCapability": "CAP-06-01",
+      "anchorWorkPackage": "F1-05",
+      "anchorTrace": "research/traces/CAP-06-01.json",
+      "anchorRegistry": "research/sources/CAP-06-01.json",
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S06"
+      ],
+      "boundary": "D06/D07求解候选与材料状态无权提交冻结D08",
+      "forbiddenWriteAsset": "D08",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "07",
+      "name": "CAM刀路",
+      "ownerAssetIds": [
+        "D09"
+      ],
+      "anchorCapability": "CAP-07-07",
+      "anchorWorkPackage": "E3-02",
+      "anchorTrace": "research/traces/CAP-07-07.json",
+      "anchorRegistry": "research/sources/CAP-07-07.json",
+      "sourceIds": [
+        "XDOM-S04",
+        "XDOM-S06"
+      ],
+      "boundary": "D09中立CL及可视化仅提供刀位意图，不能授予NC工程PASS",
+      "forbiddenWriteAsset": "D12",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "08",
+      "name": "NC与后处理",
+      "ownerAssetIds": [
+        "D12",
+        "D13"
+      ],
+      "anchorCapability": "CAP-08-03",
+      "anchorWorkPackage": "E3-03",
+      "anchorTrace": "research/traces/CAP-08-03.json",
+      "anchorRegistry": "research/sources/CAP-08-03.json",
+      "sourceIds": [
+        "XDOM-S04",
+        "XDOM-S03"
+      ],
+      "boundary": "D12最终NC字节及D13控制器语义须精确匹配，未知即UNKNOWN",
+      "forbiddenWriteAsset": "D14",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "09",
+      "name": "机床运动与工程验证",
+      "ownerAssetIds": [
+        "D11",
+        "D14",
+        "D15"
+      ],
+      "anchorCapability": "CAP-09-06",
+      "anchorWorkPackage": "E3-05",
+      "anchorTrace": "research/traces/CAP-09-06.json",
+      "anchorRegistry": "research/sources/CAP-09-06.json",
+      "sourceIds": [
+        "XDOM-S04",
+        "XDOM-S06"
+      ],
+      "boundary": "D11仅CL_ONLY；D14轴时序与D15独立NC验证不可跳过",
+      "forbiddenWriteAsset": "D13",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "10",
+      "name": "发布与现场闭环",
+      "ownerAssetIds": [
+        "D16",
+        "D17"
+      ],
+      "anchorCapability": "CAP-10-01",
+      "anchorWorkPackage": "T5-03",
+      "anchorTrace": "research/traces/CAP-10-01.json",
+      "anchorRegistry": "research/sources/CAP-10-01.json",
+      "sourceIds": [
+        "XDOM-S05",
+        "XDOM-S06"
+      ],
+      "boundary": "D16不能凭D11签发；D17批量OPC逐项状态检查且现场事实只追加",
+      "forbiddenWriteAsset": "D15",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "domainId": "11",
+      "name": "AI与知识智能体",
+      "ownerAssetIds": [],
+      "anchorCapability": "CAP-11-08",
+      "anchorWorkPackage": "T5-01",
+      "anchorTrace": "research/traces/CAP-11-08.json",
+      "anchorRegistry": "research/sources/CAP-11-08.json",
+      "sourceIds": [
+        "XDOM-S01",
+        "XDOM-S03"
+      ],
+      "boundary": "Agent检索/建议/审批提示不具有任何业务资产Owner写权",
+      "forbiddenWriteAsset": "D16",
+      "guiEntry": "同域Owner Port读写，单Babylon活动世界、统一左TaskPanel",
+      "cliEntry": "同域Owner Port，按精确修订读",
+      "agentEntry": "同域Owner Port，Agent无额外写权限",
+      "review": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ],
+  "expectedAssetOwners": {
+    "D01": "03",
+    "D02": "03",
+    "D03": "02",
+    "D04": "04",
+    "D05": "05",
+    "D06": "06",
+    "D07": "06",
+    "D08": "05",
+    "D09": "07",
+    "D10": "04",
+    "D11": "09",
+    "D12": "08",
+    "D13": "08",
+    "D14": "09",
+    "D15": "09",
+    "D16": "10",
+    "D17": "10"
+  },
+  "crossGuards": {
+    "d04SetupDistinctD10Execution": true,
+    "clOnlyGrantsRelease": false,
+    "unknownSemanticsGrantsRelease": false,
+    "ncReleaseChain": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "opcServiceGoodOverridesBadItem": false,
+    "solverMayOverwriteFrozenD08": false,
+    "singleBabylonWorld": true,
+    "unifiedLeftTaskPanel": true,
+    "lateCancelAckRestoresWrite": false,
+    "ownerWriteChecks": [
+      "ACL_RECHECK",
+      "SCOPE_EPOCH_RECHECK",
+      "EXPECTED_REVISION",
+      "EXPECTED_HASH",
+      "FRAME_CONSISTENCY",
+      "CAS",
+      "CANCEL_GENERATION",
+      "RECEIPT_AUDIT"
+    ]
+  },
+  "evidenceScope": "11个域各选1条已入库CAP研究追踪作锚点，新增6份公开跨域来源；并非逐项深读所有既有118份registry，最终终核仍待",
+  "certification": {
+    "ownerSignatures": 0,
+    "independentConsumerRealPass": 0,
+    "l3": "PENDING_HUMAN",
+    "product": "NOT_RUN",
+    "node": "NOT_RUN",
+    "fullRepoLinks": "NOT_RUN",
+    "legacyOriginals": "AUDIT_PENDING"
+  }
+}

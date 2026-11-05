@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "procet-cap0708-fixtures-v1",
+  "capabilityId": "CAP-07-08",
+  "syntheticOnly": true,
+  "tests": [
+    {
+      "id": "CAP-07-08-T01",
+      "ruleId": "C0708-R01",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "baseRevision": 8,
+        "baseHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "d08FrozenHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "sourceScopeExact": true
+      },
+      "scenario": "精确源和D08冻结绑定正例"
+    },
+    {
+      "id": "CAP-07-08-T02",
+      "ruleId": "C0708-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "baseHash",
+      "input": {
+        "baseRevision": 8,
+        "baseHash": "INVALID",
+        "d08FrozenHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "sourceScopeExact": true
+      },
+      "scenario": "精确源和D08冻结绑定反例"
+    },
+    {
+      "id": "CAP-07-08-M01",
+      "ruleId": "C0708-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "sourceScopeExact",
+      "input": {
+        "baseRevision": 8,
+        "baseHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "d08FrozenHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "sourceScopeExact": false
+      },
+      "scenario": "精确源和D08冻结绑定独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T03",
+      "ruleId": "C0708-R02",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "editKind": "REPLACE_SEGMENT",
+        "stableSegmentId": "seg-002",
+        "anchorsContinuous": true,
+        "frameKnown": true
+      },
+      "scenario": "局部编辑段和坐标锚点正例"
+    },
+    {
+      "id": "CAP-07-08-T04",
+      "ruleId": "C0708-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "anchorsContinuous",
+      "input": {
+        "editKind": "REPLACE_SEGMENT",
+        "stableSegmentId": "seg-002",
+        "anchorsContinuous": false,
+        "frameKnown": true
+      },
+      "scenario": "局部编辑段和坐标锚点反例"
+    },
+    {
+      "id": "CAP-07-08-M02",
+      "ruleId": "C0708-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frameKnown",
+      "input": {
+        "editKind": "REPLACE_SEGMENT",
+        "stableSegmentId": "seg-002",
+        "anchorsContinuous": true,
+        "frameKnown": false
+      },
+      "scenario": "局部编辑段和坐标锚点独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T05",
+      "ruleId": "C0708-R03",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "orderedSegments": true,
+        "arcGeometryConsistent": true,
+        "feedUnitKnown": true,
+        "noGcodeInCL": true
+      },
+      "scenario": "typed运动与中立语义正例"
+    },
+    {
+      "id": "CAP-07-08-T06",
+      "ruleId": "C0708-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "arcGeometryConsistent",
+      "input": {
+        "orderedSegments": true,
+        "arcGeometryConsistent": false,
+        "feedUnitKnown": true,
+        "noGcodeInCL": true
+      },
+      "scenario": "typed运动与中立语义反例"
+    },
+    {
+      "id": "CAP-07-08-M03",
+      "ruleId": "C0708-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "noGcodeInCL",
+      "input": {
+        "orderedSegments": true,
+        "arcGeometryConsistent": true,
+        "feedUnitKnown": true,
+        "noGcodeInCL": false
+      },
+      "scenario": "typed运动与中立语义独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T07",
+      "ruleId": "C0708-R04",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "dagAcyclic": true,
+        "dirtyClosureComplete": true,
+        "unaffectedCertified": true,
+        "affectedSegmentCount": 3
+      },
+      "scenario": "有向依赖闭包和保守再生正例"
+    },
+    {
+      "id": "CAP-07-08-T08",
+      "ruleId": "C0708-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "dirtyClosureComplete",
+      "input": {
+        "dagAcyclic": true,
+        "dirtyClosureComplete": false,
+        "unaffectedCertified": true,
+        "affectedSegmentCount": 3
+      },
+      "scenario": "有向依赖闭包和保守再生反例"
+    },
+    {
+      "id": "CAP-07-08-M04",
+      "ruleId": "C0708-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "unaffectedCertified",
+      "input": {
+        "dagAcyclic": true,
+        "dirtyClosureComplete": true,
+        "unaffectedCertified": false,
+        "affectedSegmentCount": 3
+      },
+      "scenario": "有向依赖闭包和保守再生独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T09",
+      "ruleId": "C0708-R05",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "frozenUnchanged": true,
+        "oldExecutedRevisionRetained": true,
+        "newRevisionCreated": true,
+        "protectedMeansVerified": false
+      },
+      "scenario": "冻结及已执行的不可变性正例"
+    },
+    {
+      "id": "CAP-07-08-T10",
+      "ruleId": "C0708-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frozenUnchanged",
+      "input": {
+        "frozenUnchanged": false,
+        "oldExecutedRevisionRetained": true,
+        "newRevisionCreated": true,
+        "protectedMeansVerified": false
+      },
+      "scenario": "冻结及已执行的不可变性反例"
+    },
+    {
+      "id": "CAP-07-08-M05",
+      "ruleId": "C0708-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "oldExecutedRevisionRetained",
+      "input": {
+        "frozenUnchanged": true,
+        "oldExecutedRevisionRetained": false,
+        "newRevisionCreated": true,
+        "protectedMeansVerified": false
+      },
+      "scenario": "冻结及已执行的不可变性独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T11",
+      "ruleId": "C0708-R06",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "babylonSceneCount": 1,
+        "taskPanelSide": "LEFT",
+        "previewMutatesOwner": false,
+        "leaseCancelImplemented": true
+      },
+      "scenario": "唯一Babylon预览与左TaskPanel正例"
+    },
+    {
+      "id": "CAP-07-08-T12",
+      "ruleId": "C0708-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "previewMutatesOwner",
+      "input": {
+        "babylonSceneCount": 1,
+        "taskPanelSide": "LEFT",
+        "previewMutatesOwner": true,
+        "leaseCancelImplemented": true
+      },
+      "scenario": "唯一Babylon预览与左TaskPanel反例"
+    },
+    {
+      "id": "CAP-07-08-M06",
+      "ruleId": "C0708-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "babylonSceneCount",
+      "input": {
+        "babylonSceneCount": -1,
+        "taskPanelSide": "LEFT",
+        "previewMutatesOwner": false,
+        "leaseCancelImplemented": true
+      },
+      "scenario": "唯一Babylon预览与左TaskPanel独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T13",
+      "ruleId": "C0708-R07",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "newD09Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "segmentLineageComplete": true,
+        "oldRevisionRetained": true,
+        "originHashExact": true
+      },
+      "scenario": "新D09及old-new段血缘正例"
+    },
+    {
+      "id": "CAP-07-08-T14",
+      "ruleId": "C0708-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "segmentLineageComplete",
+      "input": {
+        "newD09Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "segmentLineageComplete": false,
+        "oldRevisionRetained": true,
+        "originHashExact": true
+      },
+      "scenario": "新D09及old-new段血缘反例"
+    },
+    {
+      "id": "CAP-07-08-M07",
+      "ruleId": "C0708-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "oldRevisionRetained",
+      "input": {
+        "newD09Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "segmentLineageComplete": true,
+        "oldRevisionRetained": false,
+        "originHashExact": true
+      },
+      "scenario": "新D09及old-new段血缘独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T15",
+      "ruleId": "C0708-R08",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "aclCurrent": true,
+        "expectedHeadMatch": true,
+        "scopeEpochMatch": true,
+        "receiptGenerationCurrent": true,
+        "cancelRequested": false
+      },
+      "scenario": "CAS权限代次和取消晚回执正例"
+    },
+    {
+      "id": "CAP-07-08-T16",
+      "ruleId": "C0708-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "expectedHeadMatch",
+      "input": {
+        "aclCurrent": true,
+        "expectedHeadMatch": false,
+        "scopeEpochMatch": true,
+        "receiptGenerationCurrent": true,
+        "cancelRequested": false
+      },
+      "scenario": "CAS权限代次和取消晚回执反例"
+    },
+    {
+      "id": "CAP-07-08-M08",
+      "ruleId": "C0708-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "cancelRequested",
+      "input": {
+        "aclCurrent": true,
+        "expectedHeadMatch": true,
+        "scopeEpochMatch": true,
+        "receiptGenerationCurrent": true,
+        "cancelRequested": true
+      },
+      "scenario": "CAS权限代次和取消晚回执独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T17",
+      "ruleId": "C0708-R09",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "d11Stale": true,
+        "d12Stale": true,
+        "d13Stale": true,
+        "d14Stale": true,
+        "d15Stale": true,
+        "d16Blocked": true,
+        "unknownSemanticsBlocked": true
+      },
+      "scenario": "NC证据链按新D09失效正例"
+    },
+    {
+      "id": "CAP-07-08-T18",
+      "ruleId": "C0708-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "d15Stale",
+      "input": {
+        "d11Stale": true,
+        "d12Stale": true,
+        "d13Stale": true,
+        "d14Stale": true,
+        "d15Stale": false,
+        "d16Blocked": true,
+        "unknownSemanticsBlocked": true
+      },
+      "scenario": "NC证据链按新D09失效反例"
+    },
+    {
+      "id": "CAP-07-08-M09",
+      "ruleId": "C0708-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "d16Blocked",
+      "input": {
+        "d11Stale": true,
+        "d12Stale": true,
+        "d13Stale": true,
+        "d14Stale": true,
+        "d15Stale": true,
+        "d16Blocked": false,
+        "unknownSemanticsBlocked": true
+      },
+      "scenario": "NC证据链按新D09失效独立字段变异"
+    },
+    {
+      "id": "CAP-07-08-T19",
+      "ruleId": "C0708-R10",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "oldReaderRetained": true,
+        "rollbackNonDestructive": true,
+        "independentConsumer": "NOT_RUN",
+        "publishEligible": false
+      },
+      "scenario": "Reader兼容与非破坏回退正例"
+    },
+    {
+      "id": "CAP-07-08-T20",
+      "ruleId": "C0708-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "rollbackNonDestructive",
+      "input": {
+        "oldReaderRetained": true,
+        "rollbackNonDestructive": false,
+        "independentConsumer": "NOT_RUN",
+        "publishEligible": false
+      },
+      "scenario": "Reader兼容与非破坏回退反例"
+    },
+    {
+      "id": "CAP-07-08-M10",
+      "ruleId": "C0708-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "oldReaderRetained",
+      "input": {
+        "oldReaderRetained": false,
+        "rollbackNonDestructive": true,
+        "independentConsumer": "NOT_RUN",
+        "publishEligible": false
+      },
+      "scenario": "Reader兼容与非破坏回退独立字段变异"
+    }
+  ],
+  "graphTests": [
+    {
+      "id": "G01",
+      "seed": [
+        "seg-002"
+      ],
+      "expected": [
+        "seg-002",
+        "seg-003",
+        "seg-004"
+      ]
+    },
+    {
+      "id": "G02",
+      "seed": [
+        "seg-004"
+      ],
+      "expected": [
+        "seg-004"
+      ]
+    },
+    {
+      "id": "G03",
+      "seed": [
+        "seg-001"
+      ],
+      "expected": [
+        "seg-001",
+        "seg-002",
+        "seg-003",
+        "seg-004"
+      ]
+    },
+    {
+      "id": "G04",
+      "seed": [],
+      "expected": []
+    }
+  ],
+  "graphEdges": [
+    [
+      "seg-001",
+      "seg-002"
+    ],
+    [
+      "seg-002",
+      "seg-003"
+    ],
+    [
+      "seg-003",
+      "seg-004"
+    ]
+  ]
+}

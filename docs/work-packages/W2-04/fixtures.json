@@ -1,0 +1,243 @@
+{
+  "schemaVersion": "procet-w204-synthetic-v1",
+  "workPackageId": "W2-04",
+  "evidence": "SYNTHETIC_ONLY",
+  "baseScenario": {
+    "sourceRef": {
+      "id": "D04-synthetic",
+      "revision": "r4-synthetic",
+      "hash": "sha256:SYNTHETIC",
+      "frame": "SETUP_A",
+      "unit": "mm"
+    },
+    "stage": {
+      "sealed": true,
+      "digestOk": true,
+      "filesComplete": true
+    },
+    "guard": {
+      "expectedHead": "r7",
+      "currentHead": "r7",
+      "acl": true,
+      "epoch": 3,
+      "liveEpoch": 3,
+      "generation": 5,
+      "liveGeneration": 5,
+      "cancelled": false,
+      "lateReceipt": false
+    },
+    "arbitration": {
+      "winners": 1,
+      "casWon": true
+    },
+    "recovery": {
+      "commitMarker": true,
+      "hashOk": true,
+      "headOk": true
+    },
+    "replay": {
+      "sameKey": true,
+      "samePayload": true,
+      "extraRevision": false
+    },
+    "scope": {
+      "expectedSetup": "setup-A",
+      "actualSetup": "setup-A",
+      "expectedBranch": "branch-A",
+      "actualBranch": "branch-A"
+    },
+    "qualification": {
+      "d13": "UNKNOWN",
+      "d15": false,
+      "product": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "W2-04-T01",
+      "ruleId": "W204-R01",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T02",
+      "ruleId": "W204-R01",
+      "polarity": "negative",
+      "overrides": {
+        "sourceRef": {
+          "hash": ""
+        }
+      },
+      "expected": "REJECT_SOURCE_REF"
+    },
+    {
+      "id": "W2-04-T03",
+      "ruleId": "W204-R02",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T04",
+      "ruleId": "W204-R02",
+      "polarity": "negative",
+      "overrides": {
+        "stage": {
+          "filesComplete": false
+        }
+      },
+      "expected": "REJECT_STAGING"
+    },
+    {
+      "id": "W2-04-T05",
+      "ruleId": "W204-R03",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T06",
+      "ruleId": "W204-R03",
+      "polarity": "negative",
+      "overrides": {
+        "guard": {
+          "currentHead": "r8"
+        }
+      },
+      "expected": "REJECT_STALE_HEAD"
+    },
+    {
+      "id": "W2-04-T07",
+      "ruleId": "W204-R04",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T08",
+      "ruleId": "W204-R04",
+      "polarity": "negative",
+      "overrides": {
+        "guard": {
+          "acl": false
+        }
+      },
+      "expected": "REJECT_REVOKED_ACCESS"
+    },
+    {
+      "id": "W2-04-T09",
+      "ruleId": "W204-R05",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T10",
+      "ruleId": "W204-R05",
+      "polarity": "negative",
+      "overrides": {
+        "guard": {
+          "lateReceipt": true
+        }
+      },
+      "expected": "REJECT_LATE_RECEIPT"
+    },
+    {
+      "id": "W2-04-T11",
+      "ruleId": "W204-R06",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T12",
+      "ruleId": "W204-R06",
+      "polarity": "negative",
+      "overrides": {
+        "arbitration": {
+          "winners": 2
+        }
+      },
+      "expected": "REJECT_TERMINAL_RACE"
+    },
+    {
+      "id": "W2-04-T13",
+      "ruleId": "W204-R07",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T14",
+      "ruleId": "W204-R07",
+      "polarity": "negative",
+      "overrides": {
+        "recovery": {
+          "commitMarker": false
+        }
+      },
+      "expected": "UNKNOWN_RECOVERY"
+    },
+    {
+      "id": "W2-04-T15",
+      "ruleId": "W204-R08",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T16",
+      "ruleId": "W204-R08",
+      "polarity": "negative",
+      "overrides": {
+        "replay": {
+          "samePayload": false
+        }
+      },
+      "expected": "REJECT_IDEMPOTENCY_CONFLICT"
+    },
+    {
+      "id": "W2-04-T17",
+      "ruleId": "W204-R09",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T18",
+      "ruleId": "W204-R09",
+      "polarity": "negative",
+      "overrides": {
+        "scope": {
+          "actualSetup": "setup-B"
+        }
+      },
+      "expected": "REJECT_CROSS_SCOPE"
+    },
+    {
+      "id": "W2-04-T19",
+      "ruleId": "W204-R10",
+      "polarity": "positive",
+      "overrides": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "W2-04-T20",
+      "ruleId": "W204-R10",
+      "polarity": "negative",
+      "overrides": {
+        "qualification": {
+          "d15": true
+        }
+      },
+      "expected": "REJECT_FALSE_PASS"
+    }
+  ],
+  "crashInjection": [
+    "BEFORE_SEAL",
+    "AFTER_SEAL_BEFORE_CAS",
+    "AFTER_CAS_BEFORE_ACK",
+    "POWER_LOSS_WAL_NORMAL"
+  ]
+}

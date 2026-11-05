@@ -1,0 +1,780 @@
+{
+  "schemaVersion": "procet-cap0203-research-static-fixtures-v08",
+  "capabilityId": "CAP-02-03",
+  "evidenceType": "SYNTHETIC_PLANNING_PREDICATES_NOT_REAL_OWNER_TESTS",
+  "rulesCount": 10,
+  "positives": [
+    {
+      "id": "TA03-R01-POS",
+      "ruleId": "TA03-R01",
+      "expected": "ACCEPT",
+      "input": {
+        "identity": {
+          "exactRef": true,
+          "contentHash": true,
+          "noLatestFallback": true,
+          "frozenAB": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R02-POS",
+      "ruleId": "TA03-R02",
+      "expected": "ACCEPT",
+      "input": {
+        "interface": {
+          "parentPort": true,
+          "childPort": true,
+          "evidenceBound": true,
+          "unknownFailClosed": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R03-POS",
+      "ruleId": "TA03-R03",
+      "expected": "ACCEPT",
+      "input": {
+        "frame": {
+          "namedFromTo": true,
+          "rightHanded": true,
+          "parentLocalOrder": true,
+          "mmAndRad": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R04-POS",
+      "ruleId": "TA03-R04",
+      "expected": "ACCEPT",
+      "input": {
+        "tcp": {
+          "typedControlPoint": true,
+          "assemblyTransform": true,
+          "nominalCalibrationSeparate": true,
+          "noSceneBackwrite": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R05-POS",
+      "ruleId": "TA03-R05",
+      "expected": "ACCEPT",
+      "input": {
+        "length": {
+          "gaugeDatumKnown": true,
+          "stickoutDatumKnown": true,
+          "engagementDistinct": true,
+          "hNotGauge": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R06-POS",
+      "ruleId": "TA03-R06",
+      "expected": "ACCEPT",
+      "input": {
+        "owner": {
+          "d03Nominal": true,
+          "d04Setup": true,
+          "d10ActualBinding": true,
+          "d13Interpreter": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R07-POS",
+      "ruleId": "TA03-R07",
+      "expected": "ACCEPT",
+      "input": {
+        "commit": {
+          "aclRecheck": true,
+          "scopeEpochRecheck": true,
+          "exactCasHashFrame": true,
+          "cancelRecheck": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R08-POS",
+      "ruleId": "TA03-R08",
+      "expected": "ACCEPT",
+      "input": {
+        "lifecycle": {
+          "cancelLateAckNoWrite": true,
+          "committedReceiptReconcile": true,
+          "noSilentMigration": true,
+          "invalidationRollback": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R09-POS",
+      "ruleId": "TA03-R09",
+      "expected": "ACCEPT",
+      "input": {
+        "ui": {
+          "oneBabylonWorld": true,
+          "unifiedLeftPanel": true,
+          "sameOwnerPort": true,
+          "fontMax12": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R10-POS",
+      "ruleId": "TA03-R10",
+      "expected": "ACCEPT",
+      "input": {
+        "nc": {
+          "finalD12Provenance": true,
+          "d13UnknownBlocks": true,
+          "d14D15Independent": true,
+          "clPreviewNotPass": true
+        }
+      }
+    }
+  ],
+  "negatives": [
+    {
+      "id": "TA03-R01-NEG-1",
+      "ruleId": "TA03-R01",
+      "mutatedField": "identity.exactRef",
+      "expected": "REJECT",
+      "input": {
+        "identity": {
+          "exactRef": false,
+          "contentHash": true,
+          "noLatestFallback": true,
+          "frozenAB": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R01-NEG-2",
+      "ruleId": "TA03-R01",
+      "mutatedField": "identity.contentHash",
+      "expected": "REJECT",
+      "input": {
+        "identity": {
+          "exactRef": true,
+          "contentHash": false,
+          "noLatestFallback": true,
+          "frozenAB": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R01-NEG-3",
+      "ruleId": "TA03-R01",
+      "mutatedField": "identity.noLatestFallback",
+      "expected": "REJECT",
+      "input": {
+        "identity": {
+          "exactRef": true,
+          "contentHash": true,
+          "noLatestFallback": false,
+          "frozenAB": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R01-NEG-4",
+      "ruleId": "TA03-R01",
+      "mutatedField": "identity.frozenAB",
+      "expected": "REJECT",
+      "input": {
+        "identity": {
+          "exactRef": true,
+          "contentHash": true,
+          "noLatestFallback": true,
+          "frozenAB": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R02-NEG-1",
+      "ruleId": "TA03-R02",
+      "mutatedField": "interface.parentPort",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "parentPort": false,
+          "childPort": true,
+          "evidenceBound": true,
+          "unknownFailClosed": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R02-NEG-2",
+      "ruleId": "TA03-R02",
+      "mutatedField": "interface.childPort",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "parentPort": true,
+          "childPort": false,
+          "evidenceBound": true,
+          "unknownFailClosed": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R02-NEG-3",
+      "ruleId": "TA03-R02",
+      "mutatedField": "interface.evidenceBound",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "parentPort": true,
+          "childPort": true,
+          "evidenceBound": false,
+          "unknownFailClosed": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R02-NEG-4",
+      "ruleId": "TA03-R02",
+      "mutatedField": "interface.unknownFailClosed",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "parentPort": true,
+          "childPort": true,
+          "evidenceBound": true,
+          "unknownFailClosed": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R03-NEG-1",
+      "ruleId": "TA03-R03",
+      "mutatedField": "frame.namedFromTo",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "namedFromTo": false,
+          "rightHanded": true,
+          "parentLocalOrder": true,
+          "mmAndRad": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R03-NEG-2",
+      "ruleId": "TA03-R03",
+      "mutatedField": "frame.rightHanded",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "namedFromTo": true,
+          "rightHanded": false,
+          "parentLocalOrder": true,
+          "mmAndRad": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R03-NEG-3",
+      "ruleId": "TA03-R03",
+      "mutatedField": "frame.parentLocalOrder",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "namedFromTo": true,
+          "rightHanded": true,
+          "parentLocalOrder": false,
+          "mmAndRad": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R03-NEG-4",
+      "ruleId": "TA03-R03",
+      "mutatedField": "frame.mmAndRad",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "namedFromTo": true,
+          "rightHanded": true,
+          "parentLocalOrder": true,
+          "mmAndRad": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R04-NEG-1",
+      "ruleId": "TA03-R04",
+      "mutatedField": "tcp.typedControlPoint",
+      "expected": "REJECT",
+      "input": {
+        "tcp": {
+          "typedControlPoint": false,
+          "assemblyTransform": true,
+          "nominalCalibrationSeparate": true,
+          "noSceneBackwrite": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R04-NEG-2",
+      "ruleId": "TA03-R04",
+      "mutatedField": "tcp.assemblyTransform",
+      "expected": "REJECT",
+      "input": {
+        "tcp": {
+          "typedControlPoint": true,
+          "assemblyTransform": false,
+          "nominalCalibrationSeparate": true,
+          "noSceneBackwrite": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R04-NEG-3",
+      "ruleId": "TA03-R04",
+      "mutatedField": "tcp.nominalCalibrationSeparate",
+      "expected": "REJECT",
+      "input": {
+        "tcp": {
+          "typedControlPoint": true,
+          "assemblyTransform": true,
+          "nominalCalibrationSeparate": false,
+          "noSceneBackwrite": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R04-NEG-4",
+      "ruleId": "TA03-R04",
+      "mutatedField": "tcp.noSceneBackwrite",
+      "expected": "REJECT",
+      "input": {
+        "tcp": {
+          "typedControlPoint": true,
+          "assemblyTransform": true,
+          "nominalCalibrationSeparate": true,
+          "noSceneBackwrite": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R05-NEG-1",
+      "ruleId": "TA03-R05",
+      "mutatedField": "length.gaugeDatumKnown",
+      "expected": "REJECT",
+      "input": {
+        "length": {
+          "gaugeDatumKnown": false,
+          "stickoutDatumKnown": true,
+          "engagementDistinct": true,
+          "hNotGauge": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R05-NEG-2",
+      "ruleId": "TA03-R05",
+      "mutatedField": "length.stickoutDatumKnown",
+      "expected": "REJECT",
+      "input": {
+        "length": {
+          "gaugeDatumKnown": true,
+          "stickoutDatumKnown": false,
+          "engagementDistinct": true,
+          "hNotGauge": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R05-NEG-3",
+      "ruleId": "TA03-R05",
+      "mutatedField": "length.engagementDistinct",
+      "expected": "REJECT",
+      "input": {
+        "length": {
+          "gaugeDatumKnown": true,
+          "stickoutDatumKnown": true,
+          "engagementDistinct": false,
+          "hNotGauge": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R05-NEG-4",
+      "ruleId": "TA03-R05",
+      "mutatedField": "length.hNotGauge",
+      "expected": "REJECT",
+      "input": {
+        "length": {
+          "gaugeDatumKnown": true,
+          "stickoutDatumKnown": true,
+          "engagementDistinct": true,
+          "hNotGauge": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R06-NEG-1",
+      "ruleId": "TA03-R06",
+      "mutatedField": "owner.d03Nominal",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "d03Nominal": false,
+          "d04Setup": true,
+          "d10ActualBinding": true,
+          "d13Interpreter": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R06-NEG-2",
+      "ruleId": "TA03-R06",
+      "mutatedField": "owner.d04Setup",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "d03Nominal": true,
+          "d04Setup": false,
+          "d10ActualBinding": true,
+          "d13Interpreter": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R06-NEG-3",
+      "ruleId": "TA03-R06",
+      "mutatedField": "owner.d10ActualBinding",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "d03Nominal": true,
+          "d04Setup": true,
+          "d10ActualBinding": false,
+          "d13Interpreter": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R06-NEG-4",
+      "ruleId": "TA03-R06",
+      "mutatedField": "owner.d13Interpreter",
+      "expected": "REJECT",
+      "input": {
+        "owner": {
+          "d03Nominal": true,
+          "d04Setup": true,
+          "d10ActualBinding": true,
+          "d13Interpreter": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R07-NEG-1",
+      "ruleId": "TA03-R07",
+      "mutatedField": "commit.aclRecheck",
+      "expected": "REJECT",
+      "input": {
+        "commit": {
+          "aclRecheck": false,
+          "scopeEpochRecheck": true,
+          "exactCasHashFrame": true,
+          "cancelRecheck": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R07-NEG-2",
+      "ruleId": "TA03-R07",
+      "mutatedField": "commit.scopeEpochRecheck",
+      "expected": "REJECT",
+      "input": {
+        "commit": {
+          "aclRecheck": true,
+          "scopeEpochRecheck": false,
+          "exactCasHashFrame": true,
+          "cancelRecheck": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R07-NEG-3",
+      "ruleId": "TA03-R07",
+      "mutatedField": "commit.exactCasHashFrame",
+      "expected": "REJECT",
+      "input": {
+        "commit": {
+          "aclRecheck": true,
+          "scopeEpochRecheck": true,
+          "exactCasHashFrame": false,
+          "cancelRecheck": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R07-NEG-4",
+      "ruleId": "TA03-R07",
+      "mutatedField": "commit.cancelRecheck",
+      "expected": "REJECT",
+      "input": {
+        "commit": {
+          "aclRecheck": true,
+          "scopeEpochRecheck": true,
+          "exactCasHashFrame": true,
+          "cancelRecheck": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R08-NEG-1",
+      "ruleId": "TA03-R08",
+      "mutatedField": "lifecycle.cancelLateAckNoWrite",
+      "expected": "REJECT",
+      "input": {
+        "lifecycle": {
+          "cancelLateAckNoWrite": false,
+          "committedReceiptReconcile": true,
+          "noSilentMigration": true,
+          "invalidationRollback": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R08-NEG-2",
+      "ruleId": "TA03-R08",
+      "mutatedField": "lifecycle.committedReceiptReconcile",
+      "expected": "REJECT",
+      "input": {
+        "lifecycle": {
+          "cancelLateAckNoWrite": true,
+          "committedReceiptReconcile": false,
+          "noSilentMigration": true,
+          "invalidationRollback": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R08-NEG-3",
+      "ruleId": "TA03-R08",
+      "mutatedField": "lifecycle.noSilentMigration",
+      "expected": "REJECT",
+      "input": {
+        "lifecycle": {
+          "cancelLateAckNoWrite": true,
+          "committedReceiptReconcile": true,
+          "noSilentMigration": false,
+          "invalidationRollback": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R08-NEG-4",
+      "ruleId": "TA03-R08",
+      "mutatedField": "lifecycle.invalidationRollback",
+      "expected": "REJECT",
+      "input": {
+        "lifecycle": {
+          "cancelLateAckNoWrite": true,
+          "committedReceiptReconcile": true,
+          "noSilentMigration": true,
+          "invalidationRollback": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R09-NEG-1",
+      "ruleId": "TA03-R09",
+      "mutatedField": "ui.oneBabylonWorld",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "oneBabylonWorld": false,
+          "unifiedLeftPanel": true,
+          "sameOwnerPort": true,
+          "fontMax12": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R09-NEG-2",
+      "ruleId": "TA03-R09",
+      "mutatedField": "ui.unifiedLeftPanel",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "oneBabylonWorld": true,
+          "unifiedLeftPanel": false,
+          "sameOwnerPort": true,
+          "fontMax12": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R09-NEG-3",
+      "ruleId": "TA03-R09",
+      "mutatedField": "ui.sameOwnerPort",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "oneBabylonWorld": true,
+          "unifiedLeftPanel": true,
+          "sameOwnerPort": false,
+          "fontMax12": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R09-NEG-4",
+      "ruleId": "TA03-R09",
+      "mutatedField": "ui.fontMax12",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "oneBabylonWorld": true,
+          "unifiedLeftPanel": true,
+          "sameOwnerPort": true,
+          "fontMax12": false
+        }
+      }
+    },
+    {
+      "id": "TA03-R10-NEG-1",
+      "ruleId": "TA03-R10",
+      "mutatedField": "nc.finalD12Provenance",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalD12Provenance": false,
+          "d13UnknownBlocks": true,
+          "d14D15Independent": true,
+          "clPreviewNotPass": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R10-NEG-2",
+      "ruleId": "TA03-R10",
+      "mutatedField": "nc.d13UnknownBlocks",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalD12Provenance": true,
+          "d13UnknownBlocks": false,
+          "d14D15Independent": true,
+          "clPreviewNotPass": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R10-NEG-3",
+      "ruleId": "TA03-R10",
+      "mutatedField": "nc.d14D15Independent",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalD12Provenance": true,
+          "d13UnknownBlocks": true,
+          "d14D15Independent": false,
+          "clPreviewNotPass": true
+        }
+      }
+    },
+    {
+      "id": "TA03-R10-NEG-4",
+      "ruleId": "TA03-R10",
+      "mutatedField": "nc.clPreviewNotPass",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalD12Provenance": true,
+          "d13UnknownBlocks": true,
+          "d14D15Independent": true,
+          "clPreviewNotPass": false
+        }
+      }
+    }
+  ],
+  "stateScenarios": [
+    {
+      "id": "ST01",
+      "given": "缺少接口规格或测量依据",
+      "when": "DRAFT_ONLY",
+      "expected": "RELEASE_REJECT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ST02",
+      "given": "预检后draftLockVersion被别人更改",
+      "when": "STALE_CAS",
+      "expected": "RELEASE_REJECT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ST03",
+      "given": "取消后晚ACK，业务尚未提交",
+      "when": "CANCELLED",
+      "expected": "NO_NEW_WRITE",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ST04",
+      "given": "取消前业务Owner已原子提交",
+      "when": "COMMITTED",
+      "expected": "RECEIPT_RECONCILE_NOT_ROLLBACK",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ST05",
+      "given": "D13无法解释控制器H补偿",
+      "when": "D13_UNKNOWN",
+      "expected": "D16_BLOCK",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ST06",
+      "given": "只有D09中立CL动画，无最终NC证据",
+      "when": "CL_PREVIEW_ONLY",
+      "expected": "D15_NOT_PASS",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ST07",
+      "given": "D03总成版本更新但D10仍旧绑定",
+      "when": "DEPENDENCY_STALE",
+      "expected": "REVALIDATE_NO_AUTO_REBIND",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "ST08",
+      "given": "从Setup A切换至B后迟到采用回执",
+      "when": "SCOPE_EPOCH_CHANGED",
+      "expected": "NO_CROSS_SCOPE_WRITE",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "legacyAcceptanceIds": [
+    "TA-AC-01",
+    "TA-AC-02",
+    "TA-AC-03",
+    "TA-AC-04",
+    "TA-AC-05",
+    "TA-AC-06",
+    "TA-AC-07",
+    "TA-AC-08",
+    "TA-AC-09",
+    "TA-AC-10",
+    "TA-AC-11",
+    "TA-AC-12",
+    "TA-AC-13",
+    "TA-AC-14",
+    "TA-AC-15",
+    "TA-AC-16"
+  ],
+  "humanApproval": "PENDING_HUMAN",
+  "independentNodeProcess": "NOT_RUN",
+  "realConsumer": "NOT_RUN",
+  "product": "NOT_RUN"
+}

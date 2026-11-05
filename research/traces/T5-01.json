@@ -1,0 +1,580 @@
+{
+  "schemaVersion": "procet-t501-trace-v1",
+  "workPackageId": "T5-01",
+  "researchTopic": "R-AIKB-001",
+  "sourceRegistry": "research/sources/T5-01.json",
+  "specification": "docs/work-packages/T5-01.md",
+  "ui": "docs/work-packages/T5-01/UI.md",
+  "fixtures": "docs/work-packages/T5-01/fixtures.json",
+  "validator": "tools/check_t501_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "T5-01-R01",
+      "workPackageId": "T5-01",
+      "summary": "工具仅通过单一受控CapabilityRegistry以结构化命令调用；回执与幂等键关联，模型文字不充成功",
+      "fields": [
+        "tool.registryUsed",
+        "tool.typedSchemaValidated",
+        "tool.sameIdempotencyKey",
+        "tool.modelTextTreatedAsReceipt",
+        "tool.receiptOwnerVerified"
+      ],
+      "sourceIds": [
+        "SRC-T501-S03",
+        "SRC-T501-S04",
+        "SRC-T501-S09",
+        "SRC-T501-S10"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "criteria": [
+        {
+          "path": "tool.registryUsed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.typedSchemaValidated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.sameIdempotencyKey",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tool.modelTextTreatedAsReceipt",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "tool.receiptOwnerVerified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "T5-01-T01",
+      "negativeTestId": "T5-01-T02",
+      "negativeReason": "REJECT_T501_R01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R02",
+      "workPackageId": "T5-01",
+      "summary": "AI、人工作业及CLI执行同一批准/冻结门禁，AI不自授权限且批准人独立于模型",
+      "fields": [
+        "approval.sameHumanGate",
+        "approval.agentSelfAuthorized",
+        "approval.ownerAclRechecked",
+        "approval.frozenD08Overwritten",
+        "approval.humanDecisionRecorded"
+      ],
+      "sourceIds": [
+        "SRC-T501-S01",
+        "SRC-T501-S02",
+        "SRC-T501-S03",
+        "SRC-T501-S08"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "criteria": [
+        {
+          "path": "approval.sameHumanGate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.agentSelfAuthorized",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "approval.ownerAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "approval.frozenD08Overwritten",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "approval.humanDecisionRecorded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "T5-01-T03",
+      "negativeTestId": "T5-01-T04",
+      "negativeReason": "REJECT_T501_R02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R03",
+      "workPackageId": "T5-01",
+      "summary": "知识建议使用精确文档修订和来源范围，引用已撤销/ACL越界禁止作为可信依据",
+      "fields": [
+        "knowledge.exactDocumentRevision",
+        "knowledge.sourceContentHash",
+        "knowledge.scopeAclChecked",
+        "knowledge.revokedReferenceAccepted",
+        "knowledge.citationSpanPresent"
+      ],
+      "sourceIds": [
+        "SRC-T501-S01",
+        "SRC-T501-S02",
+        "SRC-T501-S07"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D05"
+      ],
+      "criteria": [
+        {
+          "path": "knowledge.exactDocumentRevision",
+          "op": "eq",
+          "value": "rev:K-1"
+        },
+        {
+          "path": "knowledge.sourceContentHash",
+          "op": "eq",
+          "value": "sha256:fixture-K1"
+        },
+        {
+          "path": "knowledge.scopeAclChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "knowledge.revokedReferenceAccepted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "knowledge.citationSpanPresent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "T5-01-T05",
+      "negativeTestId": "T5-01-T06",
+      "negativeReason": "REJECT_T501_R03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R04",
+      "workPackageId": "T5-01",
+      "summary": "检索、OCR、文档及工具输出始终是非可信数据；注入不能改变Owner权限或工具目标",
+      "fields": [
+        "rag.externalTextUntrusted",
+        "rag.injectedInstructionsExecuted",
+        "rag.toolArgsRevalidatedOutsideModel",
+        "rag.unsafeURLAllowed",
+        "rag.redactedContext"
+      ],
+      "sourceIds": [
+        "SRC-T501-S05",
+        "SRC-T501-S06",
+        "SRC-T501-S03"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D17"
+      ],
+      "criteria": [
+        {
+          "path": "rag.externalTextUntrusted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rag.injectedInstructionsExecuted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rag.toolArgsRevalidatedOutsideModel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rag.unsafeURLAllowed",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rag.redactedContext",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "T5-01-T07",
+      "negativeTestId": "T5-01-T08",
+      "negativeReason": "REJECT_T501_R04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R05",
+      "workPackageId": "T5-01",
+      "summary": "每次写前重读exact revision/hash/frame、权限代次与CAS预期；冲突返回CONFLICT而不改冻结",
+      "fields": [
+        "commit.expectedHead",
+        "commit.contentHash",
+        "commit.frameRef",
+        "commit.aclEpochRechecked",
+        "commit.casAtomic",
+        "commit.lateReceiptWrites"
+      ],
+      "sourceIds": [
+        "SRC-T501-S08",
+        "SRC-T501-S07",
+        "SRC-T501-S05"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "criteria": [
+        {
+          "path": "commit.expectedHead",
+          "op": "eq",
+          "value": "rev:fixture-12"
+        },
+        {
+          "path": "commit.contentHash",
+          "op": "eq",
+          "value": "sha256:fixture-12"
+        },
+        {
+          "path": "commit.frameRef",
+          "op": "eq",
+          "value": "FRAME:SETUP-A"
+        },
+        {
+          "path": "commit.aclEpochRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casAtomic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.lateReceiptWrites",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-01-T09",
+      "negativeTestId": "T5-01-T10",
+      "negativeReason": "REJECT_T501_R05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R06",
+      "workPackageId": "T5-01",
+      "summary": "Ribbon/左TaskPanel/Agent浮窗/CLI复用同域工具Port；仅一个Babylon Scene；预览无Owner写",
+      "fields": [
+        "ui.guiPort",
+        "ui.cliPort",
+        "ui.agentPort",
+        "ui.sceneCount",
+        "ui.leftTaskPanelCount",
+        "ui.previewWritesOwner"
+      ],
+      "sourceIds": [
+        "SRC-T501-S03",
+        "SRC-T501-S07"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D09"
+      ],
+      "criteria": [
+        {
+          "path": "ui.guiPort",
+          "op": "eq",
+          "value": "DomainOwnerToolPort"
+        },
+        {
+          "path": "ui.cliPort",
+          "op": "eq",
+          "value": "DomainOwnerToolPort"
+        },
+        {
+          "path": "ui.agentPort",
+          "op": "eq",
+          "value": "DomainOwnerToolPort"
+        },
+        {
+          "path": "ui.sceneCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.leftTaskPanelCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "ui.previewWritesOwner",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-01-T11",
+      "negativeTestId": "T5-01-T12",
+      "negativeReason": "REJECT_T501_R06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R07",
+      "workPackageId": "T5-01",
+      "summary": "异步任务显式阶段、取消令牌、晚回执归档与幂等恢复；失败不可标记SUCCESS",
+      "fields": [
+        "task.stage",
+        "task.cancelReceiptState",
+        "task.lateReceiptPromoted",
+        "task.failedActionMarkedSuccess",
+        "task.generationCurrent"
+      ],
+      "sourceIds": [
+        "SRC-T501-S03",
+        "SRC-T501-S09",
+        "SRC-T501-S08"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "criteria": [
+        {
+          "path": "task.stage",
+          "op": "eq",
+          "value": "WAITING_TOOL"
+        },
+        {
+          "path": "task.cancelReceiptState",
+          "op": "eq",
+          "value": "CANCELLED"
+        },
+        {
+          "path": "task.lateReceiptPromoted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "task.failedActionMarkedSuccess",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "task.generationCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "T5-01-T13",
+      "negativeTestId": "T5-01-T14",
+      "negativeReason": "REJECT_T501_R07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R08",
+      "workPackageId": "T5-01",
+      "summary": "共享LLM网关标明模型/provider/协议版本和锁定映射；不新复制客户端、不假装兼容",
+      "fields": [
+        "model.sharedGateway",
+        "model.duplicateClients",
+        "model.protocolVersion",
+        "model.modelIdentifierPinned",
+        "model.unknownCapabilityAccepted"
+      ],
+      "sourceIds": [
+        "SRC-T501-S04",
+        "SRC-T501-S10",
+        "SRC-T501-S01"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "criteria": [
+        {
+          "path": "model.sharedGateway",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "model.duplicateClients",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "model.protocolVersion",
+          "op": "eq",
+          "value": "2025-06-18"
+        },
+        {
+          "path": "model.modelIdentifierPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "model.unknownCapabilityAccepted",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-01-T15",
+      "negativeTestId": "T5-01-T16",
+      "negativeReason": "REJECT_T501_R08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R09",
+      "workPackageId": "T5-01",
+      "summary": "A/B同事实不覆盖D08；D04 Setup与D10执行绑定独立；CL动画不授D15或D16资格",
+      "fields": [
+        "pipeline.abSharedFacts",
+        "pipeline.frozenD08Overwritten",
+        "pipeline.d04DistinctD10",
+        "pipeline.clAnimationClaimsD15",
+        "pipeline.unknownD13ReleasedD16",
+        "pipeline.materialSweepSimulation"
+      ],
+      "sourceIds": [
+        "SRC-T501-S07",
+        "SRC-T501-S08",
+        "SRC-T501-S02"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "pipeline.abSharedFacts",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pipeline.frozenD08Overwritten",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "pipeline.d04DistinctD10",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "pipeline.clAnimationClaimsD15",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "pipeline.unknownD13ReleasedD16",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "pipeline.materialSweepSimulation",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-01-T17",
+      "negativeTestId": "T5-01-T18",
+      "negativeReason": "REJECT_T501_R09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "T5-01-R10",
+      "workPackageId": "T5-01",
+      "summary": "权限/模型兼容/证据不足时降级只读建议；迁移可回退且真实消费者未测不准删旧桥",
+      "fields": [
+        "rollback.fallback",
+        "rollback.legacyReaderRetained",
+        "rollback.dualOwnerWrites",
+        "rollback.independentConsumerState",
+        "rollback.d08BytesUnchanged",
+        "rollback.unknownSemanticMeansSuccess"
+      ],
+      "sourceIds": [
+        "SRC-T501-S06",
+        "SRC-T501-S03",
+        "SRC-T501-S09",
+        "SRC-T501-S01"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "rollback.fallback",
+          "op": "eq",
+          "value": "READ_ONLY_ADVICE"
+        },
+        {
+          "path": "rollback.legacyReaderRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rollback.dualOwnerWrites",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rollback.independentConsumerState",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "rollback.d08BytesUnchanged",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rollback.unknownSemanticMeansSuccess",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "T5-01-T19",
+      "negativeTestId": "T5-01-T20",
+      "negativeReason": "REJECT_T501_R10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

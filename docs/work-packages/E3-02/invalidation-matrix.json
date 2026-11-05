@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "procet-d12-invalidation-v1",
+  "changes": [
+    {
+      "when": "D04 nominal Frame",
+      "invalidates": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "retains": [
+        "D08 frozen"
+      ]
+    },
+    {
+      "when": "D10 machine/controller/post configuration",
+      "invalidates": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "retains": [
+        "D09 neutral CL",
+        "D08 frozen"
+      ]
+    },
+    {
+      "when": "D09 geometry/strategy",
+      "invalidates": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "retains": [
+        "D08 frozen"
+      ]
+    },
+    {
+      "when": "manual NC fork",
+      "invalidates": [
+        "new D12 mapping",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "retains": [
+        "old raw NC bytes"
+      ]
+    },
+    {
+      "when": "GUI selection/theme",
+      "invalidates": [],
+      "retains": [
+        "all assets"
+      ]
+    }
+  ],
+  "rollback": "retain_old_immutable_versions;reader_readonly;never_delete_user_data"
+}

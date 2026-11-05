@@ -1,0 +1,676 @@
+{
+  "schemaVersion": "procet-b127-fixtures-v08",
+  "date": "2026-11-03",
+  "syntheticOnly": true,
+  "oracleIndependence": "40字段单突变合同自检+8列明期望的简化单轴Offset状态Golden；不等于独立控制器、D14/D15或物理机床实测",
+  "cases": [
+    {
+      "id": "B127-P01",
+      "rule": "B127-R01",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareRevisionPinned": true,
+        "profile.ngcBehaviorQualified": true,
+        "profile.noCrossDialectDefault": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N01-1",
+      "rule": "B127-R01",
+      "mutatedField": "profile.controllerFamilyExact",
+      "input": {
+        "profile.controllerFamilyExact": false,
+        "profile.firmwareRevisionPinned": true,
+        "profile.ngcBehaviorQualified": true,
+        "profile.noCrossDialectDefault": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N01-2",
+      "rule": "B127-R01",
+      "mutatedField": "profile.firmwareRevisionPinned",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareRevisionPinned": false,
+        "profile.ngcBehaviorQualified": true,
+        "profile.noCrossDialectDefault": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N01-3",
+      "rule": "B127-R01",
+      "mutatedField": "profile.ngcBehaviorQualified",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareRevisionPinned": true,
+        "profile.ngcBehaviorQualified": false,
+        "profile.noCrossDialectDefault": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N01-4",
+      "rule": "B127-R01",
+      "mutatedField": "profile.noCrossDialectDefault",
+      "input": {
+        "profile.controllerFamilyExact": true,
+        "profile.firmwareRevisionPinned": true,
+        "profile.ngcBehaviorQualified": true,
+        "profile.noCrossDialectDefault": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-P02",
+      "rule": "B127-R02",
+      "input": {
+        "state.toolChangeTransitionCaptured": true,
+        "state.ngcPostM6OffsetRead": true,
+        "state.powerCyclePersistenceRead": true,
+        "state.noAssumeLegacyBehavior": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N02-1",
+      "rule": "B127-R02",
+      "mutatedField": "state.toolChangeTransitionCaptured",
+      "input": {
+        "state.toolChangeTransitionCaptured": false,
+        "state.ngcPostM6OffsetRead": true,
+        "state.powerCyclePersistenceRead": true,
+        "state.noAssumeLegacyBehavior": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N02-2",
+      "rule": "B127-R02",
+      "mutatedField": "state.ngcPostM6OffsetRead",
+      "input": {
+        "state.toolChangeTransitionCaptured": true,
+        "state.ngcPostM6OffsetRead": false,
+        "state.powerCyclePersistenceRead": true,
+        "state.noAssumeLegacyBehavior": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N02-3",
+      "rule": "B127-R02",
+      "mutatedField": "state.powerCyclePersistenceRead",
+      "input": {
+        "state.toolChangeTransitionCaptured": true,
+        "state.ngcPostM6OffsetRead": true,
+        "state.powerCyclePersistenceRead": false,
+        "state.noAssumeLegacyBehavior": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N02-4",
+      "rule": "B127-R02",
+      "mutatedField": "state.noAssumeLegacyBehavior",
+      "input": {
+        "state.toolChangeTransitionCaptured": true,
+        "state.ngcPostM6OffsetRead": true,
+        "state.powerCyclePersistenceRead": true,
+        "state.noAssumeLegacyBehavior": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-P03",
+      "rule": "B127-R03",
+      "input": {
+        "linux.loadedToolExact": true,
+        "linux.hOffsetSelectionExplicit": true,
+        "linux.h0ChangerTypeKnown": true,
+        "linux.toolTableRevisionPinned": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N03-1",
+      "rule": "B127-R03",
+      "mutatedField": "linux.loadedToolExact",
+      "input": {
+        "linux.loadedToolExact": false,
+        "linux.hOffsetSelectionExplicit": true,
+        "linux.h0ChangerTypeKnown": true,
+        "linux.toolTableRevisionPinned": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N03-2",
+      "rule": "B127-R03",
+      "mutatedField": "linux.hOffsetSelectionExplicit",
+      "input": {
+        "linux.loadedToolExact": true,
+        "linux.hOffsetSelectionExplicit": false,
+        "linux.h0ChangerTypeKnown": true,
+        "linux.toolTableRevisionPinned": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N03-3",
+      "rule": "B127-R03",
+      "mutatedField": "linux.h0ChangerTypeKnown",
+      "input": {
+        "linux.loadedToolExact": true,
+        "linux.hOffsetSelectionExplicit": true,
+        "linux.h0ChangerTypeKnown": false,
+        "linux.toolTableRevisionPinned": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N03-4",
+      "rule": "B127-R03",
+      "mutatedField": "linux.toolTableRevisionPinned",
+      "input": {
+        "linux.loadedToolExact": true,
+        "linux.hOffsetSelectionExplicit": true,
+        "linux.h0ChangerTypeKnown": true,
+        "linux.toolTableRevisionPinned": false
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-P04",
+      "rule": "B127-R04",
+      "input": {
+        "dynamic.g431ReplaceNotAdd": true,
+        "dynamic.g432AddNotReplace": true,
+        "dynamic.g49CancelsKnown": true,
+        "dynamic.noImplicitTableWrite": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N04-1",
+      "rule": "B127-R04",
+      "mutatedField": "dynamic.g431ReplaceNotAdd",
+      "input": {
+        "dynamic.g431ReplaceNotAdd": false,
+        "dynamic.g432AddNotReplace": true,
+        "dynamic.g49CancelsKnown": true,
+        "dynamic.noImplicitTableWrite": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N04-2",
+      "rule": "B127-R04",
+      "mutatedField": "dynamic.g432AddNotReplace",
+      "input": {
+        "dynamic.g431ReplaceNotAdd": true,
+        "dynamic.g432AddNotReplace": false,
+        "dynamic.g49CancelsKnown": true,
+        "dynamic.noImplicitTableWrite": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N04-3",
+      "rule": "B127-R04",
+      "mutatedField": "dynamic.g49CancelsKnown",
+      "input": {
+        "dynamic.g431ReplaceNotAdd": true,
+        "dynamic.g432AddNotReplace": true,
+        "dynamic.g49CancelsKnown": false,
+        "dynamic.noImplicitTableWrite": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N04-4",
+      "rule": "B127-R04",
+      "mutatedField": "dynamic.noImplicitTableWrite",
+      "input": {
+        "dynamic.g431ReplaceNotAdd": true,
+        "dynamic.g432AddNotReplace": true,
+        "dynamic.g49CancelsKnown": true,
+        "dynamic.noImplicitTableWrite": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-P05",
+      "rule": "B127-R05",
+      "input": {
+        "mount.d03AssemblyExact": true,
+        "mount.d10InstallRevisionExact": true,
+        "mount.gaugeDatumFrameExact": true,
+        "mount.measuredOffsetNotGaugeAlias": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N05-1",
+      "rule": "B127-R05",
+      "mutatedField": "mount.d03AssemblyExact",
+      "input": {
+        "mount.d03AssemblyExact": false,
+        "mount.d10InstallRevisionExact": true,
+        "mount.gaugeDatumFrameExact": true,
+        "mount.measuredOffsetNotGaugeAlias": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N05-2",
+      "rule": "B127-R05",
+      "mutatedField": "mount.d10InstallRevisionExact",
+      "input": {
+        "mount.d03AssemblyExact": true,
+        "mount.d10InstallRevisionExact": false,
+        "mount.gaugeDatumFrameExact": true,
+        "mount.measuredOffsetNotGaugeAlias": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N05-3",
+      "rule": "B127-R05",
+      "mutatedField": "mount.gaugeDatumFrameExact",
+      "input": {
+        "mount.d03AssemblyExact": true,
+        "mount.d10InstallRevisionExact": true,
+        "mount.gaugeDatumFrameExact": false,
+        "mount.measuredOffsetNotGaugeAlias": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N05-4",
+      "rule": "B127-R05",
+      "mutatedField": "mount.measuredOffsetNotGaugeAlias",
+      "input": {
+        "mount.d03AssemblyExact": true,
+        "mount.d10InstallRevisionExact": true,
+        "mount.gaugeDatumFrameExact": true,
+        "mount.measuredOffsetNotGaugeAlias": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-P06",
+      "rule": "B127-R06",
+      "input": {
+        "nc.d12FinalBytesHashPinned": true,
+        "nc.d13ReparseWithProfile": true,
+        "nc.offsetBeforeAfterSnapshot": true,
+        "nc.unknownOrUnsupportedFailClosed": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N06-1",
+      "rule": "B127-R06",
+      "mutatedField": "nc.d12FinalBytesHashPinned",
+      "input": {
+        "nc.d12FinalBytesHashPinned": false,
+        "nc.d13ReparseWithProfile": true,
+        "nc.offsetBeforeAfterSnapshot": true,
+        "nc.unknownOrUnsupportedFailClosed": true
+      },
+      "expect": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N06-2",
+      "rule": "B127-R06",
+      "mutatedField": "nc.d13ReparseWithProfile",
+      "input": {
+        "nc.d12FinalBytesHashPinned": true,
+        "nc.d13ReparseWithProfile": false,
+        "nc.offsetBeforeAfterSnapshot": true,
+        "nc.unknownOrUnsupportedFailClosed": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N06-3",
+      "rule": "B127-R06",
+      "mutatedField": "nc.offsetBeforeAfterSnapshot",
+      "input": {
+        "nc.d12FinalBytesHashPinned": true,
+        "nc.d13ReparseWithProfile": true,
+        "nc.offsetBeforeAfterSnapshot": false,
+        "nc.unknownOrUnsupportedFailClosed": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N06-4",
+      "rule": "B127-R06",
+      "mutatedField": "nc.unknownOrUnsupportedFailClosed",
+      "input": {
+        "nc.d12FinalBytesHashPinned": true,
+        "nc.d13ReparseWithProfile": true,
+        "nc.offsetBeforeAfterSnapshot": true,
+        "nc.unknownOrUnsupportedFailClosed": false
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-P07",
+      "rule": "B127-R07",
+      "input": {
+        "motion.d14JointTimelineFromD13": true,
+        "motion.d15IndependentConsumer": true,
+        "motion.noClOnlyApproval": true,
+        "motion.d16BlocksUnknown": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N07-1",
+      "rule": "B127-R07",
+      "mutatedField": "motion.d14JointTimelineFromD13",
+      "input": {
+        "motion.d14JointTimelineFromD13": false,
+        "motion.d15IndependentConsumer": true,
+        "motion.noClOnlyApproval": true,
+        "motion.d16BlocksUnknown": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N07-2",
+      "rule": "B127-R07",
+      "mutatedField": "motion.d15IndependentConsumer",
+      "input": {
+        "motion.d14JointTimelineFromD13": true,
+        "motion.d15IndependentConsumer": false,
+        "motion.noClOnlyApproval": true,
+        "motion.d16BlocksUnknown": true
+      },
+      "expect": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N07-3",
+      "rule": "B127-R07",
+      "mutatedField": "motion.noClOnlyApproval",
+      "input": {
+        "motion.d14JointTimelineFromD13": true,
+        "motion.d15IndependentConsumer": true,
+        "motion.noClOnlyApproval": false,
+        "motion.d16BlocksUnknown": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N07-4",
+      "rule": "B127-R07",
+      "mutatedField": "motion.d16BlocksUnknown",
+      "input": {
+        "motion.d14JointTimelineFromD13": true,
+        "motion.d15IndependentConsumer": true,
+        "motion.noClOnlyApproval": true,
+        "motion.d16BlocksUnknown": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-P08",
+      "rule": "B127-R08",
+      "input": {
+        "commit.sameOwnerPortThreeEntries": true,
+        "commit.aclAndScopeRecheck": true,
+        "commit.casAndCancelLateAck": true,
+        "commit.abFrozenRollback": true
+      },
+      "expect": "CANDIDATE",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N08-1",
+      "rule": "B127-R08",
+      "mutatedField": "commit.sameOwnerPortThreeEntries",
+      "input": {
+        "commit.sameOwnerPortThreeEntries": false,
+        "commit.aclAndScopeRecheck": true,
+        "commit.casAndCancelLateAck": true,
+        "commit.abFrozenRollback": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N08-2",
+      "rule": "B127-R08",
+      "mutatedField": "commit.aclAndScopeRecheck",
+      "input": {
+        "commit.sameOwnerPortThreeEntries": true,
+        "commit.aclAndScopeRecheck": false,
+        "commit.casAndCancelLateAck": true,
+        "commit.abFrozenRollback": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N08-3",
+      "rule": "B127-R08",
+      "mutatedField": "commit.casAndCancelLateAck",
+      "input": {
+        "commit.sameOwnerPortThreeEntries": true,
+        "commit.aclAndScopeRecheck": true,
+        "commit.casAndCancelLateAck": false,
+        "commit.abFrozenRollback": true
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B127-N08-4",
+      "rule": "B127-R08",
+      "mutatedField": "commit.abFrozenRollback",
+      "input": {
+        "commit.sameOwnerPortThreeEntries": true,
+        "commit.aclAndScopeRecheck": true,
+        "commit.casAndCancelLateAck": true,
+        "commit.abFrozenRollback": false
+      },
+      "expect": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B127-G01",
+      "profile": "HAAS_NGC_100_21_000_1100_PLUS",
+      "initialOffset": 0,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "M6",
+          "tool": 2
+        }
+      ],
+      "expectStatus": "CANDIDATE",
+      "expectOffset": 120,
+      "explanation": "NGC指定固件合成工具切换，Offset表值仅模拟"
+    },
+    {
+      "id": "B127-G02",
+      "profile": "LINUXCNC_2_9",
+      "initialOffset": 0,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "M6",
+          "tool": 2
+        }
+      ],
+      "expectStatus": "CANDIDATE",
+      "expectOffset": 0,
+      "explanation": "在已知G49初态下M6不推定自动执行G43"
+    },
+    {
+      "id": "B127-G03",
+      "profile": "LINUXCNC_2_9",
+      "initialOffset": 0,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "M6",
+          "tool": 2
+        },
+        {
+          "code": "G43",
+          "h": 2
+        }
+      ],
+      "expectStatus": "CANDIDATE",
+      "expectOffset": 120,
+      "explanation": "LinuxCNC H2从刀表选择"
+    },
+    {
+      "id": "B127-G04",
+      "profile": "LINUXCNC_2_9",
+      "initialOffset": 120,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "G43_1",
+          "z": 30
+        }
+      ],
+      "expectStatus": "CANDIDATE",
+      "expectOffset": 30,
+      "explanation": "G43.1替换不是叠加"
+    },
+    {
+      "id": "B127-G05",
+      "profile": "LINUXCNC_2_9",
+      "initialOffset": 120,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "G43_2",
+          "h": 3
+        }
+      ],
+      "expectStatus": "CANDIDATE",
+      "expectOffset": 125,
+      "explanation": "G43.2在本合成Z标量中增加5"
+    },
+    {
+      "id": "B127-G06",
+      "profile": "LINUXCNC_2_9",
+      "initialOffset": 120,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "G49"
+        }
+      ],
+      "expectStatus": "CANDIDATE",
+      "expectOffset": 0,
+      "explanation": "G49取消本合成长度偏置"
+    },
+    {
+      "id": "B127-G07",
+      "profile": "HAAS_NGC_100_21_000_1100_PLUS",
+      "initialOffset": 120,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "RESTART"
+        }
+      ],
+      "expectStatus": "CANDIDATE",
+      "expectOffset": 120,
+      "explanation": "Haas指定版本Group08状态保持合成演示，实际断电需控制器确认"
+    },
+    {
+      "id": "B127-G08",
+      "profile": "UNQUALIFIED_OEM",
+      "initialOffset": 0,
+      "offsets": {
+        "1": 100,
+        "2": 120,
+        "3": 5
+      },
+      "steps": [
+        {
+          "code": "M6",
+          "tool": 2
+        }
+      ],
+      "expectStatus": "UNKNOWN",
+      "expectOffset": null,
+      "explanation": "未知机型/固件不能默认Haas行为"
+    }
+  ]
+}

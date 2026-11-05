@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "procet-w205-contract-proposal-v1",
+  "status": "SYNTHETIC_NOT_PRODUCT_SCHEMA",
+  "query": {
+    "projectId": "P",
+    "documentId": "DOC1",
+    "branchId": "branchA",
+    "setupId": "setupA",
+    "setupRef": {
+      "assetId": "D04",
+      "revision": "D04-r4",
+      "contentHash": "sha256:SYNTHETIC_D04",
+      "hashKind": "SYNTHETIC",
+      "frame": "F_SETUP_A",
+      "unit": "mm",
+      "ownerPortVersion": "D04.v1"
+    },
+    "readConsistency": "EXACT_SOURCE_REVISIONS"
+  },
+  "result": {
+    "dataStatus": "EXACT",
+    "sourceClosureDigest": "sha256:SYNTHETIC_CLOSURE",
+    "projectionAuthority": "DERIVED_READONLY",
+    "features": [
+      {
+        "uid": "f1",
+        "sourceAsset": "D02",
+        "revision": "f4",
+        "sourceHash": "sha256:SYNTHETIC_D02"
+      }
+    ],
+    "planSteps": [
+      {
+        "uid": "s1",
+        "sourceAsset": "D05",
+        "revision": "p6"
+      }
+    ],
+    "links": [
+      {
+        "featureUid": "f1",
+        "stepUid": "s1",
+        "featureRevision": "f4",
+        "planRevision": "p6",
+        "setupId": "setupA",
+        "role": "MACHINED_BY"
+      },
+      {
+        "featureUid": "f1",
+        "stepUid": "s2",
+        "featureRevision": "f4",
+        "planRevision": "p6",
+        "setupId": "setupA",
+        "role": "MACHINED_BY"
+      },
+      {
+        "featureUid": "f2",
+        "stepUid": "s1",
+        "featureRevision": "f4",
+        "planRevision": "p6",
+        "setupId": "setupA",
+        "role": "MACHINED_BY"
+      }
+    ]
+  },
+  "interfaceProposal": [
+    "D04SetupPort.readExact",
+    "D02FeaturePort.readExact",
+    "D05PlanPort.queryStepsBySetup",
+    "SetupQueryPort.rebuildDerivedProjection",
+    "D05OwnerPort.commitWithCAS"
+  ],
+  "exceptions": [
+    "STALE_PROJECTION",
+    "UNKNOWN_MISSING_SOURCE",
+    "EMPTY_AUTHORIZED",
+    "REJECT_CROSS_SETUP",
+    "REJECT_LATE_RECEIPT"
+  ]
+}

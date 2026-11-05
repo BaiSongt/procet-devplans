@@ -1,0 +1,4389 @@
+{
+  "schemaVersion": "procet-b24-fixtures-v1",
+  "date": "2026-10-30",
+  "syntheticOnly": true,
+  "notRealOcct": true,
+  "model": "FINITE_SET_ORACLE",
+  "cases": [
+    {
+      "id": "B24-P01",
+      "ruleId": "ALL",
+      "expected": "PASS",
+      "description": "保护区余料需后续Setup且终态Blocked",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-P02",
+      "ruleId": "ALL",
+      "expected": "PASS",
+      "description": "余料清零仍不能代替真实D07验收",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "a"
+          ],
+          "removable": [
+            "c",
+            "d",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b"
+          ],
+          "residual": []
+        },
+        "deferred": {
+          "required": false,
+          "nextSetup": null,
+          "nextStockHash": null,
+          "nextTargetHash": null,
+          "nextScope": null,
+          "handoff": "NOT_APPLICABLE",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "CANDIDATE",
+          "finalConvergence": "PENDING_INDEPENDENT",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N01",
+      "ruleId": "B24-R1",
+      "expected": "REJECT_B24-R1",
+      "description": "旧Stock hash",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N02",
+      "ruleId": "B24-R1",
+      "expected": "REJECT_B24-R1",
+      "description": "Frame错配",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "PART",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N03",
+      "ruleId": "B24-R1",
+      "expected": "REJECT_B24-R1",
+      "description": "Scope错配",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/B/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N04",
+      "ruleId": "B24-R2",
+      "expected": "REJECT_B24-R2",
+      "description": "保护区被切",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e",
+            "d"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N05",
+      "ruleId": "B24-R2",
+      "expected": "REJECT_B24-R2",
+      "description": "误报零余料",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": []
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N06",
+      "ruleId": "B24-R2",
+      "expected": "REJECT_B24-R2",
+      "description": "After少材料",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N07",
+      "ruleId": "B24-R2",
+      "expected": "REJECT_B24-R2",
+      "description": "目标超Stock",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b",
+            "outside"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N08",
+      "ruleId": "B24-R3",
+      "expected": "REJECT_B24-R3",
+      "description": "有残余无交接",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": false,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N09",
+      "ruleId": "B24-R3",
+      "expected": "REJECT_B24-R3",
+      "description": "同Setup伪后续",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S1",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N10",
+      "ruleId": "B24-R3",
+      "expected": "REJECT_B24-R3",
+      "description": "错误材料候选hash",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N11",
+      "ruleId": "B24-R3",
+      "expected": "REJECT_B24-R3",
+      "description": "覆盖冻结",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": false
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N12",
+      "ruleId": "B24-R4",
+      "expected": "REJECT_B24-R4",
+      "description": "残余未消但终态PASS",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "PASS",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N13",
+      "ruleId": "B24-R4",
+      "expected": "REJECT_B24-R4",
+      "description": "虚构消费者通过",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "PASS",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N14",
+      "ruleId": "B24-R4",
+      "expected": "REJECT_B24-R4",
+      "description": "合成等同产品",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": true,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N15",
+      "ruleId": "B24-R4",
+      "expected": "REJECT_B24-R4",
+      "description": "复用前序修订",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N16",
+      "ruleId": "B24-R5",
+      "expected": "REJECT_B24-R5",
+      "description": "Glue无真实证据",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "FULL",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N17",
+      "ruleId": "B24-R5",
+      "expected": "REJECT_B24-R5",
+      "description": "入侵源实体",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": false,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N18",
+      "ruleId": "B24-R5",
+      "expected": "REJECT_B24-R5",
+      "description": "失控fuzzy",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "UNBOUNDED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N19",
+      "ruleId": "B24-R5",
+      "expected": "REJECT_B24-R5",
+      "description": "虚构OCCT实测",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "PASS"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N20",
+      "ruleId": "B24-R6",
+      "expected": "REJECT_B24-R6",
+      "description": "CAS过期",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r6",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N21",
+      "ruleId": "B24-R6",
+      "expected": "REJECT_B24-R6",
+      "description": "撤权",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 3,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N22",
+      "ruleId": "B24-R6",
+      "expected": "REJECT_B24-R6",
+      "description": "取消",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": true,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N23",
+      "ruleId": "B24-R6",
+      "expected": "REJECT_B24-R6",
+      "description": "晚回执",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": true
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N24",
+      "ruleId": "B24-R6",
+      "expected": "REJECT_B24-R6",
+      "description": "Agent旁路",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N25",
+      "ruleId": "B24-R7",
+      "expected": "REJECT_B24-R7",
+      "description": "双3D",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": false,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N26",
+      "ruleId": "B24-R7",
+      "expected": "REJECT_B24-R7",
+      "description": "右Drawer",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": false,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N27",
+      "ruleId": "B24-R7",
+      "expected": "REJECT_B24-R7",
+      "description": "D04/D10混同",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D04/r6",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N28",
+      "ruleId": "B24-R7",
+      "expected": "REJECT_B24-R7",
+      "description": "未知NC却D15通过",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "PASS",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    },
+    {
+      "id": "B24-N29",
+      "ruleId": "B24-R7",
+      "expected": "REJECT_B24-R7",
+      "description": "扫掠伪仿真",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NON_CERTIFYING",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": true
+        }
+      }
+    },
+    {
+      "id": "B24-N30",
+      "ruleId": "B24-R7",
+      "expected": "REJECT_B24-R7",
+      "description": "CL伪认证",
+      "input": {
+        "refs": {
+          "project": "DEMO",
+          "branch": "A",
+          "setup": "S1",
+          "scope": "DEMO/A/S1",
+          "D01": {
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "revision": "r3",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D04": {
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "revision": "r6",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          },
+          "D07": {
+            "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "revision": "r9",
+            "frame": "S1",
+            "unit": "mm",
+            "scope": "DEMO/A/S1",
+            "project": "DEMO",
+            "branch": "A",
+            "setup": "S1"
+          }
+        },
+        "audit": {
+          "previousStockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "targetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "newCandidateHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "frame": "S1",
+          "unit": "mm"
+        },
+        "material": {
+          "stock": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+          ],
+          "envelope": [
+            "a",
+            "b"
+          ],
+          "protected": [
+            "d"
+          ],
+          "removable": [
+            "c",
+            "e"
+          ],
+          "after": [
+            "a",
+            "b",
+            "d"
+          ],
+          "residual": [
+            "d"
+          ]
+        },
+        "deferred": {
+          "required": true,
+          "nextSetup": "S2",
+          "nextStockHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "nextTargetHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "nextScope": "DEMO/A/S2",
+          "handoff": "PENDING_INDEPENDENT",
+          "frozenD08Untouched": true
+        },
+        "gate": {
+          "independentD07": "NOT_RUN",
+          "productPass": false,
+          "stepStatus": "PARTIAL_BLOCKED",
+          "finalConvergence": "BLOCKED_PENDING_NEXT_SETUP",
+          "designApproval": "PENDING_HUMAN"
+        },
+        "operator": {
+          "version": "OCCT_8.0.1_PLANNED",
+          "glueMode": "OFF",
+          "nonDestructive": true,
+          "fuzzy": "APPROVED_BUDGET_REQUIRED",
+          "errorsReviewed": true,
+          "warningsReviewed": true,
+          "actualBRep": "NOT_RUN"
+        },
+        "command": {
+          "ownerPort": "EffectiveMachiningDomainPort",
+          "routes": [
+            "GUI",
+            "CLI",
+            "Agent"
+          ],
+          "expectedHead": "r5",
+          "currentHead": "r5",
+          "aclEpoch": 4,
+          "authorizedEpoch": 4,
+          "generation": 5,
+          "currentGeneration": 5,
+          "scopeEpoch": 7,
+          "authorizedScopeEpoch": 7,
+          "cancelled": false,
+          "lateAck": false
+        },
+        "ui": {
+          "singleBabylon": true,
+          "leftTaskPanel": true,
+          "maxFontPx": 12
+        },
+        "downstream": {
+          "processSetupRef": "D04/r6",
+          "executionBindingRef": "D10/unknown",
+          "clPreview": "NC_VERIFIED",
+          "d13": "UNKNOWN",
+          "d14": "BLOCKED",
+          "d15": "BLOCKED",
+          "d16": "BLOCKED",
+          "materialSweep": false
+        }
+      }
+    }
+  ]
+}

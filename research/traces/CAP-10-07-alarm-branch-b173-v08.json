@@ -1,0 +1,350 @@
+{
+  "schemaVersion": "procet-b173-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-10-07",
+  "originalWorkPackages": [
+    "E3-06",
+    "T5-03"
+  ],
+  "sourceRegistry": "research/sources/CAP-10-07-alarm-branch-b173.json",
+  "fixtures": "docs/capabilities/CAP-10-07/alarm-branch-b173-fixtures-v08.json",
+  "checker": "tools/check_cap1007_alarm_branch_b173_v08.cjs",
+  "report": "docs/capabilities/CAP-10-07/ALARM-BRANCH-RECOVERY-B173-2026-11-05.md",
+  "rules": [
+    {
+      "id": "B173-R01",
+      "title": "事件与原始指纹",
+      "fields": [
+        "identity.serverUri",
+        "identity.conditionId",
+        "identity.eventId",
+        "identity.rawSha"
+      ],
+      "sourceIds": [
+        "B173-S01",
+        "B173-S07"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R01-P",
+        "B173-R01-N1",
+        "B173-R01-N2",
+        "B173-R01-N3",
+        "B173-R01-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R02",
+      "title": "当前与历史Branch严格隔离",
+      "fields": [
+        "branch.currentId",
+        "branch.oldId",
+        "branch.oldPending",
+        "branch.noCollapse"
+      ],
+      "sourceIds": [
+        "B173-S01",
+        "B173-S04"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R02-P",
+        "B173-R02-N1",
+        "B173-R02-N2",
+        "B173-R02-N3",
+        "B173-R02-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R03",
+      "title": "Inactive/Retain与旧Ack分离",
+      "fields": [
+        "retain.oldInactive",
+        "retain.oldRetained",
+        "retain.oldAckPending",
+        "retain.noAutoClose"
+      ],
+      "sourceIds": [
+        "B173-S01",
+        "B173-S07"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R03-P",
+        "B173-R03-N1",
+        "B173-R03-N2",
+        "B173-R03-N3",
+        "B173-R03-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R04",
+      "title": "Ack/Confirm不自动消缺或启机",
+      "fields": [
+        "ack.currentAcked",
+        "ack.currentConfirmed",
+        "ack.notRepair",
+        "ack.noCycleStart"
+      ],
+      "sourceIds": [
+        "B173-S02",
+        "B173-S07"
+      ],
+      "assets": [
+        "D10",
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R04-P",
+        "B173-R04-N1",
+        "B173-R04-N2",
+        "B173-R04-N3",
+        "B173-R04-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R05",
+      "title": "刷新边界与实时Event交错保护",
+      "fields": [
+        "refresh.startSeen",
+        "refresh.endSeen",
+        "refresh.liveNotOverwritten",
+        "refresh.oldBranchesIncluded"
+      ],
+      "sourceIds": [
+        "B173-S03",
+        "B173-S04"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R05-P",
+        "B173-R05-N1",
+        "B173-R05-N2",
+        "B173-R05-N3",
+        "B173-R05-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R06",
+      "title": "D17追加和D01新修订、A/B冻结",
+      "fields": [
+        "change.d17AppendOnly",
+        "change.newD01Revision",
+        "change.d08Immutable",
+        "change.provenanceExact"
+      ],
+      "sourceIds": [
+        "B173-S06",
+        "B173-S07"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D08",
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R06-P",
+        "B173-R06-N1",
+        "B173-R06-N2",
+        "B173-R06-N3",
+        "B173-R06-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R07",
+      "title": "D04/D10分离与最终NC独立验证",
+      "fields": [
+        "execution.d04D10Separated",
+        "execution.finalNcBytePinned",
+        "execution.unknownBlocksRelease",
+        "execution.independentD15"
+      ],
+      "sourceIds": [
+        "B173-S05",
+        "B173-S07",
+        "B173-S08"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R07-P",
+        "B173-R07-N1",
+        "B173-R07-N2",
+        "B173-R07-N3",
+        "B173-R07-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R08",
+      "title": "Owner CAS/ACL与取消晚ACK",
+      "fields": [
+        "tx.ownerAclRecheck",
+        "tx.casRevisionHashFrame",
+        "tx.scopeCancelFence",
+        "tx.lateAckReadOnly"
+      ],
+      "sourceIds": [
+        "B173-S07",
+        "B173-S08"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R08-P",
+        "B173-R08-N1",
+        "B173-R08-N2",
+        "B173-R08-N3",
+        "B173-R08-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R09",
+      "title": "GUI/CLI/Agent同Port单Babylon左TaskPanel",
+      "fields": [
+        "ui.samePort",
+        "ui.worldCount",
+        "ui.panelCount",
+        "ui.unknownVisible"
+      ],
+      "sourceIds": [
+        "B173-S07",
+        "B173-S08"
+      ],
+      "assets": [
+        "D10",
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R09-P",
+        "B173-R09-N1",
+        "B173-R09-N2",
+        "B173-R09-N3",
+        "B173-R09-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B173-R10",
+      "title": "旧Reader影子读/独立消费者/回退",
+      "fields": [
+        "migration.shadowReader",
+        "migration.independentConsumer",
+        "migration.noRewriteOnRollback",
+        "migration.syntheticNotProductPass"
+      ],
+      "sourceIds": [
+        "B173-S05",
+        "B173-S07",
+        "B173-S08"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-10-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "testIds": [
+        "B173-R10-P",
+        "B173-R10-N1",
+        "B173-R10-N2",
+        "B173-R10-N3",
+        "B173-R10-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

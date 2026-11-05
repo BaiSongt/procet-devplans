@@ -1,0 +1,433 @@
+{
+  "schemaVersion": "procet-b101-fixture-v08",
+  "classification": "SYNTHETIC_NO_PRODUCT_OR_MACHINE",
+  "sourceHead": "a23bdb908a20747b0bad326844aba523f3670ddc",
+  "math": "q=x+2*sin(thetaDeg*pi/180); x=4 theta90 -> q=6 > jointMax5 despite x<=5",
+  "baseline": {
+    "nc": {
+      "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "closure": true
+    },
+    "d13": {
+      "ncHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "status": "NC_SYNTHETIC",
+      "unknownCount": 0
+    },
+    "d10": {
+      "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "frame": "Machine/Fixture/TCP-SYNTH",
+      "profile": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "calibration": "PINNED_SYNTHETIC",
+      "jointMax": 5,
+      "vMax": 10,
+      "aMax": 10,
+      "scope": 7
+    },
+    "d14": {
+      "d10Hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "frame": "Machine/Fixture/TCP-SYNTH",
+      "profile": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "d13Hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "ordered": true,
+      "spans": true,
+      "gaps": 0,
+      "cartesianOk": true,
+      "jointOk": true,
+      "x": 2,
+      "thetaDeg": 90,
+      "qReported": 4,
+      "vPeak": 6,
+      "aPeak": 8,
+      "timeUnit": "SECONDS",
+      "claimRealTime": false,
+      "timelineHash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "binary": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "run": "D14-synthetic-run"
+    },
+    "d15": {
+      "timelineHash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "binary": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "run": "D15-synthetic-run",
+      "recomputed": true,
+      "coverage": "INTERVAL_SCOPE_SYNTHETIC",
+      "collision": "SCOPE_MODELED_SYNTHETIC",
+      "unknown": 0,
+      "claimServoSafe": false,
+      "report": "DESIGN_ONLY_SYNTHETIC"
+    },
+    "ui": {
+      "ownerPort": true,
+      "babylon": true,
+      "leftPanel": true
+    },
+    "tx": {
+      "cas": true,
+      "canceled": false,
+      "ackEpoch": 3,
+      "activeEpoch": 3,
+      "scope": 7,
+      "rollback": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B101-P01",
+      "expected": "DESIGN_OK",
+      "ruleId": "ALL",
+      "changes": {}
+    },
+    {
+      "id": "B101-N01",
+      "expected": "REJECT",
+      "ruleId": "B101-R01",
+      "changes": {
+        "d13.ncHash": "other"
+      }
+    },
+    {
+      "id": "B101-N02",
+      "expected": "REJECT",
+      "ruleId": "B101-R01",
+      "changes": {
+        "d13.status": "CL_ONLY"
+      }
+    },
+    {
+      "id": "B101-N03",
+      "expected": "REJECT",
+      "ruleId": "B101-R01",
+      "changes": {
+        "d13.unknownCount": 1
+      }
+    },
+    {
+      "id": "B101-N04",
+      "expected": "REJECT",
+      "ruleId": "B101-R01",
+      "changes": {
+        "nc.closure": false
+      }
+    },
+    {
+      "id": "B101-U01",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R01",
+      "changes": {
+        "d13.ncHash": null
+      }
+    },
+    {
+      "id": "B101-N05",
+      "expected": "REJECT",
+      "ruleId": "B101-R02",
+      "changes": {
+        "d14.d10Hash": "other"
+      }
+    },
+    {
+      "id": "B101-N06",
+      "expected": "REJECT",
+      "ruleId": "B101-R02",
+      "changes": {
+        "d14.frame": "Wrong/Frame"
+      }
+    },
+    {
+      "id": "B101-N07",
+      "expected": "REJECT",
+      "ruleId": "B101-R02",
+      "changes": {
+        "d14.profile": "other"
+      }
+    },
+    {
+      "id": "B101-N08",
+      "expected": "REJECT",
+      "ruleId": "B101-R02",
+      "changes": {
+        "d10.calibration": "STALE"
+      }
+    },
+    {
+      "id": "B101-U02",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R02",
+      "changes": {
+        "d10.calibration": null
+      }
+    },
+    {
+      "id": "B101-N09",
+      "expected": "REJECT",
+      "ruleId": "B101-R03",
+      "changes": {
+        "d14.d13Hash": "other"
+      }
+    },
+    {
+      "id": "B101-N10",
+      "expected": "REJECT",
+      "ruleId": "B101-R03",
+      "changes": {
+        "d14.ordered": false
+      }
+    },
+    {
+      "id": "B101-N11",
+      "expected": "REJECT",
+      "ruleId": "B101-R03",
+      "changes": {
+        "d14.spans": false
+      }
+    },
+    {
+      "id": "B101-N12",
+      "expected": "REJECT",
+      "ruleId": "B101-R03",
+      "changes": {
+        "d14.gaps": 2
+      }
+    },
+    {
+      "id": "B101-U03",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R03",
+      "changes": {
+        "d14.gaps": null
+      }
+    },
+    {
+      "id": "B101-N13",
+      "expected": "REJECT",
+      "ruleId": "B101-R04",
+      "changes": {
+        "d14.cartesianOk": false
+      }
+    },
+    {
+      "id": "B101-N14",
+      "expected": "REJECT",
+      "ruleId": "B101-R04",
+      "changes": {
+        "d14.jointOk": false
+      }
+    },
+    {
+      "id": "B101-N15",
+      "expected": "REJECT",
+      "ruleId": "B101-R04",
+      "changes": {
+        "d14.x": 4
+      }
+    },
+    {
+      "id": "B101-N16",
+      "expected": "REJECT",
+      "ruleId": "B101-R04",
+      "changes": {
+        "d14.qReported": 3
+      }
+    },
+    {
+      "id": "B101-U04",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R04",
+      "changes": {
+        "d14.thetaDeg": null
+      }
+    },
+    {
+      "id": "B101-N17",
+      "expected": "REJECT",
+      "ruleId": "B101-R05",
+      "changes": {
+        "d14.vPeak": 11
+      }
+    },
+    {
+      "id": "B101-N18",
+      "expected": "REJECT",
+      "ruleId": "B101-R05",
+      "changes": {
+        "d14.aPeak": 12
+      }
+    },
+    {
+      "id": "B101-N19",
+      "expected": "REJECT",
+      "ruleId": "B101-R05",
+      "changes": {
+        "d14.timeUnit": "NONE"
+      }
+    },
+    {
+      "id": "B101-N20",
+      "expected": "REJECT",
+      "ruleId": "B101-R05",
+      "changes": {
+        "d14.claimRealTime": true
+      }
+    },
+    {
+      "id": "B101-U05",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R05",
+      "changes": {
+        "d14.aPeak": null
+      }
+    },
+    {
+      "id": "B101-N21",
+      "expected": "REJECT",
+      "ruleId": "B101-R06",
+      "changes": {
+        "d15.binary": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      }
+    },
+    {
+      "id": "B101-N22",
+      "expected": "REJECT",
+      "ruleId": "B101-R06",
+      "changes": {
+        "d15.run": "D14-synthetic-run"
+      }
+    },
+    {
+      "id": "B101-N23",
+      "expected": "REJECT",
+      "ruleId": "B101-R06",
+      "changes": {
+        "d15.timelineHash": "other"
+      }
+    },
+    {
+      "id": "B101-N24",
+      "expected": "REJECT",
+      "ruleId": "B101-R06",
+      "changes": {
+        "d15.recomputed": false
+      }
+    },
+    {
+      "id": "B101-U06",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R06",
+      "changes": {
+        "d15.recomputed": null
+      }
+    },
+    {
+      "id": "B101-N25",
+      "expected": "REJECT",
+      "ruleId": "B101-R07",
+      "changes": {
+        "d15.coverage": "ENDPOINT_ONLY"
+      }
+    },
+    {
+      "id": "B101-N26",
+      "expected": "REJECT",
+      "ruleId": "B101-R07",
+      "changes": {
+        "d15.collision": "UNMODELED_PASS"
+      }
+    },
+    {
+      "id": "B101-N27",
+      "expected": "REJECT",
+      "ruleId": "B101-R07",
+      "changes": {
+        "d15.unknown": 1
+      }
+    },
+    {
+      "id": "B101-N28",
+      "expected": "REJECT",
+      "ruleId": "B101-R07",
+      "changes": {
+        "d15.claimServoSafe": true
+      }
+    },
+    {
+      "id": "B101-N29",
+      "expected": "REJECT",
+      "ruleId": "B101-R07",
+      "changes": {
+        "d15.report": "CL_PASS"
+      }
+    },
+    {
+      "id": "B101-U07",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R07",
+      "changes": {
+        "d15.collision": null
+      }
+    },
+    {
+      "id": "B101-N30",
+      "expected": "REJECT",
+      "ruleId": "B101-R08",
+      "changes": {
+        "ui.ownerPort": false
+      }
+    },
+    {
+      "id": "B101-N31",
+      "expected": "REJECT",
+      "ruleId": "B101-R08",
+      "changes": {
+        "ui.babylon": false
+      }
+    },
+    {
+      "id": "B101-N32",
+      "expected": "REJECT",
+      "ruleId": "B101-R08",
+      "changes": {
+        "ui.leftPanel": false
+      }
+    },
+    {
+      "id": "B101-N33",
+      "expected": "REJECT",
+      "ruleId": "B101-R08",
+      "changes": {
+        "tx.cas": false
+      }
+    },
+    {
+      "id": "B101-N34",
+      "expected": "REJECT",
+      "ruleId": "B101-R08",
+      "changes": {
+        "tx.canceled": true
+      }
+    },
+    {
+      "id": "B101-N35",
+      "expected": "REJECT",
+      "ruleId": "B101-R08",
+      "changes": {
+        "tx.ackEpoch": 2
+      }
+    },
+    {
+      "id": "B101-N36",
+      "expected": "REJECT",
+      "ruleId": "B101-R08",
+      "changes": {
+        "tx.rollback": false
+      }
+    },
+    {
+      "id": "B101-U08",
+      "expected": "UNKNOWN",
+      "ruleId": "B101-R08",
+      "changes": {
+        "tx.scope": null
+      }
+    }
+  ]
+}

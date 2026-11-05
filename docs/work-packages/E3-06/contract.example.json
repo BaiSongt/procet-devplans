@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "procet-d16-domain-port-draft-v0.8",
+  "workPackageId": "E3-06",
+  "status": "PROPOSAL_NOT_IMPLEMENTATION",
+  "owner": "10程序发布与现场协同",
+  "commands": [
+    "inspectReleaseClosure",
+    "requestEligibilityReview",
+    "requestHumanApproval",
+    "createOfflinePackage",
+    "verifyOfflinePackage",
+    "recordOfflineReceipt",
+    "revokeOrSupersedeRelease"
+  ],
+  "requiredRequest": {
+    "workContext": [
+      "projectId",
+      "documentId",
+      "setupId",
+      "principalId"
+    ],
+    "expectedRevision": "exact-CAS",
+    "cancelToken": "required",
+    "idempotencyKey": "required",
+    "scope": "D16_RELEASE",
+    "roleAndAclRecheck": "required_at_commit"
+  },
+  "immutableInputs": [
+    "D08.freezeRevision",
+    "D10.executionConfigHash",
+    "D12.ncBytesSha256",
+    "D13.semanticRunHash",
+    "D14.motionRunHash",
+    "D15.independentVerificationHash"
+  ],
+  "outputStatus": [
+    "DRAFT",
+    "ELIGIBILITY_UNKNOWN",
+    "PENDING_HUMAN",
+    "APPROVED",
+    "PUBLISHED",
+    "REVOKED",
+    "SUPERSEDED"
+  ],
+  "forbiddenStates": [
+    "AUTO_RELEASE_BY_D15_PASS",
+    "AUTO_MACHINING_FROM_RECEIPT",
+    "TRANSFER_WITH_UNKNOWN_TRUST"
+  ],
+  "independentConsumers": [
+    "D17 offline receiver",
+    "Independent QA reviewer"
+  ],
+  "interoperability": {
+    "gui": "LeftTaskPanel+SingleBabylonRendererPort",
+    "cli": "release <inspect|review|package|verify|receipt|revoke>",
+    "agent": "same Domain Port schema",
+    "other": "NO DIRECT DB OR MACHINE SEND"
+  }
+}

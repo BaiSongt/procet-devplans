@@ -1,0 +1,584 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-06",
+  "researchTopic": "R-DURABLE-AI-TASKS-001",
+  "sourceRegistry": "research/sources/CAP-11-06.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-06-R01",
+      "capabilityId": "CAP-11-06",
+      "summary": "任务身份与不可变上下文",
+      "engineeringRule": "每个任务绑定独立taskId、project/scope与业务Owner exact Revision/Hash/Frame，运行切换不挪用上下文",
+      "fields": [
+        "identity.taskIdStable",
+        "identity.projectScopePinned",
+        "identity.ownerRevisionHashPinned",
+        "identity.framePinned"
+      ],
+      "sourceIds": [
+        "C1106-S01",
+        "C1106-S08"
+      ],
+      "relatedDomains": [
+        "01",
+        "04",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "identity.taskIdStable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.projectScopePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.ownerRevisionHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.framePinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R02",
+      "capabilityId": "CAP-11-06",
+      "summary": "依赖与断点DAG",
+      "engineeringRule": "长时任务持久记录依赖DAG、输入指纹、checkpoint策略及未完成子任务；只重放无副作用计算",
+      "fields": [
+        "graph.dagAcyclic",
+        "graph.inputDigestPinned",
+        "graph.checkpointVersionPinned",
+        "graph.replaySideEffectGuard"
+      ],
+      "sourceIds": [
+        "C1106-S04",
+        "C1106-S05",
+        "C1106-S08"
+      ],
+      "relatedDomains": [
+        "05",
+        "06",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "graph.dagAcyclic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.inputDigestPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.checkpointVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "graph.replaySideEffectGuard",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R03",
+      "capabilityId": "CAP-11-06",
+      "summary": "Worker租约与fencing",
+      "engineeringRule": "worker重启/重复领任务必须比较任务世代、租约Epoch、归属和Owner CAS，否则STALE",
+      "fields": [
+        "lease.generationCurrent",
+        "lease.fencingEpochCurrent",
+        "lease.ownerScopeRechecked",
+        "lease.casBeforeWrite"
+      ],
+      "sourceIds": [
+        "C1106-S04",
+        "C1106-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "06",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "lease.generationCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lease.fencingEpochCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lease.ownerScopeRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lease.casBeforeWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R04",
+      "capabilityId": "CAP-11-06",
+      "summary": "超时与分类重试",
+      "engineeringRule": "超时不意味着失败/未提交，重试仅对已证幂等或可查账动作开放，退避与预算受控",
+      "fields": [
+        "retry.errorClassKnown",
+        "retry.idempotentOrReconciled",
+        "retry.budgetBounded",
+        "retry.backoffPersisted"
+      ],
+      "sourceIds": [
+        "C1106-S04",
+        "C1106-S05",
+        "C1106-S06"
+      ],
+      "relatedDomains": [
+        "06",
+        "07",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D06",
+        "D09",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "retry.errorClassKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "retry.idempotentOrReconciled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "retry.budgetBounded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "retry.backoffPersisted",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R05",
+      "capabilityId": "CAP-11-06",
+      "summary": "幂等键与已提交事实",
+      "engineeringRule": "同idempotencyKey须锁同effectDigest、Owner接收回执与effectId，重复命令先对账不二次写",
+      "fields": [
+        "effect.keyDigestConsistent",
+        "effect.ownerReceiptExact",
+        "effect.committedEffectImmutable",
+        "effect.duplicateReconciled"
+      ],
+      "sourceIds": [
+        "C1106-S06",
+        "C1106-S07",
+        "C1106-S08"
+      ],
+      "relatedDomains": [
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "effect.keyDigestConsistent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "effect.ownerReceiptExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "effect.committedEffectImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "effect.duplicateReconciled",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R06",
+      "capabilityId": "CAP-11-06",
+      "summary": "取消竞态与迟到回执",
+      "engineeringRule": "取消前Owner已提交则保留并对账，取消后不接受新副作用；迟到ACK只归原taskGeneration",
+      "fields": [
+        "cancel.tokenCheckedAtCommit",
+        "cancel.lateAckQuarantined",
+        "cancel.priorCommitReconciled",
+        "cancel.noNewEffectsAfterCancel"
+      ],
+      "sourceIds": [
+        "C1106-S01",
+        "C1106-S02",
+        "C1106-S03",
+        "C1106-S08"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "06",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "cancel.tokenCheckedAtCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cancel.lateAckQuarantined",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cancel.priorCommitReconciled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cancel.noNewEffectsAfterCancel",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R07",
+      "capabilityId": "CAP-11-06",
+      "summary": "授权与人工门禁",
+      "engineeringRule": "等待审批不能提升写权限；人类审批必须绑定具体动作摘要且Owner重新校验ACL/ScopeEpoch/冻结/CAS",
+      "fields": [
+        "auth.approvalDigestBound",
+        "auth.aclCurrentAtCommit",
+        "auth.scopeEpochCurrent",
+        "auth.frozenABProtected"
+      ],
+      "sourceIds": [
+        "C1106-S02",
+        "C1106-S08",
+        "C1106-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "auth.approvalDigestBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.aclCurrentAtCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.scopeEpochCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.frozenABProtected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R08",
+      "capabilityId": "CAP-11-06",
+      "summary": "多入口单世界GUI",
+      "engineeringRule": "GUI/CLI/Agent共用11域TaskPort；一个Babylon世界/统一左TaskPanel，任务状态不冒充业务完成",
+      "fields": [
+        "ui.sameDomainPort",
+        "ui.singleBabylonWorld",
+        "ui.leftTaskPanelOnly",
+        "ui.statusFromOwnerReceipt"
+      ],
+      "sourceIds": [
+        "C1106-S01",
+        "C1106-S04",
+        "C1106-S10"
+      ],
+      "relatedDomains": [
+        "01",
+        "09",
+        "11"
+      ],
+      "assets": [
+        "D01",
+        "D06",
+        "D14"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "ui.sameDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.singleBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftTaskPanelOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.statusFromOwnerReceipt",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R09",
+      "capabilityId": "CAP-11-06",
+      "summary": "Setup/NC工程资格隔离",
+      "engineeringRule": "D04 Setup与D10执行绑定不同；任务成功不意味着D13已知、D15 PASS或D16批准，未知必须阻发布",
+      "fields": [
+        "safety.d04D10Distinct",
+        "safety.d12ToD15Independent",
+        "safety.unknownFailsClosed",
+        "safety.clOnlyNotRelease"
+      ],
+      "sourceIds": [
+        "C1106-S01",
+        "C1106-S08",
+        "C1106-S09"
+      ],
+      "relatedDomains": [
+        "04",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "safety.d04D10Distinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.d12ToD15Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.unknownFailsClosed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "safety.clOnlyNotRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-06-R10",
+      "capabilityId": "CAP-11-06",
+      "summary": "迁移回退与独立消费者",
+      "engineeringRule": "Expand/Migrate/Contract保留旧reader，未知schema只读隔离；跨域消费者独立验证权限和Receipt后才删桥",
+      "fields": [
+        "migration.expandBeforeContract",
+        "migration.legacyReadOnlyFallback",
+        "migration.consumerReceiptChecked",
+        "migration.rollbackPreservesFrozen"
+      ],
+      "sourceIds": [
+        "C1106-S03",
+        "C1106-S05",
+        "C1106-S07",
+        "C1106-S08"
+      ],
+      "relatedDomains": [
+        "01",
+        "05",
+        "10",
+        "11"
+      ],
+      "assets": [
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "migration.expandBeforeContract",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.legacyReadOnlyFallback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.consumerReceiptChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "migration.rollbackPreservesFrozen",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每条一完整正例+4单字段独立反例；额外28项异步状态门禁、4个依赖DAG图案例",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

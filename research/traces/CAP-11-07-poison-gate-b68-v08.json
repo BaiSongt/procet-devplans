@@ -1,0 +1,265 @@
+{
+  "schemaVersion": "procet-b68-trace-v1",
+  "capabilityId": "CAP-11-07",
+  "topic": "R-KNOWLEDGE-POISON-GATE-001",
+  "sourceRegistry": "research/sources/CAP-11-07-poison-gate-b68.json",
+  "originalWorkPackages": [
+    "T5-01",
+    "T5-02",
+    "T5-03",
+    "T5-04"
+  ],
+  "ruleCount": 8,
+  "rules": [
+    {
+      "id": "B68-R01",
+      "rule": "外部检索指令不能自动获得工具控制权；原文本可按数据保留",
+      "fields": [
+        "source.dataOnly",
+        "source.promotedAsInstruction",
+        "source.toolCallFromSource"
+      ],
+      "sourceIds": [
+        "B68-S01",
+        "B68-S06"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-P01",
+        "B68-N01",
+        "B68-N02",
+        "B68-N03"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B68-R02",
+      "rule": "跨Project/Scope检索权限与知识写入权限分离",
+      "fields": [
+        "context.projectId",
+        "source.projectId",
+        "source.allowedScopes",
+        "owner.canWrite"
+      ],
+      "sourceIds": [
+        "B68-S02",
+        "B68-S06"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-N04",
+        "B68-N05",
+        "B68-N06",
+        "B68-N07",
+        "B68-N25"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B68-R03",
+      "rule": "引用绑定源原始Hash、Revision、ChunkHash和锚点",
+      "fields": [
+        "citation.sourceHash",
+        "citation.sourceRevision",
+        "citation.chunkHash",
+        "citation.anchor"
+      ],
+      "sourceIds": [
+        "B68-S02",
+        "B68-S03"
+      ],
+      "workPackageIds": [
+        "T5-02",
+        "T5-03"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-S01",
+        "B68-S02",
+        "B68-S03",
+        "B68-S04",
+        "B68-U02",
+        "B68-U03"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B68-R04",
+      "rule": "向量索引代次与原源退役的有效性重验",
+      "fields": [
+        "source.indexGeneration",
+        "source.currentIndexGeneration",
+        "source.retired",
+        "source.sourceType"
+      ],
+      "sourceIds": [
+        "B68-S02",
+        "B68-S03"
+      ],
+      "workPackageIds": [
+        "T5-02",
+        "T5-04"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-S05",
+        "B68-S06",
+        "B68-U04",
+        "B68-U05"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B68-R05",
+      "rule": "矛盾来源保留并送独立人类处理，未知不推导真值",
+      "fields": [
+        "evidence.conflict",
+        "evidence.conflictRecorded",
+        "evidence.resolution",
+        "citation.supplied"
+      ],
+      "sourceIds": [
+        "B68-S03",
+        "B68-S06"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-P04",
+        "B68-N17",
+        "B68-U01"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B68-R06",
+      "rule": "知识候选必须精确动作批准且不得晋级D05/D15/D16",
+      "fields": [
+        "promotion.action",
+        "promotion.targetDomain",
+        "promotion.actionDigest",
+        "approval.actionDigest",
+        "promotion.ncRelease"
+      ],
+      "sourceIds": [
+        "B68-S01",
+        "B68-S04",
+        "B68-S06"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-N08",
+        "B68-N09",
+        "B68-N10",
+        "B68-N11",
+        "B68-N12",
+        "B68-N13",
+        "B68-N14",
+        "B68-N15",
+        "B68-N16"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B68-R07",
+      "rule": "知识Owner按精确Head、权限、Scope及取消代次CAS；冻结/撤销只追加",
+      "fields": [
+        "owner.aclEpoch/currentAclEpoch",
+        "owner.scopeEpoch/currentScopeEpoch",
+        "owner.generation/ackGeneration",
+        "owner.expectedHead/currentHead",
+        "promotion.appendOnly",
+        "promotion.historyRetained"
+      ],
+      "sourceIds": [
+        "B68-S03",
+        "B68-S05",
+        "B68-S06"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-04"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-N18",
+        "B68-N19",
+        "B68-N20",
+        "B68-S07",
+        "B68-S08",
+        "B68-S09",
+        "B68-S10",
+        "B68-S11"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B68-R08",
+      "rule": "GUI/CLI/Agent单入口、单Babylon及左TaskPanel；老数据与消费者资格分级",
+      "fields": [
+        "ui.entry",
+        "ui.sharedPort",
+        "ui.engineCount",
+        "ui.leftPanel",
+        "promotion.legacyUnmapped",
+        "promotion.consumerContractPrepared"
+      ],
+      "sourceIds": [
+        "B68-S01",
+        "B68-S06",
+        "B68-S07"
+      ],
+      "workPackageIds": [
+        "T5-01",
+        "T5-02"
+      ],
+      "capabilityId": "CAP-11-07",
+      "businessOwner": "Domain11.KnowledgeFeedbackPort",
+      "caseIds": [
+        "B68-P02",
+        "B68-P03",
+        "B68-N21",
+        "B68-N22",
+        "B68-N23",
+        "B68-N24",
+        "B68-U06",
+        "B68-U07",
+        "B68-D01",
+        "B68-D02"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "independentProductConsumer": "NOT_RUN"
+    }
+  ],
+  "syntheticAcceptanceCount": 49,
+  "readingLimit": "按来源记录实际阅读范围，不以目录或OWASP建议冒充工业控制规则"
+}

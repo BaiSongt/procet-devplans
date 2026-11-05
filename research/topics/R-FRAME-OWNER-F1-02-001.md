@@ -1,0 +1,4 @@
+# R-FRAME-OWNER-F1-02-001｜Frame数学、单位、安装变换与跨域边界
+2026-10-27 对[原F1-02八项实施与十项产品验收](../../docs/work-packages/F1-02.md)新增[八份合法研究来源](../sources/F1-02.json)→[十条规则/字段/来源/资产/关联CAP](../traces/F1-02.json)→[30项正反独立变异及六项解析反例](../../docs/work-packages/F1-02/fixtures.json)，**不覆盖原文或旧22项数学测试记录**。
+ISO841:2001仅读官网合法目录/摘要，不能杜撰收费正文；ISO13399:2006同。Lynch/Park Modern Robotics 3.3.1公开教学页提供SE3逆变换、非交换矩阵乘法与T_ab T_bc复合；OCCT 8.0.1 gp_Trsf API虽可表示镜像/缩放，制造输入必须单独检验SO(3)和det>0。LinuxCNC2.9运动学§1/2/4只说明joint与axis的关系及正逆接口，不证明具体B5实机轴位/旋转中心。Gao等2023 NIST仅官方著录和摘要，未读论文全文、不可推断工程公差。RFC9110/W3C PROV-O仅支持CAS/谱系设计，不是NC安全标准。
+F1-02仅定义最小公共Frame/Unit语义、纯数学端口及跨域适配；D04名义Setup、D10执行绑定、D03资源档案各自Owner不变。C0不汇聚业务数据。单Babylon世界只显示/拾取，不自行编造机床运动。D09 CL预检与D12→D13→D14→D15→D16真实NC验证严格隔离；未知Profile与未测试执行均UNKNOWN。产品Rust/TS/OCCT/GUI、实机B5、独立消费者全部NOT_RUN，人类签核PENDING。

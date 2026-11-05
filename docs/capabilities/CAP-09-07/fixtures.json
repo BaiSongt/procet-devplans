@@ -1,0 +1,1208 @@
+{
+  "schemaVersion": "procet-cap0907-fixtures-v1",
+  "capabilityId": "CAP-09-07",
+  "syntheticOnly": true,
+  "caseMeaning": "30条规则字段正/反/独立变异+20条安全状态门禁+6条一维保守界数学例；均非OCCT、NC解释器或真实机床结果",
+  "cases": [
+    {
+      "id": "CAP-09-07-T-P01",
+      "ruleId": "CAP-09-07-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "inputs": {
+          "finalNcRevisionHashPinned": true,
+          "d13ExecutionEventsHashPinned": true,
+          "d14PhysicalJointTimelineHashPinned": true,
+          "d10ActualBindingFrameExact": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N01",
+      "ruleId": "CAP-09-07-R01",
+      "scenario": "NEGATIVE",
+      "mutatedField": "inputs.finalNcRevisionHashPinned",
+      "input": {
+        "inputs": {
+          "finalNcRevisionHashPinned": false,
+          "d13ExecutionEventsHashPinned": true,
+          "d14PhysicalJointTimelineHashPinned": true,
+          "d10ActualBindingFrameExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M01",
+      "ruleId": "CAP-09-07-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "inputs.d13ExecutionEventsHashPinned",
+      "input": {
+        "inputs": {
+          "finalNcRevisionHashPinned": true,
+          "d13ExecutionEventsHashPinned": false,
+          "d14PhysicalJointTimelineHashPinned": true,
+          "d10ActualBindingFrameExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P02",
+      "ruleId": "CAP-09-07-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "limits": {
+          "axisEnvelopeRevisionPinned": true,
+          "physicalJointEnvelopeRevisionPinned": true,
+          "homedStateProvenancePinned": true,
+          "rotaryWrapAndUnitsKnown": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N02",
+      "ruleId": "CAP-09-07-R02",
+      "scenario": "NEGATIVE",
+      "mutatedField": "limits.axisEnvelopeRevisionPinned",
+      "input": {
+        "limits": {
+          "axisEnvelopeRevisionPinned": false,
+          "physicalJointEnvelopeRevisionPinned": true,
+          "homedStateProvenancePinned": true,
+          "rotaryWrapAndUnitsKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M02",
+      "ruleId": "CAP-09-07-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "limits.physicalJointEnvelopeRevisionPinned",
+      "input": {
+        "limits": {
+          "axisEnvelopeRevisionPinned": true,
+          "physicalJointEnvelopeRevisionPinned": false,
+          "homedStateProvenancePinned": true,
+          "rotaryWrapAndUnitsKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P03",
+      "ruleId": "CAP-09-07-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "motion": {
+          "t0t1CoverageComplete": true,
+          "jointVelocityAccelerationEnvelopePinned": true,
+          "ikBranchContinuousOrExplicitBreak": true,
+          "unknownTimingFailClosed": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N03",
+      "ruleId": "CAP-09-07-R03",
+      "scenario": "NEGATIVE",
+      "mutatedField": "motion.t0t1CoverageComplete",
+      "input": {
+        "motion": {
+          "t0t1CoverageComplete": false,
+          "jointVelocityAccelerationEnvelopePinned": true,
+          "ikBranchContinuousOrExplicitBreak": true,
+          "unknownTimingFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M03",
+      "ruleId": "CAP-09-07-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "motion.jointVelocityAccelerationEnvelopePinned",
+      "input": {
+        "motion": {
+          "t0t1CoverageComplete": true,
+          "jointVelocityAccelerationEnvelopePinned": false,
+          "ikBranchContinuousOrExplicitBreak": true,
+          "unknownTimingFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P04",
+      "ruleId": "CAP-09-07-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "collision": {
+          "toolHolderSpindleGeometryPinned": true,
+          "machineJointLinksPinned": true,
+          "fixtureStockProtectedPairsPinned": true,
+          "exclusionsAuditableAndScoped": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N04",
+      "ruleId": "CAP-09-07-R04",
+      "scenario": "NEGATIVE",
+      "mutatedField": "collision.toolHolderSpindleGeometryPinned",
+      "input": {
+        "collision": {
+          "toolHolderSpindleGeometryPinned": false,
+          "machineJointLinksPinned": true,
+          "fixtureStockProtectedPairsPinned": true,
+          "exclusionsAuditableAndScoped": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M04",
+      "ruleId": "CAP-09-07-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "collision.machineJointLinksPinned",
+      "input": {
+        "collision": {
+          "toolHolderSpindleGeometryPinned": true,
+          "machineJointLinksPinned": false,
+          "fixtureStockProtectedPairsPinned": true,
+          "exclusionsAuditableAndScoped": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P05",
+      "ruleId": "CAP-09-07-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "clearance": {
+          "staticOracleAndIsDoneRecorded": true,
+          "intervalCoverageCertificatePinned": true,
+          "sampleOnlyNeverPromoted": true,
+          "uncertaintyAndMarginBudgetPinned": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N05",
+      "ruleId": "CAP-09-07-R05",
+      "scenario": "NEGATIVE",
+      "mutatedField": "clearance.staticOracleAndIsDoneRecorded",
+      "input": {
+        "clearance": {
+          "staticOracleAndIsDoneRecorded": false,
+          "intervalCoverageCertificatePinned": true,
+          "sampleOnlyNeverPromoted": true,
+          "uncertaintyAndMarginBudgetPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M05",
+      "ruleId": "CAP-09-07-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "clearance.intervalCoverageCertificatePinned",
+      "input": {
+        "clearance": {
+          "staticOracleAndIsDoneRecorded": true,
+          "intervalCoverageCertificatePinned": false,
+          "sampleOnlyNeverPromoted": true,
+          "uncertaintyAndMarginBudgetPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P06",
+      "ruleId": "CAP-09-07-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "contact": {
+          "allowlistOperationScopePinned": true,
+          "toolTipMaterialIntentSeparated": true,
+          "holderFixtureMachineAlwaysChecked": true,
+          "protectedGeometryNoBypass": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N06",
+      "ruleId": "CAP-09-07-R06",
+      "scenario": "NEGATIVE",
+      "mutatedField": "contact.allowlistOperationScopePinned",
+      "input": {
+        "contact": {
+          "allowlistOperationScopePinned": false,
+          "toolTipMaterialIntentSeparated": true,
+          "holderFixtureMachineAlwaysChecked": true,
+          "protectedGeometryNoBypass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M06",
+      "ruleId": "CAP-09-07-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "contact.toolTipMaterialIntentSeparated",
+      "input": {
+        "contact": {
+          "allowlistOperationScopePinned": true,
+          "toolTipMaterialIntentSeparated": false,
+          "holderFixtureMachineAlwaysChecked": true,
+          "protectedGeometryNoBypass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P07",
+      "ruleId": "CAP-09-07-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "result": {
+          "rejectUnknownStaleDistinct": true,
+          "independentD15OracleIdentity": true,
+          "evidenceCoverageAndKnownnessPinned": true,
+          "d16NeverAcceptsSyntheticOrClOnly": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N07",
+      "ruleId": "CAP-09-07-R07",
+      "scenario": "NEGATIVE",
+      "mutatedField": "result.rejectUnknownStaleDistinct",
+      "input": {
+        "result": {
+          "rejectUnknownStaleDistinct": false,
+          "independentD15OracleIdentity": true,
+          "evidenceCoverageAndKnownnessPinned": true,
+          "d16NeverAcceptsSyntheticOrClOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M07",
+      "ruleId": "CAP-09-07-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "result.independentD15OracleIdentity",
+      "input": {
+        "result": {
+          "rejectUnknownStaleDistinct": true,
+          "independentD15OracleIdentity": false,
+          "evidenceCoverageAndKnownnessPinned": true,
+          "d16NeverAcceptsSyntheticOrClOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P08",
+      "ruleId": "CAP-09-07-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "ui": {
+          "guiCliAgentSameOwnerPort": true,
+          "singleBabylonAndLeftTaskPanel": true,
+          "ncCallInstanceTimelineJointPairLinked": true,
+          "no3DColorEquivalentToSafetyPass": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N08",
+      "ruleId": "CAP-09-07-R08",
+      "scenario": "NEGATIVE",
+      "mutatedField": "ui.guiCliAgentSameOwnerPort",
+      "input": {
+        "ui": {
+          "guiCliAgentSameOwnerPort": false,
+          "singleBabylonAndLeftTaskPanel": true,
+          "ncCallInstanceTimelineJointPairLinked": true,
+          "no3DColorEquivalentToSafetyPass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M08",
+      "ruleId": "CAP-09-07-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.singleBabylonAndLeftTaskPanel",
+      "input": {
+        "ui": {
+          "guiCliAgentSameOwnerPort": true,
+          "singleBabylonAndLeftTaskPanel": false,
+          "ncCallInstanceTimelineJointPairLinked": true,
+          "no3DColorEquivalentToSafetyPass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P09",
+      "ruleId": "CAP-09-07-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "tx": {
+          "aclAndRoleRecheckOnCommit": true,
+          "expectedRevisionCasAndFrameExact": true,
+          "scopeEpochAndCancellationChecked": true,
+          "lateAckNoCommitOrRelease": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N09",
+      "ruleId": "CAP-09-07-R09",
+      "scenario": "NEGATIVE",
+      "mutatedField": "tx.aclAndRoleRecheckOnCommit",
+      "input": {
+        "tx": {
+          "aclAndRoleRecheckOnCommit": false,
+          "expectedRevisionCasAndFrameExact": true,
+          "scopeEpochAndCancellationChecked": true,
+          "lateAckNoCommitOrRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M09",
+      "ruleId": "CAP-09-07-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "tx.expectedRevisionCasAndFrameExact",
+      "input": {
+        "tx": {
+          "aclAndRoleRecheckOnCommit": true,
+          "expectedRevisionCasAndFrameExact": false,
+          "scopeEpochAndCancellationChecked": true,
+          "lateAckNoCommitOrRelease": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-P10",
+      "ruleId": "CAP-09-07-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "handoff": {
+          "dependencyInvalidationExact": true,
+          "pairedSchemaReadersRollback": true,
+          "separateOracleAndNegativeTests": true,
+          "frozenHistoryPreserved": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-T-N10",
+      "ruleId": "CAP-09-07-R10",
+      "scenario": "NEGATIVE",
+      "mutatedField": "handoff.dependencyInvalidationExact",
+      "input": {
+        "handoff": {
+          "dependencyInvalidationExact": false,
+          "pairedSchemaReadersRollback": true,
+          "separateOracleAndNegativeTests": true,
+          "frozenHistoryPreserved": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "CAP-09-07-M10",
+      "ruleId": "CAP-09-07-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "handoff.pairedSchemaReadersRollback",
+      "input": {
+        "handoff": {
+          "dependencyInvalidationExact": true,
+          "pairedSchemaReadersRollback": false,
+          "separateOracleAndNegativeTests": true,
+          "frozenHistoryPreserved": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "semanticCases": [
+    {
+      "id": "SAFETY-V01",
+      "description": "完整合成证据闭包只能待复核",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "REVIEW_READY_SYNTHETIC_ONLY",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V02",
+      "description": "CL-only播放不构成NC验证",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": true,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V03",
+      "description": "D13未知方言",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": false,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V04",
+      "description": "D14未提供真实Joint时序",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": false,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V05",
+      "description": "D10实际绑定与名义Setup混用",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": false,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V06",
+      "description": "笛卡尔轴合法但物理Joint超限",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": true,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "REJECT_ENGINEERING",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V07",
+      "description": "有明确夹具碰撞证人",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": true,
+        "staticOnly": false
+      },
+      "expected": "REJECT_ENGINEERING",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V08",
+      "description": "只有端点离散采样",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": false,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": true
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V09",
+      "description": "机器运动部件模型不完整",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": false,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V10",
+      "description": "碰撞区间遗漏中段",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": false,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V11",
+      "description": "独立Oracle缺失",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": false,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V12",
+      "description": "控制器软限位未建档",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": false,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V13",
+      "description": "机床Joint限位未建档",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": false,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V14",
+      "description": "D12/D10修订变更",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": false,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "STALE",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V15",
+      "description": "取消晚回执",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": true,
+        "lateAck": true,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "REJECT_TRANSACTION",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V16",
+      "description": "ACL撤销",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": false,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "REJECT_TRANSACTION",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V17",
+      "description": "CAS竞争输掉",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": false,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "REJECT_TRANSACTION",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V18",
+      "description": "scopeEpoch更替",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": false,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "REJECT_TRANSACTION",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V19",
+      "description": "端点均安全但中途碰撞已证实",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": true,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": true,
+        "staticOnly": true
+      },
+      "expected": "REJECT_ENGINEERING",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    },
+    {
+      "id": "SAFETY-V20",
+      "description": "许可切削区间扩展到未批准夹具",
+      "input": {
+        "ncExact": true,
+        "d13Typed": true,
+        "d14Timed": true,
+        "d10Actual": true,
+        "controllerKnown": true,
+        "physicalJointLimits": true,
+        "axisLimits": true,
+        "homed": true,
+        "toolAndFixtureModels": true,
+        "pairCoverage": true,
+        "oracleIndependent": true,
+        "intervalCoverage": true,
+        "validConservativeCertificate": true,
+        "scopeValid": false,
+        "revisionFresh": true,
+        "acl": true,
+        "cas": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "clOnly": false,
+        "hardJointViolation": false,
+        "collisionWitness": false,
+        "staticOnly": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true,
+      "oracle": "independent_specification_not_product"
+    }
+  ],
+  "boundCases": [
+    {
+      "id": "BOUND-01",
+      "description": "两端安全但运动界下界为负，不得声称连续无碰",
+      "dA": 1,
+      "dB": 1,
+      "maxDistanceChange": 3,
+      "margin": 0.1,
+      "expected": "UNKNOWN",
+      "units": "mm",
+      "assumption": "Synthetic Lipschitz bound only; not calibrated machine proof"
+    },
+    {
+      "id": "BOUND-02",
+      "description": "保守下界仍大于安全间隙，仅合成数学候选",
+      "dA": 1,
+      "dB": 1,
+      "maxDistanceChange": 0.2,
+      "margin": 0.1,
+      "expected": "BOUND_CANDIDATE_SYNTHETIC_ONLY",
+      "units": "mm",
+      "assumption": "Only valid if external independent bound verified; not OCCT certificate"
+    },
+    {
+      "id": "BOUND-03",
+      "description": "一次静态距离对动态轨迹不构成证明",
+      "dA": 0.15,
+      "dB": 0.15,
+      "maxDistanceChange": 0.3,
+      "margin": 0.1,
+      "expected": "UNKNOWN",
+      "units": "mm",
+      "assumption": "Synthetic endpoints; midpoint may intersect"
+    },
+    {
+      "id": "BOUND-04",
+      "description": "端点已与危险几何接触",
+      "dA": 0,
+      "dB": 1,
+      "maxDistanceChange": 0.2,
+      "margin": 0.1,
+      "expected": "REJECT_ENGINEERING",
+      "units": "mm",
+      "assumption": "Synthetic hazard witness"
+    },
+    {
+      "id": "BOUND-05",
+      "description": "缺失有效运动变化上界",
+      "dA": 1,
+      "dB": 1,
+      "maxDistanceChange": null,
+      "margin": 0.1,
+      "expected": "UNKNOWN",
+      "units": "mm",
+      "assumption": "No certified Lipschitz bound"
+    },
+    {
+      "id": "BOUND-06",
+      "description": "间隙恰等于阈值需保守处理",
+      "dA": 0.1,
+      "dB": 0.1,
+      "maxDistanceChange": 0,
+      "margin": 0.1,
+      "expected": "UNKNOWN",
+      "units": "mm",
+      "assumption": "Strict > margin for candidate"
+    }
+  ]
+}

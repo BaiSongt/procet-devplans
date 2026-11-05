@@ -1,0 +1,1225 @@
+{
+  "schemaVersion": "procet-registry-audit-b12-fixtures-v08",
+  "recordedOn": "2026-10-28",
+  "meaning": "仅规划合成；演示SHA/实例值非真实NC/机床凭据",
+  "positiveCases": 3,
+  "independentSingleFieldNegatives": 24,
+  "gatesCount": 8,
+  "requirements": [
+    {
+      "path": "geometry.standardId",
+      "op": "eq",
+      "expected": "ISO230-1:2012"
+    },
+    {
+      "path": "geometry.evidenceClass",
+      "op": "eq",
+      "expected": "ISO_PUBLIC_ABSTRACT_ONLY"
+    },
+    {
+      "path": "geometry.machineRevision",
+      "op": "regex",
+      "expected": "^rev:demo-machine-[0-9]+$"
+    },
+    {
+      "path": "geometry.testReport",
+      "op": "eq",
+      "expected": "NOT_AVAILABLE"
+    },
+    {
+      "path": "geometry.testScope",
+      "op": "eq",
+      "expected": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY"
+    },
+    {
+      "path": "geometry.noOperationalCertification",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "geometry.humanReviewState",
+      "op": "eq",
+      "expected": "PENDING_HUMAN"
+    },
+    {
+      "path": "nc.referenceId",
+      "op": "eq",
+      "expected": "NISTIR6556_PUBLICATION_ABSTRACT"
+    },
+    {
+      "path": "nc.dialect",
+      "op": "eq",
+      "expected": "UNKNOWN"
+    },
+    {
+      "path": "nc.finalNcDigest",
+      "op": "regex",
+      "expected": "^sha256:[0-9a-f]{64}$"
+    },
+    {
+      "path": "nc.d13State",
+      "op": "eq",
+      "expected": "UNKNOWN"
+    },
+    {
+      "path": "nc.d14State",
+      "op": "eq",
+      "expected": "NOT_RUN"
+    },
+    {
+      "path": "nc.d15State",
+      "op": "eq",
+      "expected": "NOT_RUN"
+    },
+    {
+      "path": "nc.releaseEligible",
+      "op": "eq",
+      "expected": false
+    },
+    {
+      "path": "consumer.d04Separate",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "consumer.d10BindingExact",
+      "op": "regex",
+      "expected": "^rev:test-binding-[0-9]+$"
+    },
+    {
+      "path": "consumer.guiPort",
+      "op": "eq",
+      "expected": "MachineBindingPort"
+    },
+    {
+      "path": "consumer.cliPort",
+      "op": "sameAs",
+      "expected": "consumer.guiPort"
+    },
+    {
+      "path": "consumer.agentPort",
+      "op": "sameAs",
+      "expected": "consumer.guiPort"
+    },
+    {
+      "path": "consumer.singleWorldCount",
+      "op": "eq",
+      "expected": 1
+    },
+    {
+      "path": "consumer.taskPanel",
+      "op": "eq",
+      "expected": "LEFT_ONLY"
+    },
+    {
+      "path": "consumer.casAclScopeRecheck",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "consumer.cancelLateAckDiscard",
+      "op": "eq",
+      "expected": true
+    },
+    {
+      "path": "consumer.frozenABPreserved",
+      "op": "eq",
+      "expected": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "B12-P01",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "expected": "PLANNING_CANDIDATE_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B12-P02",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-002",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "expected": "PLANNING_CANDIDATE_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B12-P03",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "expected": "PLANNING_CANDIDATE_NOT_PRODUCT_PASS"
+    },
+    {
+      "id": "B12-N01",
+      "input": {
+        "geometry": {
+          "standardId": "INVALID",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "geometry.standardId",
+      "expectedErrorContains": "geometry.standardId",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N02",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "INVALID",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "geometry.evidenceClass",
+      "expectedErrorContains": "geometry.evidenceClass",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N03",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "INVALID",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "geometry.machineRevision",
+      "expectedErrorContains": "geometry.machineRevision",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N04",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "INVALID",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "geometry.testReport",
+      "expectedErrorContains": "geometry.testReport",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N05",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "INVALID",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "geometry.testScope",
+      "expectedErrorContains": "geometry.testScope",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N06",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": false,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "geometry.noOperationalCertification",
+      "expectedErrorContains": "geometry.noOperationalCertification",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N07",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "INVALID"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "geometry.humanReviewState",
+      "expectedErrorContains": "geometry.humanReviewState",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N08",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "INVALID",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "nc.referenceId",
+      "expectedErrorContains": "nc.referenceId",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N09",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "INVALID",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "nc.dialect",
+      "expectedErrorContains": "nc.dialect",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N10",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "INVALID",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "nc.finalNcDigest",
+      "expectedErrorContains": "nc.finalNcDigest",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N11",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "INVALID",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "nc.d13State",
+      "expectedErrorContains": "nc.d13State",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N12",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "INVALID",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "nc.d14State",
+      "expectedErrorContains": "nc.d14State",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N13",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "INVALID",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "nc.d15State",
+      "expectedErrorContains": "nc.d15State",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N14",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": true
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "nc.releaseEligible",
+      "expectedErrorContains": "nc.releaseEligible",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N15",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": false,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.d04Separate",
+      "expectedErrorContains": "consumer.d04Separate",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N16",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "INVALID",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.d10BindingExact",
+      "expectedErrorContains": "consumer.d10BindingExact",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N17",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "INVALID",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.guiPort",
+      "expectedErrorContains": "consumer.guiPort",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N18",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "INVALID",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.cliPort",
+      "expectedErrorContains": "consumer.cliPort",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N19",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "INVALID",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.agentPort",
+      "expectedErrorContains": "consumer.agentPort",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N20",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 2,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.singleWorldCount",
+      "expectedErrorContains": "consumer.singleWorldCount",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N21",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "INVALID",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.taskPanel",
+      "expectedErrorContains": "consumer.taskPanel",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N22",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": false,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.casAclScopeRecheck",
+      "expectedErrorContains": "consumer.casAclScopeRecheck",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N23",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": false,
+          "frozenABPreserved": true
+        }
+      },
+      "changedField": "consumer.cancelLateAckDiscard",
+      "expectedErrorContains": "consumer.cancelLateAckDiscard",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    },
+    {
+      "id": "B12-N24",
+      "input": {
+        "geometry": {
+          "standardId": "ISO230-1:2012",
+          "evidenceClass": "ISO_PUBLIC_ABSTRACT_ONLY",
+          "machineRevision": "rev:demo-machine-001",
+          "testReport": "NOT_AVAILABLE",
+          "testScope": "GEOMETRIC_NO_LOAD_QUASI_STATIC_ONLY",
+          "noOperationalCertification": true,
+          "humanReviewState": "PENDING_HUMAN"
+        },
+        "nc": {
+          "referenceId": "NISTIR6556_PUBLICATION_ABSTRACT",
+          "dialect": "UNKNOWN",
+          "finalNcDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13State": "UNKNOWN",
+          "d14State": "NOT_RUN",
+          "d15State": "NOT_RUN",
+          "releaseEligible": false
+        },
+        "consumer": {
+          "d04Separate": true,
+          "d10BindingExact": "rev:test-binding-001",
+          "guiPort": "MachineBindingPort",
+          "cliPort": "MachineBindingPort",
+          "agentPort": "MachineBindingPort",
+          "singleWorldCount": 1,
+          "taskPanel": "LEFT_ONLY",
+          "casAclScopeRecheck": true,
+          "cancelLateAckDiscard": true,
+          "frozenABPreserved": false
+        }
+      },
+      "changedField": "consumer.frozenABPreserved",
+      "expectedErrorContains": "consumer.frozenABPreserved",
+      "expected": "REJECT_DESIGN_CONTRACT"
+    }
+  ],
+  "gates": [
+    {
+      "kind": "ISO_ABSTRACT_AS_MACHINE_TEST",
+      "input": {
+        "catalogOnly": true,
+        "realTestReport": false
+      },
+      "expected": "REQUIRE_MEASURED_TEST_REPORT"
+    },
+    {
+      "kind": "GEOMETRIC_TEST_AS_OPERATING_CERT",
+      "input": {
+        "geometryOnly": true,
+        "operatingTests": false
+      },
+      "expected": "REJECT_OPERATION_CERT_CLAIM"
+    },
+    {
+      "kind": "NIST_METADATA_AS_OEM_DIALECT",
+      "input": {
+        "abstractOnly": true,
+        "oemProfileKnown": false
+      },
+      "expected": "D13_UNKNOWN"
+    },
+    {
+      "kind": "CONTROLLER_PROFILE_CHANGED",
+      "input": {
+        "oldProfile": "rev:1",
+        "newProfile": "rev:2"
+      },
+      "expected": "INVALIDATE_D13_D14_D15"
+    },
+    {
+      "kind": "SETUP_PREVIEW_AS_D10",
+      "input": {
+        "d04Preview": true,
+        "d10BindingPresent": false
+      },
+      "expected": "REQUIRE_D10_BINDING"
+    },
+    {
+      "kind": "CL_PREVIEW_AS_D16",
+      "input": {
+        "clOnly": true,
+        "d15Verified": false
+      },
+      "expected": "BLOCK_D16"
+    },
+    {
+      "kind": "CANCELLED_TASK_LATE_ACK",
+      "input": {
+        "cancelled": true,
+        "lateAck": true
+      },
+      "expected": "DISCARD_LATE_ACK"
+    },
+    {
+      "kind": "UNKNOWN_NONTRIVIAL_KINEMATICS",
+      "input": {
+        "jointFkKnown": false,
+        "axisReplayAvailable": false
+      },
+      "expected": "D14_UNKNOWN"
+    }
+  ],
+  "results": {
+    "v8EquivalentDesignCases": 35,
+    "passed": 35,
+    "independentNodeFileProcess": "NOT_RUN",
+    "realProduct": "NOT_RUN",
+    "independentConsumers": "NOT_RUN"
+  }
+}

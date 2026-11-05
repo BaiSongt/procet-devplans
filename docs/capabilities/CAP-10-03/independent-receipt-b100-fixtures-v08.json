@@ -1,0 +1,363 @@
+{
+  "schemaVersion": "procet-b100-independent-receipt-fixtures-v08",
+  "classification": "NEWLY_AUTHORED_SYNTHETIC_NOT_PRODUCT",
+  "sourceHead": "cf7490fa77496e5e91b9f43d04de34a9c8f5f322",
+  "baseline": {
+    "release": {
+      "id": "D16-SYN-001",
+      "approval": "HUMAN_APPROVED_SYNTHETIC",
+      "d15": "PASS_INDEPENDENT_SYNTHETIC",
+      "ncSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifestSha": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "publisherAppSha": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "publisherRunId": "publisher-run-01",
+      "machineId": "M-101",
+      "d10Revision": "D10-r7",
+      "frameId": "Machine/Base/Fixture/A",
+      "policyId": "policy-3",
+      "aclEpoch": 9
+    },
+    "receiver": {
+      "rehashSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifestSha": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "appSha": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "runId": "receiver-run-02",
+      "machineId": "M-101",
+      "d10Revision": "D10-r7",
+      "frameId": "Machine/Base/Fixture/A",
+      "policyId": "policy-3",
+      "aclEpoch": 9,
+      "localBytesRead": true,
+      "signatureVerified": true,
+      "trustRootPreinstalled": true,
+      "revocationState": "CURRENT",
+      "trustedTime": true,
+      "scopeEpoch": 5
+    },
+    "receipt": {
+      "kind": "D17_RECEIVER_RECEIPT",
+      "releaseId": "D16-SYN-001",
+      "payloadSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "signedByReceiver": true,
+      "appendOnly": true,
+      "scopeEpoch": 5,
+      "canceled": false,
+      "ackEpoch": 2,
+      "activeEpoch": 2,
+      "intent": "RECEIPT_ONLY",
+      "eventId": "D17-EVT-100",
+      "history": null
+    },
+    "ui": {
+      "sharedPort": true,
+      "singleBabylon": true,
+      "leftTaskPanel": true,
+      "casRechecked": true,
+      "rollbackReader": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B100-P01",
+      "changes": {},
+      "expected": "DESIGN_OK",
+      "ruleId": "ALL"
+    },
+    {
+      "id": "B100-N01",
+      "changes": {
+        "release.approval": "DRAFT"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R01"
+    },
+    {
+      "id": "B100-N02",
+      "changes": {
+        "release.d15": "CL_ONLY"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R01"
+    },
+    {
+      "id": "B100-N03",
+      "changes": {
+        "release.ncSha": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R02"
+    },
+    {
+      "id": "B100-N04",
+      "changes": {
+        "receiver.manifestSha": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R02"
+    },
+    {
+      "id": "B100-N05",
+      "changes": {
+        "receiver.localBytesRead": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R03"
+    },
+    {
+      "id": "B100-N06",
+      "changes": {
+        "receiver.appSha": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R03"
+    },
+    {
+      "id": "B100-N07",
+      "changes": {
+        "receiver.runId": "publisher-run-01"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R03"
+    },
+    {
+      "id": "B100-N08",
+      "changes": {
+        "receiver.signatureVerified": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R04"
+    },
+    {
+      "id": "B100-N09",
+      "changes": {
+        "receiver.trustRootPreinstalled": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R04"
+    },
+    {
+      "id": "B100-N10",
+      "changes": {
+        "receiver.revocationState": "REVOKED"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R04"
+    },
+    {
+      "id": "B100-N11",
+      "changes": {
+        "receiver.trustedTime": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R04"
+    },
+    {
+      "id": "B100-N12",
+      "changes": {
+        "receiver.machineId": "M-OTHER"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R05"
+    },
+    {
+      "id": "B100-N13",
+      "changes": {
+        "receiver.d10Revision": "D10-r6"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R05"
+    },
+    {
+      "id": "B100-N14",
+      "changes": {
+        "receiver.frameId": "Machine/Base/Fixture/B"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R05"
+    },
+    {
+      "id": "B100-N15",
+      "changes": {
+        "receiver.policyId": "policy-2"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R05"
+    },
+    {
+      "id": "B100-N16",
+      "changes": {
+        "receipt.kind": "D16_PUBLISHER_ACK"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R06"
+    },
+    {
+      "id": "B100-N17",
+      "changes": {
+        "receipt.signedByReceiver": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R06"
+    },
+    {
+      "id": "B100-N18",
+      "changes": {
+        "receipt.appendOnly": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R06"
+    },
+    {
+      "id": "B100-N19",
+      "changes": {
+        "receipt.payloadSha": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R06"
+    },
+    {
+      "id": "B100-N20",
+      "changes": {
+        "receipt.releaseId": "D16-SYN-OLD"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R07"
+    },
+    {
+      "id": "B100-N21",
+      "changes": {
+        "receipt.canceled": true
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R07"
+    },
+    {
+      "id": "B100-N22",
+      "changes": {
+        "receipt.ackEpoch": 1
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R07"
+    },
+    {
+      "id": "B100-N23",
+      "changes": {
+        "receipt.intent": "CYCLE_START"
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R07"
+    },
+    {
+      "id": "B100-N24",
+      "changes": {
+        "release.aclEpoch": 8
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R08"
+    },
+    {
+      "id": "B100-N25",
+      "changes": {
+        "ui.sharedPort": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R08"
+    },
+    {
+      "id": "B100-N26",
+      "changes": {
+        "ui.singleBabylon": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R08"
+    },
+    {
+      "id": "B100-N27",
+      "changes": {
+        "ui.leftTaskPanel": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R08"
+    },
+    {
+      "id": "B100-N28",
+      "changes": {
+        "ui.casRechecked": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R08"
+    },
+    {
+      "id": "B100-N29",
+      "changes": {
+        "ui.rollbackReader": false
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R08"
+    },
+    {
+      "id": "B100-U01",
+      "changes": {
+        "receiver.revocationState": null
+      },
+      "expected": "UNKNOWN",
+      "ruleId": "B100-R04"
+    },
+    {
+      "id": "B100-U02",
+      "changes": {
+        "receiver.trustedTime": null
+      },
+      "expected": "UNKNOWN",
+      "ruleId": "B100-R04"
+    },
+    {
+      "id": "B100-U03",
+      "changes": {
+        "receiver.frameId": null
+      },
+      "expected": "UNKNOWN",
+      "ruleId": "B100-R05"
+    },
+    {
+      "id": "B100-U04",
+      "changes": {
+        "receiver.signatureVerified": null
+      },
+      "expected": "UNKNOWN",
+      "ruleId": "B100-R04"
+    },
+    {
+      "id": "B100-U05",
+      "changes": {
+        "ui.casRechecked": null
+      },
+      "expected": "UNKNOWN",
+      "ruleId": "B100-R08"
+    },
+    {
+      "id": "B100-I01",
+      "changes": {
+        "receipt.history": {
+          "eventId": "D17-EVT-100",
+          "payloadSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseId": "D16-SYN-001"
+        }
+      },
+      "expected": "IDEMPOTENT_NO_WRITE",
+      "ruleId": "B100-R07"
+    },
+    {
+      "id": "B100-N30",
+      "changes": {
+        "receipt.history": {
+          "eventId": "D17-EVT-100",
+          "payloadSha": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "releaseId": "D16-SYN-001"
+        }
+      },
+      "expected": "REJECT",
+      "ruleId": "B100-R07"
+    }
+  ]
+}

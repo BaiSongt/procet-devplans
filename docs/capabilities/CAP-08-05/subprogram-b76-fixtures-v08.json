@@ -1,0 +1,534 @@
+{
+  "schemaVersion": "procet-b76-fixture-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-08-05",
+  "baseExactHead": "69a446ca5985512a0d34dffe4255beca2dbdc7fa",
+  "note": "明确独立预期与同judge合成，不代表独立真实NC/机床测试",
+  "base": {
+    "identity": {
+      "ncHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "expectedNcHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "profileHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "expectedProfileHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "closureHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "expectedClosureHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "d04Revision": "D04-r76",
+      "d10Revision": "D10-r76",
+      "frame": "Machine",
+      "scopeEpoch": 11
+    },
+    "program": {
+      "dialect": "LINUXCNC_2_9",
+      "profileVerified": true,
+      "style": "O_CALL",
+      "paramScope": "LOCAL_1_30",
+      "targetType": "O_SUB",
+      "externalFile": false,
+      "targetResolved": true,
+      "externalUnresolved": false,
+      "searchRootsPinned": true,
+      "searchPathApproved": true,
+      "outsideClosure": false,
+      "mixedStyles": false,
+      "duplicateNumber": false,
+      "mainM99": false,
+      "callStackMapped": true,
+      "returnMapped": true,
+      "unknownMacro": false,
+      "outerRepeat": "5",
+      "innerRepeat": "5",
+      "expectedEvents": "25",
+      "maxEvents": "100",
+      "initialParam1": 0,
+      "outerStep": 1,
+      "innerStep": 0.01,
+      "expectedParamAfter": 0
+    },
+    "gate": {
+      "ownerPort": "NcSemanticOwnerPort",
+      "acl": true,
+      "cas": true,
+      "cancelled": false,
+      "lateAck": false,
+      "generation": 3,
+      "ackGeneration": 3,
+      "sceneCount": 1,
+      "leftPanel": true,
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "freezePreserved": true,
+      "rollbackReader": true,
+      "previewWrites": false,
+      "previewOnly": false,
+      "releaseRequested": false,
+      "d15Independent": false
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "ruleId": "B76-R2",
+      "changes": {},
+      "description": "O-call局部参数返回恢复"
+    },
+    {
+      "id": "P02",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "ruleId": "B76-R2",
+      "changes": {
+        "program.style": "M98_NUMBERED",
+        "program.paramScope": "GLOBAL_1_30",
+        "program.targetType": "O_BLOCK",
+        "program.expectedParamAfter": 5.25
+      },
+      "description": "LinuxCNC编号M98全局参数#1最终5.25"
+    },
+    {
+      "id": "P03",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "ruleId": "B76-R4",
+      "changes": {
+        "program.dialect": "HAAS_LATHE",
+        "program.style": "M97_LOCAL",
+        "program.paramScope": "PROFILE_SPECIFIC",
+        "program.targetType": "N_BLOCK",
+        "program.expectedParamAfter": null
+      },
+      "description": "Haas M97绑定同程序N行"
+    },
+    {
+      "id": "P04",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "ruleId": "B76-R4",
+      "changes": {
+        "program.dialect": "HAAS_LATHE",
+        "program.style": "M98_EXTERNAL",
+        "program.paramScope": "PROFILE_SPECIFIC",
+        "program.targetType": "O_PROGRAM",
+        "program.externalFile": true,
+        "program.expectedParamAfter": null
+      },
+      "description": "Haas M98绑定外部O程序"
+    },
+    {
+      "id": "P05",
+      "kind": "positive",
+      "expected": "CANDIDATE_ONLY",
+      "ruleId": "B76-R3",
+      "changes": {
+        "program.outerRepeat": "1",
+        "program.innerRepeat": "1",
+        "program.expectedEvents": "1"
+      },
+      "description": "一层1x1"
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R2",
+      "changes": {
+        "program.paramScope": "GLOBAL_1_30"
+      },
+      "description": "O-call局部误认全局"
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R5",
+      "changes": {
+        "program.mixedStyles": true
+      },
+      "description": "混写O-call和M98"
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R5",
+      "changes": {
+        "program.duplicateNumber": true
+      },
+      "description": "重复O编号"
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R4",
+      "changes": {
+        "program.dialect": "HAAS_LATHE",
+        "program.style": "M97_LOCAL",
+        "program.paramScope": "PROFILE_SPECIFIC",
+        "program.targetType": "O_PROGRAM",
+        "program.expectedParamAfter": null
+      },
+      "description": "Haas M97误指O"
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R6",
+      "changes": {
+        "program.searchPathApproved": false
+      },
+      "description": "搜索根未授权"
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R6",
+      "changes": {
+        "program.outsideClosure": true
+      },
+      "description": "外部文件超出闭包"
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R5",
+      "changes": {
+        "program.mainM99": true
+      },
+      "description": "主程序M99循环"
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R3",
+      "changes": {
+        "program.expectedEvents": "10"
+      },
+      "description": "嵌套计数误加"
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R3",
+      "changes": {
+        "program.maxEvents": "20"
+      },
+      "description": "25次展开超过预算20"
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R7",
+      "changes": {
+        "program.callStackMapped": false
+      },
+      "description": "调用栈未定位"
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R7",
+      "changes": {
+        "program.returnMapped": false
+      },
+      "description": "返回目标丢失"
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R2",
+      "changes": {
+        "program.style": "M98_NUMBERED",
+        "program.paramScope": "GLOBAL_1_30",
+        "program.targetType": "O_BLOCK",
+        "program.expectedParamAfter": 0
+      },
+      "description": "M98全局#1错误恢复"
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.acl": false
+      },
+      "description": "ACL撤权"
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.cas": false
+      },
+      "description": "CAS失败"
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.cancelled": true
+      },
+      "description": "任务取消"
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.lateAck": true
+      },
+      "description": "晚ACK"
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.sceneCount": 2
+      },
+      "description": "多个Babylon世界"
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.leftPanel": false
+      },
+      "description": "右侧容器取代左TaskPanel"
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.freezePreserved": false
+      },
+      "description": "覆盖D08冻结"
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.rollbackReader": false
+      },
+      "description": "没有兼容Reader回退"
+    },
+    {
+      "id": "N21",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R4",
+      "changes": {
+        "program.dialect": "HAAS_LATHE",
+        "program.style": "M98_EXTERNAL",
+        "program.paramScope": "PROFILE_SPECIFIC",
+        "program.targetType": "N_BLOCK",
+        "program.externalFile": true,
+        "program.expectedParamAfter": null
+      },
+      "description": "Haas M98误指本地N"
+    },
+    {
+      "id": "N22",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R3",
+      "changes": {
+        "program.innerRepeat": "2.5"
+      },
+      "description": "重复次数非整数"
+    },
+    {
+      "id": "N23",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.releaseRequested": true
+      },
+      "description": "没有D15独立证据直接放行"
+    },
+    {
+      "id": "N24",
+      "kind": "negative",
+      "expected": "REJECTED",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.previewWrites": true
+      },
+      "description": "预览写权威状态"
+    },
+    {
+      "id": "U01",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "ruleId": "B76-R1",
+      "changes": {
+        "program.dialect": "UNKNOWN"
+      },
+      "description": "未识别控制器"
+    },
+    {
+      "id": "U02",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "ruleId": "B76-R1",
+      "changes": {
+        "program.profileVerified": false
+      },
+      "description": "Profile未验证"
+    },
+    {
+      "id": "U03",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "ruleId": "B76-R7",
+      "changes": {
+        "program.targetResolved": false
+      },
+      "description": "子程序目标未知"
+    },
+    {
+      "id": "U04",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "ruleId": "B76-R6",
+      "changes": {
+        "program.externalUnresolved": true
+      },
+      "description": "外部程序尚未取得"
+    },
+    {
+      "id": "U05",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "ruleId": "B76-R7",
+      "changes": {
+        "program.unknownMacro": true
+      },
+      "description": "未知宏"
+    },
+    {
+      "id": "U06",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "ruleId": "B76-R7",
+      "changes": {
+        "program": null
+      },
+      "description": "缺少解释输入"
+    },
+    {
+      "id": "S01",
+      "kind": "stale",
+      "expected": "STALE",
+      "ruleId": "B76-R1",
+      "changes": {
+        "identity.ncHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "description": "NC原字节变更"
+    },
+    {
+      "id": "S02",
+      "kind": "stale",
+      "expected": "STALE",
+      "ruleId": "B76-R1",
+      "changes": {
+        "identity.profileHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "description": "控制器Profile改变"
+    },
+    {
+      "id": "S03",
+      "kind": "stale",
+      "expected": "STALE",
+      "ruleId": "B76-R6",
+      "changes": {
+        "identity.closureHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "description": "依赖程序Hash改变"
+    },
+    {
+      "id": "S04",
+      "kind": "stale",
+      "expected": "STALE",
+      "ruleId": "B76-R1",
+      "changes": {
+        "identity.scopeEpoch": 12
+      },
+      "description": "Scope Epoch变更"
+    },
+    {
+      "id": "S05",
+      "kind": "stale",
+      "expected": "STALE",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.ackGeneration": 2
+      },
+      "description": "迟到旧generation"
+    },
+    {
+      "id": "S06",
+      "kind": "stale",
+      "expected": "STALE",
+      "ruleId": "B76-R1",
+      "changes": {
+        "identity.d04Revision": "D04-r77"
+      },
+      "description": "Setup修订变更"
+    },
+    {
+      "id": "S07",
+      "kind": "stale",
+      "expected": "STALE",
+      "ruleId": "B76-R1",
+      "changes": {
+        "identity.d10Revision": "D10-r77"
+      },
+      "description": "实际执行绑定变更"
+    },
+    {
+      "id": "D01",
+      "kind": "display",
+      "expected": "DISPLAY_ONLY",
+      "ruleId": "B76-R8",
+      "changes": {
+        "gate.previewOnly": true
+      },
+      "description": "只读联动不可变为D15 PASS"
+    }
+  ],
+  "counts": {
+    "positive": 5,
+    "negative": 24,
+    "unknown": 6,
+    "stale": 7,
+    "display": 1
+  },
+  "total": 43
+}

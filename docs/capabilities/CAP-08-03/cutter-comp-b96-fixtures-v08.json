@@ -1,0 +1,558 @@
+{
+  "schemaVersion": "procet-b96-fixtures-v08",
+  "syntheticOnly": true,
+  "productPass": false,
+  "base": {
+    "source": {
+      "d03Exact": true,
+      "d04Exact": true,
+      "d10Exact": true,
+      "ncHashPinned": true,
+      "framePinned": true
+    },
+    "dialect": {
+      "name": "HAAS_MILL",
+      "versionPinned": true,
+      "dNumber": 1,
+      "tableHashPinned": true
+    },
+    "offset": {
+      "measure": "DIAMETER",
+      "geometry": 4,
+      "wear": 0.2,
+      "effectiveRadiusMm": 2.1,
+      "interpretationPinned": true
+    },
+    "side": {
+      "mode": "G41",
+      "signedRadius": 2.1,
+      "actual": "LEFT",
+      "signApplied": true
+    },
+    "plane": {
+      "selected": "G17",
+      "modelKnown": true,
+      "allowed": true
+    },
+    "lead": {
+      "entryLenMm": 3,
+      "exitLenMm": 5,
+      "entryMove": "G01",
+      "exitMove": "G01",
+      "profileKnown": true
+    },
+    "corner": {
+      "insideArcRadiusMm": 4,
+      "checked": true,
+      "setting58Pinned": true,
+      "noContinuousSafetyClaim": true
+    },
+    "chain": {
+      "finalNcReparsed": true,
+      "d13UnknownBlocked": true,
+      "d14MotionIndependent": true,
+      "d15EngineeringIndependent": true,
+      "d16NotFromCL": true
+    },
+    "owner": {
+      "singleOwnerPort": true,
+      "aclAtCommit": true,
+      "casAtCommit": true,
+      "cancelGeneration": true,
+      "singleBabylonLeftPanel": true,
+      "nonDestructiveRollback": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B96-P1",
+      "ruleId": "B96-R1",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N11",
+      "ruleId": "B96-R1",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "source.d03Exact",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N12",
+      "ruleId": "B96-R1",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "source.framePinned",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U1",
+      "ruleId": "B96-R1",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "source.d10Exact",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P2",
+      "ruleId": "B96-R2",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N21",
+      "ruleId": "B96-R2",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "dialect.name",
+          "GENERIC"
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N22",
+      "ruleId": "B96-R2",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "dialect.dNumber",
+          "OMITTED"
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U2",
+      "ruleId": "B96-R2",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "dialect.tableHashPinned",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P3",
+      "ruleId": "B96-R3",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N31",
+      "ruleId": "B96-R3",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "offset.effectiveRadiusMm",
+          4.2
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N32",
+      "ruleId": "B96-R3",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "offset.interpretationPinned",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U3",
+      "ruleId": "B96-R3",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "offset.measure",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P4",
+      "ruleId": "B96-R4",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N41",
+      "ruleId": "B96-R4",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "side.actual",
+          "RIGHT"
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N42",
+      "ruleId": "B96-R4",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "side.signApplied",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U4",
+      "ruleId": "B96-R4",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "side.mode",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P5",
+      "ruleId": "B96-R5",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N51",
+      "ruleId": "B96-R5",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "plane.selected",
+          "G18"
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N52",
+      "ruleId": "B96-R5",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "plane.allowed",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U5",
+      "ruleId": "B96-R5",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "plane.modelKnown",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P6",
+      "ruleId": "B96-R6",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N61",
+      "ruleId": "B96-R6",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "lead.entryLenMm",
+          1
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N62",
+      "ruleId": "B96-R6",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "lead.exitLenMm",
+          1
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U6",
+      "ruleId": "B96-R6",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "lead.exitMove",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P7",
+      "ruleId": "B96-R7",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N71",
+      "ruleId": "B96-R7",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "corner.insideArcRadiusMm",
+          1
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N72",
+      "ruleId": "B96-R7",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "corner.checked",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U7",
+      "ruleId": "B96-R7",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "corner.setting58Pinned",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P8",
+      "ruleId": "B96-R8",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N81",
+      "ruleId": "B96-R8",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "chain.finalNcReparsed",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N82",
+      "ruleId": "B96-R8",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "chain.d15EngineeringIndependent",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U8",
+      "ruleId": "B96-R8",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "chain.d13UnknownBlocked",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P9",
+      "ruleId": "B96-R9",
+      "expected": "PASS",
+      "changes": [],
+      "why": "基础可解析场景：仅规划合成资格"
+    },
+    {
+      "id": "B96-N91",
+      "ruleId": "B96-R9",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "owner.casAtCommit",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-N92",
+      "ruleId": "B96-R9",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "owner.singleOwnerPort",
+          false
+        ]
+      ],
+      "why": "单字段失配，拒绝向下游传播"
+    },
+    {
+      "id": "B96-U9",
+      "ruleId": "B96-R9",
+      "expected": "UNKNOWN",
+      "changes": [
+        [
+          "owner.cancelGeneration",
+          null
+        ]
+      ],
+      "why": "必要证据未知，阻断发布"
+    },
+    {
+      "id": "B96-P5L",
+      "ruleId": "B96-R5",
+      "expected": "PASS",
+      "changes": [
+        [
+          "dialect.name",
+          "LINUXCNC_2_9"
+        ],
+        [
+          "dialect.dNumber",
+          "OMITTED"
+        ],
+        [
+          "offset.measure",
+          "TABLE_DIAMETER"
+        ],
+        [
+          "offset.geometry",
+          4.2
+        ],
+        [
+          "offset.wear",
+          0
+        ],
+        [
+          "plane.selected",
+          "G18"
+        ],
+        [
+          "lead.entryMove",
+          "G00"
+        ]
+      ],
+      "why": "LinuxCNC 2.9仅合成：G18允许、D可省略；并非实际解释器通过"
+    },
+    {
+      "id": "B96-N5L",
+      "ruleId": "B96-R5",
+      "expected": "REJECT",
+      "changes": [
+        [
+          "dialect.name",
+          "LINUXCNC_2_9"
+        ],
+        [
+          "dialect.dNumber",
+          "OMITTED"
+        ],
+        [
+          "offset.measure",
+          "TABLE_DIAMETER"
+        ],
+        [
+          "offset.geometry",
+          4.2
+        ],
+        [
+          "offset.wear",
+          0
+        ],
+        [
+          "plane.selected",
+          "G18"
+        ],
+        [
+          "lead.entryMove",
+          "G00"
+        ],
+        [
+          "plane.selected",
+          "G19"
+        ]
+      ],
+      "why": "LinuxCNC 2.9 G19半径补偿禁用"
+    }
+  ],
+  "mathGoldens": [
+    {
+      "id": "B96-G01",
+      "kind": "SETTING40",
+      "diameterGeometry": 4,
+      "diameterWear": 0.2,
+      "radiusGeometry": 2,
+      "radiusWear": 0.1,
+      "effectiveRadiusMm": 2.1
+    },
+    {
+      "id": "B96-G02",
+      "kind": "SIGNED_SIDE",
+      "code": "G41",
+      "signedRadiusMm": -2.1,
+      "expectedSide": "RIGHT"
+    },
+    {
+      "id": "B96-G03",
+      "kind": "EXIT_DIFFERENCE",
+      "radiusMm": 2.1,
+      "linuxExitMm": 2.1,
+      "haasExitMm": 2.1,
+      "linuxAccept": false,
+      "haasAccept": true
+    }
+  ]
+}

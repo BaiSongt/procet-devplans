@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "procet-final-md-b16-ast-fixtures-v08",
+  "scope": "SYNTHETIC_ONLY",
+  "supportingDocuments": {
+    "docs/other.md": "# Target Heading\n\n## Duplicate\n\n## Duplicate\n\n<a id=\"custom-id\"></a>\n<a name=\"custom-name\"></a>\n\n### 中国航空\n",
+    "docs/space name.md": "# space\n",
+    "docs/dir/README.md": "# dir\n",
+    "docs/simple.md": "# Target Heading\n"
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "source": "[go](other.md)",
+      "expected": "PASS_LOCAL_PATH",
+      "rule": "B16-R01",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P02",
+      "source": "[go][r]\n\n[r]: other.md",
+      "expected": "PASS_LOCAL_PATH",
+      "rule": "B16-R01",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P03",
+      "source": "[go](space%20name.md)",
+      "expected": "PASS_LOCAL_PATH",
+      "rule": "B16-R02",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P04",
+      "source": "[go](other.md#target-heading)",
+      "expected": "PASS_LOCAL_ANCHOR_CANDIDATE",
+      "rule": "B16-R03",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P05",
+      "source": "<a href=\"other.md#target-heading\">go</a>",
+      "expected": "PASS_LOCAL_ANCHOR_CANDIDATE",
+      "rule": "B16-R04",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P06",
+      "source": "[go](other.md#custom-id)",
+      "expected": "PASS_LOCAL_ANCHOR_CANDIDATE",
+      "rule": "B16-R04",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P07",
+      "source": "[go](other.md#duplicate-1)",
+      "expected": "PASS_LOCAL_ANCHOR_CANDIDATE",
+      "rule": "B16-R03",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N01",
+      "source": "[go](missing.md)",
+      "expected": "REJECT_MISSING_PATH",
+      "rule": "B16-R02",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N02",
+      "source": "[go](simple.md#wrong-anchor)",
+      "expected": "REJECT_MISSING_ANCHOR",
+      "rule": "B16-R03",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N03",
+      "source": "[go](../../outside.md)",
+      "expected": "REJECT_ESCAPE_REPO",
+      "rule": "B16-R02",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "U01",
+      "source": "[go](other%G0.md)",
+      "expected": "UNKNOWN_PERCENT_AFTER_DECODE",
+      "rule": "B16-R02",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "U02",
+      "source": "[go](space%2520name.md)",
+      "expected": "UNKNOWN_PERCENT_AFTER_DECODE",
+      "rule": "B16-R02",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "U03",
+      "source": "[go](other.md#中国航空)",
+      "expected": "UNKNOWN_RENDERER_SLUG",
+      "rule": "B16-R03",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "U04",
+      "source": "[go](dir)",
+      "expected": "UNKNOWN_DIRECTORY_RENDERING",
+      "rule": "B16-R02",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "U05",
+      "source": "[go](https://example.org)",
+      "expected": "EXTERNAL_NOT_CHECKED",
+      "rule": "B16-R05",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "U06",
+      "source": "[go](other.md?raw=1)",
+      "expected": "UNKNOWN_QUERY_SEMANTICS",
+      "rule": "B16-R05",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P08",
+      "source": "[go](/docs/other.md)",
+      "expected": "PASS_LOCAL_PATH",
+      "rule": "B16-R02",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "P09",
+      "source": "[go](other.md#custom-name)",
+      "expected": "PASS_LOCAL_ANCHOR_CANDIDATE",
+      "rule": "B16-R04",
+      "independentSingleSurface": true
+    }
+  ],
+  "inertCode": [
+    "```md\n[go](missing.md)\n```",
+    "`[go](missing.md)`"
+  ],
+  "gates": {
+    "fullRepoAst": "NOT_RUN",
+    "githubRender": "NOT_RUN",
+    "product": "NOT_RUN"
+  },
+  "meaning": "每条合成案例独立生成源文档，不使用真实仓库内容；PASS_LOCAL_ANCHOR_CANDIDATE仅表示解析器可判定候选，未证明GitHub渲染完全一致"
+}

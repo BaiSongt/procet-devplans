@@ -1,0 +1,372 @@
+{
+  "schemaVersion": "procet-planning-fixture-v1",
+  "capabilityId": "CAP-05-01",
+  "scope": "synthetic_not_product_execution",
+  "base": {
+    "projectScope": "demo-project-not-real",
+    "actor": {
+      "canCommit": true,
+      "role": "process_planner"
+    },
+    "cas": {
+      "expected": "plan-r7",
+      "current": "plan-r7"
+    },
+    "task": {
+      "cancelled": false,
+      "generation": 3,
+      "returnGeneration": 3
+    },
+    "cadExactRef": {
+      "id": "cad-occurrence-01",
+      "revision": "r03",
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "frame": "PART"
+    },
+    "d02ExactRef": {
+      "id": "feature-set-01",
+      "revision": "r05",
+      "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "frame": "PART"
+    },
+    "route": {
+      "id": "route-01",
+      "revision": "r07",
+      "contentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "mode": "B",
+      "machineId": null,
+      "executionBindingId": null,
+      "stages": [
+        {
+          "id": "stageA",
+          "setupExactRef": {
+            "id": "setup-A",
+            "revision": "r04",
+            "hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "frame": "SETUP_A"
+          },
+          "operationIds": [
+            "opA"
+          ]
+        },
+        {
+          "id": "stageB",
+          "setupExactRef": {
+            "id": "setup-B",
+            "revision": "r02",
+            "hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+            "frame": "SETUP_B"
+          },
+          "operationIds": [
+            "opB"
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "id": "opA",
+          "stageId": "stageA",
+          "stepIds": [
+            "stepA"
+          ],
+          "featureExactRef": {
+            "id": "feature-pocket",
+            "revision": "r05",
+            "hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "frame": "PART"
+          }
+        },
+        {
+          "id": "opB",
+          "stageId": "stageB",
+          "stepIds": [
+            "stepB"
+          ],
+          "featureExactRef": {
+            "id": "feature-hole",
+            "revision": "r05",
+            "hash": "1111111111111111111111111111111111111111111111111111111111111111",
+            "frame": "PART"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "id": "stepA",
+          "operationId": "opA",
+          "kind": "ROUGH"
+        },
+        {
+          "id": "stepB",
+          "operationId": "opB",
+          "kind": "DRILL"
+        }
+      ],
+      "edges": [
+        {
+          "from": "opA",
+          "to": "opB",
+          "kind": "PRECEDENCE",
+          "crossSetup": true,
+          "transferExactRef": {
+            "id": "transfer-A-B",
+            "revision": "r01",
+            "hash": "2222222222222222222222222222222222222222222222222222222222222222",
+            "frame": "SETUP_B"
+          }
+        }
+      ],
+      "freeze": {
+        "readOnlyD08Ref": {
+          "id": "freeze-approved",
+          "revision": "r12",
+          "hash": "3333333333333333333333333333333333333333333333333333333333333333",
+          "frame": "PART"
+        },
+        "attemptOverwrite": false,
+        "appendOnly": true
+      },
+      "outcome": {
+        "stage": "D05",
+        "certified": false,
+        "d09State": "NOT_RUN",
+        "d13State": "NOT_RUN",
+        "d15State": "NOT_RUN",
+        "d16State": "NOT_RUN"
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "ROUTE-AT01-P",
+      "ruleId": "ROUTE-R01",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "精确CAD版本/hash/Frame：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT01-N",
+      "ruleId": "ROUTE-R01",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "精确CAD版本/hash/Frame：错误输入",
+      "mutations": [
+        {
+          "path": "cadExactRef.hash",
+          "op": "set",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT02-P",
+      "ruleId": "ROUTE-R02",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "层级引用不得悬空：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT02-N",
+      "ruleId": "ROUTE-R02",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "层级引用不得悬空：错误输入",
+      "mutations": [
+        {
+          "path": "route.steps[0].operationId",
+          "op": "set",
+          "value": "op-not-found"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT03-P",
+      "ruleId": "ROUTE-R03",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "全树节点ID唯一：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT03-N",
+      "ruleId": "ROUTE-R03",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "全树节点ID唯一：错误输入",
+      "mutations": [
+        {
+          "path": "route.steps[1].id",
+          "op": "set",
+          "value": "stepA"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT04-P",
+      "ruleId": "ROUTE-R04",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "依赖图必须无环：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT04-N",
+      "ruleId": "ROUTE-R04",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "依赖图必须无环：错误输入",
+      "mutations": [
+        {
+          "path": "route.edges",
+          "op": "append",
+          "value": {
+            "from": "opB",
+            "to": "opA",
+            "kind": "PRECEDENCE",
+            "crossSetup": true,
+            "transferExactRef": {
+              "id": "transfer-B-A",
+              "revision": "r01",
+              "hash": "4444444444444444444444444444444444444444444444444444444444444444",
+              "frame": "SETUP_A"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT05-P",
+      "ruleId": "ROUTE-R05",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "跨Setup转序必须携带精确证据：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT05-N",
+      "ruleId": "ROUTE-R05",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "跨Setup转序必须携带精确证据：错误输入",
+      "mutations": [
+        {
+          "path": "route.edges[0].transferExactRef",
+          "op": "delete",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT06-P",
+      "ruleId": "ROUTE-R06",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "Feature只读引用需精确版本：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT06-N",
+      "ruleId": "ROUTE-R06",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "Feature只读引用需精确版本：错误输入",
+      "mutations": [
+        {
+          "path": "route.operations[1].featureExactRef.hash",
+          "op": "set",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT07-P",
+      "ruleId": "ROUTE-R07",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "D08冻结不可覆盖：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT07-N",
+      "ruleId": "ROUTE-R07",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "D08冻结不可覆盖：错误输入",
+      "mutations": [
+        {
+          "path": "route.freeze.attemptOverwrite",
+          "op": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT08-P",
+      "ruleId": "ROUTE-R08",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "D05不得绑定执行机床：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT08-N",
+      "ruleId": "ROUTE-R08",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "D05不得绑定执行机床：错误输入",
+      "mutations": [
+        {
+          "path": "route.machineId",
+          "op": "set",
+          "value": "actual_machine"
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT09-P",
+      "ruleId": "ROUTE-R09",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "CAS/权限/取消代次重验：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT09-N",
+      "ruleId": "ROUTE-R09",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "CAS/权限/取消代次重验：错误输入",
+      "mutations": [
+        {
+          "path": "task.returnGeneration",
+          "op": "set",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ROUTE-AT10-P",
+      "ruleId": "ROUTE-R10",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "计划不自动宣称D15通过：合规输入",
+      "mutations": []
+    },
+    {
+      "id": "ROUTE-AT10-N",
+      "ruleId": "ROUTE-R10",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "计划不自动宣称D15通过：错误输入",
+      "mutations": [
+        {
+          "path": "route.outcome.d15State",
+          "op": "set",
+          "value": "PASS"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,522 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-11-02",
+  "researchTopic": "R-PROCESS-KNOWLEDGE-001",
+  "sourceRegistry": "research/sources/CAP-11-02.json",
+  "workPackageIds": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-11-02-R01",
+      "capabilityId": "CAP-11-02",
+      "summary": "知识记录身份不可缺失",
+      "engineeringRule": "每知识条目绑定原域Owner、exact revision、content hash及租户/Project Scope；不猜默认值",
+      "fields": [
+        "record.knowledgeId",
+        "record.exactRevision",
+        "record.contentHash",
+        "record.ownerScope"
+      ],
+      "sourceIds": [
+        "C1102-S03",
+        "C1102-S08"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "record.knowledgeId",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "record.exactRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "record.contentHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "record.ownerScope",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R02",
+      "capabilityId": "CAP-11-02",
+      "summary": "词表与术语同义边界",
+      "engineeringRule": "SKOS URI和Scheme版本必须锁定，跨Scheme映射人工审查，closeMatch不能当exactMatch",
+      "fields": [
+        "taxonomy.termUri",
+        "taxonomy.schemeRevision",
+        "taxonomy.mappingQualified",
+        "taxonomy.noImplicitExactMatch"
+      ],
+      "sourceIds": [
+        "C1102-S01",
+        "C1102-S05"
+      ],
+      "assets": [
+        "D02",
+        "D03"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "taxonomy.termUri",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taxonomy.schemeRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taxonomy.mappingQualified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taxonomy.noImplicitExactMatch",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R03",
+      "capabilityId": "CAP-11-02",
+      "summary": "材料状态及适用域",
+      "engineeringRule": "材料牌号、热处理、证据版次、物性单位四项精确匹配，不以大类代替具体牌号",
+      "fields": [
+        "material.standardDesignation",
+        "material.heatTreatment",
+        "material.sourceEdition",
+        "material.propertyUnits"
+      ],
+      "sourceIds": [
+        "C1102-S05",
+        "C1102-S07"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "material.standardDesignation",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.heatTreatment",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.sourceEdition",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "material.propertyUnits",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R04",
+      "capabilityId": "CAP-11-02",
+      "summary": "机床与刀具执行绑定",
+      "engineeringRule": "独立验证刀具装配revision、机床构型revision、控制器Profile及适用范围；D04不能替代D10",
+      "fields": [
+        "resource.toolAssemblyRevision",
+        "resource.machineCapabilityRevision",
+        "resource.controllerProfile",
+        "resource.applicabilityChecked"
+      ],
+      "sourceIds": [
+        "C1102-S04",
+        "C1102-S08"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "resource.toolAssemblyRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "resource.machineCapabilityRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "resource.controllerProfile",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "resource.applicabilityChecked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R05",
+      "capabilityId": "CAP-11-02",
+      "summary": "有界工艺参数",
+      "engineeringRule": "刀具建议须附单位、有效范围、工况来源，不得从目录或AI臆造数值",
+      "fields": [
+        "parameter.unit",
+        "parameter.validRange",
+        "parameter.sourceApplicability",
+        "parameter.noDefaultOnMissing"
+      ],
+      "sourceIds": [
+        "C1102-S04",
+        "C1102-S05",
+        "C1102-S06"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "parameter.unit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "parameter.validRange",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "parameter.sourceApplicability",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "parameter.noDefaultOnMissing",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R06",
+      "capabilityId": "CAP-11-02",
+      "summary": "规则表达、优先级及冲突",
+      "engineeringRule": "采用受限可审计DSL，规则冲突输出CONFLICT/UNKNOWN，禁止任意脚本执行",
+      "fields": [
+        "rule.deterministicDsl",
+        "rule.priorityPolicy",
+        "rule.conflictUnknown",
+        "rule.noArbitraryCode"
+      ],
+      "sourceIds": [
+        "C1102-S02",
+        "C1102-S06",
+        "C1102-S10"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "rule.deterministicDsl",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rule.priorityPolicy",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rule.conflictUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "rule.noArbitraryCode",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R07",
+      "capabilityId": "CAP-11-02",
+      "summary": "可追溯来源深度",
+      "engineeringRule": "保留URL、目录/全文实读范围、来源→字段→规则→反例闭环，不伪称标准认证",
+      "fields": [
+        "evidence.sourceUrl",
+        "evidence.accessDepth",
+        "evidence.ruleFieldTrace",
+        "evidence.noFalseCertification"
+      ],
+      "sourceIds": [
+        "C1102-S03",
+        "C1102-S07",
+        "C1102-S08"
+      ],
+      "assets": [
+        "D02",
+        "D05",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "evidence.sourceUrl",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.accessDepth",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.ruleFieldTrace",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.noFalseCertification",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R08",
+      "capabilityId": "CAP-11-02",
+      "summary": "知识失效、CAS与取消",
+      "engineeringRule": "Owner知识更新重验CAS、ACL/Scope；依赖更新标STALE，取消晚回执不提交",
+      "fields": [
+        "revision.ownerCas",
+        "revision.aclRecheck",
+        "revision.invalidateOnDependencyChange",
+        "revision.cancelLateAck"
+      ],
+      "sourceIds": [
+        "C1102-S03",
+        "C1102-S09",
+        "C1102-S10"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D08",
+        "D17"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "revision.ownerCas",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "revision.aclRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "revision.invalidateOnDependencyChange",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "revision.cancelLateAck",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R09",
+      "capabilityId": "CAP-11-02",
+      "summary": "建议与验证强隔离",
+      "engineeringRule": "知识只生成ADVISORY，不覆盖D08；D15需D12最终NC→D13→D14独立检查，UNKNOWN不发布D16",
+      "fields": [
+        "consumer.advisoryOnly",
+        "consumer.noRewriteFrozenD08",
+        "consumer.unknownBlocksD16",
+        "consumer.d15Independent"
+      ],
+      "sourceIds": [
+        "C1102-S07",
+        "C1102-S08",
+        "C1102-S10"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "consumer.advisoryOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "consumer.noRewriteFrozenD08",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "consumer.unknownBlocksD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "consumer.d15Independent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-11-02-R10",
+      "capabilityId": "CAP-11-02",
+      "summary": "三入口及安全迁移",
+      "engineeringRule": "GUI/CLI/Agent同KnowledgePort，唯一Babylon与左TaskPanel，旧规则影子比对及独立消费者验收",
+      "fields": [
+        "delivery.sharedPortGuiCliAgent",
+        "delivery.singleBabylonLeftTaskPanel",
+        "delivery.shadowReadAndRollback",
+        "delivery.independentConsumerPending"
+      ],
+      "sourceIds": [
+        "C1102-S02",
+        "C1102-S06",
+        "C1102-S09"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D05",
+        "D10"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "delivery.sharedPortGuiCliAgent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.singleBabylonLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.shadowReadAndRollback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "delivery.independentConsumerPending",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每规则1正例+4独立单字段负例；现场NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "approval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

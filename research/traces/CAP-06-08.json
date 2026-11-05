@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-08",
+  "researchTopic": "R-INCREMENTAL-FREEZE-001",
+  "sourceRegistry": "research/sources/CAP-06-08.json",
+  "specification": "docs/capabilities/CAP-06-08/README.md",
+  "ui": "docs/capabilities/CAP-06-08/UI.md",
+  "fixtures": "docs/capabilities/CAP-06-08/fixtures.json",
+  "validator": "tools/check_cap0608_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0608-R01",
+      "capabilityId": "CAP-06-08",
+      "summary": "Owner精确引用验证与Frame隔离",
+      "fields": [
+        "revision",
+        "contentHash",
+        "frameHash",
+        "setupRevision",
+        "scopeId"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S03",
+        "SRC-C0608-S04",
+        "SRC-C0608-S05"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-08-T01",
+      "negativeTestId": "CAP-06-08-T02",
+      "mutationTestId": "CAP-06-08-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R02",
+      "capabilityId": "CAP-06-08",
+      "summary": "冻结范围不写入且保持D08原字节",
+      "fields": [
+        "locked",
+        "touched",
+        "frozenBeforeHash",
+        "frozenAfterHash",
+        "authorized"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S03",
+        "SRC-C0608-S04",
+        "SRC-C0608-S08"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-08-T03",
+      "negativeTestId": "CAP-06-08-T04",
+      "mutationTestId": "CAP-06-08-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R03",
+      "capabilityId": "CAP-06-08",
+      "summary": "依赖变更计算最小闭包且无关节点稳定",
+      "fields": [
+        "edges",
+        "changed",
+        "affected",
+        "unaffectedStable"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S01",
+        "SRC-C0608-S03"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07",
+        "D09"
+      ],
+      "positiveTestId": "CAP-06-08-T05",
+      "negativeTestId": "CAP-06-08-T06",
+      "mutationTestId": "CAP-06-08-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R04",
+      "capabilityId": "CAP-06-08",
+      "summary": "复用checkpoint必须匹配输入/算法/容差指纹",
+      "fields": [
+        "priorHash",
+        "currentHash",
+        "priorAlgo",
+        "currentAlgo",
+        "priorTolerance",
+        "currentTolerance"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S01",
+        "SRC-C0608-S02"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-08-T07",
+      "negativeTestId": "CAP-06-08-T08",
+      "mutationTestId": "CAP-06-08-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R05",
+      "capabilityId": "CAP-06-08",
+      "summary": "修订谱系DAG无环且父状态与冻结字节不变",
+      "fields": [
+        "edges",
+        "parentRevision",
+        "childRevision",
+        "parentPreserved",
+        "freezePreserved"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S02",
+        "SRC-C0608-S03",
+        "SRC-C0608-S08"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-08-T09",
+      "negativeTestId": "CAP-06-08-T10",
+      "mutationTestId": "CAP-06-08-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R06",
+      "capabilityId": "CAP-06-08",
+      "summary": "Owner提交时重验Stage/Seal/CAS/ACL/代次/取消",
+      "fields": [
+        "sealed",
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "generation",
+        "receiptGeneration",
+        "cancelled"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S04",
+        "SRC-C0608-S05",
+        "SRC-C0608-S06"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-08-T11",
+      "negativeTestId": "CAP-06-08-T12",
+      "mutationTestId": "CAP-06-08-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R07",
+      "capabilityId": "CAP-06-08",
+      "summary": "A/B同事实与05域采纳禁止覆盖冻结",
+      "fields": [
+        "mode",
+        "canonicalFactHash",
+        "observedFactHash",
+        "duplicateFrozen",
+        "adoptOwner"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S03",
+        "SRC-C0608-S04"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-08-T13",
+      "negativeTestId": "CAP-06-08-T14",
+      "mutationTestId": "CAP-06-08-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R08",
+      "capabilityId": "CAP-06-08",
+      "summary": "独立D07几何Oracle才能准许候选接管",
+      "fields": [
+        "oracleProcess",
+        "generatorProcess",
+        "oracleBinaryHash",
+        "generatorBinaryHash",
+        "recomputed",
+        "geometryValid"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S02",
+        "SRC-C0608-S03"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-08-T15",
+      "negativeTestId": "CAP-06-08-T16",
+      "mutationTestId": "CAP-06-08-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R09",
+      "capabilityId": "CAP-06-08",
+      "summary": "预算/控制器未知不可宣称无解或NC验证通过",
+      "fields": [
+        "budgetExhausted",
+        "searchStatus",
+        "controllerStatus",
+        "ncValidated",
+        "publishAllowed"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S01",
+        "SRC-C0608-S07"
+      ],
+      "assets": [
+        "D06",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-08-T17",
+      "negativeTestId": "CAP-06-08-T18",
+      "mutationTestId": "CAP-06-08-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0608-R10",
+      "capabilityId": "CAP-06-08",
+      "summary": "取消晚回执丢弃、旧reader兼容且回退不删用户数据",
+      "fields": [
+        "late",
+        "receiptAction",
+        "legacyReadOnly",
+        "rollbackExact",
+        "originalDataPreserved"
+      ],
+      "sourceIds": [
+        "SRC-C0608-S04",
+        "SRC-C0608-S05",
+        "SRC-C0608-S06"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-08-T19",
+      "negativeTestId": "CAP-06-08-T20",
+      "mutationTestId": "CAP-06-08-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

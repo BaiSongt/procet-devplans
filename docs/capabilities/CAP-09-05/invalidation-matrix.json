@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "procet-cap0905-invalidation-v1",
+  "changes": [
+    {
+      "changed": "D03机床运动链/限位/机床能力版本",
+      "stale": [
+        "D10.bindingCompatibility",
+        "D11",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D04名义Setup/Frame/毛坯装夹",
+      "stale": [
+        "D11",
+        "D12.context",
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D08工艺冻结范围",
+      "stale": [
+        "D09.relation",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D09中立CL任一段/修订/hash",
+      "stale": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "D10机床/控制器/实际工件与刀具绑定",
+      "stale": [
+        "D11",
+        "D12.profileBinding",
+        "D13",
+        "D14",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "09域FK/IK/采样容差/初筛算法revision",
+      "stale": [
+        "D11",
+        "D14.compareEvidence",
+        "D15",
+        "D16.eligibility"
+      ]
+    },
+    {
+      "changed": "ACL撤权/CAS冲突/generation改变/取消",
+      "stale": [
+        "currentAttemptOnly"
+      ],
+      "action": "REJECT_LATE_ACK"
+    }
+  ],
+  "preserve": [
+    "D08已有冻结",
+    "D16历史发布记录",
+    "原D11只读历史",
+    "用户数据库"
+  ],
+  "rollback": "paired Reader/Schema/kinematics/profile; expand-migrate-contract; NO_DESTRUCTIVE_ROLLBACK"
+}

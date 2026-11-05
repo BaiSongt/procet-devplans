@@ -1,0 +1,707 @@
+{
+  "schemaVersion": "procet-b39-fixture-v1",
+  "date": "2026-10-30",
+  "workPackage": "U4-05",
+  "capability": "CAP-01-07",
+  "warning": "纯JS规划判定状态，不是真实可访问性审计/浏览器/制造Owner签署/独立消费者/产品测试",
+  "baseline": {
+    "event.key": "Escape",
+    "event.isComposing": false,
+    "event.compositionStateTrusted": true,
+    "event.repeat": false,
+    "focus.modalOpen": true,
+    "focus.kind": "MODAL",
+    "focus.initialInside": true,
+    "focus.restoreAnchor": true,
+    "focus.trap": true,
+    "focus.obscured": false,
+    "edit.dirty": false,
+    "edit.confirmOnDirty": true,
+    "edit.discardWithoutConfirm": false,
+    "edit.previewWrites": false,
+    "gesture.captureActive": false,
+    "gesture.cancelled": false,
+    "gesture.captureLost": false,
+    "gesture.promotePick": false,
+    "pointer.widthCssPx": 24,
+    "pointer.heightCssPx": 24,
+    "pointer.exception": "NONE",
+    "pointer.keyboardAlt": true,
+    "pointer.dragAlt": true,
+    "render.engineCount": 1,
+    "render.sceneCount": 1,
+    "render.canvasCount": 1,
+    "render.activeRoot": "PROJECT",
+    "render.hiddenRootPickable": false,
+    "render.sceneEpoch": 5,
+    "render.pickEpoch": 5,
+    "render.leaseEpoch": 5,
+    "owner.expectedRevision": "D04-r11",
+    "owner.actualRevision": "D04-r11",
+    "owner.expectedHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "owner.actualHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "owner.expectedFrame": "PART",
+    "owner.actualFrame": "PART",
+    "owner.aclEpoch": 7,
+    "owner.aclNow": 7,
+    "owner.scopeEpoch": 9,
+    "owner.scopeNow": 9,
+    "owner.cancelEpoch": 1,
+    "owner.ackEpoch": 1,
+    "owner.cancelled": false,
+    "owner.lateAck": false,
+    "ui.channels": "GUI|CLI|Agent",
+    "ui.port": "04.EditSessionPort",
+    "ui.leftPanel": true,
+    "ui.fontMaxPx": 12,
+    "flow.d04": "D04-r11",
+    "flow.d10": "D10-r4",
+    "flow.freezeBefore": "D08-f3",
+    "flow.freezeAfter": "D08-f3",
+    "flow.d13": "KNOWN_SUBSET",
+    "flow.d15": "NOT_RUN",
+    "flow.clAsNcVerified": false,
+    "flow.oldReader": "SHADOW_READ_ONLY",
+    "flow.consumer": "NOT_RUN"
+  },
+  "positiveCount": 7,
+  "negativeCount": 53,
+  "unknownCount": 4,
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "ruleId": "ALL",
+      "patch": {},
+      "expected": "MODAL_DISMISS_NO_WRITE"
+    },
+    {
+      "id": "P02",
+      "kind": "positive",
+      "ruleId": "B39-R3",
+      "patch": {
+        "edit.dirty": true
+      },
+      "expected": "DIRTY_CONFIRM_REQUIRED"
+    },
+    {
+      "id": "P03",
+      "kind": "positive",
+      "ruleId": "B39-R1",
+      "patch": {
+        "event.isComposing": true
+      },
+      "expected": "IME_RESERVED"
+    },
+    {
+      "id": "P04",
+      "kind": "positive",
+      "ruleId": "B39-R4",
+      "patch": {
+        "event.key": "pointercancel",
+        "gesture.captureActive": true,
+        "gesture.cancelled": true
+      },
+      "expected": "CAPTURE_RELEASE_NO_PICK"
+    },
+    {
+      "id": "P05",
+      "kind": "positive",
+      "ruleId": "B39-R2",
+      "patch": {
+        "focus.modalOpen": false,
+        "focus.kind": "TASK",
+        "focus.trap": false
+      },
+      "expected": "TASK_EXIT_NO_WRITE"
+    },
+    {
+      "id": "P06",
+      "kind": "positive",
+      "ruleId": "B39-R1",
+      "patch": {
+        "event.repeat": true
+      },
+      "expected": "REPEAT_IGNORED"
+    },
+    {
+      "id": "P07",
+      "kind": "positive",
+      "ruleId": "B39-R4",
+      "patch": {
+        "event.key": "lostpointercapture",
+        "gesture.captureActive": true,
+        "gesture.captureLost": true
+      },
+      "expected": "CAPTURE_RELEASE_NO_PICK"
+    },
+    {
+      "id": "U01",
+      "kind": "unknown",
+      "ruleId": "B39-R6",
+      "patch": {
+        "pointer.exception": "EXCEPTION_PENDING_REVIEW",
+        "pointer.widthCssPx": 16,
+        "pointer.heightCssPx": 16
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U02",
+      "kind": "unknown",
+      "ruleId": "B39-R2",
+      "patch": {
+        "focus.restoreAnchor": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U03",
+      "kind": "unknown",
+      "ruleId": "B39-R8",
+      "patch": {
+        "flow.d13": "UNKNOWN"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U04",
+      "kind": "unknown",
+      "ruleId": "B39-R1",
+      "patch": {
+        "event.compositionStateTrusted": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "ruleId": "B39-R1",
+      "changedField": "event.key",
+      "patch": {
+        "event.key": "Enter"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "ruleId": "B39-R1",
+      "changedField": "event.isComposing",
+      "patch": {
+        "event.isComposing": "no"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "ruleId": "B39-R1",
+      "changedField": "event.repeat",
+      "patch": {
+        "event.repeat": "no"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "ruleId": "B39-R2",
+      "changedField": "focus.kind",
+      "patch": {
+        "focus.kind": "TASK"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "ruleId": "B39-R2",
+      "changedField": "focus.initialInside",
+      "patch": {
+        "focus.initialInside": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "ruleId": "B39-R2",
+      "changedField": "focus.restoreAnchor",
+      "patch": {
+        "focus.restoreAnchor": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "ruleId": "B39-R2",
+      "changedField": "focus.trap",
+      "patch": {
+        "focus.trap": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "ruleId": "B39-R2",
+      "changedField": "focus.obscured",
+      "patch": {
+        "focus.obscured": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "ruleId": "B39-R2",
+      "changedField": "focus.modalOpen",
+      "patch": {
+        "focus.modalOpen": "NO"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "ruleId": "B39-R3",
+      "changedField": "edit.confirmOnDirty",
+      "patch": {
+        "edit.confirmOnDirty": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "ruleId": "B39-R3",
+      "changedField": "edit.discardWithoutConfirm",
+      "patch": {
+        "edit.discardWithoutConfirm": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "ruleId": "B39-R3",
+      "changedField": "edit.previewWrites",
+      "patch": {
+        "edit.previewWrites": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "ruleId": "B39-R4",
+      "changedField": "gesture.promotePick",
+      "patch": {
+        "gesture.promotePick": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "ruleId": "B39-R4",
+      "changedField": "gesture.captureActive",
+      "patch": {
+        "gesture.captureActive": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "ruleId": "B39-R4",
+      "changedField": "gesture.cancelled",
+      "patch": {
+        "gesture.cancelled": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "ruleId": "B39-R4",
+      "changedField": "gesture.captureLost",
+      "patch": {
+        "gesture.captureLost": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "ruleId": "B39-R5",
+      "changedField": "render.engineCount",
+      "patch": {
+        "render.engineCount": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "ruleId": "B39-R5",
+      "changedField": "render.sceneCount",
+      "patch": {
+        "render.sceneCount": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "ruleId": "B39-R5",
+      "changedField": "render.canvasCount",
+      "patch": {
+        "render.canvasCount": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "ruleId": "B39-R5",
+      "changedField": "render.hiddenRootPickable",
+      "patch": {
+        "render.hiddenRootPickable": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N21",
+      "kind": "negative",
+      "ruleId": "B39-R5",
+      "changedField": "render.sceneEpoch",
+      "patch": {
+        "render.sceneEpoch": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N22",
+      "kind": "negative",
+      "ruleId": "B39-R5",
+      "changedField": "render.pickEpoch",
+      "patch": {
+        "render.pickEpoch": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N23",
+      "kind": "negative",
+      "ruleId": "B39-R5",
+      "changedField": "render.leaseEpoch",
+      "patch": {
+        "render.leaseEpoch": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N24",
+      "kind": "negative",
+      "ruleId": "B39-R6",
+      "changedField": "pointer.widthCssPx",
+      "patch": {
+        "pointer.widthCssPx": 23
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N25",
+      "kind": "negative",
+      "ruleId": "B39-R6",
+      "changedField": "pointer.heightCssPx",
+      "patch": {
+        "pointer.heightCssPx": 23
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N26",
+      "kind": "negative",
+      "ruleId": "B39-R6",
+      "changedField": "pointer.exception",
+      "patch": {
+        "pointer.exception": "UNVERIFIED"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N27",
+      "kind": "negative",
+      "ruleId": "B39-R6",
+      "changedField": "pointer.keyboardAlt",
+      "patch": {
+        "pointer.keyboardAlt": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N28",
+      "kind": "negative",
+      "ruleId": "B39-R6",
+      "changedField": "pointer.dragAlt",
+      "patch": {
+        "pointer.dragAlt": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N29",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.expectedRevision",
+      "patch": {
+        "owner.expectedRevision": "D04-r10"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N30",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.actualRevision",
+      "patch": {
+        "owner.actualRevision": "D04-r12"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N31",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.expectedHash",
+      "patch": {
+        "owner.expectedHash": "BAD"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N32",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.actualHash",
+      "patch": {
+        "owner.actualHash": "BAD"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N33",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.expectedFrame",
+      "patch": {
+        "owner.expectedFrame": "MACHINE"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N34",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.actualFrame",
+      "patch": {
+        "owner.actualFrame": "MACHINE"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N35",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.aclEpoch",
+      "patch": {
+        "owner.aclEpoch": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N36",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.aclNow",
+      "patch": {
+        "owner.aclNow": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N37",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.scopeEpoch",
+      "patch": {
+        "owner.scopeEpoch": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N38",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.scopeNow",
+      "patch": {
+        "owner.scopeNow": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N39",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.cancelEpoch",
+      "patch": {
+        "owner.cancelEpoch": 2
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N40",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.ackEpoch",
+      "patch": {
+        "owner.ackEpoch": 2
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N41",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.cancelled",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N42",
+      "kind": "negative",
+      "ruleId": "B39-R7",
+      "changedField": "owner.lateAck",
+      "patch": {
+        "owner.lateAck": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N43",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "ui.channels",
+      "patch": {
+        "ui.channels": "GUI|Agent"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N44",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "ui.port",
+      "patch": {
+        "ui.port": "01.FakePort"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N45",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "ui.leftPanel",
+      "patch": {
+        "ui.leftPanel": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N46",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "ui.fontMaxPx",
+      "patch": {
+        "ui.fontMaxPx": 13
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N47",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "flow.freezeAfter",
+      "patch": {
+        "flow.freezeAfter": "D08-f4"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N48",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "flow.clAsNcVerified",
+      "patch": {
+        "flow.clAsNcVerified": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N49",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "flow.oldReader",
+      "patch": {
+        "flow.oldReader": "WRITE_OLD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N50",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "flow.consumer",
+      "patch": {
+        "flow.consumer": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N51",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "flow.d04",
+      "patch": {
+        "flow.d04": "D04-r9"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N52",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "flow.d10",
+      "patch": {
+        "flow.d10": "D10-r8"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N53",
+      "kind": "negative",
+      "ruleId": "B39-R8",
+      "changedField": "flow.d15",
+      "patch": {
+        "flow.d15": "PASS"
+      },
+      "expected": "UNKNOWN"
+    }
+  ]
+}

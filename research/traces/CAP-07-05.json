@@ -1,0 +1,566 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-05",
+  "researchTopic": "R-STAGE-MACHINING-001",
+  "sourceRegistry": "research/sources/CAP-07-05.json",
+  "specification": "docs/capabilities/CAP-07-05/README.md",
+  "ui": "docs/capabilities/CAP-07-05/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-05/fixtures.json",
+  "validator": "tools/check_cap0705_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "C0705-R01",
+      "capabilityId": "CAP-07-05",
+      "title": "冻结来源与右手Frame精确绑定",
+      "summary": "冻结来源与右手Frame精确绑定；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "sourceRevision",
+        "geometryHash",
+        "frameHash",
+        "frameHandedness",
+        "frozenUnchanged"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S05",
+        "SRC-C0705-S06",
+        "SRC-C0705-S07"
+      ],
+      "criteria": [
+        {
+          "path": "sourceRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "geometryHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frameHandedness",
+          "op": "eq",
+          "value": "RIGHT"
+        },
+        {
+          "path": "frozenUnchanged",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T01",
+      "negativeTestId": "CAP-07-05-T02",
+      "mutationTestId": "CAP-07-05-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R02",
+      "capabilityId": "CAP-07-05",
+      "title": "粗半精精阶段有序且不跨阶段偷换资产",
+      "summary": "粗半精精阶段有序且不跨阶段偷换资产；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "phaseOrder",
+        "phaseSequenceUnique",
+        "transitionEdgesRecorded",
+        "setupSameRevision"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S01",
+        "SRC-C0705-S02",
+        "SRC-C0705-S03"
+      ],
+      "criteria": [
+        {
+          "path": "phaseOrder",
+          "op": "eq",
+          "value": "ROUGH_SEMI_FINISH"
+        },
+        {
+          "path": "phaseSequenceUnique",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transitionEdgesRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setupSameRevision",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T03",
+      "negativeTestId": "CAP-07-05-T04",
+      "mutationTestId": "CAP-07-05-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R03",
+      "capabilityId": "CAP-07-05",
+      "title": "径向轴向与阶段余量单调但非固定值",
+      "summary": "径向轴向与阶段余量单调但非固定值；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "roughRadialAllowanceMm",
+        "semiRadialAllowanceMm",
+        "finishRadialAllowanceMm",
+        "roughAxialAllowanceMm",
+        "semiAxialAllowanceMm",
+        "finishAxialAllowanceMm"
+      ],
+      "assets": [
+        "D02",
+        "D05",
+        "D07",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S02",
+        "SRC-C0705-S03"
+      ],
+      "criteria": [
+        {
+          "path": "roughRadialAllowanceMm",
+          "op": "gtField",
+          "other": "semiRadialAllowanceMm"
+        },
+        {
+          "path": "semiRadialAllowanceMm",
+          "op": "gtField",
+          "other": "finishRadialAllowanceMm"
+        },
+        {
+          "path": "finishRadialAllowanceMm",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "roughAxialAllowanceMm",
+          "op": "gtField",
+          "other": "semiAxialAllowanceMm"
+        },
+        {
+          "path": "semiAxialAllowanceMm",
+          "op": "gtField",
+          "other": "finishAxialAllowanceMm"
+        },
+        {
+          "path": "finishAxialAllowanceMm",
+          "op": "eq",
+          "value": 0
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T05",
+      "negativeTestId": "CAP-07-05-T06",
+      "mutationTestId": "CAP-07-05-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R04",
+      "capabilityId": "CAP-07-05",
+      "title": "残料来源采用有序D07前态而非初始毛坯代替",
+      "summary": "残料来源采用有序D07前态而非初始毛坯代替；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "stockBeforeRevision",
+        "stockBeforeHash",
+        "previousStageCommitted",
+        "usesInitialStockForRest"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S04",
+        "SRC-C0705-S05",
+        "SRC-C0705-S06"
+      ],
+      "criteria": [
+        {
+          "path": "stockBeforeRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "stockBeforeHash",
+          "op": "sha256"
+        },
+        {
+          "path": "previousStageCommitted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "usesInitialStockForRest",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T07",
+      "negativeTestId": "CAP-07-05-T08",
+      "mutationTestId": "CAP-07-05-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R05",
+      "capabilityId": "CAP-07-05",
+      "title": "岛屿保护区和修剪几何保守校核",
+      "summary": "岛屿保护区和修剪几何保守校核；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "protectedZoneUnchanged",
+        "trimmedDomainCertified",
+        "localGougeOracle",
+        "screenProxyIsEvidence"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D07",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S04",
+        "SRC-C0705-S05"
+      ],
+      "criteria": [
+        {
+          "path": "protectedZoneUnchanged",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "trimmedDomainCertified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "localGougeOracle",
+          "op": "eq",
+          "value": "PASS_LOCAL_BREP"
+        },
+        {
+          "path": "screenProxyIsEvidence",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T09",
+      "negativeTestId": "CAP-07-05-T10",
+      "mutationTestId": "CAP-07-05-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R06",
+      "capabilityId": "CAP-07-05",
+      "title": "质量目标与实际测量状态保持隔离",
+      "summary": "质量目标与实际测量状态保持隔离；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "qualityTargetRevision",
+        "roughnessTargetUm",
+        "roughnessTargetUnit",
+        "measurementStatus",
+        "qualityClaimCertified"
+      ],
+      "assets": [
+        "D02",
+        "D05",
+        "D09",
+        "D15"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S01",
+        "SRC-C0705-S03",
+        "SRC-C0705-S09"
+      ],
+      "criteria": [
+        {
+          "path": "qualityTargetRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "roughnessTargetUm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "roughnessTargetUnit",
+          "op": "eq",
+          "value": "um"
+        },
+        {
+          "path": "measurementStatus",
+          "op": "eq",
+          "value": "NOT_MEASURED"
+        },
+        {
+          "path": "qualityClaimCertified",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T11",
+      "negativeTestId": "CAP-07-05-T12",
+      "mutationTestId": "CAP-07-05-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R07",
+      "capabilityId": "CAP-07-05",
+      "title": "刀具与刀柄按阶段冻结资源修订",
+      "summary": "刀具与刀柄按阶段冻结资源修订；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "toolRevision",
+        "toolGeometryHash",
+        "holderGeometryHash",
+        "resourceStageCompatible",
+        "holderLocalCheck"
+      ],
+      "assets": [
+        "D03",
+        "D05",
+        "D09",
+        "D11"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S02",
+        "SRC-C0705-S03",
+        "SRC-C0705-S05"
+      ],
+      "criteria": [
+        {
+          "path": "toolRevision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "toolGeometryHash",
+          "op": "sha256"
+        },
+        {
+          "path": "holderGeometryHash",
+          "op": "sha256"
+        },
+        {
+          "path": "resourceStageCompatible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "holderLocalCheck",
+          "op": "eq",
+          "value": "PASS_LOCAL_ONLY"
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T13",
+      "negativeTestId": "CAP-07-05-T14",
+      "mutationTestId": "CAP-07-05-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R08",
+      "capabilityId": "CAP-07-05",
+      "title": "各阶段输出统一D09中立CL而非机床轴代码",
+      "summary": "各阶段输出统一D09中立CL而非机床轴代码；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "clHasToolTipAxisFeed",
+        "clCoordinateFrameHash",
+        "clNeutral",
+        "hasControllerWords",
+        "d10BindingState"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S01",
+        "SRC-C0705-S08",
+        "SRC-C0705-S06"
+      ],
+      "criteria": [
+        {
+          "path": "clHasToolTipAxisFeed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clCoordinateFrameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "clNeutral",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "hasControllerWords",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "d10BindingState",
+          "op": "eq",
+          "value": "SEPARATE_NOT_BOUND"
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T15",
+      "negativeTestId": "CAP-07-05-T16",
+      "mutationTestId": "CAP-07-05-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R09",
+      "capabilityId": "CAP-07-05",
+      "title": "最终NC执行链UNKNOWN时D16发布阻断",
+      "summary": "最终NC执行链UNKNOWN时D16发布阻断；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "d12PostStatus",
+        "d13SemanticStatus",
+        "d14TimingStatus",
+        "d15VerificationStatus",
+        "d16Release",
+        "materialSweepSimulated"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S08",
+        "SRC-C0705-S09"
+      ],
+      "criteria": [
+        {
+          "path": "d12PostStatus",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d13SemanticStatus",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "d14TimingStatus",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d15VerificationStatus",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d16Release",
+          "op": "eq",
+          "value": "BLOCKED"
+        },
+        {
+          "path": "materialSweepSimulated",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T17",
+      "negativeTestId": "CAP-07-05-T18",
+      "mutationTestId": "CAP-07-05-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0705-R10",
+      "capabilityId": "CAP-07-05",
+      "title": "Owner CAS ACL取消代次重验及非破坏回退",
+      "summary": "Owner CAS ACL取消代次重验及非破坏回退；本项是规划候选工程规则，不主张标准条款原文",
+      "fields": [
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "taskGeneration",
+        "receiptGeneration",
+        "cancelled",
+        "rollbackMode"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D17"
+      ],
+      "sourceIds": [
+        "SRC-C0705-S06",
+        "SRC-C0705-S07"
+      ],
+      "criteria": [
+        {
+          "path": "expectedHead",
+          "op": "sameField",
+          "other": "actualHead"
+        },
+        {
+          "path": "expectedHead",
+          "op": "sha256"
+        },
+        {
+          "path": "aclAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taskGeneration",
+          "op": "sameField",
+          "other": "receiptGeneration"
+        },
+        {
+          "path": "cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "rollbackMode",
+          "op": "eq",
+          "value": "NON_DESTRUCTIVE"
+        }
+      ],
+      "positiveTestId": "CAP-07-05-T19",
+      "negativeTestId": "CAP-07-05-T20",
+      "mutationTestId": "CAP-07-05-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

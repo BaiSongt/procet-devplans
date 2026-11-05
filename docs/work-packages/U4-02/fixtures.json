@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "procet-u402-synthetic-fixtures-v1",
+  "purpose": "示意规则合成不等于实际领域服务",
+  "cases": [
+    {
+      "id": "U4-02-T01",
+      "ruleId": "U4-02-R01",
+      "input": {
+        "entry": {
+          "surface": "Ribbon",
+          "commandId": "D04.saveDraft",
+          "resolvedCommandId": "D04.saveDraft",
+          "ownerPort": "D04"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T02",
+      "ruleId": "U4-02-R01",
+      "input": {
+        "entry": {
+          "surface": "Ribbon",
+          "commandId": "D04.saveDraft",
+          "resolvedCommandId": "D04.saveDraft",
+          "ownerPort": "Shell"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T03",
+      "ruleId": "U4-02-R02",
+      "input": {
+        "contribution": {
+          "registered": true,
+          "requiredCapability": "D04.writeDraft",
+          "portCapabilities": [
+            "D04.writeDraft"
+          ],
+          "backendReady": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T04",
+      "ruleId": "U4-02-R02",
+      "input": {
+        "contribution": {
+          "registered": true,
+          "requiredCapability": "D04.writeDraft",
+          "portCapabilities": [
+            "D04.writeDraft"
+          ],
+          "backendReady": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T05",
+      "ruleId": "U4-02-R03",
+      "input": {
+        "session": {
+          "projectId": "P1",
+          "documentId": "DOC-B",
+          "documentRevision": "r3",
+          "documentHash": "sha256:docb3",
+          "setupId": "S-B",
+          "setupRevision": "s7",
+          "setupHash": "sha256:setupb7",
+          "frameHash": "sha256:frame2"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T06",
+      "ruleId": "U4-02-R03",
+      "input": {
+        "session": {
+          "projectId": "P1",
+          "documentId": "DOC-B",
+          "documentRevision": "r3",
+          "documentHash": "sha256:docb3",
+          "setupId": "S-B",
+          "setupRevision": "s7",
+          "setupHash": "",
+          "frameHash": "sha256:frame2"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T07",
+      "ruleId": "U4-02-R04",
+      "input": {
+        "edit": {
+          "dirty": true,
+          "resolution": "DISCARD_CONFIRMED",
+          "userConfirmed": true,
+          "preservedDraft": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T08",
+      "ruleId": "U4-02-R04",
+      "input": {
+        "edit": {
+          "dirty": true,
+          "resolution": "AUTO_DISCARD",
+          "userConfirmed": true,
+          "preservedDraft": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T09",
+      "ruleId": "U4-02-R05",
+      "input": {
+        "edit": {
+          "action": "SAVE_DRAFT",
+          "approvalCreated": false,
+          "draftRevisionCreated": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T10",
+      "ruleId": "U4-02-R05",
+      "input": {
+        "edit": {
+          "action": "SAVE_DRAFT",
+          "approvalCreated": true,
+          "draftRevisionCreated": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T11",
+      "ruleId": "U4-02-R06",
+      "input": {
+        "approval": {
+          "action": "APPROVE",
+          "humanApproval": true,
+          "ownerAuthorized": true,
+          "d08SourceHash": "sha256:freeze-base"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T12",
+      "ruleId": "U4-02-R06",
+      "input": {
+        "approval": {
+          "action": "APPROVE",
+          "humanApproval": false,
+          "ownerAuthorized": true,
+          "d08SourceHash": "sha256:freeze-base"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T13",
+      "ruleId": "U4-02-R07",
+      "input": {
+        "commit": {
+          "expectedHead": "head20",
+          "currentHead": "head20",
+          "aclEpoch": 4,
+          "currentAclEpoch": 4,
+          "generation": 8,
+          "currentGeneration": 8,
+          "cancelled": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T14",
+      "ruleId": "U4-02-R07",
+      "input": {
+        "commit": {
+          "expectedHead": "head20",
+          "currentHead": "head21",
+          "aclEpoch": 4,
+          "currentAclEpoch": 4,
+          "generation": 8,
+          "currentGeneration": 8,
+          "cancelled": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T15",
+      "ruleId": "U4-02-R08",
+      "input": {
+        "expected": {
+          "scopeEpoch": 16,
+          "generation": 8,
+          "documentHash": "sha256:docb3"
+        },
+        "receipt": {
+          "scopeEpoch": 16,
+          "generation": 8,
+          "documentHash": "sha256:docb3",
+          "cancelled": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T16",
+      "ruleId": "U4-02-R08",
+      "input": {
+        "expected": {
+          "scopeEpoch": 16,
+          "generation": 8,
+          "documentHash": "sha256:docb3"
+        },
+        "receipt": {
+          "scopeEpoch": 16,
+          "generation": 7,
+          "documentHash": "sha256:docb3",
+          "cancelled": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T17",
+      "ruleId": "U4-02-R09",
+      "input": {
+        "retry": {
+          "key": "op83",
+          "payloadHash": "sha256:payload-a",
+          "priorPayloadHash": "sha256:payload-a",
+          "receiptId": "ack1",
+          "priorReceiptId": "ack1"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T18",
+      "ruleId": "U4-02-R09",
+      "input": {
+        "retry": {
+          "key": "op83",
+          "payloadHash": "sha256:payload-a",
+          "priorPayloadHash": "other",
+          "receiptId": "ack1",
+          "priorReceiptId": "ack1"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-02-T19",
+      "ruleId": "U4-02-R10",
+      "input": {
+        "integration": {
+          "sceneCount": 1,
+          "controllerCount": 1,
+          "writeOwnerPortCount": 1,
+          "oldReaderCompatible": true,
+          "migrationStage": "EXPAND"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-02-T20",
+      "ruleId": "U4-02-R10",
+      "input": {
+        "integration": {
+          "sceneCount": 1,
+          "controllerCount": 2,
+          "writeOwnerPortCount": 1,
+          "oldReaderCompatible": true,
+          "migrationStage": "EXPAND"
+        }
+      },
+      "expected": "REJECT"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "U4-02-M01",
+      "ruleId": "U4-02-R01",
+      "input": {
+        "entry": {
+          "surface": "Ribbon",
+          "commandId": "D04.saveDraft",
+          "resolvedCommandId": "D04.approve",
+          "ownerPort": "D04"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M02",
+      "ruleId": "U4-02-R02",
+      "input": {
+        "contribution": {
+          "registered": true,
+          "requiredCapability": "D04.writeDraft",
+          "portCapabilities": [],
+          "backendReady": true
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M03",
+      "ruleId": "U4-02-R03",
+      "input": {
+        "session": {
+          "projectId": "P1",
+          "documentId": "DOC-B",
+          "documentRevision": "r3",
+          "documentHash": "sha256:docb3",
+          "setupId": "S-B",
+          "setupRevision": "s7",
+          "setupHash": "sha256:setupb7",
+          "frameHash": ""
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M04",
+      "ruleId": "U4-02-R04",
+      "input": {
+        "edit": {
+          "dirty": true,
+          "resolution": "DISCARD_CONFIRMED",
+          "userConfirmed": false,
+          "preservedDraft": false
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M05",
+      "ruleId": "U4-02-R05",
+      "input": {
+        "edit": {
+          "action": "SAVE_DRAFT",
+          "approvalCreated": false,
+          "draftRevisionCreated": false
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M06",
+      "ruleId": "U4-02-R06",
+      "input": {
+        "approval": {
+          "action": "APPROVE",
+          "humanApproval": true,
+          "ownerAuthorized": false,
+          "d08SourceHash": "sha256:freeze-base"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M07",
+      "ruleId": "U4-02-R07",
+      "input": {
+        "commit": {
+          "expectedHead": "head20",
+          "currentHead": "head20",
+          "aclEpoch": 4,
+          "currentAclEpoch": 5,
+          "generation": 8,
+          "currentGeneration": 8,
+          "cancelled": false
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M08",
+      "ruleId": "U4-02-R08",
+      "input": {
+        "expected": {
+          "scopeEpoch": 16,
+          "generation": 8,
+          "documentHash": "sha256:docb3"
+        },
+        "receipt": {
+          "scopeEpoch": 16,
+          "generation": 8,
+          "documentHash": "sha256:docb3",
+          "cancelled": true
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M09",
+      "ruleId": "U4-02-R09",
+      "input": {
+        "retry": {
+          "key": "op83",
+          "payloadHash": "sha256:payload-a",
+          "priorPayloadHash": "sha256:payload-a",
+          "receiptId": "ack1",
+          "priorReceiptId": "other"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-02-M10",
+      "ruleId": "U4-02-R10",
+      "input": {
+        "integration": {
+          "sceneCount": 2,
+          "controllerCount": 1,
+          "writeOwnerPortCount": 1,
+          "oldReaderCompatible": true,
+          "migrationStage": "EXPAND"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    }
+  ]
+}

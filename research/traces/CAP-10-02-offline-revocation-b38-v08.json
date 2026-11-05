@@ -1,0 +1,436 @@
+{
+  "schemaVersion": "procet-b38-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-10-02",
+  "sourcesPath": "research/sources/CAP-10-02-offline-revocation-b38.json",
+  "fixturePath": "docs/capabilities/CAP-10-02/offline-revocation-b38-fixtures-v08.json",
+  "checkerPath": "tools/check_cap1002_offline_revocation_b38_v08.cjs",
+  "rules": [
+    {
+      "id": "B38-R1",
+      "title": "原始NC字节与Manifest/JCS摘要不混用",
+      "sourceIds": [
+        "B38-S03",
+        "B38-S05"
+      ],
+      "origin": "INTERNAL_WITH_LIMITED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "nc.rawHash",
+        "nc.d15RawHash",
+        "nc.manifestHash",
+        "nc.approvedManifestHash",
+        "nc.closure"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B38-R2",
+      "title": "名义D04与实装D10及独立D15覆盖",
+      "sourceIds": [
+        "B38-S05"
+      ],
+      "origin": "INTERNAL_WITH_LIMITED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "binding.d04",
+        "binding.d10",
+        "binding.from",
+        "binding.to",
+        "binding.d15Independent",
+        "binding.coverage",
+        "binding.d13Known"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B38-R3",
+      "title": "人类双人审签不由Agent代签",
+      "sourceIds": [
+        "B38-S04",
+        "B38-S05"
+      ],
+      "origin": "INTERNAL_WITH_LIMITED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "approval.requester",
+        "approval.reviewer",
+        "approval.human",
+        "approval.noAgent"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N13",
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B38-R4",
+      "title": "CRL签名/issuer/理由/撤销/时间资格",
+      "sourceIds": [
+        "B38-S01",
+        "B38-S04"
+      ],
+      "origin": "RFC_WITH_INTERNAL_POLICY",
+      "fields": [
+        "crl.issuer",
+        "crl.syntheticSignatureChecked",
+        "crl.coverage",
+        "crl.revoked",
+        "crl.thisUpdate",
+        "crl.nextUpdate",
+        "crl.validationTime"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N57"
+      ],
+      "unknownIds": [
+        "U01",
+        "U02"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B38-R5",
+      "title": "TSA摘要、策略与验证时间不冒充批准",
+      "sourceIds": [
+        "B38-S02",
+        "B38-S05"
+      ],
+      "origin": "INTERNAL_WITH_LIMITED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "tsa.imprintMatches",
+        "tsa.syntheticTrustChecked",
+        "tsa.policy",
+        "tsa.time"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N24",
+        "N25",
+        "N26",
+        "N27"
+      ],
+      "unknownIds": [
+        "U03"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B38-R6",
+      "title": "离线根/时钟/撤销快照与CycleStart隔离",
+      "sourceIds": [
+        "B38-S01",
+        "B38-S02",
+        "B38-S04",
+        "B38-S05"
+      ],
+      "origin": "INTERNAL_WITH_LIMITED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "offline.root",
+        "offline.clockTrusted",
+        "offline.snapshotPinned",
+        "offline.noCycleStartInference"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N28",
+        "N29",
+        "N30",
+        "N31"
+      ],
+      "unknownIds": [
+        "U04"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B38-R7",
+      "title": "Owner精确CAS/ACL/Scope及取消晚回执",
+      "sourceIds": [
+        "B38-S05"
+      ],
+      "origin": "INTERNAL_WITH_LIMITED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "owner.expectedRevision",
+        "owner.actualRevision",
+        "owner.expectedHash",
+        "owner.actualHash",
+        "owner.aclEpoch",
+        "owner.aclNow",
+        "owner.scopeEpoch",
+        "owner.scopeNow",
+        "owner.cancelEpoch",
+        "owner.ackEpoch",
+        "owner.cancelled",
+        "owner.lateAck"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42",
+        "N43",
+        "N56"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B38-R8",
+      "title": "GUI/CLI/Agent同域Port、唯一Babylon及失效回退",
+      "sourceIds": [
+        "B38-S05"
+      ],
+      "origin": "INTERNAL_WITH_LIMITED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "ui.channels",
+        "ui.port",
+        "ui.worlds",
+        "ui.leftPanel",
+        "ui.fontMaxPx",
+        "ui.previewWrites",
+        "handoff.freezeBefore",
+        "handoff.freezeAfter",
+        "handoff.oldReader",
+        "handoff.consumer"
+      ],
+      "capabilityIds": [
+        "CAP-10-01",
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48",
+        "N49",
+        "N50",
+        "N51",
+        "N52",
+        "N53"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ]
+}

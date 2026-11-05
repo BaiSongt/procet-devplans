@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "procet-b56-trace-v08",
+  "researchTopic": "R-NC-SOURCE-EDIT-001",
+  "capability": "CAP-08-06",
+  "sourceRegistry": "research/sources/CAP-08-06-byte-edit-b56.json",
+  "fixture": "docs/capabilities/CAP-08-06/byte-edit-b56-fixtures-v08.json",
+  "validator": "tools/check_cap0806_byte_edit_b56_v08.cjs",
+  "rules": [
+    {
+      "id": "B56-R01",
+      "summary": "D12原字节SHA-256、修订、schema/Frame/Scope精确绑定，不接受重基静默覆盖",
+      "sourceIds": [
+        "B56-S04",
+        "B56-S05"
+      ],
+      "fields": [
+        "source.rawHex",
+        "source.sha256",
+        "source.revision",
+        "expected.sourceHash",
+        "expected.sourceRevision",
+        "expected.frame",
+        "expected.scope",
+        "expected.schema"
+      ],
+      "assets": [
+        "D04",
+        "D12"
+      ],
+      "caps": [
+        "CAP-08-06"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "P01",
+        "P01"
+      ],
+      "negative": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B56-R02",
+      "summary": "JS UTF-16字符串索引不能用作NC原始bytes的半开跨度；边界不能切断多字节序列",
+      "sourceIds": [
+        "B56-S03",
+        "B56-S04",
+        "B56-S05"
+      ],
+      "fields": [
+        "patch.kind",
+        "patch.coordinateUnit",
+        "patch.utf16IndexUsed",
+        "patch.start",
+        "patch.end",
+        "patch.replacementHex"
+      ],
+      "assets": [
+        "D12"
+      ],
+      "caps": [
+        "CAP-08-06",
+        "CAP-08-07"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "P03",
+        "P01"
+      ],
+      "negative": [
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B56-R03",
+      "summary": "UTF-8必须严格合法、BOM/EOL逐字节保留；方言与编码不可证明则UNKNOWN",
+      "sourceIds": [
+        "B56-S01",
+        "B56-S02",
+        "B56-S03",
+        "B56-S05"
+      ],
+      "fields": [
+        "source.encoding",
+        "source.dialect",
+        "source.bom",
+        "source.eol",
+        "patch.replacementHex",
+        "source.rawHex"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-06"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "P02",
+        "P04",
+        "P01"
+      ],
+      "negative": [
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N24",
+        "N25"
+      ],
+      "unknown": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05"
+      ]
+    },
+    {
+      "id": "B56-R04",
+      "summary": "补丁范围preimage SHA、重基/自动规范化/原字节覆写单独禁止",
+      "sourceIds": [
+        "B56-S04",
+        "B56-S05"
+      ],
+      "fields": [
+        "patch.beforeSha256",
+        "patch.rebaseWithoutReview",
+        "patch.autoNormalize",
+        "patch.writeOriginal"
+      ],
+      "assets": [
+        "D12"
+      ],
+      "caps": [
+        "CAP-08-06"
+      ],
+      "workPackages": [
+        "E3-02"
+      ],
+      "positive": [
+        "P05",
+        "P01"
+      ],
+      "negative": [
+        "N26",
+        "N27",
+        "N28",
+        "N29"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B56-R05",
+      "summary": "真正08域Owner提交瞬间重验ACL/CAS/Scope代次、取消与晚ACK、入口",
+      "sourceIds": [
+        "B56-S05"
+      ],
+      "fields": [
+        "guard.acl",
+        "guard.casAtomic",
+        "guard.recheckAtCommit",
+        "guard.scopeEpoch",
+        "guard.generation",
+        "guard.cancelled",
+        "guard.lateAckAccepted",
+        "guard.ownerPort",
+        "guard.entry"
+      ],
+      "assets": [
+        "D12"
+      ],
+      "caps": [
+        "CAP-08-06",
+        "CAP-01-04"
+      ],
+      "workPackages": [
+        "E3-02",
+        "U4-04"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37",
+        "N38"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B56-R06",
+      "summary": "D04/D10与A/B冻结分离，GUI/CLI/Agent共享业务Port、单Babylon/左TaskPanel/12px",
+      "sourceIds": [
+        "B56-S05"
+      ],
+      "fields": [
+        "audit.d04D10Separate",
+        "audit.d08Frozen",
+        "audit.abSameFact",
+        "audit.singleBabylonWorld",
+        "audit.leftTaskPanel",
+        "audit.fontMaxPx",
+        "audit.entries",
+        "audit.samePort"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D12"
+      ],
+      "caps": [
+        "CAP-08-06",
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "E3-03",
+        "U4-04"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N39",
+        "N40",
+        "N41",
+        "N42",
+        "N43",
+        "N44",
+        "N45",
+        "N46"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B56-R07",
+      "summary": "任何NC字节变动均令D13-D15旧证据STALE、D16 BLOCKED；不承认CL动画及虚构设备ACK",
+      "sourceIds": [
+        "B56-S01",
+        "B56-S05"
+      ],
+      "fields": [
+        "audit.d13",
+        "audit.d14",
+        "audit.d15",
+        "audit.d16",
+        "audit.clClaimsNcPass",
+        "audit.deviceAckClaimed",
+        "audit.ncResultClaim"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "caps": [
+        "CAP-08-06",
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N47",
+        "N48",
+        "N49",
+        "N50",
+        "N51",
+        "N52",
+        "N53"
+      ],
+      "unknown": []
+    },
+    {
+      "id": "B56-R08",
+      "summary": "旧版字节/读者保留、追加新修订和回退；合成检验绝不冒充独立消费者或签署",
+      "sourceIds": [
+        "B56-S05"
+      ],
+      "fields": [
+        "syntheticOnly",
+        "audit.oldBytesImmutable",
+        "audit.newRevisionOnly",
+        "audit.sourceMapStale",
+        "audit.oldReaderCompatible",
+        "audit.rollbackNonDestructive",
+        "audit.independentConsumer",
+        "audit.ownerSignoff",
+        "audit.l3"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "caps": [
+        "CAP-08-06",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positive": [
+        "P01"
+      ],
+      "negative": [
+        "N54",
+        "N55",
+        "N56",
+        "N57",
+        "N58",
+        "N59",
+        "N60",
+        "N61",
+        "N62"
+      ],
+      "unknown": []
+    }
+  ]
+}

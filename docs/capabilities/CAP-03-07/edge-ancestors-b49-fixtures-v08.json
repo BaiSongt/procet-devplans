@@ -1,0 +1,403 @@
+{
+  "schemaVersion": "procet-b49-fixtures-v1",
+  "date": "2026-10-31",
+  "status": "SYNTHETIC_ONLY",
+  "baseline": {
+    "source": {
+      "projectId": "P",
+      "occurrencePath": "assy/A",
+      "d01Revision": "D01-r5",
+      "d01Hash": "hash:synthetic",
+      "d02Revision": "D02-r3",
+      "frameRef": "part/local"
+    },
+    "topology": {
+      "mapReset": true,
+      "mapRunId": "run49",
+      "ancestorMode": "unique",
+      "edge": {
+        "tShape": "E",
+        "location": "L",
+        "orientation": "FORWARD"
+      },
+      "comparedEdge": {
+        "tShape": "E",
+        "location": "L",
+        "orientation": "REVERSED"
+      },
+      "ancestorFaces": [
+        "F1",
+        "F2"
+      ],
+      "edgeConnected": true,
+      "vertexOnly": false,
+      "meshOnly": false,
+      "transferredAcrossRevision": false
+    },
+    "semantics": {
+      "relationKind": "shares_topological_edge",
+      "graphLayer": "D02_CANDIDATE",
+      "materialRole": "undecided",
+      "promotedToD05": false,
+      "d08FrozenUnchanged": true,
+      "d16FrozenUnchanged": true
+    },
+    "owner": {
+      "entrypoints": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "port": "FeatureRelationService",
+      "worldCount": 1,
+      "taskPanel": "left",
+      "expectedRevision": "D02-r3",
+      "actualRevision": "D02-r3",
+      "sourceHash": "hash:synthetic",
+      "frameRef": "part/local",
+      "acl": true,
+      "scopeEpoch": 7,
+      "currentEpoch": 7,
+      "cancelled": false,
+      "lateAck": false,
+      "readerRollback": true,
+      "historyPreserved": true
+    },
+    "gate": {
+      "d15": "NOT_RUN",
+      "d16Publish": false
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "ruleId": "R1",
+      "expected": "CANDIDATE_ONLY",
+      "kind": "positive",
+      "path": null
+    },
+    {
+      "id": "N01",
+      "ruleId": "R1",
+      "kind": "negative",
+      "path": "source.projectId",
+      "value": "",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N02",
+      "ruleId": "R1",
+      "kind": "negative",
+      "path": "source.occurrencePath",
+      "value": "",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N03",
+      "ruleId": "R1",
+      "kind": "negative",
+      "path": "source.d01Hash",
+      "value": "",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N04",
+      "ruleId": "R1",
+      "kind": "negative",
+      "path": "source.frameRef",
+      "value": "",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N05",
+      "ruleId": "R1",
+      "kind": "negative",
+      "path": "source.d02Revision",
+      "value": "",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N06",
+      "ruleId": "R2",
+      "kind": "negative",
+      "path": "topology.mapReset",
+      "value": false,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N07",
+      "ruleId": "R2",
+      "kind": "negative",
+      "path": "topology.mapRunId",
+      "value": "",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N08",
+      "ruleId": "R2",
+      "kind": "negative",
+      "path": "topology.ancestorMode",
+      "value": "append",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N09",
+      "ruleId": "R3",
+      "kind": "negative",
+      "path": "topology.comparedEdge.tShape",
+      "value": "E2",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N10",
+      "ruleId": "R3",
+      "kind": "negative",
+      "path": "topology.comparedEdge.location",
+      "value": "L2",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N11",
+      "ruleId": "R3",
+      "kind": "negative",
+      "path": "topology.edge.tShape",
+      "value": "",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N12",
+      "ruleId": "R4",
+      "kind": "negative",
+      "path": "topology.ancestorFaces",
+      "value": [
+        "F1",
+        "F1"
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "N13",
+      "ruleId": "R4",
+      "kind": "negative",
+      "path": "topology.edgeConnected",
+      "value": false,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N14",
+      "ruleId": "R4",
+      "kind": "negative",
+      "path": "topology.vertexOnly",
+      "value": true,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N15",
+      "ruleId": "R4",
+      "kind": "negative",
+      "path": "topology.meshOnly",
+      "value": true,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N16",
+      "ruleId": "R5",
+      "kind": "negative",
+      "path": "semantics.relationKind",
+      "value": "DependsOn",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N17",
+      "ruleId": "R5",
+      "kind": "negative",
+      "path": "semantics.graphLayer",
+      "value": "D05_APPROVED",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N18",
+      "ruleId": "R5",
+      "kind": "negative",
+      "path": "semantics.materialRole",
+      "value": "removal",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N19",
+      "ruleId": "R5",
+      "kind": "negative",
+      "path": "semantics.promotedToD05",
+      "value": true,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N20",
+      "ruleId": "R6",
+      "kind": "negative",
+      "path": "semantics.d08FrozenUnchanged",
+      "value": false,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N21",
+      "ruleId": "R6",
+      "kind": "negative",
+      "path": "semantics.d16FrozenUnchanged",
+      "value": false,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N22",
+      "ruleId": "R7",
+      "kind": "negative",
+      "path": "owner.expectedRevision",
+      "value": "D02-r2",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N23",
+      "ruleId": "R7",
+      "kind": "negative",
+      "path": "owner.actualRevision",
+      "value": "D02-r4",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N24",
+      "ruleId": "R7",
+      "kind": "negative",
+      "path": "owner.acl",
+      "value": false,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N25",
+      "ruleId": "R7",
+      "kind": "negative",
+      "path": "owner.scopeEpoch",
+      "value": 6,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N26",
+      "ruleId": "R7",
+      "kind": "negative",
+      "path": "owner.cancelled",
+      "value": true,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N27",
+      "ruleId": "R7",
+      "kind": "negative",
+      "path": "owner.lateAck",
+      "value": true,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N28",
+      "ruleId": "R8",
+      "kind": "negative",
+      "path": "owner.entrypoints",
+      "value": [
+        "GUI"
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "N29",
+      "ruleId": "R8",
+      "kind": "negative",
+      "path": "owner.port",
+      "value": "BypassPort",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N30",
+      "ruleId": "R8",
+      "kind": "negative",
+      "path": "owner.worldCount",
+      "value": 2,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N31",
+      "ruleId": "R8",
+      "kind": "negative",
+      "path": "owner.taskPanel",
+      "value": "right-drawer",
+      "expected": "REJECT"
+    },
+    {
+      "id": "N32",
+      "ruleId": "R8",
+      "kind": "negative",
+      "path": "owner.readerRollback",
+      "value": false,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N33",
+      "ruleId": "R8",
+      "kind": "negative",
+      "path": "owner.historyPreserved",
+      "value": false,
+      "expected": "REJECT"
+    },
+    {
+      "id": "N34",
+      "ruleId": "R8",
+      "kind": "negative",
+      "path": "gate.d16Publish",
+      "value": true,
+      "expected": "REJECT"
+    },
+    {
+      "id": "U01",
+      "ruleId": "R4",
+      "kind": "unknown",
+      "path": "topology.ancestorFaces",
+      "value": [
+        "F1"
+      ],
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U02",
+      "ruleId": "R4",
+      "kind": "unknown",
+      "path": "topology.ancestorFaces",
+      "value": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U03",
+      "ruleId": "R4",
+      "kind": "unknown",
+      "path": "topology.ancestorFaces",
+      "value": [],
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U04",
+      "ruleId": "R6",
+      "kind": "unknown",
+      "path": "topology.transferredAcrossRevision",
+      "value": true,
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U05",
+      "ruleId": "R8",
+      "kind": "unknown",
+      "path": "gate.d15",
+      "value": "UNKNOWN",
+      "expected": "UNKNOWN"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-01-03",
+  "basedOnOriginalSpec": true,
+  "preservesOriginalScenarioIds": [
+    "CAP-01-03-AT-01",
+    "CAP-01-03-AT-02",
+    "CAP-01-03-AT-03",
+    "CAP-01-03-AT-04",
+    "CAP-01-03-AT-05",
+    "CAP-01-03-AT-06",
+    "CAP-01-03-AT-07",
+    "CAP-01-03-AT-08"
+  ],
+  "scenarioCount": 20,
+  "productExecution": "NOT_RUN_PRODUCT_TEST",
+  "scenarios": [
+    {
+      "id": "CAP-01-03-AT-01",
+      "title": "显示变更隔离",
+      "given": "只更换相机位置或主视图主题，没有变更碰撞/精确几何",
+      "when": "在当前head进行字段用途影响预览",
+      "then": "制造领域D09/D15不因显示层变更自动失效；显示工件变更单独交领域Owner判断",
+      "polarity": "positive",
+      "layer": "semantic_impact",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-02",
+      "title": "NC独立修订",
+      "given": "存在已验证D12-NC-v4与上游批准D08计划",
+      "when": "用户独立编辑NC得到D12-v5",
+      "then": "D13控制器解释、D14轴时序、D15验证及D16发布资格重新判定；上游Plan不被逆向自动撤销",
+      "polarity": "positive",
+      "layer": "revision_chain",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-03",
+      "title": "恢复不是倒拨",
+      "given": "工程当前generation=8且历史generation=3可完整读取",
+      "when": "工程师选择恢复3的业务内容并确认",
+      "then": "产生新头generation>8并记录restoredFrom=3；generation=8和既有审计可查",
+      "polarity": "positive",
+      "layer": "recovery",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-04",
+      "title": "资源退役",
+      "given": "历史工程冻结D03资源R1@rev1且已具备合法内容摘要",
+      "when": "R1被退役后用户打开历史工程",
+      "then": "旧内容精确回放且标记当前发行资格待判；不自动替换R2",
+      "polarity": "positive",
+      "layer": "resource_closure",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-05",
+      "title": "规则未知",
+      "given": "某领域缺针对指定字段的依赖用途或影响规则",
+      "when": "触发跨域变更预览",
+      "then": "返回unknown/未覆盖边，阻断相关制造批准，不返回绿色“无影响”",
+      "polarity": "negative",
+      "layer": "semantic_impact",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-06",
+      "title": "预览后并发",
+      "given": "变更影响预览基于head=8且存在未提交草稿",
+      "when": "另一用户已提交head=9，本用户按旧evaluationHash提交",
+      "then": "typed stale_head拒绝，不修改head=9；草稿仍可重评",
+      "polarity": "negative",
+      "layer": "cas",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-07",
+      "title": "跨Schema恢复",
+      "given": "历史工程包含当前Reader不支持的必要schema",
+      "when": "用户执行restoreAsNew",
+      "then": "阻断激活或仅隔离只读诊断；当前工程头和已批准工件保持原样",
+      "polarity": "negative",
+      "layer": "migration",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-08",
+      "title": "已发布不可改",
+      "given": "D16签发包不可变引用D12 NC hash H1并有审计",
+      "when": "恢复旧工艺后产生新D12 NC hash H2",
+      "then": "旧签发包仍引用H1，禁止把旧D16重绑H2；新发布走完整验证链",
+      "polarity": "negative",
+      "layer": "release_immutability",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-09",
+      "title": "三代数区分",
+      "given": "工作库generation=21、上次.pct savedGeneration=17、业务对象rev=5",
+      "when": "查看版本时间线",
+      "then": "分别展示三个真值及最后可用容器，均为只读不可互相替换",
+      "polarity": "positive",
+      "layer": "generation",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-10",
+      "title": "错误合并Saved态",
+      "given": "工作代数22大于保存代数17，GUI只有Saved一项",
+      "when": "用户切换回此工程",
+      "then": "不能显示与磁盘完全同步；明确“工作未保存”及保存闭包状态",
+      "polarity": "negative",
+      "layer": "generation",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-11",
+      "title": "恢复复制批准",
+      "given": "历史工艺版本3已获批准，当前修订8存在新条件",
+      "when": "恢复版本3的内容为新版本9",
+      "then": "版本9的生产资格须由当前Owner复核，不能继承3的valid审批徽标",
+      "polarity": "negative",
+      "layer": "recovery",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-12",
+      "title": "变更CAS匹配",
+      "given": "所有exact对象rev和head、ruleSetRevision、evaluationHash在预览后均未变化",
+      "when": "以唯一requestId提交",
+      "then": "产生唯一新头及CommitReceipt，重复相同requestId返回相同完成状态",
+      "polarity": "positive",
+      "layer": "cas",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-13",
+      "title": "恢复证据链完整",
+      "given": "history rev2为已冻结工艺且其源文件和资源摘要可取",
+      "when": "发起经授权的restoreAsNew到rev7",
+      "then": "新修订保留restoredFrom及actor/reason/sourceHash，旧rev2字节与审计不变",
+      "polarity": "positive",
+      "layer": "provenance",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-14",
+      "title": "DiffProvider缺失",
+      "given": "字段含PMI精确基准修改但PMI领域DiffProvider未接入",
+      "when": "GUI执行语义比较",
+      "then": "显示该项unknown和明确Owner，不能以JSON相等或渲染网格相似判无变化",
+      "polarity": "negative",
+      "layer": "semantic_impact",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-15",
+      "title": "依赖用途已知",
+      "given": "几何展示proxy变动但用于制造的B-Rep及hash未变，依赖用途明确",
+      "when": "按域构建影响闭包",
+      "then": "只需重建显示投影且记录规则版本；CL/NC历史工件保持精确引用",
+      "polarity": "positive",
+      "layer": "semantic_impact",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-16",
+      "title": "NC编辑沿用旧验证",
+      "given": "用户更改D12控制器宏调用而其先前D15是针对旧bytes",
+      "when": "申请直接发布新D12",
+      "then": "阻断D16发布并提示D13新解释、D14轴时序及D15新证据；不可凭CL动画放行",
+      "polarity": "negative",
+      "layer": "revision_chain",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-17",
+      "title": "同名资源替代",
+      "given": "历史D03资源R1@rev2缺必需几何，目录存在同名称R2@rev5",
+      "when": "恢复旧工程并请求制造就绪",
+      "then": "历史仍可诊断只读，但拒绝用R2静默满足R1且不授予制造就绪",
+      "polarity": "negative",
+      "layer": "resource_closure",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-18",
+      "title": "保存与确认一致",
+      "given": "同一工程当前workingGeneration=11且所有必需CAS资产完整",
+      "when": "执行正常保存并回读.pct",
+      "then": "正式容器Header generation=12、DB savedGeneration=12且Manifest/闭包Hash同代数，返回成功回执",
+      "polarity": "positive",
+      "layer": "atomic_visibility",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-19",
+      "title": "替换后确认失败窗口",
+      "given": "服务在rename(tmp,path)成功后BeforeConfirmSaved故障注入",
+      "when": "保存返回失败后重新打开容器并查询工作代数",
+      "then": "明确检测磁盘Header与DB savedGeneration差异，不虚报旧文件未变或Saved成功；形成可执行恢复记录",
+      "polarity": "negative",
+      "layer": "atomic_visibility",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    },
+    {
+      "id": "CAP-01-03-AT-20",
+      "title": "隔离迁移回退",
+      "given": "历史schema需要adapter但隔离中可兼容迁移且必需内容齐备",
+      "when": "预检→生成新read model→业务Owner审核通过后激活",
+      "then": "新头有迁移报告和原版本回退定位，失败重试不会覆写旧快照",
+      "polarity": "positive",
+      "layer": "migration",
+      "productTest": "NOT_RUN_PRODUCT_TEST",
+      "invariant": "new_design_acceptance_or_original_review_spec"
+    }
+  ]
+}

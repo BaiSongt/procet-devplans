@@ -1,0 +1,280 @@
+{
+  "schemaVersion": "procet-b176-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-11-07",
+  "originalWorkPackages": [
+    "T5-01",
+    "T5-02"
+  ],
+  "sourceRegistry": "research/sources/CAP-11-07-revocation-fanout-b176.json",
+  "fixtures": "docs/capabilities/CAP-11-07/revocation-fanout-b176-fixtures-v08.json",
+  "checker": "tools/check_cap1107_revocation_fanout_b176_v08.cjs",
+  "report": "docs/capabilities/CAP-11-07/REVOCATION-FANOUT-B176-2026-11-05.md",
+  "rules": [
+    {
+      "id": "B176-R01",
+      "title": "来源精确知识修订及Project/Scope",
+      "fields": [
+        "knowledge.id",
+        "knowledge.revision",
+        "knowledge.sourceSha",
+        "knowledge.scopeEpoch"
+      ],
+      "sourceIds": [
+        "B176-S01",
+        "B176-S05"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R01-P",
+        "B176-R01-N1",
+        "B176-R01-N2",
+        "B176-R01-N3",
+        "B176-R01-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B176-R02",
+      "title": "受权撤销事件与行动者",
+      "fields": [
+        "revoke.eventId",
+        "revoke.reason",
+        "revoke.authorized",
+        "revoke.actor"
+      ],
+      "sourceIds": [
+        "B176-S02",
+        "B176-S06"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R02-P",
+        "B176-R02-N1",
+        "B176-R02-N2",
+        "B176-R02-N3",
+        "B176-R02-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B176-R03",
+      "title": "PROV来源失效与历史字节保留",
+      "fields": [
+        "provenance.relation",
+        "provenance.activityId",
+        "provenance.invalidatedAt",
+        "provenance.preservesHistory"
+      ],
+      "sourceIds": [
+        "B176-S01",
+        "B176-S02",
+        "B176-S05"
+      ],
+      "assets": [
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R03-P",
+        "B176-R03-N1",
+        "B176-R03-N2",
+        "B176-R03-N3",
+        "B176-R03-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B176-R04",
+      "title": "反向依赖闭包、环及跨域、预算",
+      "fields": [
+        "graph.closureComplete",
+        "graph.noCycle",
+        "graph.noCrossScope",
+        "graph.budgetWithin"
+      ],
+      "sourceIds": [
+        "B176-S02",
+        "B176-S05"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R04-P",
+        "B176-R04-N1",
+        "B176-R04-N2",
+        "B176-R04-N3",
+        "B176-R04-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B176-R05",
+      "title": "读模型Epoch完整与UNKNOWN降级",
+      "fields": [
+        "reader.currentEpoch",
+        "reader.minEpoch",
+        "reader.gapFree",
+        "reader.unknownBlocked"
+      ],
+      "sourceIds": [
+        "B176-S02",
+        "B176-S05"
+      ],
+      "assets": [
+        "D05",
+        "D17"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R05-P",
+        "B176-R05-N1",
+        "B176-R05-N2",
+        "B176-R05-N3",
+        "B176-R05-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B176-R06",
+      "title": "领域CAS ACL取消Fence及晚回执",
+      "fields": [
+        "commit.expectedHead",
+        "commit.aclRechecked",
+        "commit.cancelFence",
+        "commit.lateAckIgnored"
+      ],
+      "sourceIds": [
+        "B176-S03",
+        "B176-S05",
+        "B176-S06"
+      ],
+      "assets": [
+        "D05"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R06-P",
+        "B176-R06-N1",
+        "B176-R06-N2",
+        "B176-R06-N3",
+        "B176-R06-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B176-R07",
+      "title": "GUI/CLI/Agent共用领域端口与单3D",
+      "fields": [
+        "ui.sameOwnerPort",
+        "ui.singleWorld",
+        "ui.leftTaskPanel",
+        "ui.noRightDrawer"
+      ],
+      "sourceIds": [
+        "B176-S05",
+        "B176-S06"
+      ],
+      "assets": [
+        "D11"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R07-P",
+        "B176-R07-N1",
+        "B176-R07-N2",
+        "B176-R07-N3",
+        "B176-R07-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B176-R08",
+      "title": "独立消费、冻结保护与NC验证隔离",
+      "fields": [
+        "consumers.d05NewRevisionOnly",
+        "consumers.d08FrozenUntouched",
+        "consumers.d15NcIndependent",
+        "consumers.d16NoAutoGrant"
+      ],
+      "sourceIds": [
+        "B176-S04",
+        "B176-S05",
+        "B176-S06"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-11-07"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "testIds": [
+        "B176-R08-P",
+        "B176-R08-N1",
+        "B176-R08-N2",
+        "B176-R08-N3",
+        "B176-R08-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,612 @@
+{
+  "schemaVersion": "procet-cap1004-opcua-b63-fixtures-v1",
+  "capabilityId": "CAP-10-04",
+  "syntheticOnly": true,
+  "expectedPayloadSha256": "9ac2197d9258257b1ae8463e4214e4cd0a578bc1517f2415928b91be4283fc48",
+  "base": {
+    "syntheticOnly": true,
+    "owner": {
+      "revision": "D16-syn-r3",
+      "expectedRevision": "D16-syn-r3",
+      "hash": "sha256:d16-demo",
+      "expectedHash": "sha256:d16-demo",
+      "frame": "D10-fixture-mm",
+      "expectedFrame": "D10-fixture-mm",
+      "scopeEpoch": 4,
+      "expectedScopeEpoch": 4,
+      "taskGeneration": 9,
+      "expectedTaskGeneration": 9,
+      "aclRechecked": true,
+      "cancelled": false
+    },
+    "capability": {
+      "fileTypeConfirmed": true,
+      "filePortConfirmed": true,
+      "targetProfileExact": true
+    },
+    "session": {
+      "activeSession": "OPC-S1",
+      "handleSession": "OPC-S1",
+      "currentEpoch": 7,
+      "handleEpoch": 7,
+      "ackEpoch": 7,
+      "lateAck": false
+    },
+    "read": {
+      "requests": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "parts": [
+        "414243",
+        "4445",
+        "464748",
+        ""
+      ],
+      "observedPositions": [
+        3,
+        5,
+        8,
+        8
+      ],
+      "expectedLength": 8,
+      "terminatedOnShortRead": false
+    },
+    "resume": {
+      "requestedOffset": 5,
+      "confirmedOffset": 5,
+      "fileSize": 8,
+      "getPositionObserved": true
+    },
+    "access": {
+      "writable": true,
+      "userWritable": true,
+      "aclRechecked": true,
+      "activeFileProtected": true
+    },
+    "digest": {
+      "sourceHex": "4142434445464748",
+      "receiverHex": "4142434445464748",
+      "expectedHash": "9ac2197d9258257b1ae8463e4214e4cd0a578bc1517f2415928b91be4283fc48",
+      "receiverClosureHash": "closure-fixture-A",
+      "expectedClosureHash": "closure-fixture-A",
+      "independentlyReadBack": true
+    },
+    "flow": {
+      "stageOnly": true,
+      "noCycleStart": true,
+      "noProgramActivate": true,
+      "noPublishPassClaim": true
+    },
+    "ui": {
+      "singleBabylonWorld": true,
+      "unifiedTaskPanel": true,
+      "sameOwnerPort": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B63-R01-P",
+      "ruleId": "B63-R01",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R01-REJECT-1",
+      "ruleId": "B63-R01",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "capability.fileTypeConfirmed",
+      "patch": {
+        "capability.fileTypeConfirmed": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R01-REJECT-2",
+      "ruleId": "B63-R01",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "capability.filePortConfirmed",
+      "patch": {
+        "capability.filePortConfirmed": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R01-REJECT-3",
+      "ruleId": "B63-R01",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "capability.targetProfileExact",
+      "patch": {
+        "capability.targetProfileExact": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R01-UNKNOWN-4",
+      "ruleId": "B63-R01",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "capability.fileTypeConfirmed",
+      "patch": {
+        "capability.fileTypeConfirmed": null
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R02-P",
+      "ruleId": "B63-R02",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R02-STALE-1",
+      "ruleId": "B63-R02",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "session.handleSession",
+      "patch": {
+        "session.handleSession": "OPC-S2"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R02-STALE-2",
+      "ruleId": "B63-R02",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "session.handleEpoch",
+      "patch": {
+        "session.handleEpoch": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R02-STALE-3",
+      "ruleId": "B63-R02",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "session.ackEpoch",
+      "patch": {
+        "session.ackEpoch": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R02-STALE-4",
+      "ruleId": "B63-R02",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "session.lateAck",
+      "patch": {
+        "session.lateAck": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R02-UNKNOWN-5",
+      "ruleId": "B63-R02",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "session.handleSession",
+      "patch": {
+        "session.handleSession": null
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R03-P",
+      "ruleId": "B63-R03",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R03-REJECT-1",
+      "ruleId": "B63-R03",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "read.parts.1",
+      "patch": {
+        "read.parts.1": "444546474849"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R03-REJECT-2",
+      "ruleId": "B63-R03",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "read.parts.1",
+      "patch": {
+        "read.parts.1": ""
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R03-REJECT-3",
+      "ruleId": "B63-R03",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "read.observedPositions.1",
+      "patch": {
+        "read.observedPositions.1": 4
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R03-REJECT-4",
+      "ruleId": "B63-R03",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "read.terminatedOnShortRead",
+      "patch": {
+        "read.terminatedOnShortRead": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R03-UNKNOWN-5",
+      "ruleId": "B63-R03",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "read.parts.3",
+      "patch": {
+        "read.parts.3": null
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R04-P",
+      "ruleId": "B63-R04",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R04-REJECT-1",
+      "ruleId": "B63-R04",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "resume.requestedOffset",
+      "patch": {
+        "resume.requestedOffset": 9
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R04-REJECT-2",
+      "ruleId": "B63-R04",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "resume.confirmedOffset",
+      "patch": {
+        "resume.confirmedOffset": 4
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R04-REJECT-3",
+      "ruleId": "B63-R04",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "resume.fileSize",
+      "patch": {
+        "resume.fileSize": -1
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R04-UNKNOWN-4",
+      "ruleId": "B63-R04",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "resume.getPositionObserved",
+      "patch": {
+        "resume.getPositionObserved": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R05-P",
+      "ruleId": "B63-R05",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R05-REJECT-1",
+      "ruleId": "B63-R05",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "access.writable",
+      "patch": {
+        "access.writable": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R05-REJECT-2",
+      "ruleId": "B63-R05",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "access.userWritable",
+      "patch": {
+        "access.userWritable": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R05-REJECT-3",
+      "ruleId": "B63-R05",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "access.aclRechecked",
+      "patch": {
+        "access.aclRechecked": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R05-REJECT-4",
+      "ruleId": "B63-R05",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "access.activeFileProtected",
+      "patch": {
+        "access.activeFileProtected": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R05-UNKNOWN-5",
+      "ruleId": "B63-R05",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "access.userWritable",
+      "patch": {
+        "access.userWritable": null
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R06-P",
+      "ruleId": "B63-R06",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R06-REJECT-1",
+      "ruleId": "B63-R06",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "digest.receiverHex",
+      "patch": {
+        "digest.receiverHex": "4142434445464749"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R06-REJECT-2",
+      "ruleId": "B63-R06",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "digest.expectedHash",
+      "patch": {
+        "digest.expectedHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R06-REJECT-3",
+      "ruleId": "B63-R06",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "digest.receiverClosureHash",
+      "patch": {
+        "digest.receiverClosureHash": "closure-other"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R06-UNKNOWN-4",
+      "ruleId": "B63-R06",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "digest.independentlyReadBack",
+      "patch": {
+        "digest.independentlyReadBack": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R06-UNKNOWN-5",
+      "ruleId": "B63-R06",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "digest.expectedHash",
+      "patch": {
+        "digest.expectedHash": null
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R07-P",
+      "ruleId": "B63-R07",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R07-STALE-1",
+      "ruleId": "B63-R07",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "owner.expectedRevision",
+      "patch": {
+        "owner.expectedRevision": "r-stale"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R07-STALE-2",
+      "ruleId": "B63-R07",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "owner.expectedHash",
+      "patch": {
+        "owner.expectedHash": "hash-stale"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R07-STALE-3",
+      "ruleId": "B63-R07",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "owner.expectedFrame",
+      "patch": {
+        "owner.expectedFrame": "frame-stale"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R07-STALE-4",
+      "ruleId": "B63-R07",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "owner.expectedScopeEpoch",
+      "patch": {
+        "owner.expectedScopeEpoch": 5
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R07-STALE-5",
+      "ruleId": "B63-R07",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "owner.expectedTaskGeneration",
+      "patch": {
+        "owner.expectedTaskGeneration": 10
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R07-STALE-6",
+      "ruleId": "B63-R07",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "owner.cancelled",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "B63-R07-REJECT-7",
+      "ruleId": "B63-R07",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "owner.aclRechecked",
+      "patch": {
+        "owner.aclRechecked": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R07-UNKNOWN-8",
+      "ruleId": "B63-R07",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "owner.frame",
+      "patch": {
+        "owner.frame": null
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-R08-P",
+      "ruleId": "B63-R08",
+      "scenario": "POSITIVE_STRUCTURAL",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-R08-REJECT-1",
+      "ruleId": "B63-R08",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "flow.stageOnly",
+      "patch": {
+        "flow.stageOnly": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R08-REJECT-2",
+      "ruleId": "B63-R08",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "flow.noCycleStart",
+      "patch": {
+        "flow.noCycleStart": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R08-REJECT-3",
+      "ruleId": "B63-R08",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "flow.noProgramActivate",
+      "patch": {
+        "flow.noProgramActivate": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R08-REJECT-4",
+      "ruleId": "B63-R08",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "flow.noPublishPassClaim",
+      "patch": {
+        "flow.noPublishPassClaim": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R08-REJECT-5",
+      "ruleId": "B63-R08",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.singleBabylonWorld",
+      "patch": {
+        "ui.singleBabylonWorld": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R08-REJECT-6",
+      "ruleId": "B63-R08",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.unifiedTaskPanel",
+      "patch": {
+        "ui.unifiedTaskPanel": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R08-REJECT-7",
+      "ruleId": "B63-R08",
+      "scenario": "SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.sameOwnerPort",
+      "patch": {
+        "ui.sameOwnerPort": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B63-R08-UNKNOWN-8",
+      "ruleId": "B63-R08",
+      "scenario": "EVIDENCE_MISSING",
+      "mutatedField": "flow.noCycleStart",
+      "patch": {
+        "flow.noCycleStart": null
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "B63-BOUNDARY-EXACT-READ",
+      "ruleId": "B63-R03",
+      "scenario": "BOUNDARY_POSITIVE",
+      "patch": {
+        "read.requests": [
+          3,
+          2,
+          3,
+          4
+        ]
+      },
+      "expected": "CANDIDATE_ONLY"
+    },
+    {
+      "id": "B63-BOUNDARY-SEEK-ZERO",
+      "ruleId": "B63-R04",
+      "scenario": "BOUNDARY_POSITIVE",
+      "patch": {
+        "resume.requestedOffset": 0,
+        "resume.confirmedOffset": 0
+      },
+      "expected": "CANDIDATE_ONLY"
+    }
+  ],
+  "caseMeaning": "10候选，25拒绝、10过期、9未知，54项均为合成，不等于独立消费者验收"
+}

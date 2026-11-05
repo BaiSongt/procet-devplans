@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "procet-b61-field-trace-v1",
+  "capabilityId": "CAP-07-04",
+  "relatedCapabilityIds": [
+    "CAP-08-02"
+  ],
+  "researchTopic": "R-CONTINUOUS-5AXIS-001",
+  "sourceRegistry": "research/sources/CAP-07-04-inverse-time-b61.json",
+  "specification": "docs/capabilities/CAP-07-04/INVERSE-TIME-FEED-B61-2026-10-31.md",
+  "fixtures": "docs/capabilities/CAP-07-04/inverse-time-b61-fixtures-v08.json",
+  "validator": "tools/check_cap0704_inverse_time_b61_v08.cjs",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "B61-R01",
+      "summary": "G93逆时间名义秒数为60/F、非轴实际速度",
+      "fields": [
+        "nc.blocks[].f",
+        "nc.initialMode",
+        "execution.servoDurationCertifiedWithoutD14"
+      ],
+      "sourceIds": [
+        "B61-S01",
+        "B61-S04"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "E3-04"
+      ],
+      "consumer": "D09.D13",
+      "positiveTestIds": [
+        "B61-P01"
+      ],
+      "negativeTestIds": [
+        "B61-N01",
+        "B61-N02"
+      ],
+      "unknownTestIds": [
+        "B61-U06"
+      ],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B61-R02",
+      "summary": "模态继承G1/G2/G3在G93模式下每运动块必须自带F",
+      "fields": [
+        "nc.blocks[].motion",
+        "nc.blocks[].axes",
+        "nc.blocks[].f"
+      ],
+      "sourceIds": [
+        "B61-S01",
+        "B61-S02"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "consumer": "D12.D13",
+      "positiveTestIds": [
+        "B61-P01",
+        "B61-P02"
+      ],
+      "negativeTestIds": [
+        "B61-N03",
+        "B61-N04"
+      ],
+      "unknownTestIds": [
+        "B61-U07"
+      ],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B61-R03",
+      "summary": "G0快速定位不继承为G93切削运动的时间证明",
+      "fields": [
+        "nc.blocks[].motion",
+        "nc.blocks[].f"
+      ],
+      "sourceIds": [
+        "B61-S01"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "consumer": "D13",
+      "positiveTestIds": [
+        "B61-P01",
+        "B61-P04"
+      ],
+      "negativeTestIds": [
+        "B61-N05"
+      ],
+      "unknownTestIds": [],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B61-R04",
+      "summary": "G94/G95切换须有新F；G95主轴资格不足显式UNKNOWN",
+      "fields": [
+        "nc.blocks[].g",
+        "nc.blocks[].f",
+        "nc.spindleSpeedKnown"
+      ],
+      "sourceIds": [
+        "B61-S01"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "E3-04"
+      ],
+      "consumer": "D13.D14",
+      "positiveTestIds": [
+        "B61-P01",
+        "B61-P03"
+      ],
+      "negativeTestIds": [
+        "B61-N06",
+        "B61-N07"
+      ],
+      "unknownTestIds": [
+        "B61-U03"
+      ],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B61-R05",
+      "summary": "D10方言与D12最终NC精确绑定，D13独立重读",
+      "fields": [
+        "nc.profile",
+        "nc.profileHash",
+        "nc.d13ProfileHash",
+        "nc.sourceHash",
+        "nc.d13ReadHash",
+        "nc.d10Hash",
+        "nc.consumerD10Hash"
+      ],
+      "sourceIds": [
+        "B61-S02",
+        "B61-S03",
+        "B61-S05"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "consumer": "D10.D12.D13",
+      "positiveTestIds": [
+        "B61-P01"
+      ],
+      "negativeTestIds": [
+        "B61-N08",
+        "B61-N09",
+        "B61-N10",
+        "B61-N11",
+        "B61-N12",
+        "B61-S06",
+        "B61-S07",
+        "B61-S08"
+      ],
+      "unknownTestIds": [
+        "B61-U01",
+        "B61-U02",
+        "B61-U04",
+        "B61-U08"
+      ],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B61-R06",
+      "summary": "名义时长不能冒充D14 Joint时序/D15验证/D16发布",
+      "fields": [
+        "execution.servoDurationCertifiedWithoutD14",
+        "execution.d15PassClaim",
+        "execution.d16ReleaseClaim",
+        "execution.clPreviewAsNcPass"
+      ],
+      "sourceIds": [
+        "B61-S04",
+        "B61-S05"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "consumer": "D13.D14.D15.D16",
+      "positiveTestIds": [
+        "B61-P01"
+      ],
+      "negativeTestIds": [
+        "B61-N13",
+        "B61-N14",
+        "B61-N15",
+        "B61-N16",
+        "B61-N17"
+      ],
+      "unknownTestIds": [],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B61-R07",
+      "summary": "Owner精确CAS/ACL/Scope/Frame/取消回执及D08冻结",
+      "fields": [
+        "owner.rev",
+        "owner.hash",
+        "owner.frame",
+        "owner.scopeEpoch",
+        "owner.taskGeneration",
+        "execution.frozenD08Unchanged"
+      ],
+      "sourceIds": [
+        "B61-S04",
+        "B61-S05"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-01",
+        "E3-03",
+        "U4-04"
+      ],
+      "consumer": "D08.D12.D13",
+      "positiveTestIds": [
+        "B61-P01"
+      ],
+      "negativeTestIds": [
+        "B61-N18",
+        "B61-N19",
+        "B61-N20",
+        "B61-S01",
+        "B61-S02",
+        "B61-S03",
+        "B61-S04",
+        "B61-S05"
+      ],
+      "unknownTestIds": [],
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B61-R08",
+      "summary": "GUI/CLI/Agent同Port，单Babylon/左TaskPanel，未知只读可回退",
+      "fields": [
+        "ui.engineCount",
+        "ui.sceneCount",
+        "ui.canvasCount",
+        "ui.panel",
+        "ui.port",
+        "legacy.rollbackAsNewRevision"
+      ],
+      "sourceIds": [
+        "B61-S04",
+        "B61-S05"
+      ],
+      "capabilityId": "CAP-07-04",
+      "relatedCapabilityIds": [
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "U4-04",
+        "E3-03"
+      ],
+      "consumer": "GUI.CLI.Agent",
+      "positiveTestIds": [
+        "B61-P01"
+      ],
+      "negativeTestIds": [
+        "B61-N21",
+        "B61-N22",
+        "B61-N23",
+        "B61-N24",
+        "B61-N25",
+        "B61-N26",
+        "B61-N27"
+      ],
+      "unknownTestIds": [
+        "B61-U05"
+      ],
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

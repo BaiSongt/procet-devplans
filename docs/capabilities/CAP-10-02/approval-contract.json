@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "procet-cap1002-approval-contract-v1",
+  "status": "PLANNING_DTO_UNFROZEN_L3_PENDING",
+  "ownerDomain": "10 程序发布与现场协同",
+  "subjectToHumanReview": true,
+  "port": {
+    "name": "ApproveReleasePort",
+    "invokers": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "readOperations": [
+      "readApprovalRequest",
+      "compareCandidateEvidence",
+      "inspectDecisionTrail"
+    ],
+    "requestOperations": [
+      "submitForHumanReviewCAS",
+      "cancelOwnRequest"
+    ],
+    "humanRestrictedOperations": [
+      "recordHumanDecisionCAS",
+      "authoriseSigningWithProtectedKey"
+    ],
+    "forbidden": [
+      "agentDirectSign",
+      "uiLocalSign",
+      "overrideD15",
+      "editD12",
+      "editD08",
+      "rewriteSignedD16"
+    ],
+    "precommit": [
+      "ACL_RECHECK",
+      "SEPARATION_RECHECK",
+      "CAS_REVISION_HASH_FRAME",
+      "SCOPE_EPOCH_RECHECK",
+      "CANCEL_AND_LATE_ACK_RECHECK"
+    ]
+  },
+  "readRefs": {
+    "D08": [
+      "frozenRevision",
+      "hash"
+    ],
+    "D04": [
+      "nominalSetupRevision",
+      "frameHash"
+    ],
+    "D10": [
+      "actualExecutionRevision",
+      "frameHash",
+      "controllerProfileHash",
+      "toolAssemblyHash"
+    ],
+    "D12": [
+      "finalNcRawSha256",
+      "programRevision"
+    ],
+    "D13": [
+      "controllerSemanticsProfileHash",
+      "unknownSemanticCount"
+    ],
+    "D14": [
+      "physicalJointTimelineRevision"
+    ],
+    "D15": [
+      "oracleIdentity",
+      "independentEvidenceRevision",
+      "coverageHash",
+      "unknownReasons"
+    ],
+    "D16": [
+      "candidateRevision",
+      "candidateManifestJcsHash",
+      "fileClosureHashes"
+    ]
+  },
+  "eventState": [
+    "REQUESTED",
+    "WAITING_HUMAN_REVIEW",
+    "REJECTED",
+    "CANCELLED",
+    "APPROVED_NOT_SIGNED",
+    "SIGNED_PENDING_INDEPENDENT_VERIFY",
+    "VALID_FOR_OFFLINE_TRANSFER",
+    "STALE",
+    "REVOKED",
+    "UNKNOWN"
+  ],
+  "approvalNotSignature": true,
+  "signingKeyStorage": "RESTRICTED_EXTERNAL_SERVICE_NOT_IN_PUBLIC_REPO",
+  "signaturePolicy": "TO_BE_CHOSEN_BY_HUMAN_SECURITY_REVIEW",
+  "signingPayloadDomain": "PROCEt_D16_APPROVAL_V1_NOT_FINAL",
+  "receiver": "CAP-10-03_independent_hash_signature_trust_and_revocation",
+  "businessAssetOwnerSignoffs": "PENDING_HUMAN",
+  "l3": "PENDING_HUMAN",
+  "productTests": "NOT_RUN"
+}

@@ -1,0 +1,265 @@
+{
+  "schemaVersion": "procet-b130-trace-v08",
+  "date": "2026-11-03",
+  "origin": "NEWLY_AUTHORED",
+  "capabilityId": "CAP-04-02",
+  "researchTopic": "R-STOCKREG-001",
+  "assetOwner": "D04 (04域); D10 executes independently",
+  "sourceRegistry": "research/sources/CAP-04-02-target-uncertainty-b130.json",
+  "capabilityDocument": "docs/capabilities/CAP-04-02/TARGET-UNCERTAINTY-B130-2026-11-03.md",
+  "fixturePath": "docs/capabilities/CAP-04-02/target-uncertainty-b130-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0402_target_uncertainty_b130_v08.cjs",
+  "workPackages": [
+    "F1-02",
+    "W2-05",
+    "F1-04",
+    "E3-04",
+    "U4-02",
+    "U4-03",
+    "E3-05"
+  ],
+  "rules": [
+    {
+      "id": "B130-R01",
+      "description": "CAD与毛坯exact双源及实例身份",
+      "fields": [
+        "cadRevision",
+        "cadHash",
+        "stockRevision",
+        "stockHash",
+        "occurrencePath"
+      ],
+      "sourceIds": [
+        "B130-S07"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "W2-05"
+      ],
+      "limits": "无真实来源不得补造",
+      "basis": "published_evidence_plus_internal_derivation",
+      "tests": [
+        "B130-R01-P",
+        "B130-R01-N1",
+        "B130-R01-N2",
+        "B130-R01-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B130-R02",
+      "description": "Part/Setup Frame及单位不可隐式",
+      "fields": [
+        "sourceFrame",
+        "targetFrame",
+        "lengthUnit",
+        "angleUnit"
+      ],
+      "sourceIds": [
+        "B130-S01",
+        "B130-S07"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "F1-04"
+      ],
+      "limits": "本地Frame缺失不可提升D10",
+      "basis": "published_evidence_plus_internal_derivation",
+      "tests": [
+        "B130-R02-P",
+        "B130-R02-N1",
+        "B130-R02-N2",
+        "B130-R02-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B130-R03",
+      "description": "协方差和相关项必须合格",
+      "fields": [
+        "sigmaT",
+        "sigmaTheta",
+        "rho",
+        "covarianceFrame",
+        "covarianceRef"
+      ],
+      "sourceIds": [
+        "B130-S01",
+        "B130-S02"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "limits": "缺相关项保持unknown，不把rho=0当默认",
+      "basis": "published_evidence_plus_internal_derivation",
+      "tests": [
+        "B130-R03-P",
+        "B130-R03-N1",
+        "B130-R03-N2",
+        "B130-R03-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B130-R04",
+      "description": "拟合点与独立目标点分离",
+      "fields": [
+        "heldOutTargetsRef",
+        "fitFiducialRms",
+        "targetRms",
+        "biasAssessmentRef"
+      ],
+      "sourceIds": [
+        "B130-S04",
+        "B130-S05",
+        "B130-S06"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "limits": "拟合fitness不能冒充外部目标计量",
+      "basis": "published_evidence_plus_internal_derivation",
+      "tests": [
+        "B130-R04-P",
+        "B130-R04-N1",
+        "B130-R04-N2",
+        "B130-R04-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B130-R05",
+      "description": "扩展系数和余量资格须绑定政策版本",
+      "fields": [
+        "coverageK",
+        "policyHash",
+        "nominalClearance",
+        "uncertaintyMargin"
+      ],
+      "sourceIds": [
+        "B130-S01",
+        "B130-S03"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "limits": "合成数学门非机床安全许可",
+      "basis": "published_evidence_plus_internal_derivation",
+      "tests": [
+        "B130-R05-P",
+        "B130-R05-N1",
+        "B130-R05-N2",
+        "B130-R05-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B130-R06",
+      "description": "GUI/CLI/Agent同一D04 Port、单Babylon世界与左面板",
+      "fields": [
+        "babylonWorldCount",
+        "panel",
+        "ownerPort",
+        "channels"
+      ],
+      "sourceIds": [
+        "B130-S07"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-04",
+        "U4-02"
+      ],
+      "limits": "预览ghost不可成为业务提交",
+      "basis": "internal_engineering_decision",
+      "tests": [
+        "B130-R06-P",
+        "B130-R06-N1",
+        "B130-R06-N2",
+        "B130-R06-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B130-R07",
+      "description": "CAS/ACL和取消后晚回执零写入",
+      "fields": [
+        "acl",
+        "cas",
+        "scopeEpoch",
+        "ackEpoch",
+        "cancelled"
+      ],
+      "sourceIds": [
+        "B130-S07"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "W2-05",
+        "U4-03"
+      ],
+      "limits": "写前业务Owner独立重验",
+      "basis": "internal_engineering_decision",
+      "tests": [
+        "B130-R07-P",
+        "B130-R07-N1",
+        "B130-R07-N2",
+        "B130-R07-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B130-R08",
+      "description": "D04/D10分离、冻结回退与NC独立验证",
+      "fields": [
+        "d10Separate",
+        "clIsNcVerification",
+        "freezeUnchanged",
+        "rollbackRef"
+      ],
+      "sourceIds": [
+        "B130-S07",
+        "B130-S04"
+      ],
+      "capabilityId": "CAP-04-02",
+      "workPackages": [
+        "F1-04",
+        "E3-04",
+        "E3-05"
+      ],
+      "limits": "CL动画不替代最终D13-D15验收",
+      "basis": "internal_engineering_decision",
+      "tests": [
+        "B130-R08-P",
+        "B130-R08-N1",
+        "B130-R08-N2",
+        "B130-R08-N3"
+      ],
+      "status": "PLANNED_ONLY",
+      "L3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

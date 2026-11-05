@@ -1,0 +1,606 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-04",
+  "researchTopic": "R-AUX-MCODE-001",
+  "sourceRegistry": "research/sources/CAP-08-04.json",
+  "specification": "docs/capabilities/CAP-08-04/README.md",
+  "ui": "docs/capabilities/CAP-08-04/UI.md",
+  "fixtures": "docs/capabilities/CAP-08-04/fixtures.json",
+  "validator": "tools/check_cap0804_planning_2026_10_26.cjs",
+  "status": "compiled_pending_human_review_product_not_run",
+  "rules": [
+    {
+      "id": "CAP-08-04-R01",
+      "capabilityId": "CAP-08-04",
+      "summary": "D04 Setup与D10实际机床绑定分离并锁定控制器配置",
+      "sourceIds": [
+        "C084-S1",
+        "C084-S7"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "identity.d04Exact",
+        "identity.d10Exact",
+        "identity.profileHashPinned",
+        "identity.frameAndScopeChecked"
+      ],
+      "criteria": [
+        {
+          "path": "identity.d04Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.d10Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.profileHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.frameAndScopeChecked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T01",
+      "negativeTestId": "CAP-08-04-T02",
+      "mutationTestId": "CAP-08-04-M01"
+    },
+    {
+      "id": "CAP-08-04-R02",
+      "capabilityId": "CAP-08-04",
+      "summary": "T选刀、M6换刀执行、刀位/刀具安装及G43补偿分离",
+      "sourceIds": [
+        "C084-S2",
+        "C084-S3",
+        "C084-S4"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "toolSelection.tSelected",
+        "toolSelection.magazineSnapshotExact",
+        "toolSelection.activeToolAfterAck",
+        "toolSelection.manualOrAutomaticKnown",
+        "toolSelection.noImplicitG43"
+      ],
+      "criteria": [
+        {
+          "path": "toolSelection.tSelected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolSelection.magazineSnapshotExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolSelection.activeToolAfterAck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolSelection.manualOrAutomaticKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "toolSelection.noImplicitG43",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T03",
+      "negativeTestId": "CAP-08-04-T04",
+      "mutationTestId": "CAP-08-04-M02"
+    },
+    {
+      "id": "CAP-08-04-R03",
+      "capabilityId": "CAP-08-04",
+      "summary": "S字主轴速度与M3/M4/M5方向/停止独立解释",
+      "sourceIds": [
+        "C084-S2",
+        "C084-S3"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "spindle.speedKnown",
+        "spindle.directionSupported",
+        "spindle.maxRpmChecked",
+        "spindle.stopEventEmitted",
+        "spindle.noRunAssumptionFromS0"
+      ],
+      "criteria": [
+        {
+          "path": "spindle.speedKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "spindle.directionSupported",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "spindle.maxRpmChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "spindle.stopEventEmitted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "spindle.noRunAssumptionFromS0",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T05",
+      "negativeTestId": "CAP-08-04-T06",
+      "mutationTestId": "CAP-08-04-M03"
+    },
+    {
+      "id": "CAP-08-04-R04",
+      "capabilityId": "CAP-08-04",
+      "summary": "M19主轴定向等待反馈，超时不能虚构完成",
+      "sourceIds": [
+        "C084-S2",
+        "C084-S3"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "orient.profileSupported",
+        "orient.targetKnown",
+        "orient.timeoutExplicit",
+        "orient.feedbackRequired",
+        "orient.unknownFailClosed"
+      ],
+      "criteria": [
+        {
+          "path": "orient.profileSupported",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "orient.targetKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "orient.timeoutExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "orient.feedbackRequired",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "orient.unknownFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T07",
+      "negativeTestId": "CAP-08-04-T08",
+      "mutationTestId": "CAP-08-04-M04"
+    },
+    {
+      "id": "CAP-08-04-R05",
+      "capabilityId": "CAP-08-04",
+      "summary": "M7/M8/M9冷却状态按控制器选件解释，M6后不假设普适状态",
+      "sourceIds": [
+        "C084-S2",
+        "C084-S3",
+        "C084-S5"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "coolant.profileSpecific",
+        "coolant.optionPinned",
+        "coolant.stateEventsEmitted",
+        "coolant.afterM6Explicit",
+        "coolant.noGenericM7"
+      ],
+      "criteria": [
+        {
+          "path": "coolant.profileSpecific",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "coolant.optionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "coolant.stateEventsEmitted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "coolant.afterM6Explicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "coolant.noGenericM7",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T09",
+      "negativeTestId": "CAP-08-04-T10",
+      "mutationTestId": "CAP-08-04-M05"
+    },
+    {
+      "id": "CAP-08-04-R06",
+      "capabilityId": "CAP-08-04",
+      "summary": "同一程序块动作顺序、栅栏及机床回执区别于解释器预测",
+      "sourceIds": [
+        "C084-S2",
+        "C084-S3",
+        "C084-S8"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "sequence.blockOrderSupported",
+        "sequence.waitFenceExplicit",
+        "sequence.mCodesPerBlockValid",
+        "sequence.noPhantomAck",
+        "sequence.sourceLinesMapped"
+      ],
+      "criteria": [
+        {
+          "path": "sequence.blockOrderSupported",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sequence.waitFenceExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sequence.mCodesPerBlockValid",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sequence.noPhantomAck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sequence.sourceLinesMapped",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T11",
+      "negativeTestId": "CAP-08-04-T12",
+      "mutationTestId": "CAP-08-04-M06"
+    },
+    {
+      "id": "CAP-08-04-R07",
+      "capabilityId": "CAP-08-04",
+      "summary": "人工换刀与ATC分支、互锁及安全位姿均需设备证据",
+      "sourceIds": [
+        "C084-S2",
+        "C084-S3"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "changer.modeKnown",
+        "changer.deviceCapabilityExact",
+        "changer.safePoseEvidence",
+        "changer.interlockPreconditions",
+        "changer.unknownStops"
+      ],
+      "criteria": [
+        {
+          "path": "changer.modeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "changer.deviceCapabilityExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "changer.safePoseEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "changer.interlockPreconditions",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "changer.unknownStops",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T13",
+      "negativeTestId": "CAP-08-04-T14",
+      "mutationTestId": "CAP-08-04-M07"
+    },
+    {
+      "id": "CAP-08-04-R08",
+      "capabilityId": "CAP-08-04",
+      "summary": "M0/M1可选暂停与M2/M30终止/重置由Profile定义",
+      "sourceIds": [
+        "C084-S2",
+        "C084-S3"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "lifecycle.optionalStopGate",
+        "lifecycle.programEndKnown",
+        "lifecycle.noPostEndExecution",
+        "lifecycle.stateResetPerProfile",
+        "lifecycle.noImplicitVerification"
+      ],
+      "criteria": [
+        {
+          "path": "lifecycle.optionalStopGate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.programEndKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.noPostEndExecution",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.stateResetPerProfile",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.noImplicitVerification",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T15",
+      "negativeTestId": "CAP-08-04-T16",
+      "mutationTestId": "CAP-08-04-M08"
+    },
+    {
+      "id": "CAP-08-04-R09",
+      "capabilityId": "CAP-08-04",
+      "summary": "D13独立解析最终NC并产出typed辅助事件，未知与未收设备反馈不可判PASS",
+      "sourceIds": [
+        "C084-S6",
+        "C084-S8",
+        "C084-S2"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "interpreter.ncBytesReparsed",
+        "interpreter.eventsTyped",
+        "interpreter.ackNotInvented",
+        "interpreter.unknownPreserved",
+        "interpreter.d14NoFakeMove"
+      ],
+      "criteria": [
+        {
+          "path": "interpreter.ncBytesReparsed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interpreter.eventsTyped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interpreter.ackNotInvented",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interpreter.unknownPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interpreter.d14NoFakeMove",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T17",
+      "negativeTestId": "CAP-08-04-T18",
+      "mutationTestId": "CAP-08-04-M09"
+    },
+    {
+      "id": "CAP-08-04-R10",
+      "capabilityId": "CAP-08-04",
+      "summary": "同一08域Owner入口、权限CAS取消回执重验、失效传播及保守发布",
+      "sourceIds": [
+        "C084-S7",
+        "C084-S8"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "commit.singleOwnerPort",
+        "commit.casAndAclRechecked",
+        "commit.epochAndGenerationRechecked",
+        "commit.unknownBlocksD16",
+        "commit.rollbackPreservesHistory"
+      ],
+      "criteria": [
+        {
+          "path": "commit.singleOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casAndAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.epochAndGenerationRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.unknownBlocksD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.rollbackPreservesHistory",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺来源、配置或关键证据时REJECT或UNKNOWN；没有独立NC工程验证不得发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-04-T19",
+      "negativeTestId": "CAP-08-04-T20",
+      "mutationTestId": "CAP-08-04-M10"
+    }
+  ]
+}

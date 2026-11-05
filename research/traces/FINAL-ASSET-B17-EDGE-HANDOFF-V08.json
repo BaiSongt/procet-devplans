@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "procet-final-asset-b17-edge-trace-v08",
+  "researchTopic": "R-FINAL-OWNER-EDGE-B17",
+  "observedOn": "2026-10-29",
+  "exactBaseCommit": "d4822fa45a9e10928ea1ae310b4b922695d002ad",
+  "baselineSource": "docs/architecture/v0.8/business-assets.json",
+  "candidatePortSource": "docs/architecture/v0.8/owner-interface-review-v08.json",
+  "fixturePath": "docs/architecture/v0.8/final-asset-b17-edge-fixtures-v08.json",
+  "checkerPath": "tools/check_final_asset_b17_edge_v08.cjs",
+  "sourcesReviewed": [
+    {
+      "id": "ASOWN-S01",
+      "authors": "Timothy Lebo, Satya Sahoo, Deborah McGuinness",
+      "version": "W3C Recommendation 2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "accessed": "2026-10-29",
+      "depth": "§1、§3、prov:wasDerivedFrom公开HTML段落",
+      "limits": "仅用于实体与派生关系建模；44业务类型边及无环版本图为Procet内部设计"
+    },
+    {
+      "id": "ASOWN-S03",
+      "authors": "A. Rundgren, B. Jordan, S. Erdtman",
+      "version": "RFC 8785 (Informational), 2020-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc8785.html",
+      "accessed": "2026-10-29",
+      "depth": "RFC Editor公开HTML §1、§3.1、§3.2.3及著录",
+      "limits": "JCS需I-JSON限制；本轮未实现/未测试真正JCS加密散列，只审候选契约标志"
+    },
+    {
+      "id": "ASOWN-S04",
+      "authors": "R. Fielding, M. Nottingham, J. Reschke (Editors)",
+      "version": "RFC 9110, 2022-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "accessed": "2026-10-29",
+      "depth": "§13.1.1 If-Match与§13.2前提顺序公开正文",
+      "limits": "HTTP If-Match说明丢失更新问题；本项目跨Owner事务的ACL/ScopeEpoch并非RFC原文强制"
+    },
+    {
+      "id": "ASOWN-S06",
+      "authors": "Open CASCADE Technology文档维护者",
+      "version": "OCCT 8.0.1 API",
+      "url": "https://dev.opencascade.org/doc/refman/html/class_top_loc___location.html",
+      "accessed": "2026-10-29",
+      "depth": "TopLoc_Location类及Transformation公开API",
+      "limits": "API可表达变换不代表B5执行测量或Frame验收已通过"
+    },
+    {
+      "id": "ASOWN-S07",
+      "authors": "NIST官方出版页",
+      "version": "SP 800-53 Rev.5; Release 5.2.0 note 2025-08-27",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "accessed": "2026-10-29",
+      "depth": "官方出版元数据、版本修订说明、Abstract；未读控制正文",
+      "limits": "不冒称已核对访问控制/审计的某一控制条款、也不代表NIST认证"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B17-R01",
+      "summary": "17项资产与44条业务类型边必须双向一致；不可把业务类型图循环当修订血缘循环",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S02"
+      ],
+      "fields": [
+        "assets[].inputs",
+        "assets[].outputs",
+        "contracts[].inputs",
+        "contracts[].outputs"
+      ],
+      "caps": [
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-02",
+        "F1-01"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N01",
+        "N03",
+        "N04",
+        "N05",
+        "N36",
+        "N37",
+        "N38",
+        "N39"
+      ]
+    },
+    {
+      "id": "B17-R02",
+      "summary": "唯一Owner Port，GUI/CLI/Agent读exact版本且不越写Owner域",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S04"
+      ],
+      "fields": [
+        "contracts[].producerPort",
+        "contracts[].readEntry",
+        "contracts[].writeAuthority"
+      ],
+      "caps": [
+        "CAP-01-08",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-02",
+        "W2-04"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N06",
+        "N07",
+        "N12"
+      ]
+    },
+    {
+      "id": "B17-R03",
+      "summary": "候选Owner与独立消费者必须分离验收；未经真实证据不能自行改写签署状态",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S07",
+        "ASOWN-S01"
+      ],
+      "fields": [
+        "contracts[].ownerSignoff",
+        "contracts[].consumerAcknowledgement",
+        "contracts[].schemaFreeze"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-06",
+        "T5-06"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N08",
+        "N09",
+        "N10",
+        "N33",
+        "N34",
+        "N35"
+      ]
+    },
+    {
+      "id": "B17-R04",
+      "summary": "来源必须按revision/hash/frame/scope精确绑定；显式原始字节或批准RFC8785规范化模式",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S03",
+        "ASOWN-S06"
+      ],
+      "fields": [
+        "globalPolicies.commonReferenceFields",
+        "globalPolicies.artifactHashMode",
+        "contracts[].framePolicy"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-04-02"
+      ],
+      "workPackages": [
+        "F1-01",
+        "E3-04"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N11",
+        "N13",
+        "N14",
+        "N15",
+        "N16",
+        "N17"
+      ]
+    },
+    {
+      "id": "B17-R05",
+      "summary": "写入瞬间重验ACL/ScopeEpoch/CAS与取消代际；晚回执不恢复写权，迁移携回退引用",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S04",
+        "ASOWN-S07"
+      ],
+      "fields": [
+        "globalPolicies.commitChecks",
+        "globalPolicies.lateAckRestoresWrite",
+        "globalPolicies.migrationRequiresRollbackRef"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-01-06"
+      ],
+      "workPackages": [
+        "W2-04",
+        "T5-05"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N22",
+        "N23",
+        "N24",
+        "N25",
+        "N26",
+        "N28"
+      ]
+    },
+    {
+      "id": "B17-R06",
+      "summary": "D04名义Setup与D10真实执行配置分离，冻结D08不能由A/B流静默覆盖",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S01",
+        "ASOWN-S06"
+      ],
+      "fields": [
+        "globalPolicies.d04D10Separate",
+        "globalPolicies.immutableABFreeze",
+        "contracts.D04.producerPort",
+        "contracts.D10.producerPort"
+      ],
+      "caps": [
+        "CAP-04-06",
+        "CAP-05-08"
+      ],
+      "workPackages": [
+        "F1-04",
+        "E3-04"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N27",
+        "N29"
+      ]
+    },
+    {
+      "id": "B17-R07",
+      "summary": "D09中立CL不得跳过D12 NC、D13解释、D14轴时序、D15独立验证直达D16；unknown不能签发",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S03",
+        "ASOWN-S06"
+      ],
+      "fields": [
+        "globalPolicies.ncChain",
+        "globalPolicies.clAnimationGrantsNcPass",
+        "globalPolicies.unknownExecutionGrantsRelease"
+      ],
+      "caps": [
+        "CAP-08-07",
+        "CAP-09-07",
+        "CAP-10-02"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-05",
+        "E3-06"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N30",
+        "N31",
+        "N32"
+      ]
+    },
+    {
+      "id": "B17-R08",
+      "summary": "UI单Babylon世界、统一左TaskPanel、最大12px与三入口同Owner保持一致；视觉PASS不等于产品PASS",
+      "sourceRegistry": "research/sources/ASSET-OWNERS-V08.json",
+      "sourceIds": [
+        "ASOWN-S07",
+        "ASOWN-S04"
+      ],
+      "fields": [
+        "globalPolicies.singleBabylonWorld",
+        "globalPolicies.unifiedLeftTaskPanel",
+        "globalPolicies.maxFontPx",
+        "globalPolicies.entrypointDomainPortUnified"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03",
+        "U4-04"
+      ],
+      "positiveAcceptanceId": "P01",
+      "negativeAcceptanceIds": [
+        "N18",
+        "N19",
+        "N20",
+        "N21"
+      ]
+    }
+  ],
+  "execution": {
+    "v8SameLogic": "PASS_1_POSITIVE_39_NEGATIVE",
+    "nodeIndependent": "NOT_RUN",
+    "realConsumer": "NOT_RUN",
+    "ownerSigned": 0,
+    "product": "NOT_RUN",
+    "l3": "PENDING_HUMAN"
+  }
+}

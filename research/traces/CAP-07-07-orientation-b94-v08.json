@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "procet-b94-trace-v08",
+  "capabilityId": "CAP-07-07",
+  "originalWorkPackages": [
+    "F1-03",
+    "E3-01",
+    "U4-04"
+  ],
+  "ownerAsset": "D09",
+  "l1l2": "UNCHANGED",
+  "l3": "PENDING_HUMAN",
+  "sourceRegistry": "research/sources/CAP-07-07-orientation-b94.json",
+  "fixturePath": "docs/capabilities/CAP-07-07/orientation-b94-fixtures-v08.json",
+  "reportPath": "docs/capabilities/CAP-07-07/ORIENTATION-INTERPOLATION-B94-2026-11-01.md",
+  "validator": "tools/check_cap0707_orientation_b94_v08.cjs",
+  "rules": [
+    {
+      "id": "B94-R1",
+      "statement": "来源D01/D03/D04/D05/D07/D08 exact revision/hash/frame/scope和D08冻结",
+      "sourceIds": [
+        "B94-S07",
+        "B94-S08"
+      ],
+      "fields": [
+        "source.exact",
+        "source.hash",
+        "source.frozen",
+        "source.frame",
+        "source.scopeEpoch"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B94-P1"
+      ],
+      "negativeIds": [
+        "B94-N1a",
+        "B94-N1b"
+      ],
+      "unknownIds": [
+        "B94-U1c"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B94-R2",
+      "statement": "单位刀轴和TIP_TO_HOLDER符号约定，零向量或反向约定拒绝",
+      "sourceIds": [
+        "B94-S01",
+        "B94-S07"
+      ],
+      "fields": [
+        "axis.from",
+        "axis.to",
+        "axis.convention"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "positiveIds": [
+        "B94-P2"
+      ],
+      "negativeIds": [
+        "B94-N2a",
+        "B94-N2b"
+      ],
+      "unknownIds": [
+        "B94-U2c"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B94-R3",
+      "statement": "反平行轴必须提供单位正交参考方向，否则UNKNOWN",
+      "sourceIds": [
+        "B94-S01",
+        "B94-S07"
+      ],
+      "fields": [
+        "axis.from",
+        "axis.to",
+        "axis.reference"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "positiveIds": [
+        "B94-P3",
+        "B94-P3a"
+      ],
+      "negativeIds": [
+        "B94-N3b",
+        "B94-N3c"
+      ],
+      "unknownIds": [
+        "B94-U3d"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B94-R4",
+      "statement": "四元数XYZW单位化、q和-q同旋转的半球规约",
+      "sourceIds": [
+        "B94-S02",
+        "B94-S03",
+        "B94-S07"
+      ],
+      "fields": [
+        "pose.start",
+        "pose.end",
+        "pose.order",
+        "pose.hemisphere"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "positiveIds": [
+        "B94-P4",
+        "B94-P4a"
+      ],
+      "negativeIds": [
+        "B94-N4b",
+        "B94-N4c"
+      ],
+      "unknownIds": [
+        "B94-U4d"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B94-R5",
+      "statement": "非轴对称总成必须有D03完整Pose来源，不假定Roll=0",
+      "sourceIds": [
+        "B94-S01",
+        "B94-S07"
+      ],
+      "fields": [
+        "roll.symmetry",
+        "roll.source"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B94-P5",
+        "B94-P5a"
+      ],
+      "negativeIds": [
+        "B94-N5b",
+        "B94-N5c"
+      ],
+      "unknownIds": [
+        "B94-U5d"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B94-R6",
+      "statement": "插值方式、角容差和3+2切削段姿态不变需明确",
+      "sourceIds": [
+        "B94-S03",
+        "B94-S04",
+        "B94-S07"
+      ],
+      "fields": [
+        "mode.strategy",
+        "mode.interpolation",
+        "mode.toleranceRad",
+        "mode.fixedOnCut"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "positiveIds": [
+        "B94-P6"
+      ],
+      "negativeIds": [
+        "B94-N6a",
+        "B94-N6b"
+      ],
+      "unknownIds": [
+        "B94-U6c"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B94-R7",
+      "statement": "D09中立CL不混机床轴，D10/D12/D13/D14/D15/D16严格分离",
+      "sourceIds": [
+        "B94-S05",
+        "B94-S07"
+      ],
+      "fields": [
+        "nc.clOnly",
+        "nc.machineAxes",
+        "nc.d04D10Separate",
+        "nc.d13",
+        "nc.d15",
+        "nc.publish"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B94-P7"
+      ],
+      "negativeIds": [
+        "B94-N7a",
+        "B94-N7b"
+      ],
+      "unknownIds": [
+        "B94-U7c"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B94-R8",
+      "statement": "Owner CAS权限重验、任务取消晚回执、GUI/CLI/Agent共端口和迁移回退",
+      "sourceIds": [
+        "B94-S06",
+        "B94-S07",
+        "B94-S08"
+      ],
+      "fields": [
+        "owner.acl",
+        "owner.expectedHead",
+        "owner.generation",
+        "owner.receiptGeneration",
+        "owner.cancelled",
+        "owner.port",
+        "owner.singleBabylon",
+        "owner.leftPanel",
+        "owner.oldReader"
+      ],
+      "capabilityId": "CAP-07-07",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B94-P8"
+      ],
+      "negativeIds": [
+        "B94-N8a",
+        "B94-N8b"
+      ],
+      "unknownIds": [
+        "B94-U8c"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}

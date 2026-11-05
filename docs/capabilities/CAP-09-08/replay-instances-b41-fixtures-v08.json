@@ -1,0 +1,633 @@
+{
+  "schemaVersion": "procet-b41-fixtures-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-09-08",
+  "syntheticOnly": true,
+  "meaning": "数值/身份/Hash皆为合成；不读取真实NC、物理Joint或OEM",
+  "baseline": {
+    "refs.d10": "D10-r4",
+    "refs.d12": "D12-r9",
+    "refs.d13": "D13-r5",
+    "refs.d14": "D14-r7",
+    "refs.d12Sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "refs.d11AsNc": false,
+    "call.byteStart": 40,
+    "call.byteEnd": 64,
+    "call.a": "call/1",
+    "call.b": "call/2",
+    "call.jointA": "joint/1",
+    "call.jointB": "joint/2",
+    "call.expansionComplete": true,
+    "timeline.unit": "us",
+    "timeline.kind": "D14_SIMULATED",
+    "timeline.startUs": 0,
+    "timeline.endUs": 10000000,
+    "timeline.aEndUs": 4000000,
+    "timeline.bStartUs": 6000000,
+    "timeline.reportedGapStartUs": 4000000,
+    "timeline.reportedGapEndUs": 6000000,
+    "timeline.timeUnknown": false,
+    "seek.cursorUs": 5000000,
+    "seek.rate": 2,
+    "seek.readOnly": true,
+    "seek.d14HashBefore": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "seek.d14HashAfter": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "seek.d15HashBefore": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "seek.d15HashAfter": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "seek.reverseWrites": false,
+    "report.d15Status": "NOT_RUN",
+    "report.label": "NC_PLAYBACK_UNVERIFIED",
+    "report.coverageGapVisible": true,
+    "report.claimsCertified": false,
+    "report.staticSampleClaimsCcd": false,
+    "report.findingRef": "NONE",
+    "provenance.byteSha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "provenance.callSetHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "provenance.d14Hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "provenance.synthetic": true,
+    "provenance.machineExportAllowed": false,
+    "ui.port": "09.PlaybackEvidencePort",
+    "ui.channels": "GUI|CLI|Agent",
+    "ui.worldCount": 1,
+    "ui.leftTaskPanel": true,
+    "ui.fontMaxPx": 12,
+    "ui.selectionCommits": false,
+    "owner.expectedRevision": "D15-r0",
+    "owner.currentRevision": "D15-r0",
+    "owner.expectedHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "owner.currentHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "owner.expectedFrame": "MACHINE",
+    "owner.currentFrame": "MACHINE",
+    "owner.aclExpected": 5,
+    "owner.aclCurrent": 5,
+    "owner.scopeExpected": 7,
+    "owner.scopeCurrent": 7,
+    "owner.cancelEpoch": 2,
+    "owner.ackEpoch": 2,
+    "owner.cancelled": false,
+    "owner.lateAckAdopted": false,
+    "flow.d04": "D04-r2",
+    "flow.d10": "D10-r4",
+    "flow.d16Auto": false,
+    "flow.frozenOverwritten": false,
+    "flow.migrationShadow": true,
+    "flow.consumerStatus": "NOT_RUN",
+    "binding.controllerSemanticsKnown": true
+  },
+  "positiveCount": 4,
+  "negativeCount": 49,
+  "unknownCount": 3,
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "ruleId": "ALL",
+      "patch": {},
+      "expected": "PREVIEW_ONLY"
+    },
+    {
+      "id": "P02",
+      "kind": "positive",
+      "ruleId": "B41-R4",
+      "patch": {
+        "seek.rate": -1
+      },
+      "expected": "PREVIEW_ONLY"
+    },
+    {
+      "id": "P03",
+      "kind": "positive",
+      "ruleId": "B41-R4",
+      "patch": {
+        "seek.cursorUs": 0
+      },
+      "expected": "PREVIEW_ONLY"
+    },
+    {
+      "id": "P04",
+      "kind": "positive",
+      "ruleId": "B41-R4",
+      "patch": {
+        "seek.rate": 0
+      },
+      "expected": "PREVIEW_ONLY"
+    },
+    {
+      "id": "U01",
+      "kind": "unknown",
+      "ruleId": "B41-R3",
+      "patch": {
+        "timeline.timeUnknown": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U02",
+      "kind": "unknown",
+      "ruleId": "B41-R5",
+      "patch": {
+        "report.d15Status": "UNKNOWN"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "U03",
+      "kind": "unknown",
+      "ruleId": "B41-R8",
+      "patch": {
+        "binding.controllerSemanticsKnown": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "ruleId": "B41-R1",
+      "changedField": "refs.d12",
+      "patch": {
+        "refs.d12": "D12-r10"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "ruleId": "B41-R1",
+      "changedField": "refs.d13",
+      "patch": {
+        "refs.d13": "D13-r6"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "ruleId": "B41-R1",
+      "changedField": "refs.d11AsNc",
+      "patch": {
+        "refs.d11AsNc": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "ruleId": "B41-R1",
+      "changedField": "refs.d12Sha",
+      "patch": {
+        "refs.d12Sha": "garbled"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "ruleId": "B41-R2",
+      "changedField": "call.byteEnd",
+      "patch": {
+        "call.byteEnd": 39
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "ruleId": "B41-R2",
+      "changedField": "call.a",
+      "patch": {
+        "call.a": "call/2"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "ruleId": "B41-R2",
+      "changedField": "call.jointB",
+      "patch": {
+        "call.jointB": "joint/1"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "ruleId": "B41-R2",
+      "changedField": "call.expansionComplete",
+      "patch": {
+        "call.expansionComplete": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "ruleId": "B41-R3",
+      "changedField": "timeline.unit",
+      "patch": {
+        "timeline.unit": "ms"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "ruleId": "B41-R3",
+      "changedField": "timeline.bStartUs",
+      "patch": {
+        "timeline.bStartUs": 4000000
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "ruleId": "B41-R3",
+      "changedField": "timeline.reportedGapEndUs",
+      "patch": {
+        "timeline.reportedGapEndUs": 5000000
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "ruleId": "B41-R3",
+      "changedField": "timeline.endUs",
+      "patch": {
+        "timeline.endUs": 1000000
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "ruleId": "B41-R3",
+      "changedField": "timeline.aEndUs",
+      "patch": {
+        "timeline.aEndUs": 5000000
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "ruleId": "B41-R4",
+      "changedField": "seek.cursorUs",
+      "patch": {
+        "seek.cursorUs": 11000000
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "ruleId": "B41-R4",
+      "changedField": "seek.rate",
+      "patch": {
+        "seek.rate": 99
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "ruleId": "B41-R4",
+      "changedField": "seek.readOnly",
+      "patch": {
+        "seek.readOnly": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "ruleId": "B41-R4",
+      "changedField": "seek.d14HashAfter",
+      "patch": {
+        "seek.d14HashAfter": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "ruleId": "B41-R4",
+      "changedField": "seek.d15HashAfter",
+      "patch": {
+        "seek.d15HashAfter": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "ruleId": "B41-R4",
+      "changedField": "seek.reverseWrites",
+      "patch": {
+        "seek.reverseWrites": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "ruleId": "B41-R5",
+      "changedField": "report.d15Status",
+      "patch": {
+        "report.d15Status": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N21",
+      "kind": "negative",
+      "ruleId": "B41-R5",
+      "changedField": "report.label",
+      "patch": {
+        "report.label": "NC_VERIFIED"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N22",
+      "kind": "negative",
+      "ruleId": "B41-R5",
+      "changedField": "report.coverageGapVisible",
+      "patch": {
+        "report.coverageGapVisible": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N23",
+      "kind": "negative",
+      "ruleId": "B41-R5",
+      "changedField": "report.claimsCertified",
+      "patch": {
+        "report.claimsCertified": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N24",
+      "kind": "negative",
+      "ruleId": "B41-R5",
+      "changedField": "report.staticSampleClaimsCcd",
+      "patch": {
+        "report.staticSampleClaimsCcd": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N25",
+      "kind": "negative",
+      "ruleId": "B41-R5",
+      "changedField": "report.findingRef",
+      "patch": {
+        "report.findingRef": "finding-1"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N26",
+      "kind": "negative",
+      "ruleId": "B41-R6",
+      "changedField": "provenance.byteSha",
+      "patch": {
+        "provenance.byteSha": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N27",
+      "kind": "negative",
+      "ruleId": "B41-R6",
+      "changedField": "provenance.callSetHash",
+      "patch": {
+        "provenance.callSetHash": "bad"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N28",
+      "kind": "negative",
+      "ruleId": "B41-R6",
+      "changedField": "provenance.d14Hash",
+      "patch": {
+        "provenance.d14Hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N29",
+      "kind": "negative",
+      "ruleId": "B41-R6",
+      "changedField": "provenance.synthetic",
+      "patch": {
+        "provenance.synthetic": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N30",
+      "kind": "negative",
+      "ruleId": "B41-R6",
+      "changedField": "provenance.machineExportAllowed",
+      "patch": {
+        "provenance.machineExportAllowed": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N31",
+      "kind": "negative",
+      "ruleId": "B41-R7",
+      "changedField": "ui.port",
+      "patch": {
+        "ui.port": "UI.LocalPlayer"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N32",
+      "kind": "negative",
+      "ruleId": "B41-R7",
+      "changedField": "ui.channels",
+      "patch": {
+        "ui.channels": "GUI"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N33",
+      "kind": "negative",
+      "ruleId": "B41-R7",
+      "changedField": "ui.worldCount",
+      "patch": {
+        "ui.worldCount": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N34",
+      "kind": "negative",
+      "ruleId": "B41-R7",
+      "changedField": "ui.leftTaskPanel",
+      "patch": {
+        "ui.leftTaskPanel": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N35",
+      "kind": "negative",
+      "ruleId": "B41-R7",
+      "changedField": "ui.fontMaxPx",
+      "patch": {
+        "ui.fontMaxPx": 13
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N36",
+      "kind": "negative",
+      "ruleId": "B41-R7",
+      "changedField": "ui.selectionCommits",
+      "patch": {
+        "ui.selectionCommits": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N37",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.currentRevision",
+      "patch": {
+        "owner.currentRevision": "D15-r1"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N38",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.currentHash",
+      "patch": {
+        "owner.currentHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N39",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.currentFrame",
+      "patch": {
+        "owner.currentFrame": "PART"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N40",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.aclCurrent",
+      "patch": {
+        "owner.aclCurrent": 9
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N41",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.scopeCurrent",
+      "patch": {
+        "owner.scopeCurrent": 9
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N42",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.ackEpoch",
+      "patch": {
+        "owner.ackEpoch": 3
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N43",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.cancelled",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N44",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "owner.lateAckAdopted",
+      "patch": {
+        "owner.lateAckAdopted": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N45",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "flow.d04",
+      "patch": {
+        "flow.d04": "D10-r4"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N46",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "flow.d16Auto",
+      "patch": {
+        "flow.d16Auto": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N47",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "flow.frozenOverwritten",
+      "patch": {
+        "flow.frozenOverwritten": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N48",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "flow.migrationShadow",
+      "patch": {
+        "flow.migrationShadow": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N49",
+      "kind": "negative",
+      "ruleId": "B41-R8",
+      "changedField": "flow.consumerStatus",
+      "patch": {
+        "flow.consumerStatus": "PASS"
+      },
+      "expected": "REJECT"
+    }
+  ]
+}

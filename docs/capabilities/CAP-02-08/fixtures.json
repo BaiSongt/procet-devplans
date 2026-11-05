@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "procet-planning-synthetic-cases-v1",
+  "status": "not_executed_against_product",
+  "purpose": "合成求值规则例子，无真实机床参数或安全资格",
+  "cases": [
+    {
+      "id": "RC-T01",
+      "required": [
+        "fixed3_axis"
+      ],
+      "l0": "verified",
+      "expectedStage": "L0",
+      "expected": "structural_supported_only"
+    },
+    {
+      "id": "RC-T02",
+      "axesNominal": 5,
+      "l0": "unverified",
+      "expectedStage": "L0",
+      "expected": "unverified_all_false_not_physical_absence"
+    },
+    {
+      "id": "RC-T03",
+      "requirements": [
+        "simultaneous5"
+      ],
+      "facts": [
+        "fixed3",
+        "indexed3plus2"
+      ],
+      "expectedStage": "L1",
+      "expected": "incompatible"
+    },
+    {
+      "id": "RC-T04",
+      "aabbOverlap": true,
+      "tcpOrientationKnown": false,
+      "expectedStage": "L2",
+      "expected": "unknown_not_reachable"
+    },
+    {
+      "id": "RC-T05",
+      "machineTravelMm": [
+        -300,
+        300
+      ],
+      "requiredTravelMm": 500,
+      "expectedStage": "L1",
+      "expected": "incompatible"
+    },
+    {
+      "id": "RC-T06",
+      "requiredTravelM": 0.5,
+      "requiredTravelMm": 500,
+      "expectedStage": "L1",
+      "expected": "equivalent_units"
+    },
+    {
+      "id": "RC-T07",
+      "machineStructure": "verified",
+      "fixtureInterfaceEvidence": null,
+      "expectedStage": "L1",
+      "expected": "blocked_unknown"
+    },
+    {
+      "id": "RC-T08",
+      "compatibilityKeyEqual": true,
+      "mateGeometryCompatible": false,
+      "expectedStage": "L1",
+      "expected": "incompatible"
+    },
+    {
+      "id": "RC-T09",
+      "siteDomain": {
+        "minSlot": 0,
+        "maxSlot": 2
+      },
+      "selectedSlot": 3,
+      "expectedStage": "L1",
+      "expected": "incompatible_no_clamp"
+    },
+    {
+      "id": "RC-T10",
+      "assemblyReleased": true,
+      "spindleMateKnown": false,
+      "expectedStage": "L1",
+      "expected": "blocked_unknown"
+    },
+    {
+      "id": "RC-T11",
+      "controllerFamilyEqual": true,
+      "postTypedReleased": false,
+      "expectedStage": "L2",
+      "expected": "blocked_unknown"
+    },
+    {
+      "id": "RC-T12",
+      "hasProprietaryNcCycle": true,
+      "semanticsModeled": false,
+      "expectedStage": "L2",
+      "expected": "unsupported"
+    },
+    {
+      "id": "RC-T13",
+      "allMandatory": "satisfied",
+      "expectedStage": "L1",
+      "expected": "candidate_not_D15_pass"
+    },
+    {
+      "id": "RC-T14",
+      "mandatory": [
+        "incompatible",
+        "unknown"
+      ],
+      "expectedStage": "L1",
+      "expected": "rejected_with_missing_evidence"
+    },
+    {
+      "id": "RC-T15",
+      "mandatory": [
+        "satisfied"
+      ],
+      "preferences": [
+        "incompatible"
+      ],
+      "expectedStage": "L1",
+      "expected": "candidate_with_lower_rank"
+    },
+    {
+      "id": "RC-T16",
+      "resourceStatus": "obsolete",
+      "purpose": "history_replay",
+      "expected": "resolves_old_ref_not_new_selectable"
+    },
+    {
+      "id": "RC-T17",
+      "oldExact": "rev1",
+      "newReleased": "rev2",
+      "expected": "old_input_kept"
+    },
+    {
+      "id": "RC-T18",
+      "changed": "setup_revision",
+      "expected": "stale_only_dependent_assessments"
+    },
+    {
+      "id": "RC-T19",
+      "callerEpoch": 1,
+      "currentEpoch": 2,
+      "expected": "drop_late_result"
+    },
+    {
+      "id": "RC-T20",
+      "offlineRequiredAssetMissing": true,
+      "expected": "restore_reject_keep_current_project"
+    }
+  ]
+}

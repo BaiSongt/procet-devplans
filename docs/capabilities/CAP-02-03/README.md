@@ -1,3 +1,9 @@
+> **B175研究（2026-11-05）**：[Gauge/TCP/实测长度与控制器H表隔离](GAUGE-STACK-B175-2026-11-05.md) → [来源](../../../research/sources/CAP-02-03-gauge-stack-b175.json) → [规则](../../../research/traces/CAP-02-03-gauge-stack-b175-v08.json) → [58合成](gauge-stack-b175-fixtures-v08.json)。真实Owner/控制器/L3未验。**规划PASS≠产品PASS。**
+
+> **B129补证**：[拉钉与主轴OEM适配](RETENTION-KNOB-QUALIFICATION-B129-2026-11-03.md) · [来源](../../../research/sources/CAP-02-03-retention-knob-b129.json) · [规则](../../../research/traces/CAP-02-03-retention-knob-b129-v08.json) · [40合成](retention-knob-b129-fixtures-v08.json)。实机未验，规划PASS≠产品PASS。
+
+> **B86增量 2026-11-01**：[Haas刀塔工位与Offset Index研究](LATHE-TURRET-B86-2026-11-01.md) → [9来源](../../../research/sources/CAP-02-03-lathe-turret-b86.json) → [8字段规则](../../../research/traces/CAP-02-03-lathe-turret-b86-v08.json) → [32正反](lathe-turret-b86-fixtures-v08.json) → [Node](../../../tools/check_cap0203_lathe_turret_b86_v08.cjs)。D03名义总成≠D10实际补偿≠D13控制器T字；Owner/消费者/L3待审。**规划PASS≠产品PASS。**
+
 # CAP-02-03｜刀柄与刀具总成
 
 版本：V0.10评审稿｜2026-10-16｜编制完成，待设计评审；产品实现与验收未执行。
@@ -176,3 +182,11 @@ D03拥有名义总成及能力；D04保存工艺装夹选用关系；D10绑定�
 首期落地已有单刀柄+单刀具的同轴总成，预留有类型的连接节点/接口及多段串接，不因数据能表达就提前宣称执行支持。角度附件、多TCP、多刃测量、热变形与动力学资格另行评审。
 
 实际B5主轴安装基准、接口标准尺寸、校准方法和控制器版本仍需工程证据。L3功能评审与L4接口冻结不能互相替代。下一项CAP-02-04为夹具与工装资源，本项仅定义其消费本总成时的引用和边界。
+
+## 13. 2026-10-28研究与机器追踪增量
+
+新增[6条官方重新核阅来源、10规则40字段、50个单字段正反规划验收与8项未执行状态设计](RESEARCH-TRACE-2026-10-28.md)。旧R-TA-001与TA-AC-01..16不变，独立Node文件与产品验收仍NOT_RUN。
+
+## 14. 2026-10-30 B32量规长与实际刀补语义专项补证
+
+[研究与来源局限](GAUGE-OFFSET-B32-2026-10-30.md) → [8条来源/字段追踪](../../../research/traces/CAP-02-03-gauge-offset-b32-v08.json) → [合成正反案例](gauge-offset-b32-fixtures-v08.json)。不改变TA-AC-01..16原承诺及现有Owner职责；H值不从名义Gauge复制，控制器软件版本未锁定返回UNKNOWN。独立Node/OEM/产品验收NOT_RUN，L3待评审。

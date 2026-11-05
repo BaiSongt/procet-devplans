@@ -1,0 +1,839 @@
+{
+  "schemaVersion": "procet-b151-fixtures-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "humanReview": "PENDING_L3",
+  "planningPassNotProductPass": true,
+  "productTests": "NOT_RUN",
+  "tracePath": "research/traces/CAP-09-08-playback-clock-b151-v08.json",
+  "rules": [
+    {
+      "id": "B151-R01",
+      "fields": [
+        "clock.displayMonotonic",
+        "clock.d14TimebaseExact",
+        "clock.noDateNowSourceOfTruth",
+        "clock.noControllerClockClaim"
+      ],
+      "failure": "CLOCK_DOMAIN_UNKNOWN",
+      "testIds": [
+        "B151-R01-P",
+        "B151-R01-N1",
+        "B151-R01-N2",
+        "B151-R01-N3",
+        "B151-R01-N4"
+      ]
+    },
+    {
+      "id": "B151-R02",
+      "fields": [
+        "pause.holdTimeFixed",
+        "pause.resumeReanchored",
+        "pause.noHiddenCatchup",
+        "pause.seekReadOnly"
+      ],
+      "failure": "PAUSE_SEEK_UNQUALIFIED",
+      "testIds": [
+        "B151-R02-P",
+        "B151-R02-N1",
+        "B151-R02-N2",
+        "B151-R02-N3",
+        "B151-R02-N4"
+      ]
+    },
+    {
+      "id": "B151-R03",
+      "fields": [
+        "raf.timestampUsed",
+        "raf.noFixedFpsStep",
+        "raf.backgroundPauseHandled",
+        "raf.renderCanSkipFrames"
+      ],
+      "failure": "FRAME_TIME_UNQUALIFIED",
+      "testIds": [
+        "B151-R03-P",
+        "B151-R03-N1",
+        "B151-R03-N2",
+        "B151-R03-N3",
+        "B151-R03-N4"
+      ]
+    },
+    {
+      "id": "B151-R04",
+      "fields": [
+        "gap.coveragePinned",
+        "gap.unknownVisible",
+        "gap.noInterpolatedSafety",
+        "gap.halfOpenBoundaries"
+      ],
+      "failure": "TIMELINE_GAP_UNKNOWN",
+      "testIds": [
+        "B151-R04-P",
+        "B151-R04-N1",
+        "B151-R04-N2",
+        "B151-R04-N3",
+        "B151-R04-N4"
+      ]
+    },
+    {
+      "id": "B151-R05",
+      "fields": [
+        "instance.ncCallInstanceExact",
+        "instance.jointEventExact",
+        "instance.rotaryTurnsPreserved",
+        "instance.d03D10FrameExact"
+      ],
+      "failure": "INSTANCE_FRAME_UNKNOWN",
+      "testIds": [
+        "B151-R05-P",
+        "B151-R05-N1",
+        "B151-R05-N2",
+        "B151-R05-N3",
+        "B151-R05-N4"
+      ]
+    },
+    {
+      "id": "B151-R06",
+      "fields": [
+        "evidence.d15ReadOnly",
+        "evidence.clOnlyLabeled",
+        "evidence.noGreenSafetyClaim",
+        "evidence.d16UnknownBlocked"
+      ],
+      "failure": "ENGINEERING_QUALIFICATION_UNKNOWN",
+      "testIds": [
+        "B151-R06-P",
+        "B151-R06-N1",
+        "B151-R06-N2",
+        "B151-R06-N3",
+        "B151-R06-N4"
+      ]
+    },
+    {
+      "id": "B151-R07",
+      "fields": [
+        "owner.guiCliAgentSamePort",
+        "owner.oneBabylonLeftPanel",
+        "owner.aclCasFrameEpochRecheck",
+        "owner.cancelLateAckIgnored"
+      ],
+      "failure": "OWNER_GATE_UNKNOWN",
+      "testIds": [
+        "B151-R07-P",
+        "B151-R07-N1",
+        "B151-R07-N2",
+        "B151-R07-N3",
+        "B151-R07-N4"
+      ]
+    },
+    {
+      "id": "B151-R08",
+      "fields": [
+        "migration.exactRevisionHash",
+        "migration.pairedOldReader",
+        "migration.independentNegativeCases",
+        "migration.frozenABPreserved"
+      ],
+      "failure": "CONSUMER_NOT_QUALIFIED",
+      "testIds": [
+        "B151-R08-P",
+        "B151-R08-N1",
+        "B151-R08-N2",
+        "B151-R08-N3",
+        "B151-R08-N4"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "B151-R01-P",
+      "ruleId": "B151-R01",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "clock.displayMonotonic": true,
+        "clock.d14TimebaseExact": true,
+        "clock.noDateNowSourceOfTruth": true,
+        "clock.noControllerClockClaim": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R01-N1",
+      "ruleId": "B151-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "clock.displayMonotonic",
+      "values": {
+        "clock.displayMonotonic": false,
+        "clock.d14TimebaseExact": true,
+        "clock.noDateNowSourceOfTruth": true,
+        "clock.noControllerClockClaim": true
+      },
+      "expected": "CLOCK_DOMAIN_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R01-N2",
+      "ruleId": "B151-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "clock.d14TimebaseExact",
+      "values": {
+        "clock.displayMonotonic": true,
+        "clock.d14TimebaseExact": false,
+        "clock.noDateNowSourceOfTruth": true,
+        "clock.noControllerClockClaim": true
+      },
+      "expected": "CLOCK_DOMAIN_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R01-N3",
+      "ruleId": "B151-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "clock.noDateNowSourceOfTruth",
+      "values": {
+        "clock.displayMonotonic": true,
+        "clock.d14TimebaseExact": true,
+        "clock.noDateNowSourceOfTruth": false,
+        "clock.noControllerClockClaim": true
+      },
+      "expected": "CLOCK_DOMAIN_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R01-N4",
+      "ruleId": "B151-R01",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "clock.noControllerClockClaim",
+      "values": {
+        "clock.displayMonotonic": true,
+        "clock.d14TimebaseExact": true,
+        "clock.noDateNowSourceOfTruth": true,
+        "clock.noControllerClockClaim": false
+      },
+      "expected": "CLOCK_DOMAIN_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R02-P",
+      "ruleId": "B151-R02",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "pause.holdTimeFixed": true,
+        "pause.resumeReanchored": true,
+        "pause.noHiddenCatchup": true,
+        "pause.seekReadOnly": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R02-N1",
+      "ruleId": "B151-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "pause.holdTimeFixed",
+      "values": {
+        "pause.holdTimeFixed": false,
+        "pause.resumeReanchored": true,
+        "pause.noHiddenCatchup": true,
+        "pause.seekReadOnly": true
+      },
+      "expected": "PAUSE_SEEK_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R02-N2",
+      "ruleId": "B151-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "pause.resumeReanchored",
+      "values": {
+        "pause.holdTimeFixed": true,
+        "pause.resumeReanchored": false,
+        "pause.noHiddenCatchup": true,
+        "pause.seekReadOnly": true
+      },
+      "expected": "PAUSE_SEEK_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R02-N3",
+      "ruleId": "B151-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "pause.noHiddenCatchup",
+      "values": {
+        "pause.holdTimeFixed": true,
+        "pause.resumeReanchored": true,
+        "pause.noHiddenCatchup": false,
+        "pause.seekReadOnly": true
+      },
+      "expected": "PAUSE_SEEK_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R02-N4",
+      "ruleId": "B151-R02",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "pause.seekReadOnly",
+      "values": {
+        "pause.holdTimeFixed": true,
+        "pause.resumeReanchored": true,
+        "pause.noHiddenCatchup": true,
+        "pause.seekReadOnly": false
+      },
+      "expected": "PAUSE_SEEK_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R03-P",
+      "ruleId": "B151-R03",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "raf.timestampUsed": true,
+        "raf.noFixedFpsStep": true,
+        "raf.backgroundPauseHandled": true,
+        "raf.renderCanSkipFrames": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R03-N1",
+      "ruleId": "B151-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "raf.timestampUsed",
+      "values": {
+        "raf.timestampUsed": false,
+        "raf.noFixedFpsStep": true,
+        "raf.backgroundPauseHandled": true,
+        "raf.renderCanSkipFrames": true
+      },
+      "expected": "FRAME_TIME_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R03-N2",
+      "ruleId": "B151-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "raf.noFixedFpsStep",
+      "values": {
+        "raf.timestampUsed": true,
+        "raf.noFixedFpsStep": false,
+        "raf.backgroundPauseHandled": true,
+        "raf.renderCanSkipFrames": true
+      },
+      "expected": "FRAME_TIME_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R03-N3",
+      "ruleId": "B151-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "raf.backgroundPauseHandled",
+      "values": {
+        "raf.timestampUsed": true,
+        "raf.noFixedFpsStep": true,
+        "raf.backgroundPauseHandled": false,
+        "raf.renderCanSkipFrames": true
+      },
+      "expected": "FRAME_TIME_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R03-N4",
+      "ruleId": "B151-R03",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "raf.renderCanSkipFrames",
+      "values": {
+        "raf.timestampUsed": true,
+        "raf.noFixedFpsStep": true,
+        "raf.backgroundPauseHandled": true,
+        "raf.renderCanSkipFrames": false
+      },
+      "expected": "FRAME_TIME_UNQUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R04-P",
+      "ruleId": "B151-R04",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "gap.coveragePinned": true,
+        "gap.unknownVisible": true,
+        "gap.noInterpolatedSafety": true,
+        "gap.halfOpenBoundaries": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R04-N1",
+      "ruleId": "B151-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "gap.coveragePinned",
+      "values": {
+        "gap.coveragePinned": false,
+        "gap.unknownVisible": true,
+        "gap.noInterpolatedSafety": true,
+        "gap.halfOpenBoundaries": true
+      },
+      "expected": "TIMELINE_GAP_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R04-N2",
+      "ruleId": "B151-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "gap.unknownVisible",
+      "values": {
+        "gap.coveragePinned": true,
+        "gap.unknownVisible": false,
+        "gap.noInterpolatedSafety": true,
+        "gap.halfOpenBoundaries": true
+      },
+      "expected": "TIMELINE_GAP_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R04-N3",
+      "ruleId": "B151-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "gap.noInterpolatedSafety",
+      "values": {
+        "gap.coveragePinned": true,
+        "gap.unknownVisible": true,
+        "gap.noInterpolatedSafety": false,
+        "gap.halfOpenBoundaries": true
+      },
+      "expected": "TIMELINE_GAP_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R04-N4",
+      "ruleId": "B151-R04",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "gap.halfOpenBoundaries",
+      "values": {
+        "gap.coveragePinned": true,
+        "gap.unknownVisible": true,
+        "gap.noInterpolatedSafety": true,
+        "gap.halfOpenBoundaries": false
+      },
+      "expected": "TIMELINE_GAP_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R05-P",
+      "ruleId": "B151-R05",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "instance.ncCallInstanceExact": true,
+        "instance.jointEventExact": true,
+        "instance.rotaryTurnsPreserved": true,
+        "instance.d03D10FrameExact": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R05-N1",
+      "ruleId": "B151-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "instance.ncCallInstanceExact",
+      "values": {
+        "instance.ncCallInstanceExact": false,
+        "instance.jointEventExact": true,
+        "instance.rotaryTurnsPreserved": true,
+        "instance.d03D10FrameExact": true
+      },
+      "expected": "INSTANCE_FRAME_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R05-N2",
+      "ruleId": "B151-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "instance.jointEventExact",
+      "values": {
+        "instance.ncCallInstanceExact": true,
+        "instance.jointEventExact": false,
+        "instance.rotaryTurnsPreserved": true,
+        "instance.d03D10FrameExact": true
+      },
+      "expected": "INSTANCE_FRAME_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R05-N3",
+      "ruleId": "B151-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "instance.rotaryTurnsPreserved",
+      "values": {
+        "instance.ncCallInstanceExact": true,
+        "instance.jointEventExact": true,
+        "instance.rotaryTurnsPreserved": false,
+        "instance.d03D10FrameExact": true
+      },
+      "expected": "INSTANCE_FRAME_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R05-N4",
+      "ruleId": "B151-R05",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "instance.d03D10FrameExact",
+      "values": {
+        "instance.ncCallInstanceExact": true,
+        "instance.jointEventExact": true,
+        "instance.rotaryTurnsPreserved": true,
+        "instance.d03D10FrameExact": false
+      },
+      "expected": "INSTANCE_FRAME_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R06-P",
+      "ruleId": "B151-R06",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "evidence.d15ReadOnly": true,
+        "evidence.clOnlyLabeled": true,
+        "evidence.noGreenSafetyClaim": true,
+        "evidence.d16UnknownBlocked": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R06-N1",
+      "ruleId": "B151-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "evidence.d15ReadOnly",
+      "values": {
+        "evidence.d15ReadOnly": false,
+        "evidence.clOnlyLabeled": true,
+        "evidence.noGreenSafetyClaim": true,
+        "evidence.d16UnknownBlocked": true
+      },
+      "expected": "ENGINEERING_QUALIFICATION_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R06-N2",
+      "ruleId": "B151-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "evidence.clOnlyLabeled",
+      "values": {
+        "evidence.d15ReadOnly": true,
+        "evidence.clOnlyLabeled": false,
+        "evidence.noGreenSafetyClaim": true,
+        "evidence.d16UnknownBlocked": true
+      },
+      "expected": "ENGINEERING_QUALIFICATION_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R06-N3",
+      "ruleId": "B151-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "evidence.noGreenSafetyClaim",
+      "values": {
+        "evidence.d15ReadOnly": true,
+        "evidence.clOnlyLabeled": true,
+        "evidence.noGreenSafetyClaim": false,
+        "evidence.d16UnknownBlocked": true
+      },
+      "expected": "ENGINEERING_QUALIFICATION_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R06-N4",
+      "ruleId": "B151-R06",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "evidence.d16UnknownBlocked",
+      "values": {
+        "evidence.d15ReadOnly": true,
+        "evidence.clOnlyLabeled": true,
+        "evidence.noGreenSafetyClaim": true,
+        "evidence.d16UnknownBlocked": false
+      },
+      "expected": "ENGINEERING_QUALIFICATION_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R07-P",
+      "ruleId": "B151-R07",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "owner.guiCliAgentSamePort": true,
+        "owner.oneBabylonLeftPanel": true,
+        "owner.aclCasFrameEpochRecheck": true,
+        "owner.cancelLateAckIgnored": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R07-N1",
+      "ruleId": "B151-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "owner.guiCliAgentSamePort",
+      "values": {
+        "owner.guiCliAgentSamePort": false,
+        "owner.oneBabylonLeftPanel": true,
+        "owner.aclCasFrameEpochRecheck": true,
+        "owner.cancelLateAckIgnored": true
+      },
+      "expected": "OWNER_GATE_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R07-N2",
+      "ruleId": "B151-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "owner.oneBabylonLeftPanel",
+      "values": {
+        "owner.guiCliAgentSamePort": true,
+        "owner.oneBabylonLeftPanel": false,
+        "owner.aclCasFrameEpochRecheck": true,
+        "owner.cancelLateAckIgnored": true
+      },
+      "expected": "OWNER_GATE_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R07-N3",
+      "ruleId": "B151-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "owner.aclCasFrameEpochRecheck",
+      "values": {
+        "owner.guiCliAgentSamePort": true,
+        "owner.oneBabylonLeftPanel": true,
+        "owner.aclCasFrameEpochRecheck": false,
+        "owner.cancelLateAckIgnored": true
+      },
+      "expected": "OWNER_GATE_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R07-N4",
+      "ruleId": "B151-R07",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "owner.cancelLateAckIgnored",
+      "values": {
+        "owner.guiCliAgentSamePort": true,
+        "owner.oneBabylonLeftPanel": true,
+        "owner.aclCasFrameEpochRecheck": true,
+        "owner.cancelLateAckIgnored": false
+      },
+      "expected": "OWNER_GATE_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R08-P",
+      "ruleId": "B151-R08",
+      "type": "POSITIVE",
+      "mutatedField": null,
+      "values": {
+        "migration.exactRevisionHash": true,
+        "migration.pairedOldReader": true,
+        "migration.independentNegativeCases": true,
+        "migration.frozenABPreserved": true
+      },
+      "expected": "PASS_SYNTHETIC",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R08-N1",
+      "ruleId": "B151-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "migration.exactRevisionHash",
+      "values": {
+        "migration.exactRevisionHash": false,
+        "migration.pairedOldReader": true,
+        "migration.independentNegativeCases": true,
+        "migration.frozenABPreserved": true
+      },
+      "expected": "CONSUMER_NOT_QUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R08-N2",
+      "ruleId": "B151-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "migration.pairedOldReader",
+      "values": {
+        "migration.exactRevisionHash": true,
+        "migration.pairedOldReader": false,
+        "migration.independentNegativeCases": true,
+        "migration.frozenABPreserved": true
+      },
+      "expected": "CONSUMER_NOT_QUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R08-N3",
+      "ruleId": "B151-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "migration.independentNegativeCases",
+      "values": {
+        "migration.exactRevisionHash": true,
+        "migration.pairedOldReader": true,
+        "migration.independentNegativeCases": false,
+        "migration.frozenABPreserved": true
+      },
+      "expected": "CONSUMER_NOT_QUALIFIED",
+      "synthetic": true
+    },
+    {
+      "id": "B151-R08-N4",
+      "ruleId": "B151-R08",
+      "type": "NEGATIVE_SINGLE_FIELD",
+      "mutatedField": "migration.frozenABPreserved",
+      "values": {
+        "migration.exactRevisionHash": true,
+        "migration.pairedOldReader": true,
+        "migration.independentNegativeCases": true,
+        "migration.frozenABPreserved": false
+      },
+      "expected": "CONSUMER_NOT_QUALIFIED",
+      "synthetic": true
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B151-G01",
+      "input": {
+        "anchorWall": 1000,
+        "anchorVirtual": 200,
+        "now": 1400,
+        "rate": 1,
+        "end": 2000
+      },
+      "expected": {
+        "status": "DISPLAY_ONLY",
+        "time": 600
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B151-G02",
+      "input": {
+        "anchorWall": 1000,
+        "anchorVirtual": 200,
+        "now": 1125,
+        "rate": 2,
+        "end": 2000
+      },
+      "expected": {
+        "status": "DISPLAY_ONLY",
+        "time": 450
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B151-G03",
+      "input": {
+        "anchorWall": 1000,
+        "anchorVirtual": 350,
+        "now": 1650,
+        "rate": 1,
+        "end": 2000,
+        "paused": true
+      },
+      "expected": {
+        "status": "FROZEN",
+        "time": 350
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B151-G04",
+      "input": {
+        "anchorWall": 2000,
+        "anchorVirtual": 750,
+        "now": 2000,
+        "rate": 1,
+        "end": 2000
+      },
+      "expected": {
+        "status": "DISPLAY_ONLY",
+        "time": 750
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B151-G05",
+      "input": {
+        "anchorWall": 1000,
+        "anchorVirtual": 400,
+        "now": 3000,
+        "rate": 1,
+        "end": 2000,
+        "hidden": true
+      },
+      "expected": {
+        "status": "FROZEN",
+        "time": 400
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B151-G06",
+      "input": {
+        "anchorWall": 1000,
+        "anchorVirtual": 200,
+        "now": 1300,
+        "rate": 1,
+        "end": 2000,
+        "gapStart": 450,
+        "gapEnd": 650
+      },
+      "expected": {
+        "status": "UNKNOWN_GAP",
+        "time": null
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B151-G07",
+      "input": {
+        "anchorWall": 1000,
+        "anchorVirtual": 200,
+        "now": 1250,
+        "rate": 1,
+        "end": 2000,
+        "gapStart": 450,
+        "gapEnd": 650
+      },
+      "expected": {
+        "status": "UNKNOWN_GAP",
+        "time": null
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B151-G08",
+      "input": {
+        "anchorWall": 1000,
+        "anchorVirtual": 200,
+        "now": 1450,
+        "rate": 1,
+        "end": 2000,
+        "gapStart": 450,
+        "gapEnd": 650
+      },
+      "expected": {
+        "status": "DISPLAY_ONLY",
+        "time": 650
+      },
+      "synthetic": true
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "procet-registry-audit-b13-crossresource-v08",
+  "recordedOn": "2026-10-29",
+  "auditPath": "research/audits/REGISTRY-AUDIT-B13-2026-10-29.json",
+  "fixturesPath": "docs/architecture/v0.8/registry-audit-b13-fixtures-v08.json",
+  "sourceIndex": "research/source-index.json",
+  "rules": [
+    {
+      "id": "B13-R01",
+      "summary": "资源资格快照必须覆盖六项精确资源引用",
+      "capabilityIds": [
+        "CAP-02-03",
+        "CAP-02-04",
+        "CAP-02-05",
+        "CAP-02-06",
+        "CAP-02-07",
+        "CAP-02-08"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "sourceIds": [
+        "TA03-S01",
+        "WH04-S08",
+        "MS05-S03",
+        "MET06-S07",
+        "RG07-S06",
+        "SRC-RC08-V08-09"
+      ],
+      "fields": [
+        "resource.toolRevision",
+        "resource.fixtureRevision",
+        "resource.stockLotRevision",
+        "resource.geometryHash",
+        "resource.probeCalibrationRevision",
+        "resource.machineFkRevision"
+      ],
+      "criteria": [
+        {
+          "path": "resource.toolRevision",
+          "op": "eq",
+          "expected": "demo:tool@r1"
+        },
+        {
+          "path": "resource.fixtureRevision",
+          "op": "eq",
+          "expected": "demo:fixture@r1"
+        },
+        {
+          "path": "resource.stockLotRevision",
+          "op": "eq",
+          "expected": "demo:stock@r1"
+        },
+        {
+          "path": "resource.geometryHash",
+          "op": "eq",
+          "expected": "SYNTHETIC_NOT_REAL_HASH"
+        },
+        {
+          "path": "resource.probeCalibrationRevision",
+          "op": "eq",
+          "expected": "demo:probe@r1"
+        },
+        {
+          "path": "resource.machineFkRevision",
+          "op": "eq",
+          "expected": "demo:kinematics@r1"
+        }
+      ],
+      "mappingPolicy": "研究关联，不重写原312条CAP→工作包直接边",
+      "evidenceBoundary": "来源仅支持公开阅读范围；字段及门禁均为Procet内部待审方案，非OEM/NC/机床认证",
+      "designApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B13-R02",
+      "summary": "夹具/实体几何/计量/运动证据不可由BBox、秩或资源目录替代",
+      "capabilityIds": [
+        "CAP-02-04",
+        "CAP-02-05",
+        "CAP-02-06",
+        "CAP-02-07",
+        "CAP-02-08"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "T5-05"
+      ],
+      "sourceIds": [
+        "WH04-S04",
+        "MS05-S05",
+        "MET06-S03",
+        "RG07-S05",
+        "SRC-RC08-V08-03"
+      ],
+      "fields": [
+        "qualification.unilateralFixtureProof",
+        "qualification.solidOracleEvidence",
+        "qualification.topologyValidityEvidence",
+        "qualification.calibrationChainEvidence",
+        "qualification.physicalJointFkEvidence",
+        "qualification.noBoundingBoxCertification"
+      ],
+      "criteria": [
+        {
+          "path": "qualification.unilateralFixtureProof",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "qualification.solidOracleEvidence",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "qualification.topologyValidityEvidence",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "qualification.calibrationChainEvidence",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "qualification.physicalJointFkEvidence",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "qualification.noBoundingBoxCertification",
+          "op": "eq",
+          "expected": true
+        }
+      ],
+      "mappingPolicy": "研究关联，不重写原312条CAP→工作包直接边",
+      "evidenceBoundary": "来源仅支持公开阅读范围；字段及门禁均为Procet内部待审方案，非OEM/NC/机床认证",
+      "designApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B13-R03",
+      "summary": "GUI/CLI/Agent共用业务Owner Port并严格保持单3D、CAS及A/B冻结",
+      "capabilityIds": [
+        "CAP-01-07",
+        "CAP-01-08",
+        "CAP-02-08"
+      ],
+      "workPackages": [
+        "F1-01",
+        "F1-06",
+        "U4-03"
+      ],
+      "sourceIds": [
+        "TA03-S05",
+        "TA03-S06",
+        "WH04-S08",
+        "ZE-S03"
+      ],
+      "fields": [
+        "entry.guiPort",
+        "entry.cliPort",
+        "entry.agentPort",
+        "entry.babylonWorlds",
+        "entry.taskPanel",
+        "entry.revalidateAclScopeCasCancel",
+        "entry.frozenAbProtected"
+      ],
+      "criteria": [
+        {
+          "path": "entry.guiPort",
+          "op": "eq",
+          "expected": "ResourceQualificationPort"
+        },
+        {
+          "path": "entry.cliPort",
+          "op": "eq",
+          "expected": "ResourceQualificationPort"
+        },
+        {
+          "path": "entry.agentPort",
+          "op": "eq",
+          "expected": "ResourceQualificationPort"
+        },
+        {
+          "path": "entry.babylonWorlds",
+          "op": "eq",
+          "expected": 1
+        },
+        {
+          "path": "entry.taskPanel",
+          "op": "eq",
+          "expected": "LEFT_ONLY"
+        },
+        {
+          "path": "entry.revalidateAclScopeCasCancel",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "entry.frozenAbProtected",
+          "op": "eq",
+          "expected": true
+        }
+      ],
+      "mappingPolicy": "研究关联，不重写原312条CAP→工作包直接边",
+      "evidenceBoundary": "来源仅支持公开阅读范围；字段及门禁均为Procet内部待审方案，非OEM/NC/机床认证",
+      "designApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B13-R04",
+      "summary": "D04与D10分开，最终NC必须逐级解释、展开、验证才有D16资格",
+      "capabilityIds": [
+        "CAP-02-08",
+        "CAP-04-06",
+        "CAP-08-06",
+        "CAP-09-07"
+      ],
+      "workPackages": [
+        "E3-04",
+        "T5-05",
+        "F1-06"
+      ],
+      "sourceIds": [
+        "TA03-S04",
+        "SRC-RC08-V08-05",
+        "ZE-S05"
+      ],
+      "fields": [
+        "execution.setupBindingSeparate",
+        "execution.finalNcHash",
+        "execution.d13",
+        "execution.d14",
+        "execution.d15",
+        "execution.releaseEligible",
+        "execution.clPreviewIsNotNcValidation"
+      ],
+      "criteria": [
+        {
+          "path": "execution.setupBindingSeparate",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "execution.finalNcHash",
+          "op": "eq",
+          "expected": "SYNTHETIC_NOT_REAL_NC"
+        },
+        {
+          "path": "execution.d13",
+          "op": "eq",
+          "expected": "UNKNOWN"
+        },
+        {
+          "path": "execution.d14",
+          "op": "eq",
+          "expected": "NOT_RUN"
+        },
+        {
+          "path": "execution.d15",
+          "op": "eq",
+          "expected": "NOT_RUN"
+        },
+        {
+          "path": "execution.releaseEligible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "execution.clPreviewIsNotNcValidation",
+          "op": "eq",
+          "expected": true
+        }
+      ],
+      "mappingPolicy": "研究关联，不重写原312条CAP→工作包直接边",
+      "evidenceBoundary": "来源仅支持公开阅读范围；字段及门禁均为Procet内部待审方案，非OEM/NC/机床认证",
+      "designApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN",
+  "humanReview": "PENDING_HUMAN"
+}

@@ -1,0 +1,363 @@
+{
+  "schemaVersion": "procet-b90-feed-time-trace-v08",
+  "date": "2026-11-01",
+  "capabilityId": "CAP-09-06",
+  "relatedCapabilities": [
+    "CAP-08-02",
+    "CAP-08-03",
+    "CAP-08-07",
+    "CAP-09-03",
+    "CAP-09-05",
+    "CAP-10-02"
+  ],
+  "originalWorkPackages": [
+    "F1-02",
+    "E3-02",
+    "E3-03",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "sourceRegistry": "research/sources/CAP-09-06-feed-time-b90.json",
+  "acceptanceFixture": "docs/capabilities/CAP-09-06/feed-time-b90-fixtures-v08.json",
+  "validator": "tools/check_cap0906_feed_time_b90_v08.cjs",
+  "ruleCount": 9,
+  "assetOwners": "D08=05域,D10=04域,D12/D13=08域,D14/D15=09域,D16=10域；正式Owner0/17",
+  "independentConsumers": "NOT_RUN",
+  "rules": [
+    {
+      "id": "B90-R1",
+      "statement": "精确D12、D10、Profile和D08冻结来源，旧修订过期",
+      "sourceIds": [
+        "B90-S07"
+      ],
+      "fields": [
+        "refs.d12Hash",
+        "refs.expectedD12Hash",
+        "refs.d10Hash",
+        "refs.expectedD10Hash",
+        "refs.controllerProfileHash",
+        "refs.d08FrozenHash",
+        "refs.frame"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B90-P1"
+      ],
+      "negativeIds": [
+        "B90-N1-1",
+        "B90-N1-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R2",
+      "statement": "G94必须锁定Controller方言、机床类别；Haas车床G94不等于Haas铣床G94",
+      "sourceIds": [
+        "B90-S01",
+        "B90-S05",
+        "B90-S06"
+      ],
+      "fields": [
+        "modal.dialect",
+        "modal.controllerKind",
+        "modal.feedMode"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "B90-P2"
+      ],
+      "negativeIds": [
+        "B90-N2-1",
+        "B90-N2-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R3",
+      "statement": "G93 G1/G2/G3每执行块需自带F，不可继承上一块F",
+      "sourceIds": [
+        "B90-S01",
+        "B90-S04"
+      ],
+      "fields": [
+        "modal.motion",
+        "modal.feedWordPresent",
+        "modal.f"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B90-P3"
+      ],
+      "negativeIds": [
+        "B90-N3-1",
+        "B90-N3-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R4",
+      "statement": "G93指令名义秒数60/F；G0免除，不能推断实机轴时钟",
+      "sourceIds": [
+        "B90-S01",
+        "B90-S04"
+      ],
+      "fields": [
+        "modal.motion",
+        "modal.commandedSeconds",
+        "modal.timeType"
+      ],
+      "assets": [
+        "D13",
+        "D14"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B90-P4"
+      ],
+      "negativeIds": [
+        "B90-N4-1",
+        "B90-N4-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R5",
+      "statement": "LinuxCNC 2.9切到G94需新F；线性距离/F为名义时间",
+      "sourceIds": [
+        "B90-S01"
+      ],
+      "fields": [
+        "modal.feedMode",
+        "modal.newlySwitchedToG94",
+        "modal.freshFeedAfterSwitch",
+        "modal.pathLengthMm",
+        "modal.unit"
+      ],
+      "assets": [
+        "D13",
+        "D14"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B90-P5"
+      ],
+      "negativeIds": [
+        "B90-N5-1",
+        "B90-N5-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R6",
+      "statement": "G95无主轴同步反馈/转速不得假定常速时钟，标UNKNOWN",
+      "sourceIds": [
+        "B90-S01"
+      ],
+      "fields": [
+        "modal.feedMode",
+        "modal.spindleSpeedFeedback",
+        "modal.spindleRpm"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B90-P6"
+      ],
+      "negativeIds": [
+        "B90-N6-1",
+        "B90-N6-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R7",
+      "statement": "G61、G61.1、G64 P不同；G64无正P不能声称有界路径偏差",
+      "sourceIds": [
+        "B90-S02",
+        "B90-S03"
+      ],
+      "fields": [
+        "modal.pathMode",
+        "modal.blendToleranceMm"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-05",
+      "positiveIds": [
+        "B90-P7"
+      ],
+      "negativeIds": [
+        "B90-N7-1",
+        "B90-N7-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R8",
+      "statement": "指令名义时间不等于实际加减速/轴速/连续碰撞验证，D15和D16不可自动升级",
+      "sourceIds": [
+        "B90-S03",
+        "B90-S07"
+      ],
+      "fields": [
+        "modal.actualSecondsVerified",
+        "modal.commandedSeconds",
+        "workflow.d15Granted",
+        "workflow.d16Published"
+      ],
+      "assets": [
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-05",
+      "positiveIds": [
+        "B90-P8"
+      ],
+      "negativeIds": [
+        "B90-N8-1",
+        "B90-N8-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B90-R9",
+      "statement": "GUI/CLI/Agent同09域Owner，单Babylon/左TaskPanel、CAS/ACL取消Fence和冻结回退",
+      "sourceIds": [
+        "B90-S07"
+      ],
+      "fields": [
+        "workflow.cas",
+        "workflow.acl",
+        "workflow.taskGenerationExact",
+        "workflow.cancelled",
+        "workflow.lateAck",
+        "workflow.sameDomainPort",
+        "workflow.babylonWorlds",
+        "workflow.leftTaskPanel",
+        "workflow.originalFreezePreserved"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityId": "CAP-09-06",
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-02",
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B90-P9"
+      ],
+      "negativeIds": [
+        "B90-N9-1",
+        "B90-N9-2"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    }
+  ]
+}

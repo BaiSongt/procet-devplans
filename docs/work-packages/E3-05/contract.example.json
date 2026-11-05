@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "procet-d15-planning-contract-v0.8-candidate",
+  "status": "DESIGN_ONLY_NOT_PRODUCT",
+  "owner": "09 机床运动与工程验证 · 程序验证",
+  "request": {
+    "projectId": "synthetic-demo",
+    "workContext": {
+      "documentId": "doc-synthetic",
+      "processSetupId": "setup-synthetic",
+      "expectedRevision": "rev-006",
+      "frameId": "part-setup-01"
+    },
+    "exactSources": {
+      "d12": {
+        "revision": "r12",
+        "ncBytesSha256": "synthetic-nc-sha256-placeholder",
+        "postConfigHash": "synthetic-post-hash"
+      },
+      "d13": {
+        "revision": "r13",
+        "interpreterHash": "synthetic-dialect-hash",
+        "unknownCount": 0
+      },
+      "d14": {
+        "revision": "r14",
+        "axisSequenceHash": "synthetic-axis-hash"
+      },
+      "d10": {
+        "revision": "r10",
+        "executionBindingHash": "synthetic-machine-binding"
+      },
+      "d03": {
+        "revision": "r03",
+        "kinematicHash": "synthetic-calibration"
+      },
+      "d04": {
+        "revision": "r04",
+        "frameHash": "synthetic-setup-frame"
+      },
+      "d08": {
+        "freezeRevision": "r08"
+      }
+    },
+    "dimensions": [
+      "NC_SEMANTICS",
+      "AXIS_LIMITS",
+      "FRAME_OFFSETS",
+      "GEOMETRY_VALIDITY",
+      "INTERFERENCE_DISCRETE",
+      "INTERFERENCE_CONTINUOUS_CLAIM_GATE",
+      "PROVENANCE"
+    ],
+    "runPolicy": {
+      "allowMaterialRemovalSweep": false,
+      "abortOnUnknown": true,
+      "collisionSampler": "NOT_IMPLEMENTED",
+      "maxBudgetMs": 30000
+    },
+    "guard": {
+      "expectedRevision": "rev-006",
+      "permission": "VerifyNC",
+      "cancellationToken": "synthetic-token"
+    }
+  },
+  "response": {
+    "verificationId": "candidate-only",
+    "status": "UNKNOWN",
+    "qualification": "NOT_RUN_BY_PRODUCT",
+    "perDimension": [
+      {
+        "id": "INTERFERENCE_DISCRETE",
+        "coverage": "NOT_RUN",
+        "reason": "真实OCCT检测未执行",
+        "toleranceMm": null
+      }
+    ],
+    "evidence": {
+      "immutable": true,
+      "appendOnly": true,
+      "inputRevisionHash": "synthetic",
+      "sourceLineSpans": []
+    },
+    "consumer": {
+      "module": "D16 Independent Release Review",
+      "status": "NOT_RUN",
+      "canPublish": false
+    }
+  },
+  "notes": [
+    "所有SHA字符串均为合成占位值，非真实校验哈希",
+    "每个结论必须声明连续/离散范围；无材料扫掠功能"
+  ]
+}

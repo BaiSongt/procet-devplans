@@ -1,0 +1,588 @@
+{
+  "schemaVersion": "procet-u405-trace-v1",
+  "workPackageId": "U4-05",
+  "researchTopic": "R-UI-QA-001",
+  "sourceRegistry": "research/sources/U4-05.json",
+  "specification": "docs/work-packages/U4-05.md",
+  "ui": "docs/work-packages/U4-05/UI.md",
+  "fixtures": "docs/work-packages/U4-05/fixtures.json",
+  "validator": "tools/check_u405_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "U4-05-R01",
+      "workPackageId": "U4-05",
+      "summary": "仅浅/深两主题，所有普通小字≤12px且两主题正文对比度>=4.5:1，状态不用单一颜色传递",
+      "fields": [
+        "theme.count",
+        "theme.allowed",
+        "theme.maxFontPx",
+        "theme.lightTextRatio",
+        "theme.darkTextRatio",
+        "theme.statusHasText"
+      ],
+      "assets": [
+        "D01"
+      ],
+      "sourceIds": [
+        "SRC-U405-S01",
+        "SRC-U405-S04",
+        "SRC-U405-S02"
+      ],
+      "criteria": [
+        {
+          "path": "theme.count",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "path": "theme.allowed",
+          "op": "eq",
+          "value": "LIGHT_DARK_ONLY"
+        },
+        {
+          "path": "theme.maxFontPx",
+          "op": "lte",
+          "value": 12
+        },
+        {
+          "path": "theme.lightTextRatio",
+          "op": "gte",
+          "value": 4.5
+        },
+        {
+          "path": "theme.darkTextRatio",
+          "op": "gte",
+          "value": 4.5
+        },
+        {
+          "path": "theme.statusHasText",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-05-T01",
+      "negativeTestId": "U4-05-T02",
+      "negativeReason": "REJECT_U405_R01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R02",
+      "workPackageId": "U4-05",
+      "summary": "ESC优先关闭暂态弹层，不触发已修改EditSession丢稿，模态交互关闭后焦点可恢复",
+      "fields": [
+        "edit.preservedOnEscape",
+        "edit.ownerWriteOnEscape",
+        "dialog.escClosesOverlay",
+        "dialog.focusRestored",
+        "dialog.focusTrapActive"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U405-S03",
+        "SRC-U405-S01"
+      ],
+      "criteria": [
+        {
+          "path": "edit.preservedOnEscape",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "edit.ownerWriteOnEscape",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "dialog.escClosesOverlay",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dialog.focusRestored",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dialog.focusTrapActive",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-05-T03",
+      "negativeTestId": "U4-05-T04",
+      "negativeReason": "REJECT_U405_R02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R03",
+      "workPackageId": "U4-05",
+      "summary": "键盘可达/焦点可见且不被悬浮层完全遮挡，Tab交互不改变业务WorkContext或批准状态",
+      "fields": [
+        "keyboard.allCommandsReachable",
+        "keyboard.focusVisible",
+        "keyboard.focusFullyObscured",
+        "keyboard.contextMutated",
+        "keyboard.approvedOnTab"
+      ],
+      "assets": [
+        "D01",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U405-S01",
+        "SRC-U405-S03"
+      ],
+      "criteria": [
+        {
+          "path": "keyboard.allCommandsReachable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "keyboard.focusVisible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "keyboard.focusFullyObscured",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "keyboard.contextMutated",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "keyboard.approvedOnTab",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-05-T05",
+      "negativeTestId": "U4-05-T06",
+      "negativeReason": "REJECT_U405_R03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R04",
+      "workPackageId": "U4-05",
+      "summary": "12px文字不等于12px命中区，按钮命中面积满足可适用的24 CSS px/间距例外，拖拽有非拖拽替代",
+      "fields": [
+        "target.buttonHitWidthCssPx",
+        "target.buttonHitHeightCssPx",
+        "target.dragHasClickAlternative",
+        "target.focusNotObscured"
+      ],
+      "assets": [
+        "D01"
+      ],
+      "sourceIds": [
+        "SRC-U405-S01",
+        "SRC-U405-S09"
+      ],
+      "criteria": [
+        {
+          "path": "target.buttonHitWidthCssPx",
+          "op": "gte",
+          "value": 24
+        },
+        {
+          "path": "target.buttonHitHeightCssPx",
+          "op": "gte",
+          "value": 24
+        },
+        {
+          "path": "target.dragHasClickAlternative",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.focusNotObscured",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-05-T07",
+      "negativeTestId": "U4-05-T08",
+      "negativeReason": "REJECT_U405_R04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R05",
+      "workPackageId": "U4-05",
+      "summary": "DPI/窗口缩放矩阵覆盖100/125/150/200%，安全区不遮3D工具条，场景和左TaskPanel仍唯一",
+      "fields": [
+        "viewport.dpiSamples",
+        "viewport.safeAreaCollisionCount",
+        "viewport.sceneCount",
+        "viewport.leftTaskPanelCount",
+        "viewport.layoutOverflow"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "sourceIds": [
+        "SRC-U405-S01",
+        "SRC-U405-S02",
+        "SRC-U405-S06"
+      ],
+      "criteria": [
+        {
+          "path": "viewport.dpiSamples",
+          "op": "eq",
+          "value": "100,125,150,200"
+        },
+        {
+          "path": "viewport.safeAreaCollisionCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "viewport.sceneCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "viewport.leftTaskPanelCount",
+          "op": "eq",
+          "value": 1
+        },
+        {
+          "path": "viewport.layoutOverflow",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-05-T09",
+      "negativeTestId": "U4-05-T10",
+      "negativeReason": "REJECT_U405_R05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R06",
+      "workPackageId": "U4-05",
+      "summary": "遵循减少动画偏好，等待反馈仍有可读状态与取消路径，不凭动效宣称业务执行完成",
+      "fields": [
+        "motion.reduceRequested",
+        "motion.nonEssentialAnimationOn",
+        "motion.readableStatus",
+        "motion.cancelAvailable",
+        "motion.pretendsCompletion"
+      ],
+      "assets": [
+        "D05",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-U405-S05",
+        "SRC-U405-S01"
+      ],
+      "criteria": [
+        {
+          "path": "motion.reduceRequested",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.nonEssentialAnimationOn",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "motion.readableStatus",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.cancelAvailable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.pretendsCompletion",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-05-T11",
+      "negativeTestId": "U4-05-T12",
+      "negativeReason": "REJECT_U405_R06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R07",
+      "workPackageId": "U4-05",
+      "summary": "30次往返切空间后订阅/预览租约清零，旧Owner证据不删除；真实heap/GPU泄漏趋势另以仪表量测",
+      "fields": [
+        "resource.cycleCount",
+        "resource.unreleasedOverlayLeaseCount",
+        "resource.unremovedObserverCount",
+        "resource.sharedTextureDeleted",
+        "resource.ownerEvidenceDeleted"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U405-S06",
+        "SRC-U405-S07",
+        "SRC-U405-S08"
+      ],
+      "criteria": [
+        {
+          "path": "resource.cycleCount",
+          "op": "gte",
+          "value": 30
+        },
+        {
+          "path": "resource.unreleasedOverlayLeaseCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "resource.unremovedObserverCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "resource.sharedTextureDeleted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "resource.ownerEvidenceDeleted",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-05-T13",
+      "negativeTestId": "U4-05-T14",
+      "negativeReason": "REJECT_U405_R07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R08",
+      "workPackageId": "U4-05",
+      "summary": "性能基线必须绑定真实参考模型hash/设备/驱动/锁定版本及采样方法；未测试则不填FPS合格声明",
+      "fields": [
+        "perf.referenceModelHash",
+        "perf.deviceProfileId",
+        "perf.babylonLockHash",
+        "perf.sampleProtocol",
+        "perf.reportedFpsCertified",
+        "perf.observedProductRun"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "sourceIds": [
+        "SRC-U405-S06",
+        "SRC-U405-S08"
+      ],
+      "criteria": [
+        {
+          "path": "perf.referenceModelHash",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "perf.deviceProfileId",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "perf.babylonLockHash",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "perf.sampleProtocol",
+          "op": "eq",
+          "value": "COLD_WARM_30_CYCLES"
+        },
+        {
+          "path": "perf.reportedFpsCertified",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "perf.observedProductRun",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-05-T15",
+      "negativeTestId": "U4-05-T16",
+      "negativeReason": "REJECT_U405_R08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R09",
+      "workPackageId": "U4-05",
+      "summary": "GUI/CLI/Agent经同一领域查询Port，Shell不直接写业务Owner，不把CL动画当NC工程通过",
+      "fields": [
+        "port.gui",
+        "port.cli",
+        "port.directDomainWriteCount",
+        "chain.setupDistinctFromExecution",
+        "chain.clPreviewClaimedD15Pass",
+        "chain.unknownSemanticPass",
+        "chain.materialSweepSimulation"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-U405-S01",
+        "SRC-U405-S06"
+      ],
+      "criteria": [
+        {
+          "path": "port.gui",
+          "op": "eqField",
+          "other": "port.cli"
+        },
+        {
+          "path": "port.cli",
+          "op": "eqField",
+          "other": "port.agent"
+        },
+        {
+          "path": "port.directDomainWriteCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "chain.setupDistinctFromExecution",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "chain.clPreviewClaimedD15Pass",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "chain.unknownSemanticPass",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "chain.materialSweepSimulation",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "U4-05-T17",
+      "negativeTestId": "U4-05-T18",
+      "negativeReason": "REJECT_U405_R09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "U4-05-R10",
+      "workPackageId": "U4-05",
+      "summary": "提交时Owner复查exact修订/hash/Frame、ACL、CAS和任务代次；取消晚回执仅历史可见，降级可回退不改D08",
+      "fields": [
+        "commit.ownerPort",
+        "commit.expectedRevision",
+        "commit.contentHash",
+        "commit.frameRef",
+        "commit.aclEpoch",
+        "commit.generation",
+        "commit.cancelled",
+        "late.oldScopeIgnored",
+        "late.frozenD08Preserved",
+        "late.styleRollbackOnly"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "sourceIds": [
+        "SRC-U405-S01",
+        "SRC-U405-S03",
+        "SRC-U405-S07"
+      ],
+      "criteria": [
+        {
+          "path": "commit.ownerPort",
+          "op": "eq",
+          "value": "D05"
+        },
+        {
+          "path": "commit.expectedRevision",
+          "op": "eqField",
+          "other": "commit.observedRevision"
+        },
+        {
+          "path": "commit.contentHash",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "commit.frameRef",
+          "op": "nonEmpty"
+        },
+        {
+          "path": "commit.aclEpoch",
+          "op": "eqField",
+          "other": "commit.observedAclEpoch"
+        },
+        {
+          "path": "commit.generation",
+          "op": "eqField",
+          "other": "commit.observedGeneration"
+        },
+        {
+          "path": "commit.cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "late.oldScopeIgnored",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "late.frozenD08Preserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "late.styleRollbackOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "U4-05-T19",
+      "negativeTestId": "U4-05-T20",
+      "negativeReason": "REJECT_U405_R10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# R-CLLINK-001｜中立CL与圆弧/螺旋、进退刀及链接证据（2026-10-25）
+ISO 14649-10:2004、-11:2004仅按ISO合法官方目录Abstract核对“通用过程/铣削技术特定过程”范畴，**未获取收费正文，不援引未读条款**；它们不规定本项目自定义D09 DTO。LinuxCNC 2.9公开手册§3/4/5/35/37确认G0/G1/G2/G3/螺旋/G64具体控制器行为；不能把LinuxCNC控制器约束外推所有B5、FANUC或SINUMERIK，也不能以CL直接生成NC验证。
+OCCT 8.0.1公开API `BRepAdaptor_Curve` 可读取Edge曲线类型/公差，`GCPnts_AbscissaPoint` 的`Length`/`IsDone`帮助几何诊断，**并非刀路避碰/NC安全认证**。NIST IR6556只读取官方出版书目信息，没有分析PDF正文；NIST网页写RS274NGS且作者拼写可能与报告内页有差异，不补造内容。RFC8785 §3.1/3.2与PROV-O §1分别提供确定性JSON与Entity/Activity/Agent来源链背景，不包含Procet CAS、安全连接和生产批准规则。
+规划可检的XY圆弧局部约束为 `r_start=hypot(Sx-Cx,Sy-Cy)`、`r_end=hypot(Ex-Cx,Ey-Cy)`；若半径≤合成tol判退化，若差值>tol判几何不一致；普通平面ARC出现Z轴变化需显式标识HELIX。**这些单位圆向量不验证真实机床/夹具安全**，刀轴/圆弧多圈/公差尚需真实OCCT及post验证。连接段需要clearance/Frame/strategy共同为正才属规划候选，否则UNKNOWN；不能把布尔门禁等同自动安全通行。实际D15仍从最终NC经D13/D14运行，禁用“CL动画≈NC工程验证”的伪通过，且不做材料扫掠仿真。
+[8来源](../sources/E3-01.json) → [规则/字段/资产/20正反](../traces/E3-01.json) → [E3-01实施包](../../docs/work-packages/E3-01.md) → [数学向量](../../docs/work-packages/E3-01/geometry-vectors.json) → [独立消费者](../../docs/work-packages/E3-01/independent-consumer-handoff.md)。

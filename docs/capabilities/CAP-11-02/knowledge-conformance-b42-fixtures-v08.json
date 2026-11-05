@@ -1,0 +1,515 @@
+{
+  "schemaVersion": "procet-b42-fixtures-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-11-02",
+  "syntheticOnly": true,
+  "baseline": {
+    "entry.revision": "D05-r7",
+    "entry.hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "entry.frame": "PART:mm",
+    "entry.unit": "mm",
+    "term.relation": "closeMatch",
+    "term.approved": true,
+    "term.schemeRevision": "SKOS-r3",
+    "term.transitive": false,
+    "shape.conforms": true,
+    "shape.trusted": true,
+    "shape.claimsManufacturingPass": false,
+    "shape.dataHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "shape.revision": "Shape-r2",
+    "cache.ownerEpoch": 7,
+    "cache.snapshotEpoch": 7,
+    "cache.etagMatch": true,
+    "cache.invalidated": false,
+    "cache.digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "cache.cascadeComplete": true,
+    "auth.expectedScope": "P1",
+    "auth.currentScope": "P1",
+    "auth.expectedAcl": 12,
+    "auth.currentAcl": 12,
+    "auth.role": "READ_ONLY",
+    "source.depth": "PUBLIC_BODY_SECTION",
+    "source.profileKnown": true,
+    "source.unitKnown": true,
+    "source.parameterFromDirectory": false,
+    "source.trustedDataOnly": true,
+    "result.advisory": true,
+    "result.noFrozenRewrite": true,
+    "result.d15": "NOT_RUN",
+    "result.d16Release": false,
+    "result.shadow": true,
+    "result.consumer": "NOT_RUN",
+    "ui.port": "11.ProcessKnowledgePort",
+    "ui.channels": "GUI|CLI|Agent",
+    "ui.worldCount": 1,
+    "ui.leftPanel": true,
+    "ui.fontMaxPx": 12,
+    "owner.cancelled": false,
+    "owner.lateAckAdopted": false,
+    "binding.d04": "D04-r2",
+    "binding.d10": "D10-r4"
+  },
+  "meaning": "合成知识版本/Frame/词表与权限样例，非真实材料或控制器数值",
+  "positiveCount": 2,
+  "negativeCount": 40,
+  "unknownCount": 4,
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "ruleId": "ALL",
+      "patch": {},
+      "expected": "ADVISORY_ONLY"
+    },
+    {
+      "id": "P02",
+      "kind": "positive",
+      "ruleId": "B42-R2",
+      "patch": {
+        "term.relation": "exactMatch",
+        "term.transitive": true
+      },
+      "expected": "ADVISORY_ONLY"
+    },
+    {
+      "id": "M01",
+      "kind": "negative",
+      "ruleId": "B42-R1",
+      "changedField": "entry.revision",
+      "patch": {
+        "entry.revision": ""
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M02",
+      "kind": "negative",
+      "ruleId": "B42-R1",
+      "changedField": "entry.hash",
+      "patch": {
+        "entry.hash": "x"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M03",
+      "kind": "negative",
+      "ruleId": "B42-R1",
+      "changedField": "entry.frame",
+      "patch": {
+        "entry.frame": ""
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M04",
+      "kind": "negative",
+      "ruleId": "B42-R1",
+      "changedField": "entry.unit",
+      "patch": {
+        "entry.unit": "inch"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M05",
+      "kind": "negative",
+      "ruleId": "B42-R2",
+      "changedField": "term.relation",
+      "patch": {
+        "term.relation": "broadMatch"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M06",
+      "kind": "negative",
+      "ruleId": "B42-R2",
+      "changedField": "term.approved",
+      "patch": {
+        "term.approved": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M07",
+      "kind": "negative",
+      "ruleId": "B42-R2",
+      "changedField": "term.schemeRevision",
+      "patch": {
+        "term.schemeRevision": "SKOS-r2"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M08",
+      "kind": "negative",
+      "ruleId": "B42-R2",
+      "changedField": "term.transitive",
+      "patch": {
+        "term.transitive": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M09",
+      "kind": "negative",
+      "ruleId": "B42-R3",
+      "changedField": "shape.conforms",
+      "patch": {
+        "shape.conforms": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M10",
+      "kind": "negative",
+      "ruleId": "B42-R3",
+      "changedField": "shape.trusted",
+      "patch": {
+        "shape.trusted": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M11",
+      "kind": "negative",
+      "ruleId": "B42-R3",
+      "changedField": "shape.claimsManufacturingPass",
+      "patch": {
+        "shape.claimsManufacturingPass": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M12",
+      "kind": "negative",
+      "ruleId": "B42-R3",
+      "changedField": "shape.dataHash",
+      "patch": {
+        "shape.dataHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M13",
+      "kind": "negative",
+      "ruleId": "B42-R3",
+      "changedField": "shape.revision",
+      "patch": {
+        "shape.revision": "Shape-r1"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M14",
+      "kind": "negative",
+      "ruleId": "B42-R4",
+      "changedField": "cache.ownerEpoch",
+      "patch": {
+        "cache.ownerEpoch": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M15",
+      "kind": "negative",
+      "ruleId": "B42-R4",
+      "changedField": "cache.snapshotEpoch",
+      "patch": {
+        "cache.snapshotEpoch": 8
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M16",
+      "kind": "negative",
+      "ruleId": "B42-R4",
+      "changedField": "cache.etagMatch",
+      "patch": {
+        "cache.etagMatch": false
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M17",
+      "kind": "negative",
+      "ruleId": "B42-R4",
+      "changedField": "cache.invalidated",
+      "patch": {
+        "cache.invalidated": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M18",
+      "kind": "negative",
+      "ruleId": "B42-R4",
+      "changedField": "cache.digest",
+      "patch": {
+        "cache.digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M19",
+      "kind": "unknown",
+      "ruleId": "B42-R4",
+      "changedField": "cache.cascadeComplete",
+      "patch": {
+        "cache.cascadeComplete": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M20",
+      "kind": "negative",
+      "ruleId": "B42-R5",
+      "changedField": "auth.expectedScope",
+      "patch": {
+        "auth.expectedScope": "P2"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M21",
+      "kind": "negative",
+      "ruleId": "B42-R5",
+      "changedField": "auth.currentScope",
+      "patch": {
+        "auth.currentScope": "P2"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M22",
+      "kind": "negative",
+      "ruleId": "B42-R5",
+      "changedField": "auth.expectedAcl",
+      "patch": {
+        "auth.expectedAcl": 13
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M23",
+      "kind": "negative",
+      "ruleId": "B42-R5",
+      "changedField": "auth.currentAcl",
+      "patch": {
+        "auth.currentAcl": 13
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M24",
+      "kind": "negative",
+      "ruleId": "B42-R5",
+      "changedField": "auth.role",
+      "patch": {
+        "auth.role": "WRITE"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M25",
+      "kind": "unknown",
+      "ruleId": "B42-R6",
+      "changedField": "source.depth",
+      "patch": {
+        "source.depth": "DIRECTORY_ONLY"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M26",
+      "kind": "unknown",
+      "ruleId": "B42-R6",
+      "changedField": "source.profileKnown",
+      "patch": {
+        "source.profileKnown": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M27",
+      "kind": "unknown",
+      "ruleId": "B42-R6",
+      "changedField": "source.unitKnown",
+      "patch": {
+        "source.unitKnown": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M28",
+      "kind": "negative",
+      "ruleId": "B42-R6",
+      "changedField": "source.parameterFromDirectory",
+      "patch": {
+        "source.parameterFromDirectory": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M29",
+      "kind": "negative",
+      "ruleId": "B42-R6",
+      "changedField": "source.trustedDataOnly",
+      "patch": {
+        "source.trustedDataOnly": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M30",
+      "kind": "negative",
+      "ruleId": "B42-R7",
+      "changedField": "result.advisory",
+      "patch": {
+        "result.advisory": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M31",
+      "kind": "negative",
+      "ruleId": "B42-R7",
+      "changedField": "result.noFrozenRewrite",
+      "patch": {
+        "result.noFrozenRewrite": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M32",
+      "kind": "negative",
+      "ruleId": "B42-R7",
+      "changedField": "result.d15",
+      "patch": {
+        "result.d15": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M33",
+      "kind": "negative",
+      "ruleId": "B42-R7",
+      "changedField": "result.d16Release",
+      "patch": {
+        "result.d16Release": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M34",
+      "kind": "negative",
+      "ruleId": "B42-R7",
+      "changedField": "result.shadow",
+      "patch": {
+        "result.shadow": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M35",
+      "kind": "negative",
+      "ruleId": "B42-R7",
+      "changedField": "result.consumer",
+      "patch": {
+        "result.consumer": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M36",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "ui.port",
+      "patch": {
+        "ui.port": "11.Other"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M37",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "ui.channels",
+      "patch": {
+        "ui.channels": "GUI|Agent"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M38",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "ui.worldCount",
+      "patch": {
+        "ui.worldCount": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M39",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "ui.leftPanel",
+      "patch": {
+        "ui.leftPanel": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M40",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "ui.fontMaxPx",
+      "patch": {
+        "ui.fontMaxPx": 13
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M41",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "owner.cancelled",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "expected": "CANCELLED"
+    },
+    {
+      "id": "M42",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "owner.lateAckAdopted",
+      "patch": {
+        "owner.lateAckAdopted": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M43",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "binding.d04",
+      "patch": {
+        "binding.d04": "D10-r4"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M44",
+      "kind": "negative",
+      "ruleId": "B42-R8",
+      "changedField": "binding.d10",
+      "patch": {
+        "binding.d10": "D10-r3"
+      },
+      "expected": "STALE"
+    }
+  ]
+}

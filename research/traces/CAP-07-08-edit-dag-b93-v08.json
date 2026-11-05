@@ -1,0 +1,286 @@
+{
+  "schemaVersion": "procet-b93-trace-v08",
+  "sourceRegistry": "research/sources/CAP-07-08-edit-dag-b93.json",
+  "fixturePath": "docs/capabilities/CAP-07-08/edit-dag-b93-fixtures-v08.json",
+  "reportPath": "docs/capabilities/CAP-07-08/EDIT-DAG-LINEAGE-B93-2026-11-01.md",
+  "validator": "tools/check_cap0708_edit_dag_b93_v08.cjs",
+  "capabilityId": "CAP-07-08",
+  "originalWorkPackages": [
+    "F1-03",
+    "E3-01",
+    "U4-04"
+  ],
+  "assetOwner": "D09_07_CAM",
+  "l1l2": "UNCHANGED",
+  "l3": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "B93-R1",
+      "statement": "exact D09 revision/hash/Frame与冻结",
+      "sourceIds": [
+        "B93-S07",
+        "B93-S08"
+      ],
+      "fields": [
+        "refs.revision",
+        "refs.actualHash",
+        "refs.actualFrame",
+        "refs.scopeEpoch",
+        "refs.d08Frozen"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "positiveIds": [
+        "B93-P1"
+      ],
+      "negativeIds": [
+        "B93-N1a",
+        "B93-N1b"
+      ],
+      "unknownIds": [
+        "B93-U1"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-R2",
+      "statement": "拓扑DAG无环与完整",
+      "sourceIds": [
+        "B93-S01",
+        "B93-S08"
+      ],
+      "fields": [
+        "graph.nodes",
+        "graph.edges",
+        "graph.complete"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B93-P2"
+      ],
+      "negativeIds": [
+        "B93-N2a",
+        "B93-N2b"
+      ],
+      "unknownIds": [
+        "B93-U2"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-R3",
+      "statement": "种子到后继的精确dirty闭包",
+      "sourceIds": [
+        "B93-S01",
+        "B93-S08"
+      ],
+      "fields": [
+        "graph.seeds",
+        "graph.affected"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "F1-03",
+      "positiveIds": [
+        "B93-P3"
+      ],
+      "negativeIds": [
+        "B93-N3a",
+        "B93-N3b"
+      ],
+      "unknownIds": [
+        "B93-U3"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-R4",
+      "statement": "一对多old→new稳定血缘",
+      "sourceIds": [
+        "B93-S02",
+        "B93-S04",
+        "B93-S08"
+      ],
+      "fields": [
+        "lineage.B",
+        "lineage.C",
+        "lineage.D",
+        "lineage.E",
+        "lineage.F"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "positiveIds": [
+        "B93-P4"
+      ],
+      "negativeIds": [
+        "B93-N4a",
+        "B93-N4b"
+      ],
+      "unknownIds": [
+        "B93-U4"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-R5",
+      "statement": "保护未影响段A字节身份",
+      "sourceIds": [
+        "B93-S02",
+        "B93-S05",
+        "B93-S08"
+      ],
+      "fields": [
+        "unaffected.id",
+        "unaffected.oldHash",
+        "unaffected.newHash"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "E3-01",
+      "positiveIds": [
+        "B93-P5"
+      ],
+      "negativeIds": [
+        "B93-N5a",
+        "B93-N5b"
+      ],
+      "unknownIds": [
+        "B93-U5"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-R6",
+      "statement": "D11–D16旧NC证据失效",
+      "sourceIds": [
+        "B93-S05",
+        "B93-S08"
+      ],
+      "fields": [
+        "nc.invalidate",
+        "nc.d13",
+        "nc.d15",
+        "nc.publish",
+        "nc.clAsNc"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B93-P6"
+      ],
+      "negativeIds": [
+        "B93-N6a",
+        "B93-N6b"
+      ],
+      "unknownIds": [
+        "B93-U6"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-R7",
+      "statement": "Owner CAS ACL与任务代次",
+      "sourceIds": [
+        "B93-S03",
+        "B93-S07",
+        "B93-S08"
+      ],
+      "fields": [
+        "owner.asset",
+        "owner.expectedHead",
+        "owner.acl",
+        "owner.generation",
+        "owner.receiptGeneration",
+        "owner.singleBabylon"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B93-P7"
+      ],
+      "negativeIds": [
+        "B93-N7a",
+        "B93-N7b"
+      ],
+      "unknownIds": [
+        "B93-U7"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-R8",
+      "statement": "A/B事实与D04/D10分离迁移回退",
+      "sourceIds": [
+        "B93-S02",
+        "B93-S08"
+      ],
+      "fields": [
+        "policy.sameFactAB",
+        "policy.d04D10Separate",
+        "policy.migration",
+        "policy.rollback"
+      ],
+      "capabilityId": "CAP-07-08",
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-01",
+        "U4-04"
+      ],
+      "ownerAsset": "D09",
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B93-P8"
+      ],
+      "negativeIds": [
+        "B93-N8a",
+        "B93-N8b"
+      ],
+      "unknownIds": [
+        "B93-U8"
+      ],
+      "acceptance": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}

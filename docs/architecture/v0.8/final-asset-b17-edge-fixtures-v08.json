@@ -1,0 +1,391 @@
+{
+  "schemaVersion": "procet-final-asset-b17-edge-fixtures-v08",
+  "scope": "SYNTHETIC_STRUCTURAL_ONLY",
+  "baselinePaths": [
+    "docs/architecture/v0.8/business-assets.json",
+    "docs/architecture/v0.8/owner-interface-review-v08.json"
+  ],
+  "positive": {
+    "id": "P01",
+    "expected": "PASS_CANDIDATE_STRUCTURE_ONLY",
+    "revisionGraph": [
+      {
+        "id": "D05@r1",
+        "deps": [
+          "D06@r0"
+        ]
+      },
+      {
+        "id": "D06@r0",
+        "deps": []
+      }
+    ]
+  },
+  "mutations": [
+    {
+      "id": "N01",
+      "target": "baseline",
+      "path": "asset_count",
+      "operation": "set",
+      "value": 16,
+      "expectedError": "COUNT_17",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N02",
+      "target": "baseline",
+      "path": "assets.16",
+      "operation": "remove",
+      "expectedError": "COUNT_17",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N03",
+      "target": "baseline",
+      "path": "assets.0.outputs.0",
+      "operation": "remove",
+      "expectedError": "EDGE_RECIPROCITY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N04",
+      "target": "baseline",
+      "path": "assets.1.inputs.0",
+      "operation": "set",
+      "value": "D03",
+      "expectedError": "EDGE_RECIPROCITY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N05",
+      "target": "review",
+      "path": "contracts.3.inputs.0",
+      "operation": "set",
+      "value": "D17",
+      "expectedError": "CONTRACT_EDGE_DRIFT",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N06",
+      "target": "review",
+      "path": "contracts.1.producerPort",
+      "operation": "set",
+      "value": "03.DesignBaselinePort",
+      "expectedError": "OWNER_PORT",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N07",
+      "target": "review",
+      "path": "contracts.1.readEntry.agent",
+      "operation": "set",
+      "value": "03.OtherPort.readExact",
+      "expectedError": "ENTRYPOINT_CONSISTENCY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N08",
+      "target": "review",
+      "path": "contracts.3.ownerSignoff",
+      "operation": "set",
+      "value": "SIGNED",
+      "expectedError": "FALSE_APPROVAL",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N09",
+      "target": "review",
+      "path": "contracts.3.consumerAcknowledgement",
+      "operation": "set",
+      "value": "PASS",
+      "expectedError": "FALSE_APPROVAL",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N10",
+      "target": "review",
+      "path": "contracts.3.schemaFreeze",
+      "operation": "set",
+      "value": "FROZEN",
+      "expectedError": "FALSE_APPROVAL",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N11",
+      "target": "review",
+      "path": "contracts.3.framePolicy",
+      "operation": "set",
+      "value": "NONE",
+      "expectedError": "FRAME_QUALIFICATION",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N12",
+      "target": "review",
+      "path": "contracts.3.writeAuthority",
+      "operation": "set",
+      "value": "GUI_DIRECT_WRITE",
+      "expectedError": "OWNER_WRITE_AUTHORITY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N13",
+      "target": "review",
+      "path": "globalPolicies.commonReferenceFields.3",
+      "operation": "remove",
+      "expectedError": "EXACT_REFERENCE_FIELDS",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N14",
+      "target": "review",
+      "path": "globalPolicies.commonReferenceFields.4",
+      "operation": "remove",
+      "expectedError": "EXACT_REFERENCE_FIELDS",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N15",
+      "target": "review",
+      "path": "globalPolicies.commonReferenceFields.7",
+      "operation": "remove",
+      "expectedError": "EXACT_REFERENCE_FIELDS",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N16",
+      "target": "review",
+      "path": "globalPolicies.mutableLatestAliasAllowed",
+      "operation": "set",
+      "value": true,
+      "expectedError": "HASH_AND_LATEST",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N17",
+      "target": "review",
+      "path": "globalPolicies.artifactHashMode",
+      "operation": "set",
+      "value": "JSON_STRINGIFY_ONLY",
+      "expectedError": "HASH_AND_LATEST",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N18",
+      "target": "review",
+      "path": "globalPolicies.singleBabylonWorld",
+      "operation": "set",
+      "value": false,
+      "expectedError": "GUI_3D_BOUNDARY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N19",
+      "target": "review",
+      "path": "globalPolicies.unifiedLeftTaskPanel",
+      "operation": "set",
+      "value": false,
+      "expectedError": "GUI_3D_BOUNDARY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N20",
+      "target": "review",
+      "path": "globalPolicies.maxFontPx",
+      "operation": "set",
+      "value": 16,
+      "expectedError": "GUI_3D_BOUNDARY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N21",
+      "target": "review",
+      "path": "globalPolicies.entrypointDomainPortUnified",
+      "operation": "set",
+      "value": false,
+      "expectedError": "GUI_3D_BOUNDARY",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N22",
+      "target": "review",
+      "path": "globalPolicies.commitChecks.0",
+      "operation": "remove",
+      "expectedError": "COMMIT_RECHECK",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N23",
+      "target": "review",
+      "path": "globalPolicies.commitChecks.1",
+      "operation": "remove",
+      "expectedError": "COMMIT_RECHECK",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N24",
+      "target": "review",
+      "path": "globalPolicies.commitChecks.5",
+      "operation": "remove",
+      "expectedError": "COMMIT_RECHECK",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N25",
+      "target": "review",
+      "path": "globalPolicies.commitChecks.6",
+      "operation": "remove",
+      "expectedError": "COMMIT_RECHECK",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N26",
+      "target": "review",
+      "path": "globalPolicies.lateAckRestoresWrite",
+      "operation": "set",
+      "value": true,
+      "expectedError": "CANCEL_FREEZE_ROLLBACK",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N27",
+      "target": "review",
+      "path": "globalPolicies.immutableABFreeze",
+      "operation": "set",
+      "value": false,
+      "expectedError": "CANCEL_FREEZE_ROLLBACK",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N28",
+      "target": "review",
+      "path": "globalPolicies.migrationRequiresRollbackRef",
+      "operation": "set",
+      "value": false,
+      "expectedError": "CANCEL_FREEZE_ROLLBACK",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N29",
+      "target": "review",
+      "path": "globalPolicies.d04D10Separate",
+      "operation": "set",
+      "value": false,
+      "expectedError": "SETUP_EXECUTION_SEPARATION",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N30",
+      "target": "review",
+      "path": "globalPolicies.clAnimationGrantsNcPass",
+      "operation": "set",
+      "value": true,
+      "expectedError": "NC_RELEASE_CLOSURE",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N31",
+      "target": "review",
+      "path": "globalPolicies.unknownExecutionGrantsRelease",
+      "operation": "set",
+      "value": true,
+      "expectedError": "NC_RELEASE_CLOSURE",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N32",
+      "target": "review",
+      "path": "globalPolicies.ncChain.3",
+      "operation": "remove",
+      "expectedError": "NC_RELEASE_CLOSURE",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N33",
+      "target": "review",
+      "path": "globalPolicies.independentConsumerRequired",
+      "operation": "set",
+      "value": false,
+      "expectedError": "HUMAN_CONSUMER_GATES",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N34",
+      "target": "review",
+      "path": "globalPolicies.productStatus",
+      "operation": "set",
+      "value": "PASS",
+      "expectedError": "HUMAN_CONSUMER_GATES",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N35",
+      "target": "review",
+      "path": "globalPolicies.l3",
+      "operation": "set",
+      "value": "APPROVED",
+      "expectedError": "HUMAN_CONSUMER_GATES",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N36",
+      "target": "review",
+      "path": "globalPolicies.businessTypeFeedbackAllowed",
+      "operation": "set",
+      "value": false,
+      "expectedError": "TYPE_VS_REVISION_GRAPH",
+      "independentSingleSurface": true
+    },
+    {
+      "id": "N37",
+      "target": "review",
+      "path": "globalPolicies.immutableRevisionLineageAcyclic",
+      "operation": "set",
+      "value": false,
+      "expectedError": "TYPE_VS_REVISION_GRAPH",
+      "independentSingleSurface": true
+    }
+  ],
+  "revisionMutations": [
+    {
+      "id": "N38",
+      "revisionGraph": [
+        {
+          "id": "D05@r1",
+          "deps": [
+            "D06@r1"
+          ]
+        },
+        {
+          "id": "D06@r1",
+          "deps": [
+            "D05@r1"
+          ]
+        }
+      ],
+      "expectedError": "REVISION_CYCLE"
+    },
+    {
+      "id": "N39",
+      "revisionGraph": [
+        {
+          "id": "D05@r1",
+          "deps": [
+            "D06@unavailable"
+          ]
+        }
+      ],
+      "expectedError": "REVISION_MISSING_PARENT"
+    }
+  ],
+  "candidateGraphEdges": 44,
+  "candidateAssets": 17,
+  "gates": {
+    "ownerSigned": 0,
+    "independentConsumerReal": 0,
+    "l3": "PENDING_HUMAN",
+    "realNC_OCCT_B5": "NOT_RUN",
+    "fullRepoAst": "NOT_RUN"
+  },
+  "meaning": "仅对已读GitHub精确快照的候选结构进行V8同逻辑验证；并非完成独立消费者、签署、真实机床、产品软件验收"
+}

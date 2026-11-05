@@ -1,0 +1,470 @@
+{
+  "schemaVersion": "procet-u406-synthetic-fixtures-v1",
+  "purpose": "仅规划字段合成验收，非真实Tauri/Shell/Owner运行",
+  "cases": [
+    {
+      "id": "U4-06-T01",
+      "ruleId": "U4-06-R01",
+      "input": {
+        "sdk": {
+          "apiDeclared": true,
+          "typesExported": true,
+          "privateHostReadCount": 0,
+          "publicExportsOnly": true,
+          "version": "1.0.0"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T02",
+      "ruleId": "U4-06-R01",
+      "input": {
+        "sdk": {
+          "apiDeclared": true,
+          "typesExported": true,
+          "privateHostReadCount": 1,
+          "publicExportsOnly": true,
+          "version": "1.0.0"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T03",
+      "ruleId": "U4-06-R02",
+      "input": {
+        "descriptor": {
+          "schemaVersion": "procet-module-contribution-v1",
+          "id": "internal.geometry-inspector",
+          "moduleVersion": "1.0.0",
+          "duplicateIds": 0,
+          "unknownMandatoryFields": 0
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T04",
+      "ruleId": "U4-06-R02",
+      "input": {
+        "descriptor": {
+          "schemaVersion": "procet-module-contribution-v1",
+          "id": "internal.geometry-inspector",
+          "moduleVersion": "1.0.0",
+          "duplicateIds": 1,
+          "unknownMandatoryFields": 0
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T05",
+      "ruleId": "U4-06-R03",
+      "input": {
+        "compat": {
+          "sdkRangeSatisfied": true,
+          "capabilityRangeSatisfied": true,
+          "unknownRequiredCapabilityRejected": true,
+          "selfGrantedBackendReady": false,
+          "backendReadyAuthority": "HOST_ATTESTED_ONLY"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T06",
+      "ruleId": "U4-06-R03",
+      "input": {
+        "compat": {
+          "sdkRangeSatisfied": false,
+          "capabilityRangeSatisfied": true,
+          "unknownRequiredCapabilityRejected": true,
+          "selfGrantedBackendReady": false,
+          "backendReadyAuthority": "HOST_ATTESTED_ONLY"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T07",
+      "ruleId": "U4-06-R04",
+      "input": {
+        "security": {
+          "origin": "LOCKED_FIRST_PARTY",
+          "untrustedExecutableAllowed": false,
+          "manifestCanEscalatePermission": false,
+          "tauriCapabilityScoped": true,
+          "ownerAclRechecked": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T08",
+      "ruleId": "U4-06-R04",
+      "input": {
+        "security": {
+          "origin": "LOCKED_FIRST_PARTY",
+          "untrustedExecutableAllowed": false,
+          "manifestCanEscalatePermission": true,
+          "tauriCapabilityScoped": true,
+          "ownerAclRechecked": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T09",
+      "ruleId": "U4-06-R05",
+      "input": {
+        "ui": {
+          "registryUsed": true,
+          "shellBranchesAdded": 0,
+          "sceneCount": 1,
+          "leftTaskPanelCount": 1,
+          "previewWritesOwner": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T10",
+      "ruleId": "U4-06-R05",
+      "input": {
+        "ui": {
+          "registryUsed": true,
+          "shellBranchesAdded": 1,
+          "sceneCount": 1,
+          "leftTaskPanelCount": 1,
+          "previewWritesOwner": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T11",
+      "ruleId": "U4-06-R06",
+      "input": {
+        "ports": {
+          "gui": "DomainOwnerPort",
+          "cli": "DomainOwnerPort",
+          "agent": "DomainOwnerPort",
+          "directOwnerWrites": 0,
+          "idempotentRetry": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T12",
+      "ruleId": "U4-06-R06",
+      "input": {
+        "ports": {
+          "gui": "DomainOwnerPort",
+          "cli": "DomainOwnerPort",
+          "agent": "INVALID_DIFFERENT",
+          "directOwnerWrites": 0,
+          "idempotentRetry": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T13",
+      "ruleId": "U4-06-R07",
+      "input": {
+        "commit": {
+          "expectedHead": "rev:fixture-7",
+          "hash": "sha256:fixture-7",
+          "frame": "FRAME:SETUP-7",
+          "scopeEpoch": 7,
+          "ownerAclRecheck": true,
+          "taskGenerationCurrent": true,
+          "cancelled": false,
+          "lateReceiptOverwrites": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T14",
+      "ruleId": "U4-06-R07",
+      "input": {
+        "commit": {
+          "expectedHead": "INVALID_DIFFERENT",
+          "hash": "sha256:fixture-7",
+          "frame": "FRAME:SETUP-7",
+          "scopeEpoch": 7,
+          "ownerAclRecheck": true,
+          "taskGenerationCurrent": true,
+          "cancelled": false,
+          "lateReceiptOverwrites": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T15",
+      "ruleId": "U4-06-R08",
+      "input": {
+        "unload": {
+          "commandsRemaining": 0,
+          "subscriptionsRemaining": 0,
+          "overlayLeasesRemaining": 0,
+          "cancelledOutstandingJobs": true,
+          "sharedSceneDisposed": false,
+          "ownerDataDeleted": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T16",
+      "ruleId": "U4-06-R08",
+      "input": {
+        "unload": {
+          "commandsRemaining": 0,
+          "subscriptionsRemaining": 1,
+          "overlayLeasesRemaining": 0,
+          "cancelledOutstandingJobs": true,
+          "sharedSceneDisposed": false,
+          "ownerDataDeleted": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T17",
+      "ruleId": "U4-06-R09",
+      "input": {
+        "migration": {
+          "legacyReaderKept": true,
+          "dualOwnerWrite": false,
+          "unknownSchemaRejected": true,
+          "rollbackRetainsFrozenD08": true,
+          "exactOwnerRevisionPreserved": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T18",
+      "ruleId": "U4-06-R09",
+      "input": {
+        "migration": {
+          "legacyReaderKept": true,
+          "dualOwnerWrite": true,
+          "unknownSchemaRejected": true,
+          "rollbackRetainsFrozenD08": true,
+          "exactOwnerRevisionPreserved": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-06-T19",
+      "ruleId": "U4-06-R10",
+      "input": {
+        "nc": {
+          "d04DistinctFromD10": true,
+          "clPreviewClaimedD15": false,
+          "unknownD13Accepted": false,
+          "pluginReleasedD16": false,
+          "materialSweepSimulation": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-06-T20",
+      "ruleId": "U4-06-R10",
+      "input": {
+        "nc": {
+          "d04DistinctFromD10": true,
+          "clPreviewClaimedD15": false,
+          "unknownD13Accepted": true,
+          "pluginReleasedD16": false,
+          "materialSweepSimulation": false
+        }
+      },
+      "expected": "REJECT"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "U4-06-M01",
+      "ruleId": "U4-06-R01",
+      "input": {
+        "sdk": {
+          "apiDeclared": true,
+          "typesExported": false,
+          "privateHostReadCount": 0,
+          "publicExportsOnly": true,
+          "version": "1.0.0"
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "sdk.typesExported",
+      "pairedNegativeField": "sdk.privateHostReadCount",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M02",
+      "ruleId": "U4-06-R02",
+      "input": {
+        "descriptor": {
+          "schemaVersion": "procet-module-contribution-v1",
+          "id": "internal.geometry-inspector",
+          "moduleVersion": "1.0.0",
+          "duplicateIds": 0,
+          "unknownMandatoryFields": 1
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "descriptor.unknownMandatoryFields",
+      "pairedNegativeField": "descriptor.duplicateIds",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M03",
+      "ruleId": "U4-06-R03",
+      "input": {
+        "compat": {
+          "sdkRangeSatisfied": true,
+          "capabilityRangeSatisfied": true,
+          "unknownRequiredCapabilityRejected": true,
+          "selfGrantedBackendReady": true,
+          "backendReadyAuthority": "HOST_ATTESTED_ONLY"
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "compat.selfGrantedBackendReady",
+      "pairedNegativeField": "compat.sdkRangeSatisfied",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M04",
+      "ruleId": "U4-06-R04",
+      "input": {
+        "security": {
+          "origin": "LOCKED_FIRST_PARTY",
+          "untrustedExecutableAllowed": true,
+          "manifestCanEscalatePermission": false,
+          "tauriCapabilityScoped": true,
+          "ownerAclRechecked": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "security.untrustedExecutableAllowed",
+      "pairedNegativeField": "security.manifestCanEscalatePermission",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M05",
+      "ruleId": "U4-06-R05",
+      "input": {
+        "ui": {
+          "registryUsed": true,
+          "shellBranchesAdded": 0,
+          "sceneCount": 2,
+          "leftTaskPanelCount": 1,
+          "previewWritesOwner": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "ui.sceneCount",
+      "pairedNegativeField": "ui.shellBranchesAdded",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M06",
+      "ruleId": "U4-06-R06",
+      "input": {
+        "ports": {
+          "gui": "DomainOwnerPort",
+          "cli": "DomainOwnerPort",
+          "agent": "DomainOwnerPort",
+          "directOwnerWrites": 1,
+          "idempotentRetry": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "ports.directOwnerWrites",
+      "pairedNegativeField": "ports.agent",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M07",
+      "ruleId": "U4-06-R07",
+      "input": {
+        "commit": {
+          "expectedHead": "rev:fixture-7",
+          "hash": "sha256:fixture-7",
+          "frame": "FRAME:SETUP-7",
+          "scopeEpoch": 7,
+          "ownerAclRecheck": false,
+          "taskGenerationCurrent": true,
+          "cancelled": false,
+          "lateReceiptOverwrites": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "commit.ownerAclRecheck",
+      "pairedNegativeField": "commit.expectedHead",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M08",
+      "ruleId": "U4-06-R08",
+      "input": {
+        "unload": {
+          "commandsRemaining": 0,
+          "subscriptionsRemaining": 0,
+          "overlayLeasesRemaining": 1,
+          "cancelledOutstandingJobs": true,
+          "sharedSceneDisposed": false,
+          "ownerDataDeleted": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "unload.overlayLeasesRemaining",
+      "pairedNegativeField": "unload.subscriptionsRemaining",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M09",
+      "ruleId": "U4-06-R09",
+      "input": {
+        "migration": {
+          "legacyReaderKept": true,
+          "dualOwnerWrite": false,
+          "unknownSchemaRejected": true,
+          "rollbackRetainsFrozenD08": false,
+          "exactOwnerRevisionPreserved": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "migration.rollbackRetainsFrozenD08",
+      "pairedNegativeField": "migration.dualOwnerWrite",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-06-M10",
+      "ruleId": "U4-06-R10",
+      "input": {
+        "nc": {
+          "d04DistinctFromD10": true,
+          "clPreviewClaimedD15": false,
+          "unknownD13Accepted": false,
+          "pluginReleasedD16": true,
+          "materialSweepSimulation": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "nc.pluginReleasedD16",
+      "pairedNegativeField": "nc.unknownD13Accepted",
+      "differentFieldFromPairedNegative": true
+    }
+  ]
+}

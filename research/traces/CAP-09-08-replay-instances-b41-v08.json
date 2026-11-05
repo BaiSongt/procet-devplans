@@ -1,0 +1,406 @@
+{
+  "schemaVersion": "procet-b41-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-09-08",
+  "sourcesPath": "research/sources/CAP-09-08-replay-instances-b41.json",
+  "fixturePath": "docs/capabilities/CAP-09-08/replay-instances-b41-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0908_replay_instances_b41_v08.cjs",
+  "rules": [
+    {
+      "id": "B41-R1",
+      "title": "最终NC与D10执行绑定及D11隔离",
+      "sourceIds": [
+        "B41-S01",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "refs.d10",
+        "refs.d12",
+        "refs.d13",
+        "refs.d14",
+        "refs.d12Sha",
+        "refs.d11AsNc"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B41-R2",
+      "title": "重复NC行必须有不同调用与Joint实例",
+      "sourceIds": [
+        "B41-S01",
+        "B41-S03",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "call.byteStart",
+        "call.byteEnd",
+        "call.a",
+        "call.b",
+        "call.jointA",
+        "call.jointB",
+        "call.expansionComplete"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N05",
+        "N06",
+        "N07",
+        "N08"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B41-R3",
+      "title": "微秒时基和未覆盖区间的严格端点",
+      "sourceIds": [
+        "B41-S02",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "timeline.unit",
+        "timeline.kind",
+        "timeline.startUs",
+        "timeline.endUs",
+        "timeline.aEndUs",
+        "timeline.bStartUs",
+        "timeline.reportedGapStartUs",
+        "timeline.reportedGapEndUs",
+        "timeline.timeUnknown"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D14",
+        "D15"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N09",
+        "N10",
+        "N11",
+        "N12",
+        "N13"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B41-R4",
+      "title": "Seek/倒回/倍速不写D14和D15",
+      "sourceIds": [
+        "B41-S02",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "seek.cursorUs",
+        "seek.rate",
+        "seek.readOnly",
+        "seek.d14HashBefore",
+        "seek.d14HashAfter",
+        "seek.d15HashBefore",
+        "seek.d15HashAfter",
+        "seek.reverseWrites"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D14",
+        "D15"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N14",
+        "N15",
+        "N16",
+        "N17",
+        "N18",
+        "N19"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B41-R5",
+      "title": "D15未知与未运行不能由颜色、端点采样升级",
+      "sourceIds": [
+        "B41-S04",
+        "B41-S05",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "report.d15Status",
+        "report.label",
+        "report.coverageGapVisible",
+        "report.claimsCertified",
+        "report.staticSampleClaimsCcd",
+        "report.findingRef"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N24",
+        "N25"
+      ],
+      "unknownIds": [
+        "U02"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B41-R6",
+      "title": "导出报告需原始NC与D14来源Hash、合成水印",
+      "sourceIds": [
+        "B41-S03",
+        "B41-S05",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "provenance.byteSha",
+        "provenance.callSetHash",
+        "provenance.d14Hash",
+        "provenance.synthetic",
+        "provenance.machineExportAllowed"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B41-R7",
+      "title": "GUI/CLI/Agent单Port及单Babylon世界",
+      "sourceIds": [
+        "B41-S02",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "ui.port",
+        "ui.channels",
+        "ui.worldCount",
+        "ui.leftTaskPanel",
+        "ui.fontMaxPx",
+        "ui.selectionCommits"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D14",
+        "D15"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N31",
+        "N32",
+        "N33",
+        "N34",
+        "N35",
+        "N36"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B41-R8",
+      "title": "CAS撤权取消、D04与D10及冻结迁移隔离",
+      "sourceIds": [
+        "B41-S03",
+        "B41-S06"
+      ],
+      "origin": "PROCET_INTERNAL_DESIGN_WITH_SCOPED_EXTERNAL_EVIDENCE",
+      "fields": [
+        "owner.expectedRevision",
+        "owner.currentRevision",
+        "owner.expectedHash",
+        "owner.currentHash",
+        "owner.expectedFrame",
+        "owner.currentFrame",
+        "owner.aclExpected",
+        "owner.aclCurrent",
+        "owner.scopeExpected",
+        "owner.scopeCurrent",
+        "owner.cancelEpoch",
+        "owner.ackEpoch",
+        "owner.cancelled",
+        "owner.lateAckAdopted",
+        "flow.d04",
+        "flow.d10",
+        "flow.d16Auto",
+        "flow.frozenOverwritten",
+        "flow.migrationShadow",
+        "flow.consumerStatus",
+        "binding.controllerSemanticsKnown"
+      ],
+      "capabilityIds": [
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "P01"
+      ],
+      "negativeIds": [
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42",
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48",
+        "N49"
+      ],
+      "unknownIds": [
+        "U03"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

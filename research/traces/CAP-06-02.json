@@ -1,0 +1,236 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-06-02",
+  "researchTopic": "R-JOINT-SEARCH-001",
+  "sourceRegistry": "research/sources/CAP-06-02.json",
+  "specification": "docs/capabilities/CAP-06-02/README.md",
+  "ui": "docs/capabilities/CAP-06-02/UI.md",
+  "fixtures": "docs/capabilities/CAP-06-02/fixtures.json",
+  "validator": "tools/check_cap0602_planning_2026_10_25.cjs",
+  "rules": [
+    {
+      "id": "C0602-R01",
+      "capabilityId": "CAP-06-02",
+      "summary": "精确制造基线及Frame",
+      "fields": [
+        "refs[].hash"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S01",
+        "SRC-C0602-S07",
+        "SRC-C0602-S10"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-02-T01",
+      "negativeTestId": "CAP-06-02-T02",
+      "negativeReason": "REJECT_EXACT_BASELINE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R02",
+      "capabilityId": "CAP-06-02",
+      "summary": "真实B-Rep材料状态与公差指纹",
+      "fields": [
+        "materialFingerprint"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S02",
+        "SRC-C0602-S03",
+        "SRC-C0602-S10"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-02-T03",
+      "negativeTestId": "CAP-06-02-T04",
+      "negativeReason": "REJECT_STOCK_FINGERPRINT",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R03",
+      "capabilityId": "CAP-06-02",
+      "summary": "工序前序约束为无环图",
+      "fields": [
+        "precedenceEdges"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S01",
+        "SRC-C0602-S05",
+        "SRC-C0602-S06"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-02-T05",
+      "negativeTestId": "CAP-06-02-T06",
+      "negativeReason": "REJECT_PRECEDENCE_CYCLE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R04",
+      "capabilityId": "CAP-06-02",
+      "summary": "A/B分支并存且不覆盖冻结",
+      "fields": [
+        "overwriteFrozen"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S07",
+        "SRC-C0602-S08"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-02-T07",
+      "negativeTestId": "CAP-06-02-T08",
+      "negativeReason": "REJECT_FROZEN_OVERWRITE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R05",
+      "capabilityId": "CAP-06-02",
+      "summary": "支配剪枝需要同材料同约束和可证界",
+      "fields": [
+        "sameConstraints"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S05",
+        "SRC-C0602-S06"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-02-T09",
+      "negativeTestId": "CAP-06-02-T10",
+      "negativeReason": "REJECT_UNSOUND_PRUNE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R06",
+      "capabilityId": "CAP-06-02",
+      "summary": "超预算必须UNKNOWN而非无解",
+      "fields": [
+        "status"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S05",
+        "SRC-C0602-S06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-02-T11",
+      "negativeTestId": "CAP-06-02-T12",
+      "negativeReason": "REJECT_FALSE_INFEASIBLE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R07",
+      "capabilityId": "CAP-06-02",
+      "summary": "局部布尔、形状和保护区双门禁",
+      "fields": [
+        "brepCheck"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S02",
+        "SRC-C0602-S03",
+        "SRC-C0602-S04"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "CAP-06-02-T13",
+      "negativeTestId": "CAP-06-02-T14",
+      "negativeReason": "REJECT_BOOLEAN_PROOF",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R08",
+      "capabilityId": "CAP-06-02",
+      "summary": "Solver不得直接修改D05/D08",
+      "fields": [
+        "writer"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S07",
+        "SRC-C0602-S08",
+        "SRC-C0602-S09"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "positiveTestId": "CAP-06-02-T15",
+      "negativeTestId": "CAP-06-02-T16",
+      "negativeReason": "REJECT_DIRECT_PLAN_WRITE",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R09",
+      "capabilityId": "CAP-06-02",
+      "summary": "CAS权限任务代次及晚回执重验",
+      "fields": [
+        "currentGeneration"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S08",
+        "SRC-C0602-S09"
+      ],
+      "assets": [
+        "D01",
+        "D06"
+      ],
+      "positiveTestId": "CAP-06-02-T17",
+      "negativeTestId": "CAP-06-02-T18",
+      "negativeReason": "REJECT_STALE_ACK",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0602-R10",
+      "capabilityId": "CAP-06-02",
+      "summary": "D09只能在D07+D08独立通过后进入",
+      "fields": [
+        "d08ExactFrozen"
+      ],
+      "sourceIds": [
+        "SRC-C0602-S01",
+        "SRC-C0602-S02",
+        "SRC-C0602-S07"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D09",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "CAP-06-02-T19",
+      "negativeTestId": "CAP-06-02-T20",
+      "negativeReason": "REJECT_D09_PRECONDITION",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

@@ -1,0 +1,544 @@
+{
+  "schemaVersion": "procet-cap0906-trace-v1",
+  "capabilityId": "CAP-09-06",
+  "researchTopic": "R-NC-PROGRAM-VERIFY-001",
+  "sourceRegistry": "research/sources/CAP-09-06.json",
+  "specification": "docs/capabilities/CAP-09-06/README.md",
+  "ui": "docs/capabilities/CAP-09-06/UI.md",
+  "fixtures": "docs/capabilities/CAP-09-06/fixtures.json",
+  "validator": "tools/check_cap0906_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-09-06-R01",
+      "capabilityId": "CAP-09-06",
+      "summary": "冻结最终NC输入",
+      "engineeringRule": "D12最终NC原始字节与编码、文件依赖闭包及D08冻结来源精确绑定，禁止使用CL或文件名代替字节SHA。",
+      "fields": [
+        "input.d12FinalNcBytesHashExact",
+        "input.d12ByteEncodingLineMapPinned",
+        "input.d08FrozenReferencePinned",
+        "input.subprogramClosureHashPinned"
+      ],
+      "sourceIds": [
+        "C0906-S01",
+        "C0906-S02",
+        "C0906-S07",
+        "C0906-S10"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "input.d12FinalNcBytesHashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.d12ByteEncodingLineMapPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.d08FrozenReferencePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.subprogramClosureHashPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R02",
+      "capabilityId": "CAP-09-06",
+      "summary": "执行绑定及Profile",
+      "engineeringRule": "D03资源能力、D04名义Setup和D10实际执行绑定分别校验，控制器固件/选件/后处理Profile在本次NC解释前锁定。",
+      "fields": [
+        "profile.d03ResourceRefExact",
+        "profile.d04NominalSetupSeparate",
+        "profile.d10ActualMachineBindingExact",
+        "profile.firmwareOptionsDialectHashPinned"
+      ],
+      "sourceIds": [
+        "C0906-S01",
+        "C0906-S03",
+        "C0906-S05",
+        "C0906-S06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "profile.d03ResourceRefExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "profile.d04NominalSetupSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "profile.d10ActualMachineBindingExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "profile.firmwareOptionsDialectHashPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R03",
+      "capabilityId": "CAP-09-06",
+      "summary": "最终NC模态解释",
+      "engineeringRule": "D13重新读取最终D12字节并按方言解释G20/21、G90/91、G17、G54、G43/H、G61/64，逐块保留前后模态快照。",
+      "fields": [
+        "modal.d13ReparsesFinalBytes",
+        "modal.unitsAndDistanceModesModeled",
+        "modal.wcsAndToolOffsetModeled",
+        "modal.modalBeforeAfterRecorded"
+      ],
+      "sourceIds": [
+        "C0906-S02",
+        "C0906-S03",
+        "C0906-S07"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "modal.d13ReparsesFinalBytes",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.unitsAndDistanceModesModeled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.wcsAndToolOffsetModeled",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.modalBeforeAfterRecorded",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R04",
+      "capabilityId": "CAP-09-06",
+      "summary": "宏循环与重映射界限",
+      "engineeringRule": "O/M98子程序、循环与Remap依据已锁Profile及外部依赖闭包有界展开，未知代码或递归预算耗尽UNKNOWN。",
+      "fields": [
+        "flow.callStackIterationRecorded",
+        "flow.remapDependenciesPinned",
+        "flow.expansionBudgetEnforced",
+        "flow.unknownMacroFailClosed"
+      ],
+      "sourceIds": [
+        "C0906-S03",
+        "C0906-S04",
+        "C0906-S05",
+        "C0906-S07"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "flow.callStackIterationRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.remapDependenciesPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.expansionBudgetEnforced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.unknownMacroFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R05",
+      "capabilityId": "CAP-09-06",
+      "summary": "控制器语义事件",
+      "engineeringRule": "D13输出具名typed执行事件，含NC字节偏移、调用实例、模态、辅助动作与证据来源，不能采用CL片段作为执行事件。",
+      "fields": [
+        "events.typedD13EventsOnly",
+        "events.ncByteOffsetAndCallPathRetained",
+        "events.modalAuxiliarySemanticsRecorded",
+        "events.clAnimationNotExecutor"
+      ],
+      "sourceIds": [
+        "C0906-S03",
+        "C0906-S04",
+        "C0906-S05",
+        "C0906-S10"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "events.typedD13EventsOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "events.ncByteOffsetAndCallPathRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "events.modalAuxiliarySemanticsRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "events.clAnimationNotExecutor",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R06",
+      "capabilityId": "CAP-09-06",
+      "summary": "独立轴时序展开",
+      "engineeringRule": "D14只能消费D13的执行语义；按机床运动链与D10安装绑定生成关节时序，解释缺口、速度/加速度不明或未建模行为标UNKNOWN。",
+      "fields": [
+        "timeline.d14ConsumesD13EventHash",
+        "timeline.fkIkBranchAndWrapPinned",
+        "timeline.jointTimestampEnvelopeRecorded",
+        "timeline.unmodeledMotionUnknown"
+      ],
+      "sourceIds": [
+        "C0906-S05",
+        "C0906-S06",
+        "C0906-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "timeline.d14ConsumesD13EventHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "timeline.fkIkBranchAndWrapPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "timeline.jointTimestampEnvelopeRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "timeline.unmodeledMotionUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R07",
+      "capabilityId": "CAP-09-06",
+      "summary": "NC程序工程几何门禁",
+      "engineeringRule": "D15独立检查D14轴时序与物理Joint限位、干涉覆盖，静态OCCT距离与端点取样都不构成连续安全证明。",
+      "fields": [
+        "engineering.jointAndAxisLimitsIndependent",
+        "engineering.collisionCoverageIntervalExplicit",
+        "engineering.unknownPhysicalModelBlocksPass",
+        "engineering.staticDistanceNotContinuousProof"
+      ],
+      "sourceIds": [
+        "C0906-S06",
+        "C0906-S08",
+        "C0906-S07"
+      ],
+      "assets": [
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "engineering.jointAndAxisLimitsIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "engineering.collisionCoverageIntervalExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "engineering.unknownPhysicalModelBlocksPass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "engineering.staticDistanceNotContinuousProof",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R08",
+      "capabilityId": "CAP-09-06",
+      "summary": "证据闭包与发布资格",
+      "engineeringRule": "D15必须有独立Oracle与实际验证覆盖；UNKNOWN/STALE/REJECT无法授予D16可发布资格，D11 CL_ONLY不得替代。",
+      "fields": [
+        "gates.d13D14D15EvidenceClosure",
+        "gates.oracleIndependentOfGenerator",
+        "gates.unknownStaleRejectBlocksD16",
+        "gates.d11ClOnlyNoPromotion"
+      ],
+      "sourceIds": [
+        "C0906-S07",
+        "C0906-S08",
+        "C0906-S10"
+      ],
+      "assets": [
+        "D11",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "gates.d13D14D15EvidenceClosure",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gates.oracleIndependentOfGenerator",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gates.unknownStaleRejectBlocksD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gates.d11ClOnlyNoPromotion",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R09",
+      "capabilityId": "CAP-09-06",
+      "summary": "三入口一致与取消事务",
+      "engineeringRule": "GUI、CLI、Agent使用同一09域Owner Port；单Babylon世界与统一左TaskPanel，提交再次重验ACL/CAS/epoch及取消晚回执。",
+      "fields": [
+        "transaction.guiCliAgentOneOwnerPort",
+        "transaction.oneBabylonLeftTaskPanel",
+        "transaction.aclCasEpochRecheckOnCommit",
+        "transaction.lateAckCancelNoWrite"
+      ],
+      "sourceIds": [
+        "C0906-S09",
+        "C0906-S10"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "transaction.guiCliAgentOneOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.oneBabylonLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.aclCasEpochRecheckOnCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.lateAckCancelNoWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-06-R10",
+      "capabilityId": "CAP-09-06",
+      "summary": "迁移失效独立验收",
+      "engineeringRule": "任何最终NC、控制器、D10、算法或依赖修订变化需标记D13–D16相关证据失效；配对Schema Reader可回退，不覆盖D08/D16历史。",
+      "fields": [
+        "handoff.dependencyGraphExactAndStale",
+        "handoff.pairedReaderSchemaRollback",
+        "handoff.independentPositiveNegativeOracle",
+        "handoff.originalFreezeAndReleasePreserved"
+      ],
+      "sourceIds": [
+        "C0906-S08",
+        "C0906-S09",
+        "C0906-S10"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "handoff.dependencyGraphExactAndStale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.pairedReaderSchemaRollback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.independentPositiveNegativeOracle",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.originalFreezeAndReleasePreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任何实质缺失、未知控制器语义、精确revision/hash/Frame不符或晚回执必须REJECT/UNKNOWN/STALE，不提升D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

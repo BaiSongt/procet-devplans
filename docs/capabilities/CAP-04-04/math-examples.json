@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "procet-frame-math-v1",
+  "capabilityId": "CAP-04-04",
+  "mathConvention": "column_vector_left_multiply",
+  "units": "mm_rad",
+  "example": {
+    "setupFromPart": {
+      "rotation": "identity",
+      "translation": [
+        10,
+        20,
+        30
+      ]
+    },
+    "partFromCad": {
+      "rotation": "Rz+90deg",
+      "translation": [
+        2,
+        0,
+        0
+      ]
+    },
+    "cadPoint": [
+      1,
+      0,
+      0
+    ],
+    "expectedSetupPoint": [
+      12,
+      21,
+      30
+    ],
+    "expectedMatrixSetupFromCad": [
+      [
+        0,
+        -1,
+        0,
+        12
+      ],
+      [
+        1,
+        0,
+        0,
+        20
+      ],
+      [
+        0,
+        0,
+        1,
+        30
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "expectedRoundTripCadPoint": [
+      1,
+      0,
+      0
+    ]
+  },
+  "syntheticTolerance": 1e-9,
+  "notManufacturingTolerance": true,
+  "negativeCases": [
+    {
+      "matrix": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reason": "negative_determinant_mirror"
+    },
+    {
+      "matrix": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "reason": "scale_not_rigid"
+    }
+  ],
+  "productStatus": "NOT_RUN"
+}

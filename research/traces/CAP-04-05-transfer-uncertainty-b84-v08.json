@@ -1,0 +1,444 @@
+{
+  "schemaVersion": "procet-b84-transfer-uncertainty-trace-v08",
+  "date": "2026-11-01",
+  "sourceRegistry": "research/sources/CAP-04-05-transfer-uncertainty-b84.json",
+  "capabilityId": "CAP-04-05",
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "assetOwner": "04域D04唯一Writer，D10由执行侧独立拥有",
+  "ruleCount": 8,
+  "acceptanceFixture": "docs/capabilities/CAP-04-05/transfer-uncertainty-b84-fixtures-v08.json",
+  "validator": "tools/check_cap0405_transfer_uncertainty_b84_v08.cjs",
+  "independentConsumers": "NOT_RUN",
+  "rules": [
+    {
+      "id": "TU84-R01",
+      "statement": "D01和各阶段稳定身份、设计修订、occurrence一致才可建立转序候选",
+      "sourceIds": [
+        "P84-S08",
+        "P84-S09"
+      ],
+      "fields": [
+        "source.sourceHash",
+        "source.designRevision",
+        "source.occurrence",
+        "transfer.designRevision",
+        "transfer.occurrence"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N01",
+        "B84-N02",
+        "B84-N03",
+        "B84-N04"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    },
+    {
+      "id": "TU84-R02",
+      "statement": "声明T_B_A坐标变换方向并校核SE(3)，拒绝镜像、缩放及SetDisplacement误充坐标变换",
+      "sourceIds": [
+        "P84-S05",
+        "P84-S07",
+        "P84-S09"
+      ],
+      "fields": [
+        "transfer.fromFrame",
+        "transfer.toFrame",
+        "transfer.transformKind",
+        "transfer.matrix",
+        "transfer.unit"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N05",
+        "B84-N06",
+        "B84-N07",
+        "B84-N08",
+        "B84-N09"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    },
+    {
+      "id": "TU84-R03",
+      "statement": "两次装夹测量及校准证据均需exact且CURRENT，不用设计datum冒充测量",
+      "sourceIds": [
+        "P84-S01",
+        "P84-S04",
+        "P84-S08"
+      ],
+      "fields": [
+        "measurement.sourceId",
+        "measurement.targetId",
+        "measurement.sourceHash",
+        "measurement.targetHash",
+        "measurement.calibrationSourceExact",
+        "measurement.calibrationTargetExact",
+        "measurement.sourceStatus",
+        "measurement.targetStatus"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N10",
+        "B84-N11",
+        "B84-N12",
+        "B84-N13"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    },
+    {
+      "id": "TU84-R04",
+      "statement": "限标量平移不确定度、具名目标Frame及单位；相关系数未知返回UNKNOWN，完整SE3协方差不得冒充已处理",
+      "sourceIds": [
+        "P84-S02",
+        "P84-S03",
+        "P84-S06"
+      ],
+      "fields": [
+        "measurement.modelKind",
+        "measurement.modelFrame",
+        "measurement.modelUnit",
+        "measurement.uSource",
+        "measurement.uTarget",
+        "measurement.rho"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N14",
+        "B84-N15",
+        "B84-N16",
+        "B84-N17",
+        "B84-N18",
+        "B84-N19"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    },
+    {
+      "id": "TU84-R05",
+      "statement": "按自定义1sigma合成风险预算而非ISO公差验收；超限仅要求人工复核，低于预算仍仅合格草稿",
+      "sourceIds": [
+        "P84-S02",
+        "P84-S03",
+        "P84-S04"
+      ],
+      "fields": [
+        "measurement.budgetMm",
+        "measurement.budgetKind",
+        "measurement.uSource",
+        "measurement.uTarget",
+        "measurement.rho"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N20",
+        "B84-N21",
+        "B84-N22"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    },
+    {
+      "id": "TU84-R06",
+      "statement": "D04名义转序与D10实际执行绑定分离，D07前序材料有exact来源，D08冻结与D16历史不可覆盖",
+      "sourceIds": [
+        "P84-S08",
+        "P84-S09"
+      ],
+      "fields": [
+        "boundary.d04NominalExact",
+        "boundary.d07MaterialExact",
+        "boundary.d10PhysicalBinding",
+        "boundary.copyD04ToD10",
+        "boundary.overwriteFrozenD08",
+        "boundary.claimD16Released",
+        "boundary.clAnimationAsD15"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N23",
+        "B84-N24",
+        "B84-N25",
+        "B84-N26",
+        "B84-N27",
+        "B84-N28"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    },
+    {
+      "id": "TU84-R07",
+      "statement": "GUI/CLI/Agent统一04域Port、唯一Babylon世界与左TaskPanel，预览只读",
+      "sourceIds": [
+        "P84-S09"
+      ],
+      "fields": [
+        "ui.guiPort",
+        "ui.cliPort",
+        "ui.agentPort",
+        "ui.worldCount",
+        "ui.taskPanel",
+        "ui.previewWrites"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N29",
+        "B84-N30",
+        "B84-N31",
+        "B84-N32"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    },
+    {
+      "id": "TU84-R08",
+      "statement": "CAS复核权限/修订/Hash/Frame/Scope/取消/晚ACK，旧Reader及回退与独立消费者证据不伪晋级",
+      "sourceIds": [
+        "P84-S09"
+      ],
+      "fields": [
+        "command.authorized",
+        "command.expectedRevision",
+        "command.expectedHash",
+        "command.expectedFrame",
+        "command.scopeEpoch",
+        "command.cancelled",
+        "command.lateAck",
+        "migration.legacyReaderPreserved",
+        "migration.rollbackRef",
+        "migration.consumerClaimsPass"
+      ],
+      "capabilityId": "CAP-04-05",
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveIds": [
+        "B84-P01",
+        "B84-P02",
+        "B84-P03",
+        "B84-P04"
+      ],
+      "negativeIds": [
+        "B84-N33",
+        "B84-N34",
+        "B84-N35",
+        "B84-N36",
+        "B84-N37",
+        "B84-N38",
+        "B84-N39",
+        "B84-N40",
+        "B84-N41",
+        "B84-N42"
+      ],
+      "acceptanceScope": "SYNTHETIC_ONLY_INDEPENDENT_CONSUMER_NOT_RUN"
+    }
+  ]
+}

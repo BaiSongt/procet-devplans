@@ -1,0 +1,701 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-03-02",
+  "topic": "R-ASM-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-03-02/README.md",
+    "ui": "docs/capabilities/CAP-03-02/UI.md",
+    "topic": "research/topics/R-ASM-001.md",
+    "fixtures": "docs/capabilities/CAP-03-02/fixtures.json"
+  },
+  "registeredSources": [
+    "SRC-ASM-001",
+    "SRC-ASM-002",
+    "SRC-ASM-003",
+    "SRC-ASM-004",
+    "SRC-CAD-002",
+    "SRC-CAD-004",
+    "SRC-TA-001"
+  ],
+  "newSourceRecords": 4,
+  "reusedSourceRecords": 3,
+  "codeEvidence": [
+    {
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "paths": [
+        "packages/renderer-port/src/cad-input.ts",
+        "apps/desktop/src/modules/cam/activeCad3dDocument.ts",
+        "apps/desktop/src/modules/documentProjection.ts",
+        "apps/desktop/src/modules/cam/CamExplorerTree.tsx"
+      ],
+      "kind": "read_only_source_observation_not_test",
+      "limits": "CamExplorerTree uses demoProcessNavigatorModel; CAD assembly owner/writer implementation not verified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "ASM-R01",
+      "sourceIds": [
+        "SRC-ASM-001"
+      ],
+      "fields": [
+        "definitionRef",
+        "occurrenceId"
+      ],
+      "tests": [
+        "CAP-03-02-T01",
+        "CAP-03-02-T02"
+      ],
+      "kind": "engine_documentation_and_design_policy",
+      "description": "ASM-R01规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R02",
+      "sourceIds": [
+        "SRC-ASM-002"
+      ],
+      "fields": [
+        "sourceLabelPath",
+        "childDefinitionRef"
+      ],
+      "tests": [
+        "CAP-03-02-T03",
+        "CAP-03-02-T04"
+      ],
+      "kind": "engine_api_and_design_policy",
+      "description": "ASM-R02规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R03",
+      "sourceIds": [
+        "SRC-ASM-001",
+        "SRC-TA-001"
+      ],
+      "fields": [
+        "localToParentFrame",
+        "rootFrameRef"
+      ],
+      "tests": [
+        "CAP-03-02-T05",
+        "CAP-03-02-T06"
+      ],
+      "kind": "engine_documentation_and_internal_frame_convention",
+      "description": "ASM-R03规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R04",
+      "sourceIds": [
+        "SRC-ASM-001",
+        "SRC-ASM-003"
+      ],
+      "fields": [
+        "rootIds",
+        "externalReferenceRefs"
+      ],
+      "tests": [
+        "CAP-03-02-T07",
+        "CAP-03-02-T08"
+      ],
+      "kind": "engine_documentation_and_fail_closed_policy",
+      "description": "ASM-R04规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R05",
+      "sourceIds": [
+        "SRC-ASM-001"
+      ],
+      "fields": [
+        "sourceMetadataCoverage"
+      ],
+      "tests": [
+        "CAP-03-02-T09",
+        "CAP-03-02-T10"
+      ],
+      "kind": "engine_documentation_and_design_policy",
+      "description": "ASM-R05规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R06",
+      "sourceIds": [
+        "SRC-ASM-004"
+      ],
+      "fields": [
+        "revisionDiff",
+        "mappingEvidence"
+      ],
+      "tests": [
+        "CAP-03-02-T11",
+        "CAP-03-02-T12"
+      ],
+      "kind": "external_provenance_model_and_internal_diff_policy",
+      "description": "ASM-R06规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R07",
+      "sourceIds": [
+        "SRC-ASM-004"
+      ],
+      "fields": [
+        "oldRef",
+        "newRef",
+        "sourceHash"
+      ],
+      "tests": [
+        "CAP-03-02-T13",
+        "CAP-03-02-T14"
+      ],
+      "kind": "external_provenance_model_and_C0_identity_policy",
+      "description": "ASM-R07规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R08",
+      "sourceIds": [
+        "SRC-ASM-003"
+      ],
+      "fields": [
+        "transactionGeneration",
+        "closureRef"
+      ],
+      "tests": [
+        "CAP-03-02-T15",
+        "CAP-03-02-T16"
+      ],
+      "kind": "external_document_transaction_and_internal_Host_commit_policy",
+      "description": "ASM-R08规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R09",
+      "sourceIds": [],
+      "fields": [
+        "selectionIntent",
+        "scopeEpoch",
+        "commitReceipt"
+      ],
+      "tests": [
+        "CAP-03-02-T17",
+        "CAP-03-02-T18"
+      ],
+      "kind": "internal_design_policy_and_source_observation",
+      "description": "ASM-R09规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    },
+    {
+      "id": "ASM-R10",
+      "sourceIds": [
+        "SRC-ASM-004"
+      ],
+      "fields": [
+        "schemaVersion",
+        "impactSet",
+        "migrationRef"
+      ],
+      "tests": [
+        "CAP-03-02-T19",
+        "CAP-03-02-T20"
+      ],
+      "kind": "external_provenance_and_internal_backward_compatibility",
+      "description": "ASM-R10规则内容见业务规格第五节；技术依据和内部裁决边界见R-ASM-001",
+      "capabilityId": "CAP-03-02",
+      "implementationStatus": "planned_only",
+      "productValidation": "not_run"
+    }
+  ],
+  "acceptanceTests": [
+    {
+      "id": "CAP-03-02-T01",
+      "positive": "一个Definition两次使用，显示两条Occurrence且位置不同",
+      "negative": "按definitionHash去重后只剩一个Occurrence",
+      "syntheticInput": {
+        "roots": [
+          {
+            "id": "asmA",
+            "children": [
+              {
+                "occurrenceId": "occ-1",
+                "definitionRef": "partA@1",
+                "locationMm": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "occurrenceId": "occ-2",
+                "definitionRef": "partA@1",
+                "locationMm": [
+                  20,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T02",
+      "positive": "同名不同产品标识的定义分别保留",
+      "negative": "仅按显示名/颜色自动合并不同零件",
+      "syntheticInput": {
+        "parts": [
+          {
+            "id": "A",
+            "name": "pin",
+            "sourceProductId": "001"
+          },
+          {
+            "id": "B",
+            "name": "pin",
+            "sourceProductId": "002"
+          }
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T03",
+      "positive": "XDE实例标签映射到正确被引用定义与局部位姿",
+      "negative": "把实例label误认独立几何定义，装配位置丢失",
+      "syntheticInput": {
+        "xdeLabels": {
+          "compA": "0:1:1:2:1",
+          "definitionA": "0:1:1:3"
+        },
+        "getReferredShape": "definitionA",
+        "getLocationMm": [
+          12,
+          0,
+          0
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T04",
+      "positive": "源结构的多重引用能按确切InstancePath回读",
+      "negative": "仅用TopoDS_Compound遍历顺序生成永久Instance ID",
+      "syntheticInput": {
+        "assembly": {
+          "occurrences": [
+            "o1",
+            "o2",
+            "o3"
+          ],
+          "sharedDefinition": "p1",
+          "traversalOrderA": [
+            "o1",
+            "o2",
+            "o3"
+          ],
+          "traversalOrderB": [
+            "o3",
+            "o1",
+            "o2"
+          ]
+        }
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T05",
+      "positive": "两级非交换旋转/平移矩阵按父子乘法得到正确世界变换",
+      "negative": "反向相乘或显示坐标修补导致错位",
+      "syntheticInput": {
+        "parentTranslationMm": [
+          100,
+          0,
+          0
+        ],
+        "parentRotationDegZ": 90,
+        "childTranslationMm": [
+          10,
+          0,
+          0
+        ],
+        "columnVectors": true,
+        "expectedWorldPositionMm": [
+          100,
+          10,
+          0
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T06",
+      "positive": "只修改Occurrence位姿仍沿用同一Definition几何修订",
+      "negative": "把位姿变化算作所有共享定义几何修改",
+      "syntheticInput": {
+        "base": {
+          "definitionId": "P",
+          "geometryHash": "h1",
+          "localToParentMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        "target": {
+          "definitionId": "P",
+          "geometryHash": "h1",
+          "localToParentMm": [
+            50,
+            0,
+            0
+          ]
+        }
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T07",
+      "positive": "同文件多个free roots保留为森林",
+      "negative": "强行创建带工程含义的伪总装",
+      "syntheticInput": {
+        "freeRoots": [
+          "asm-1",
+          "part-2"
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T08",
+      "positive": "缺失外链/循环引用进入unresolved或blocked并报路径",
+      "negative": "缺件被替换成同名占位Solid后报告可制造",
+      "syntheticInput": {
+        "nodes": [
+          {
+            "id": "root",
+            "child": "missing-external-v1"
+          },
+          {
+            "id": "broken",
+            "child": "root"
+          }
+        ],
+        "externalRefs": [
+          "missing-external-v1"
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T09",
+      "positive": "名称颜色缺失可使用视图默认样式并注明来源缺失",
+      "negative": "默认渲染色反写成为正式材料/零件分类",
+      "syntheticInput": {
+        "sourceMetadata": {
+          "name": null,
+          "color": null
+        },
+        "viewColor": "#CCCCCC"
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T10",
+      "positive": "PMI及验证属性按实际Reader覆盖显示partial/unknown",
+      "negative": "源无PMI仍从3D外观制造公差属性",
+      "syntheticInput": {
+        "readerCoverage": {
+          "pmi": "not_present",
+          "validationProps": "unsupported_reader"
+        }
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T11",
+      "positive": "差异报告将新增、删除、重挂和局部姿态改变分开",
+      "negative": "单纯树索引变化被认成几何替换且自动继承接受状态",
+      "syntheticInput": {
+        "base": [
+          "o1",
+          "o2"
+        ],
+        "target": [
+          "o2",
+          "o3"
+        ],
+        "relocate": {
+          "o2": [
+            10,
+            0,
+            0
+          ]
+        }
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T12",
+      "positive": "版本匹配歧义保持review_required，不更新冻结工艺",
+      "negative": "模糊匹配自动覆盖已批准D08或D16",
+      "syntheticInput": {
+        "candidateMappings": [
+          {
+            "old": "occ-1",
+            "new": "occ-A",
+            "confidence": 0.52
+          },
+          {
+            "old": "occ-1",
+            "new": "occ-B",
+            "confidence": 0.53
+          }
+        ],
+        "frozenRefs": [
+          "D08@7",
+          "D16@2"
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T13",
+      "positive": "同sourceHash不同readerOptionsHash保留独立派生资格",
+      "negative": "导入配置改变仍冒称完全同一可复现结构",
+      "syntheticInput": {
+        "sourceHash": "sha256:abc",
+        "baseReaderOptionsHash": "o1",
+        "targetReaderOptionsHash": "o2"
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T14",
+      "positive": "重设源几何需新修订与准确下游影响映射",
+      "negative": "仅凭形状hash相同就合并工程不同设计件",
+      "syntheticInput": {
+        "partA": {
+          "sourceProductId": "abc",
+          "geometryHash": "same"
+        },
+        "partB": {
+          "sourceProductId": "xyz",
+          "geometryHash": "same"
+        }
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T15",
+      "positive": "CAD局部预览修改可撤销且不改正式Project修订",
+      "negative": "OCAF单文档事务被宣称覆盖跨库CAS提交成功",
+      "syntheticInput": {
+        "documentRevision": 5,
+        "pendingPreviewEdit": "moveOccurrence",
+        "cancelRequested": true
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T16",
+      "positive": "快照缺必需外链拒绝完整恢复并保留原工程",
+      "negative": "缺资源情况下启用不完整新工程替换旧工程",
+      "syntheticInput": {
+        "manifest": {
+          "required": [
+            "source",
+            "external-A"
+          ],
+          "available": [
+            "source"
+          ]
+        },
+        "existingProjectGeneration": 10
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T17",
+      "positive": "选中第二个相同定义实例时选区与路径均指向第二实例",
+      "negative": "选择只持definitionId导致高亮/制造目标错误实例",
+      "syntheticInput": {
+        "definitionRef": "partA@1",
+        "selectedOccurrence": "o2",
+        "otherOccurrence": "o1",
+        "sameMesh": true
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T18",
+      "positive": "切工程或关闭标签使迟到查询/提交回执只关联原上下文",
+      "negative": "A工程旧回执覆盖B工程当前树/确认按钮状态",
+      "syntheticInput": {
+        "originalScope": {
+          "project": "A",
+          "documentInstanceId": "tab-A",
+          "epoch": 1
+        },
+        "currentScope": {
+          "project": "B",
+          "documentInstanceId": "tab-B",
+          "epoch": 2
+        },
+        "lateReceiptFrom": "A"
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T19",
+      "positive": "旧cad-input-v1结构能够保留原始数据并显示未知结构覆盖",
+      "negative": "自动补造未读装配、跨版未知单位或PMI",
+      "syntheticInput": {
+        "legacySchema": "procet-cad-input-v1",
+        "sourceArtifact": "sha256:legacy",
+        "assemblyDetails": "unknown"
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    },
+    {
+      "id": "CAP-03-02-T20",
+      "positive": "源修订改变后下游引用显式标stale/needs_review并可回溯旧版",
+      "negative": "自动将D02/D04/D08/D16引用指向latest并发布",
+      "syntheticInput": {
+        "baseDesign": "D01@7",
+        "targetDesign": "D01@8",
+        "downstreamRefs": [
+          "D02@10",
+          "D04@4",
+          "D08@3",
+          "D16@2"
+        ]
+      },
+      "expectedPositive": "保留exact身份、角色权限、来源与场景边界；产出可检查回执或只读投影",
+      "expectedNegative": "拒绝静默覆盖/假定完整；返回typed问题和修复动作，不产生未经授权的D01或下游批准写入",
+      "execution": "not_run",
+      "productTestEntry": "TODO_TEST_ENTRY"
+    }
+  ],
+  "relatedWorkPackages": [
+    "B0-02",
+    "F1-01",
+    "F1-02",
+    "F1-03",
+    "F1-04",
+    "F1-06",
+    "T5-02"
+  ],
+  "crossDomainAssets": [
+    {
+      "id": "D01",
+      "role": "owner"
+    },
+    {
+      "id": "D02",
+      "role": "consumer"
+    },
+    {
+      "id": "D04",
+      "role": "consumer"
+    },
+    {
+      "id": "D05",
+      "role": "consumer"
+    },
+    {
+      "id": "D06",
+      "role": "consumer"
+    },
+    {
+      "id": "D08",
+      "role": "frozen_consumer_must_not_overwrite"
+    },
+    {
+      "id": "D16",
+      "role": "released_consumer_must_not_overwrite"
+    }
+  ],
+  "statusQualifier": "文档规格/研究及合成测试例已编制，待设计/生产者/消费者评审；没有产品测试与已发布工程资格。写入远端被先前安全拒绝，当前为本地待入库草案。"
+}

@@ -1,0 +1,590 @@
+{
+  "schemaVersion": "procet-b108-branch-winding-fixtures-v08",
+  "date": "2026-11-02",
+  "syntheticOnly": true,
+  "origin": "NEWLY_AUTHORED_NOT_HISTORICAL_BYTES",
+  "sourceRegistry": "research/sources/CAP-09-03-branch-winding-b108.json",
+  "trace": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+  "base": {
+    "refs": {
+      "d03": {
+        "id": "D03/MACHINE/DEMO",
+        "revision": "r17",
+        "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "expectedHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frame": "MACHINE_BASE@r17"
+      },
+      "d04": {
+        "id": "D04/SETUP/DEMO",
+        "revision": "r4",
+        "hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "expectedHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frame": "PART@r4"
+      },
+      "d10": {
+        "id": "D10/BIND/DEMO",
+        "revision": "r8",
+        "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "expectedHash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "frame": "MACHINE@r8"
+      },
+      "controllerProfileHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "unitPolicy": "DEG_PER_SECOND",
+      "frameProof": "EXPLICIT_D04_TO_D10"
+    },
+    "axis": {
+      "mode": "FINITE_BOUNDED",
+      "previousPhysicalDeg": 350,
+      "nextPhysicalDeg": 370,
+      "nextDisplayDeg": 10,
+      "nextTurnIndex": 1,
+      "previousBranchId": "IK-BR-A",
+      "nextBranchId": "IK-BR-A",
+      "approvedBranchTransition": false,
+      "independentFkEvidence": false,
+      "poseOnlyDedup": false
+    },
+    "limits": {
+      "minPhysicalDeg": -720,
+      "maxPhysicalDeg": 720,
+      "profileKnown": true,
+      "maxRateDegPerSec": 20,
+      "maxAccelerationDegPerSec2": 10
+    },
+    "timing": {
+      "dtSec": 2,
+      "previousRateDegPerSec": 5
+    },
+    "source": {
+      "provenance": "FINAL_NC_D13",
+      "d13Status": "KNOWN",
+      "controllerDialect": "LinuxCNC-2.9-PINNED",
+      "motionProfileExact": true
+    },
+    "workflow": {
+      "acl": true,
+      "cas": true,
+      "scopeEpoch": 7,
+      "ackScopeEpoch": 7,
+      "cancelled": false,
+      "lateAck": false,
+      "sameDomainPort": true,
+      "sceneCount": 1,
+      "engineCount": 1,
+      "leftTaskPanel": true,
+      "agentMayBypassOwner": false
+    },
+    "verification": {
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED",
+      "independentConsumer": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "B108-P01",
+      "ruleId": "B108-R01",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "changes": [],
+      "description": "受限连续轴候选，仅CANDIDATE_ONLY"
+    },
+    {
+      "id": "B108-P02",
+      "ruleId": "B108-R03",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "changes": [
+        {
+          "path": "axis.previousPhysicalDeg",
+          "value": 10
+        },
+        {
+          "path": "axis.nextPhysicalDeg",
+          "value": 20
+        },
+        {
+          "path": "axis.nextDisplayDeg",
+          "value": 20
+        },
+        {
+          "path": "axis.nextTurnIndex",
+          "value": 0
+        }
+      ],
+      "description": "axis.previousPhysicalDeg, axis.nextPhysicalDeg, axis.nextDisplayDeg, axis.nextTurnIndex"
+    },
+    {
+      "id": "B108-P03",
+      "ruleId": "B108-R03",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "changes": [
+        {
+          "path": "axis.previousPhysicalDeg",
+          "value": -20
+        },
+        {
+          "path": "axis.nextPhysicalDeg",
+          "value": -10
+        },
+        {
+          "path": "axis.nextDisplayDeg",
+          "value": 350
+        },
+        {
+          "path": "axis.nextTurnIndex",
+          "value": -1
+        }
+      ],
+      "description": "axis.previousPhysicalDeg, axis.nextPhysicalDeg, axis.nextDisplayDeg, axis.nextTurnIndex"
+    },
+    {
+      "id": "B108-P04",
+      "ruleId": "B108-R03",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "changes": [
+        {
+          "path": "axis.nextPhysicalDeg",
+          "value": 360
+        },
+        {
+          "path": "axis.nextDisplayDeg",
+          "value": 0
+        }
+      ],
+      "description": "axis.nextPhysicalDeg, axis.nextDisplayDeg"
+    },
+    {
+      "id": "B108-P05",
+      "ruleId": "B108-R05",
+      "kind": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "changes": [
+        {
+          "path": "axis.previousPhysicalDeg",
+          "value": -380
+        },
+        {
+          "path": "axis.nextPhysicalDeg",
+          "value": -370
+        },
+        {
+          "path": "axis.nextDisplayDeg",
+          "value": 350
+        },
+        {
+          "path": "axis.nextTurnIndex",
+          "value": -2
+        }
+      ],
+      "description": "axis.previousPhysicalDeg, axis.nextPhysicalDeg, axis.nextDisplayDeg, axis.nextTurnIndex"
+    },
+    {
+      "id": "B108-S01",
+      "ruleId": "B108-R01",
+      "kind": "STALE",
+      "expected": "STALE",
+      "changes": [
+        {
+          "path": "refs.d10.expectedHash",
+          "value": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ],
+      "description": "refs.d10.expectedHash"
+    },
+    {
+      "id": "B108-S02",
+      "ruleId": "B108-R01",
+      "kind": "STALE",
+      "expected": "STALE",
+      "changes": [
+        {
+          "path": "refs.frameProof",
+          "value": "D04_IS_D10"
+        }
+      ],
+      "description": "refs.frameProof"
+    },
+    {
+      "id": "B108-U01",
+      "ruleId": "B108-R01",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "refs.d04.frame",
+          "value": ""
+        }
+      ],
+      "description": "refs.d04.frame"
+    },
+    {
+      "id": "B108-U02",
+      "ruleId": "B108-R02",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "axis.mode",
+          "value": "WRAPPED_ROTARY"
+        }
+      ],
+      "description": "axis.mode"
+    },
+    {
+      "id": "B108-U03",
+      "ruleId": "B108-R02",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "axis.mode",
+          "value": "UNDECLARED"
+        }
+      ],
+      "description": "axis.mode"
+    },
+    {
+      "id": "B108-U04",
+      "ruleId": "B108-R02",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "refs.controllerProfileHash",
+          "value": ""
+        }
+      ],
+      "description": "refs.controllerProfileHash"
+    },
+    {
+      "id": "B108-N01",
+      "ruleId": "B108-R03",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "axis.nextTurnIndex",
+          "value": 0
+        }
+      ],
+      "description": "axis.nextTurnIndex"
+    },
+    {
+      "id": "B108-N02",
+      "ruleId": "B108-R03",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "axis.nextDisplayDeg",
+          "value": 20
+        }
+      ],
+      "description": "axis.nextDisplayDeg"
+    },
+    {
+      "id": "B108-U05",
+      "ruleId": "B108-R03",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "axis.nextPhysicalDeg",
+          "value": null
+        }
+      ],
+      "description": "axis.nextPhysicalDeg"
+    },
+    {
+      "id": "B108-N03",
+      "ruleId": "B108-R04",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "axis.nextBranchId",
+          "value": "IK-BR-B"
+        }
+      ],
+      "description": "axis.nextBranchId"
+    },
+    {
+      "id": "B108-U06",
+      "ruleId": "B108-R04",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "axis.nextBranchId",
+          "value": "IK-BR-B"
+        },
+        {
+          "path": "axis.approvedBranchTransition",
+          "value": true
+        }
+      ],
+      "description": "axis.nextBranchId, axis.approvedBranchTransition"
+    },
+    {
+      "id": "B108-N04",
+      "ruleId": "B108-R04",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "axis.poseOnlyDedup",
+          "value": true
+        }
+      ],
+      "description": "axis.poseOnlyDedup"
+    },
+    {
+      "id": "B108-N05",
+      "ruleId": "B108-R05",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "limits.maxPhysicalDeg",
+          "value": 360
+        }
+      ],
+      "description": "limits.maxPhysicalDeg"
+    },
+    {
+      "id": "B108-N06",
+      "ruleId": "B108-R05",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "limits.minPhysicalDeg",
+          "value": 360
+        }
+      ],
+      "description": "limits.minPhysicalDeg"
+    },
+    {
+      "id": "B108-U07",
+      "ruleId": "B108-R05",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "limits.profileKnown",
+          "value": false
+        }
+      ],
+      "description": "limits.profileKnown"
+    },
+    {
+      "id": "B108-N07",
+      "ruleId": "B108-R06",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "timing.dtSec",
+          "value": 0
+        }
+      ],
+      "description": "timing.dtSec"
+    },
+    {
+      "id": "B108-N08",
+      "ruleId": "B108-R06",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "timing.dtSec",
+          "value": 0.1
+        }
+      ],
+      "description": "timing.dtSec"
+    },
+    {
+      "id": "B108-N09",
+      "ruleId": "B108-R06",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "limits.maxRateDegPerSec",
+          "value": 5
+        }
+      ],
+      "description": "limits.maxRateDegPerSec"
+    },
+    {
+      "id": "B108-N10",
+      "ruleId": "B108-R06",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "limits.maxAccelerationDegPerSec2",
+          "value": 1
+        }
+      ],
+      "description": "limits.maxAccelerationDegPerSec2"
+    },
+    {
+      "id": "B108-U08",
+      "ruleId": "B108-R07",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "source.provenance",
+          "value": "CL_PREVIEW_ONLY"
+        }
+      ],
+      "description": "source.provenance"
+    },
+    {
+      "id": "B108-U09",
+      "ruleId": "B108-R07",
+      "kind": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "changes": [
+        {
+          "path": "source.d13Status",
+          "value": "UNKNOWN"
+        }
+      ],
+      "description": "source.d13Status"
+    },
+    {
+      "id": "B108-N11",
+      "ruleId": "B108-R07",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "verification.d15",
+          "value": "VERIFIED"
+        }
+      ],
+      "description": "verification.d15"
+    },
+    {
+      "id": "B108-N12",
+      "ruleId": "B108-R07",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "verification.d16",
+          "value": "RELEASED"
+        }
+      ],
+      "description": "verification.d16"
+    },
+    {
+      "id": "B108-S03",
+      "ruleId": "B108-R08",
+      "kind": "STALE",
+      "expected": "STALE",
+      "changes": [
+        {
+          "path": "workflow.cancelled",
+          "value": true
+        }
+      ],
+      "description": "workflow.cancelled"
+    },
+    {
+      "id": "B108-S04",
+      "ruleId": "B108-R08",
+      "kind": "STALE",
+      "expected": "STALE",
+      "changes": [
+        {
+          "path": "workflow.lateAck",
+          "value": true
+        }
+      ],
+      "description": "workflow.lateAck"
+    },
+    {
+      "id": "B108-S05",
+      "ruleId": "B108-R08",
+      "kind": "STALE",
+      "expected": "STALE",
+      "changes": [
+        {
+          "path": "workflow.ackScopeEpoch",
+          "value": 8
+        }
+      ],
+      "description": "workflow.ackScopeEpoch"
+    },
+    {
+      "id": "B108-N13",
+      "ruleId": "B108-R08",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "workflow.sceneCount",
+          "value": 2
+        }
+      ],
+      "description": "workflow.sceneCount"
+    },
+    {
+      "id": "B108-N14",
+      "ruleId": "B108-R08",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "workflow.sameDomainPort",
+          "value": false
+        }
+      ],
+      "description": "workflow.sameDomainPort"
+    },
+    {
+      "id": "B108-N15",
+      "ruleId": "B108-R08",
+      "kind": "NEGATIVE",
+      "expected": "REJECT",
+      "changes": [
+        {
+          "path": "workflow.agentMayBypassOwner",
+          "value": true
+        }
+      ],
+      "description": "workflow.agentMayBypassOwner"
+    }
+  ],
+  "analyticGoldens": [
+    {
+      "id": "B108-G01",
+      "description": "同物理旋转370°和显示10°同向不同原始Joint数值",
+      "turns": 1,
+      "displayDeg": 10,
+      "physicalDeg": 370
+    },
+    {
+      "id": "B108-G02",
+      "description": "负旋转-10°以显示350°和turns=-1呈现",
+      "turns": -1,
+      "displayDeg": 350,
+      "physicalDeg": -10
+    },
+    {
+      "id": "B108-G03",
+      "description": "物理340°→370°经2秒是15度每秒，不能仅取模误判10°",
+      "previousDeg": 340,
+      "nextDeg": 370,
+      "dtSec": 2,
+      "rateDegPerSec": 15
+    }
+  ]
+}

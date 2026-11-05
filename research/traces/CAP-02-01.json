@@ -1,0 +1,354 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-02-01",
+  "topic": "R-MACH-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": 7,
+  "paths": {
+    "originalSpecification": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-02-01_机床资源与构型.md",
+    "supplement": "docs/capabilities/CAP-02-01/RESEARCH-BACKFILL.md",
+    "fixtures": "docs/capabilities/CAP-02-01/fixtures.json",
+    "sourceRegistry": "research/sources/CAP-02-01.json"
+  },
+  "assetOwner": "D03 Resources；D04 Setup；D10 ExecutionBinding；D13/D14/D15各独立Owner",
+  "relatedAssets": [
+    "D03",
+    "D04",
+    "D10",
+    "D13",
+    "D14",
+    "D15"
+  ],
+  "workPackages": [
+    "F1-02",
+    "F1-06",
+    "E3-04"
+  ],
+  "sourceEvidence": "7合法官方公开页分目录、章节及摘要阅读",
+  "codeEvidence": [],
+  "notes": "原AT01..08保留；新增T01..T20正反规格。待入库旧包只作参考，非历史字节恢复",
+  "rules": [
+    {
+      "id": "MACH-R01",
+      "capabilityId": "CAP-02-01",
+      "description": "D03 Released机床资源不可变，exact revision/hash不可漂移",
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "machineExactRef",
+        "contentHash",
+        "revision"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T01",
+        "CAP-02-01-T02"
+      ],
+      "failureCode": "MACHINE_R01_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R02",
+      "capabilityId": "CAP-02-01",
+      "description": "物理joint与编程axis区分，parent轴树无环",
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "jointId",
+        "axisLetter",
+        "parentJointId"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T03",
+        "CAP-02-01-T04"
+      ],
+      "failureCode": "MACHINE_R02_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R03",
+      "capabilityId": "CAP-02-01",
+      "description": "真实构型的行程、旋转中心与单位不可从B5名称推断",
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "jointLimits",
+        "pivotFrame",
+        "unitSystem"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T05",
+        "CAP-02-01-T06"
+      ],
+      "failureCode": "MACHINE_R03_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R04",
+      "capabilityId": "CAP-02-01",
+      "description": "回零、软限位与速度必须记录来源/版本/未实测状态",
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "homePose",
+        "softLimits",
+        "velocityLimits"
+      ],
+      "assets": [
+        "D03",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T07",
+        "CAP-02-01-T08"
+      ],
+      "failureCode": "MACHINE_R04_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R05",
+      "capabilityId": "CAP-02-01",
+      "description": "主轴接口Frame必须精确绑定机床revision，刀具TCP另有Owner",
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "spindleFrame",
+        "spindleInterfaceRef",
+        "machineExactRef"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T09",
+        "CAP-02-01-T10"
+      ],
+      "failureCode": "MACHINE_R05_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R06",
+      "capabilityId": "CAP-02-01",
+      "description": "机床实体几何与行程线框代理分层，Babylon世界唯一",
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-006"
+      ],
+      "fields": [
+        "visualGeometryRef",
+        "travelEnvelope",
+        "proxyKind"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T11",
+        "CAP-02-01-T12"
+      ],
+      "failureCode": "MACHINE_R06_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R07",
+      "capabilityId": "CAP-02-01",
+      "description": "D13未知控制器语义保留unknown；D14/D15不得被CL动画替代",
+      "sourceIds": [
+        "SRC-MACH-004",
+        "SRC-MACH-005",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "controllerRef",
+        "semanticStatus",
+        "motionTimeline"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T13",
+        "CAP-02-01-T14"
+      ],
+      "failureCode": "MACHINE_R07_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R08",
+      "capabilityId": "CAP-02-01",
+      "description": "GUI/CLI/Agent同Host端口执行权限、scopeEpoch和CAS重验",
+      "sourceIds": [
+        "SRC-MACH-004",
+        "SRC-MACH-005"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "expectedRevision",
+        "actorAuthority"
+      ],
+      "assets": [
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T15",
+        "CAP-02-01-T16"
+      ],
+      "failureCode": "MACHINE_R08_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R09",
+      "capabilityId": "CAP-02-01",
+      "description": "D04工艺Setup与D10执行绑定分离，更版只使受影响下游候选失效",
+      "sourceIds": [
+        "SRC-MACH-001",
+        "SRC-MACH-006",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "setupExactRef",
+        "executionBindingRef",
+        "invalidatedConsumers"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T17",
+        "CAP-02-01-T18"
+      ],
+      "failureCode": "MACHINE_R09_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    },
+    {
+      "id": "MACH-R10",
+      "capabilityId": "CAP-02-01",
+      "description": "机床3D预览/ISO目录/NIST摘要都不等于独立实机验收",
+      "sourceIds": [
+        "SRC-MACH-002",
+        "SRC-MACH-003",
+        "SRC-MACH-007"
+      ],
+      "fields": [
+        "configurationHash",
+        "attestation",
+        "verificationScope"
+      ],
+      "assets": [
+        "D03",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ],
+      "tests": [
+        "CAP-02-01-T19",
+        "CAP-02-01-T20"
+      ],
+      "failureCode": "MACHINE_R10_REJECTED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "public_source_plus_project_policy"
+    }
+  ]
+}

@@ -1,0 +1,587 @@
+{
+  "schemaVersion": "procet-b141-fixtures-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-08-08",
+  "sourceRegistry": "research/sources/CAP-08-08-post-provenance-b141.json",
+  "trace": "research/traces/CAP-08-08-post-provenance-b141-v08.json",
+  "groups": [
+    {
+      "ruleId": "B141-R01",
+      "positive": {
+        "id": "B141-R01-P",
+        "values": {
+          "input.d09RevisionHashFrame": true,
+          "input.d08FreezePinned": true,
+          "input.pluginSha256Pinned": true,
+          "input.configAndRuntimeHashPinned": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R01-N1",
+          "mutatedField": "input.d09RevisionHashFrame",
+          "values": {
+            "input.d09RevisionHashFrame": false,
+            "input.d08FreezePinned": true,
+            "input.pluginSha256Pinned": true,
+            "input.configAndRuntimeHashPinned": true
+          },
+          "expected": "REJECT_INPUT"
+        },
+        {
+          "id": "B141-R01-N2",
+          "mutatedField": "input.d08FreezePinned",
+          "values": {
+            "input.d09RevisionHashFrame": true,
+            "input.d08FreezePinned": false,
+            "input.pluginSha256Pinned": true,
+            "input.configAndRuntimeHashPinned": true
+          },
+          "expected": "REJECT_INPUT"
+        },
+        {
+          "id": "B141-R01-N3",
+          "mutatedField": "input.pluginSha256Pinned",
+          "values": {
+            "input.d09RevisionHashFrame": true,
+            "input.d08FreezePinned": true,
+            "input.pluginSha256Pinned": false,
+            "input.configAndRuntimeHashPinned": true
+          },
+          "expected": "REJECT_INPUT"
+        },
+        {
+          "id": "B141-R01-N4",
+          "mutatedField": "input.configAndRuntimeHashPinned",
+          "values": {
+            "input.d09RevisionHashFrame": true,
+            "input.d08FreezePinned": true,
+            "input.pluginSha256Pinned": true,
+            "input.configAndRuntimeHashPinned": false
+          },
+          "expected": "REJECT_INPUT"
+        }
+      ]
+    },
+    {
+      "ruleId": "B141-R02",
+      "positive": {
+        "id": "B141-R02-P",
+        "values": {
+          "provenance.subjectDigestMatches": true,
+          "provenance.builderIdentityTrusted": true,
+          "provenance.buildTypeAndParamsReviewed": true,
+          "provenance.dependencyRefsChecked": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R02-N1",
+          "mutatedField": "provenance.subjectDigestMatches",
+          "values": {
+            "provenance.subjectDigestMatches": false,
+            "provenance.builderIdentityTrusted": true,
+            "provenance.buildTypeAndParamsReviewed": true,
+            "provenance.dependencyRefsChecked": true
+          },
+          "expected": "UNKNOWN_PROVENANCE"
+        },
+        {
+          "id": "B141-R02-N2",
+          "mutatedField": "provenance.builderIdentityTrusted",
+          "values": {
+            "provenance.subjectDigestMatches": true,
+            "provenance.builderIdentityTrusted": false,
+            "provenance.buildTypeAndParamsReviewed": true,
+            "provenance.dependencyRefsChecked": true
+          },
+          "expected": "UNKNOWN_PROVENANCE"
+        },
+        {
+          "id": "B141-R02-N3",
+          "mutatedField": "provenance.buildTypeAndParamsReviewed",
+          "values": {
+            "provenance.subjectDigestMatches": true,
+            "provenance.builderIdentityTrusted": true,
+            "provenance.buildTypeAndParamsReviewed": false,
+            "provenance.dependencyRefsChecked": true
+          },
+          "expected": "UNKNOWN_PROVENANCE"
+        },
+        {
+          "id": "B141-R02-N4",
+          "mutatedField": "provenance.dependencyRefsChecked",
+          "values": {
+            "provenance.subjectDigestMatches": true,
+            "provenance.builderIdentityTrusted": true,
+            "provenance.buildTypeAndParamsReviewed": true,
+            "provenance.dependencyRefsChecked": false
+          },
+          "expected": "UNKNOWN_PROVENANCE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B141-R03",
+      "positive": {
+        "id": "B141-R03-P",
+        "values": {
+          "assurance.assessmentScopePinned": true,
+          "assurance.independentBuilderEvidence": true,
+          "assurance.noSelfDeclaredL3": true,
+          "assurance.sourceAndBuildTrackDistinct": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R03-N1",
+          "mutatedField": "assurance.assessmentScopePinned",
+          "values": {
+            "assurance.assessmentScopePinned": false,
+            "assurance.independentBuilderEvidence": true,
+            "assurance.noSelfDeclaredL3": true,
+            "assurance.sourceAndBuildTrackDistinct": true
+          },
+          "expected": "UNKNOWN_BUILD_LEVEL"
+        },
+        {
+          "id": "B141-R03-N2",
+          "mutatedField": "assurance.independentBuilderEvidence",
+          "values": {
+            "assurance.assessmentScopePinned": true,
+            "assurance.independentBuilderEvidence": false,
+            "assurance.noSelfDeclaredL3": true,
+            "assurance.sourceAndBuildTrackDistinct": true
+          },
+          "expected": "UNKNOWN_BUILD_LEVEL"
+        },
+        {
+          "id": "B141-R03-N3",
+          "mutatedField": "assurance.noSelfDeclaredL3",
+          "values": {
+            "assurance.assessmentScopePinned": true,
+            "assurance.independentBuilderEvidence": true,
+            "assurance.noSelfDeclaredL3": false,
+            "assurance.sourceAndBuildTrackDistinct": true
+          },
+          "expected": "UNKNOWN_BUILD_LEVEL"
+        },
+        {
+          "id": "B141-R03-N4",
+          "mutatedField": "assurance.sourceAndBuildTrackDistinct",
+          "values": {
+            "assurance.assessmentScopePinned": true,
+            "assurance.independentBuilderEvidence": true,
+            "assurance.noSelfDeclaredL3": true,
+            "assurance.sourceAndBuildTrackDistinct": false
+          },
+          "expected": "UNKNOWN_BUILD_LEVEL"
+        }
+      ]
+    },
+    {
+      "ruleId": "B141-R04",
+      "positive": {
+        "id": "B141-R04-P",
+        "values": {
+          "signature.bundleVersionRecognized": true,
+          "signature.cryptoVerified": true,
+          "signature.signerAndIssuerExpected": true,
+          "signature.trustRootPinned": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R04-N1",
+          "mutatedField": "signature.bundleVersionRecognized",
+          "values": {
+            "signature.bundleVersionRecognized": false,
+            "signature.cryptoVerified": true,
+            "signature.signerAndIssuerExpected": true,
+            "signature.trustRootPinned": true
+          },
+          "expected": "UNKNOWN_SIGNATURE"
+        },
+        {
+          "id": "B141-R04-N2",
+          "mutatedField": "signature.cryptoVerified",
+          "values": {
+            "signature.bundleVersionRecognized": true,
+            "signature.cryptoVerified": false,
+            "signature.signerAndIssuerExpected": true,
+            "signature.trustRootPinned": true
+          },
+          "expected": "UNKNOWN_SIGNATURE"
+        },
+        {
+          "id": "B141-R04-N3",
+          "mutatedField": "signature.signerAndIssuerExpected",
+          "values": {
+            "signature.bundleVersionRecognized": true,
+            "signature.cryptoVerified": true,
+            "signature.signerAndIssuerExpected": false,
+            "signature.trustRootPinned": true
+          },
+          "expected": "UNKNOWN_SIGNATURE"
+        },
+        {
+          "id": "B141-R04-N4",
+          "mutatedField": "signature.trustRootPinned",
+          "values": {
+            "signature.bundleVersionRecognized": true,
+            "signature.cryptoVerified": true,
+            "signature.signerAndIssuerExpected": true,
+            "signature.trustRootPinned": false
+          },
+          "expected": "UNKNOWN_SIGNATURE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B141-R05",
+      "positive": {
+        "id": "B141-R05-P",
+        "values": {
+          "offline.bundleLocallyPresent": true,
+          "offline.signedTimeCryptographicallyVerified": true,
+          "offline.logProofOrPromiseChecked": true,
+          "offline.noOnlineRequirementAssumed": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R05-N1",
+          "mutatedField": "offline.bundleLocallyPresent",
+          "values": {
+            "offline.bundleLocallyPresent": false,
+            "offline.signedTimeCryptographicallyVerified": true,
+            "offline.logProofOrPromiseChecked": true,
+            "offline.noOnlineRequirementAssumed": true
+          },
+          "expected": "UNKNOWN_TIME"
+        },
+        {
+          "id": "B141-R05-N2",
+          "mutatedField": "offline.signedTimeCryptographicallyVerified",
+          "values": {
+            "offline.bundleLocallyPresent": true,
+            "offline.signedTimeCryptographicallyVerified": false,
+            "offline.logProofOrPromiseChecked": true,
+            "offline.noOnlineRequirementAssumed": true
+          },
+          "expected": "UNKNOWN_TIME"
+        },
+        {
+          "id": "B141-R05-N3",
+          "mutatedField": "offline.logProofOrPromiseChecked",
+          "values": {
+            "offline.bundleLocallyPresent": true,
+            "offline.signedTimeCryptographicallyVerified": true,
+            "offline.logProofOrPromiseChecked": false,
+            "offline.noOnlineRequirementAssumed": true
+          },
+          "expected": "UNKNOWN_TIME"
+        },
+        {
+          "id": "B141-R05-N4",
+          "mutatedField": "offline.noOnlineRequirementAssumed",
+          "values": {
+            "offline.bundleLocallyPresent": true,
+            "offline.signedTimeCryptographicallyVerified": true,
+            "offline.logProofOrPromiseChecked": true,
+            "offline.noOnlineRequirementAssumed": false
+          },
+          "expected": "UNKNOWN_TIME"
+        }
+      ]
+    },
+    {
+      "ruleId": "B141-R06",
+      "positive": {
+        "id": "B141-R06-P",
+        "values": {
+          "profile.d03ResourceExact": true,
+          "profile.d10FirmwareOptionsExact": true,
+          "profile.postDialectCompatibilityChecked": true,
+          "profile.unknownBlocksRelease": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R06-N1",
+          "mutatedField": "profile.d03ResourceExact",
+          "values": {
+            "profile.d03ResourceExact": false,
+            "profile.d10FirmwareOptionsExact": true,
+            "profile.postDialectCompatibilityChecked": true,
+            "profile.unknownBlocksRelease": true
+          },
+          "expected": "UNKNOWN_CONTROLLER"
+        },
+        {
+          "id": "B141-R06-N2",
+          "mutatedField": "profile.d10FirmwareOptionsExact",
+          "values": {
+            "profile.d03ResourceExact": true,
+            "profile.d10FirmwareOptionsExact": false,
+            "profile.postDialectCompatibilityChecked": true,
+            "profile.unknownBlocksRelease": true
+          },
+          "expected": "UNKNOWN_CONTROLLER"
+        },
+        {
+          "id": "B141-R06-N3",
+          "mutatedField": "profile.postDialectCompatibilityChecked",
+          "values": {
+            "profile.d03ResourceExact": true,
+            "profile.d10FirmwareOptionsExact": true,
+            "profile.postDialectCompatibilityChecked": false,
+            "profile.unknownBlocksRelease": true
+          },
+          "expected": "UNKNOWN_CONTROLLER"
+        },
+        {
+          "id": "B141-R06-N4",
+          "mutatedField": "profile.unknownBlocksRelease",
+          "values": {
+            "profile.d03ResourceExact": true,
+            "profile.d10FirmwareOptionsExact": true,
+            "profile.postDialectCompatibilityChecked": true,
+            "profile.unknownBlocksRelease": false
+          },
+          "expected": "UNKNOWN_CONTROLLER"
+        }
+      ]
+    },
+    {
+      "ruleId": "B141-R07",
+      "positive": {
+        "id": "B141-R07-P",
+        "values": {
+          "owner.guiCliAgentSamePort": true,
+          "owner.casAclScopeRechecked": true,
+          "owner.cancelLateAckRejected": true,
+          "owner.abFreezePreserved": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R07-N1",
+          "mutatedField": "owner.guiCliAgentSamePort",
+          "values": {
+            "owner.guiCliAgentSamePort": false,
+            "owner.casAclScopeRechecked": true,
+            "owner.cancelLateAckRejected": true,
+            "owner.abFreezePreserved": true
+          },
+          "expected": "REJECT_TRANSACTION"
+        },
+        {
+          "id": "B141-R07-N2",
+          "mutatedField": "owner.casAclScopeRechecked",
+          "values": {
+            "owner.guiCliAgentSamePort": true,
+            "owner.casAclScopeRechecked": false,
+            "owner.cancelLateAckRejected": true,
+            "owner.abFreezePreserved": true
+          },
+          "expected": "REJECT_TRANSACTION"
+        },
+        {
+          "id": "B141-R07-N3",
+          "mutatedField": "owner.cancelLateAckRejected",
+          "values": {
+            "owner.guiCliAgentSamePort": true,
+            "owner.casAclScopeRechecked": true,
+            "owner.cancelLateAckRejected": false,
+            "owner.abFreezePreserved": true
+          },
+          "expected": "REJECT_TRANSACTION"
+        },
+        {
+          "id": "B141-R07-N4",
+          "mutatedField": "owner.abFreezePreserved",
+          "values": {
+            "owner.guiCliAgentSamePort": true,
+            "owner.casAclScopeRechecked": true,
+            "owner.cancelLateAckRejected": true,
+            "owner.abFreezePreserved": false
+          },
+          "expected": "REJECT_TRANSACTION"
+        }
+      ]
+    },
+    {
+      "ruleId": "B141-R08",
+      "positive": {
+        "id": "B141-R08-P",
+        "values": {
+          "handoff.d13ReadsFinalD12Bytes": true,
+          "handoff.d14UsesActualD10": true,
+          "handoff.independentD15Consumer": true,
+          "handoff.d16HumanApprovalSeparate": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B141-R08-N1",
+          "mutatedField": "handoff.d13ReadsFinalD12Bytes",
+          "values": {
+            "handoff.d13ReadsFinalD12Bytes": false,
+            "handoff.d14UsesActualD10": true,
+            "handoff.independentD15Consumer": true,
+            "handoff.d16HumanApprovalSeparate": true
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        },
+        {
+          "id": "B141-R08-N2",
+          "mutatedField": "handoff.d14UsesActualD10",
+          "values": {
+            "handoff.d13ReadsFinalD12Bytes": true,
+            "handoff.d14UsesActualD10": false,
+            "handoff.independentD15Consumer": true,
+            "handoff.d16HumanApprovalSeparate": true
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        },
+        {
+          "id": "B141-R08-N3",
+          "mutatedField": "handoff.independentD15Consumer",
+          "values": {
+            "handoff.d13ReadsFinalD12Bytes": true,
+            "handoff.d14UsesActualD10": true,
+            "handoff.independentD15Consumer": false,
+            "handoff.d16HumanApprovalSeparate": true
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        },
+        {
+          "id": "B141-R08-N4",
+          "mutatedField": "handoff.d16HumanApprovalSeparate",
+          "values": {
+            "handoff.d13ReadsFinalD12Bytes": true,
+            "handoff.d14UsesActualD10": true,
+            "handoff.independentD15Consumer": true,
+            "handoff.d16HumanApprovalSeparate": false
+          },
+          "expected": "UNKNOWN_ENGINEERING"
+        }
+      ]
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B141-G01",
+      "name": "allBound",
+      "values": {
+        "digest": true,
+        "crypto": true,
+        "identity": true,
+        "trustTime": true,
+        "builder": true,
+        "controller": true
+      },
+      "expected": "PLANNING_CANDIDATE_ONLY"
+    },
+    {
+      "id": "B141-G02",
+      "name": "digestMismatch",
+      "values": {
+        "digest": false,
+        "crypto": true,
+        "identity": true,
+        "trustTime": true,
+        "builder": true,
+        "controller": true
+      },
+      "expected": "REJECT_ARTIFACT"
+    },
+    {
+      "id": "B141-G03",
+      "name": "signatureUnverified",
+      "values": {
+        "digest": true,
+        "crypto": false,
+        "identity": true,
+        "trustTime": true,
+        "builder": true,
+        "controller": true
+      },
+      "expected": "UNKNOWN_SIGNATURE"
+    },
+    {
+      "id": "B141-G04",
+      "name": "wrongIssuer",
+      "values": {
+        "digest": true,
+        "crypto": true,
+        "identity": false,
+        "trustTime": true,
+        "builder": true,
+        "controller": true
+      },
+      "expected": "UNKNOWN_IDENTITY"
+    },
+    {
+      "id": "B141-G05",
+      "name": "noSignedTime",
+      "values": {
+        "digest": true,
+        "crypto": true,
+        "identity": true,
+        "trustTime": false,
+        "builder": true,
+        "controller": true
+      },
+      "expected": "UNKNOWN_TIME"
+    },
+    {
+      "id": "B141-G06",
+      "name": "builderUnknown",
+      "values": {
+        "digest": true,
+        "crypto": true,
+        "identity": true,
+        "trustTime": true,
+        "builder": false,
+        "controller": true
+      },
+      "expected": "UNKNOWN_BUILDER"
+    },
+    {
+      "id": "B141-G07",
+      "name": "firmwareUnknown",
+      "values": {
+        "digest": true,
+        "crypto": true,
+        "identity": true,
+        "trustTime": true,
+        "builder": true,
+        "controller": false
+      },
+      "expected": "UNKNOWN_CONTROLLER"
+    },
+    {
+      "id": "B141-G08",
+      "name": "allUntrusted",
+      "values": {
+        "digest": false,
+        "crypto": false,
+        "identity": false,
+        "trustTime": false,
+        "builder": false,
+        "controller": false
+      },
+      "expected": "REJECT_ARTIFACT"
+    }
+  ]
+}

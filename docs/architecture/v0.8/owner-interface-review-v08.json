@@ -1,0 +1,661 @@
+{
+  "schemaVersion": "procet-17-asset-owner-port-review-v08",
+  "reviewOn": "2026-10-28",
+  "status": "CANDIDATE_INTERFACES_NOT_OWNER_SIGNED",
+  "sourceBaseline": "docs/architecture/v0.8/business-assets.json",
+  "frozenBaseline": {
+    "domainCount": 11,
+    "capabilityCount": 88,
+    "workPackageCount": 36,
+    "assetCount": 17
+  },
+  "humanReview": "PENDING_HUMAN",
+  "independentNode": "NOT_RUN",
+  "independentConsumer": "NOT_RUN",
+  "globalPolicies": {
+    "singleBabylonWorld": true,
+    "unifiedLeftTaskPanel": true,
+    "maxFontPx": 12,
+    "entrypointDomainPortUnified": true,
+    "commonReferenceFields": [
+      "domain",
+      "kind",
+      "id",
+      "revision",
+      "contentHash",
+      "schemaVersion",
+      "scope",
+      "frameRefWhenApplicable"
+    ],
+    "artifactHashMode": "EXACT_BYTES_OR_EXPLICIT_RFC8785_CANONICAL_PROFILE",
+    "mutableLatestAliasAllowed": false,
+    "commitChecks": [
+      "ACL_RECHECK",
+      "SCOPE_EPOCH_RECHECK",
+      "EXPECTED_REVISION",
+      "EXPECTED_HASH",
+      "FRAME_CONSISTENCY",
+      "CAS",
+      "CANCEL_GENERATION",
+      "RECEIPT_AUDIT"
+    ],
+    "lateAckRestoresWrite": false,
+    "d04D10Separate": true,
+    "immutableABFreeze": true,
+    "clAnimationGrantsNcPass": false,
+    "unknownExecutionGrantsRelease": false,
+    "ncChain": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "independentConsumerRequired": true,
+    "legacyUnknownWriteAllowed": false,
+    "migrationRequiresRollbackRef": true,
+    "businessTypeFeedbackAllowed": true,
+    "immutableRevisionLineageAcyclic": true,
+    "productStatus": "NOT_RUN",
+    "l3": "PENDING_HUMAN",
+    "humanOwnerSigningStatus": "PENDING_HUMAN"
+  },
+  "contracts": [
+    {
+      "assetId": "D01",
+      "name": "设计基线与制造目标",
+      "ownerCandidate": "03 CAD / PMI 与制造特征",
+      "ownerDomain": "03",
+      "producerPort": "03.DesignBaselinePort",
+      "producerCapabilities": [
+        "CAP-03-01",
+        "CAP-03-02"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "F1-06"
+      ],
+      "inputs": [],
+      "outputs": [
+        "D02",
+        "D04",
+        "D05",
+        "D06"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "03.DesignBaselinePort.readExact",
+        "cli": "03.DesignBaselinePort.readExact",
+        "agent": "03.DesignBaselinePort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "CAD/PMI设计输入真值，不允许被制造派生几何反写"
+    },
+    {
+      "assetId": "D02",
+      "name": "制造特征与加工要求",
+      "ownerCandidate": "03 CAD / PMI 与制造特征",
+      "ownerDomain": "03",
+      "producerPort": "03.ManufacturingFeaturePort",
+      "producerCapabilities": [
+        "CAP-03-05",
+        "CAP-03-07"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "W2-05"
+      ],
+      "inputs": [
+        "D01"
+      ],
+      "outputs": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "03.ManufacturingFeaturePort.readExact",
+        "cli": "03.ManufacturingFeaturePort.readExact",
+        "agent": "03.ManufacturingFeaturePort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "候选特征与人工确认/工艺采纳互不替代"
+    },
+    {
+      "assetId": "D03",
+      "name": "制造资源能力档案",
+      "ownerCandidate": "02 制造资源",
+      "ownerDomain": "02",
+      "producerPort": "02.ManufacturingResourcePort",
+      "producerCapabilities": [
+        "CAP-02-01",
+        "CAP-02-08"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "F1-06"
+      ],
+      "inputs": [],
+      "outputs": [
+        "D04",
+        "D06",
+        "D09",
+        "D10"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "02.ManufacturingResourcePort.readExact",
+        "cli": "02.ManufacturingResourcePort.readExact",
+        "agent": "02.ManufacturingResourcePort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "资源目录定义不能冒充实际机床安装实例"
+    },
+    {
+      "assetId": "D04",
+      "name": "工艺 Setup 与毛坯",
+      "ownerCandidate": "04 装夹与坐标系",
+      "ownerDomain": "04",
+      "producerPort": "04.ProcessSetupPort",
+      "producerCapabilities": [
+        "CAP-04-01",
+        "CAP-04-04"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "F1-04"
+      ],
+      "inputs": [
+        "D01",
+        "D03"
+      ],
+      "outputs": [
+        "D05",
+        "D06",
+        "D07",
+        "D09",
+        "D10"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "04.ProcessSetupPort.readExact",
+        "cli": "04.ProcessSetupPort.readExact",
+        "agent": "04.ProcessSetupPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "名义工艺Setup不保存控制器/机床实际执行偏置"
+    },
+    {
+      "assetId": "D05",
+      "name": "工艺规划与人工决策",
+      "ownerCandidate": "05 工艺规划",
+      "ownerDomain": "05",
+      "producerPort": "05.ProcessPlanPort",
+      "producerCapabilities": [
+        "CAP-05-01",
+        "CAP-05-03"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-05"
+      ],
+      "inputs": [
+        "D01",
+        "D02",
+        "D04",
+        "D06",
+        "D07",
+        "D17"
+      ],
+      "outputs": [
+        "D06",
+        "D08"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "05.ProcessPlanPort.readExact",
+        "cli": "05.ProcessPlanPort.readExact",
+        "agent": "05.ProcessPlanPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "人工规划可缺省，冻结决策仅05域拥有"
+    },
+    {
+      "assetId": "D06",
+      "name": "求解候选与搜索结果",
+      "ownerCandidate": "06 工艺与几何求解",
+      "ownerDomain": "06",
+      "producerPort": "06.SolverRunPort",
+      "producerCapabilities": [
+        "CAP-06-01",
+        "CAP-06-02"
+      ],
+      "workPackageIds": [
+        "F1-05",
+        "W2-02"
+      ],
+      "inputs": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D17"
+      ],
+      "outputs": [
+        "D05",
+        "D07",
+        "D08"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "06.SolverRunPort.readExact",
+        "cli": "06.SolverRunPort.readExact",
+        "agent": "06.SolverRunPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "Solver候选只能供采纳，不能直写批准工艺"
+    },
+    {
+      "assetId": "D07",
+      "name": "有序材料状态与局部几何",
+      "ownerCandidate": "06 工艺与几何求解",
+      "ownerDomain": "06",
+      "producerPort": "06.OrderedMaterialStatePort",
+      "producerCapabilities": [
+        "CAP-06-05",
+        "CAP-06-03"
+      ],
+      "workPackageIds": [
+        "F1-05",
+        "W2-03"
+      ],
+      "inputs": [
+        "D04",
+        "D06"
+      ],
+      "outputs": [
+        "D05",
+        "D08",
+        "D09"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "06.OrderedMaterialStatePort.readExact",
+        "cli": "06.OrderedMaterialStatePort.readExact",
+        "agent": "06.OrderedMaterialStatePort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "有序材料状态和局部B-Rep关联确切来源，不能冒称目标CAD"
+    },
+    {
+      "assetId": "D08",
+      "name": "工艺确认与冻结快照",
+      "ownerCandidate": "05 工艺规划",
+      "ownerDomain": "05",
+      "producerPort": "05.FrozenPlanPort",
+      "producerCapabilities": [
+        "CAP-05-06",
+        "CAP-05-08"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03"
+      ],
+      "inputs": [
+        "D02",
+        "D05",
+        "D06",
+        "D07"
+      ],
+      "outputs": [
+        "D09",
+        "D16"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "05.FrozenPlanPort.readExact",
+        "cli": "05.FrozenPlanPort.readExact",
+        "agent": "05.FrozenPlanPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "冻结范围内A/B同事实并存，不静默覆写"
+    },
+    {
+      "assetId": "D09",
+      "name": "中立刀路 CL",
+      "ownerCandidate": "07 CAM 刀路",
+      "ownerDomain": "07",
+      "producerPort": "07.NeutralCLPort",
+      "producerCapabilities": [
+        "CAP-07-07",
+        "CAP-07-08"
+      ],
+      "workPackageIds": [
+        "E3-01",
+        "E3-02"
+      ],
+      "inputs": [
+        "D03",
+        "D04",
+        "D07",
+        "D08"
+      ],
+      "outputs": [
+        "D11",
+        "D12"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "07.NeutralCLPort.readExact",
+        "cli": "07.NeutralCLPort.readExact",
+        "agent": "07.NeutralCLPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "中立CL含刀位意图，不能冒充控制器NC执行结果"
+    },
+    {
+      "assetId": "D10",
+      "name": "机床执行配置",
+      "ownerCandidate": "04 装夹与坐标系（引用 02 制造资源）",
+      "ownerDomain": "04",
+      "producerPort": "04.MachineExecutionBindingPort",
+      "producerCapabilities": [
+        "CAP-04-06",
+        "CAP-04-07"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04"
+      ],
+      "inputs": [
+        "D03",
+        "D04"
+      ],
+      "outputs": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "04.MachineExecutionBindingPort.readExact",
+        "cli": "04.MachineExecutionBindingPort.readExact",
+        "agent": "04.MachineExecutionBindingPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "真实机床/工件/刀具装配绑定须引用D03+D04 exact Frame"
+    },
+    {
+      "assetId": "D11",
+      "name": "CL 级运动预验证",
+      "ownerCandidate": "09 机床运动与工程验证",
+      "ownerDomain": "09",
+      "producerPort": "09.CLPrecheckPort",
+      "producerCapabilities": [
+        "CAP-09-05"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05"
+      ],
+      "inputs": [
+        "D09",
+        "D10"
+      ],
+      "outputs": [
+        "D16"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "09.CLPrecheckPort.readExact",
+        "cli": "09.CLPrecheckPort.readExact",
+        "agent": "09.CLPrecheckPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "CL运动预检状态只能CL_ONLY，不能当NC验证"
+    },
+    {
+      "assetId": "D12",
+      "name": "NC 程序与后处理记录",
+      "ownerCandidate": "08 NC 与后处理 · NC 生成",
+      "ownerDomain": "08",
+      "producerPort": "08.NCProgramPort",
+      "producerCapabilities": [
+        "CAP-08-01",
+        "CAP-08-07"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "inputs": [
+        "D09",
+        "D10"
+      ],
+      "outputs": [
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "08.NCProgramPort.readExact",
+        "cli": "08.NCProgramPort.readExact",
+        "agent": "08.NCProgramPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "最终NC字节与后处理版本不可无记录改变"
+    },
+    {
+      "assetId": "D13",
+      "name": "NC 控制器执行语义",
+      "ownerCandidate": "08 NC 与后处理 · NC 执行适配",
+      "ownerDomain": "08",
+      "producerPort": "08.ControllerSemanticsPort",
+      "producerCapabilities": [
+        "CAP-08-02",
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "inputs": [
+        "D10",
+        "D12"
+      ],
+      "outputs": [
+        "D14",
+        "D15"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "08.ControllerSemanticsPort.readExact",
+        "cli": "08.ControllerSemanticsPort.readExact",
+        "agent": "08.ControllerSemanticsPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "控制器未建模G/M/宏命令必须UNKNOWN"
+    },
+    {
+      "assetId": "D14",
+      "name": "机床轴运动时序",
+      "ownerCandidate": "09 机床运动与工程验证 · 运动学展开",
+      "ownerDomain": "09",
+      "producerPort": "09.AxisTimelinePort",
+      "producerCapabilities": [
+        "CAP-09-02",
+        "CAP-09-03"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05"
+      ],
+      "inputs": [
+        "D10",
+        "D13"
+      ],
+      "outputs": [
+        "D15"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "09.AxisTimelinePort.readExact",
+        "cli": "09.AxisTimelinePort.readExact",
+        "agent": "09.AxisTimelinePort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "轴时序由D13和D10 FK/IK展开，不能由CL画面反推"
+    },
+    {
+      "assetId": "D15",
+      "name": "NC 程序级仿真与验证记录",
+      "ownerCandidate": "09 机床运动与工程验证 · 程序验证",
+      "ownerDomain": "09",
+      "producerPort": "09.NCVerificationPort",
+      "producerCapabilities": [
+        "CAP-09-06",
+        "CAP-09-07"
+      ],
+      "workPackageIds": [
+        "E3-05",
+        "E3-06"
+      ],
+      "inputs": [
+        "D10",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "outputs": [
+        "D16"
+      ],
+      "framePolicy": "EXACT_NAMED_FRAME_REQUIRED",
+      "readEntry": {
+        "gui": "09.NCVerificationPort.readExact",
+        "cli": "09.NCVerificationPort.readExact",
+        "agent": "09.NCVerificationPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "独立验证绑定相同D10+D12+D13+D14 exact revision"
+    },
+    {
+      "assetId": "D16",
+      "name": "程序发布与审批包",
+      "ownerCandidate": "10 程序发布与现场协同",
+      "ownerDomain": "10",
+      "producerPort": "10.ProgramReleasePort",
+      "producerCapabilities": [
+        "CAP-10-01",
+        "CAP-10-02"
+      ],
+      "workPackageIds": [
+        "E3-06",
+        "T5-03"
+      ],
+      "inputs": [
+        "D08",
+        "D11",
+        "D12",
+        "D15"
+      ],
+      "outputs": [
+        "D17"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "10.ProgramReleasePort.readExact",
+        "cli": "10.ProgramReleasePort.readExact",
+        "agent": "10.ProgramReleasePort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "签发须匹配D12+D15及批准与撤权状态，UNKNOWN阻断"
+    },
+    {
+      "assetId": "D17",
+      "name": "现场执行与检测反馈",
+      "ownerCandidate": "10 程序发布与现场协同",
+      "ownerDomain": "10",
+      "producerPort": "10.ShopfloorObservationPort",
+      "producerCapabilities": [
+        "CAP-10-05",
+        "CAP-10-07"
+      ],
+      "workPackageIds": [
+        "T5-03",
+        "T5-05"
+      ],
+      "inputs": [
+        "D16"
+      ],
+      "outputs": [
+        "D05",
+        "D06"
+      ],
+      "framePolicy": "EXPLICIT_FRAME_NOT_APPLICABLE_OR_INPUT_LINKED",
+      "readEntry": {
+        "gui": "10.ShopfloorObservationPort.readExact",
+        "cli": "10.ShopfloorObservationPort.readExact",
+        "agent": "10.ShopfloorObservationPort.readExact"
+      },
+      "writeAuthority": "OWNER_PORT_TRANSACTION_ONLY",
+      "consumerAcknowledgement": "PENDING_INDEPENDENT_CONSUMER",
+      "ownerSignoff": "PENDING_HUMAN",
+      "schemaFreeze": "DRAFT_NOT_FROZEN",
+      "invariant": "现场观测与质量反馈不等于机床启动许可或工艺改写"
+    }
+  ]
+}

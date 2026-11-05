@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "procet-w2-02-domain-contract-proposal-v1",
+  "status": "SYNTHETIC_NOT_IMPLEMENTED",
+  "producer": {
+    "domain": "06",
+    "assets": [
+      "D06",
+      "D07"
+    ],
+    "writeAuthority": "READ_ONLY_TO_05"
+  },
+  "consumer": {
+    "domain": "05",
+    "writeAuthority": [
+      "D05",
+      "D08"
+    ],
+    "domainPort": "PlanAdoptionDomainPort"
+  },
+  "exactRefs": {
+    "projectId": "demo",
+    "branchId": "B",
+    "source": {
+      "id": "D06-run-001",
+      "revision": "r3",
+      "hash": "sha256:synthetic-03",
+      "frame": "SETUP-1",
+      "unit": "mm"
+    },
+    "geometry": {
+      "id": "D07-state-01",
+      "revision": "r2",
+      "hash": "sha256:synthetic-07",
+      "frame": "SETUP-1",
+      "unit": "mm"
+    },
+    "planHead": {
+      "id": "D05-plan-01",
+      "revision": "r7",
+      "hash": "sha256:synthetic-head",
+      "frame": "NOT_APPLICABLE",
+      "unit": "NOT_APPLICABLE"
+    },
+    "freeze": {
+      "id": "D08-freeze-01",
+      "revision": "f1",
+      "hash": "sha256:synthetic-freeze",
+      "frame": "SETUP-1",
+      "unit": "mm"
+    }
+  },
+  "preview": {
+    "candidateStepUid": "step-a1",
+    "baseRevision": "r7",
+    "headRevision": "r7",
+    "proposedRevision": "r8",
+    "conflicts": [],
+    "d07Validation": "INDEPENDENT_PASS"
+  },
+  "commit": {
+    "idempotencyKey": "adopt-c-023",
+    "expectedHead": "r7",
+    "expectedFreeze": "f1",
+    "taskGeneration": 9,
+    "acl": "RECHECK_AT_COMMIT",
+    "cancelled": false
+  },
+  "result": {
+    "status": "ACCEPTED_DRAFT",
+    "acceptedD05": "NEW_REVISION_ONLY",
+    "d08": "UNCHANGED",
+    "d09Eligibility": "BLOCKED_UNTIL_D07_AND_D08",
+    "ncQualification": "NOT_GRANTED"
+  }
+}

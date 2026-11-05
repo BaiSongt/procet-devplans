@@ -1,0 +1,537 @@
+{
+  "schemaVersion": "procet-b143-fixtures-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-02-07",
+  "trace": "research/traces/CAP-02-07-mesh-deflection-b143-v08.json",
+  "groups": [
+    {
+      "ruleId": "B143-R01",
+      "positive": {
+        "id": "B143-R01-P",
+        "values": {
+          "source.d03Exact": true,
+          "source.cadHash": true,
+          "source.frameUnits": true,
+          "source.epochAcl": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R01-N1",
+          "mutatedField": "source.d03Exact",
+          "values": {
+            "source.d03Exact": false,
+            "source.cadHash": true,
+            "source.frameUnits": true,
+            "source.epochAcl": true
+          },
+          "expected": "UNKNOWN_SOURCE"
+        },
+        {
+          "id": "B143-R01-N2",
+          "mutatedField": "source.cadHash",
+          "values": {
+            "source.d03Exact": true,
+            "source.cadHash": false,
+            "source.frameUnits": true,
+            "source.epochAcl": true
+          },
+          "expected": "UNKNOWN_SOURCE"
+        },
+        {
+          "id": "B143-R01-N3",
+          "mutatedField": "source.frameUnits",
+          "values": {
+            "source.d03Exact": true,
+            "source.cadHash": true,
+            "source.frameUnits": false,
+            "source.epochAcl": true
+          },
+          "expected": "UNKNOWN_SOURCE"
+        },
+        {
+          "id": "B143-R01-N4",
+          "mutatedField": "source.epochAcl",
+          "values": {
+            "source.d03Exact": true,
+            "source.cadHash": true,
+            "source.frameUnits": true,
+            "source.epochAcl": false
+          },
+          "expected": "UNKNOWN_SOURCE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B143-R02",
+      "positive": {
+        "id": "B143-R02-P",
+        "values": {
+          "params.linearPositive": true,
+          "params.angularRad": true,
+          "params.relativeExplicit": true,
+          "params.algorithmVersion": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R02-N1",
+          "mutatedField": "params.linearPositive",
+          "values": {
+            "params.linearPositive": false,
+            "params.angularRad": true,
+            "params.relativeExplicit": true,
+            "params.algorithmVersion": true
+          },
+          "expected": "UNKNOWN_MESH_PARAMS"
+        },
+        {
+          "id": "B143-R02-N2",
+          "mutatedField": "params.angularRad",
+          "values": {
+            "params.linearPositive": true,
+            "params.angularRad": false,
+            "params.relativeExplicit": true,
+            "params.algorithmVersion": true
+          },
+          "expected": "UNKNOWN_MESH_PARAMS"
+        },
+        {
+          "id": "B143-R02-N3",
+          "mutatedField": "params.relativeExplicit",
+          "values": {
+            "params.linearPositive": true,
+            "params.angularRad": true,
+            "params.relativeExplicit": false,
+            "params.algorithmVersion": true
+          },
+          "expected": "UNKNOWN_MESH_PARAMS"
+        },
+        {
+          "id": "B143-R02-N4",
+          "mutatedField": "params.algorithmVersion",
+          "values": {
+            "params.linearPositive": true,
+            "params.angularRad": true,
+            "params.relativeExplicit": true,
+            "params.algorithmVersion": false
+          },
+          "expected": "UNKNOWN_MESH_PARAMS"
+        }
+      ]
+    },
+    {
+      "ruleId": "B143-R03",
+      "positive": {
+        "id": "B143-R03-P",
+        "values": {
+          "tolerance.shapeRead": true,
+          "tolerance.belowToleranceHandled": true,
+          "tolerance.notCertifiedFromRequest": true,
+          "tolerance.unitOnce": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R03-N1",
+          "mutatedField": "tolerance.shapeRead",
+          "values": {
+            "tolerance.shapeRead": false,
+            "tolerance.belowToleranceHandled": true,
+            "tolerance.notCertifiedFromRequest": true,
+            "tolerance.unitOnce": true
+          },
+          "expected": "UNKNOWN_FIDELITY"
+        },
+        {
+          "id": "B143-R03-N2",
+          "mutatedField": "tolerance.belowToleranceHandled",
+          "values": {
+            "tolerance.shapeRead": true,
+            "tolerance.belowToleranceHandled": false,
+            "tolerance.notCertifiedFromRequest": true,
+            "tolerance.unitOnce": true
+          },
+          "expected": "UNKNOWN_FIDELITY"
+        },
+        {
+          "id": "B143-R03-N3",
+          "mutatedField": "tolerance.notCertifiedFromRequest",
+          "values": {
+            "tolerance.shapeRead": true,
+            "tolerance.belowToleranceHandled": true,
+            "tolerance.notCertifiedFromRequest": false,
+            "tolerance.unitOnce": true
+          },
+          "expected": "UNKNOWN_FIDELITY"
+        },
+        {
+          "id": "B143-R03-N4",
+          "mutatedField": "tolerance.unitOnce",
+          "values": {
+            "tolerance.shapeRead": true,
+            "tolerance.belowToleranceHandled": true,
+            "tolerance.notCertifiedFromRequest": true,
+            "tolerance.unitOnce": false
+          },
+          "expected": "UNKNOWN_FIDELITY"
+        }
+      ]
+    },
+    {
+      "ruleId": "B143-R04",
+      "positive": {
+        "id": "B143-R04-P",
+        "values": {
+          "purpose.meshPurposeExact": true,
+          "purpose.locationApplied": true,
+          "purpose.triHashPinned": true,
+          "purpose.noMeshFaceAuthority": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R04-N1",
+          "mutatedField": "purpose.meshPurposeExact",
+          "values": {
+            "purpose.meshPurposeExact": false,
+            "purpose.locationApplied": true,
+            "purpose.triHashPinned": true,
+            "purpose.noMeshFaceAuthority": true
+          },
+          "expected": "UNKNOWN_MESH_PURPOSE"
+        },
+        {
+          "id": "B143-R04-N2",
+          "mutatedField": "purpose.locationApplied",
+          "values": {
+            "purpose.meshPurposeExact": true,
+            "purpose.locationApplied": false,
+            "purpose.triHashPinned": true,
+            "purpose.noMeshFaceAuthority": true
+          },
+          "expected": "UNKNOWN_MESH_PURPOSE"
+        },
+        {
+          "id": "B143-R04-N3",
+          "mutatedField": "purpose.triHashPinned",
+          "values": {
+            "purpose.meshPurposeExact": true,
+            "purpose.locationApplied": true,
+            "purpose.triHashPinned": false,
+            "purpose.noMeshFaceAuthority": true
+          },
+          "expected": "UNKNOWN_MESH_PURPOSE"
+        },
+        {
+          "id": "B143-R04-N4",
+          "mutatedField": "purpose.noMeshFaceAuthority",
+          "values": {
+            "purpose.meshPurposeExact": true,
+            "purpose.locationApplied": true,
+            "purpose.triHashPinned": true,
+            "purpose.noMeshFaceAuthority": false
+          },
+          "expected": "UNKNOWN_MESH_PURPOSE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B143-R05",
+      "positive": {
+        "id": "B143-R05-P",
+        "values": {
+          "oracle.independentGeomTest": true,
+          "oracle.interiorErrorConsidered": true,
+          "oracle.measurementNeeded": true,
+          "oracle.unknownNotPass": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R05-N1",
+          "mutatedField": "oracle.independentGeomTest",
+          "values": {
+            "oracle.independentGeomTest": false,
+            "oracle.interiorErrorConsidered": true,
+            "oracle.measurementNeeded": true,
+            "oracle.unknownNotPass": true
+          },
+          "expected": "BLOCK_FIDELITY_CLAIM"
+        },
+        {
+          "id": "B143-R05-N2",
+          "mutatedField": "oracle.interiorErrorConsidered",
+          "values": {
+            "oracle.independentGeomTest": true,
+            "oracle.interiorErrorConsidered": false,
+            "oracle.measurementNeeded": true,
+            "oracle.unknownNotPass": true
+          },
+          "expected": "BLOCK_FIDELITY_CLAIM"
+        },
+        {
+          "id": "B143-R05-N3",
+          "mutatedField": "oracle.measurementNeeded",
+          "values": {
+            "oracle.independentGeomTest": true,
+            "oracle.interiorErrorConsidered": true,
+            "oracle.measurementNeeded": false,
+            "oracle.unknownNotPass": true
+          },
+          "expected": "BLOCK_FIDELITY_CLAIM"
+        },
+        {
+          "id": "B143-R05-N4",
+          "mutatedField": "oracle.unknownNotPass",
+          "values": {
+            "oracle.independentGeomTest": true,
+            "oracle.interiorErrorConsidered": true,
+            "oracle.measurementNeeded": true,
+            "oracle.unknownNotPass": false
+          },
+          "expected": "BLOCK_FIDELITY_CLAIM"
+        }
+      ]
+    },
+    {
+      "ruleId": "B143-R06",
+      "positive": {
+        "id": "B143-R06-P",
+        "values": {
+          "cache.sourceHashKey": true,
+          "cache.mesherProfileKey": true,
+          "cache.instanceFrameKey": true,
+          "cache.lodNotIdentity": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R06-N1",
+          "mutatedField": "cache.sourceHashKey",
+          "values": {
+            "cache.sourceHashKey": false,
+            "cache.mesherProfileKey": true,
+            "cache.instanceFrameKey": true,
+            "cache.lodNotIdentity": true
+          },
+          "expected": "STALE_DERIVATIVE"
+        },
+        {
+          "id": "B143-R06-N2",
+          "mutatedField": "cache.mesherProfileKey",
+          "values": {
+            "cache.sourceHashKey": true,
+            "cache.mesherProfileKey": false,
+            "cache.instanceFrameKey": true,
+            "cache.lodNotIdentity": true
+          },
+          "expected": "STALE_DERIVATIVE"
+        },
+        {
+          "id": "B143-R06-N3",
+          "mutatedField": "cache.instanceFrameKey",
+          "values": {
+            "cache.sourceHashKey": true,
+            "cache.mesherProfileKey": true,
+            "cache.instanceFrameKey": false,
+            "cache.lodNotIdentity": true
+          },
+          "expected": "STALE_DERIVATIVE"
+        },
+        {
+          "id": "B143-R06-N4",
+          "mutatedField": "cache.lodNotIdentity",
+          "values": {
+            "cache.sourceHashKey": true,
+            "cache.mesherProfileKey": true,
+            "cache.instanceFrameKey": true,
+            "cache.lodNotIdentity": false
+          },
+          "expected": "STALE_DERIVATIVE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B143-R07",
+      "positive": {
+        "id": "B143-R07-P",
+        "values": {
+          "nc.d11ClOnly": true,
+          "nc.d12D13D14D15Required": true,
+          "nc.d16UnknownBlocked": true,
+          "nc.noMaterialSweep": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R07-N1",
+          "mutatedField": "nc.d11ClOnly",
+          "values": {
+            "nc.d11ClOnly": false,
+            "nc.d12D13D14D15Required": true,
+            "nc.d16UnknownBlocked": true,
+            "nc.noMaterialSweep": true
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        },
+        {
+          "id": "B143-R07-N2",
+          "mutatedField": "nc.d12D13D14D15Required",
+          "values": {
+            "nc.d11ClOnly": true,
+            "nc.d12D13D14D15Required": false,
+            "nc.d16UnknownBlocked": true,
+            "nc.noMaterialSweep": true
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        },
+        {
+          "id": "B143-R07-N3",
+          "mutatedField": "nc.d16UnknownBlocked",
+          "values": {
+            "nc.d11ClOnly": true,
+            "nc.d12D13D14D15Required": true,
+            "nc.d16UnknownBlocked": false,
+            "nc.noMaterialSweep": true
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        },
+        {
+          "id": "B143-R07-N4",
+          "mutatedField": "nc.noMaterialSweep",
+          "values": {
+            "nc.d11ClOnly": true,
+            "nc.d12D13D14D15Required": true,
+            "nc.d16UnknownBlocked": true,
+            "nc.noMaterialSweep": false
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B143-R08",
+      "positive": {
+        "id": "B143-R08-P",
+        "values": {
+          "commit.oneBabylonLeftTaskPanel": true,
+          "commit.oneD03OwnerPort": true,
+          "commit.aclCasCancelEpoch": true,
+          "commit.freezeRollback": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B143-R08-N1",
+          "mutatedField": "commit.oneBabylonLeftTaskPanel",
+          "values": {
+            "commit.oneBabylonLeftTaskPanel": false,
+            "commit.oneD03OwnerPort": true,
+            "commit.aclCasCancelEpoch": true,
+            "commit.freezeRollback": true
+          },
+          "expected": "REJECT_COMMIT"
+        },
+        {
+          "id": "B143-R08-N2",
+          "mutatedField": "commit.oneD03OwnerPort",
+          "values": {
+            "commit.oneBabylonLeftTaskPanel": true,
+            "commit.oneD03OwnerPort": false,
+            "commit.aclCasCancelEpoch": true,
+            "commit.freezeRollback": true
+          },
+          "expected": "REJECT_COMMIT"
+        },
+        {
+          "id": "B143-R08-N3",
+          "mutatedField": "commit.aclCasCancelEpoch",
+          "values": {
+            "commit.oneBabylonLeftTaskPanel": true,
+            "commit.oneD03OwnerPort": true,
+            "commit.aclCasCancelEpoch": false,
+            "commit.freezeRollback": true
+          },
+          "expected": "REJECT_COMMIT"
+        },
+        {
+          "id": "B143-R08-N4",
+          "mutatedField": "commit.freezeRollback",
+          "values": {
+            "commit.oneBabylonLeftTaskPanel": true,
+            "commit.oneD03OwnerPort": true,
+            "commit.aclCasCancelEpoch": true,
+            "commit.freezeRollback": false
+          },
+          "expected": "REJECT_COMMIT"
+        }
+      ]
+    }
+  ],
+  "goldens": [
+    {
+      "id": "G01",
+      "kind": "SAGITTA",
+      "radius": 10,
+      "angleRad": 0.5235987755982988,
+      "expected": 0.3407417371093169,
+      "note": "R10mm、30°理想圆弧的单弦弓高，不是OCCT实测"
+    },
+    {
+      "id": "G02",
+      "kind": "SAGITTA",
+      "radius": 10,
+      "angleRad": 1.0471975511965976,
+      "expected": 1.339745962155613,
+      "note": "R10mm、60°理想圆弧"
+    },
+    {
+      "id": "G03",
+      "kind": "RELATIVE",
+      "ratio": 0.01,
+      "edgeSize": 10,
+      "expected": 0.1,
+      "note": "relative请求随10mm边变化"
+    },
+    {
+      "id": "G04",
+      "kind": "RELATIVE",
+      "ratio": 0.01,
+      "edgeSize": 200,
+      "expected": 2,
+      "note": "relative请求随200mm边变化"
+    },
+    {
+      "id": "G05",
+      "kind": "TOLERANCE",
+      "request": 0.005,
+      "shapeTolerance": 0.02,
+      "expected": "UNKNOWN_FIDELITY",
+      "note": "请求偏差小于原形状容差不能认证"
+    },
+    {
+      "id": "G06",
+      "kind": "GLTF",
+      "positionMeters": 0.2,
+      "expected": 200,
+      "note": "0.2m转换为200mm仅是显示单位"
+    },
+    {
+      "id": "G07",
+      "kind": "PURPOSE",
+      "meshPurposeKnown": false,
+      "expected": "UNKNOWN_MESH_PURPOSE",
+      "note": "用途未知不得授精确资格"
+    }
+  ],
+  "limit": "合成场景；不代替OCCT或NC产品验收"
+}

@@ -1,0 +1,375 @@
+{
+  "schemaVersion": "procet-b52-trace-v1",
+  "date": "2026-10-31",
+  "capability": "CAP-02-06",
+  "researchTopic": "R-MET-001",
+  "sourceRegistry": "research/sources/CAP-02-06-covariance-b52.json",
+  "legacySourceRegistry": "research/sources/CAP-02-06.json",
+  "originalTrace": "research/traces/CAP-02-06.json",
+  "workPackages": [
+    "F1-06",
+    "E3-04",
+    "T5-05"
+  ],
+  "document": "docs/capabilities/CAP-02-06/COVARIANCE-DECISION-B52-2026-10-31.md",
+  "fixture": "docs/capabilities/CAP-02-06/covariance-b52-fixtures-v08.json",
+  "validator": "tools/check_cap0206_covariance_b52_v08.cjs",
+  "sourceTypeGuard": "EXTERNAL_REFERENCE != INTERNAL_SPEC != REAL_WORLD_VALIDATION",
+  "rules": [
+    {
+      "id": "B52-R01",
+      "rule": "Owner/资源/校准/被测量/Frame精确身份与证书归属",
+      "sourceIds": [
+        "B52-S04",
+        "B52-S08"
+      ],
+      "fields": [
+        "identity.owner",
+        "identity.resourceRef",
+        "identity.resourceHash",
+        "identity.calibrationHash",
+        "identity.measurandRef",
+        "identity.frameRef"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R02",
+      "rule": "测量日期、校准有效时间及适用量值范围不随Released自动放行",
+      "sourceIds": [
+        "B52-S03",
+        "B52-S04",
+        "B52-S08"
+      ],
+      "fields": [
+        "identity.sampleAt",
+        "identity.calibrationValidFrom",
+        "identity.calibrationValidUntil",
+        "identity.calibrationScope",
+        "identity.traceabilityChainRef"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N10",
+        "N11"
+      ],
+      "unknownIds": [
+        "U01",
+        "U02",
+        "U06"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R03",
+      "rule": "单位换算与协方差正半定域含反例",
+      "sourceIds": [
+        "B52-S01",
+        "B52-S02"
+      ],
+      "fields": [
+        "measurement.unit",
+        "measurement.u1",
+        "measurement.u2",
+        "measurement.cov12"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N12",
+        "N13",
+        "N14",
+        "N15"
+      ],
+      "unknownIds": [
+        "U03"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R04",
+      "rule": "标准不确定度、扩展不确定度及coverageFactor声明分开",
+      "sourceIds": [
+        "B52-S02",
+        "B52-S03"
+      ],
+      "fields": [
+        "measurement.coverageFactor",
+        "measurement.reportedUc",
+        "measurement.reportedU"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N16",
+        "N17",
+        "N18"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R05",
+      "rule": "上限判定只是显式内生规则，结果类别与不确定度同版本",
+      "sourceIds": [
+        "B52-S07",
+        "B52-S08"
+      ],
+      "fields": [
+        "decision.upperLimitMm",
+        "decision.ruleId",
+        "decision.ruleHash",
+        "decision.reportedOutcome"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N19",
+        "N20",
+        "N21"
+      ],
+      "unknownIds": [
+        "U04"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R06",
+      "rule": "独立CMM范围/在机探测性能/D17结果资格分离",
+      "sourceIds": [
+        "B52-S05",
+        "B52-S06",
+        "B52-S08"
+      ],
+      "fields": [
+        "bindings.channel",
+        "bindings.d13State",
+        "identity.method"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [],
+      "unknownIds": [
+        "U05"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R07",
+      "rule": "D04 Setup与D10执行绑定分离；D15/D16不能由D17合成升级",
+      "sourceIds": [
+        "B52-S05",
+        "B52-S08"
+      ],
+      "fields": [
+        "bindings.d04Ref",
+        "bindings.d10Ref",
+        "bindings.d15State",
+        "bindings.d16State"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N22",
+        "N23",
+        "N24",
+        "N25"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R08",
+      "rule": "事务重验ACL、CAS Revision/Hash、Scope与取消Fence，保留冻结",
+      "sourceIds": [
+        "B52-S08"
+      ],
+      "fields": [
+        "governance.permissionFresh",
+        "governance.expectedRevision",
+        "governance.expectedHash",
+        "governance.ackScopeEpoch",
+        "governance.ackCancelGeneration",
+        "governance.frozenOverwrite"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34",
+        "N35"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B52-R09",
+      "rule": "GUI/CLI/Agent同Port、单Babylon世界、统一左TaskPanel及预览只读",
+      "sourceIds": [
+        "B52-S08"
+      ],
+      "fields": [
+        "governance.ownerPort",
+        "governance.entry",
+        "governance.sceneCount",
+        "governance.taskPanel",
+        "governance.previewOnly"
+      ],
+      "capabilityIds": [
+        "CAP-02-06"
+      ],
+      "workPackageIds": [
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "negativeIds": [
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N36"
+      ],
+      "unknownIds": [],
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

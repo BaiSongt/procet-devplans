@@ -1,0 +1,607 @@
+{
+  "schemaVersion": "procet-b154-fixtures-v08",
+  "origin": "NEWLY_AUTHORED",
+  "domain": "D04 TEMPORAL_WITNESS",
+  "sourcePath": "research/sources/CAP-04-04-temporal-witness-b154.json",
+  "tracePath": "research/traces/CAP-04-04-temporal-witness-b154-v08.json",
+  "positiveCount": 8,
+  "independentSingleFieldNegativeCount": 32,
+  "mathAndStateGoldens": 8,
+  "clockAndThresholdNote": "全部毫秒和阈值均为虚构数值模型，不代表机床采样周期、工程精度或ISO容差",
+  "cases": [
+    {
+      "id": "B154-R01-P",
+      "ruleId": "B154-R01",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "sourceRevision": "rev-D04-7",
+        "currentRevision": "rev-D04-7",
+        "sourceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameId": "SETUP_A"
+      }
+    },
+    {
+      "id": "B154-R01-N1",
+      "ruleId": "B154-R01",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "sourceRevision",
+      "expect": "FAIL",
+      "record": {
+        "sourceRevision": "rev-D04-6",
+        "currentRevision": "rev-D04-7",
+        "sourceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameId": "SETUP_A"
+      }
+    },
+    {
+      "id": "B154-R01-N2",
+      "ruleId": "B154-R01",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "currentRevision",
+      "expect": "FAIL",
+      "record": {
+        "sourceRevision": "rev-D04-7",
+        "currentRevision": "rev-D04-8",
+        "sourceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameId": "SETUP_A"
+      }
+    },
+    {
+      "id": "B154-R01-N3",
+      "ruleId": "B154-R01",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "sourceHash",
+      "expect": "FAIL",
+      "record": {
+        "sourceRevision": "rev-D04-7",
+        "currentRevision": "rev-D04-7",
+        "sourceHash": "bad-hash",
+        "frameId": "SETUP_A"
+      }
+    },
+    {
+      "id": "B154-R01-N4",
+      "ruleId": "B154-R01",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "frameId",
+      "expect": "FAIL",
+      "record": {
+        "sourceRevision": "rev-D04-7",
+        "currentRevision": "rev-D04-7",
+        "sourceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameId": "SETUP_B"
+      }
+    },
+    {
+      "id": "B154-R02-P",
+      "ruleId": "B154-R02",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "queryTimeMs": 160,
+        "validFromMs": 100,
+        "validUntilMs": 220,
+        "clockDomain": "UTC"
+      }
+    },
+    {
+      "id": "B154-R02-N1",
+      "ruleId": "B154-R02",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "queryTimeMs",
+      "expect": "FAIL",
+      "record": {
+        "queryTimeMs": 250,
+        "validFromMs": 100,
+        "validUntilMs": 220,
+        "clockDomain": "UTC"
+      }
+    },
+    {
+      "id": "B154-R02-N2",
+      "ruleId": "B154-R02",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "validFromMs",
+      "expect": "FAIL",
+      "record": {
+        "queryTimeMs": 160,
+        "validFromMs": 190,
+        "validUntilMs": 220,
+        "clockDomain": "UTC"
+      }
+    },
+    {
+      "id": "B154-R02-N3",
+      "ruleId": "B154-R02",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "validUntilMs",
+      "expect": "FAIL",
+      "record": {
+        "queryTimeMs": 160,
+        "validFromMs": 100,
+        "validUntilMs": 150,
+        "clockDomain": "UTC"
+      }
+    },
+    {
+      "id": "B154-R02-N4",
+      "ruleId": "B154-R02",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "clockDomain",
+      "expect": "FAIL",
+      "record": {
+        "queryTimeMs": 160,
+        "validFromMs": 100,
+        "validUntilMs": 220,
+        "clockDomain": "MONOTONIC"
+      }
+    },
+    {
+      "id": "B154-R03-P",
+      "ruleId": "B154-R03",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "measurementTimeMs": 150,
+        "queryTimeMs": 160,
+        "maxAgeMs": 20,
+        "measurementHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    },
+    {
+      "id": "B154-R03-N1",
+      "ruleId": "B154-R03",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "measurementTimeMs",
+      "expect": "FAIL",
+      "record": {
+        "measurementTimeMs": 170,
+        "queryTimeMs": 160,
+        "maxAgeMs": 20,
+        "measurementHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    },
+    {
+      "id": "B154-R03-N2",
+      "ruleId": "B154-R03",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "queryTimeMs",
+      "expect": "FAIL",
+      "record": {
+        "measurementTimeMs": 150,
+        "queryTimeMs": 200,
+        "maxAgeMs": 20,
+        "measurementHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    },
+    {
+      "id": "B154-R03-N3",
+      "ruleId": "B154-R03",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "maxAgeMs",
+      "expect": "FAIL",
+      "record": {
+        "measurementTimeMs": 150,
+        "queryTimeMs": 160,
+        "maxAgeMs": 0,
+        "measurementHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    },
+    {
+      "id": "B154-R03-N4",
+      "ruleId": "B154-R03",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "measurementHash",
+      "expect": "FAIL",
+      "record": {
+        "measurementTimeMs": 150,
+        "queryTimeMs": 160,
+        "maxAgeMs": 20,
+        "measurementHash": "missing"
+      }
+    },
+    {
+      "id": "B154-R04-P",
+      "ruleId": "B154-R04",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "edge1FromMs": 100,
+        "edge1UntilMs": 180,
+        "edge2FromMs": 140,
+        "edge2UntilMs": 220
+      }
+    },
+    {
+      "id": "B154-R04-N1",
+      "ruleId": "B154-R04",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "edge1FromMs",
+      "expect": "FAIL",
+      "record": {
+        "edge1FromMs": 240,
+        "edge1UntilMs": 180,
+        "edge2FromMs": 140,
+        "edge2UntilMs": 220
+      }
+    },
+    {
+      "id": "B154-R04-N2",
+      "ruleId": "B154-R04",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "edge1UntilMs",
+      "expect": "FAIL",
+      "record": {
+        "edge1FromMs": 100,
+        "edge1UntilMs": 120,
+        "edge2FromMs": 140,
+        "edge2UntilMs": 220
+      }
+    },
+    {
+      "id": "B154-R04-N3",
+      "ruleId": "B154-R04",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "edge2FromMs",
+      "expect": "FAIL",
+      "record": {
+        "edge1FromMs": 100,
+        "edge1UntilMs": 180,
+        "edge2FromMs": 190,
+        "edge2UntilMs": 220
+      }
+    },
+    {
+      "id": "B154-R04-N4",
+      "ruleId": "B154-R04",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "edge2UntilMs",
+      "expect": "FAIL",
+      "record": {
+        "edge1FromMs": 100,
+        "edge1UntilMs": 180,
+        "edge2FromMs": 140,
+        "edge2UntilMs": 130
+      }
+    },
+    {
+      "id": "B154-R05-P",
+      "ruleId": "B154-R05",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "domainsSame": true,
+        "clockSync": "VERIFIED",
+        "observedSkewMs": 2,
+        "allowedSkewMs": 5
+      }
+    },
+    {
+      "id": "B154-R05-N1",
+      "ruleId": "B154-R05",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "domainsSame",
+      "expect": "FAIL",
+      "record": {
+        "domainsSame": false,
+        "clockSync": "VERIFIED",
+        "observedSkewMs": 2,
+        "allowedSkewMs": 5
+      }
+    },
+    {
+      "id": "B154-R05-N2",
+      "ruleId": "B154-R05",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "clockSync",
+      "expect": "FAIL",
+      "record": {
+        "domainsSame": true,
+        "clockSync": "UNKNOWN",
+        "observedSkewMs": 2,
+        "allowedSkewMs": 5
+      }
+    },
+    {
+      "id": "B154-R05-N3",
+      "ruleId": "B154-R05",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "observedSkewMs",
+      "expect": "FAIL",
+      "record": {
+        "domainsSame": true,
+        "clockSync": "VERIFIED",
+        "observedSkewMs": 8,
+        "allowedSkewMs": 5
+      }
+    },
+    {
+      "id": "B154-R05-N4",
+      "ruleId": "B154-R05",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "allowedSkewMs",
+      "expect": "FAIL",
+      "record": {
+        "domainsSame": true,
+        "clockSync": "VERIFIED",
+        "observedSkewMs": 2,
+        "allowedSkewMs": 1
+      }
+    },
+    {
+      "id": "B154-R06-P",
+      "ruleId": "B154-R06",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "edgeMode": "MEASURED_DYNAMIC",
+        "requestedSampleMode": "EXACT_ONLY",
+        "extrapolationAllowed": false,
+        "selectionPolicy": "NO_LATEST_FALLBACK"
+      }
+    },
+    {
+      "id": "B154-R06-N1",
+      "ruleId": "B154-R06",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "edgeMode",
+      "expect": "FAIL",
+      "record": {
+        "edgeMode": "STATIC_NOMINAL",
+        "requestedSampleMode": "EXACT_ONLY",
+        "extrapolationAllowed": false,
+        "selectionPolicy": "NO_LATEST_FALLBACK"
+      }
+    },
+    {
+      "id": "B154-R06-N2",
+      "ruleId": "B154-R06",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "requestedSampleMode",
+      "expect": "FAIL",
+      "record": {
+        "edgeMode": "MEASURED_DYNAMIC",
+        "requestedSampleMode": "LATEST",
+        "extrapolationAllowed": false,
+        "selectionPolicy": "NO_LATEST_FALLBACK"
+      }
+    },
+    {
+      "id": "B154-R06-N3",
+      "ruleId": "B154-R06",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "extrapolationAllowed",
+      "expect": "FAIL",
+      "record": {
+        "edgeMode": "MEASURED_DYNAMIC",
+        "requestedSampleMode": "EXACT_ONLY",
+        "extrapolationAllowed": "true",
+        "selectionPolicy": "NO_LATEST_FALLBACK"
+      }
+    },
+    {
+      "id": "B154-R06-N4",
+      "ruleId": "B154-R06",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "selectionPolicy",
+      "expect": "FAIL",
+      "record": {
+        "edgeMode": "MEASURED_DYNAMIC",
+        "requestedSampleMode": "EXACT_ONLY",
+        "extrapolationAllowed": false,
+        "selectionPolicy": "LATEST_WINS"
+      }
+    },
+    {
+      "id": "B154-R07-P",
+      "ruleId": "B154-R07",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "expectedRevision": 17,
+        "actualRevision": 17,
+        "aclAllowed": true,
+        "cancelFence": false
+      }
+    },
+    {
+      "id": "B154-R07-N1",
+      "ruleId": "B154-R07",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "expectedRevision",
+      "expect": "FAIL",
+      "record": {
+        "expectedRevision": 16,
+        "actualRevision": 17,
+        "aclAllowed": true,
+        "cancelFence": false
+      }
+    },
+    {
+      "id": "B154-R07-N2",
+      "ruleId": "B154-R07",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "actualRevision",
+      "expect": "FAIL",
+      "record": {
+        "expectedRevision": 17,
+        "actualRevision": 18,
+        "aclAllowed": true,
+        "cancelFence": false
+      }
+    },
+    {
+      "id": "B154-R07-N3",
+      "ruleId": "B154-R07",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "aclAllowed",
+      "expect": "FAIL",
+      "record": {
+        "expectedRevision": 17,
+        "actualRevision": 17,
+        "aclAllowed": false,
+        "cancelFence": false
+      }
+    },
+    {
+      "id": "B154-R07-N4",
+      "ruleId": "B154-R07",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "cancelFence",
+      "expect": "FAIL",
+      "record": {
+        "expectedRevision": 17,
+        "actualRevision": 17,
+        "aclAllowed": true,
+        "cancelFence": true
+      }
+    },
+    {
+      "id": "B154-R08-P",
+      "ruleId": "B154-R08",
+      "kind": "POSITIVE",
+      "expect": "PASS",
+      "record": {
+        "d04Kind": "NOMINAL_FRAME",
+        "d10BindingSeparate": true,
+        "d15Status": "NOT_RUN",
+        "consumerMode": "INDEPENDENT_ORACLE_REQUIRED"
+      }
+    },
+    {
+      "id": "B154-R08-N1",
+      "ruleId": "B154-R08",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "d04Kind",
+      "expect": "FAIL",
+      "record": {
+        "d04Kind": "EXECUTED",
+        "d10BindingSeparate": true,
+        "d15Status": "NOT_RUN",
+        "consumerMode": "INDEPENDENT_ORACLE_REQUIRED"
+      }
+    },
+    {
+      "id": "B154-R08-N2",
+      "ruleId": "B154-R08",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "d10BindingSeparate",
+      "expect": "FAIL",
+      "record": {
+        "d04Kind": "NOMINAL_FRAME",
+        "d10BindingSeparate": false,
+        "d15Status": "NOT_RUN",
+        "consumerMode": "INDEPENDENT_ORACLE_REQUIRED"
+      }
+    },
+    {
+      "id": "B154-R08-N3",
+      "ruleId": "B154-R08",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "d15Status",
+      "expect": "FAIL",
+      "record": {
+        "d04Kind": "NOMINAL_FRAME",
+        "d10BindingSeparate": true,
+        "d15Status": "PASS",
+        "consumerMode": "INDEPENDENT_ORACLE_REQUIRED"
+      }
+    },
+    {
+      "id": "B154-R08-N4",
+      "ruleId": "B154-R08",
+      "kind": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "consumerMode",
+      "expect": "FAIL",
+      "record": {
+        "d04Kind": "NOMINAL_FRAME",
+        "d10BindingSeparate": true,
+        "d15Status": "NOT_RUN",
+        "consumerMode": "SELF_CERTIFIED"
+      }
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B154-G01",
+      "kind": "TIME_IN_WINDOW",
+      "values": {
+        "from": 100,
+        "time": 100,
+        "to": 200
+      },
+      "expected": true
+    },
+    {
+      "id": "B154-G02",
+      "kind": "TIME_IN_WINDOW",
+      "values": {
+        "from": 100,
+        "time": 200,
+        "to": 200
+      },
+      "expected": true
+    },
+    {
+      "id": "B154-G03",
+      "kind": "TIME_IN_WINDOW",
+      "values": {
+        "from": 100,
+        "time": 201,
+        "to": 200
+      },
+      "expected": false
+    },
+    {
+      "id": "B154-G04",
+      "kind": "INTERVAL_INTERSECT",
+      "values": {
+        "af": 100,
+        "at": 180,
+        "bf": 140,
+        "bt": 220
+      },
+      "expected": true
+    },
+    {
+      "id": "B154-G05",
+      "kind": "INTERVAL_INTERSECT",
+      "values": {
+        "af": 100,
+        "at": 120,
+        "bf": 130,
+        "bt": 220
+      },
+      "expected": false
+    },
+    {
+      "id": "B154-G06",
+      "kind": "AGE_IN_RANGE",
+      "values": {
+        "sample": 150,
+        "query": 160,
+        "maxAge": 20
+      },
+      "expected": true
+    },
+    {
+      "id": "B154-G07",
+      "kind": "SKEW_IN_RANGE",
+      "values": {
+        "skew": 8,
+        "bound": 5
+      },
+      "expected": false
+    },
+    {
+      "id": "B154-G08",
+      "kind": "CACHE_EPOCH",
+      "values": {
+        "sourceEpoch": 7,
+        "cacheEpoch": 6
+      },
+      "expected": false
+    }
+  ]
+}

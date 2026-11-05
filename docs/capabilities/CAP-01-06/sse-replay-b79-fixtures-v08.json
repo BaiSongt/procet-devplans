@@ -1,0 +1,366 @@
+{
+  "schemaVersion": "procet-b79-synthetic-v1",
+  "date": "2026-11-01",
+  "scope": "NEWLY_AUTHORED_SYNTHETIC_NOT_PRODUCT",
+  "capability": "CAP-01-06",
+  "base": {
+    "host": {
+      "streamId": "job:P1:1",
+      "journalStreamId": "job:P1:1",
+      "revision": "r7",
+      "currentRevision": "r7",
+      "hash": "sha256:a",
+      "currentHash": "sha256:a",
+      "frameHash": "sha256:f",
+      "currentFrameHash": "sha256:f",
+      "scopeEpoch": 9,
+      "currentScopeEpoch": 9,
+      "lateReceipt": false
+    },
+    "transport": {
+      "protocol": "SSE",
+      "encoding": "UTF-8",
+      "sseId": "sse-9007199254740993",
+      "terminated": true,
+      "hasData": true,
+      "lastEventId": "sse-9007199254740992"
+    },
+    "journal": {
+      "cursor": "sse-9007199254740992",
+      "hasDurableIndex": true,
+      "oldestRetained": "9007199254740990",
+      "lastApplied": "9007199254740992",
+      "oldEventId": "event-old",
+      "oldHash": "sha256:old"
+    },
+    "event": {
+      "sequence": "9007199254740993",
+      "eventId": "event-new",
+      "contentHash": "sha256:new"
+    },
+    "auth": {
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "ownerPort": true,
+      "acl": true,
+      "cas": true
+    },
+    "ui": {
+      "engineCount": 1,
+      "sceneCount": 1,
+      "canvasCount": 1,
+      "panelCount": 1,
+      "visible": true,
+      "previewDomainWrite": false,
+      "claimCancelled": false,
+      "claimD15Pass": false,
+      "claimD16Release": false,
+      "d04D10Separated": true,
+      "unknownPromotedToPass": false
+    }
+  },
+  "counts": {
+    "CANDIDATE_ONLY": 2,
+    "REJECT": 12,
+    "UNKNOWN": 7,
+    "GAP": 2,
+    "DUPLICATE": 1,
+    "STALE": 5
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "ruleId": "B79-R1",
+      "description": "正常连续恢复",
+      "changes": {},
+      "expectedStatus": "CANDIDATE_ONLY",
+      "expectedCode": "OBSERVATION_ONLY"
+    },
+    {
+      "id": "P02",
+      "ruleId": "B79-R7",
+      "description": "面板隐藏Job仍观察",
+      "changes": {
+        "ui.visible": false
+      },
+      "expectedStatus": "CANDIDATE_ONLY",
+      "expectedCode": "OBSERVATION_ONLY"
+    },
+    {
+      "id": "N01",
+      "ruleId": "B79-R1",
+      "description": "错Journal",
+      "changes": {
+        "host.journalStreamId": "job:P2:2"
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "STREAM_MISMATCH"
+    },
+    {
+      "id": "N02",
+      "ruleId": "B79-R1",
+      "description": "事件身份缺失",
+      "changes": {
+        "event.eventId": null
+      },
+      "expectedStatus": "UNKNOWN",
+      "expectedCode": "SOURCE_MISSING"
+    },
+    {
+      "id": "N03",
+      "ruleId": "B79-R2",
+      "description": "空id重置",
+      "changes": {
+        "transport.sseId": ""
+      },
+      "expectedStatus": "UNKNOWN",
+      "expectedCode": "SSE_ID_RESET"
+    },
+    {
+      "id": "N04",
+      "ruleId": "B79-R2",
+      "description": "尾块无空行",
+      "changes": {
+        "transport.terminated": false
+      },
+      "expectedStatus": "UNKNOWN",
+      "expectedCode": "NO_DISPATCHABLE_EVENT"
+    },
+    {
+      "id": "N05",
+      "ruleId": "B79-R2",
+      "description": "非UTF8",
+      "changes": {
+        "transport.encoding": "GBK"
+      },
+      "expectedStatus": "UNKNOWN",
+      "expectedCode": "ENCODING_UNPROVEN"
+    },
+    {
+      "id": "N06",
+      "ruleId": "B79-R2",
+      "description": "仅注释心跳",
+      "changes": {
+        "transport.hasData": false
+      },
+      "expectedStatus": "UNKNOWN",
+      "expectedCode": "NO_DISPATCHABLE_EVENT"
+    },
+    {
+      "id": "N07",
+      "ruleId": "B79-R3",
+      "description": "LastEventId与Journal游标不一致",
+      "changes": {
+        "transport.lastEventId": "sse-other"
+      },
+      "expectedStatus": "UNKNOWN",
+      "expectedCode": "CURSOR_UNMAPPED"
+    },
+    {
+      "id": "N08",
+      "ruleId": "B79-R3",
+      "description": "持久游标未证明",
+      "changes": {
+        "journal.hasDurableIndex": false
+      },
+      "expectedStatus": "UNKNOWN",
+      "expectedCode": "JOURNAL_NOT_PROVEN"
+    },
+    {
+      "id": "N09",
+      "ruleId": "B79-R3",
+      "description": "保留窗口超出下一事件",
+      "changes": {
+        "journal.oldestRetained": "9007199254740994"
+      },
+      "expectedStatus": "GAP",
+      "expectedCode": "RETENTION_GAP"
+    },
+    {
+      "id": "N10",
+      "ruleId": "B79-R4",
+      "description": "下一事件缺号",
+      "changes": {
+        "event.sequence": "9007199254740995"
+      },
+      "expectedStatus": "GAP",
+      "expectedCode": "SEQUENCE_GAP"
+    },
+    {
+      "id": "N11",
+      "ruleId": "B79-R4",
+      "description": "相同序列同hash幂等",
+      "changes": {
+        "event.sequence": "9007199254740992",
+        "event.eventId": "event-old",
+        "event.contentHash": "sha256:old"
+      },
+      "expectedStatus": "DUPLICATE",
+      "expectedCode": "ALREADY_APPLIED"
+    },
+    {
+      "id": "N12",
+      "ruleId": "B79-R4",
+      "description": "相同序列不同hash",
+      "changes": {
+        "event.sequence": "9007199254740992",
+        "event.contentHash": "sha256:changed"
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "SAME_SEQ_CONFLICT"
+    },
+    {
+      "id": "N13",
+      "ruleId": "B79-R4",
+      "description": "历史事件不回滚",
+      "changes": {
+        "event.sequence": "9007199254740991"
+      },
+      "expectedStatus": "STALE",
+      "expectedCode": "HISTORICAL_EVENT"
+    },
+    {
+      "id": "N14",
+      "ruleId": "B79-R4",
+      "description": "Number精度丢失",
+      "changes": {
+        "event.sequence": 9007199254740992
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "SEQUENCE_NOT_EXACT"
+    },
+    {
+      "id": "N15",
+      "ruleId": "B79-R5",
+      "description": "迟到取消回执",
+      "changes": {
+        "host.lateReceipt": true
+      },
+      "expectedStatus": "STALE",
+      "expectedCode": "LATE_SCOPE_RECEIPT"
+    },
+    {
+      "id": "N16",
+      "ruleId": "B79-R5",
+      "description": "旧ScopeEpoch",
+      "changes": {
+        "host.currentScopeEpoch": 10
+      },
+      "expectedStatus": "STALE",
+      "expectedCode": "LATE_SCOPE_RECEIPT"
+    },
+    {
+      "id": "N17",
+      "ruleId": "B79-R5",
+      "description": "旧修订",
+      "changes": {
+        "host.currentRevision": "r8"
+      },
+      "expectedStatus": "STALE",
+      "expectedCode": "SOURCE_REVISION_CHANGED"
+    },
+    {
+      "id": "N18",
+      "ruleId": "B79-R5",
+      "description": "错误Frame",
+      "changes": {
+        "host.currentFrameHash": "sha256:g"
+      },
+      "expectedStatus": "STALE",
+      "expectedCode": "FRAME_CHANGED"
+    },
+    {
+      "id": "N19",
+      "ruleId": "B79-R6",
+      "description": "ACL撤销",
+      "changes": {
+        "auth.acl": false
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "OWNER_PORT_OR_AUTH"
+    },
+    {
+      "id": "N20",
+      "ruleId": "B79-R6",
+      "description": "CAS失败",
+      "changes": {
+        "auth.cas": false
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "OWNER_PORT_OR_AUTH"
+    },
+    {
+      "id": "N21",
+      "ruleId": "B79-R6",
+      "description": "Agent绕过同Owner",
+      "changes": {
+        "auth.ownerPort": false
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "OWNER_PORT_OR_AUTH"
+    },
+    {
+      "id": "N22",
+      "ruleId": "B79-R7",
+      "description": "第二Scene",
+      "changes": {
+        "ui.sceneCount": 2
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "DUPLICATE_3D_OR_PANEL"
+    },
+    {
+      "id": "N23",
+      "ruleId": "B79-R7",
+      "description": "第二TaskPanel",
+      "changes": {
+        "ui.panelCount": 2
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "DUPLICATE_3D_OR_PANEL"
+    },
+    {
+      "id": "N24",
+      "ruleId": "B79-R7",
+      "description": "预览写入了业务数据",
+      "changes": {
+        "ui.previewDomainWrite": true
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "PREVIEW_IS_WRITE"
+    },
+    {
+      "id": "N25",
+      "ruleId": "B79-R8",
+      "description": "取消请求误认为完成",
+      "changes": {
+        "ui.claimCancelled": true
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "CANCEL_ACK_MISSING"
+    },
+    {
+      "id": "N26",
+      "ruleId": "B79-R8",
+      "description": "SSE消息冒充D15 PASS",
+      "changes": {
+        "ui.claimD15Pass": true
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "FALSE_ENGINEERING_PASS"
+    },
+    {
+      "id": "N27",
+      "ruleId": "B79-R8",
+      "description": "SSE消息冒充D16发布",
+      "changes": {
+        "ui.claimD16Release": true
+      },
+      "expectedStatus": "REJECT",
+      "expectedCode": "FALSE_ENGINEERING_PASS"
+    }
+  ]
+}

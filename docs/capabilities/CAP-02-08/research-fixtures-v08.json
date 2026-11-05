@@ -1,0 +1,1020 @@
+{
+  "schemaVersion": "procet-cap0208-research-fixtures-v08",
+  "capabilityId": "CAP-02-08",
+  "syntheticOnly": true,
+  "noRealMachineValues": true,
+  "sourceTrace": "research/traces/CAP-02-08-v08-supplement.json",
+  "positives": [
+    {
+      "id": "RC08-V08-R01-P",
+      "ruleId": "RC08-V08-R01",
+      "expected": "ACCEPT",
+      "input": {
+        "capability": {
+          "resourceRevision": "machine@r2",
+          "structural": "VERIFIED",
+          "availability": "UNKNOWN",
+          "authority": "CANDIDATE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R02-P",
+      "ruleId": "RC08-V08-R02",
+      "expected": "ACCEPT",
+      "input": {
+        "kinematics": {
+          "kinematicRevision": "fkik@r3",
+          "axisJointMap": "TYPED",
+          "axisCountProof": "INSUFFICIENT",
+          "jointLimitEvidence": "REQUIRED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R03-P",
+      "ruleId": "RC08-V08-R03",
+      "expected": "ACCEPT",
+      "input": {
+        "range": {
+          "required": 500,
+          "unit": "mm",
+          "comparison": "CANONICAL_UNITS",
+          "stage": "L1_FILTER"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R04-P",
+      "ruleId": "RC08-V08-R04",
+      "expected": "ACCEPT",
+      "input": {
+        "interface": {
+          "fixtureExactRef": "fixture@r4",
+          "mateEvidence": "EXACT_GEOMETRY",
+          "frame": "PARENT_LOCAL",
+          "installOwner": "D10"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R05-P",
+      "ruleId": "RC08-V08-R05",
+      "expected": "ACCEPT",
+      "input": {
+        "envelope": {
+          "kind": "AABB",
+          "purpose": "PREFILTER_ONLY",
+          "tcpReachability": "UNKNOWN",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R06-P",
+      "ruleId": "RC08-V08-R06",
+      "expected": "ACCEPT",
+      "input": {
+        "nc": {
+          "postExactRef": "post@r2",
+          "controllerExactRef": "controller@r5",
+          "d13Semantics": "UNKNOWN",
+          "d16Release": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R07-P",
+      "ruleId": "RC08-V08-R07",
+      "expected": "ACCEPT",
+      "input": {
+        "match": {
+          "mustGate": "REQUIRED_FIRST",
+          "unknownPolicy": "BLOCKED_UNKNOWN",
+          "preferRole": "RANK_ONLY",
+          "d15Evidence": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R08-P",
+      "ruleId": "RC08-V08-R08",
+      "expected": "ACCEPT",
+      "input": {
+        "fingerprint": {
+          "resourceExactRef": "machine@r2",
+          "resourceContentHash": "synthetic:hash",
+          "requirementsRef": "req@r4",
+          "canonicalization": "VERSIONED_POLICY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R09-P",
+      "ruleId": "RC08-V08-R09",
+      "expected": "ACCEPT",
+      "input": {
+        "write": {
+          "domainPort": "D04_OR_D10_OWNER",
+          "aclScopeEpoch": "RECHECK_ON_COMMIT",
+          "cas": "EXACT_REVISION",
+          "lateAck": "AUDIT_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R10-P",
+      "ruleId": "RC08-V08-R10",
+      "expected": "ACCEPT",
+      "input": {
+        "fallback": {
+          "legacyReader": "PRESERVED",
+          "stale": "REASSESS",
+          "frozenAB": "NO_OVERWRITE",
+          "offlineProof": "UNKNOWN_IF_MISSING"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R11-P",
+      "ruleId": "RC08-V08-R11",
+      "expected": "ACCEPT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "domainPort": "SHARED",
+          "previewRole": "PROJECTION_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R12-P",
+      "ruleId": "RC08-V08-R12",
+      "expected": "ACCEPT",
+      "input": {
+        "chain": {
+          "setup": "D04",
+          "executionBinding": "D10",
+          "clPreview": "NOT_NC_EVIDENCE",
+          "ncStages": "D12_D13_D14_D15_D16"
+        }
+      }
+    }
+  ],
+  "negatives": [
+    {
+      "id": "RC08-V08-R01-N1",
+      "ruleId": "RC08-V08-R01",
+      "baselineId": "RC08-V08-R01-P",
+      "mutatedField": "capability.resourceRevision",
+      "expected": "REJECT",
+      "input": {
+        "capability": {
+          "resourceRevision": "machine@r2__INVALID",
+          "structural": "VERIFIED",
+          "availability": "UNKNOWN",
+          "authority": "CANDIDATE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R01-N2",
+      "ruleId": "RC08-V08-R01",
+      "baselineId": "RC08-V08-R01-P",
+      "mutatedField": "capability.structural",
+      "expected": "REJECT",
+      "input": {
+        "capability": {
+          "resourceRevision": "machine@r2",
+          "structural": "VERIFIED__INVALID",
+          "availability": "UNKNOWN",
+          "authority": "CANDIDATE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R01-N3",
+      "ruleId": "RC08-V08-R01",
+      "baselineId": "RC08-V08-R01-P",
+      "mutatedField": "capability.availability",
+      "expected": "REJECT",
+      "input": {
+        "capability": {
+          "resourceRevision": "machine@r2",
+          "structural": "VERIFIED",
+          "availability": "UNKNOWN__INVALID",
+          "authority": "CANDIDATE_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R01-N4",
+      "ruleId": "RC08-V08-R01",
+      "baselineId": "RC08-V08-R01-P",
+      "mutatedField": "capability.authority",
+      "expected": "REJECT",
+      "input": {
+        "capability": {
+          "resourceRevision": "machine@r2",
+          "structural": "VERIFIED",
+          "availability": "UNKNOWN",
+          "authority": "CANDIDATE_ONLY__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R02-N1",
+      "ruleId": "RC08-V08-R02",
+      "baselineId": "RC08-V08-R02-P",
+      "mutatedField": "kinematics.kinematicRevision",
+      "expected": "REJECT",
+      "input": {
+        "kinematics": {
+          "kinematicRevision": "fkik@r3__INVALID",
+          "axisJointMap": "TYPED",
+          "axisCountProof": "INSUFFICIENT",
+          "jointLimitEvidence": "REQUIRED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R02-N2",
+      "ruleId": "RC08-V08-R02",
+      "baselineId": "RC08-V08-R02-P",
+      "mutatedField": "kinematics.axisJointMap",
+      "expected": "REJECT",
+      "input": {
+        "kinematics": {
+          "kinematicRevision": "fkik@r3",
+          "axisJointMap": "TYPED__INVALID",
+          "axisCountProof": "INSUFFICIENT",
+          "jointLimitEvidence": "REQUIRED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R02-N3",
+      "ruleId": "RC08-V08-R02",
+      "baselineId": "RC08-V08-R02-P",
+      "mutatedField": "kinematics.axisCountProof",
+      "expected": "REJECT",
+      "input": {
+        "kinematics": {
+          "kinematicRevision": "fkik@r3",
+          "axisJointMap": "TYPED",
+          "axisCountProof": "INSUFFICIENT__INVALID",
+          "jointLimitEvidence": "REQUIRED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R02-N4",
+      "ruleId": "RC08-V08-R02",
+      "baselineId": "RC08-V08-R02-P",
+      "mutatedField": "kinematics.jointLimitEvidence",
+      "expected": "REJECT",
+      "input": {
+        "kinematics": {
+          "kinematicRevision": "fkik@r3",
+          "axisJointMap": "TYPED",
+          "axisCountProof": "INSUFFICIENT",
+          "jointLimitEvidence": "REQUIRED__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R03-N1",
+      "ruleId": "RC08-V08-R03",
+      "baselineId": "RC08-V08-R03-P",
+      "mutatedField": "range.required",
+      "expected": "REJECT",
+      "input": {
+        "range": {
+          "required": 501,
+          "unit": "mm",
+          "comparison": "CANONICAL_UNITS",
+          "stage": "L1_FILTER"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R03-N2",
+      "ruleId": "RC08-V08-R03",
+      "baselineId": "RC08-V08-R03-P",
+      "mutatedField": "range.unit",
+      "expected": "REJECT",
+      "input": {
+        "range": {
+          "required": 500,
+          "unit": "mm__INVALID",
+          "comparison": "CANONICAL_UNITS",
+          "stage": "L1_FILTER"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R03-N3",
+      "ruleId": "RC08-V08-R03",
+      "baselineId": "RC08-V08-R03-P",
+      "mutatedField": "range.comparison",
+      "expected": "REJECT",
+      "input": {
+        "range": {
+          "required": 500,
+          "unit": "mm",
+          "comparison": "CANONICAL_UNITS__INVALID",
+          "stage": "L1_FILTER"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R03-N4",
+      "ruleId": "RC08-V08-R03",
+      "baselineId": "RC08-V08-R03-P",
+      "mutatedField": "range.stage",
+      "expected": "REJECT",
+      "input": {
+        "range": {
+          "required": 500,
+          "unit": "mm",
+          "comparison": "CANONICAL_UNITS",
+          "stage": "L1_FILTER__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R04-N1",
+      "ruleId": "RC08-V08-R04",
+      "baselineId": "RC08-V08-R04-P",
+      "mutatedField": "interface.fixtureExactRef",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "fixtureExactRef": "fixture@r4__INVALID",
+          "mateEvidence": "EXACT_GEOMETRY",
+          "frame": "PARENT_LOCAL",
+          "installOwner": "D10"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R04-N2",
+      "ruleId": "RC08-V08-R04",
+      "baselineId": "RC08-V08-R04-P",
+      "mutatedField": "interface.mateEvidence",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "fixtureExactRef": "fixture@r4",
+          "mateEvidence": "EXACT_GEOMETRY__INVALID",
+          "frame": "PARENT_LOCAL",
+          "installOwner": "D10"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R04-N3",
+      "ruleId": "RC08-V08-R04",
+      "baselineId": "RC08-V08-R04-P",
+      "mutatedField": "interface.frame",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "fixtureExactRef": "fixture@r4",
+          "mateEvidence": "EXACT_GEOMETRY",
+          "frame": "PARENT_LOCAL__INVALID",
+          "installOwner": "D10"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R04-N4",
+      "ruleId": "RC08-V08-R04",
+      "baselineId": "RC08-V08-R04-P",
+      "mutatedField": "interface.installOwner",
+      "expected": "REJECT",
+      "input": {
+        "interface": {
+          "fixtureExactRef": "fixture@r4",
+          "mateEvidence": "EXACT_GEOMETRY",
+          "frame": "PARENT_LOCAL",
+          "installOwner": "D10__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R05-N1",
+      "ruleId": "RC08-V08-R05",
+      "baselineId": "RC08-V08-R05-P",
+      "mutatedField": "envelope.kind",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "kind": "AABB__INVALID",
+          "purpose": "PREFILTER_ONLY",
+          "tcpReachability": "UNKNOWN",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R05-N2",
+      "ruleId": "RC08-V08-R05",
+      "baselineId": "RC08-V08-R05-P",
+      "mutatedField": "envelope.purpose",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "kind": "AABB",
+          "purpose": "PREFILTER_ONLY__INVALID",
+          "tcpReachability": "UNKNOWN",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R05-N3",
+      "ruleId": "RC08-V08-R05",
+      "baselineId": "RC08-V08-R05-P",
+      "mutatedField": "envelope.tcpReachability",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "kind": "AABB",
+          "purpose": "PREFILTER_ONLY",
+          "tcpReachability": "UNKNOWN__INVALID",
+          "collisionAuthority": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R05-N4",
+      "ruleId": "RC08-V08-R05",
+      "baselineId": "RC08-V08-R05-P",
+      "mutatedField": "envelope.collisionAuthority",
+      "expected": "REJECT",
+      "input": {
+        "envelope": {
+          "kind": "AABB",
+          "purpose": "PREFILTER_ONLY",
+          "tcpReachability": "UNKNOWN",
+          "collisionAuthority": "NONE__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R06-N1",
+      "ruleId": "RC08-V08-R06",
+      "baselineId": "RC08-V08-R06-P",
+      "mutatedField": "nc.postExactRef",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "postExactRef": "post@r2__INVALID",
+          "controllerExactRef": "controller@r5",
+          "d13Semantics": "UNKNOWN",
+          "d16Release": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R06-N2",
+      "ruleId": "RC08-V08-R06",
+      "baselineId": "RC08-V08-R06-P",
+      "mutatedField": "nc.controllerExactRef",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "postExactRef": "post@r2",
+          "controllerExactRef": "controller@r5__INVALID",
+          "d13Semantics": "UNKNOWN",
+          "d16Release": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R06-N3",
+      "ruleId": "RC08-V08-R06",
+      "baselineId": "RC08-V08-R06-P",
+      "mutatedField": "nc.d13Semantics",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "postExactRef": "post@r2",
+          "controllerExactRef": "controller@r5",
+          "d13Semantics": "UNKNOWN__INVALID",
+          "d16Release": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R06-N4",
+      "ruleId": "RC08-V08-R06",
+      "baselineId": "RC08-V08-R06-P",
+      "mutatedField": "nc.d16Release",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "postExactRef": "post@r2",
+          "controllerExactRef": "controller@r5",
+          "d13Semantics": "UNKNOWN",
+          "d16Release": "BLOCKED__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R07-N1",
+      "ruleId": "RC08-V08-R07",
+      "baselineId": "RC08-V08-R07-P",
+      "mutatedField": "match.mustGate",
+      "expected": "REJECT",
+      "input": {
+        "match": {
+          "mustGate": "REQUIRED_FIRST__INVALID",
+          "unknownPolicy": "BLOCKED_UNKNOWN",
+          "preferRole": "RANK_ONLY",
+          "d15Evidence": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R07-N2",
+      "ruleId": "RC08-V08-R07",
+      "baselineId": "RC08-V08-R07-P",
+      "mutatedField": "match.unknownPolicy",
+      "expected": "REJECT",
+      "input": {
+        "match": {
+          "mustGate": "REQUIRED_FIRST",
+          "unknownPolicy": "BLOCKED_UNKNOWN__INVALID",
+          "preferRole": "RANK_ONLY",
+          "d15Evidence": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R07-N3",
+      "ruleId": "RC08-V08-R07",
+      "baselineId": "RC08-V08-R07-P",
+      "mutatedField": "match.preferRole",
+      "expected": "REJECT",
+      "input": {
+        "match": {
+          "mustGate": "REQUIRED_FIRST",
+          "unknownPolicy": "BLOCKED_UNKNOWN",
+          "preferRole": "RANK_ONLY__INVALID",
+          "d15Evidence": "NONE"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R07-N4",
+      "ruleId": "RC08-V08-R07",
+      "baselineId": "RC08-V08-R07-P",
+      "mutatedField": "match.d15Evidence",
+      "expected": "REJECT",
+      "input": {
+        "match": {
+          "mustGate": "REQUIRED_FIRST",
+          "unknownPolicy": "BLOCKED_UNKNOWN",
+          "preferRole": "RANK_ONLY",
+          "d15Evidence": "NONE__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R08-N1",
+      "ruleId": "RC08-V08-R08",
+      "baselineId": "RC08-V08-R08-P",
+      "mutatedField": "fingerprint.resourceExactRef",
+      "expected": "REJECT",
+      "input": {
+        "fingerprint": {
+          "resourceExactRef": "machine@r2__INVALID",
+          "resourceContentHash": "synthetic:hash",
+          "requirementsRef": "req@r4",
+          "canonicalization": "VERSIONED_POLICY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R08-N2",
+      "ruleId": "RC08-V08-R08",
+      "baselineId": "RC08-V08-R08-P",
+      "mutatedField": "fingerprint.resourceContentHash",
+      "expected": "REJECT",
+      "input": {
+        "fingerprint": {
+          "resourceExactRef": "machine@r2",
+          "resourceContentHash": "synthetic:hash__INVALID",
+          "requirementsRef": "req@r4",
+          "canonicalization": "VERSIONED_POLICY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R08-N3",
+      "ruleId": "RC08-V08-R08",
+      "baselineId": "RC08-V08-R08-P",
+      "mutatedField": "fingerprint.requirementsRef",
+      "expected": "REJECT",
+      "input": {
+        "fingerprint": {
+          "resourceExactRef": "machine@r2",
+          "resourceContentHash": "synthetic:hash",
+          "requirementsRef": "req@r4__INVALID",
+          "canonicalization": "VERSIONED_POLICY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R08-N4",
+      "ruleId": "RC08-V08-R08",
+      "baselineId": "RC08-V08-R08-P",
+      "mutatedField": "fingerprint.canonicalization",
+      "expected": "REJECT",
+      "input": {
+        "fingerprint": {
+          "resourceExactRef": "machine@r2",
+          "resourceContentHash": "synthetic:hash",
+          "requirementsRef": "req@r4",
+          "canonicalization": "VERSIONED_POLICY__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R09-N1",
+      "ruleId": "RC08-V08-R09",
+      "baselineId": "RC08-V08-R09-P",
+      "mutatedField": "write.domainPort",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "domainPort": "D04_OR_D10_OWNER__INVALID",
+          "aclScopeEpoch": "RECHECK_ON_COMMIT",
+          "cas": "EXACT_REVISION",
+          "lateAck": "AUDIT_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R09-N2",
+      "ruleId": "RC08-V08-R09",
+      "baselineId": "RC08-V08-R09-P",
+      "mutatedField": "write.aclScopeEpoch",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "domainPort": "D04_OR_D10_OWNER",
+          "aclScopeEpoch": "RECHECK_ON_COMMIT__INVALID",
+          "cas": "EXACT_REVISION",
+          "lateAck": "AUDIT_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R09-N3",
+      "ruleId": "RC08-V08-R09",
+      "baselineId": "RC08-V08-R09-P",
+      "mutatedField": "write.cas",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "domainPort": "D04_OR_D10_OWNER",
+          "aclScopeEpoch": "RECHECK_ON_COMMIT",
+          "cas": "EXACT_REVISION__INVALID",
+          "lateAck": "AUDIT_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R09-N4",
+      "ruleId": "RC08-V08-R09",
+      "baselineId": "RC08-V08-R09-P",
+      "mutatedField": "write.lateAck",
+      "expected": "REJECT",
+      "input": {
+        "write": {
+          "domainPort": "D04_OR_D10_OWNER",
+          "aclScopeEpoch": "RECHECK_ON_COMMIT",
+          "cas": "EXACT_REVISION",
+          "lateAck": "AUDIT_ONLY__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R10-N1",
+      "ruleId": "RC08-V08-R10",
+      "baselineId": "RC08-V08-R10-P",
+      "mutatedField": "fallback.legacyReader",
+      "expected": "REJECT",
+      "input": {
+        "fallback": {
+          "legacyReader": "PRESERVED__INVALID",
+          "stale": "REASSESS",
+          "frozenAB": "NO_OVERWRITE",
+          "offlineProof": "UNKNOWN_IF_MISSING"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R10-N2",
+      "ruleId": "RC08-V08-R10",
+      "baselineId": "RC08-V08-R10-P",
+      "mutatedField": "fallback.stale",
+      "expected": "REJECT",
+      "input": {
+        "fallback": {
+          "legacyReader": "PRESERVED",
+          "stale": "REASSESS__INVALID",
+          "frozenAB": "NO_OVERWRITE",
+          "offlineProof": "UNKNOWN_IF_MISSING"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R10-N3",
+      "ruleId": "RC08-V08-R10",
+      "baselineId": "RC08-V08-R10-P",
+      "mutatedField": "fallback.frozenAB",
+      "expected": "REJECT",
+      "input": {
+        "fallback": {
+          "legacyReader": "PRESERVED",
+          "stale": "REASSESS",
+          "frozenAB": "NO_OVERWRITE__INVALID",
+          "offlineProof": "UNKNOWN_IF_MISSING"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R10-N4",
+      "ruleId": "RC08-V08-R10",
+      "baselineId": "RC08-V08-R10-P",
+      "mutatedField": "fallback.offlineProof",
+      "expected": "REJECT",
+      "input": {
+        "fallback": {
+          "legacyReader": "PRESERVED",
+          "stale": "REASSESS",
+          "frozenAB": "NO_OVERWRITE",
+          "offlineProof": "UNKNOWN_IF_MISSING__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R11-N1",
+      "ruleId": "RC08-V08-R11",
+      "baselineId": "RC08-V08-R11-P",
+      "mutatedField": "ui.worldCount",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 2,
+          "taskPanel": "UNIFIED_LEFT",
+          "domainPort": "SHARED",
+          "previewRole": "PROJECTION_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R11-N2",
+      "ruleId": "RC08-V08-R11",
+      "baselineId": "RC08-V08-R11-P",
+      "mutatedField": "ui.taskPanel",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "UNIFIED_LEFT__INVALID",
+          "domainPort": "SHARED",
+          "previewRole": "PROJECTION_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R11-N3",
+      "ruleId": "RC08-V08-R11",
+      "baselineId": "RC08-V08-R11-P",
+      "mutatedField": "ui.domainPort",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "domainPort": "SHARED__INVALID",
+          "previewRole": "PROJECTION_ONLY"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R11-N4",
+      "ruleId": "RC08-V08-R11",
+      "baselineId": "RC08-V08-R11-P",
+      "mutatedField": "ui.previewRole",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "worldCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "domainPort": "SHARED",
+          "previewRole": "PROJECTION_ONLY__INVALID"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R12-N1",
+      "ruleId": "RC08-V08-R12",
+      "baselineId": "RC08-V08-R12-P",
+      "mutatedField": "chain.setup",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "D04__INVALID",
+          "executionBinding": "D10",
+          "clPreview": "NOT_NC_EVIDENCE",
+          "ncStages": "D12_D13_D14_D15_D16"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R12-N2",
+      "ruleId": "RC08-V08-R12",
+      "baselineId": "RC08-V08-R12-P",
+      "mutatedField": "chain.executionBinding",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "D04",
+          "executionBinding": "D10__INVALID",
+          "clPreview": "NOT_NC_EVIDENCE",
+          "ncStages": "D12_D13_D14_D15_D16"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R12-N3",
+      "ruleId": "RC08-V08-R12",
+      "baselineId": "RC08-V08-R12-P",
+      "mutatedField": "chain.clPreview",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "D04",
+          "executionBinding": "D10",
+          "clPreview": "NOT_NC_EVIDENCE__INVALID",
+          "ncStages": "D12_D13_D14_D15_D16"
+        }
+      }
+    },
+    {
+      "id": "RC08-V08-R12-N4",
+      "ruleId": "RC08-V08-R12",
+      "baselineId": "RC08-V08-R12-P",
+      "mutatedField": "chain.ncStages",
+      "expected": "REJECT",
+      "input": {
+        "chain": {
+          "setup": "D04",
+          "executionBinding": "D10",
+          "clPreview": "NOT_NC_EVIDENCE",
+          "ncStages": "D12_D13_D14_D15_D16__INVALID"
+        }
+      }
+    }
+  ],
+  "mathCases": [
+    {
+      "id": "RC08-M01",
+      "kind": "M_TO_MM",
+      "input": {
+        "value": 0.5,
+        "unit": "m"
+      },
+      "expected": 500
+    },
+    {
+      "id": "RC08-M02",
+      "kind": "RANGE",
+      "input": {
+        "available": 480,
+        "required": 500
+      },
+      "expected": false
+    },
+    {
+      "id": "RC08-M03",
+      "kind": "MUST",
+      "input": {
+        "statuses": [
+          "INCOMPATIBLE",
+          "UNKNOWN"
+        ]
+      },
+      "expected": "REJECTED"
+    },
+    {
+      "id": "RC08-M04",
+      "kind": "MUST",
+      "input": {
+        "statuses": [
+          "STALE",
+          "UNKNOWN"
+        ]
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "RC08-M05",
+      "kind": "AABB",
+      "input": {
+        "overlap": true,
+        "fkIk": false,
+        "collision": false
+      },
+      "expected": false
+    },
+    {
+      "id": "RC08-M06",
+      "kind": "MATE",
+      "input": {
+        "keyEqual": true,
+        "realGeometryMate": false
+      },
+      "expected": false
+    },
+    {
+      "id": "RC08-M07",
+      "kind": "FIVE_AXIS",
+      "input": {
+        "nominalAxisCount": 5,
+        "fkIk": false,
+        "controllerCoverage": false
+      },
+      "expected": false
+    },
+    {
+      "id": "RC08-M08",
+      "kind": "PREFERENCE",
+      "input": {
+        "must": [
+          "INCOMPATIBLE"
+        ],
+        "preferScore": 100
+      },
+      "expected": "REJECTED"
+    }
+  ],
+  "statusScenarios": [
+    {
+      "id": "RC08-S1",
+      "kind": "CANCEL_LATE_ACK",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "RC08-S2",
+      "kind": "SCOPE_EPOCH_SWAP",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "RC08-S3",
+      "kind": "ACL_REVOKED",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "RC08-S4",
+      "kind": "CAS_CONFLICT",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "RC08-S5",
+      "kind": "OFFLINE_OEM_MISSING",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "RC08-S6",
+      "kind": "FROZEN_AB",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "RC08-S7",
+      "kind": "CONTROLLER_SEMANTICS_UNKNOWN",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "RC08-S8",
+      "kind": "D10_CHANGED",
+      "expected": "DENY_OR_REASSESS",
+      "execution": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN"
+}

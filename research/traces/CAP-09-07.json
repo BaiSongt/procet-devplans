@@ -1,0 +1,558 @@
+{
+  "schemaVersion": "procet-cap0907-trace-v1",
+  "capabilityId": "CAP-09-07",
+  "researchTopic": "R-LIMIT-COLLISION-001",
+  "sourceRegistry": "research/sources/CAP-09-07.json",
+  "specification": "docs/capabilities/CAP-09-07/README.md",
+  "ui": "docs/capabilities/CAP-09-07/UI.md",
+  "fixtures": "docs/capabilities/CAP-09-07/fixtures.json",
+  "validator": "tools/check_cap0907_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-09-07-R01",
+      "capabilityId": "CAP-09-07",
+      "summary": "冻结执行证据闭包",
+      "engineeringRule": "仅接受D12最终NC字节→D13语义→D14物理Joint时序，并绑定D10实际执行配置与D08冻结。不可由中立CL/D11预检查提升为工程验证。",
+      "fields": [
+        "inputs.finalNcRevisionHashPinned",
+        "inputs.d13ExecutionEventsHashPinned",
+        "inputs.d14PhysicalJointTimelineHashPinned",
+        "inputs.d10ActualBindingFrameExact"
+      ],
+      "sourceIds": [
+        "C0907-S03",
+        "C0907-S04",
+        "C0907-S09",
+        "C0907-S10"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "inputs.finalNcRevisionHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "inputs.d13ExecutionEventsHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "inputs.d14PhysicalJointTimelineHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "inputs.d10ActualBindingFrameExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R02",
+      "capabilityId": "CAP-09-07",
+      "summary": "双层限位与物理归零状态",
+      "engineeringRule": "轴字母软限位与每个物理Joint限位、归零、旋转周数、行程单位独立检查；A/B共享来源但各自运行绑定不得借用。",
+      "fields": [
+        "limits.axisEnvelopeRevisionPinned",
+        "limits.physicalJointEnvelopeRevisionPinned",
+        "limits.homedStateProvenancePinned",
+        "limits.rotaryWrapAndUnitsKnown"
+      ],
+      "sourceIds": [
+        "C0907-S01",
+        "C0907-S03",
+        "C0907-S04"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "limits.axisEnvelopeRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.physicalJointEnvelopeRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.homedStateProvenancePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.rotaryWrapAndUnitsKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R03",
+      "capabilityId": "CAP-09-07",
+      "summary": "运动连续性与动态不确定性",
+      "engineeringRule": "分段覆盖D14时间区间与速度/加速度/暂停/换刀运动；不具控制器时间或动态参数证据时标UNKNOWN，不以端点跳帧插值代替。",
+      "fields": [
+        "motion.t0t1CoverageComplete",
+        "motion.jointVelocityAccelerationEnvelopePinned",
+        "motion.ikBranchContinuousOrExplicitBreak",
+        "motion.unknownTimingFailClosed"
+      ],
+      "sourceIds": [
+        "C0907-S03",
+        "C0907-S04",
+        "C0907-S06",
+        "C0907-S08"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "motion.t0t1CoverageComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.jointVelocityAccelerationEnvelopePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.ikBranchContinuousOrExplicitBreak",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.unknownTimingFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R04",
+      "capabilityId": "CAP-09-07",
+      "summary": "完整几何对象与碰撞对",
+      "engineeringRule": "校核刀具、刀柄、主轴、机器运动部件、夹具、毛坯和保护几何；排除对只可来自经审核的结构拓扑，未建模/未标定形状=UNKNOWN。",
+      "fields": [
+        "collision.toolHolderSpindleGeometryPinned",
+        "collision.machineJointLinksPinned",
+        "collision.fixtureStockProtectedPairsPinned",
+        "collision.exclusionsAuditableAndScoped"
+      ],
+      "sourceIds": [
+        "C0907-S05",
+        "C0907-S06",
+        "C0907-S07"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "collision.toolHolderSpindleGeometryPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "collision.machineJointLinksPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "collision.fixtureStockProtectedPairsPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "collision.exclusionsAuditableAndScoped",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R05",
+      "capabilityId": "CAP-09-07",
+      "summary": "静态距离与连续轨迹覆盖分离",
+      "engineeringRule": "OCCT DistShapeShape仅核对指定姿态的静态距离；连续无碰结论必须有独立时间段覆盖证书/有界保守证明，端点采样和静态最小距不升级安全PASS。",
+      "fields": [
+        "clearance.staticOracleAndIsDoneRecorded",
+        "clearance.intervalCoverageCertificatePinned",
+        "clearance.sampleOnlyNeverPromoted",
+        "clearance.uncertaintyAndMarginBudgetPinned"
+      ],
+      "sourceIds": [
+        "C0907-S05",
+        "C0907-S08",
+        "C0907-S06"
+      ],
+      "assets": [
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "clearance.staticOracleAndIsDoneRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clearance.intervalCoverageCertificatePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clearance.sampleOnlyNeverPromoted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clearance.uncertaintyAndMarginBudgetPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R06",
+      "capabilityId": "CAP-09-07",
+      "summary": "碰撞接触、切削和允许域分类",
+      "engineeringRule": "将受控切削刀尖接触与刀柄/机床/夹具危险干涉分离；允许的刀具工件接触只在冻结工序范围有效，不能全局关闭碰撞检测。",
+      "fields": [
+        "contact.allowlistOperationScopePinned",
+        "contact.toolTipMaterialIntentSeparated",
+        "contact.holderFixtureMachineAlwaysChecked",
+        "contact.protectedGeometryNoBypass"
+      ],
+      "sourceIds": [
+        "C0907-S05",
+        "C0907-S07",
+        "C0907-S08"
+      ],
+      "assets": [
+        "D07",
+        "D08",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "contact.allowlistOperationScopePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contact.toolTipMaterialIntentSeparated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contact.holderFixtureMachineAlwaysChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contact.protectedGeometryNoBypass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R07",
+      "capabilityId": "CAP-09-07",
+      "summary": "工程结果分级与发布隔离",
+      "engineeringRule": "有独立危险证据则REJECT_ENGINEERING；证据不充分、未建模控制器行为或覆盖缺口=UNKNOWN；STALE/取消/撤权优先；仅真实独立验证且人工复核后才可能交D16。",
+      "fields": [
+        "result.rejectUnknownStaleDistinct",
+        "result.independentD15OracleIdentity",
+        "result.evidenceCoverageAndKnownnessPinned",
+        "result.d16NeverAcceptsSyntheticOrClOnly"
+      ],
+      "sourceIds": [
+        "C0907-S03",
+        "C0907-S05",
+        "C0907-S07",
+        "C0907-S09"
+      ],
+      "assets": [
+        "D11",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "result.rejectUnknownStaleDistinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "result.independentD15OracleIdentity",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "result.evidenceCoverageAndKnownnessPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "result.d16NeverAcceptsSyntheticOrClOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R08",
+      "capabilityId": "CAP-09-07",
+      "summary": "同域入口与可交互诊断",
+      "engineeringRule": "GUI/CLI/Agent只能调用09域SafetyVerificationPort；单Babylon世界与左TaskPanel；诊断从NC调用实例映射D14关节、时间区间和危险几何对。",
+      "fields": [
+        "ui.guiCliAgentSameOwnerPort",
+        "ui.singleBabylonAndLeftTaskPanel",
+        "ui.ncCallInstanceTimelineJointPairLinked",
+        "ui.no3DColorEquivalentToSafetyPass"
+      ],
+      "sourceIds": [
+        "C0907-S04",
+        "C0907-S07",
+        "C0907-S09"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "ui.guiCliAgentSameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.singleBabylonAndLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.ncCallInstanceTimelineJointPairLinked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.no3DColorEquivalentToSafetyPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R09",
+      "capabilityId": "CAP-09-07",
+      "summary": "事务取消与并发重验",
+      "engineeringRule": "提交之前Owner再次核对ACL、CAS expectedRevision、Frame、scopeEpoch和取消令牌；晚回执只读不能触发D15新版本，也不能修改冻结记录。",
+      "fields": [
+        "tx.aclAndRoleRecheckOnCommit",
+        "tx.expectedRevisionCasAndFrameExact",
+        "tx.scopeEpochAndCancellationChecked",
+        "tx.lateAckNoCommitOrRelease"
+      ],
+      "sourceIds": [
+        "C0907-S09",
+        "C0907-S10"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "tx.aclAndRoleRecheckOnCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tx.expectedRevisionCasAndFrameExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tx.scopeEpochAndCancellationChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "tx.lateAckNoCommitOrRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-07-R10",
+      "capabilityId": "CAP-09-07",
+      "summary": "失效迁移与独立消费者交接",
+      "engineeringRule": "D03/D04/D10/D12/D13/D14及碰撞模型/算法/阈值变化按依赖图标STALE，新旧Reader配对迁移可回退；独立消费者正反、窗口覆盖和伪证反例必须实测而非自签。",
+      "fields": [
+        "handoff.dependencyInvalidationExact",
+        "handoff.pairedSchemaReadersRollback",
+        "handoff.separateOracleAndNegativeTests",
+        "handoff.frozenHistoryPreserved"
+      ],
+      "sourceIds": [
+        "C0907-S06",
+        "C0907-S07",
+        "C0907-S09",
+        "C0907-S10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "handoff.dependencyInvalidationExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.pairedSchemaReadersRollback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.separateOracleAndNegativeTests",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.frozenHistoryPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "任一必要字段失效/缺失不得获得发布资格；UNKNOWN不得假PASS；所有验收合成且真实产品NOT_RUN。",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

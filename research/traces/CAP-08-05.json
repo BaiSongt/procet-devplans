@@ -1,0 +1,544 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-05",
+  "researchTopic": "R-CYCLES-MACROS-001",
+  "sourceRegistry": "research/sources/CAP-08-05.json",
+  "specification": "docs/capabilities/CAP-08-05/README.md",
+  "ui": "docs/capabilities/CAP-08-05/UI.md",
+  "fixtures": "docs/capabilities/CAP-08-05/fixtures.json",
+  "validator": "tools/check_cap0805_planning_2026_10_26.cjs",
+  "status": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-08-05-R01",
+      "capabilityId": "CAP-08-05",
+      "summary": "NC/方言/Profile/Setup/绑定精确锁",
+      "sourceIds": [
+        "C085-S1",
+        "C085-S6"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "identity.ncHashPinned",
+        "identity.profilePinned",
+        "identity.d04Separate",
+        "identity.d10Exact"
+      ],
+      "criteria": [
+        {
+          "path": "identity.ncHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.profilePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.d04Separate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.d10Exact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P01",
+      "negativeTestId": "CAP-08-05-T-N01",
+      "mutationTestId": "CAP-08-05-M01"
+    },
+    {
+      "id": "CAP-08-05-R02",
+      "capabilityId": "CAP-08-05",
+      "summary": "G80/G81/G83循环白名单与取消",
+      "sourceIds": [
+        "C085-S2",
+        "C085-S4"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "cycle.whitelistPinned",
+        "cycle.g80Tracked",
+        "cycle.retractModalKnown",
+        "cycle.unknownFailClosed"
+      ],
+      "criteria": [
+        {
+          "path": "cycle.whitelistPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cycle.g80Tracked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cycle.retractModalKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cycle.unknownFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P02",
+      "negativeTestId": "CAP-08-05-T-N02",
+      "mutationTestId": "CAP-08-05-M02"
+    },
+    {
+      "id": "CAP-08-05-R03",
+      "capabilityId": "CAP-08-05",
+      "summary": "G83啄钻Q、Z目标、R平面有效性",
+      "sourceIds": [
+        "C085-S2",
+        "C085-S4"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "drill.finiteDepth",
+        "drill.peckPositive",
+        "drill.rPlaneValid",
+        "drill.noFalseSafety"
+      ],
+      "criteria": [
+        {
+          "path": "drill.finiteDepth",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "drill.peckPositive",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "drill.rPlaneValid",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "drill.noFalseSafety",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P03",
+      "negativeTestId": "CAP-08-05-T-N03",
+      "mutationTestId": "CAP-08-05-M03"
+    },
+    {
+      "id": "CAP-08-05-R04",
+      "capabilityId": "CAP-08-05",
+      "summary": "G98/G99返回平面、G90/G91模态前后态",
+      "sourceIds": [
+        "C085-S2",
+        "C085-S4"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "modal.entryKnown",
+        "modal.g98g99Scoped",
+        "modal.distanceKnown",
+        "modal.transitionsTraced"
+      ],
+      "criteria": [
+        {
+          "path": "modal.entryKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.g98g99Scoped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.distanceKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.transitionsTraced",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P04",
+      "negativeTestId": "CAP-08-05-T-N04",
+      "mutationTestId": "CAP-08-05-M04"
+    },
+    {
+      "id": "CAP-08-05-R05",
+      "capabilityId": "CAP-08-05",
+      "summary": "M97/M98/O call 程序闭包与路径约束",
+      "sourceIds": [
+        "C085-S1",
+        "C085-S3"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "subprogram.dialectKnown",
+        "subprogram.targetResolved",
+        "subprogram.closureHashed",
+        "subprogram.noTraversal"
+      ],
+      "criteria": [
+        {
+          "path": "subprogram.dialectKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "subprogram.targetResolved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "subprogram.closureHashed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "subprogram.noTraversal",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P05",
+      "negativeTestId": "CAP-08-05-T-N05",
+      "mutationTestId": "CAP-08-05-M05"
+    },
+    {
+      "id": "CAP-08-05-R06",
+      "capabilityId": "CAP-08-05",
+      "summary": "局部参数、全局副作用和未知厂商宏",
+      "sourceIds": [
+        "C085-S1",
+        "C085-S3"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "parameters.scopeKnown",
+        "parameters.globalWritesTraced",
+        "parameters.vendorMacroAllowlisted",
+        "parameters.unknownBlocked"
+      ],
+      "criteria": [
+        {
+          "path": "parameters.scopeKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "parameters.globalWritesTraced",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "parameters.vendorMacroAllowlisted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "parameters.unknownBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P06",
+      "negativeTestId": "CAP-08-05-T-N06",
+      "mutationTestId": "CAP-08-05-M06"
+    },
+    {
+      "id": "CAP-08-05-R07",
+      "capabilityId": "CAP-08-05",
+      "summary": "调用深度、循环展开预算及主M99",
+      "sourceIds": [
+        "C085-S1",
+        "C085-S8"
+      ],
+      "assets": [
+        "D13",
+        "D15"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "budget.callDepthBounded",
+        "budget.stepsBounded",
+        "budget.mainM99Unknown",
+        "budget.cancelFence"
+      ],
+      "criteria": [
+        {
+          "path": "budget.callDepthBounded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "budget.stepsBounded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "budget.mainM99Unknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "budget.cancelFence",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P07",
+      "negativeTestId": "CAP-08-05-T-N07",
+      "mutationTestId": "CAP-08-05-M07"
+    },
+    {
+      "id": "CAP-08-05-R08",
+      "capabilityId": "CAP-08-05",
+      "summary": "源NC行/调用栈/迭代到D14消费来源",
+      "sourceIds": [
+        "C085-S5",
+        "C085-S7"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "lineage.physicalLineMapped",
+        "lineage.callStackCaptured",
+        "lineage.typedEvents",
+        "lineage.d14NoCLSubstitution"
+      ],
+      "criteria": [
+        {
+          "path": "lineage.physicalLineMapped",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.callStackCaptured",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.typedEvents",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.d14NoCLSubstitution",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P08",
+      "negativeTestId": "CAP-08-05-T-N08",
+      "mutationTestId": "CAP-08-05-M08"
+    },
+    {
+      "id": "CAP-08-05-R09",
+      "capabilityId": "CAP-08-05",
+      "summary": "GUI/CLI/Agent单Owner入口及权限并发",
+      "sourceIds": [
+        "C085-S6",
+        "C085-S7"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "commit.singlePort",
+        "commit.casAclRechecked",
+        "commit.generationCancelChecked",
+        "commit.d08Frozen"
+      ],
+      "criteria": [
+        {
+          "path": "commit.singlePort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.generationCancelChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.d08Frozen",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P09",
+      "negativeTestId": "CAP-08-05-T-N09",
+      "mutationTestId": "CAP-08-05-M09"
+    },
+    {
+      "id": "CAP-08-05-R10",
+      "capabilityId": "CAP-08-05",
+      "summary": "D15独立验证、UNKNOWN阻发布和迁移回退",
+      "sourceIds": [
+        "C085-S5",
+        "C085-S7"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "fields": [
+        "release.d13ReparseIndependent",
+        "release.d15Independent",
+        "release.unknownBlocksD16",
+        "release.historyPreserved"
+      ],
+      "criteria": [
+        {
+          "path": "release.d13ReparseIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.d15Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.unknownBlocksD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "release.historyPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "关键来源、配置、预算或语义不可证时REJECT/UNKNOWN，D15未独立验证阻D16",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-05-T-P10",
+      "negativeTestId": "CAP-08-05-T-N10",
+      "mutationTestId": "CAP-08-05-M10"
+    }
+  ]
+}

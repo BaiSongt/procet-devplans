@@ -1,0 +1,341 @@
+{
+  "schemaVersion": "procet-b53-trace-v1",
+  "capabilityId": "CAP-09-03",
+  "researchTopic": "R-IK-BRANCH-001",
+  "sourceRegistry": "research/sources/CAP-09-03-homing-b53.json",
+  "fixtures": "docs/capabilities/CAP-09-03/homing-b53-fixtures-v08.json",
+  "validator": "tools/check_cap0903_homing_b53_v08.cjs",
+  "workPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "approval": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "B53-R01",
+      "summary": "精确D03/D04/D10/控制器修订与Frame",
+      "fields": [
+        "refs.d03.hash",
+        "refs.d04.role",
+        "refs.d10.hash",
+        "refs.controller.hash"
+      ],
+      "sourceIds": [
+        "B53-S05",
+        "B53-S06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N02",
+        "N03"
+      ],
+      "unknownCases": [
+        "U01",
+        "U04"
+      ]
+    },
+    {
+      "id": "B53-R02",
+      "summary": "双驱物理Joint身份与回零代次",
+      "fields": [
+        "mapping.jointIds",
+        "mapping.jointCount",
+        "joints[].epoch"
+      ],
+      "sourceIds": [
+        "B53-S01",
+        "B53-S02",
+        "B53-S05"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N05",
+        "N06",
+        "N07"
+      ],
+      "unknownCases": [
+        "U08"
+      ]
+    },
+    {
+      "id": "B53-R03",
+      "summary": "HOME_OFFSET原点与HOME最终位置分离",
+      "fields": [
+        "joints[].offset",
+        "joints[].latchCoordinate",
+        "joints[].home",
+        "joints[].nominalDifference"
+      ],
+      "sourceIds": [
+        "B53-S01",
+        "B53-S03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N09",
+        "N10"
+      ],
+      "unknownCases": [
+        "U11",
+        "U12"
+      ]
+    },
+    {
+      "id": "B53-R04",
+      "summary": "负HOME_SEQUENCE同步两物理Joint",
+      "fields": [
+        "joints[].sequence",
+        "home.syncFinal"
+      ],
+      "sourceIds": [
+        "B53-S01",
+        "B53-S02"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N13",
+        "N14",
+        "N15"
+      ],
+      "unknownCases": [
+        "U16"
+      ]
+    },
+    {
+      "id": "B53-R05",
+      "summary": "开关/索引类型与HAL证据",
+      "fields": [
+        "home.mode",
+        "home.search",
+        "home.latch",
+        "home.useIndex",
+        "home.indexWired"
+      ],
+      "sourceIds": [
+        "B53-S01",
+        "B53-S02"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N18",
+        "N19",
+        "N20"
+      ],
+      "unknownCases": [
+        "U17"
+      ]
+    },
+    {
+      "id": "B53-R06",
+      "summary": "断电/急停下VOLATILE_HOME失效",
+      "fields": [
+        "joints[].volatile",
+        "joints[].powerLost",
+        "joints[].estop"
+      ],
+      "sourceIds": [
+        "B53-S01",
+        "B53-S02",
+        "B53-S05"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N21",
+        "N22"
+      ],
+      "unknownCases": [
+        "U23",
+        "U24"
+      ]
+    },
+    {
+      "id": "B53-R07",
+      "summary": "物理Joint逐项软限，不误拒HOME_OFFSET限外",
+      "fields": [
+        "joints[].min",
+        "joints[].max",
+        "joints[].current",
+        "joints[].home"
+      ],
+      "sourceIds": [
+        "B53-S01",
+        "B53-S03",
+        "B53-S04"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N25",
+        "N26",
+        "N28"
+      ],
+      "unknownCases": [
+        "U27"
+      ]
+    },
+    {
+      "id": "B53-R08",
+      "summary": "Owner CAS/ACL/取消Fence/冻结与NC隔离",
+      "fields": [
+        "write.owner",
+        "write.acl",
+        "write.casHash",
+        "write.cancelFence",
+        "write.freezePreserved",
+        "nc.d13",
+        "nc.d15",
+        "nc.d16"
+      ],
+      "sourceIds": [
+        "B53-S05",
+        "B53-S06"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeCases": [
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34",
+        "N35"
+      ],
+      "unknownCases": [
+        "U36"
+      ]
+    }
+  ]
+}

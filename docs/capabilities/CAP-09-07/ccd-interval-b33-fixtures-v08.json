@@ -1,0 +1,338 @@
+{
+  "schemaVersion": "procet-b33-ccd-fixtures-v1",
+  "date": "2026-10-30",
+  "scope": "仅1D解析区间证明程序逻辑，非FCL运行、非机床碰撞认证、非材料扫掠",
+  "capability": "CAP-09-07",
+  "workPackages": [
+    "E3-04",
+    "E3-05"
+  ],
+  "positiveCount": 2,
+  "negativeCount": 30,
+  "base": {
+    "source": {
+      "finalNcHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d13Hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "d14Hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "d03KinematicsHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "d10BindingHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "profileHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "frame": "MACHINE_RH_MM",
+      "d04NominalOnly": true,
+      "fromFinalNc": true,
+      "exactRevision": true
+    },
+    "geometry": {
+      "shapeAHash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "shapeBHash": "2222222222222222222222222222222222222222222222222222222222222222",
+      "pair": "HOLDER_FIXTURE",
+      "frame": "MACHINE_RH_MM",
+      "startX": -3,
+      "endX": -2,
+      "fixedX": 0,
+      "radiusSum": 1,
+      "margin": 0.1,
+      "errorBound": 0,
+      "model": "LINEAR_TRANSLATION_1D",
+      "rotating": false,
+      "physicalJointPathProven": true,
+      "intervalsComplete": true,
+      "timeMonotonic": true,
+      "solver": "ANALYTIC_INTERVAL",
+      "solverVersion": "B33_MATH_V1",
+      "envelopeProven": true,
+      "allowCollision": false,
+      "allowlistScope": "NONE",
+      "onlyEndpointSampling": false
+    },
+    "guard": {
+      "owner": "09.SafetyVerificationOwner",
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "oneBabylonScene": true,
+      "taskPanel": "left/UnifiedTaskPanel",
+      "fontMaxPx": 12,
+      "expectedRevision": "D15-r4",
+      "actualRevision": "D15-r4",
+      "observedHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aclEpoch": 8,
+      "aclObserved": 8,
+      "scopeEpoch": 3,
+      "scopeObserved": 3,
+      "cancelGeneration": 1,
+      "ackGeneration": 1,
+      "cancelled": false,
+      "lateAck": false,
+      "cas": true,
+      "authorized": true,
+      "beforeFrozenHash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "afterFrozenHash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "rollback": "READ_ONLY_EXACT_REVISION",
+      "dependentInvalidation": "EXPLICIT",
+      "consumer": "NOT_RUN",
+      "d16": "BLOCKED",
+      "l3": "PENDING_HUMAN"
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "patch": {},
+      "expected": "SYNTHETIC_CLEARANCE_CANDIDATE"
+    },
+    {
+      "id": "P02",
+      "kind": "positive",
+      "patch": {
+        "geometry.startX": -2,
+        "geometry.endX": 2
+      },
+      "expected": "SYNTHETIC_COLLISION_WITNESS",
+      "assertFirstContact": 0.25
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "patch": {
+        "source.finalNcHash": "not-a-hash"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "patch": {
+        "source.d13Hash": ""
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "patch": {
+        "source.frame": "UNBOUND"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "patch": {
+        "source.d04NominalOnly": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "patch": {
+        "source.fromFinalNc": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "patch": {
+        "geometry.shapeAHash": "unknown"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "patch": {
+        "geometry.pair": "UNMODELLED_LINK"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "patch": {
+        "geometry.allowCollision": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "patch": {
+        "geometry.allowlistScope": "GLOBAL"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "patch": {
+        "geometry.intervalsComplete": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "patch": {
+        "geometry.timeMonotonic": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "patch": {
+        "geometry.rotating": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "patch": {
+        "geometry.physicalJointPathProven": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "patch": {
+        "geometry.solver": "SAMPLED_ENDPOINTS"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "patch": {
+        "geometry.envelopeProven": false
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "patch": {
+        "geometry.onlyEndpointSampling": true
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "patch": {
+        "geometry.errorBound": 1
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "patch": {
+        "geometry.endX": 0
+      },
+      "expected": "SYNTHETIC_COLLISION_WITNESS"
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "patch": {
+        "guard.owner": "09.ViewerPort"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "patch": {
+        "guard.oneBabylonScene": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N21",
+      "kind": "negative",
+      "patch": {
+        "guard.taskPanel": "right/Drawer"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N22",
+      "kind": "negative",
+      "patch": {
+        "guard.expectedRevision": "D15-r3"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N23",
+      "kind": "negative",
+      "patch": {
+        "guard.aclObserved": 7
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N24",
+      "kind": "negative",
+      "patch": {
+        "guard.scopeObserved": 2
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N25",
+      "kind": "negative",
+      "patch": {
+        "guard.cancelled": true
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N26",
+      "kind": "negative",
+      "patch": {
+        "guard.ackGeneration": 0
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "N27",
+      "kind": "negative",
+      "patch": {
+        "guard.afterFrozenHash": "4444444444444444444444444444444444444444444444444444444444444444"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N28",
+      "kind": "negative",
+      "patch": {
+        "guard.d16": "RELEASED"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N29",
+      "kind": "negative",
+      "patch": {
+        "guard.consumer": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "N30",
+      "kind": "negative",
+      "patch": {
+        "guard.rollback": "OVERWRITE_LATEST"
+      },
+      "expected": "REJECT"
+    }
+  ]
+}

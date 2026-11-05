@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "procet-e305-d15-interval-b12-v08",
+  "date": "2026-10-29",
+  "sourceHead": "60ab57195609ac422e828ba55e5e0a91a65e6def",
+  "planningOnly": true,
+  "ownerSigned": 0,
+  "product": "NOT_RUN",
+  "independentConsumers": "NOT_RUN",
+  "l3": "PENDING_HUMAN",
+  "sourceIndexUnchanged": true,
+  "sources": [
+    {
+      "id": "B12-OCCT-DIST",
+      "authors": "Open CASCADE SAS",
+      "title": "OCCT 8.0.1 BRepExtrema_DistShapeShape",
+      "url": "https://occt3d.com/dev/doc/refman/html/class_b_rep_extrema___dist_shape_shape.html",
+      "readDepth": "公开API：Perform/IsDone/Value/InnerSolution",
+      "limits": "静态最短距离非连续运动证明，包含需另判定",
+      "accessedOn": "2026-10-29",
+      "version": "8.0.1",
+      "publicationDate": "官方网页未注明具体出版日期"
+    },
+    {
+      "id": "B12-OCCT-CHECK",
+      "authors": "Open CASCADE SAS",
+      "title": "OCCT 8.0.1 BRepCheck_Analyzer",
+      "url": "https://occt3d.com/dev/doc/refman/html/class_b_rep_check___analyzer.html",
+      "readDepth": "公开API：IsValid/Description",
+      "limits": "形状有效性非物理机床认证",
+      "accessedOn": "2026-10-29",
+      "version": "8.0.1",
+      "publicationDate": "官方网页未注明具体出版日期"
+    },
+    {
+      "id": "B12-OCCT-COMMON",
+      "authors": "Open CASCADE SAS",
+      "title": "OCCT 8.0.1 BRepAlgoAPI_Common",
+      "url": "https://occt3d.com/dev/doc/refman/html/class_b_rep_algo_a_p_i___common.html",
+      "readDepth": "公开API：Boolean Intersection",
+      "limits": "静态布尔非时间连续证明",
+      "accessedOn": "2026-10-29",
+      "version": "8.0.1",
+      "publicationDate": "官方网页未注明具体出版日期"
+    },
+    {
+      "id": "B12-LINUX-KIN",
+      "authors": "LinuxCNC Project",
+      "title": "LinuxCNC 2.9 Kinematics",
+      "url": "https://www.linuxcnc.org/docs/2.9/html/motion/kinematics.html",
+      "readDepth": "官方HTML §1/§1.1/§2/§4",
+      "limits": "仅LinuxCNC示例，不能认证B5/OEM Joint映射",
+      "accessedOn": "2026-10-29",
+      "version": "2.9",
+      "publicationDate": "官方网页未注明具体出版日期"
+    },
+    {
+      "id": "B12-NIST6556",
+      "authors": "Thomas R. Kramer / Frederick M. Proctor / Elena Messna",
+      "title": "NIST IR6556 RS274NGS interpreter version 3",
+      "url": "https://www.nist.gov/publications/nist-rs274ngs-interpreter-version-3",
+      "readDepth": "官网出版元数据及作者；未读PDF正文",
+      "limits": "不得从未读正文推出控制器专有语义",
+      "accessedOn": "2026-10-29",
+      "version": "NIST IR 6556 (2000-01-01)",
+      "publicationDate": "2000-01-01"
+    },
+    {
+      "id": "B12-PROV",
+      "authors": "Timothy Lebo / Satya Sahoo / Deborah McGuinness",
+      "title": "W3C PROV-O Recommendation 2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "readDepth": "公开正文Abstract及来源Entity/Activity/Agent范围",
+      "limits": "本体只提供来源表达，不定义D15验收",
+      "accessedOn": "2026-10-29",
+      "version": "W3C Recommendation (2013-04-30)",
+      "publicationDate": "2013-04-30"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B12-R01",
+      "summary": "最终NC/D13/D14/D03/D10 exact，D04 Setup独立，未知语义不升格",
+      "fields": [
+        "ncExact",
+        "d13Exact",
+        "unknownCount",
+        "d14Exact",
+        "machineExact",
+        "executionExact",
+        "d04Separated",
+        "toolTableExact",
+        "frameExact"
+      ],
+      "sourceRefs": [
+        "B12-NIST6556",
+        "B12-LINUX-KIN",
+        "B12-PROV"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-09-08"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "acceptance": [
+        "B12-P01",
+        "B12-N01",
+        "B12-N02",
+        "B12-N03",
+        "B12-N04",
+        "B12-N05",
+        "B12-N06",
+        "B12-N07",
+        "B12-N08",
+        "B12-N09"
+      ],
+      "arithmeticIds": []
+    },
+    {
+      "id": "B12-R02",
+      "summary": "静态B-Rep有效且无相交/包含，求距成功并记录误差",
+      "fields": [
+        "brepValid",
+        "noIntersection",
+        "occtDone",
+        "noInnerSolution"
+      ],
+      "sourceRefs": [
+        "B12-OCCT-DIST",
+        "B12-OCCT-CHECK",
+        "B12-OCCT-COMMON"
+      ],
+      "caps": [
+        "CAP-09-08"
+      ],
+      "packages": [
+        "E3-05"
+      ],
+      "acceptance": [
+        "B12-P01",
+        "B12-N10",
+        "B12-N11",
+        "B12-N12",
+        "B12-N13"
+      ],
+      "arithmeticIds": []
+    },
+    {
+      "id": "B12-R03",
+      "summary": "全区间位移包络的保守下界严格大于净距门限；不可用端点净位移代替内点上界",
+      "fields": [
+        "gapLowerMm",
+        "movingUpperMm",
+        "obstacleUpperMm",
+        "uncertaintyMm",
+        "clearanceMm",
+        "interiorUpperBoundProven",
+        "oracleIndependent"
+      ],
+      "sourceRefs": [
+        "B12-OCCT-DIST",
+        "B12-LINUX-KIN"
+      ],
+      "caps": [
+        "CAP-09-08"
+      ],
+      "packages": [
+        "E3-05"
+      ],
+      "acceptance": [
+        "B12-P01",
+        "B12-N14",
+        "B12-N15",
+        "B12-N16",
+        "B12-N17",
+        "B12-N18",
+        "B12-N19",
+        "B12-N20"
+      ],
+      "arithmeticIds": [
+        "B12-X01",
+        "B12-X02",
+        "B12-X04"
+      ]
+    },
+    {
+      "id": "B12-R04",
+      "summary": "完整Joint/承载链、FK分支、时间及调用实例覆盖；端点采样无资格",
+      "fields": [
+        "jointChainComplete",
+        "fkBranchPinned",
+        "timebaseMonotone",
+        "allIntervalsCovered",
+        "notEndpointOnly"
+      ],
+      "sourceRefs": [
+        "B12-LINUX-KIN",
+        "B12-OCCT-DIST"
+      ],
+      "caps": [
+        "CAP-09-08"
+      ],
+      "packages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "acceptance": [
+        "B12-P01",
+        "B12-N21",
+        "B12-N22",
+        "B12-N23",
+        "B12-N24",
+        "B12-N25"
+      ],
+      "arithmeticIds": [
+        "B12-X03"
+      ]
+    },
+    {
+      "id": "B12-R05",
+      "summary": "合成候选不得冒称D15产品或D16消费者通过；CL显示不等于NC验证",
+      "fields": [
+        "candidateOnly",
+        "clNotProof",
+        "ownerStatus",
+        "productStatus",
+        "consumerStatus"
+      ],
+      "sourceRefs": [
+        "B12-PROV",
+        "B12-NIST6556"
+      ],
+      "caps": [
+        "CAP-09-08"
+      ],
+      "packages": [
+        "E3-05",
+        "E3-06"
+      ],
+      "acceptance": [
+        "B12-P01",
+        "B12-N26",
+        "B12-N27",
+        "B12-N28",
+        "B12-N29",
+        "B12-N30"
+      ],
+      "arithmeticIds": []
+    },
+    {
+      "id": "B12-R06",
+      "summary": "GUI/CLI/Agent同领域端口，CAS/ACL/cancel重验，单Babylon/左TaskPanel，禁止自动发布及材料扫掠",
+      "fields": [
+        "permissionEpochFresh",
+        "casRevisionMatches",
+        "cancelLateAckRejected",
+        "consumerIndependent",
+        "noAutoPublish",
+        "oneBabylonScene",
+        "leftTaskPanel",
+        "noMaterialSweep"
+      ],
+      "sourceRefs": [
+        "B12-PROV",
+        "B12-LINUX-KIN"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-09-08"
+      ],
+      "packages": [
+        "E3-05",
+        "E3-06",
+        "U4-04"
+      ],
+      "acceptance": [
+        "B12-P01",
+        "B12-N31",
+        "B12-N32",
+        "B12-N33",
+        "B12-N34",
+        "B12-N35",
+        "B12-N36",
+        "B12-N37",
+        "B12-N38"
+      ],
+      "arithmeticIds": []
+    }
+  ]
+}

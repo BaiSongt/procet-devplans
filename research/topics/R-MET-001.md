@@ -1,3 +1,6 @@
+## 2026-11-04｜B146：在机热漂移资源模型与现场实测资格
+[专项论证](../../docs/capabilities/CAP-02-06/THERMAL-DRIFT-BOUNDARY-B146-2026-11-04.md) → [7项来源](../sources/CAP-02-06-thermal-drift-b146.json) → [8规则/原F1-01/F1-02](../traces/CAP-02-06-thermal-drift-b146-v08.json) → [8正32反及8 Golden](../../docs/capabilities/CAP-02-06/thermal-drift-b146-fixtures-v08.json)。NIST2026论文仅读官方摘要、ISO230-3仅目录；D03资源预测和D17实测不能混为同一事实，不因热模型候选放行NC。真实量仪/Owner/消费者/L3均NOT_RUN。规划PASS≠产品PASS。
+
 # R-MET-001｜测量资源、在机探测与计量证据的适用边界
 
 编制于2026-10-17；**理论梳理已编制、待人类及计量Owner评审，未实施任何产品测试或计量认证**。关联[CAP-02-06](../../docs/capabilities/CAP-02-06/README.md)、[追踪JSON](../traces/CAP-02-06.json)。

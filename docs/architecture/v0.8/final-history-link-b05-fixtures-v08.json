@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "procet-v08-final-link-b05-fixtures-v1",
+  "observedActual": {
+    "head": "8dc79da2f1f5b84f138d7ecbcbc7e2308adb0848",
+    "total": 532,
+    "readCount": 50,
+    "shaMatches": 50,
+    "b04Stable": 96,
+    "unique": 146,
+    "links": 283,
+    "missing": 0,
+    "escapes": 0,
+    "parser": "REGEX_INLINE_SINGLE_LINE_ONLY",
+    "fullScan": false,
+    "owner": 0,
+    "consumer": 0,
+    "productPass": false,
+    "l3": "PENDING_HUMAN",
+    "unknownNc": "UNKNOWN",
+    "history": "NOT_RECOVERED"
+  },
+  "cases": [
+    {
+      "id": "B05-P01",
+      "base": "observedActual",
+      "expected": true
+    },
+    {
+      "id": "B05-N01",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "head": "0000000000000000000000000000000000000000"
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N02",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "total": 531
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N03",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "readCount": 49
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N04",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "shaMatches": 49
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N05",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "b04Stable": 95
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N06",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "unique": 145
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N07",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "links": 282
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N08",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "missing": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N09",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "escapes": 1
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N10",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "parser": "COMMONMARK_AST"
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N11",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "fullScan": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N12",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "owner": 17
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N13",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "consumer": 17
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N14",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "productPass": true
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N15",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "l3": "APPROVED"
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N16",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "unknownNc": "KNOWN"
+      },
+      "expected": false
+    },
+    {
+      "id": "B05-N17",
+      "base": "observedActual",
+      "oneFieldOverride": {
+        "history": "RECOVERED"
+      },
+      "expected": false
+    }
+  ],
+  "domainGateSyntheticOnly": [
+    {
+      "id": "B05-G01",
+      "topic": "未知G/M模态或缺失Profile",
+      "state": {
+        "nc": "UNKNOWN",
+        "d13": "UNKNOWN",
+        "d14": "NOT_RUN",
+        "d15": "NOT_RUN"
+      },
+      "expectedD16": "BLOCK"
+    },
+    {
+      "id": "B05-G02",
+      "topic": "D12字节不变但D10机床绑定/已加载工具表发生变化",
+      "state": {
+        "nc": "UNCHANGED",
+        "binding": "CHANGED",
+        "loadedToolTable": "CHANGED",
+        "d15": "STALE"
+      },
+      "expectedD16": "BLOCK"
+    },
+    {
+      "id": "B05-G03",
+      "topic": "只看CL预览未重读最终NC",
+      "state": {
+        "clPreview": true,
+        "finalNcInterpreted": false,
+        "d15": "NOT_RUN"
+      },
+      "expectedD16": "BLOCK"
+    },
+    {
+      "id": "B05-G04",
+      "topic": "取消后收到晚回执且权限Epoch变化",
+      "state": {
+        "cancelled": true,
+        "lateAck": true,
+        "permissionRechecked": false
+      },
+      "expectedCommit": "REJECT"
+    },
+    {
+      "id": "B05-G05",
+      "topic": "设计文档已通过但Owner/消费者仍缺席",
+      "state": {
+        "ownerSignatures": 0,
+        "independentConsumerAcceptances": 0,
+        "l3": "PENDING_HUMAN"
+      },
+      "expectedPlanningComplete": false
+    }
+  ],
+  "explanatoryLimitation": "17个独立单字段反例+1真实局部状态正例+5设计门禁仅规划谓词。机器独立Node与NC/OCCT/B5/消费者NOT_RUN。"
+}

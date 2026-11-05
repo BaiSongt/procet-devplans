@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "procet-b141-traces-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-08-08",
+  "researchTopic": "R-POST-SUPPLYCHAIN-001",
+  "sourceRegistry": "research/sources/CAP-08-08-post-provenance-b141.json",
+  "originalWorkPackages": [
+    "E3-02",
+    "E3-03",
+    "U4-04"
+  ],
+  "rules": [
+    {
+      "id": "B141-R01",
+      "description": "输入和后处理产物固定身份",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S06",
+        "B141-S01"
+      ],
+      "fields": [
+        "input.d09RevisionHashFrame",
+        "input.d08FreezePinned",
+        "input.pluginSha256Pinned",
+        "input.configAndRuntimeHashPinned"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "REJECT_INPUT",
+      "tests": [
+        "B141-R01-P",
+        "B141-R01-N1",
+        "B141-R01-N2",
+        "B141-R01-N3",
+        "B141-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B141-R02",
+      "description": "SLSA Provenance必须可独立核对",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S01",
+        "B141-S06"
+      ],
+      "fields": [
+        "provenance.subjectDigestMatches",
+        "provenance.builderIdentityTrusted",
+        "provenance.buildTypeAndParamsReviewed",
+        "provenance.dependencyRefsChecked"
+      ],
+      "assets": [
+        "D09",
+        "D12"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "UNKNOWN_PROVENANCE",
+      "tests": [
+        "B141-R02-P",
+        "B141-R02-N1",
+        "B141-R02-N2",
+        "B141-R02-N3",
+        "B141-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B141-R03",
+      "description": "不得签名即宣称SLSA L3",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S02",
+        "B141-S06"
+      ],
+      "fields": [
+        "assurance.assessmentScopePinned",
+        "assurance.independentBuilderEvidence",
+        "assurance.noSelfDeclaredL3",
+        "assurance.sourceAndBuildTrackDistinct"
+      ],
+      "assets": [
+        "D12"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "UNKNOWN_BUILD_LEVEL",
+      "tests": [
+        "B141-R03-P",
+        "B141-R03-N1",
+        "B141-R03-N2",
+        "B141-R03-N3",
+        "B141-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B141-R04",
+      "description": "离线Bundle验签与身份策略分开",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S03",
+        "B141-S04",
+        "B141-S07"
+      ],
+      "fields": [
+        "signature.bundleVersionRecognized",
+        "signature.cryptoVerified",
+        "signature.signerAndIssuerExpected",
+        "signature.trustRootPinned"
+      ],
+      "assets": [
+        "D12"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "UNKNOWN_SIGNATURE",
+      "tests": [
+        "B141-R04-P",
+        "B141-R04-N1",
+        "B141-R04-N2",
+        "B141-R04-N3",
+        "B141-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B141-R05",
+      "description": "签署时间与透明日志证据不可猜",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S03",
+        "B141-S04"
+      ],
+      "fields": [
+        "offline.bundleLocallyPresent",
+        "offline.signedTimeCryptographicallyVerified",
+        "offline.logProofOrPromiseChecked",
+        "offline.noOnlineRequirementAssumed"
+      ],
+      "assets": [
+        "D12",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "UNKNOWN_TIME",
+      "tests": [
+        "B141-R05-P",
+        "B141-R05-N1",
+        "B141-R05-N2",
+        "B141-R05-N3",
+        "B141-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B141-R06",
+      "description": "OEM固件Profile不是签名可证明的",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S06",
+        "B141-S01"
+      ],
+      "fields": [
+        "profile.d03ResourceExact",
+        "profile.d10FirmwareOptionsExact",
+        "profile.postDialectCompatibilityChecked",
+        "profile.unknownBlocksRelease"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "UNKNOWN_CONTROLLER",
+      "tests": [
+        "B141-R06-P",
+        "B141-R06-N1",
+        "B141-R06-N2",
+        "B141-R06-N3",
+        "B141-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B141-R07",
+      "description": "受管Owner、CAS和取消晚回执",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S06"
+      ],
+      "fields": [
+        "owner.guiCliAgentSamePort",
+        "owner.casAclScopeRechecked",
+        "owner.cancelLateAckRejected",
+        "owner.abFreezePreserved"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D17"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "REJECT_TRANSACTION",
+      "tests": [
+        "B141-R07-P",
+        "B141-R07-N1",
+        "B141-R07-N2",
+        "B141-R07-N3",
+        "B141-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B141-R08",
+      "description": "签名静态PASS不得越过NC执行链",
+      "capabilityId": "CAP-08-08",
+      "sourceIds": [
+        "B141-S06"
+      ],
+      "fields": [
+        "handoff.d13ReadsFinalD12Bytes",
+        "handoff.d14UsesActualD10",
+        "handoff.independentD15Consumer",
+        "handoff.d16HumanApprovalSeparate"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "failureStatus": "UNKNOWN_ENGINEERING",
+      "tests": [
+        "B141-R08-P",
+        "B141-R08-N1",
+        "B141-R08-N2",
+        "B141-R08-N3",
+        "B141-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,581 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-08-02",
+  "researchTopic": "R-DIALECT-PROFILE-001",
+  "sourceRegistry": "research/sources/CAP-08-02.json",
+  "specification": "docs/capabilities/CAP-08-02/README.md",
+  "ui": "docs/capabilities/CAP-08-02/UI.md",
+  "fixtures": "docs/capabilities/CAP-08-02/fixtures.json",
+  "validator": "tools/check_cap0802_planning_2026_10_26.cjs",
+  "status": "compiled_pending_human_review_product_not_run",
+  "rules": [
+    {
+      "id": "CAP-08-02-R01",
+      "capabilityId": "CAP-08-02",
+      "summary": "精确控制器方言与配置组合锁",
+      "sourceIds": [
+        "DIA-SRC-ISO6983",
+        "DIA-SRC-SIEMENS-INDEX",
+        "DIA-SRC-RFC9110"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "binding.d10Hash",
+          "op": "same",
+          "otherPath": "binding.consumerD10Hash"
+        },
+        {
+          "path": "dialect.profileHash",
+          "op": "same",
+          "otherPath": "dialect.consumerProfileHash"
+        },
+        {
+          "path": "dialect.versionKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "dialect.controllerOptionKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "binding.d10Hash",
+        "binding.consumerD10Hash",
+        "dialect.profileHash",
+        "dialect.consumerProfileHash",
+        "dialect.versionKnown",
+        "dialect.controllerOptionKnown"
+      ],
+      "negativeRequirement": "缺D10、固件/选件或Profile精确版本不得获得已支持资格",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T01",
+      "negativeTestId": "CAP-08-02-T02",
+      "mutationTestId": "CAP-08-02-M01"
+    },
+    {
+      "id": "CAP-08-02-R02",
+      "capabilityId": "CAP-08-02",
+      "summary": "D09中立CL不得夹带机床方言",
+      "sourceIds": [
+        "DIA-SRC-NIST6556",
+        "DIA-SRC-ISO6983"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "cl.machineSpecificCode",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "cl.frameKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "cl.owner",
+          "op": "eq",
+          "value": "07"
+        },
+        {
+          "path": "post.usesExactCl",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "cl.machineSpecificCode",
+        "cl.frameKnown",
+        "cl.owner",
+        "post.usesExactCl"
+      ],
+      "negativeRequirement": "D09保持刀位意图，目标控制器语法只能进入D12及D13",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T03",
+      "negativeTestId": "CAP-08-02-T04",
+      "mutationTestId": "CAP-08-02-M02"
+    },
+    {
+      "id": "CAP-08-02-R03",
+      "capabilityId": "CAP-08-02",
+      "summary": "逐字法与指令白名单及选件适用性",
+      "sourceIds": [
+        "DIA-SRC-LINUX-GCODES",
+        "DIA-SRC-HAAS-GCODE",
+        "DIA-SRC-HAAS-MCODE"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "coverage.lexicalSubsetKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "coverage.requiredCodesDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "coverage.unlistedCodeBlocks",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "coverage.licenseAndOptionKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "coverage.lexicalSubsetKnown",
+        "coverage.requiredCodesDeclared",
+        "coverage.unlistedCodeBlocks",
+        "coverage.licenseAndOptionKnown"
+      ],
+      "negativeRequirement": "未列出指令、选件与控制器行为须UNKNOWN/阻断而非按类似G码猜",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T05",
+      "negativeTestId": "CAP-08-02-T06",
+      "mutationTestId": "CAP-08-02-M03"
+    },
+    {
+      "id": "CAP-08-02-R04",
+      "capabilityId": "CAP-08-02",
+      "summary": "模态组、初态、单位及WCS显式定义",
+      "sourceIds": [
+        "DIA-SRC-LINUX-MODAL",
+        "DIA-SRC-LINUX-GCODES"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "modal.initialStateKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.groupTableVersioned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.unitsKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.wcsKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "modal.arcCenterModeKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "modal.initialStateKnown",
+        "modal.groupTableVersioned",
+        "modal.unitsKnown",
+        "modal.wcsKnown",
+        "modal.arcCenterModeKnown"
+      ],
+      "negativeRequirement": "缺模态初态不能沿用其它控制器默认值",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T07",
+      "negativeTestId": "CAP-08-02-T08",
+      "mutationTestId": "CAP-08-02-M04"
+    },
+    {
+      "id": "CAP-08-02-R05",
+      "capabilityId": "CAP-08-02",
+      "summary": "方言模式切换必须有目标版本支持证据",
+      "sourceIds": [
+        "DIA-SRC-SIEMENS-INDEX",
+        "DIA-SRC-HAAS-GCODE",
+        "DIA-SRC-LINUX-MODAL"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "switch.modeExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "switch.versionedManualEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "switch.noImplicitFallback",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "switch.controllerIdentityPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "switch.modeExplicit",
+        "switch.versionedManualEvidence",
+        "switch.noImplicitFallback",
+        "switch.controllerIdentityPinned"
+      ],
+      "negativeRequirement": "不可根据相似厂牌或G代码编号自动切方言",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T09",
+      "negativeTestId": "CAP-08-02-T10",
+      "mutationTestId": "CAP-08-02-M05"
+    },
+    {
+      "id": "CAP-08-02-R06",
+      "capabilityId": "CAP-08-02",
+      "summary": "宏、循环、子程序和预算上界",
+      "sourceIds": [
+        "DIA-SRC-NIST6556",
+        "DIA-SRC-LINUX-GCODES",
+        "DIA-SRC-HAAS-MCODE"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "flow.expansionBounded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.parametersResolved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.callBudgetKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "flow.unmodeledIsUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "flow.expansionBounded",
+        "flow.parametersResolved",
+        "flow.callBudgetKnown",
+        "flow.unmodeledIsUnknown"
+      ],
+      "negativeRequirement": "未知分支/宏变量/循环绝不可静默当G1通过",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T11",
+      "negativeTestId": "CAP-08-02-T12",
+      "mutationTestId": "CAP-08-02-M06"
+    },
+    {
+      "id": "CAP-08-02-R07",
+      "capabilityId": "CAP-08-02",
+      "summary": "WCS、刀补、RTCP与运动学边界",
+      "sourceIds": [
+        "DIA-SRC-OCCTTRSF",
+        "DIA-SRC-LINUX-GCODES"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "frame.d04D10Separated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.compensationDefined",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.rtcpUnknownExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.exactVersionPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "frame.d04D10Separated",
+        "frame.compensationDefined",
+        "frame.rtcpUnknownExplicit",
+        "frame.exactVersionPinned"
+      ],
+      "negativeRequirement": "OCCT刚体变换不能冒充控制器刀补/RTCP或轴运动判定",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T13",
+      "negativeTestId": "CAP-08-02-T14",
+      "mutationTestId": "CAP-08-02-M07"
+    },
+    {
+      "id": "CAP-08-02-R08",
+      "capabilityId": "CAP-08-02",
+      "summary": "原始NC字节不可变与逐行双向溯源",
+      "sourceIds": [
+        "DIA-SRC-PROVO",
+        "DIA-SRC-NIST6556"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "mapping.ncBytesImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.lineProvenanceComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.syntheticLineReason",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.d13ReReadsExactBytes",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "mapping.ncBytesImmutable",
+        "mapping.lineProvenanceComplete",
+        "mapping.syntheticLineReason",
+        "mapping.d13ReReadsExactBytes"
+      ],
+      "negativeRequirement": "手工修改NC必须分叉修订，合成行记录原因",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T15",
+      "negativeTestId": "CAP-08-02-T16",
+      "mutationTestId": "CAP-08-02-M08"
+    },
+    {
+      "id": "CAP-08-02-R09",
+      "capabilityId": "CAP-08-02",
+      "summary": "同Owner领域端口的CAS/权限及取消晚回执",
+      "sourceIds": [
+        "DIA-SRC-RFC9110",
+        "DIA-SRC-PROVO"
+      ],
+      "assets": [
+        "D01",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "commit.expectedRevision",
+          "op": "same",
+          "otherPath": "commit.currentRevision"
+        },
+        {
+          "path": "commit.authorized",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.scopeFrameRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.generation",
+          "op": "same",
+          "otherPath": "commit.returnGeneration"
+        },
+        {
+          "path": "commit.cancelled",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "fields": [
+        "commit.expectedRevision",
+        "commit.currentRevision",
+        "commit.authorized",
+        "commit.scopeFrameRechecked",
+        "commit.generation",
+        "commit.returnGeneration",
+        "commit.cancelled"
+      ],
+      "negativeRequirement": "GUI/CLI/Agent不能越过08域Owner提交，撤销与晚回执不写入",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T17",
+      "negativeTestId": "CAP-08-02-T18",
+      "mutationTestId": "CAP-08-02-M09"
+    },
+    {
+      "id": "CAP-08-02-R10",
+      "capabilityId": "CAP-08-02",
+      "summary": "独立D13/D14/D15阻断D16、变更失效与回滚",
+      "sourceIds": [
+        "DIA-SRC-NIST6556",
+        "DIA-SRC-PROVO",
+        "DIA-SRC-RFC9110"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "gate.d13ReadsExactD12",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.d14AndD15Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.unknownBlocksD16",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.clPreviewNotNcApproval",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.immutableHistoryAndRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "fields": [
+        "gate.d13ReadsExactD12",
+        "gate.d14AndD15Independent",
+        "gate.unknownBlocksD16",
+        "gate.clPreviewNotNcApproval",
+        "gate.immutableHistoryAndRollback"
+      ],
+      "negativeRequirement": "D11/CL预览不等同最终NC验证，UNKNOWN和旧版本证据不能授权发布",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "positiveTestId": "CAP-08-02-T19",
+      "negativeTestId": "CAP-08-02-T20",
+      "mutationTestId": "CAP-08-02-M10"
+    }
+  ]
+}

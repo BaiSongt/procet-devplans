@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "procet-t504-migration-ports-proposal-v1",
+  "onlySynthetic": true,
+  "domainOwners": "17候选待人类会签",
+  "commonC0": [
+    "identity",
+    "unit",
+    "FrameRef",
+    "revision",
+    "hash",
+    "scope",
+    "protocol"
+  ],
+  "ports": [
+    "01.MigrationCoordinatorPort.planReadOnly",
+    "DomainOwner(Dxx).migrateCAS",
+    "01.MigrationEvidencePort.readExactLedger",
+    "01.CutoverReviewPort.requestHumanApproval"
+  ],
+  "commitChecks": [
+    "expectedRevision",
+    "sourceHash",
+    "frameHash",
+    "scopeEpoch",
+    "aclEpoch",
+    "taskGeneration",
+    "cancelToken"
+  ],
+  "boundaries": {
+    "d04": "ProcessSetup",
+    "d10": "ExecutionBinding",
+    "nc": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "unknown": "BLOCK_RELEASE",
+    "clAnimationIsNcVerification": false,
+    "materialSweepSimulation": false
+  },
+  "rollback": {
+    "preserveUserDatabase": true,
+    "preserveFrozenD08": true,
+    "preserveReleasedD16": true,
+    "pairedInstallerComposition": true
+  },
+  "tests": {
+    "planning": "SYNTHETIC_ONLY",
+    "product": "NOT_RUN",
+    "consumer": "NOT_RUN",
+    "human": "PENDING_HUMAN"
+  }
+}

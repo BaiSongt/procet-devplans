@@ -1,0 +1,612 @@
+{
+  "schemaVersion": "procet-cap0204-research-supplement-v08",
+  "capabilityId": "CAP-02-04",
+  "researchTopic": "R-WH-001",
+  "legacyTrace": "research/traces/CAP-02-04.json",
+  "registry": "research/sources/CAP-02-04.json",
+  "verification": "tracking/cap0204-research-verification-2026-10-28.json",
+  "traceStatus": "COMPILED_PENDING_HUMAN",
+  "evidenceBoundary": "public source excerpts/catalog abstracts plus explicitly labeled design derivation, not machine tests",
+  "engineeringGates": {
+    "c0Minimal": true,
+    "d04D10Separate": true,
+    "oneBabylonEngineSceneCanvas": true,
+    "unifiedLeftPanel": true,
+    "guiCliAgentSameOwnerPort": true,
+    "aclScopeCasCancel": true,
+    "immutableAB": true,
+    "ncChain": [
+      "D09",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "clNotNcVerification": true,
+    "unknownNotPublishable": true,
+    "noMaterialSweptSimulation": true
+  },
+  "rules": [
+    {
+      "id": "WH04-V08-R01",
+      "capabilityId": "CAP-02-04",
+      "summary": "精确夹具定义与冻结历史",
+      "engineeringRule": "资源发布修订必须带exact引用、hash并且禁止latest回退；既有A/B冻结成果保留。",
+      "fields": [
+        "identity.exactAssembly",
+        "identity.revisionHash",
+        "identity.noLatest",
+        "identity.frozenAB"
+      ],
+      "sourceIds": [
+        "WH04-S08",
+        "WH04-S06"
+      ],
+      "capTests": [
+        "WH-T01",
+        "WH-T15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "业务Owner版本策略为内部推导，PROV/RFC只作修订与条件语义参照",
+      "criteria": [
+        {
+          "path": "identity.exactAssembly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.revisionHash",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.noLatest",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.frozenAB",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R02",
+      "capabilityId": "CAP-02-04",
+      "summary": "父局部安装链与刚体判定",
+      "engineeringRule": "接口变换标明from/to且按parent-local复合；应拒绝镜像或缩放充当实际装配。",
+      "fields": [
+        "frame.namedFromTo",
+        "frame.parentLocalOrder",
+        "frame.rightHandRigid",
+        "frame.explicitUnits"
+      ],
+      "sourceIds": [
+        "WH04-S04",
+        "WH04-S02"
+      ],
+      "capTests": [
+        "WH-T03",
+        "WH-T17"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "OCCT API支持多种变换；SE(3)是产品约束，并非gp_Trsf默认强制",
+      "criteria": [
+        {
+          "path": "frame.namedFromTo",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.parentLocalOrder",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.rightHandRigid",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "frame.explicitUnits",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R03",
+      "capabilityId": "CAP-02-04",
+      "summary": "3-2-1局限与单边逃逸",
+      "engineeringRule": "接触需有法向、坐标与秩诊断；即使双边矩阵满秩也要独立检查允许分离运动。",
+      "fields": [
+        "contact.normalFrame",
+        "contact.pointRevision",
+        "contact.scaledRank",
+        "contact.escapeWitness"
+      ],
+      "sourceIds": [
+        "WH04-S03",
+        "WH04-S01"
+      ],
+      "capTests": [
+        "WH-T07",
+        "WH-T08"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "文献摘要仅给使用前提；一阶数学反例来自原R-WH-001自主推导",
+      "criteria": [
+        {
+          "path": "contact.normalFrame",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contact.pointRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contact.scaledRank",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "contact.escapeWitness",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R04",
+      "capabilityId": "CAP-02-04",
+      "summary": "定位/力学/机床验收分项",
+      "engineeringRule": "各分项结果必须绑定输入和方法；定位满秩、几何精度目录都不能授予实际装夹安全通过。",
+      "fields": [
+        "assessment.scopeBound",
+        "assessment.methodVersion",
+        "assessment.noRankToSafety",
+        "assessment.unknownExplicit"
+      ],
+      "sourceIds": [
+        "WH04-S01",
+        "WH04-S07"
+      ],
+      "capTests": [
+        "WH-T07",
+        "WH-T09"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "ISO仅摘要；不引用任何标准未读容差",
+      "criteria": [
+        {
+          "path": "assessment.scopeBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "assessment.methodVersion",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "assessment.noRankToSafety",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "assessment.unknownExplicit",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R05",
+      "capabilityId": "CAP-02-04",
+      "summary": "受限载荷与摩擦来源",
+      "engineeringRule": "载荷版本、摩擦依据、夹紧力单位和未知缺失策略都必须显式；不补默认摩擦/预紧。",
+      "fields": [
+        "load.loadCaseRevision",
+        "load.frictionEvidence",
+        "load.forceUnitN",
+        "load.missingUnknown"
+      ],
+      "sourceIds": [
+        "WH04-S01",
+        "WH04-S03"
+      ],
+      "capTests": [
+        "WH-T09",
+        "WH-T10"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "仅文献摘要作模型选择背景，未做有限元、实际载荷或材料试验",
+      "criteria": [
+        {
+          "path": "load.loadCaseRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "load.frictionEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "load.forceUnitN",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "load.missingUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R06",
+      "capabilityId": "CAP-02-04",
+      "summary": "D03/D04/D10/D13分工",
+      "engineeringRule": "D03夹具定义、D04名义采用、D10实际绑定、D13最终控制器状态各有唯一写入域。",
+      "fields": [
+        "owner.d03Definition",
+        "owner.d04NominalSetup",
+        "owner.d10Binding",
+        "owner.d13Controller"
+      ],
+      "sourceIds": [
+        "WH04-S05",
+        "WH04-S08"
+      ],
+      "capTests": [
+        "WH-T11",
+        "WH-T13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "具体写权是Procet架构决策，LinuxCNC坐标案例不代表B5控制器",
+      "criteria": [
+        {
+          "path": "owner.d03Definition",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.d04NominalSetup",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.d10Binding",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "owner.d13Controller",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R07",
+      "capabilityId": "CAP-02-04",
+      "summary": "资源选择和失效闭包",
+      "engineeringRule": "采用exact装配、受控接口配合，不隐式自动落座；上游变化使相关检查与消费者旧证据stale。",
+      "fields": [
+        "selection.exactRef",
+        "selection.mateEvidence",
+        "selection.noImplicitFit",
+        "selection.invalidateConsumers"
+      ],
+      "sourceIds": [
+        "WH04-S04",
+        "WH04-S08"
+      ],
+      "capTests": [
+        "WH-T05",
+        "WH-T14",
+        "WH-T16"
+      ],
+      "workPackages": [
+        "F1-06",
+        "E3-04"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "失效传播为内部消费者合同，不能靠PROV关系自动执行",
+      "criteria": [
+        {
+          "path": "selection.exactRef",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "selection.mateEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "selection.noImplicitFit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "selection.invalidateConsumers",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R08",
+      "capabilityId": "CAP-02-04",
+      "summary": "CAS取消竞态与回执",
+      "engineeringRule": "Owner事务重验ACL+ScopeEpoch、expectedRevision/CAS、cancelGeneration，晚ACK不得恢复写权。",
+      "fields": [
+        "commit.scopeAclRecheck",
+        "commit.expectedCas",
+        "commit.cancelRecheck",
+        "commit.lateAckNoWrite"
+      ],
+      "sourceIds": [
+        "WH04-S06",
+        "WH04-S08"
+      ],
+      "capTests": [
+        "WH-T02",
+        "WH-T06"
+      ],
+      "workPackages": [
+        "F1-06"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "RFC预条件不含实际ACL或Worker取消逻辑；均需独立产品验证",
+      "criteria": [
+        {
+          "path": "commit.scopeAclRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.expectedCas",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelRecheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.lateAckNoWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R09",
+      "capabilityId": "CAP-02-04",
+      "summary": "GUI/CLI/Agent统一与单3D",
+      "engineeringRule": "同一业务Port提供GUI/CLI/Agent入口；唯一Babylon Engine/Scene/Canvas及统一左TaskPanel、最大12px。",
+      "fields": [
+        "ui.sameOwnerPort",
+        "ui.oneBabylonWorld",
+        "ui.unifiedLeftPanel",
+        "ui.fontMax12"
+      ],
+      "sourceIds": [
+        "WH04-S02",
+        "WH04-S08"
+      ],
+      "capTests": [
+        "WH-T06",
+        "WH-T11"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "UI约束属于本仓设计决议，不声称NIST论文提出界面或字体要求",
+      "criteria": [
+        {
+          "path": "ui.sameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.oneBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.unifiedLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.fontMax12",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "WH04-V08-R10",
+      "capabilityId": "CAP-02-04",
+      "summary": "中立CL与NC工程验证隔离",
+      "engineeringRule": "D09中立CL与D12后处理、D13语义、D14轴时序、D15验证、D16发布保持独立；unknown阻签发。",
+      "fields": [
+        "nc.clNotNcPass",
+        "nc.finalNcSemantic",
+        "nc.axisAndValidationIndependent",
+        "nc.unknownBlocksRelease"
+      ],
+      "sourceIds": [
+        "WH04-S05",
+        "WH04-S07"
+      ],
+      "capTests": [
+        "WH-T09",
+        "WH-T13"
+      ],
+      "workPackages": [
+        "E3-04",
+        "F1-06"
+      ],
+      "originalRuleReferences": [
+        "WH-R01",
+        "WH-R02",
+        "WH-R03",
+        "WH-R04",
+        "WH-R05",
+        "WH-R06",
+        "WH-R07",
+        "WH-R08"
+      ],
+      "claimBoundary": "机床/控制器专属差异未知；不做材料扫掠仿真，不把显示动画作工程验收",
+      "criteria": [
+        {
+          "path": "nc.clNotNcPass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.finalNcSemantic",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.axisAndValidationIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.unknownBlocksRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN",
+  "realIndependentConsumers": "NOT_RUN",
+  "l3": "PENDING_HUMAN"
+}

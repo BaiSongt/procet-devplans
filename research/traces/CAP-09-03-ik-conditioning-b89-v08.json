@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "procet-b89-ik-conditioning-trace-v08",
+  "date": "2026-11-01",
+  "capabilityId": "CAP-09-03",
+  "relatedCapabilities": [
+    "CAP-09-01",
+    "CAP-09-02",
+    "CAP-09-06",
+    "CAP-09-07"
+  ],
+  "originalWorkPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "sourceRegistry": "research/sources/CAP-09-03-ik-conditioning-b89.json",
+  "acceptanceFixture": "docs/capabilities/CAP-09-03/ik-conditioning-b89-fixtures-v08.json",
+  "validator": "tools/check_cap0903_ik_conditioning_b89_v08.cjs",
+  "ruleCount": 8,
+  "assetOwners": "候选D03=02域、D04/D10=04域、D13=08域、D14/D15=09域、D16=10域；正式人类签署0/17",
+  "independentConsumers": "NOT_RUN",
+  "rules": [
+    {
+      "id": "B89-R1",
+      "statement": "D03/D10等精确SHA、Controller Profile/Frame与D04名义Setup不能互换",
+      "sourceIds": [
+        "B89-S07"
+      ],
+      "fields": [
+        "refs.d03Hash",
+        "refs.expectedD03Hash",
+        "refs.d04Frame",
+        "refs.d10Hash",
+        "refs.expectedD10Hash",
+        "refs.d10Frame",
+        "refs.controllerProfileHash",
+        "refs.frameConvention"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "F1-02",
+      "positiveIds": [
+        "B89-P1"
+      ],
+      "negativeIds": [
+        "B89-N1-1",
+        "B89-N1-2",
+        "B89-N1-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B89-R2",
+      "statement": "SVD记录算法版本、维度、可复算奇异值及显式数值秩阈值",
+      "sourceIds": [
+        "B89-S01",
+        "B89-S03"
+      ],
+      "fields": [
+        "svd.algorithm",
+        "svd.version",
+        "svd.rows",
+        "svd.cols",
+        "svd.sigmas",
+        "svd.threshold",
+        "svd.rank"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B89-P2"
+      ],
+      "negativeIds": [
+        "B89-N2-1",
+        "B89-N2-2",
+        "B89-N2-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B89-R3",
+      "statement": "异量纲Task/Joint速度必须锁定归一化比例，不能直接裸比较奇异值",
+      "sourceIds": [
+        "B89-S01",
+        "B89-S07"
+      ],
+      "fields": [
+        "scale.taskScalePinned",
+        "scale.jointScalePinned",
+        "scale.normalized",
+        "scale.mixedUnitAuto"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D10",
+        "D14"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B89-P3"
+      ],
+      "negativeIds": [
+        "B89-N3-1",
+        "B89-N3-2",
+        "B89-N3-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B89-R4",
+      "statement": "阻尼最小二乘增益有界并核对逐分量预测步长和未消解残差，阻尼不代表已到达目标",
+      "sourceIds": [
+        "B89-S02",
+        "B89-S03",
+        "B89-S07"
+      ],
+      "fields": [
+        "step.lambda",
+        "step.error",
+        "step.predictedStep",
+        "step.predictedResidual",
+        "step.gainBound",
+        "step.jointBound",
+        "step.solverVersionPinned"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D14"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B89-P4"
+      ],
+      "negativeIds": [
+        "B89-N4-1",
+        "B89-N4-2",
+        "B89-N4-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B89-R5",
+      "statement": "奇异或请求落在零空间不可辨识方向时标UNKNOWN，不把阻尼解认作安全解",
+      "sourceIds": [
+        "B89-S01",
+        "B89-S04",
+        "B89-S07"
+      ],
+      "fields": [
+        "svd.sigmas",
+        "svd.threshold",
+        "rank.nullDirectionRequested",
+        "rank.ambiguityRecorded"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-05",
+      "positiveIds": [
+        "B89-P5"
+      ],
+      "negativeIds": [
+        "B89-N5-1",
+        "B89-N5-2",
+        "B89-N5-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B89-R6",
+      "statement": "保留IK branch及旋转完整周数、速度/加速度预算和Joint限位，禁止隐藏跳支",
+      "sourceIds": [
+        "B89-S04",
+        "B89-S05",
+        "B89-S07"
+      ],
+      "fields": [
+        "continuity.branchId",
+        "continuity.prevTurns",
+        "continuity.nextTurns",
+        "continuity.rateBoundsPinned",
+        "continuity.accelerationBoundsPinned",
+        "continuity.candidateWithinJointLimits",
+        "continuity.noImplicitWrap"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positiveIds": [
+        "B89-P6"
+      ],
+      "negativeIds": [
+        "B89-N6-1",
+        "B89-N6-2",
+        "B89-N6-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B89-R7",
+      "statement": "独立FK回代/误差预算与D15工程确认分离，合成数值不能写verified",
+      "sourceIds": [
+        "B89-S05",
+        "B89-S06",
+        "B89-S07"
+      ],
+      "fields": [
+        "oracle.independentFKRequired",
+        "oracle.verified",
+        "oracle.residualEvidence",
+        "oracle.taskToleranceProfile",
+        "oracle.noD15Promotion"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-05",
+      "positiveIds": [
+        "B89-P7"
+      ],
+      "negativeIds": [
+        "B89-N7-1",
+        "B89-N7-2",
+        "B89-N7-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B89-R8",
+      "statement": "GUI/CLI/Agent同Owner，单Babylon/左TaskPanel；提交CAS/ACL/取消Fence与D15/D16独立门禁",
+      "sourceIds": [
+        "B89-S07"
+      ],
+      "fields": [
+        "workflow.cas",
+        "workflow.acl",
+        "workflow.taskGenerationExact",
+        "workflow.cancelled",
+        "workflow.lateAck",
+        "workflow.sceneCount",
+        "workflow.leftPanel",
+        "workflow.sameDomainPort",
+        "workflow.d15",
+        "workflow.d16"
+      ],
+      "capabilityId": "CAP-09-03",
+      "assets": [
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "B89-P8"
+      ],
+      "negativeIds": [
+        "B89-N8-1",
+        "B89-N8-2",
+        "B89-N8-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    }
+  ]
+}

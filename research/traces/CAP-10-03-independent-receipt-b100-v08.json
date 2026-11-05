@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "procet-b100-independent-receipt-trace-v08",
+  "sourceRegistry": "research/sources/CAP-10-03-independent-receipt-b100.json",
+  "fixtures": "docs/capabilities/CAP-10-03/independent-receipt-b100-fixtures-v08.json",
+  "checker": "tools/check_cap1003_independent_receipt_b100_v08.cjs",
+  "rules": [
+    {
+      "id": "B100-R01",
+      "summary": "已签D16与独立D15资格，不得将CL_ONLY或草稿当作发布证据",
+      "sourceIds": [
+        "B100-S07",
+        "B100-S08"
+      ],
+      "fields": [
+        "release.approval",
+        "release.d15"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N01",
+        "B100-N02"
+      ],
+      "unknown": [],
+      "idempotent": []
+    },
+    {
+      "id": "B100-R02",
+      "summary": "D12原NC字节与清单SHA双端一致；规范化清单只允许经正确JCS实现派生",
+      "sourceIds": [
+        "B100-S02",
+        "B100-S07"
+      ],
+      "fields": [
+        "release.ncSha",
+        "receiver.rehashSha",
+        "release.manifestSha",
+        "receiver.manifestSha"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N03",
+        "B100-N04"
+      ],
+      "unknown": [],
+      "idempotent": []
+    },
+    {
+      "id": "B100-R03",
+      "summary": "独立D17必须本地读回真实字节且与发行实现/运行实例隔离",
+      "sourceIds": [
+        "B100-S05",
+        "B100-S08"
+      ],
+      "fields": [
+        "receiver.localBytesRead",
+        "receiver.appSha",
+        "release.publisherAppSha",
+        "receiver.runId",
+        "release.publisherRunId"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N05",
+        "B100-N06",
+        "B100-N07"
+      ],
+      "unknown": [],
+      "idempotent": []
+    },
+    {
+      "id": "B100-R04",
+      "summary": "独立验签、预置信任根、吊销与可信时间未知必须UNKNOWN",
+      "sourceIds": [
+        "B100-S01",
+        "B100-S06",
+        "B100-S07"
+      ],
+      "fields": [
+        "receiver.signatureVerified",
+        "receiver.trustRootPreinstalled",
+        "receiver.revocationState",
+        "receiver.trustedTime"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N08",
+        "B100-N09",
+        "B100-N10",
+        "B100-N11"
+      ],
+      "unknown": [
+        "B100-U01",
+        "B100-U02",
+        "B100-U04"
+      ],
+      "idempotent": []
+    },
+    {
+      "id": "B100-R05",
+      "summary": "D16目标工位与D10真实Revision、Frame、策略精确匹配，D04仅名义",
+      "sourceIds": [
+        "B100-S07",
+        "B100-S08"
+      ],
+      "fields": [
+        "release.machineId",
+        "receiver.machineId",
+        "release.d10Revision",
+        "receiver.d10Revision",
+        "release.frameId",
+        "receiver.frameId",
+        "release.policyId",
+        "receiver.policyId"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N12",
+        "B100-N13",
+        "B100-N14",
+        "B100-N15"
+      ],
+      "unknown": [
+        "B100-U03"
+      ],
+      "idempotent": []
+    },
+    {
+      "id": "B100-R06",
+      "summary": "现场回执须由独立D17生成、绑定原始收件Hash并append-only",
+      "sourceIds": [
+        "B100-S04",
+        "B100-S08"
+      ],
+      "fields": [
+        "receipt.kind",
+        "receipt.signedByReceiver",
+        "receipt.appendOnly",
+        "receipt.payloadSha",
+        "receipt.releaseId"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N16",
+        "B100-N17",
+        "B100-N18",
+        "B100-N19"
+      ],
+      "unknown": [],
+      "idempotent": []
+    },
+    {
+      "id": "B100-R07",
+      "summary": "同EventId同Payload幂等零写入；冲突、取消晚ACK和遥控启机意图拒绝",
+      "sourceIds": [
+        "B100-S03",
+        "B100-S07"
+      ],
+      "fields": [
+        "receipt.eventId",
+        "receipt.history",
+        "receipt.ackEpoch",
+        "receipt.activeEpoch",
+        "receipt.canceled",
+        "receipt.intent"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N20",
+        "B100-N21",
+        "B100-N22",
+        "B100-N23",
+        "B100-N30"
+      ],
+      "unknown": [],
+      "idempotent": [
+        "B100-I01"
+      ]
+    },
+    {
+      "id": "B100-R08",
+      "summary": "提交时复核ACL/CAS、scopeEpoch；GUI/CLI/Agent同域Port、单Babylon和左TaskPanel；兼容回退保全历史",
+      "sourceIds": [
+        "B100-S03",
+        "B100-S07"
+      ],
+      "fields": [
+        "release.aclEpoch",
+        "receiver.aclEpoch",
+        "receiver.scopeEpoch",
+        "receipt.scopeEpoch",
+        "ui.casRechecked",
+        "ui.sharedPort",
+        "ui.singleBabylon",
+        "ui.leftTaskPanel",
+        "ui.rollbackReader"
+      ],
+      "caps": [
+        "CAP-10-03",
+        "CAP-10-06",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B100-P01"
+      ],
+      "negative": [
+        "B100-N24",
+        "B100-N25",
+        "B100-N26",
+        "B100-N27",
+        "B100-N28",
+        "B100-N29"
+      ],
+      "unknown": [
+        "B100-U05"
+      ],
+      "idempotent": []
+    }
+  ]
+}

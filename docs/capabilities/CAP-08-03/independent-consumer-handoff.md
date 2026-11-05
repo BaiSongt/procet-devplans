@@ -1,0 +1,3 @@
+# CAP-08-03｜独立消费者、反例和回退
+**D13**从D12最终NC bytesHash重读，独立解释WCS/G53/G52/G92、G90/G91/弧心、G2/G3、G43及刀具半径补偿；缺固件/选件/刀具表/Frame、圆弧自洽性不成立时UNKNOWN。**D14/D15**消费D13真实规范动作和D10实际运动链，验证轴限和工程证据，不得让CL动画或OCCT静态几何代替真实NC验证。**D16**核对D09→D12→D13→D14→D15 exact hash/revision及独立签署；UNKNOWN/NOT_RUN/STALE阻断。
+**失效与回退**：Profile、WCS、刀补表、Setup/刀具/NC变更导致下游旧资格STALE；权限撤销/CAS冲突/取消晚回执不得提交。迁移保留旧Reader与D08冻结，不删用户数据库，旧协议只读LEGACY_UNRESOLVED；Expand→Migrate→Contract，独立消费者未验收不得进入Contract。真实消费者NOT_RUN、17资产会签PENDING_HUMAN。

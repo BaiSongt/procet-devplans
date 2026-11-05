@@ -1,0 +1,372 @@
+{
+  "schemaVersion": "procet-b111-fixtures-v08",
+  "classification": "NEWLY_AUTHORED_SYNTHETIC_NOT_PRODUCT",
+  "originalHead": "2e7cf5a30462fe490df8baf898a9489568db3a9e",
+  "baseline": {
+    "scope": {
+      "d01Exact": true,
+      "d02Exact": true,
+      "frameExact": true,
+      "occurrenceExact": true,
+      "topologyHashExact": true,
+      "kernelKnown": true
+    },
+    "topo": {
+      "mapReset": true,
+      "uniqueAncestors": true,
+      "orientationRecorded": true,
+      "mapSourceKnown": true,
+      "seamKnown": true,
+      "freeBoundKnown": true,
+      "identity": "SAME_TSHAPE_LOCATION",
+      "faceCount": 2,
+      "rawCount": 2,
+      "isSeam": false,
+      "degenerate": false,
+      "forcePairNonmanifold": false,
+      "forcePairBoundary": false,
+      "crossOccurrence": false
+    },
+    "gate": {
+      "onlyCandidate": true,
+      "casAcl": true,
+      "freezePreserved": true,
+      "cancelFence": true,
+      "singleBabylon": true,
+      "leftTaskPanel": true,
+      "consumerEvidenceKnown": true,
+      "autoApprove": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B111-P01",
+      "ruleId": "B111-R01",
+      "scenario": "同作用域两面共享候选",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N01",
+      "ruleId": "B111-R01",
+      "scenario": "错装配实例",
+      "patch": {
+        "scope.occurrenceExact": false
+      },
+      "expected": "STALE",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N02",
+      "ruleId": "B111-R01",
+      "scenario": "旧几何修订",
+      "patch": {
+        "scope.topologyHashExact": false
+      },
+      "expected": "STALE",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U01",
+      "ruleId": "B111-R01",
+      "scenario": "Kernel版本缺失",
+      "patch": {
+        "scope.kernelKnown": false
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-P02",
+      "ruleId": "B111-R02",
+      "scenario": "清空Map并区分两种计数",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N03",
+      "ruleId": "B111-R02",
+      "scenario": "复用脏Map",
+      "patch": {
+        "topo.mapReset": false
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N04",
+      "ruleId": "B111-R02",
+      "scenario": "把重复祖先当多Face",
+      "patch": {
+        "topo.uniqueAncestors": false
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U02",
+      "ruleId": "B111-R02",
+      "scenario": "祖先来源未知",
+      "patch": {
+        "topo.mapSourceKnown": false
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-P03",
+      "ruleId": "B111-R03",
+      "scenario": "同TShape与Location",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N05",
+      "ruleId": "B111-R03",
+      "scenario": "曲线同位非同拓扑边",
+      "patch": {
+        "topo.identity": "GEOMETRIC_COINCIDENCE"
+      },
+      "expected": "NO_SHARED_EDGE",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N06",
+      "ruleId": "B111-R03",
+      "scenario": "Partner不同位置",
+      "patch": {
+        "topo.identity": "PARTNER_DIFFERENT_LOCATION"
+      },
+      "expected": "NO_SHARED_EDGE",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U03",
+      "ruleId": "B111-R03",
+      "scenario": "丢失方向",
+      "patch": {
+        "topo.orientationRecorded": false
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-P04",
+      "ruleId": "B111-R04",
+      "scenario": "单面seam双引用",
+      "patch": {
+        "topo.faceCount": 1,
+        "topo.rawCount": 2,
+        "topo.isSeam": true
+      },
+      "expected": "SELF_SEAM_ONLY",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N07",
+      "ruleId": "B111-R04",
+      "scenario": "双面却自缝标记",
+      "patch": {
+        "topo.faceCount": 2,
+        "topo.isSeam": true
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N08",
+      "ruleId": "B111-R04",
+      "scenario": "仅单次引用",
+      "patch": {
+        "topo.faceCount": 1,
+        "topo.rawCount": 1,
+        "topo.isSeam": true
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U04",
+      "ruleId": "B111-R04",
+      "scenario": "seam证据缺失",
+      "patch": {
+        "topo.seamKnown": false
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-P05",
+      "ruleId": "B111-R05",
+      "scenario": "三面共边",
+      "patch": {
+        "topo.faceCount": 3,
+        "topo.rawCount": 3
+      },
+      "expected": "NONMANIFOLD_UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N09",
+      "ruleId": "B111-R05",
+      "scenario": "非流形强拆二元关系",
+      "patch": {
+        "topo.faceCount": 3,
+        "topo.forcePairNonmanifold": true
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N10",
+      "ruleId": "B111-R05",
+      "scenario": "空祖先表",
+      "patch": {
+        "topo.faceCount": 0
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U05",
+      "ruleId": "B111-R05",
+      "scenario": "祖先数量未知",
+      "patch": {
+        "topo.faceCount": null
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-P06",
+      "ruleId": "B111-R06",
+      "scenario": "自由边",
+      "patch": {
+        "topo.faceCount": 1,
+        "topo.rawCount": 1
+      },
+      "expected": "BOUNDARY_ONLY",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N11",
+      "ruleId": "B111-R06",
+      "scenario": "把自由边当共享",
+      "patch": {
+        "topo.faceCount": 1,
+        "topo.forcePairBoundary": true
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N12",
+      "ruleId": "B111-R06",
+      "scenario": "退化边",
+      "patch": {
+        "topo.degenerate": true
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U06",
+      "ruleId": "B111-R06",
+      "scenario": "边界资格未知",
+      "patch": {
+        "topo.freeBoundKnown": false
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-P07",
+      "ruleId": "B111-R07",
+      "scenario": "算法结果只为候选",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N13",
+      "ruleId": "B111-R07",
+      "scenario": "算法自动签发关系",
+      "patch": {
+        "gate.autoApprove": true
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N14",
+      "ruleId": "B111-R07",
+      "scenario": "覆盖已冻结D08",
+      "patch": {
+        "gate.freezePreserved": false
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U07",
+      "ruleId": "B111-R07",
+      "scenario": "下游消费者未验证",
+      "patch": {
+        "gate.consumerEvidenceKnown": false
+      },
+      "expected": "UNKNOWN",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-P08",
+      "ruleId": "B111-R08",
+      "scenario": "同Owner单Babylon/左TaskPanel",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N15",
+      "ruleId": "B111-R08",
+      "scenario": "创建第二3D世界",
+      "patch": {
+        "gate.singleBabylon": false
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-N16",
+      "ruleId": "B111-R08",
+      "scenario": "跳过ACL/CAS",
+      "patch": {
+        "gate.casAcl": false
+      },
+      "expected": "REJECT",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    },
+    {
+      "id": "B111-U08",
+      "ruleId": "B111-R08",
+      "scenario": "取消后旧Occurrence晚回执",
+      "patch": {
+        "topo.crossOccurrence": true
+      },
+      "expected": "STALE",
+      "sourceData": "NEWLY_AUTHORED_SYNTHETIC"
+    }
+  ],
+  "expectedCounts": {
+    "CANDIDATE_ONLY": 5,
+    "STALE": 3,
+    "UNKNOWN": 10,
+    "REJECT": 9,
+    "NO_SHARED_EDGE": 2,
+    "SELF_SEAM_ONLY": 1,
+    "NONMANIFOLD_UNKNOWN": 1,
+    "BOUNDARY_ONLY": 1
+  }
+}

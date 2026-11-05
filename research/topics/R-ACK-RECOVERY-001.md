@@ -1,0 +1,3 @@
+# R-ACK-RECOVERY-001｜跨域回执与强杀恢复理论依据
+[W2-04](../../docs/work-packages/W2-04.md) · [8份合法公开来源](../sources/W2-04.json) · [10规则20正反](../traces/W2-04.json)
+RFC9110 §13只提供HTTP条件写的避免lost-update语义，不能代替跨数据库事务。SQLite Isolation、Atomic Commit（rollback模式）、WAL、PRAGMA synchronous组合说明强杀/掉电需区分故障类型与配置，WAL NORMAL掉电末次事务不一定持久。WHATWG DOM AbortController仅协作取消，并不撤销已提交内容。W3C PROV-O用于派生证据的可追溯关系，不承诺ACL/CAS。NIST IR8536使用2026年9月最终版**官网摘要**，正文未读。项目据此推导受管head CAS、staging seal、幂等回执、终态仲裁、异常隔离和独立消费者验收；以上是工程假设而非标准强制条款，不能以规划PASS充当产品PASS。

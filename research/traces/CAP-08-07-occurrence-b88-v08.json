@@ -1,0 +1,325 @@
+{
+  "schemaVersion": "procet-b88-occurrence-trace-v08",
+  "date": "2026-11-01",
+  "sourceRegistry": "research/sources/CAP-08-07-occurrence-b88.json",
+  "capabilityId": "CAP-08-07",
+  "relatedCapabilities": [
+    "CAP-08-05",
+    "CAP-08-06",
+    "CAP-09-06"
+  ],
+  "originalWorkPackages": [
+    "E3-02",
+    "E3-03",
+    "U4-04"
+  ],
+  "assetOwners": "候选：D09为07域，D12/D13为08域，D14/D15为09域，D16为10域；17个正式签署仍0",
+  "ruleCount": 8,
+  "acceptanceFixture": "docs/capabilities/CAP-08-07/occurrence-b88-fixtures-v08.json",
+  "validator": "tools/check_cap0807_occurrence_b88_v08.cjs",
+  "independentConsumers": "NOT_RUN",
+  "rules": [
+    {
+      "id": "E88-R1",
+      "statement": "D09/D12与Profile、闭包的exact Revision/Hash、D04与D10 Frame分离",
+      "sourceIds": [
+        "E88-S05",
+        "E88-S08"
+      ],
+      "fields": [
+        "refs.d09Revision",
+        "refs.d09Hash",
+        "refs.expectedD09Hash",
+        "refs.d12Hash",
+        "refs.profileHash",
+        "refs.closureHash",
+        "refs.d04Frame",
+        "refs.d10Frame",
+        "refs.d10Revision"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-02",
+      "positiveIds": [
+        "E88-P1"
+      ],
+      "negativeIds": [
+        "E88-N1-1",
+        "E88-N1-2",
+        "E88-N1-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E88-R2",
+      "statement": "静态NC定位使用原始文件byteSpan而非N号或JS字符下标",
+      "sourceIds": [
+        "E88-S01",
+        "E88-S08"
+      ],
+      "fields": [
+        "span.from",
+        "span.to",
+        "span.fileBytes",
+        "span.offsetUnit",
+        "span.closurePinned",
+        "span.keyUsesN"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-02",
+      "positiveIds": [
+        "E88-P2"
+      ],
+      "negativeIds": [
+        "E88-N2-1",
+        "E88-N2-2",
+        "E88-N2-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E88-R3",
+      "statement": "同一源行多次执行时调用路径及十进制字符串序号构成不同执行实例",
+      "sourceIds": [
+        "E88-S02",
+        "E88-S05",
+        "E88-S08"
+      ],
+      "fields": [
+        "occ.keyForm",
+        "occ.occurrences[].eventOrdinal",
+        "occ.occurrences[].callPath"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "E88-P3"
+      ],
+      "negativeIds": [
+        "E88-N3-1",
+        "E88-N3-2",
+        "E88-N3-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E88-R4",
+      "statement": "宏、间接调用、预算与方言不能解释时保留UNKNOWN",
+      "sourceIds": [
+        "E88-S02",
+        "E88-S07",
+        "E88-S08"
+      ],
+      "fields": [
+        "flow.profile",
+        "flow.expansion",
+        "flow.dynamicIndirectResolved",
+        "flow.callStackComplete",
+        "flow.stepBudgetExceeded"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-03",
+      "positiveIds": [
+        "E88-P4"
+      ],
+      "negativeIds": [
+        "E88-N4-1",
+        "E88-N4-2",
+        "E88-N4-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E88-R5",
+      "statement": "生成性NC/多义来源与PROV后处理活动需显式记录并拒绝环路",
+      "sourceIds": [
+        "E88-S03",
+        "E88-S04",
+        "E88-S08"
+      ],
+      "fields": [
+        "lineage.graphAcyclic",
+        "lineage.postActivityId",
+        "lineage.includesD09D12",
+        "lineage.generatedOnlyReason",
+        "lineage.ambiguousMappingsExplicit"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D08",
+        "D09",
+        "D12",
+        "D13"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-02",
+      "positiveIds": [
+        "E88-P5"
+      ],
+      "negativeIds": [
+        "E88-N5-1",
+        "E88-N5-2",
+        "E88-N5-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E88-R6",
+      "statement": "NC编辑与再后处理使D13-D16失效，不覆盖历史映射及D08冻结",
+      "sourceIds": [
+        "E88-S04",
+        "E88-S08"
+      ],
+      "fields": [
+        "invalidate.manualEdit",
+        "invalidate.downstream",
+        "invalidate.oldMappingImmutable",
+        "invalidate.d08Frozen",
+        "invalidate.rollbackTargetCertified"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D08",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "E88-P6"
+      ],
+      "negativeIds": [
+        "E88-N6-1",
+        "E88-N6-2",
+        "E88-N6-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E88-R7",
+      "statement": "08域Owner提交时CAS/ACL/任务代次及取消晚回执重验",
+      "sourceIds": [
+        "E88-S06",
+        "E88-S08"
+      ],
+      "fields": [
+        "txn.cas",
+        "txn.acl",
+        "txn.taskGenerationExact",
+        "txn.cancelled",
+        "txn.lateAck"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "E88-P7"
+      ],
+      "negativeIds": [
+        "E88-N7-1",
+        "E88-N7-2",
+        "E88-N7-3",
+        "E88-N7-4"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E88-R8",
+      "statement": "同一GUI/CLI/Agent域入口、单Babylon世界/左TaskPanel，CL不得冒充D15",
+      "sourceIds": [
+        "E88-S08"
+      ],
+      "fields": [
+        "ui.sameDomainPort",
+        "ui.sceneCount",
+        "ui.leftPanel",
+        "ui.clPreviewLabeled",
+        "ui.d15",
+        "ui.d16",
+        "ui.independentConsumers"
+      ],
+      "capabilityId": "CAP-08-07",
+      "assets": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positiveIds": [
+        "E88-P8"
+      ],
+      "negativeIds": [
+        "E88-N8-1",
+        "E88-N8-2",
+        "E88-N8-3"
+      ],
+      "acceptance": "SYNTHETIC_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,1353 @@
+{
+  "schemaVersion": "procet-cap-0407-fixtures-v1",
+  "capabilityId": "CAP-04-07",
+  "testScope": "PLANNING_SYNTHETIC_ONLY",
+  "oracleProvenance": "独立枚举50字段真值、24项状态期望、6项几何数值",
+  "cases": [
+    {
+      "id": "CAP-04-07-R01-POS",
+      "ruleId": "CAP-04-07-R01",
+      "input": {
+        "interface": {
+          "spindleExact": true,
+          "holderExact": true,
+          "matingEvidence": true,
+          "unsupportedBlocked": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R01-NEG1",
+      "ruleId": "CAP-04-07-R01",
+      "input": {
+        "interface": {
+          "spindleExact": false,
+          "holderExact": true,
+          "matingEvidence": true,
+          "unsupportedBlocked": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "interface.spindleExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R01-NEG2",
+      "ruleId": "CAP-04-07-R01",
+      "input": {
+        "interface": {
+          "spindleExact": true,
+          "holderExact": false,
+          "matingEvidence": true,
+          "unsupportedBlocked": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "interface.holderExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R01-NEG3",
+      "ruleId": "CAP-04-07-R01",
+      "input": {
+        "interface": {
+          "spindleExact": true,
+          "holderExact": true,
+          "matingEvidence": false,
+          "unsupportedBlocked": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "interface.matingEvidence",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R01-NEG4",
+      "ruleId": "CAP-04-07-R01",
+      "input": {
+        "interface": {
+          "spindleExact": true,
+          "holderExact": true,
+          "matingEvidence": true,
+          "unsupportedBlocked": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "interface.unsupportedBlocked",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R02-POS",
+      "ruleId": "CAP-04-07-R02",
+      "input": {
+        "assembly": {
+          "orderedChain": true,
+          "parentLocal": true,
+          "componentExact": true,
+          "retentionKnown": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R02-NEG1",
+      "ruleId": "CAP-04-07-R02",
+      "input": {
+        "assembly": {
+          "orderedChain": false,
+          "parentLocal": true,
+          "componentExact": true,
+          "retentionKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "assembly.orderedChain",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R02-NEG2",
+      "ruleId": "CAP-04-07-R02",
+      "input": {
+        "assembly": {
+          "orderedChain": true,
+          "parentLocal": false,
+          "componentExact": true,
+          "retentionKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "assembly.parentLocal",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R02-NEG3",
+      "ruleId": "CAP-04-07-R02",
+      "input": {
+        "assembly": {
+          "orderedChain": true,
+          "parentLocal": true,
+          "componentExact": false,
+          "retentionKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "assembly.componentExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R02-NEG4",
+      "ruleId": "CAP-04-07-R02",
+      "input": {
+        "assembly": {
+          "orderedChain": true,
+          "parentLocal": true,
+          "componentExact": true,
+          "retentionKnown": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "assembly.retentionKnown",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R03-POS",
+      "ruleId": "CAP-04-07-R03",
+      "input": {
+        "gauge": {
+          "datumExact": true,
+          "measuredRevision": true,
+          "axisAndUnit": true,
+          "notStickout": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R03-NEG1",
+      "ruleId": "CAP-04-07-R03",
+      "input": {
+        "gauge": {
+          "datumExact": false,
+          "measuredRevision": true,
+          "axisAndUnit": true,
+          "notStickout": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "gauge.datumExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R03-NEG2",
+      "ruleId": "CAP-04-07-R03",
+      "input": {
+        "gauge": {
+          "datumExact": true,
+          "measuredRevision": false,
+          "axisAndUnit": true,
+          "notStickout": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "gauge.measuredRevision",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R03-NEG3",
+      "ruleId": "CAP-04-07-R03",
+      "input": {
+        "gauge": {
+          "datumExact": true,
+          "measuredRevision": true,
+          "axisAndUnit": false,
+          "notStickout": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "gauge.axisAndUnit",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R03-NEG4",
+      "ruleId": "CAP-04-07-R03",
+      "input": {
+        "gauge": {
+          "datumExact": true,
+          "measuredRevision": true,
+          "axisAndUnit": true,
+          "notStickout": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "gauge.notStickout",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R04-POS",
+      "ruleId": "CAP-04-07-R04",
+      "input": {
+        "tcp": {
+          "fromToFrames": true,
+          "rightHanded": true,
+          "transformOrder": true,
+          "assemblyAxisKnown": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R04-NEG1",
+      "ruleId": "CAP-04-07-R04",
+      "input": {
+        "tcp": {
+          "fromToFrames": false,
+          "rightHanded": true,
+          "transformOrder": true,
+          "assemblyAxisKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "tcp.fromToFrames",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R04-NEG2",
+      "ruleId": "CAP-04-07-R04",
+      "input": {
+        "tcp": {
+          "fromToFrames": true,
+          "rightHanded": false,
+          "transformOrder": true,
+          "assemblyAxisKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "tcp.rightHanded",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R04-NEG3",
+      "ruleId": "CAP-04-07-R04",
+      "input": {
+        "tcp": {
+          "fromToFrames": true,
+          "rightHanded": true,
+          "transformOrder": false,
+          "assemblyAxisKnown": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "tcp.transformOrder",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R04-NEG4",
+      "ruleId": "CAP-04-07-R04",
+      "input": {
+        "tcp": {
+          "fromToFrames": true,
+          "rightHanded": true,
+          "transformOrder": true,
+          "assemblyAxisKnown": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "tcp.assemblyAxisKnown",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R05-POS",
+      "ruleId": "CAP-04-07-R05",
+      "input": {
+        "boundary": {
+          "d03CatalogUnchanged": true,
+          "d04NominalSeparate": true,
+          "d10RevisionNew": true,
+          "noControllerWrite": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R05-NEG1",
+      "ruleId": "CAP-04-07-R05",
+      "input": {
+        "boundary": {
+          "d03CatalogUnchanged": false,
+          "d04NominalSeparate": true,
+          "d10RevisionNew": true,
+          "noControllerWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "boundary.d03CatalogUnchanged",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R05-NEG2",
+      "ruleId": "CAP-04-07-R05",
+      "input": {
+        "boundary": {
+          "d03CatalogUnchanged": true,
+          "d04NominalSeparate": false,
+          "d10RevisionNew": true,
+          "noControllerWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "boundary.d04NominalSeparate",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R05-NEG3",
+      "ruleId": "CAP-04-07-R05",
+      "input": {
+        "boundary": {
+          "d03CatalogUnchanged": true,
+          "d04NominalSeparate": true,
+          "d10RevisionNew": false,
+          "noControllerWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "boundary.d10RevisionNew",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R05-NEG4",
+      "ruleId": "CAP-04-07-R05",
+      "input": {
+        "boundary": {
+          "d03CatalogUnchanged": true,
+          "d04NominalSeparate": true,
+          "d10RevisionNew": true,
+          "noControllerWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "boundary.noControllerWrite",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R06-POS",
+      "ruleId": "CAP-04-07-R06",
+      "input": {
+        "controller": {
+          "dialectExact": true,
+          "toolTableExact": true,
+          "offsetStateKnown": true,
+          "unknownFailClosed": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R06-NEG1",
+      "ruleId": "CAP-04-07-R06",
+      "input": {
+        "controller": {
+          "dialectExact": false,
+          "toolTableExact": true,
+          "offsetStateKnown": true,
+          "unknownFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "controller.dialectExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R06-NEG2",
+      "ruleId": "CAP-04-07-R06",
+      "input": {
+        "controller": {
+          "dialectExact": true,
+          "toolTableExact": false,
+          "offsetStateKnown": true,
+          "unknownFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "controller.toolTableExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R06-NEG3",
+      "ruleId": "CAP-04-07-R06",
+      "input": {
+        "controller": {
+          "dialectExact": true,
+          "toolTableExact": true,
+          "offsetStateKnown": false,
+          "unknownFailClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "controller.offsetStateKnown",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R06-NEG4",
+      "ruleId": "CAP-04-07-R06",
+      "input": {
+        "controller": {
+          "dialectExact": true,
+          "toolTableExact": true,
+          "offsetStateKnown": true,
+          "unknownFailClosed": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "controller.unknownFailClosed",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R07-POS",
+      "ruleId": "CAP-04-07-R07",
+      "input": {
+        "safety": {
+          "holderEnvelopeExact": true,
+          "toolEnvelopeExact": true,
+          "installedPoseExact": true,
+          "noMeshCertification": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R07-NEG1",
+      "ruleId": "CAP-04-07-R07",
+      "input": {
+        "safety": {
+          "holderEnvelopeExact": false,
+          "toolEnvelopeExact": true,
+          "installedPoseExact": true,
+          "noMeshCertification": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "safety.holderEnvelopeExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R07-NEG2",
+      "ruleId": "CAP-04-07-R07",
+      "input": {
+        "safety": {
+          "holderEnvelopeExact": true,
+          "toolEnvelopeExact": false,
+          "installedPoseExact": true,
+          "noMeshCertification": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "safety.toolEnvelopeExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R07-NEG3",
+      "ruleId": "CAP-04-07-R07",
+      "input": {
+        "safety": {
+          "holderEnvelopeExact": true,
+          "toolEnvelopeExact": true,
+          "installedPoseExact": false,
+          "noMeshCertification": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "safety.installedPoseExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R07-NEG4",
+      "ruleId": "CAP-04-07-R07",
+      "input": {
+        "safety": {
+          "holderEnvelopeExact": true,
+          "toolEnvelopeExact": true,
+          "installedPoseExact": true,
+          "noMeshCertification": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "safety.noMeshCertification",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R08-POS",
+      "ruleId": "CAP-04-07-R08",
+      "input": {
+        "ui": {
+          "singleBabylon": true,
+          "unifiedLeftPanel": true,
+          "ownerPortShared": true,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R08-NEG1",
+      "ruleId": "CAP-04-07-R08",
+      "input": {
+        "ui": {
+          "singleBabylon": false,
+          "unifiedLeftPanel": true,
+          "ownerPortShared": true,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "ui.singleBabylon",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R08-NEG2",
+      "ruleId": "CAP-04-07-R08",
+      "input": {
+        "ui": {
+          "singleBabylon": true,
+          "unifiedLeftPanel": false,
+          "ownerPortShared": true,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "ui.unifiedLeftPanel",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R08-NEG3",
+      "ruleId": "CAP-04-07-R08",
+      "input": {
+        "ui": {
+          "singleBabylon": true,
+          "unifiedLeftPanel": true,
+          "ownerPortShared": false,
+          "previewReadOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "ui.ownerPortShared",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R08-NEG4",
+      "ruleId": "CAP-04-07-R08",
+      "input": {
+        "ui": {
+          "singleBabylon": true,
+          "unifiedLeftPanel": true,
+          "ownerPortShared": true,
+          "previewReadOnly": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "ui.previewReadOnly",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R09-POS",
+      "ruleId": "CAP-04-07-R09",
+      "input": {
+        "commit": {
+          "aclCurrent": true,
+          "scopeEpochCurrent": true,
+          "casAndDependencies": true,
+          "cancelLeaseCurrent": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R09-NEG1",
+      "ruleId": "CAP-04-07-R09",
+      "input": {
+        "commit": {
+          "aclCurrent": false,
+          "scopeEpochCurrent": true,
+          "casAndDependencies": true,
+          "cancelLeaseCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "commit.aclCurrent",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R09-NEG2",
+      "ruleId": "CAP-04-07-R09",
+      "input": {
+        "commit": {
+          "aclCurrent": true,
+          "scopeEpochCurrent": false,
+          "casAndDependencies": true,
+          "cancelLeaseCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "commit.scopeEpochCurrent",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R09-NEG3",
+      "ruleId": "CAP-04-07-R09",
+      "input": {
+        "commit": {
+          "aclCurrent": true,
+          "scopeEpochCurrent": true,
+          "casAndDependencies": false,
+          "cancelLeaseCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "commit.casAndDependencies",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R09-NEG4",
+      "ruleId": "CAP-04-07-R09",
+      "input": {
+        "commit": {
+          "aclCurrent": true,
+          "scopeEpochCurrent": true,
+          "casAndDependencies": true,
+          "cancelLeaseCurrent": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "commit.cancelLeaseCurrent",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R10-POS",
+      "ruleId": "CAP-04-07-R10",
+      "input": {
+        "handoff": {
+          "invalidationsExact": true,
+          "frozenD08Preserved": true,
+          "d15NCIndependent": true,
+          "rollbackAndAck": true
+        }
+      },
+      "expected": "PASS",
+      "description": "全部字段满足并绑定source IDs；仅合成"
+    },
+    {
+      "id": "CAP-04-07-R10-NEG1",
+      "ruleId": "CAP-04-07-R10",
+      "input": {
+        "handoff": {
+          "invalidationsExact": false,
+          "frozenD08Preserved": true,
+          "d15NCIndependent": true,
+          "rollbackAndAck": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "handoff.invalidationsExact",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R10-NEG2",
+      "ruleId": "CAP-04-07-R10",
+      "input": {
+        "handoff": {
+          "invalidationsExact": true,
+          "frozenD08Preserved": false,
+          "d15NCIndependent": true,
+          "rollbackAndAck": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "handoff.frozenD08Preserved",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R10-NEG3",
+      "ruleId": "CAP-04-07-R10",
+      "input": {
+        "handoff": {
+          "invalidationsExact": true,
+          "frozenD08Preserved": true,
+          "d15NCIndependent": false,
+          "rollbackAndAck": true
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "handoff.d15NCIndependent",
+      "description": "仅变更一个字段的独立负例"
+    },
+    {
+      "id": "CAP-04-07-R10-NEG4",
+      "ruleId": "CAP-04-07-R10",
+      "input": {
+        "handoff": {
+          "invalidationsExact": true,
+          "frozenD08Preserved": true,
+          "d15NCIndependent": true,
+          "rollbackAndAck": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedOnly": "handoff.rollbackAndAck",
+      "description": "仅变更一个字段的独立负例"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "STATE-01",
+      "from": "DRAFT",
+      "to": "PREVIEW",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "PASS",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-02",
+      "from": "PREVIEW",
+      "to": "REVIEW",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "PASS",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-03",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "PASS",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-04",
+      "from": "REVIEW",
+      "to": "DRAFT",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "PASS",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-05",
+      "from": "COMMITTED",
+      "to": "STALE",
+      "approved": false,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "PASS",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-06",
+      "from": "STALE",
+      "to": "DRAFT",
+      "approved": false,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "PASS",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-07",
+      "from": "DRAFT",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-08",
+      "from": "PREVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-09",
+      "from": "UNKNOWN",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-10",
+      "from": "CANCELLED",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-11",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": false,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-12",
+      "from": "COMMITTED",
+      "to": "REVIEW",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-13",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": false,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-14",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": false,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-15",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": false,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-16",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": false,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-17",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": false,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-18",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": false,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-19",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": false,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-20",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": false,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-21",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": false,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-22",
+      "from": "REVIEW",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": false
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-23",
+      "from": "STALE",
+      "to": "COMMITTED",
+      "approved": true,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    },
+    {
+      "id": "STATE-24",
+      "from": "UNKNOWN",
+      "to": "PREVIEW",
+      "approved": false,
+      "gates": {
+        "aclCurrent": true,
+        "scopeEpochCurrent": true,
+        "expectedHashCurrent": true,
+        "casCurrent": true,
+        "cancelLeaseCurrent": true,
+        "interfaceEvidence": true,
+        "measurementValid": true,
+        "controllerKnown": true,
+        "ncIndependent": true,
+        "frozenPreserved": true
+      },
+      "expected": "REJECT",
+      "reason": "状态预期独立列举，实际权限需产品测试"
+    }
+  ],
+  "mathCases": [
+    {
+      "id": "G01",
+      "origin": [
+        100,
+        0,
+        0
+      ],
+      "axis": [
+        0,
+        0,
+        -1
+      ],
+      "gaugeMm": 120,
+      "expectedPoint": [
+        100,
+        0,
+        -120
+      ],
+      "expected": "PASS"
+    },
+    {
+      "id": "G02",
+      "origin": [
+        0,
+        40,
+        5
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "gaugeMm": 80,
+      "expectedPoint": [
+        80,
+        40,
+        5
+      ],
+      "expected": "PASS"
+    },
+    {
+      "id": "G03",
+      "origin": [
+        10,
+        20,
+        30
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "gaugeMm": 120,
+      "expectedPoint": [
+        10,
+        20,
+        180
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "G04",
+      "origin": [
+        5,
+        5,
+        5
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "gaugeMm": 40,
+      "expectedPoint": [
+        5,
+        45,
+        5
+      ],
+      "expected": "PASS"
+    },
+    {
+      "id": "G05",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "axis": [
+        0,
+        0,
+        0
+      ],
+      "gaugeMm": 60,
+      "expectedPoint": [
+        0,
+        0,
+        60
+      ],
+      "expected": "REJECT"
+    },
+    {
+      "id": "G06",
+      "origin": [
+        7,
+        8,
+        9
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "gaugeMm": 35,
+      "expectedPoint": [
+        7,
+        -27,
+        9
+      ],
+      "expected": "PASS"
+    }
+  ],
+  "productTests": "NOT_RUN"
+}

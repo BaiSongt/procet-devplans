@@ -1,0 +1,518 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-10-05",
+  "researchTopic": "R-MDC-OBSERVABILITY-001",
+  "sourceRegistry": "research/sources/CAP-10-05.json",
+  "specification": "docs/capabilities/CAP-10-05/README.md",
+  "ui": "docs/capabilities/CAP-10-05/UI.md",
+  "fixtures": "docs/capabilities/CAP-10-05/fixtures.json",
+  "validator": "tools/check_cap1005_planning_2026_10_27.cjs",
+  "status": "compiled_pending_human_review",
+  "rules": [
+    {
+      "id": "CAP-10-05-R01",
+      "capabilityId": "CAP-10-05",
+      "summary": "设备身份及只读能力",
+      "engineeringRule": "只读能力探测必须核对D03真实设备UUID与Adapter Profile，严禁将DNC传输权当观测权",
+      "fields": [
+        "identity.machineRefExact",
+        "identity.adapterRevisionPinned",
+        "identity.readOnlyDiscovered",
+        "identity.noControllerWrite"
+      ],
+      "sourceIds": [
+        "C1005-S01",
+        "C1005-S02",
+        "C1005-S07"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "identity.machineRefExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.adapterRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.readOnlyDiscovered",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.noControllerWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R02",
+      "capabilityId": "CAP-10-05",
+      "summary": "MTConnect流断点和Agent重启",
+      "engineeringRule": "按Agent实例和sequence单调性记账；重启、缓冲越界和丢失报GAP不填造数据",
+      "fields": [
+        "stream.agentInstanceBound",
+        "stream.sequenceWithinInstance",
+        "stream.gapRecordedNoSynthesis",
+        "stream.resumeCursorPinned"
+      ],
+      "sourceIds": [
+        "C1005-S01",
+        "C1005-S07"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "stream.agentInstanceBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stream.sequenceWithinInstance",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stream.gapRecordedNoSynthesis",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stream.resumeCursorPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R03",
+      "capabilityId": "CAP-10-05",
+      "summary": "OPC质量与三时钟",
+      "engineeringRule": "source/server/ingest时戳分别保真，OPC Bad/Uncertain不得当作可信设备状态",
+      "fields": [
+        "clock.sourceStampProvenance",
+        "clock.serverStampSeparate",
+        "clock.ingestStampSeparate",
+        "clock.badStatusNotValue"
+      ],
+      "sourceIds": [
+        "C1005-S02",
+        "C1005-S03"
+      ],
+      "assets": [
+        "D10",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "clock.sourceStampProvenance",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clock.serverStampSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clock.ingestStampSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clock.badStatusNotValue",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R04",
+      "capabilityId": "CAP-10-05",
+      "summary": "原始点位来源和映射",
+      "engineeringRule": "保留设备DataItemId/NodeId/namespace与原始载荷、点位映射revision，不按名字推断设备轴",
+      "fields": [
+        "mapping.nativeItemIdPreserved",
+        "mapping.namespaceExact",
+        "mapping.mapRevisionPinned",
+        "mapping.rawPayloadImmutable"
+      ],
+      "sourceIds": [
+        "C1005-S01",
+        "C1005-S02",
+        "C1005-S08"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "mapping.nativeItemIdPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.namespaceExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.mapRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "mapping.rawPayloadImmutable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R05",
+      "capabilityId": "CAP-10-05",
+      "summary": "单位与Frame及D10独立绑定",
+      "engineeringRule": "单位量纲有出处；现场真实D10 Frame未核时禁止由MDC推断实际Setup/TCP",
+      "fields": [
+        "geometry.unitExplicit",
+        "geometry.frameRefExactIfApplicable",
+        "geometry.d10NotInferred",
+        "geometry.calibrationVersionPinned"
+      ],
+      "sourceIds": [
+        "C1005-S02",
+        "C1005-S05"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "geometry.unitExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.frameRefExactIfApplicable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.d10NotInferred",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "geometry.calibrationVersionPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R06",
+      "capabilityId": "CAP-10-05",
+      "summary": "缺失值与质量降级",
+      "engineeringRule": "UNAVAILABLE、Agent BufferGap、OPC Bad/Uncertain、断连显式质量分层，不能静默插值成运行事实",
+      "fields": [
+        "quality.unavailablePropagated",
+        "quality.statusGradeExplicit",
+        "quality.lagGapVisible",
+        "quality.noSilentInterpolation"
+      ],
+      "sourceIds": [
+        "C1005-S01",
+        "C1005-S03",
+        "C1005-S04"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "quality.unavailablePropagated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quality.statusGradeExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quality.lagGapVisible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quality.noSilentInterpolation",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R07",
+      "capabilityId": "CAP-10-05",
+      "summary": "报警事件去重与清除",
+      "engineeringRule": "Alarm/Condition的ID、激活/清除和时钟与设备身份绑定；不得凭重复文本推断清警",
+      "fields": [
+        "alarm.eventIdentityExact",
+        "alarm.lifecyclePreserved",
+        "alarm.dedupDeviceBound",
+        "alarm.clearEventProven"
+      ],
+      "sourceIds": [
+        "C1005-S02",
+        "C1005-S03",
+        "C1005-S06"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "alarm.eventIdentityExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alarm.lifecyclePreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alarm.dedupDeviceBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "alarm.clearEventProven",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R08",
+      "capabilityId": "CAP-10-05",
+      "summary": "D17观测和D15验证隔离",
+      "engineeringRule": "运行灯/设备报警只是现场观测；D12程序和D16工单绑定要有独立证据；不替代D15",
+      "fields": [
+        "lineage.d16AssociationIndependent",
+        "lineage.d12ByteDigestExact",
+        "lineage.observationNotD15Pass",
+        "lineage.d17AppendOnly"
+      ],
+      "sourceIds": [
+        "C1005-S02",
+        "C1005-S04",
+        "C1005-S05",
+        "C1005-S08"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "lineage.d16AssociationIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.d12ByteDigestExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.observationNotD15Pass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lineage.d17AppendOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R09",
+      "capabilityId": "CAP-10-05",
+      "summary": "ACL、CAS、Scope与取消晚回执",
+      "engineeringRule": "D17 append提交前重新校验CAS/hash/ACL/scopeEpoch/cancelToken；旧会话回执不可复活",
+      "fields": [
+        "auth.scopeEpochRechecked",
+        "auth.aclEpochRechecked",
+        "auth.exactRevisionHashCAS",
+        "auth.cancelLateAckRejected"
+      ],
+      "sourceIds": [
+        "C1005-S03",
+        "C1005-S08"
+      ],
+      "assets": [
+        "D01",
+        "D10",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "auth.scopeEpochRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.aclEpochRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.exactRevisionHashCAS",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.cancelLateAckRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-05-R10",
+      "capabilityId": "CAP-10-05",
+      "summary": "GUI/CLI/Agent、唯一3D及回退",
+      "engineeringRule": "同一10域MdcObservationPort，唯一Babylon和左TaskPanel，影子旧Reader保留直到独立消费者合格",
+      "fields": [
+        "ui.singleDomainPort",
+        "ui.singleBabylonWorld",
+        "ui.leftUnifiedTaskPanel",
+        "ui.legacyReaderRollback"
+      ],
+      "sourceIds": [
+        "C1005-S04",
+        "C1005-S07",
+        "C1005-S08"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "ui.singleDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.singleBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftUnifiedTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.legacyReaderRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1正+4独立单字段变异负例；合成检查不证明机床",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,624 @@
+{
+  "schemaVersion": "procet-b162-fixtures-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "purpose": "8规则32字段+8正/32单字段负+8状态Golden。只证明规划契约判据，不是LinuxCNC/Haas的完整解释器或实机测试",
+  "baseline": {
+    "binding.d10Revision": "D10-exec-rev-44",
+    "binding.d10Hash": "sha256:exact-execution-binding",
+    "binding.machineFrame": "MachineBase@frame-8",
+    "binding.controllerProfile": "LinuxCNC-2.9+opts@sha256:pinned",
+    "offset.toolTableHash": "sha256:tooltable-v8",
+    "offset.hIndex": 7,
+    "offset.measurementIdentity": "verified-H07-measurement-rev3",
+    "offset.notAssemblyGaugeEqualsH": true,
+    "g43.explicitModalState": "G43_ACTIVE",
+    "g43.hSelectionIdentity": "H7_EXACT",
+    "g43.toolChangerMode": "NONRANDOM_EXPLICIT",
+    "g43.appliedOffsetSnapshot": "sha256:applied-tlo-7",
+    "replace.g431Semantics": "REPLACE_CURRENT_AXIS_TLO",
+    "replace.noSameBlockMove": true,
+    "replace.toolTableUnchanged": true,
+    "replace.postOffsetState": "D13_POST_G431_HASH_PINNED",
+    "additional.g432Semantics": "ADDITIVE_TLO",
+    "additional.hOrAxesExclusive": true,
+    "additional.accumulationLogged": true,
+    "additional.tableNotWritten": true,
+    "machine.g49ClearsToolLength": true,
+    "machine.g53IsBlockScoped": true,
+    "machine.g53G0G1Validated": true,
+    "machine.g53CutterCompNotActive": true,
+    "dialect.haasVersionEvidence": "100.21.000.1100_BOUNDARY_CHECKED",
+    "dialect.haasAutoTloNotCrossApplied": true,
+    "dialect.linuxH0ChangersDistinguished": true,
+    "dialect.unknownBlocksPublishing": true,
+    "gate.finalNcReparsedByD13": true,
+    "gate.d04NominalSeparateFromD10": true,
+    "gate.ownerAclCasCancellationRechecked": true,
+    "gate.guiCliAgentOneOwnerPort": true
+  },
+  "fieldSpecs": {
+    "binding.d10Revision": [
+      "D10-exec-rev-44",
+      "D04-setup-rev-44"
+    ],
+    "binding.d10Hash": [
+      "sha256:exact-execution-binding",
+      "sha256:outdated-binding"
+    ],
+    "binding.machineFrame": [
+      "MachineBase@frame-8",
+      "PartCSYS@frame-8"
+    ],
+    "binding.controllerProfile": [
+      "LinuxCNC-2.9+opts@sha256:pinned",
+      "generic-G-code"
+    ],
+    "offset.toolTableHash": [
+      "sha256:tooltable-v8",
+      "sha256:tooltable-v7"
+    ],
+    "offset.hIndex": [
+      7,
+      -1
+    ],
+    "offset.measurementIdentity": [
+      "verified-H07-measurement-rev3",
+      "nominal-gauge-only"
+    ],
+    "offset.notAssemblyGaugeEqualsH": [
+      true,
+      false
+    ],
+    "g43.explicitModalState": [
+      "G43_ACTIVE",
+      null
+    ],
+    "g43.hSelectionIdentity": [
+      "H7_EXACT",
+      "H_DEFAULT_UNRESOLVED"
+    ],
+    "g43.toolChangerMode": [
+      "NONRANDOM_EXPLICIT",
+      "UNKNOWN"
+    ],
+    "g43.appliedOffsetSnapshot": [
+      "sha256:applied-tlo-7",
+      "sha256:loaded-tool-only"
+    ],
+    "replace.g431Semantics": [
+      "REPLACE_CURRENT_AXIS_TLO",
+      "ADD_TO_CURRENT_TLO"
+    ],
+    "replace.noSameBlockMove": [
+      true,
+      false
+    ],
+    "replace.toolTableUnchanged": [
+      true,
+      false
+    ],
+    "replace.postOffsetState": [
+      "D13_POST_G431_HASH_PINNED",
+      "ASSUME_NO_CHANGE"
+    ],
+    "additional.g432Semantics": [
+      "ADDITIVE_TLO",
+      "REPLACE_TLO"
+    ],
+    "additional.hOrAxesExclusive": [
+      true,
+      false
+    ],
+    "additional.accumulationLogged": [
+      true,
+      false
+    ],
+    "additional.tableNotWritten": [
+      true,
+      false
+    ],
+    "machine.g49ClearsToolLength": [
+      true,
+      false
+    ],
+    "machine.g53IsBlockScoped": [
+      true,
+      false
+    ],
+    "machine.g53G0G1Validated": [
+      true,
+      false
+    ],
+    "machine.g53CutterCompNotActive": [
+      true,
+      false
+    ],
+    "dialect.haasVersionEvidence": [
+      "100.21.000.1100_BOUNDARY_CHECKED",
+      "FIRMWARE_UNAVAILABLE"
+    ],
+    "dialect.haasAutoTloNotCrossApplied": [
+      true,
+      false
+    ],
+    "dialect.linuxH0ChangersDistinguished": [
+      true,
+      false
+    ],
+    "dialect.unknownBlocksPublishing": [
+      true,
+      false
+    ],
+    "gate.finalNcReparsedByD13": [
+      true,
+      false
+    ],
+    "gate.d04NominalSeparateFromD10": [
+      true,
+      false
+    ],
+    "gate.ownerAclCasCancellationRechecked": [
+      true,
+      false
+    ],
+    "gate.guiCliAgentOneOwnerPort": [
+      true,
+      false
+    ]
+  },
+  "cases": [
+    {
+      "id": "B162-R01-P",
+      "ruleId": "B162-R01",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R01-N1",
+      "ruleId": "B162-R01",
+      "kind": "single_field_negative",
+      "mutatedField": "binding.d10Revision",
+      "mutations": {
+        "binding.d10Revision": "D04-setup-rev-44"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R01-N2",
+      "ruleId": "B162-R01",
+      "kind": "single_field_negative",
+      "mutatedField": "binding.d10Hash",
+      "mutations": {
+        "binding.d10Hash": "sha256:outdated-binding"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R01-N3",
+      "ruleId": "B162-R01",
+      "kind": "single_field_negative",
+      "mutatedField": "binding.machineFrame",
+      "mutations": {
+        "binding.machineFrame": "PartCSYS@frame-8"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R01-N4",
+      "ruleId": "B162-R01",
+      "kind": "single_field_negative",
+      "mutatedField": "binding.controllerProfile",
+      "mutations": {
+        "binding.controllerProfile": "generic-G-code"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R02-P",
+      "ruleId": "B162-R02",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R02-N1",
+      "ruleId": "B162-R02",
+      "kind": "single_field_negative",
+      "mutatedField": "offset.toolTableHash",
+      "mutations": {
+        "offset.toolTableHash": "sha256:tooltable-v7"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R02-N2",
+      "ruleId": "B162-R02",
+      "kind": "single_field_negative",
+      "mutatedField": "offset.hIndex",
+      "mutations": {
+        "offset.hIndex": -1
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R02-N3",
+      "ruleId": "B162-R02",
+      "kind": "single_field_negative",
+      "mutatedField": "offset.measurementIdentity",
+      "mutations": {
+        "offset.measurementIdentity": "nominal-gauge-only"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R02-N4",
+      "ruleId": "B162-R02",
+      "kind": "single_field_negative",
+      "mutatedField": "offset.notAssemblyGaugeEqualsH",
+      "mutations": {
+        "offset.notAssemblyGaugeEqualsH": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R03-P",
+      "ruleId": "B162-R03",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R03-N1",
+      "ruleId": "B162-R03",
+      "kind": "single_field_negative",
+      "mutatedField": "g43.explicitModalState",
+      "mutations": {
+        "g43.explicitModalState": null
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R03-N2",
+      "ruleId": "B162-R03",
+      "kind": "single_field_negative",
+      "mutatedField": "g43.hSelectionIdentity",
+      "mutations": {
+        "g43.hSelectionIdentity": "H_DEFAULT_UNRESOLVED"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R03-N3",
+      "ruleId": "B162-R03",
+      "kind": "single_field_negative",
+      "mutatedField": "g43.toolChangerMode",
+      "mutations": {
+        "g43.toolChangerMode": "UNKNOWN"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R03-N4",
+      "ruleId": "B162-R03",
+      "kind": "single_field_negative",
+      "mutatedField": "g43.appliedOffsetSnapshot",
+      "mutations": {
+        "g43.appliedOffsetSnapshot": "sha256:loaded-tool-only"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R04-P",
+      "ruleId": "B162-R04",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R04-N1",
+      "ruleId": "B162-R04",
+      "kind": "single_field_negative",
+      "mutatedField": "replace.g431Semantics",
+      "mutations": {
+        "replace.g431Semantics": "ADD_TO_CURRENT_TLO"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R04-N2",
+      "ruleId": "B162-R04",
+      "kind": "single_field_negative",
+      "mutatedField": "replace.noSameBlockMove",
+      "mutations": {
+        "replace.noSameBlockMove": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R04-N3",
+      "ruleId": "B162-R04",
+      "kind": "single_field_negative",
+      "mutatedField": "replace.toolTableUnchanged",
+      "mutations": {
+        "replace.toolTableUnchanged": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R04-N4",
+      "ruleId": "B162-R04",
+      "kind": "single_field_negative",
+      "mutatedField": "replace.postOffsetState",
+      "mutations": {
+        "replace.postOffsetState": "ASSUME_NO_CHANGE"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R05-P",
+      "ruleId": "B162-R05",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R05-N1",
+      "ruleId": "B162-R05",
+      "kind": "single_field_negative",
+      "mutatedField": "additional.g432Semantics",
+      "mutations": {
+        "additional.g432Semantics": "REPLACE_TLO"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R05-N2",
+      "ruleId": "B162-R05",
+      "kind": "single_field_negative",
+      "mutatedField": "additional.hOrAxesExclusive",
+      "mutations": {
+        "additional.hOrAxesExclusive": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R05-N3",
+      "ruleId": "B162-R05",
+      "kind": "single_field_negative",
+      "mutatedField": "additional.accumulationLogged",
+      "mutations": {
+        "additional.accumulationLogged": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R05-N4",
+      "ruleId": "B162-R05",
+      "kind": "single_field_negative",
+      "mutatedField": "additional.tableNotWritten",
+      "mutations": {
+        "additional.tableNotWritten": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R06-P",
+      "ruleId": "B162-R06",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R06-N1",
+      "ruleId": "B162-R06",
+      "kind": "single_field_negative",
+      "mutatedField": "machine.g49ClearsToolLength",
+      "mutations": {
+        "machine.g49ClearsToolLength": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R06-N2",
+      "ruleId": "B162-R06",
+      "kind": "single_field_negative",
+      "mutatedField": "machine.g53IsBlockScoped",
+      "mutations": {
+        "machine.g53IsBlockScoped": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R06-N3",
+      "ruleId": "B162-R06",
+      "kind": "single_field_negative",
+      "mutatedField": "machine.g53G0G1Validated",
+      "mutations": {
+        "machine.g53G0G1Validated": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R06-N4",
+      "ruleId": "B162-R06",
+      "kind": "single_field_negative",
+      "mutatedField": "machine.g53CutterCompNotActive",
+      "mutations": {
+        "machine.g53CutterCompNotActive": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R07-P",
+      "ruleId": "B162-R07",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R07-N1",
+      "ruleId": "B162-R07",
+      "kind": "single_field_negative",
+      "mutatedField": "dialect.haasVersionEvidence",
+      "mutations": {
+        "dialect.haasVersionEvidence": "FIRMWARE_UNAVAILABLE"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R07-N2",
+      "ruleId": "B162-R07",
+      "kind": "single_field_negative",
+      "mutatedField": "dialect.haasAutoTloNotCrossApplied",
+      "mutations": {
+        "dialect.haasAutoTloNotCrossApplied": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R07-N3",
+      "ruleId": "B162-R07",
+      "kind": "single_field_negative",
+      "mutatedField": "dialect.linuxH0ChangersDistinguished",
+      "mutations": {
+        "dialect.linuxH0ChangersDistinguished": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R07-N4",
+      "ruleId": "B162-R07",
+      "kind": "single_field_negative",
+      "mutatedField": "dialect.unknownBlocksPublishing",
+      "mutations": {
+        "dialect.unknownBlocksPublishing": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R08-P",
+      "ruleId": "B162-R08",
+      "kind": "positive",
+      "mutations": {},
+      "expected": "PASS"
+    },
+    {
+      "id": "B162-R08-N1",
+      "ruleId": "B162-R08",
+      "kind": "single_field_negative",
+      "mutatedField": "gate.finalNcReparsedByD13",
+      "mutations": {
+        "gate.finalNcReparsedByD13": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R08-N2",
+      "ruleId": "B162-R08",
+      "kind": "single_field_negative",
+      "mutatedField": "gate.d04NominalSeparateFromD10",
+      "mutations": {
+        "gate.d04NominalSeparateFromD10": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R08-N3",
+      "ruleId": "B162-R08",
+      "kind": "single_field_negative",
+      "mutatedField": "gate.ownerAclCasCancellationRechecked",
+      "mutations": {
+        "gate.ownerAclCasCancellationRechecked": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "B162-R08-N4",
+      "ruleId": "B162-R08",
+      "kind": "single_field_negative",
+      "mutatedField": "gate.guiCliAgentOneOwnerPort",
+      "mutations": {
+        "gate.guiCliAgentOneOwnerPort": false
+      },
+      "expected": "REJECT"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B162-G01",
+      "action": "G43_M6",
+      "input": {
+        "loadedTool": 7,
+        "H": 7,
+        "hValue": 120,
+        "changerMode": "NONRANDOM"
+      },
+      "expected": "TLO_120_NO_MOTION"
+    },
+    {
+      "id": "B162-G02",
+      "action": "G431_REPLACE",
+      "input": {
+        "before": 120,
+        "replacement": 12.5,
+        "motionSameBlock": false
+      },
+      "expected": "TLO_12.5_NO_MOTION"
+    },
+    {
+      "id": "B162-G03",
+      "action": "G432_ADD",
+      "input": {
+        "before": 120,
+        "addition": 0.2,
+        "hasH": true,
+        "hasAxes": false
+      },
+      "expected": "TLO_120.2_NO_MOTION"
+    },
+    {
+      "id": "B162-G04",
+      "action": "G49_CANCEL",
+      "input": {
+        "before": 120
+      },
+      "expected": "TLO_ZERO_NO_MOTION"
+    },
+    {
+      "id": "B162-G05",
+      "action": "G53_MOVE",
+      "input": {
+        "gMode": "G0",
+        "cutterComp": false
+      },
+      "expected": "MACHINE_COORD_THIS_BLOCK_ONLY"
+    },
+    {
+      "id": "B162-G06",
+      "action": "G53_MOVE",
+      "input": {
+        "gMode": "G2",
+        "cutterComp": false
+      },
+      "expected": "REJECT_INVALID_MOTION"
+    },
+    {
+      "id": "B162-G07",
+      "action": "G43_H0",
+      "input": {
+        "changerMode": "UNKNOWN"
+      },
+      "expected": "UNKNOWN_TOOL_SELECTION"
+    },
+    {
+      "id": "B162-G08",
+      "action": "HAAS_NGC_AUTOTLO",
+      "input": {
+        "firmware": "UNKNOWN"
+      },
+      "expected": "UNKNOWN_FIRMWARE_SEMANTICS"
+    }
+  ]
+}

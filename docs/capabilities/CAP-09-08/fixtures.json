@@ -1,0 +1,844 @@
+{
+  "schemaVersion": "procet-cap0908-fixtures-v1",
+  "capabilityId": "CAP-09-08",
+  "syntheticOnly": true,
+  "caseMeaning": "30字段正反独立变异+14状态案例，非产品测试",
+  "cases": [
+    {
+      "id": "0908-P1",
+      "ruleId": "CAP-09-08-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "closure": {
+          "finalNcShaExact": true,
+          "d13CallInstancesExact": true,
+          "d14JointTimelineExact": true,
+          "d10ExecutionBindingExact": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N1",
+      "ruleId": "CAP-09-08-R01",
+      "scenario": "NEGATIVE",
+      "mutatedField": "closure.finalNcShaExact",
+      "input": {
+        "closure": {
+          "finalNcShaExact": false,
+          "d13CallInstancesExact": true,
+          "d14JointTimelineExact": true,
+          "d10ExecutionBindingExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M1",
+      "ruleId": "CAP-09-08-R01",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "closure.d10ExecutionBindingExact",
+      "input": {
+        "closure": {
+          "finalNcShaExact": true,
+          "d13CallInstancesExact": true,
+          "d14JointTimelineExact": true,
+          "d10ExecutionBindingExact": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P2",
+      "ruleId": "CAP-09-08-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "timeline": {
+          "timebaseExact": true,
+          "segmentMonotonic": true,
+          "timeUnitKnown": true,
+          "unknownIntervalsPreserved": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N2",
+      "ruleId": "CAP-09-08-R02",
+      "scenario": "NEGATIVE",
+      "mutatedField": "timeline.timebaseExact",
+      "input": {
+        "timeline": {
+          "timebaseExact": false,
+          "segmentMonotonic": true,
+          "timeUnitKnown": true,
+          "unknownIntervalsPreserved": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M2",
+      "ruleId": "CAP-09-08-R02",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "timeline.unknownIntervalsPreserved",
+      "input": {
+        "timeline": {
+          "timebaseExact": true,
+          "segmentMonotonic": true,
+          "timeUnitKnown": true,
+          "unknownIntervalsPreserved": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P3",
+      "ruleId": "CAP-09-08-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "mapping": {
+          "ncByteRangePinned": true,
+          "callInstanceExact": true,
+          "jointEventExact": true,
+          "findingReverseLink": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N3",
+      "ruleId": "CAP-09-08-R03",
+      "scenario": "NEGATIVE",
+      "mutatedField": "mapping.ncByteRangePinned",
+      "input": {
+        "mapping": {
+          "ncByteRangePinned": false,
+          "callInstanceExact": true,
+          "jointEventExact": true,
+          "findingReverseLink": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M3",
+      "ruleId": "CAP-09-08-R03",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "mapping.findingReverseLink",
+      "input": {
+        "mapping": {
+          "ncByteRangePinned": true,
+          "callInstanceExact": true,
+          "jointEventExact": true,
+          "findingReverseLink": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P4",
+      "ruleId": "CAP-09-08-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "kinematics": {
+          "machineRevisionPinned": true,
+          "nominalActualSeparated": true,
+          "transformUnitsPinned": true,
+          "missingGeometryUnknown": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N4",
+      "ruleId": "CAP-09-08-R04",
+      "scenario": "NEGATIVE",
+      "mutatedField": "kinematics.machineRevisionPinned",
+      "input": {
+        "kinematics": {
+          "machineRevisionPinned": false,
+          "nominalActualSeparated": true,
+          "transformUnitsPinned": true,
+          "missingGeometryUnknown": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M4",
+      "ruleId": "CAP-09-08-R04",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "kinematics.missingGeometryUnknown",
+      "input": {
+        "kinematics": {
+          "machineRevisionPinned": true,
+          "nominalActualSeparated": true,
+          "transformUnitsPinned": true,
+          "missingGeometryUnknown": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P5",
+      "ruleId": "CAP-09-08-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "playback": {
+          "seekReadOnly": true,
+          "dwellAndToolChangeVisible": true,
+          "speedDisplayOnly": true,
+          "reverseNoEngineeringWrite": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N5",
+      "ruleId": "CAP-09-08-R05",
+      "scenario": "NEGATIVE",
+      "mutatedField": "playback.seekReadOnly",
+      "input": {
+        "playback": {
+          "seekReadOnly": false,
+          "dwellAndToolChangeVisible": true,
+          "speedDisplayOnly": true,
+          "reverseNoEngineeringWrite": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M5",
+      "ruleId": "CAP-09-08-R05",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "playback.reverseNoEngineeringWrite",
+      "input": {
+        "playback": {
+          "seekReadOnly": true,
+          "dwellAndToolChangeVisible": true,
+          "speedDisplayOnly": true,
+          "reverseNoEngineeringWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P6",
+      "ruleId": "CAP-09-08-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "evidence": {
+          "d15OracleSeparate": true,
+          "findingHashExact": true,
+          "coverageGapsVisible": true,
+          "visualGreenNeverPass": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N6",
+      "ruleId": "CAP-09-08-R06",
+      "scenario": "NEGATIVE",
+      "mutatedField": "evidence.d15OracleSeparate",
+      "input": {
+        "evidence": {
+          "d15OracleSeparate": false,
+          "findingHashExact": true,
+          "coverageGapsVisible": true,
+          "visualGreenNeverPass": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M6",
+      "ruleId": "CAP-09-08-R06",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "evidence.visualGreenNeverPass",
+      "input": {
+        "evidence": {
+          "d15OracleSeparate": true,
+          "findingHashExact": true,
+          "coverageGapsVisible": true,
+          "visualGreenNeverPass": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P7",
+      "ruleId": "CAP-09-08-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "report": {
+          "provenanceClosure": true,
+          "timeSourceAndFrame": true,
+          "oracleScopeRecorded": true,
+          "syntheticWatermark": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N7",
+      "ruleId": "CAP-09-08-R07",
+      "scenario": "NEGATIVE",
+      "mutatedField": "report.provenanceClosure",
+      "input": {
+        "report": {
+          "provenanceClosure": false,
+          "timeSourceAndFrame": true,
+          "oracleScopeRecorded": true,
+          "syntheticWatermark": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M7",
+      "ruleId": "CAP-09-08-R07",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "report.syntheticWatermark",
+      "input": {
+        "report": {
+          "provenanceClosure": true,
+          "timeSourceAndFrame": true,
+          "oracleScopeRecorded": true,
+          "syntheticWatermark": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P8",
+      "ruleId": "CAP-09-08-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "ui": {
+          "sameOwnerPort": true,
+          "oneBabylonScene": true,
+          "oneLeftTaskPanel": true,
+          "selectionCannotApprove": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N8",
+      "ruleId": "CAP-09-08-R08",
+      "scenario": "NEGATIVE",
+      "mutatedField": "ui.sameOwnerPort",
+      "input": {
+        "ui": {
+          "sameOwnerPort": false,
+          "oneBabylonScene": true,
+          "oneLeftTaskPanel": true,
+          "selectionCannotApprove": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M8",
+      "ruleId": "CAP-09-08-R08",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "ui.selectionCannotApprove",
+      "input": {
+        "ui": {
+          "sameOwnerPort": true,
+          "oneBabylonScene": true,
+          "oneLeftTaskPanel": true,
+          "selectionCannotApprove": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P9",
+      "ruleId": "CAP-09-08-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "tx": {
+          "aclRecheck": true,
+          "revisionFrameCas": true,
+          "epochCancelChecked": true,
+          "lateAckNoCommit": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N9",
+      "ruleId": "CAP-09-08-R09",
+      "scenario": "NEGATIVE",
+      "mutatedField": "tx.aclRecheck",
+      "input": {
+        "tx": {
+          "aclRecheck": false,
+          "revisionFrameCas": true,
+          "epochCancelChecked": true,
+          "lateAckNoCommit": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M9",
+      "ruleId": "CAP-09-08-R09",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "tx.lateAckNoCommit",
+      "input": {
+        "tx": {
+          "aclRecheck": true,
+          "revisionFrameCas": true,
+          "epochCancelChecked": true,
+          "lateAckNoCommit": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-P10",
+      "ruleId": "CAP-09-08-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "migration": {
+          "exactInvalidation": true,
+          "pairedReaderRollback": true,
+          "independentD16Negative": true,
+          "frozenHistoryUnchanged": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "0908-N10",
+      "ruleId": "CAP-09-08-R10",
+      "scenario": "NEGATIVE",
+      "mutatedField": "migration.exactInvalidation",
+      "input": {
+        "migration": {
+          "exactInvalidation": false,
+          "pairedReaderRollback": true,
+          "independentD16Negative": true,
+          "frozenHistoryUnchanged": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "0908-M10",
+      "ruleId": "CAP-09-08-R10",
+      "scenario": "INDEPENDENT_FIELD_MUTATION",
+      "mutatedField": "migration.frozenHistoryUnchanged",
+      "input": {
+        "migration": {
+          "exactInvalidation": true,
+          "pairedReaderRollback": true,
+          "independentD16Negative": true,
+          "frozenHistoryUnchanged": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "semanticCases": [
+    {
+      "id": "PLAY-STATE-1",
+      "reason": "完整合成闭包",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "REVIEW_READY_SYNTHETIC_ONLY",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-2",
+      "reason": "CL Only",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": true,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-3",
+      "reason": "未知控制器语义",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": true,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-4",
+      "reason": "缺D14时间轴",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": false,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-5",
+      "reason": "缺D15独立报告",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": false,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-6",
+      "reason": "只有3D绿色",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": true,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-7",
+      "reason": "时间覆盖缺口",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": false,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-8",
+      "reason": "D13未执行",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": false,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-9",
+      "reason": "D10绑定缺失",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": false,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "UNKNOWN",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-10",
+      "reason": "源哈希已失效",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": false,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "STALE",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-11",
+      "reason": "撤权",
+      "input": {
+        "acl": false,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "REJECT_TRANSACTION",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-12",
+      "reason": "CAS冲突",
+      "input": {
+        "acl": true,
+        "cas": false,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "REJECT_TRANSACTION",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-13",
+      "reason": "取消晚ACK",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": true,
+        "lateAck": true,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": false
+      },
+      "expected": "REJECT_TRANSACTION",
+      "syntheticOnly": true
+    },
+    {
+      "id": "PLAY-STATE-14",
+      "reason": "独立碰撞异常",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "frameExact": true,
+        "epoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "fresh": true,
+        "clOnly": false,
+        "nc": true,
+        "semantics": true,
+        "joints": true,
+        "actualBinding": true,
+        "d15": true,
+        "independent": true,
+        "coverage": true,
+        "unknown": false,
+        "renderOnly": false,
+        "violation": true
+      },
+      "expected": "REJECT_ENGINEERING",
+      "syntheticOnly": true
+    }
+  ]
+}

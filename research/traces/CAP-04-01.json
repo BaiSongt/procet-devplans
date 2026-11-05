@@ -1,0 +1,384 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-04-01",
+  "topic": "R-SETUP-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "capability": "docs/capabilities/CAP-04-01/README.md",
+    "ui": "docs/capabilities/CAP-04-01/UI.md",
+    "topic": "research/topics/R-SETUP-001.md",
+    "fixtures": "docs/capabilities/CAP-04-01/fixtures.json",
+    "sources": "research/sources/CAP-04-01.json"
+  },
+  "registeredSources": [
+    "SRC-SET-001",
+    "SRC-SET-002",
+    "SRC-SET-003",
+    "SRC-SET-004",
+    "SRC-SET-005"
+  ],
+  "reusedPendingSourceIds": [
+    "SRC-PMI4-002"
+  ],
+  "sourceRegistryDependency": "pending-cap-03-04/research/sources/CAP-03-04.json is not yet remote; merge prerequisite",
+  "workPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "assetOwner": "04 装夹与坐标系 / D04",
+  "codeEvidence": [
+    {
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "paths": [
+        "apps/desktop/src/modules/cam/setup/useSetupWorkflow.ts",
+        "apps/desktop/src/modules/cam/setup/setupModes.ts",
+        "apps/desktop/src/modules/cam/setupDraftSession.ts",
+        "apps/desktop/src/modules/cam/setupService.ts",
+        "apps/desktop/src/modules/cam/setup/coordinateParameters.ts",
+        "apps/desktop/src/modules/cam/setup/setupNavigation.ts"
+      ],
+      "kind": "source_observation_only_not_test",
+      "note": "本轮read-only fetch_file实读可定位的TS文件，未运行产品测试"
+    }
+  ],
+  "rules": [
+    {
+      "id": "SET-R01",
+      "capabilityId": "CAP-04-01",
+      "description": "区分D01设计datum、D04加工基准与计划WCS、D10机床坐标/实际控制器偏置，不自动绑定机床",
+      "sourceIds": [
+        "SRC-SET-001",
+        "SRC-PMI4-002"
+      ],
+      "fields": [
+        "designDatumRefs",
+        "wcsIntentFrameRef",
+        "executionBindingRef"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T01",
+        "CAP-04-01-T02"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R02",
+      "capabilityId": "CAP-04-01",
+      "description": "Frame链必须带方向标记及单位且满足刚体右手正交和可逆检查，renderer不得反写",
+      "sourceIds": [
+        "SRC-SET-003",
+        "SRC-SET-004"
+      ],
+      "fields": [
+        "partFrameRef",
+        "T_S_P",
+        "frameConvention",
+        "frameNumericPolicyRef"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T03",
+        "CAP-04-01-T04"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R03",
+      "capabilityId": "CAP-04-01",
+      "description": "毛坯只在显式请求计算/采用且在目标Frame内求局部包围，导入和新建均不自动扩容",
+      "sourceIds": [
+        "SRC-SET-003",
+        "SRC-SET-005"
+      ],
+      "fields": [
+        "stockDefinitionStatus",
+        "bboxEvidence",
+        "targetBoundsFrameRef",
+        "stockFrameRef"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T05",
+        "CAP-04-01-T06"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R04",
+      "capabilityId": "CAP-04-01",
+      "description": "自动居中落座每次对源修订与目标约束求绝对候选，不在展示位姿累加",
+      "sourceIds": [
+        "SRC-SET-003"
+      ],
+      "fields": [
+        "alignmentInputHash",
+        "alignmentAlgorithmVersion",
+        "proposedPartTransform"
+      ],
+      "assets": [
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T07",
+        "CAP-04-01-T08"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R05",
+      "capabilityId": "CAP-04-01",
+      "description": "设计datum/拾取面须携带CAD exact装配实例+拓扑修订，不可由仅mesh点选确认制造定位",
+      "sourceIds": [
+        "SRC-PMI4-002",
+        "SRC-SET-005"
+      ],
+      "fields": [
+        "targetCadRef",
+        "designDatumRefs",
+        "topologySnapshotRef",
+        "occurrencePath"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T09",
+        "CAP-04-01-T10"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R06",
+      "capabilityId": "CAP-04-01",
+      "description": "GUI/CLI/Agent通过Host同一领域提交点的CAS、授权与幂等回执，取消晚结果不得污染其它scope",
+      "sourceIds": [
+        "SRC-SET-003"
+      ],
+      "fields": [
+        "requestId",
+        "expectedRevision",
+        "scopeEpoch",
+        "commitReceipt"
+      ],
+      "assets": [
+        "D04",
+        "D17"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T11",
+        "CAP-04-01-T12"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R07",
+      "capabilityId": "CAP-04-01",
+      "description": "双Setup直接按身份读取各自Feature/Plan与草稿，不强制重识别或全局清空",
+      "sourceIds": [
+        "SRC-SET-005"
+      ],
+      "fields": [
+        "setupRef",
+        "consumerSetupRef",
+        "documentInstanceId",
+        "planRevisionRef"
+      ],
+      "assets": [
+        "D02",
+        "D04",
+        "D05"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T13",
+        "CAP-04-01-T14"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R08",
+      "capabilityId": "CAP-04-01",
+      "description": "计划WCS与真实G54/控制器模态分离；D04可无机床探索，D10/D13再执行约束",
+      "sourceIds": [
+        "SRC-SET-001",
+        "SRC-SET-002"
+      ],
+      "fields": [
+        "wcsIntentFrameRef",
+        "offsetPreference",
+        "executionBindingRef",
+        "controllerSemanticsRef"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T15",
+        "CAP-04-01-T16"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R09",
+      "capabilityId": "CAP-04-01",
+      "description": "CAD/Frame/毛坯变更只传播给依赖该exact修订的消费方并保持批准历史不可静默覆写",
+      "sourceIds": [
+        "SRC-SET-005"
+      ],
+      "fields": [
+        "dependencyRevisionRefs",
+        "impactSummary",
+        "approvalFingerprint",
+        "approvedSnapshotRef"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05",
+        "D06",
+        "D08",
+        "D09",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T17",
+        "CAP-04-01-T18"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    },
+    {
+      "id": "SET-R10",
+      "capabilityId": "CAP-04-01",
+      "description": "离线恢复依赖精确内容闭包和模式版本，未知mode只读/缺实体失败保留原工程",
+      "sourceIds": [
+        "SRC-SET-005",
+        "SRC-SET-004"
+      ],
+      "fields": [
+        "schemaVersion",
+        "requiredClosureRefs",
+        "authoringMode",
+        "rollbackRef"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "tests": [
+        "CAP-04-01-T19",
+        "CAP-04-01-T20"
+      ],
+      "implementationStatus": "planned_only",
+      "kind": "official_source_plus_internal_design",
+      "humanApproval": "PENDING_L3"
+    }
+  ]
+}

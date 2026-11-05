@@ -1,0 +1,927 @@
+{
+  "schemaVersion": "procet-b67-fixture-v1",
+  "syntheticOnly": true,
+  "base": {
+    "owner": {
+      "port": "D13.AuxIoDomainPort",
+      "actor": "planner",
+      "canRead": true,
+      "canWrite": true,
+      "aclEpoch": 7,
+      "currentAclEpoch": 7,
+      "scopeEpoch": 5,
+      "currentScopeEpoch": 5,
+      "generation": 3,
+      "ackGeneration": 3,
+      "cancelled": false
+    },
+    "source": {
+      "d04Expected": "D04:r4@stock",
+      "d04Current": "D04:r4@stock",
+      "d10Expected": "D10:r7@machine",
+      "d10Current": "D10:r7@machine",
+      "ncExpected": "sha256:finalnc-v7",
+      "ncCurrent": "sha256:finalnc-v7",
+      "profileExpected": "sha256:linuxcnc29-profile7",
+      "profileCurrent": "sha256:linuxcnc29-profile7",
+      "frameExpected": "Machine",
+      "frameCurrent": "Machine",
+      "freezeRewrite": false,
+      "d10AsSetup": false
+    },
+    "binding": {
+      "dialect": "LinuxCNC-2.9",
+      "halWiringVerified": true,
+      "digitalOutCount": 4,
+      "analogOutCount": 4,
+      "digitalInCount": 4,
+      "analogInCount": 4,
+      "optionHashExact": true
+    },
+    "program": {
+      "reparsedFinalNc": true,
+      "mode": "inspect",
+      "legacyUnmapped": false,
+      "blocks": [
+        {
+          "id": "n1",
+          "op": "M62",
+          "P": 0
+        },
+        {
+          "id": "n2",
+          "op": "G1",
+          "motionId": "seg1"
+        }
+      ],
+      "expectedEvents": [
+        {
+          "kind": "DO",
+          "index": 0,
+          "value": 1,
+          "type": "QUEUED_AT_MOTION",
+          "anchor": "seg1"
+        }
+      ]
+    },
+    "evidence": {
+      "ioSample": null,
+      "claimDeviceComplete": false,
+      "sourceLineMap": true,
+      "exactInvalidation": true,
+      "rollbackPreserved": true,
+      "independentD15": false,
+      "requestPublish": false
+    },
+    "ui": {
+      "entry": "GUI",
+      "sharedPort": true,
+      "singleBabylon": true,
+      "leftTaskPanel": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B67-R01-P",
+      "ruleId": "B67-R01",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {},
+      "synthetic": true
+    },
+    {
+      "id": "B67-R02-P",
+      "ruleId": "B67-R02",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M62",
+            "P": 0
+          },
+          {
+            "id": "b",
+            "op": "M63",
+            "P": 0
+          },
+          {
+            "id": "c",
+            "op": "G1",
+            "motionId": "seg2"
+          }
+        ],
+        "program.expectedEvents": [
+          {
+            "kind": "DO",
+            "index": 0,
+            "value": 0,
+            "type": "QUEUED_AT_MOTION",
+            "anchor": "seg2"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R03-P",
+      "ruleId": "B67-R03",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M64",
+            "P": 1
+          }
+        ],
+        "program.expectedEvents": [
+          {
+            "kind": "DO",
+            "index": 1,
+            "value": 1,
+            "type": "IMMEDIATE_BREAKS_BLENDING",
+            "anchor": null
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R04-P",
+      "ruleId": "B67-R04",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M67",
+            "E": 0,
+            "Q": 1.25
+          },
+          {
+            "id": "b",
+            "op": "G1",
+            "motionId": "seg1"
+          }
+        ],
+        "program.expectedEvents": [
+          {
+            "kind": "AO",
+            "index": 0,
+            "value": 1.25,
+            "type": "QUEUED_AT_MOTION",
+            "anchor": "seg1"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-P",
+      "ruleId": "B67-R05",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 0,
+            "L": 3,
+            "Q": 5
+          }
+        ],
+        "program.expectedEvents": [
+          {
+            "kind": "DI",
+            "index": 0,
+            "value": 1,
+            "type": "WAIT_INPUT_OBSERVED",
+            "anchor": null
+          }
+        ],
+        "evidence.ioSample": {
+          "kind": "DI",
+          "index": 0,
+          "value": 1,
+          "source": "HAL_PIN",
+          "d10Exact": "D10:r7@machine",
+          "timestamp": "2026-10-31T11:00:00Z"
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R06-P",
+      "ruleId": "B67-R06",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {},
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-P",
+      "ruleId": "B67-R07",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {},
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-P",
+      "ruleId": "B67-R08",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {
+        "ui.entry": "Agent"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-CLI",
+      "ruleId": "B67-R08",
+      "expected": "CANDIDATE_ONLY",
+      "expectedReason": "INTENT_NOT_MACHINE_ACK",
+      "changes": {
+        "ui.entry": "CLI"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-NO-REPARSE",
+      "ruleId": "B67-R01",
+      "expected": "REJECT",
+      "expectedReason": "FINAL_NC_NOT_REPARSED",
+      "changes": {
+        "program.reparsedFinalNc": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-SETUP-AS-BIND",
+      "ruleId": "B67-R01",
+      "expected": "REJECT",
+      "expectedReason": "DOMAIN_OR_RELEASE_BOUNDARY",
+      "changes": {
+        "source.d10AsSetup": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R02-CHANNEL",
+      "ruleId": "B67-R02",
+      "expected": "REJECT",
+      "expectedReason": "DIGITAL_CHANNEL_RANGE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M62",
+            "P": 8
+          },
+          {
+            "id": "b",
+            "op": "G1",
+            "motionId": "seg1"
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R02-MISSING-ID",
+      "ruleId": "B67-R02",
+      "expected": "REJECT",
+      "expectedReason": "BLOCK_SCHEMA",
+      "changes": {
+        "program.blocks": [
+          {
+            "op": "M62",
+            "P": 0
+          },
+          {
+            "id": "b",
+            "op": "G1",
+            "motionId": "seg1"
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R02-WRONG-ANCHOR",
+      "ruleId": "B67-R02",
+      "expected": "REJECT",
+      "expectedReason": "EVENT_TIMELINE_MISMATCH",
+      "changes": {
+        "program.expectedEvents": [
+          {
+            "kind": "DO",
+            "index": 0,
+            "value": 1,
+            "type": "QUEUED_AT_MOTION",
+            "anchor": "segOTHER"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R02-WRONG-OVERWRITE",
+      "ruleId": "B67-R02",
+      "expected": "REJECT",
+      "expectedReason": "EVENT_TIMELINE_MISMATCH",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M62",
+            "P": 0
+          },
+          {
+            "id": "b",
+            "op": "M63",
+            "P": 0
+          },
+          {
+            "id": "c",
+            "op": "G1",
+            "motionId": "seg2"
+          }
+        ],
+        "program.expectedEvents": [
+          {
+            "kind": "DO",
+            "index": 0,
+            "value": 1,
+            "type": "QUEUED_AT_MOTION",
+            "anchor": "seg2"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R03-IMMEDIATE-AS-QUEUED",
+      "ruleId": "B67-R03",
+      "expected": "REJECT",
+      "expectedReason": "EVENT_TIMELINE_MISMATCH",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M64",
+            "P": 1
+          }
+        ],
+        "program.expectedEvents": [
+          {
+            "kind": "DO",
+            "index": 1,
+            "value": 1,
+            "type": "QUEUED_AT_MOTION",
+            "anchor": "seg1"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R03-M64-CHANNEL",
+      "ruleId": "B67-R03",
+      "expected": "REJECT",
+      "expectedReason": "DIGITAL_CHANNEL_RANGE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M64",
+            "P": -1
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R04-ANALOG-NAN",
+      "ruleId": "B67-R04",
+      "expected": "REJECT",
+      "expectedReason": "ANALOG_CHANNEL_OR_VALUE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M67",
+            "E": 0,
+            "Q": "NaN"
+          },
+          {
+            "id": "b",
+            "op": "G1",
+            "motionId": "seg1"
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R04-ANALOG-CHANNEL",
+      "ruleId": "B67-R04",
+      "expected": "REJECT",
+      "expectedReason": "ANALOG_CHANNEL_OR_VALUE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M67",
+            "E": 8,
+            "Q": 2
+          },
+          {
+            "id": "b",
+            "op": "G1",
+            "motionId": "seg1"
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R04-M68-AS-MOTION",
+      "ruleId": "B67-R04",
+      "expected": "REJECT",
+      "expectedReason": "EVENT_TIMELINE_MISMATCH",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M68",
+            "E": 0,
+            "Q": 1
+          }
+        ],
+        "program.expectedEvents": [
+          {
+            "kind": "AO",
+            "index": 0,
+            "value": 1,
+            "type": "QUEUED_AT_MOTION",
+            "anchor": "seg1"
+          }
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-P-E-BOTH",
+      "ruleId": "B67-R05",
+      "expected": "REJECT",
+      "expectedReason": "INPUT_SELECTOR",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 0,
+            "E": 0,
+            "L": 0
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-ANALOG-WAIT",
+      "ruleId": "B67-R05",
+      "expected": "REJECT",
+      "expectedReason": "INPUT_WAIT_MODE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "E": 0,
+            "L": 3,
+            "Q": 5
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-ZERO-Q",
+      "ruleId": "B67-R05",
+      "expected": "REJECT",
+      "expectedReason": "INPUT_TIMEOUT_WORD",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 0,
+            "L": 3,
+            "Q": 0
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-BAD-L",
+      "ruleId": "B67-R05",
+      "expected": "REJECT",
+      "expectedReason": "INPUT_WAIT_MODE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 0,
+            "L": 9,
+            "Q": 1
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-BAD-P",
+      "ruleId": "B67-R05",
+      "expected": "REJECT",
+      "expectedReason": "INPUT_CHANNEL_RANGE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 9,
+            "L": 0
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R06-FAKE-ACK",
+      "ruleId": "B67-R06",
+      "expected": "REJECT",
+      "expectedReason": "NO_PHANTOM_DEVICE_ACK",
+      "changes": {
+        "evidence.claimDeviceComplete": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R06-SRC-UNMAPPED",
+      "ruleId": "B67-R06",
+      "expected": "REJECT",
+      "expectedReason": "SOURCE_LINE_UNMAPPED",
+      "changes": {
+        "evidence.sourceLineMap": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-PUBLISH",
+      "ruleId": "B67-R07",
+      "expected": "REJECT",
+      "expectedReason": "DOMAIN_OR_RELEASE_BOUNDARY",
+      "changes": {
+        "evidence.requestPublish": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-FROZEN",
+      "ruleId": "B67-R07",
+      "expected": "REJECT",
+      "expectedReason": "DOMAIN_OR_RELEASE_BOUNDARY",
+      "changes": {
+        "source.freezeRewrite": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-RIGHT-PANEL",
+      "ruleId": "B67-R08",
+      "expected": "REJECT",
+      "expectedReason": "UI_BOUNDARY",
+      "changes": {
+        "ui.leftTaskPanel": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-AGENT-OTHER-PORT",
+      "ruleId": "B67-R08",
+      "expected": "REJECT",
+      "expectedReason": "AUTH_OR_PORT",
+      "changes": {
+        "owner.port": "D13.AgentLocalPort"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-SECOND-ENGINE",
+      "ruleId": "B67-R08",
+      "expected": "REJECT",
+      "expectedReason": "UI_BOUNDARY",
+      "changes": {
+        "ui.singleBabylon": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R02-NO-MOTION",
+      "ruleId": "B67-R02",
+      "expected": "UNKNOWN",
+      "expectedReason": "QUEUED_WITHOUT_NEXT_MOTION",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M62",
+            "P": 0
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R02-MOTION-NO-ID",
+      "ruleId": "B67-R02",
+      "expected": "UNKNOWN",
+      "expectedReason": "MOTION_ID_UNKNOWN",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M62",
+            "P": 0
+          },
+          {
+            "id": "b",
+            "op": "G1"
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-NO-SAMPLE",
+      "ruleId": "B67-R05",
+      "expected": "UNKNOWN",
+      "expectedReason": "INPUT_RESULT_NOT_OBSERVED",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 0,
+            "L": 3,
+            "Q": 5
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-TIMEOUT",
+      "ruleId": "B67-R05",
+      "expected": "UNKNOWN",
+      "expectedReason": "INPUT_TIMEOUT_NOT_SUCCESS",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 0,
+            "L": 3,
+            "Q": 5
+          }
+        ],
+        "program.expectedEvents": [],
+        "evidence.ioSample": {
+          "kind": "DI",
+          "index": 0,
+          "value": -1,
+          "source": "HAL_PIN",
+          "d10Exact": "D10:r7@machine",
+          "timestamp": "2026-10-31T11:00:00Z"
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R05-NO-PROVENANCE",
+      "ruleId": "B67-R05",
+      "expected": "UNKNOWN",
+      "expectedReason": "INPUT_PROVENANCE_UNQUALIFIED",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M66",
+            "P": 0,
+            "L": 3,
+            "Q": 5
+          }
+        ],
+        "program.expectedEvents": [],
+        "evidence.ioSample": {
+          "kind": "DI",
+          "index": 0,
+          "value": 1,
+          "source": "SYNTHETIC",
+          "d10Exact": "D10:r7@machine",
+          "timestamp": "2026-10-31T11:00:00Z"
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-DIALECT",
+      "ruleId": "B67-R01",
+      "expected": "UNKNOWN",
+      "expectedReason": "DIALECT_OR_OPTION_UNKNOWN",
+      "changes": {
+        "binding.dialect": "GenericGCode"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R06-NO-HAL",
+      "ruleId": "B67-R06",
+      "expected": "UNKNOWN",
+      "expectedReason": "HAL_WIRING_UNVERIFIED",
+      "changes": {
+        "binding.halWiringVerified": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-NO-ROLLBACK",
+      "ruleId": "B67-R07",
+      "expected": "UNKNOWN",
+      "expectedReason": "INVALIDATION_OR_ROLLBACK_UNKNOWN",
+      "changes": {
+        "evidence.rollbackPreserved": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-LEGACY",
+      "ruleId": "B67-R08",
+      "expected": "UNKNOWN",
+      "expectedReason": "LEGACY_UNRESOLVED",
+      "changes": {
+        "program.legacyUnmapped": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R04-UNKNOWN-M",
+      "ruleId": "B67-R04",
+      "expected": "UNKNOWN",
+      "expectedReason": "UNMODELED_M_OR_G_CODE",
+      "changes": {
+        "program.blocks": [
+          {
+            "id": "a",
+            "op": "M700"
+          }
+        ],
+        "program.expectedEvents": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-ACL-STALE",
+      "ruleId": "B67-R07",
+      "expected": "STALE",
+      "expectedReason": "CANCEL_OR_PERMISSION_FENCE",
+      "changes": {
+        "owner.currentAclEpoch": 8
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-SCOPE-STALE",
+      "ruleId": "B67-R07",
+      "expected": "STALE",
+      "expectedReason": "CANCEL_OR_PERMISSION_FENCE",
+      "changes": {
+        "owner.currentScopeEpoch": 6
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-CANCEL",
+      "ruleId": "B67-R07",
+      "expected": "STALE",
+      "expectedReason": "CANCEL_OR_PERMISSION_FENCE",
+      "changes": {
+        "owner.cancelled": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R07-LATE-ACK",
+      "ruleId": "B67-R07",
+      "expected": "STALE",
+      "expectedReason": "CANCEL_OR_PERMISSION_FENCE",
+      "changes": {
+        "owner.ackGeneration": 2
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-D04-STALE",
+      "ruleId": "B67-R01",
+      "expected": "STALE",
+      "expectedReason": "EXACT_SOURCE_CHANGED",
+      "changes": {
+        "source.d04Current": "D04:r5"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-D10-STALE",
+      "ruleId": "B67-R01",
+      "expected": "STALE",
+      "expectedReason": "EXACT_SOURCE_CHANGED",
+      "changes": {
+        "source.d10Current": "D10:r8"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-NC-STALE",
+      "ruleId": "B67-R01",
+      "expected": "STALE",
+      "expectedReason": "EXACT_SOURCE_CHANGED",
+      "changes": {
+        "source.ncCurrent": "sha256:changed"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-PROFILE-STALE",
+      "ruleId": "B67-R01",
+      "expected": "STALE",
+      "expectedReason": "EXACT_SOURCE_CHANGED",
+      "changes": {
+        "source.profileCurrent": "sha256:new"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R01-FRAME-STALE",
+      "ruleId": "B67-R01",
+      "expected": "STALE",
+      "expectedReason": "EXACT_SOURCE_CHANGED",
+      "changes": {
+        "source.frameCurrent": "Part"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-DISPLAY",
+      "ruleId": "B67-R08",
+      "expected": "DISPLAY_ONLY",
+      "expectedReason": "NO_OWNER_COMMIT",
+      "changes": {
+        "program.mode": "display"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "B67-R08-PREVIEW",
+      "ruleId": "B67-R08",
+      "expected": "DISPLAY_ONLY",
+      "expectedReason": "NO_OWNER_COMMIT",
+      "changes": {
+        "program.mode": "preview"
+      },
+      "synthetic": true
+    }
+  ],
+  "assertion": "每条case是显式预期状态+差异字段；不能使用judge结果自动填预期"
+}

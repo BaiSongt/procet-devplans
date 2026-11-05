@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "procet-cap-06-02-search-vectors-v1",
+  "syntheticOnly": true,
+  "examples": [
+    {
+      "id": "V01",
+      "steps": [
+        "R",
+        "F"
+      ],
+      "edges": [
+        [
+          "R",
+          "F"
+        ]
+      ],
+      "expected": "ORDERED_CANDIDATE_ONLY"
+    },
+    {
+      "id": "V02",
+      "steps": [
+        "R",
+        "F"
+      ],
+      "edges": [
+        [
+          "R",
+          "F"
+        ],
+        [
+          "F",
+          "R"
+        ]
+      ],
+      "expected": "REJECT_PRECEDENCE_CYCLE"
+    },
+    {
+      "id": "V03",
+      "branchA": "sameStock",
+      "branchB": "sameStock",
+      "protectedHashA": "x",
+      "protectedHashB": "y",
+      "expected": "DO_NOT_DOMINATE"
+    },
+    {
+      "id": "V04",
+      "setupA": "SETUP-A",
+      "setupB": "SETUP-B",
+      "change": "B-only",
+      "expected": "DO_NOT_INVALIDATE_A"
+    },
+    {
+      "id": "V05",
+      "usedBoolean": 100,
+      "maxBoolean": 100,
+      "frontier": 3,
+      "expected": "UNKNOWN_NOT_INFEASIBLE"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "procet-zero-edge-research-trace-v08",
+  "sourceRegistry": "research/sources/ZERO-EDGE-WORKPACKAGES-V08.json",
+  "review": "docs/architecture/v0.8/zero-edge-workpackage-review-v08.json",
+  "fixtures": "docs/architecture/v0.8/zero-edge-workpackage-fixtures-v08.json",
+  "rules": [
+    {
+      "id": "ZE-R01",
+      "statement": "只读原直接边并禁候选关系补写",
+      "fields": [
+        "originalCapEdges",
+        "relation"
+      ],
+      "originalPackages": [
+        "B0-03",
+        "B0-04"
+      ],
+      "capabilities": [
+        "CAP-01-03"
+      ],
+      "sourceIds": [
+        "ZE-S01",
+        "ZE-S03"
+      ],
+      "acceptance": "ZE-Pxx/ZE-Nxx/ZE-GP/GN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "ZE-R02",
+      "statement": "候选CAP/资产必须在原88/17中且不能授Owner",
+      "fields": [
+        "candidateConsumerCapIds",
+        "candidateAssetIds",
+        "ownerWriteGranted"
+      ],
+      "originalPackages": [
+        "F1-01",
+        "U4-03"
+      ],
+      "capabilities": [
+        "CAP-01-07",
+        "CAP-03-03"
+      ],
+      "sourceIds": [
+        "ZE-S01",
+        "ZE-S03"
+      ],
+      "acceptance": "ZE-Pxx/ZE-Nxx/ZE-GP/GN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "ZE-R03",
+      "statement": "人类评审、消费者、产品三状态独立",
+      "fields": [
+        "ownerApproval",
+        "independentConsumer",
+        "product"
+      ],
+      "originalPackages": [
+        "B0-03",
+        "T5-05"
+      ],
+      "capabilities": [
+        "CAP-06-07",
+        "CAP-09-06"
+      ],
+      "sourceIds": [
+        "ZE-S02"
+      ],
+      "acceptance": "ZE-Pxx/ZE-Nxx/ZE-GP/GN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "ZE-R04",
+      "statement": "单Babylon和D12-D15真实NC独立门禁",
+      "fields": [
+        "policy.singleBabylon",
+        "policy.leftTaskPanel",
+        "policy.finalNcD13D14D15Required",
+        "policy.unknownCanRelease"
+      ],
+      "originalPackages": [
+        "U4-03",
+        "U4-05"
+      ],
+      "capabilities": [
+        "CAP-01-07",
+        "CAP-09-06"
+      ],
+      "sourceIds": [
+        "ZE-S05"
+      ],
+      "acceptance": "ZE-Pxx/ZE-Nxx/ZE-GP/GN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "ZE-R05",
+      "statement": "CAS/取消晚ACK、D04/D10、A/B冻结与迁移回退",
+      "fields": [
+        "policy.aclScopeRevisionHashFrameCasCancelRecheck",
+        "policy.d04D10Separated",
+        "policy.abFrozenProtected",
+        "policy.lateAckCanWrite"
+      ],
+      "originalPackages": [
+        "F1-01",
+        "T5-04"
+      ],
+      "capabilities": [
+        "CAP-01-03",
+        "CAP-04-02"
+      ],
+      "sourceIds": [
+        "ZE-S03",
+        "ZE-S04"
+      ],
+      "acceptance": "ZE-Pxx/ZE-Nxx/ZE-GP/GN",
+      "product": "NOT_RUN"
+    },
+    {
+      "id": "ZE-R06",
+      "statement": "黄金Oracle独立及产品合格分离",
+      "fields": [
+        "detail",
+        "rationale",
+        "policy.clAnimationCountsAsNcPass"
+      ],
+      "originalPackages": [
+        "B0-03",
+        "T5-06"
+      ],
+      "capabilities": [
+        "CAP-06-07",
+        "CAP-09-08"
+      ],
+      "sourceIds": [
+        "ZE-S01",
+        "ZE-S02",
+        "ZE-S05"
+      ],
+      "acceptance": "ZE-Pxx/ZE-Nxx/ZE-GP/GN",
+      "product": "NOT_RUN"
+    }
+  ]
+}

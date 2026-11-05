@@ -1,0 +1,424 @@
+{
+  "schemaVersion": "procet-planning-fixture-v1",
+  "capabilityId": "CAP-05-03",
+  "scope": "synthetic_rule_testing_not_product",
+  "cases": [
+    {
+      "id": "EDIT503-AT01-P",
+      "ruleId": "EDIT503-R01",
+      "expected": "PASS",
+      "input": {
+        "scope": "p1",
+        "refs": [
+          {
+            "id": "cad",
+            "revision": "r1",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART"
+          },
+          {
+            "id": "feature",
+            "revision": "r2",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART"
+          },
+          {
+            "id": "setup",
+            "revision": "r3",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP"
+          }
+        ],
+        "planRevision": "r3"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT01-N",
+      "ruleId": "EDIT503-R01",
+      "expected": "REJECT",
+      "input": {
+        "scope": "p1",
+        "refs": [
+          {
+            "id": "cad",
+            "revision": "r1",
+            "hash": "not-hash",
+            "frame": "PART"
+          },
+          {
+            "id": "feature",
+            "revision": "r2",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART"
+          },
+          {
+            "id": "setup",
+            "revision": "r3",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "SETUP"
+          }
+        ],
+        "planRevision": "r3"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT02-P",
+      "ruleId": "EDIT503-R02",
+      "expected": "PASS",
+      "input": {
+        "operationIds": [
+          "A",
+          "B",
+          "C"
+        ],
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT02-N",
+      "ruleId": "EDIT503-R02",
+      "expected": "REJECT",
+      "input": {
+        "operationIds": [
+          "A",
+          "B",
+          "C"
+        ],
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "A"
+          ]
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT03-P",
+      "ruleId": "EDIT503-R03",
+      "expected": "PASS",
+      "input": {
+        "displayOrder": [
+          "B",
+          "A"
+        ],
+        "edgesBefore": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "edgesAfter": [
+          [
+            "A",
+            "B"
+          ]
+        ]
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT03-N",
+      "ruleId": "EDIT503-R03",
+      "expected": "REJECT",
+      "input": {
+        "displayOrder": [
+          "B",
+          "A"
+        ],
+        "edgesBefore": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "edgesAfter": []
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT04-P",
+      "ruleId": "EDIT503-R04",
+      "expected": "PASS",
+      "input": {
+        "features": [
+          "f1",
+          "f2"
+        ],
+        "operations": [
+          "A",
+          "B"
+        ],
+        "links": {
+          "A": [
+            "f1",
+            "f2"
+          ],
+          "B": [
+            "f2"
+          ]
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT04-N",
+      "ruleId": "EDIT503-R04",
+      "expected": "REJECT",
+      "input": {
+        "features": [
+          "f1",
+          "f2"
+        ],
+        "operations": [
+          "A",
+          "B"
+        ],
+        "links": {
+          "A": [
+            "f1",
+            "f2"
+          ],
+          "B": [
+            "missing"
+          ]
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT05-P",
+      "ruleId": "EDIT503-R05",
+      "expected": "PASS",
+      "input": {
+        "crossSetup": true,
+        "setupA": {
+          "frame": "S1"
+        },
+        "setupB": {
+          "frame": "S2"
+        },
+        "transferExactRef": {
+          "id": "transfer",
+          "revision": "r2",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frame": "S2"
+        },
+        "frameChecked": true,
+        "writesD10": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT05-N",
+      "ruleId": "EDIT503-R05",
+      "expected": "REJECT",
+      "input": {
+        "crossSetup": true,
+        "setupA": {
+          "frame": "S1"
+        },
+        "setupB": {
+          "frame": "S2"
+        },
+        "transferExactRef": null,
+        "frameChecked": true,
+        "writesD10": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT06-P",
+      "ruleId": "EDIT503-R06",
+      "expected": "PASS",
+      "input": {
+        "frozen": [
+          "A"
+        ],
+        "modified": [
+          "B"
+        ],
+        "fork": true,
+        "overwriteFrozen": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT06-N",
+      "ruleId": "EDIT503-R06",
+      "expected": "REJECT",
+      "input": {
+        "frozen": [
+          "A"
+        ],
+        "modified": [
+          "A"
+        ],
+        "fork": true,
+        "overwriteFrozen": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT07-P",
+      "ruleId": "EDIT503-R07",
+      "expected": "PASS",
+      "input": {
+        "solverRun": {
+          "id": "run1",
+          "revision": "r1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "selection": [
+          "B"
+        ],
+        "freeze": [
+          "A"
+        ],
+        "approval": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT07-N",
+      "ruleId": "EDIT503-R07",
+      "expected": "REJECT",
+      "input": {
+        "solverRun": {
+          "id": "run1",
+          "revision": "r1",
+          "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "selection": [
+          "A"
+        ],
+        "freeze": [
+          "A"
+        ],
+        "approval": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT08-P",
+      "ruleId": "EDIT503-R08",
+      "expected": "PASS",
+      "input": {
+        "aclAtCommit": true,
+        "expectedRevision": "r2",
+        "currentRevision": "r2",
+        "sourceHashesCurrent": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT08-N",
+      "ruleId": "EDIT503-R08",
+      "expected": "REJECT",
+      "input": {
+        "aclAtCommit": true,
+        "expectedRevision": "r2",
+        "currentRevision": "r3",
+        "sourceHashesCurrent": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT09-P",
+      "ruleId": "EDIT503-R09",
+      "expected": "PASS",
+      "input": {
+        "cancelled": false,
+        "scopeEpoch": 9,
+        "ackEpoch": 9,
+        "generation": 7,
+        "ackGeneration": 7
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT09-N",
+      "ruleId": "EDIT503-R09",
+      "expected": "REJECT",
+      "input": {
+        "cancelled": false,
+        "scopeEpoch": 9,
+        "ackEpoch": 8,
+        "generation": 7,
+        "ackGeneration": 7
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT10-P",
+      "ruleId": "EDIT503-R10",
+      "expected": "PASS",
+      "input": {
+        "changed": [
+          "B"
+        ],
+        "affected": [
+          "B",
+          "C"
+        ],
+        "stale": [
+          "B",
+          "C"
+        ],
+        "unaffected": [
+          "A"
+        ],
+        "d15": "NOT_RUN",
+        "d16": "NOT_RELEASED",
+        "historicalD16Unchanged": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "EDIT503-AT10-N",
+      "ruleId": "EDIT503-R10",
+      "expected": "REJECT",
+      "input": {
+        "changed": [
+          "B"
+        ],
+        "affected": [
+          "B",
+          "C"
+        ],
+        "stale": [
+          "B",
+          "C",
+          "A"
+        ],
+        "unaffected": [
+          "A"
+        ],
+        "d15": "PASS",
+        "d16": "NOT_RELEASED",
+        "historicalD16Unchanged": true
+      },
+      "synthetic": true
+    }
+  ]
+}

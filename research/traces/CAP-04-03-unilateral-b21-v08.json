@@ -1,0 +1,348 @@
+{
+  "schemaVersion": "procet-research-trace-b21-v08",
+  "topic": "R-FIX-001-B21",
+  "capabilityId": "CAP-04-03",
+  "status": "planning_only_pending_L3",
+  "productAcceptance": "NOT_RUN",
+  "workPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "owner": "D04.Setup.OwnerPort",
+  "sources": [
+    {
+      "id": "B21-S01",
+      "title": "Modern Robotics — 12.1.7 Form Closure",
+      "authors": [
+        "Kevin M. Lynch",
+        "Frank C. Park"
+      ],
+      "publisher": "Northwestern University / Cambridge University Press",
+      "edition": "Modern Robotics public video supplement, page revision not stated",
+      "published": "not_stated",
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/12-1-7-form-closure/",
+      "accessedOn": "2026-10-29",
+      "accessDepth": "public_HTML_description_lines_26_41",
+      "locator": "§12.1.7 Description & Transcript：first-order form closure iff only zero feasible twist；6D needs at least seven frictionless point normals",
+      "limitations": "网页的教学阐释；没有运行通用线性规划，二阶接触几何可能改变结论"
+    },
+    {
+      "id": "B21-S02",
+      "title": "Modern Robotics — 12.2.3 Force Closure",
+      "authors": [
+        "Kevin M. Lynch",
+        "Frank C. Park"
+      ],
+      "publisher": "Northwestern University / Cambridge University Press",
+      "edition": "Modern Robotics public video supplement, page revision not stated",
+      "published": "not_stated",
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/12-2-3-force-closure/",
+      "accessedOn": "2026-10-29",
+      "accessDepth": "public_HTML_description_lines_26_40",
+      "locator": "§12.2.3：friction cone positive span and rank+positive coefficients, not actual load capability",
+      "limitations": "机器人抓取理论的教学解释；实际夹具、摩擦系数与刚度必须另核"
+    },
+    {
+      "id": "B21-S03",
+      "title": "Locating & Clamping Principles",
+      "authors": [
+        "Carr Lane Manufacturing"
+      ],
+      "publisher": "Carr Lane Manufacturing",
+      "edition": "online engineering guide, revision not stated",
+      "published": "not_stated",
+      "url": "https://www.carrlane.com/engineering-resources/fixture-design-principles/locating-clamping-principles",
+      "accessedOn": "2026-10-29",
+      "accessDepth": "public_HTML_sections_Locating_from_External_Surfaces_and_Positioning_the_Clamps",
+      "locator": "3-2-1定位六接触与夹紧用于余下方向、夹紧力要朝向支撑",
+      "limitations": "厂商工程建议，非强制标准；不能从静态模型推出实际夹紧力"
+    },
+    {
+      "id": "B21-S04",
+      "title": "Finite-Element Analysis of Flexible Fixturing System",
+      "authors": [
+        "Jonathan W. Lee",
+        "L. Haynes"
+      ],
+      "publisher": "NIST / Journal of Engineering for Industry",
+      "edition": "1987 journal publication",
+      "published": "1987-05-29",
+      "url": "https://www.nist.gov/publications/finite-element-analysis-flexible-fixturing-system",
+      "accessedOn": "2026-10-29",
+      "accessDepth": "official_publication_metadata_abstract_only",
+      "locator": "摘要：接触点、线弹性、夹紧力与Coulomb摩擦",
+      "limitations": "论文PDF正文未读取；不引用具体有限元算法、载荷或测试结果"
+    },
+    {
+      "id": "B21-S05",
+      "title": "ISO 5459:2024 GPS — Datums and datum systems",
+      "authors": [
+        "ISO/TC 213"
+      ],
+      "publisher": "ISO",
+      "edition": "Edition 3, 2024-10",
+      "published": "2024-10-04",
+      "url": "https://www.iso.org/standard/87855.html",
+      "accessedOn": "2026-10-29",
+      "accessDepth": "official_catalog_abstract_only",
+      "locator": "Abstract: datum specification operator; verification operator outside scope",
+      "limitations": "115页收费正文未读，不能声称标准要求具体3-2-1、摩擦或工具路径"
+    },
+    {
+      "id": "B21-S06",
+      "title": "Procet CAP-04-03 原生业务规格",
+      "authors": [
+        "Procet V0.8规划编制组，L3未审"
+      ],
+      "publisher": "BaiSongt/procet-devplans",
+      "edition": "source Git Blob 0727113f0db6dbb4f23b0b9146ddffbfa6a1b643",
+      "published": "2026-10-19",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/73e628aea0ada7222bc294c465763888c45741a4/docs/capabilities/CAP-04-03/README.md",
+      "accessedOn": "2026-10-29",
+      "accessDepth": "internal_full_README_sections_I_to_VI",
+      "locator": "§1-5 Owner、Frame、CAS、单世界、D04/D10分离及D13-D16",
+      "limitations": "内部规划候选，不属于ISO/NIST/厂商外部规范；不作为产品实现或批准依据"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B21-R01_EXACT_NORMAL",
+      "description": "双侧exact CAD/夹具/设计datum与接触Normal/Frame身份隔离",
+      "fields": [
+        "cadExactRef",
+        "fixtureExactRef",
+        "datumExactRef",
+        "contactFrame",
+        "normalPolarity",
+        "normalsQualified"
+      ],
+      "sourceIds": [
+        "B21-S05",
+        "B21-S06"
+      ],
+      "derivation": "derived_internal_identity_plus_external_datum_boundary",
+      "capabilityId": "CAP-04-03",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "acceptanceCaseIds": [
+        "B21-P01",
+        "B21-P02",
+        "B21-N01",
+        "B21-N02",
+        "B21-N03",
+        "B21-N04"
+      ],
+      "status": "PENDING_L3"
+    },
+    {
+      "id": "B21-R02_RANK",
+      "description": "6行接触Jacobian实际计算秩并与声明比较；秩5明确欠定",
+      "fields": [
+        "contactRows",
+        "rankDeclared"
+      ],
+      "sourceIds": [
+        "B21-S01",
+        "B21-S03"
+      ],
+      "derivation": "independent_linear_algebra_synthetic_derivation",
+      "capabilityId": "CAP-04-03",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "acceptanceCaseIds": [
+        "B21-P01",
+        "B21-P02",
+        "B21-N05",
+        "B21-N06",
+        "B21-N07",
+        "B21-N08"
+      ],
+      "status": "PENDING_L3"
+    },
+    {
+      "id": "B21-R03_UNILATERAL",
+      "description": "Jv>=0 且至少一正的非零Twist为分离见证；rank6≠一阶form closure",
+      "fields": [
+        "contactRows",
+        "escapeTwist",
+        "escapeStatus",
+        "formClosureStatus"
+      ],
+      "sourceIds": [
+        "B21-S01",
+        "B21-S03"
+      ],
+      "derivation": "independent_cone_witness_arithmetic",
+      "capabilityId": "CAP-04-03",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "acceptanceCaseIds": [
+        "B21-P01",
+        "B21-P02",
+        "B21-N09",
+        "B21-N10",
+        "B21-N11",
+        "B21-N12"
+      ],
+      "status": "PENDING_L3"
+    },
+    {
+      "id": "B21-R04_FORCE_UNKNOWN",
+      "description": "缺少载荷/摩擦/接触刚度资格时不把秩或形闭合当真实力闭合或稳定",
+      "fields": [
+        "clampEvidenceState",
+        "forceClosureStatus",
+        "physicalStability"
+      ],
+      "sourceIds": [
+        "B21-S02",
+        "B21-S03",
+        "B21-S04"
+      ],
+      "derivation": "external_theory_and_explicit_evidence_boundary",
+      "capabilityId": "CAP-04-03",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "acceptanceCaseIds": [
+        "B21-P01",
+        "B21-P02",
+        "B21-N13",
+        "B21-N14",
+        "B21-N15"
+      ],
+      "status": "PENDING_L3"
+    },
+    {
+      "id": "B21-R05_ONE_PORT",
+      "description": "GUI/CLI/Agent共用D04.OwnerPort、单Babylon世界和统一左TaskPanel，预览只读",
+      "fields": [
+        "entryOwnerPorts",
+        "engineCount",
+        "sceneCount",
+        "canvasCount",
+        "leftTaskPanelCount",
+        "previewOnly"
+      ],
+      "sourceIds": [
+        "B21-S06"
+      ],
+      "derivation": "internal_design_constraint_only",
+      "capabilityId": "CAP-04-03",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "acceptanceCaseIds": [
+        "B21-P01",
+        "B21-P02",
+        "B21-N16",
+        "B21-N17",
+        "B21-N18",
+        "B21-N19"
+      ],
+      "status": "PENDING_L3"
+    },
+    {
+      "id": "B21-R06_CAS_ACK",
+      "description": "D04提交权限/CAS/scopeEpoch再次核对，取消及晚回执拒绝",
+      "fields": [
+        "scopeEpoch",
+        "responseScopeEpoch",
+        "expectedRevision",
+        "currentRevision",
+        "permissionEpoch",
+        "responsePermissionEpoch",
+        "permissionCurrent",
+        "cancelled",
+        "lateAckApplied"
+      ],
+      "sourceIds": [
+        "B21-S06"
+      ],
+      "derivation": "internal_design_constraint_only",
+      "capabilityId": "CAP-04-03",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "acceptanceCaseIds": [
+        "B21-P01",
+        "B21-P02",
+        "B21-N20",
+        "B21-N21",
+        "B21-N22",
+        "B21-N23",
+        "B21-N24"
+      ],
+      "status": "PENDING_L3"
+    },
+    {
+      "id": "B21-R07_EXECUTION",
+      "description": "D04候选不能自动写D10；unknown NC不能升格D15/D16；冻结成果不覆盖",
+      "fields": [
+        "d10BindingChanged",
+        "clAnimationUsedAsNcEvidence",
+        "ncExecutionSemantics",
+        "d16Release",
+        "frozenBaselineOverwritten"
+      ],
+      "sourceIds": [
+        "B21-S06"
+      ],
+      "derivation": "internal_design_constraint_only",
+      "capabilityId": "CAP-04-03",
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "acceptanceCaseIds": [
+        "B21-P01",
+        "B21-P02",
+        "B21-N25",
+        "B21-N26",
+        "B21-N27",
+        "B21-N28",
+        "B21-N29"
+      ],
+      "status": "PENDING_L3"
+    }
+  ],
+  "mathPolicy": {
+    "jacobianRow": "[n,(r cross n)]",
+    "nonPenetration": "J*v>=0",
+    "witnessInterpretation": "one validated separating first-order twist disproves first-order form closure for supplied point-normal model; absence of witness is UNKNOWN",
+    "fullRankImplication": "rank6 only bilateral local linear algebra; does not establish unilateral form closure"
+  }
+}

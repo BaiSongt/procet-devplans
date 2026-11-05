@@ -1,0 +1,376 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-01-06",
+  "topic": "R-TASK-001",
+  "status": "compiled_sources_rules_acceptance_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "originalBusinessSpec": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-06_统一任务与事件中心.md",
+    "supplement": "docs/capabilities/CAP-01-06/RESEARCH-BACKFILL.md",
+    "sources": "research/sources/CAP-01-06.json",
+    "fixtures": "docs/capabilities/CAP-01-06/fixtures.json"
+  },
+  "registeredSources": [
+    "SRC-TASK-001",
+    "SRC-TASK-002",
+    "SRC-TASK-003",
+    "SRC-TASK-004",
+    "SRC-TASK-005",
+    "SRC-TASK-006",
+    "SRC-TASK-007",
+    "SRC-TASK-008"
+  ],
+  "assetOwner": "Host Job/Dispatcher/Journal独占运行事实；领域Dxx由各自Owner掌管采纳与验证",
+  "relatedAssets": [
+    "D04",
+    "D06",
+    "D07",
+    "D09",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "codeEvidence": "NOT_READ_PRODUCT",
+  "rules": [
+    {
+      "id": "TASK-R01",
+      "capabilityId": "CAP-01-06",
+      "description": "Host运行/成果采纳/验证/发布是四类事实；完成不自动授予D15或D16资格",
+      "sourceIds": [
+        "SRC-TASK-001",
+        "SRC-TASK-008"
+      ],
+      "fields": [
+        "hostJobId",
+        "attemptId",
+        "runState",
+        "adoptionState",
+        "verificationState"
+      ],
+      "workPackages": [
+        "W2-04",
+        "U4-04"
+      ],
+      "assets": [
+        "D15"
+      ],
+      "tests": [
+        "CAP-01-06-AT-01",
+        "CAP-01-06-AT-09"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R02",
+      "capabilityId": "CAP-01-06",
+      "description": "取消请求与Worker确认分离；已提交副作用不可凭UI标签反向撤销",
+      "sourceIds": [
+        "SRC-TASK-007",
+        "SRC-TASK-004"
+      ],
+      "fields": [
+        "cancelGeneration",
+        "cancelReceipt",
+        "commitReceipt"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-04"
+      ],
+      "assets": [
+        "D07"
+      ],
+      "tests": [
+        "CAP-01-06-AT-02",
+        "CAP-01-06-AT-03"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R03",
+      "capabilityId": "CAP-01-06",
+      "description": "统一左TaskPanel与消息中心仅投影Host Journal；关闭面板不断后台Job",
+      "sourceIds": [
+        "SRC-TASK-002",
+        "SRC-TASK-008"
+      ],
+      "fields": [
+        "taskHostId",
+        "panelVisible",
+        "journalCursor"
+      ],
+      "workPackages": [
+        "U4-02",
+        "U4-04"
+      ],
+      "assets": [
+        "D09"
+      ],
+      "tests": [
+        "CAP-01-06-AT-04",
+        "CAP-01-06-AT-10"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R04",
+      "capabilityId": "CAP-01-06",
+      "description": "按streamId/sequence重放、去重与补洞；观察晚到不得逆转状态",
+      "sourceIds": [
+        "SRC-TASK-003",
+        "SRC-TASK-001",
+        "SRC-TASK-008"
+      ],
+      "fields": [
+        "streamId",
+        "sequence",
+        "eventId",
+        "occurredAt",
+        "observedAt"
+      ],
+      "workPackages": [
+        "W2-04",
+        "U4-04"
+      ],
+      "assets": [
+        "D14"
+      ],
+      "tests": [
+        "CAP-01-06-AT-11",
+        "CAP-01-06-AT-05"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R05",
+      "capabilityId": "CAP-01-06",
+      "description": "重试先用幂等键对账；回执未知须reconciliationRequired而非盲发副作用",
+      "sourceIds": [
+        "SRC-TASK-004",
+        "SRC-TASK-005"
+      ],
+      "fields": [
+        "idempotencyKey",
+        "retryOf",
+        "receiptHash",
+        "reconciliationState"
+      ],
+      "workPackages": [
+        "W2-04",
+        "F1-05"
+      ],
+      "assets": [
+        "D07"
+      ],
+      "tests": [
+        "CAP-01-06-AT-12",
+        "CAP-01-06-AT-06"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R06",
+      "capabilityId": "CAP-01-06",
+      "description": "无总量不显示虚假百分比，只显示阶段/不定进度",
+      "sourceIds": [
+        "SRC-TASK-002",
+        "SRC-TASK-008"
+      ],
+      "fields": [
+        "phase",
+        "totalUnits",
+        "completedUnits",
+        "progressKind"
+      ],
+      "workPackages": [
+        "U4-04",
+        "U4-05"
+      ],
+      "assets": [
+        "D09"
+      ],
+      "tests": [
+        "CAP-01-06-AT-07",
+        "CAP-01-06-AT-13"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R07",
+      "capabilityId": "CAP-01-06",
+      "description": "结果绑定原工程/Setup exact Revision、hash、frame及scopeEpoch；晚回执不污染当前工程",
+      "sourceIds": [
+        "SRC-TASK-001",
+        "SRC-TASK-005"
+      ],
+      "fields": [
+        "projectId",
+        "setupId",
+        "inputRevision",
+        "inputHash",
+        "frameRef",
+        "scopeEpoch"
+      ],
+      "workPackages": [
+        "U4-01",
+        "W2-04"
+      ],
+      "assets": [
+        "D04",
+        "D07"
+      ],
+      "tests": [
+        "CAP-01-06-AT-08",
+        "CAP-01-06-AT-14"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R08",
+      "capabilityId": "CAP-01-06",
+      "description": "GUI/CLI/Agent统一Host命令、实际会话权限重验、领域CAS和冲突回执",
+      "sourceIds": [
+        "SRC-TASK-005",
+        "SRC-TASK-004"
+      ],
+      "fields": [
+        "actorSession",
+        "expectedRevision",
+        "currentRevision",
+        "authorizationDecision"
+      ],
+      "workPackages": [
+        "B0-01",
+        "U4-02",
+        "T5-01"
+      ],
+      "assets": [
+        "D04",
+        "D15"
+      ],
+      "tests": [
+        "CAP-01-06-AT-15",
+        "CAP-01-06-AT-16"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R09",
+      "capabilityId": "CAP-01-06",
+      "description": "结构化诊断可精确定位NC/对象/字段并脱敏；日志不是领域权威事实",
+      "sourceIds": [
+        "SRC-TASK-006",
+        "SRC-TASK-008"
+      ],
+      "fields": [
+        "errorCode",
+        "fieldPath",
+        "diagnosticEvidenceRef",
+        "redactionPolicy"
+      ],
+      "workPackages": [
+        "B0-02",
+        "U4-04"
+      ],
+      "assets": [
+        "D13",
+        "D15"
+      ],
+      "tests": [
+        "CAP-01-06-AT-17",
+        "CAP-01-06-AT-18"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "TASK-R10",
+      "capabilityId": "CAP-01-06",
+      "description": "展示最终NC→D13执行语义→D14轴时序→D15验证→D16发布的真实回执；unknown与CL预览不授PASS",
+      "sourceIds": [
+        "SRC-TASK-001",
+        "SRC-TASK-008"
+      ],
+      "fields": [
+        "ncRevision",
+        "controllerSemanticsStatus",
+        "axisTimelineRevision",
+        "verificationEvidenceRef",
+        "releaseEligibility"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "tests": [
+        "CAP-01-06-AT-19",
+        "CAP-01-06-AT-20"
+      ],
+      "derivation": "外部公开依据只作特定机制参考；Host/CAS/单世界/NC责任边界为Procet独立架构选择",
+      "status": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-01-06-AT-01",
+    "CAP-01-06-AT-02",
+    "CAP-01-06-AT-03",
+    "CAP-01-06-AT-04",
+    "CAP-01-06-AT-05",
+    "CAP-01-06-AT-06",
+    "CAP-01-06-AT-07",
+    "CAP-01-06-AT-08",
+    "CAP-01-06-AT-09",
+    "CAP-01-06-AT-10",
+    "CAP-01-06-AT-11",
+    "CAP-01-06-AT-12",
+    "CAP-01-06-AT-13",
+    "CAP-01-06-AT-14",
+    "CAP-01-06-AT-15",
+    "CAP-01-06-AT-16",
+    "CAP-01-06-AT-17",
+    "CAP-01-06-AT-18",
+    "CAP-01-06-AT-19",
+    "CAP-01-06-AT-20"
+  ],
+  "humanApproval": "PENDING_L3",
+  "productTestEntry": "Host Journal fault-injection / GUI-CLI-Agent / D13-D15独立消费者：NOT_RUN"
+}

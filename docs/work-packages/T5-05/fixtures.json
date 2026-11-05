@@ -1,0 +1,523 @@
+{
+  "schemaVersion": "procet-t505-fixtures-v1",
+  "purpose": "规划规则合成30例，不得冒充产品验收",
+  "cases": [
+    {
+      "id": "T5-05-T01",
+      "ruleId": "T5-05-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "slice": {
+          "distinctIds": true,
+          "independentA": true,
+          "independentB": true,
+          "sharedMutableDb": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T02",
+      "ruleId": "T5-05-R01",
+      "scenario": "NEGATIVE",
+      "input": {
+        "slice": {
+          "distinctIds": false,
+          "independentA": true,
+          "independentB": true,
+          "sharedMutableDb": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "slice.distinctIds",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T03",
+      "ruleId": "T5-05-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "team": {
+          "noPrivateCrossEdit": true,
+          "versionedPorts": true,
+          "uniqueOwner": true,
+          "unreviewedWrite": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T04",
+      "ruleId": "T5-05-R02",
+      "scenario": "NEGATIVE",
+      "input": {
+        "team": {
+          "noPrivateCrossEdit": false,
+          "versionedPorts": true,
+          "uniqueOwner": true,
+          "unreviewedWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "team.noPrivateCrossEdit",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T05",
+      "ruleId": "T5-05-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "api": {
+          "consumerRevision": "SYNTHETIC_REV",
+          "providerRevision": "SYNTHETIC_REV",
+          "consumerHash": "SYNTHETIC_HASH",
+          "providerHash": "SYNTHETIC_HASH",
+          "consumerFrame": "SYNTHETIC_FRAME",
+          "providerFrame": "SYNTHETIC_FRAME",
+          "schemaPinned": true,
+          "unknownAbiAllowed": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T06",
+      "ruleId": "T5-05-R03",
+      "scenario": "NEGATIVE",
+      "input": {
+        "api": {
+          "consumerRevision": "SYNTHETIC_WRONG",
+          "providerRevision": "SYNTHETIC_REV",
+          "consumerHash": "SYNTHETIC_HASH",
+          "providerHash": "SYNTHETIC_HASH",
+          "consumerFrame": "SYNTHETIC_FRAME",
+          "providerFrame": "SYNTHETIC_FRAME",
+          "schemaPinned": true,
+          "unknownAbiAllowed": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "api.consumerRevision",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T07",
+      "ruleId": "T5-05-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "a": {
+          "sourceHashPinned": true,
+          "ocrAsCandidate": true,
+          "humanConfirmed": true,
+          "ownerCAS": true,
+          "frozenD08AutoWrite": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T08",
+      "ruleId": "T5-05-R04",
+      "scenario": "NEGATIVE",
+      "input": {
+        "a": {
+          "sourceHashPinned": false,
+          "ocrAsCandidate": true,
+          "humanConfirmed": true,
+          "ownerCAS": true,
+          "frozenD08AutoWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "a.sourceHashPinned",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T09",
+      "ruleId": "T5-05-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "b": {
+          "setupSeparateBinding": true,
+          "neutralCL": true,
+          "finalNC": true,
+          "knownD13": true,
+          "d14FromD13": true,
+          "d15Independent": true,
+          "d16ValidatesExactNC": true,
+          "clAnimationAsD15": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T10",
+      "ruleId": "T5-05-R05",
+      "scenario": "NEGATIVE",
+      "input": {
+        "b": {
+          "setupSeparateBinding": false,
+          "neutralCL": true,
+          "finalNC": true,
+          "knownD13": true,
+          "d14FromD13": true,
+          "d15Independent": true,
+          "d16ValidatesExactNC": true,
+          "clAnimationAsD15": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "b.setupSeparateBinding",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T11",
+      "ruleId": "T5-05-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "gui": {
+          "singleWorld": true,
+          "leftTaskPanel": true,
+          "sameOwnerPort": true,
+          "fontMaxPx": 12,
+          "leaseReleased": true,
+          "previewWrites": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T12",
+      "ruleId": "T5-05-R06",
+      "scenario": "NEGATIVE",
+      "input": {
+        "gui": {
+          "singleWorld": false,
+          "leftTaskPanel": true,
+          "sameOwnerPort": true,
+          "fontMaxPx": 12,
+          "leaseReleased": true,
+          "previewWrites": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "gui.singleWorld",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T13",
+      "ruleId": "T5-05-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "guard": {
+          "exactRevHashFrame": true,
+          "scopeEpoch": true,
+          "aclEpoch": true,
+          "generationCancel": true,
+          "lateReceiptWrites": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T14",
+      "ruleId": "T5-05-R07",
+      "scenario": "NEGATIVE",
+      "input": {
+        "guard": {
+          "exactRevHashFrame": false,
+          "scopeEpoch": true,
+          "aclEpoch": true,
+          "generationCancel": true,
+          "lateReceiptWrites": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "guard.exactRevHashFrame",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T15",
+      "ruleId": "T5-05-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "contract": {
+          "providerVerifyRequired": true,
+          "independentConsumerRequired": true,
+          "schemaMismatchBlocked": true,
+          "mockCountsAsReal": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T16",
+      "ruleId": "T5-05-R08",
+      "scenario": "NEGATIVE",
+      "input": {
+        "contract": {
+          "providerVerifyRequired": false,
+          "independentConsumerRequired": true,
+          "schemaMismatchBlocked": true,
+          "mockCountsAsReal": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "contract.providerVerifyRequired",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T17",
+      "ruleId": "T5-05-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "fresh": {
+          "resultHash": "SYNTHETIC_HASH",
+          "goldenHash": "SYNTHETIC_HASH",
+          "exactCheckout": true,
+          "offlineDependencies": true,
+          "syntheticAsProduct": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T18",
+      "ruleId": "T5-05-R09",
+      "scenario": "NEGATIVE",
+      "input": {
+        "fresh": {
+          "resultHash": "SYNTHETIC_WRONG",
+          "goldenHash": "SYNTHETIC_HASH",
+          "exactCheckout": true,
+          "offlineDependencies": true,
+          "syntheticAsProduct": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "fresh.resultHash",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T19",
+      "ruleId": "T5-05-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "revert": {
+          "aIndependent": true,
+          "bIndependent": true,
+          "releaseLocked": true,
+          "frozenD08Retained": true,
+          "userDbRetained": true,
+          "unknownPromoted": false
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-T20",
+      "ruleId": "T5-05-R10",
+      "scenario": "NEGATIVE",
+      "input": {
+        "revert": {
+          "aIndependent": false,
+          "bIndependent": true,
+          "releaseLocked": true,
+          "frozenD08Retained": true,
+          "userDbRetained": true,
+          "unknownPromoted": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "revert.aIndependent",
+      "synthetic": true
+    }
+  ],
+  "mutations": [
+    {
+      "id": "T5-05-M01",
+      "ruleId": "T5-05-R01",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "slice": {
+          "distinctIds": true,
+          "independentA": false,
+          "independentB": true,
+          "sharedMutableDb": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "slice.independentA",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M02",
+      "ruleId": "T5-05-R02",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "team": {
+          "noPrivateCrossEdit": true,
+          "versionedPorts": false,
+          "uniqueOwner": true,
+          "unreviewedWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "team.versionedPorts",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M03",
+      "ruleId": "T5-05-R03",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "api": {
+          "consumerRevision": "SYNTHETIC_REV",
+          "providerRevision": "SYNTHETIC_REV",
+          "consumerHash": "SYNTHETIC_WRONG",
+          "providerHash": "SYNTHETIC_HASH",
+          "consumerFrame": "SYNTHETIC_FRAME",
+          "providerFrame": "SYNTHETIC_FRAME",
+          "schemaPinned": true,
+          "unknownAbiAllowed": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "api.consumerHash",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M04",
+      "ruleId": "T5-05-R04",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "a": {
+          "sourceHashPinned": true,
+          "ocrAsCandidate": false,
+          "humanConfirmed": true,
+          "ownerCAS": true,
+          "frozenD08AutoWrite": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "a.ocrAsCandidate",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M05",
+      "ruleId": "T5-05-R05",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "b": {
+          "setupSeparateBinding": true,
+          "neutralCL": false,
+          "finalNC": true,
+          "knownD13": true,
+          "d14FromD13": true,
+          "d15Independent": true,
+          "d16ValidatesExactNC": true,
+          "clAnimationAsD15": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "b.neutralCL",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M06",
+      "ruleId": "T5-05-R06",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "gui": {
+          "singleWorld": true,
+          "leftTaskPanel": false,
+          "sameOwnerPort": true,
+          "fontMaxPx": 12,
+          "leaseReleased": true,
+          "previewWrites": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "gui.leftTaskPanel",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M07",
+      "ruleId": "T5-05-R07",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "guard": {
+          "exactRevHashFrame": true,
+          "scopeEpoch": false,
+          "aclEpoch": true,
+          "generationCancel": true,
+          "lateReceiptWrites": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "guard.scopeEpoch",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M08",
+      "ruleId": "T5-05-R08",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "contract": {
+          "providerVerifyRequired": true,
+          "independentConsumerRequired": false,
+          "schemaMismatchBlocked": true,
+          "mockCountsAsReal": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "contract.independentConsumerRequired",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M09",
+      "ruleId": "T5-05-R09",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "fresh": {
+          "resultHash": "SYNTHETIC_HASH",
+          "goldenHash": "SYNTHETIC_HASH",
+          "exactCheckout": false,
+          "offlineDependencies": true,
+          "syntheticAsProduct": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "fresh.exactCheckout",
+      "synthetic": true
+    },
+    {
+      "id": "T5-05-M10",
+      "ruleId": "T5-05-R10",
+      "scenario": "INDEPENDENT_MUTATION",
+      "input": {
+        "revert": {
+          "aIndependent": true,
+          "bIndependent": false,
+          "releaseLocked": true,
+          "frozenD08Retained": true,
+          "userDbRetained": true,
+          "unknownPromoted": false
+        }
+      },
+      "expected": "REJECT",
+      "mutatedField": "revert.bIndependent",
+      "synthetic": true
+    }
+  ]
+}

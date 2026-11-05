@@ -1,0 +1,363 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-02-08",
+  "topic": "R-RC-001",
+  "status": "drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-02-08/README.md",
+    "ui": "docs/capabilities/CAP-02-08/UI.md",
+    "topic": "research/topics/R-RC-001.md",
+    "fixtures": "docs/capabilities/CAP-02-08/fixtures.json"
+  },
+  "registeredSources": [
+    "SRC-RC-001",
+    "SRC-RC-002",
+    "SRC-RC-003",
+    "SRC-RC-004",
+    "SRC-RC-005",
+    "SRC-RC-006",
+    "SRC-RC-007",
+    "SRC-RC-008"
+  ],
+  "recheckedExistingSources": [
+    "SRC-TA-003"
+  ],
+  "codeEvidence": [
+    {
+      "id": "E-RC-01",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/types.rs",
+      "kind": "source_code_observation_not_test"
+    },
+    {
+      "id": "E-RC-02",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/machine/types.rs",
+      "kind": "source_code_observation_not_test"
+    },
+    {
+      "id": "E-RC-03",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/machine/capability.rs",
+      "kind": "source_code_observation_not_test"
+    },
+    {
+      "id": "E-RC-04",
+      "repository": "BaiSongt/procet-gui",
+      "commit": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+      "path": "apps/desktop/src/modules/cam/components/machineCapability.ts",
+      "kind": "source_code_observation_not_test"
+    },
+    {
+      "id": "E-RC-05",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/workholding/types.rs",
+      "kind": "source_code_observation_not_test"
+    },
+    {
+      "id": "E-RC-06",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/setup/manufacturing/types.rs",
+      "kind": "source_code_observation_not_test"
+    },
+    {
+      "id": "E-RC-07",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/tool_assembly/types.rs",
+      "kind": "source_code_observation_not_test"
+    },
+    {
+      "id": "E-RC-08",
+      "repository": "BaiSongt/procet-resources",
+      "commit": "b861efee9c84a99eba1fbee2c8749e60576fb93f",
+      "path": "src/cam/resources/dispatch.rs",
+      "kind": "source_code_observation_not_test"
+    }
+  ],
+  "rules": [
+    {
+      "id": "RC-R01",
+      "kind": "source_plus_architecture_choice",
+      "sourceIds": [
+        "SRC-RC-001",
+        "SRC-RC-007"
+      ],
+      "fields": [
+        "capabilityFact",
+        "availability",
+        "taskRequirement"
+      ],
+      "capTests": [
+        "RC-T01",
+        "RC-T13",
+        "RC-T15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R02",
+      "kind": "source_plus_code_observation",
+      "sourceIds": [
+        "SRC-RC-002"
+      ],
+      "codeEvidenceIds": [
+        "E-RC-02",
+        "E-RC-03",
+        "E-RC-04"
+      ],
+      "fields": [
+        "axes",
+        "rotaryTopology",
+        "capabilityEvidence"
+      ],
+      "capTests": [
+        "RC-T01",
+        "RC-T02",
+        "RC-T03"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R03",
+      "kind": "catalog_scope_and_internal_design",
+      "sourceIds": [
+        "SRC-RC-003",
+        "SRC-RC-004",
+        "SRC-RC-005",
+        "SRC-RC-008"
+      ],
+      "fields": [
+        "limit",
+        "unit",
+        "validConditions",
+        "testScope"
+      ],
+      "capTests": [
+        "RC-T04",
+        "RC-T05",
+        "RC-T06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R04",
+      "kind": "source_plus_code_observation",
+      "sourceIds": [
+        "SRC-TA-003"
+      ],
+      "codeEvidenceIds": [
+        "E-RC-05",
+        "E-RC-06",
+        "E-RC-07"
+      ],
+      "fields": [
+        "interfaceRefs",
+        "compatibilityKey",
+        "mountParameter"
+      ],
+      "capTests": [
+        "RC-T07",
+        "RC-T08",
+        "RC-T09",
+        "RC-T10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R05",
+      "kind": "internal_safety_boundary",
+      "sourceIds": [],
+      "codeEvidenceIds": [
+        "E-RC-02",
+        "E-RC-07"
+      ],
+      "fields": [
+        "envelopePurpose",
+        "toolAssemblyRef",
+        "unknownReason"
+      ],
+      "capTests": [
+        "RC-T04",
+        "RC-T10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R06",
+      "kind": "source_plus_code_observation",
+      "sourceIds": [
+        "SRC-RC-006"
+      ],
+      "codeEvidenceIds": [
+        "E-RC-08"
+      ],
+      "fields": [
+        "controllerProfileRef",
+        "postProcessorRef",
+        "ncCoverage"
+      ],
+      "capTests": [
+        "RC-T11",
+        "RC-T12"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R07",
+      "kind": "academic_reference_plus_internal_design",
+      "sourceIds": [
+        "SRC-RC-007"
+      ],
+      "codeEvidenceIds": [
+        "E-RC-03",
+        "E-RC-04"
+      ],
+      "fields": [
+        "criterionResults",
+        "summaryGate"
+      ],
+      "capTests": [
+        "RC-T13",
+        "RC-T14",
+        "RC-T15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R08",
+      "kind": "internal_versioning_design",
+      "sourceIds": [],
+      "codeEvidenceIds": [
+        "E-RC-01",
+        "E-RC-06"
+      ],
+      "fields": [
+        "inputFingerprint",
+        "exactResourceRefs",
+        "staleDependencies"
+      ],
+      "capTests": [
+        "RC-T16",
+        "RC-T17",
+        "RC-T18",
+        "RC-T20"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R09",
+      "kind": "internal_gui_contract",
+      "sourceIds": [],
+      "codeEvidenceIds": [
+        "E-RC-04"
+      ],
+      "fields": [
+        "callerScope",
+        "epoch",
+        "previewId"
+      ],
+      "capTests": [
+        "RC-T09",
+        "RC-T19"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    },
+    {
+      "id": "RC-R10",
+      "kind": "standards_scope_and_safety_boundary",
+      "sourceIds": [
+        "SRC-RC-005",
+        "SRC-RC-006",
+        "SRC-RC-008"
+      ],
+      "fields": [
+        "independentNcEvidence",
+        "limitations"
+      ],
+      "capTests": [
+        "RC-T04",
+        "RC-T11",
+        "RC-T12",
+        "RC-T13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04"
+      ]
+    }
+  ],
+  "acceptanceIds": [
+    "RC-T01",
+    "RC-T02",
+    "RC-T03",
+    "RC-T04",
+    "RC-T05",
+    "RC-T06",
+    "RC-T07",
+    "RC-T08",
+    "RC-T09",
+    "RC-T10",
+    "RC-T11",
+    "RC-T12",
+    "RC-T13",
+    "RC-T14",
+    "RC-T15",
+    "RC-T16",
+    "RC-T17",
+    "RC-T18",
+    "RC-T19",
+    "RC-T20"
+  ],
+  "claimBoundary": "source catalog/abstract not standard full text; source observation not product acceptance; match candidate does not mean NC/machine safe",
+  "engineeringGates": [
+    "actual interface dimension and mounting manuals",
+    "controller and post version specific NC coverage",
+    "machine kinematic reachable/collision evidence",
+    "actual source-backed tolerances and loads",
+    "product exact-HEAD tests"
+  ]
+}

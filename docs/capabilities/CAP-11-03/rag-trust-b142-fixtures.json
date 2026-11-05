@@ -1,0 +1,654 @@
+{
+  "schemaVersion": "procet-b142-fixtures-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-11-03",
+  "sourceRegistry": "research/sources/CAP-11-03-rag-trust-b142.json",
+  "trace": "research/traces/CAP-11-03-rag-trust-b142.json",
+  "groups": [
+    {
+      "ruleId": "B142-R01",
+      "positive": {
+        "id": "B142-R01-P",
+        "values": {
+          "source.dataOnly": true,
+          "source.ownerHashExact": true,
+          "source.selectorVerified": true,
+          "source.noInstructionPromotion": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R01-N1",
+          "mutatedField": "source.dataOnly",
+          "values": {
+            "source.dataOnly": false,
+            "source.ownerHashExact": true,
+            "source.selectorVerified": true,
+            "source.noInstructionPromotion": true
+          },
+          "expected": "UNTRUSTED_SOURCE"
+        },
+        {
+          "id": "B142-R01-N2",
+          "mutatedField": "source.ownerHashExact",
+          "values": {
+            "source.dataOnly": true,
+            "source.ownerHashExact": false,
+            "source.selectorVerified": true,
+            "source.noInstructionPromotion": true
+          },
+          "expected": "UNTRUSTED_SOURCE"
+        },
+        {
+          "id": "B142-R01-N3",
+          "mutatedField": "source.selectorVerified",
+          "values": {
+            "source.dataOnly": true,
+            "source.ownerHashExact": true,
+            "source.selectorVerified": false,
+            "source.noInstructionPromotion": true
+          },
+          "expected": "UNTRUSTED_SOURCE"
+        },
+        {
+          "id": "B142-R01-N4",
+          "mutatedField": "source.noInstructionPromotion",
+          "values": {
+            "source.dataOnly": true,
+            "source.ownerHashExact": true,
+            "source.selectorVerified": true,
+            "source.noInstructionPromotion": false
+          },
+          "expected": "UNTRUSTED_SOURCE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B142-R02",
+      "positive": {
+        "id": "B142-R02-P",
+        "values": {
+          "acl.ownerAclCurrent": true,
+          "acl.scopeEpochCurrent": true,
+          "acl.tenantExact": true,
+          "acl.cacheRevoked": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R02-N1",
+          "mutatedField": "acl.ownerAclCurrent",
+          "values": {
+            "acl.ownerAclCurrent": false,
+            "acl.scopeEpochCurrent": true,
+            "acl.tenantExact": true,
+            "acl.cacheRevoked": true
+          },
+          "expected": "REJECT_ACL"
+        },
+        {
+          "id": "B142-R02-N2",
+          "mutatedField": "acl.scopeEpochCurrent",
+          "values": {
+            "acl.ownerAclCurrent": true,
+            "acl.scopeEpochCurrent": false,
+            "acl.tenantExact": true,
+            "acl.cacheRevoked": true
+          },
+          "expected": "REJECT_ACL"
+        },
+        {
+          "id": "B142-R02-N3",
+          "mutatedField": "acl.tenantExact",
+          "values": {
+            "acl.ownerAclCurrent": true,
+            "acl.scopeEpochCurrent": true,
+            "acl.tenantExact": false,
+            "acl.cacheRevoked": true
+          },
+          "expected": "REJECT_ACL"
+        },
+        {
+          "id": "B142-R02-N4",
+          "mutatedField": "acl.cacheRevoked",
+          "values": {
+            "acl.ownerAclCurrent": true,
+            "acl.scopeEpochCurrent": true,
+            "acl.tenantExact": true,
+            "acl.cacheRevoked": false
+          },
+          "expected": "REJECT_ACL"
+        }
+      ]
+    },
+    {
+      "ruleId": "B142-R03",
+      "positive": {
+        "id": "B142-R03-P",
+        "values": {
+          "output.untrustedBoundary": true,
+          "output.noChunkDirectedTool": true,
+          "output.schemaValidated": true,
+          "output.injectionFlagKept": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R03-N1",
+          "mutatedField": "output.untrustedBoundary",
+          "values": {
+            "output.untrustedBoundary": false,
+            "output.noChunkDirectedTool": true,
+            "output.schemaValidated": true,
+            "output.injectionFlagKept": true
+          },
+          "expected": "BLOCK_PROMPT_INJECTION"
+        },
+        {
+          "id": "B142-R03-N2",
+          "mutatedField": "output.noChunkDirectedTool",
+          "values": {
+            "output.untrustedBoundary": true,
+            "output.noChunkDirectedTool": false,
+            "output.schemaValidated": true,
+            "output.injectionFlagKept": true
+          },
+          "expected": "BLOCK_PROMPT_INJECTION"
+        },
+        {
+          "id": "B142-R03-N3",
+          "mutatedField": "output.schemaValidated",
+          "values": {
+            "output.untrustedBoundary": true,
+            "output.noChunkDirectedTool": true,
+            "output.schemaValidated": false,
+            "output.injectionFlagKept": true
+          },
+          "expected": "BLOCK_PROMPT_INJECTION"
+        },
+        {
+          "id": "B142-R03-N4",
+          "mutatedField": "output.injectionFlagKept",
+          "values": {
+            "output.untrustedBoundary": true,
+            "output.noChunkDirectedTool": true,
+            "output.schemaValidated": true,
+            "output.injectionFlagKept": false
+          },
+          "expected": "BLOCK_PROMPT_INJECTION"
+        }
+      ]
+    },
+    {
+      "ruleId": "B142-R04",
+      "positive": {
+        "id": "B142-R04-P",
+        "values": {
+          "citation.claimLinked": true,
+          "citation.rawBytesChecked": true,
+          "citation.readingDepthHonest": true,
+          "citation.noAuthorityFromCitation": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R04-N1",
+          "mutatedField": "citation.claimLinked",
+          "values": {
+            "citation.claimLinked": false,
+            "citation.rawBytesChecked": true,
+            "citation.readingDepthHonest": true,
+            "citation.noAuthorityFromCitation": true
+          },
+          "expected": "UNKNOWN_EVIDENCE"
+        },
+        {
+          "id": "B142-R04-N2",
+          "mutatedField": "citation.rawBytesChecked",
+          "values": {
+            "citation.claimLinked": true,
+            "citation.rawBytesChecked": false,
+            "citation.readingDepthHonest": true,
+            "citation.noAuthorityFromCitation": true
+          },
+          "expected": "UNKNOWN_EVIDENCE"
+        },
+        {
+          "id": "B142-R04-N3",
+          "mutatedField": "citation.readingDepthHonest",
+          "values": {
+            "citation.claimLinked": true,
+            "citation.rawBytesChecked": true,
+            "citation.readingDepthHonest": false,
+            "citation.noAuthorityFromCitation": true
+          },
+          "expected": "UNKNOWN_EVIDENCE"
+        },
+        {
+          "id": "B142-R04-N4",
+          "mutatedField": "citation.noAuthorityFromCitation",
+          "values": {
+            "citation.claimLinked": true,
+            "citation.rawBytesChecked": true,
+            "citation.readingDepthHonest": true,
+            "citation.noAuthorityFromCitation": false
+          },
+          "expected": "UNKNOWN_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B142-R05",
+      "positive": {
+        "id": "B142-R05-P",
+        "values": {
+          "tool.registryPinned": true,
+          "tool.schemaDigestExact": true,
+          "tool.hintNotTrusted": true,
+          "tool.noExternalToolFromChunk": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R05-N1",
+          "mutatedField": "tool.registryPinned",
+          "values": {
+            "tool.registryPinned": false,
+            "tool.schemaDigestExact": true,
+            "tool.hintNotTrusted": true,
+            "tool.noExternalToolFromChunk": true
+          },
+          "expected": "REJECT_TOOL_HINT"
+        },
+        {
+          "id": "B142-R05-N2",
+          "mutatedField": "tool.schemaDigestExact",
+          "values": {
+            "tool.registryPinned": true,
+            "tool.schemaDigestExact": false,
+            "tool.hintNotTrusted": true,
+            "tool.noExternalToolFromChunk": true
+          },
+          "expected": "REJECT_TOOL_HINT"
+        },
+        {
+          "id": "B142-R05-N3",
+          "mutatedField": "tool.hintNotTrusted",
+          "values": {
+            "tool.registryPinned": true,
+            "tool.schemaDigestExact": true,
+            "tool.hintNotTrusted": false,
+            "tool.noExternalToolFromChunk": true
+          },
+          "expected": "REJECT_TOOL_HINT"
+        },
+        {
+          "id": "B142-R05-N4",
+          "mutatedField": "tool.noExternalToolFromChunk",
+          "values": {
+            "tool.registryPinned": true,
+            "tool.schemaDigestExact": true,
+            "tool.hintNotTrusted": true,
+            "tool.noExternalToolFromChunk": false
+          },
+          "expected": "REJECT_TOOL_HINT"
+        }
+      ]
+    },
+    {
+      "ruleId": "B142-R06",
+      "positive": {
+        "id": "B142-R06-P",
+        "values": {
+          "write.humanDigestConfirmed": true,
+          "write.ownerAclRechecked": true,
+          "write.revisionHashFrameCas": true,
+          "write.cancelFenceChecked": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R06-N1",
+          "mutatedField": "write.humanDigestConfirmed",
+          "values": {
+            "write.humanDigestConfirmed": false,
+            "write.ownerAclRechecked": true,
+            "write.revisionHashFrameCas": true,
+            "write.cancelFenceChecked": true
+          },
+          "expected": "BLOCK_OWNER_WRITE"
+        },
+        {
+          "id": "B142-R06-N2",
+          "mutatedField": "write.ownerAclRechecked",
+          "values": {
+            "write.humanDigestConfirmed": true,
+            "write.ownerAclRechecked": false,
+            "write.revisionHashFrameCas": true,
+            "write.cancelFenceChecked": true
+          },
+          "expected": "BLOCK_OWNER_WRITE"
+        },
+        {
+          "id": "B142-R06-N3",
+          "mutatedField": "write.revisionHashFrameCas",
+          "values": {
+            "write.humanDigestConfirmed": true,
+            "write.ownerAclRechecked": true,
+            "write.revisionHashFrameCas": false,
+            "write.cancelFenceChecked": true
+          },
+          "expected": "BLOCK_OWNER_WRITE"
+        },
+        {
+          "id": "B142-R06-N4",
+          "mutatedField": "write.cancelFenceChecked",
+          "values": {
+            "write.humanDigestConfirmed": true,
+            "write.ownerAclRechecked": true,
+            "write.revisionHashFrameCas": true,
+            "write.cancelFenceChecked": false
+          },
+          "expected": "BLOCK_OWNER_WRITE"
+        }
+      ]
+    },
+    {
+      "ruleId": "B142-R07",
+      "positive": {
+        "id": "B142-R07-P",
+        "values": {
+          "entry.sameOwnerPort": true,
+          "entry.singleBabylonWorld": true,
+          "entry.unifiedLeftPanel": true,
+          "entry.previewNotCommit": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R07-N1",
+          "mutatedField": "entry.sameOwnerPort",
+          "values": {
+            "entry.sameOwnerPort": false,
+            "entry.singleBabylonWorld": true,
+            "entry.unifiedLeftPanel": true,
+            "entry.previewNotCommit": true
+          },
+          "expected": "REJECT_UI_CONTRACT"
+        },
+        {
+          "id": "B142-R07-N2",
+          "mutatedField": "entry.singleBabylonWorld",
+          "values": {
+            "entry.sameOwnerPort": true,
+            "entry.singleBabylonWorld": false,
+            "entry.unifiedLeftPanel": true,
+            "entry.previewNotCommit": true
+          },
+          "expected": "REJECT_UI_CONTRACT"
+        },
+        {
+          "id": "B142-R07-N3",
+          "mutatedField": "entry.unifiedLeftPanel",
+          "values": {
+            "entry.sameOwnerPort": true,
+            "entry.singleBabylonWorld": true,
+            "entry.unifiedLeftPanel": false,
+            "entry.previewNotCommit": true
+          },
+          "expected": "REJECT_UI_CONTRACT"
+        },
+        {
+          "id": "B142-R07-N4",
+          "mutatedField": "entry.previewNotCommit",
+          "values": {
+            "entry.sameOwnerPort": true,
+            "entry.singleBabylonWorld": true,
+            "entry.unifiedLeftPanel": true,
+            "entry.previewNotCommit": false
+          },
+          "expected": "REJECT_UI_CONTRACT"
+        }
+      ]
+    },
+    {
+      "ruleId": "B142-R08",
+      "positive": {
+        "id": "B142-R08-P",
+        "values": {
+          "nc.d04NotD10": true,
+          "nc.clNotD15": true,
+          "nc.finalNcChainVerified": true,
+          "nc.unknownBlocksRelease": true
+        },
+        "expected": "PLANNING_CANDIDATE_ONLY"
+      },
+      "negative": [
+        {
+          "id": "B142-R08-N1",
+          "mutatedField": "nc.d04NotD10",
+          "values": {
+            "nc.d04NotD10": false,
+            "nc.clNotD15": true,
+            "nc.finalNcChainVerified": true,
+            "nc.unknownBlocksRelease": true
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        },
+        {
+          "id": "B142-R08-N2",
+          "mutatedField": "nc.clNotD15",
+          "values": {
+            "nc.d04NotD10": true,
+            "nc.clNotD15": false,
+            "nc.finalNcChainVerified": true,
+            "nc.unknownBlocksRelease": true
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        },
+        {
+          "id": "B142-R08-N3",
+          "mutatedField": "nc.finalNcChainVerified",
+          "values": {
+            "nc.d04NotD10": true,
+            "nc.clNotD15": true,
+            "nc.finalNcChainVerified": false,
+            "nc.unknownBlocksRelease": true
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        },
+        {
+          "id": "B142-R08-N4",
+          "mutatedField": "nc.unknownBlocksRelease",
+          "values": {
+            "nc.d04NotD10": true,
+            "nc.clNotD15": true,
+            "nc.finalNcChainVerified": true,
+            "nc.unknownBlocksRelease": false
+          },
+          "expected": "BLOCK_NC_RELEASE"
+        }
+      ]
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B142-G01",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": false,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "ADVISORY_ONLY"
+    },
+    {
+      "id": "B142-G02",
+      "values": {
+        "ownerAcl": false,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": false,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "REJECT_ACL"
+    },
+    {
+      "id": "B142-G03",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": false,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": false,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "UNKNOWN_EVIDENCE"
+    },
+    {
+      "id": "B142-G04",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": true,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": false,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "BLOCK_PROMPT_INJECTION"
+    },
+    {
+      "id": "B142-G05",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": false,
+        "cancelled": false,
+        "write": false,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "REJECT_TOOL_HINT"
+    },
+    {
+      "id": "B142-G06",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": true,
+        "confirmed": false,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "BLOCK_OWNER_WRITE"
+    },
+    {
+      "id": "B142-G07",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": true,
+        "write": true,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "CANCELLED"
+    },
+    {
+      "id": "B142-G08",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": false,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": true,
+        "ncSemanticsKnown": false,
+        "d15Independent": true
+      },
+      "expected": "UNKNOWN_NC_SEMANTICS"
+    },
+    {
+      "id": "B142-G09",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": false,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": true,
+        "ncSemanticsKnown": true,
+        "d15Independent": false
+      },
+      "expected": "BLOCK_NC_RELEASE"
+    },
+    {
+      "id": "B142-G10",
+      "values": {
+        "ownerAcl": true,
+        "sourceExact": true,
+        "blockedInjection": false,
+        "toolTrusted": true,
+        "cancelled": false,
+        "write": true,
+        "confirmed": true,
+        "ownerCas": true,
+        "release": false,
+        "ncSemanticsKnown": true,
+        "d15Independent": true
+      },
+      "expected": "OWNER_WRITE_CANDIDATE_ONLY"
+    }
+  ],
+  "limits": "规划合成状态，不是实际模型红队/权限/机床执行"
+}

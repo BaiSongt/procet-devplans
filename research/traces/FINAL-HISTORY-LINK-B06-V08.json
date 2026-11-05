@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "procet-v08-research-trace-v1",
+  "researchTopic": "R-FINAL-HISTORY-LINK-B06",
+  "auditPath": "research/audits/FINAL-HISTORY-LINK-B06-2026-10-29.json",
+  "rules": [
+    {
+      "id": "B06-R01",
+      "rule": "exact HEAD与Tree及每份SHA相符；B04/B05基线可复核，索引移动不得重复计数；B03无路径SHA不累加。",
+      "sourceRefs": [
+        "B06-GH"
+      ],
+      "fields": [
+        "observedExactHead",
+        "observedRootTreeSha",
+        "fileManifest[].gitBlobSha",
+        "markdownSnapshot.uniqueB04B05B06"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B06-P01",
+        "B06-N01",
+        "B06-N02",
+        "B06-N03",
+        "B06-N04",
+        "B06-N05"
+      ]
+    },
+    {
+      "id": "B06-R02",
+      "rule": "URI先分路径片段与fragment/query，再每个片段百分号解码一次；%20正确匹配，编码斜线/反斜线/NUL、越根和畸形编码拒绝。",
+      "sourceRefs": [
+        "B06-RFC",
+        "B06-CM"
+      ],
+      "fields": [
+        "uriExample.raw",
+        "uriExample.decoded",
+        "markdownSnapshot.rawUnnormalizedMissing",
+        "markdownSnapshot.decodedMissing"
+      ],
+      "caps": [
+        "CAP-01-02",
+        "CAP-01-07"
+      ],
+      "packages": [
+        "B0-05",
+        "U4-02"
+      ],
+      "acceptance": [
+        "B06-P01",
+        "B06-N06",
+        "B06-N07",
+        "B06-N08",
+        "B06-U01",
+        "B06-U02",
+        "B06-U03",
+        "B06-U04",
+        "B06-U05"
+      ]
+    },
+    {
+      "id": "B06-R03",
+      "rule": "行内正则与reference定义0项不足以宣称CommonMark/GFM AST、HTML href、锚点及全仓检验PASS。",
+      "sourceRefs": [
+        "B06-CM",
+        "B06-GH"
+      ],
+      "fields": [
+        "markdownSnapshot.parserMode",
+        "markdownSnapshot.identifiedReferenceDefinitions",
+        "markdownSnapshot.fullRepoScan"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "U4-02",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B06-P01",
+        "B06-N09",
+        "B06-N10",
+        "B06-N11",
+        "B06-N12"
+      ]
+    },
+    {
+      "id": "B06-R04",
+      "rule": "AI/RAG文档引用不授工具执行权；Owner精确修订/hash/frame同域端口，权限Epoch、ACL、CAS重验及取消晚ACK拒绝。",
+      "sourceRefs": [
+        "B06-NIST",
+        "B06-GH"
+      ],
+      "fields": [
+        "boundaries.guiCliAgentSameOwnerPort",
+        "boundaries.casAclRecheck",
+        "boundaries.lateAckCanCommit"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-11-01",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-02",
+        "T5-01",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B06-P01",
+        "B06-N13",
+        "B06-G01",
+        "B06-G02"
+      ]
+    },
+    {
+      "id": "B06-R05",
+      "rule": "统一单Babylon/左TaskPanel，A/B冻结不覆盖；D04 Setup≠D10绑定，中立CL预览非NC验证，D12→D13→D14→D15→D16独立证据，未知UNKNOWN。",
+      "sourceRefs": [
+        "B06-GH",
+        "B06-NIST"
+      ],
+      "fields": [
+        "boundaries.d04IsD10",
+        "boundaries.clPreviewIsD15",
+        "boundaries.unknownNc",
+        "boundaries.babylonActiveSceneCount"
+      ],
+      "caps": [
+        "CAP-04-06",
+        "CAP-09-07",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "E3-03",
+        "E3-04",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B06-P01",
+        "B06-N14",
+        "B06-N15",
+        "B06-G03"
+      ]
+    },
+    {
+      "id": "B06-R06",
+      "rule": "规划核验PASS不授予L3、17资产正式Owner签署、真实消费者、NC实机及历史附件恢复，需显式风险移交。",
+      "sourceRefs": [
+        "B06-NIST",
+        "B06-GH"
+      ],
+      "fields": [
+        "boundaries.ownerSignatures",
+        "boundaries.independentConsumers",
+        "boundaries.l3",
+        "boundaries.historicalOriginalBytes"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05",
+        "T5-06"
+      ],
+      "acceptance": [
+        "B06-P01",
+        "B06-N16",
+        "B06-N17",
+        "B06-N18",
+        "B06-N19",
+        "B06-G04"
+      ]
+    }
+  ]
+}

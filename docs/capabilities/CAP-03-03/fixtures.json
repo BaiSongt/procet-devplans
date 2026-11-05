@@ -1,0 +1,465 @@
+{
+  "schemaVersion": "procet-cap-fixtures-v1",
+  "capabilityId": "CAP-03-03",
+  "origin": "planning_synthetic_only",
+  "fixtures": [
+    {
+      "id": "CAP-03-03-T01",
+      "title": "same_snapshot_single_face",
+      "input": {
+        "modelRevision": "17",
+        "snapshotHash": "sha256:top-a",
+        "occurrenceRef": "occ-a",
+        "kind": "face",
+        "localIndex": 3
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "found_one",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "cross_snapshot_without_hash",
+        "expectedErrorCode": "stale_snapshot",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T02",
+      "title": "duplicate_definition_two_occurrences",
+      "input": {
+        "definitionId": "part-a",
+        "occurrences": [
+          "inst-left",
+          "inst-right"
+        ],
+        "localFaceId": 3
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "distinct_exact_refs",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "definition_only_face_fingerprint",
+        "expectedErrorCode": "ambiguous_occurrence",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T03",
+      "title": "mesh_remesh_only",
+      "input": {
+        "brepHash": "sha256:brep-a",
+        "oldMeshHash": "sha256:mesh-a",
+        "newMeshHash": "sha256:mesh-b",
+        "snapshotHash": "sha256:top-a"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "exact_ref_unchanged",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "triangle_index_reused_as_face_id",
+        "expectedErrorCode": "invalid_topology_source",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T04",
+      "title": "face_enumeration_reordered",
+      "input": {
+        "oldSnapshot": "sha256:top-a",
+        "newSnapshot": "sha256:top-b",
+        "oldLocalIndex": 2,
+        "newFaceOrder": [
+          3,
+          2,
+          1
+        ]
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "stale_or_explicit_mapping",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "old_index_used_without_new_scope",
+        "expectedErrorCode": "stale_snapshot",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T05",
+      "title": "ocaf_history_modify",
+      "input": {
+        "oldRef": "face-old",
+        "newRef": "face-new",
+        "history": "TNaming_MODIFY",
+        "contextRef": "ocaf-doc-a"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "verified_history_local_only",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "independent_step_files_fabricated_history",
+        "expectedErrorCode": "history_unavailable",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T06",
+      "title": "old_face_deleted",
+      "input": {
+        "oldRef": "face-cut",
+        "newGeometryHasFace": false,
+        "history": "TNaming_DELETE"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "deleted_and_consumers_stale",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "similar_neighbor_auto_replacement",
+        "expectedErrorCode": "deleted_topology",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T07",
+      "title": "selector_success_with_history",
+      "input": {
+        "selectorContext": "ocaf-doc-a",
+        "namingPresent": true,
+        "solve": "success"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "resolved_with_scope",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "selector_solve_failed_but_approved",
+        "expectedErrorCode": "resolve_failed",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T08",
+      "title": "no_naming_external_step",
+      "input": {
+        "sourceType": "third_party_STEP",
+        "historyAvailable": false,
+        "fingerprintAvailable": true
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "candidate_only",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "missing_history_claims_verified",
+        "expectedErrorCode": "history_unavailable",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T09",
+      "title": "split_one_to_two",
+      "input": {
+        "oldFaces": [
+          "fa"
+        ],
+        "newFaces": [
+          "fb",
+          "fc"
+        ],
+        "operation": "split",
+        "hasHistory": true
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "one_to_many_review_required",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "choose_first_of_split_and_auto_approve",
+        "expectedErrorCode": "non_unique_mapping",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T10",
+      "title": "merge_two_to_one",
+      "input": {
+        "oldFaces": [
+          "fa",
+          "fb"
+        ],
+        "newFaces": [
+          "fc"
+        ],
+        "operation": "merge",
+        "hasHistory": true
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "many_to_one_review_required",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "silently_inherit_two_approvals",
+        "expectedErrorCode": "non_unique_mapping",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T11",
+      "title": "symmetric_faces_collision",
+      "input": {
+        "oldFace": "fa",
+        "candidates": [
+          {
+            "id": "fb",
+            "score": 0.95
+          },
+          {
+            "id": "fc",
+            "score": 0.95
+          }
+        ]
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "ambiguous",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "choose_first_candidate_as_verified",
+        "expectedErrorCode": "ambiguous_mapping",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T12",
+      "title": "missing_tolerance_source",
+      "input": {
+        "toleranceProfileRef": null,
+        "geometrySimilar": true
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "unknown_tolerance",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "hardcode_0_01mm_as_certified",
+        "expectedErrorCode": "unknown_tolerance",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T13",
+      "title": "same_tshape_different_location",
+      "input": {
+        "isPartner": true,
+        "isSame": false,
+        "oldOccurrence": "left",
+        "newOccurrence": "right"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "instance_distinct",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "partner_means_same_occurrence",
+        "expectedErrorCode": "occurrence_mismatch",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T14",
+      "title": "same_location_different_orientation",
+      "input": {
+        "isSame": true,
+        "isEqual": false,
+        "oldOrientation": "FORWARD",
+        "newOrientation": "REVERSED"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "orientation_recorded",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "issame_equated_isequal",
+        "expectedErrorCode": "orientation_mismatch",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T15",
+      "title": "unify_same_domain_revision",
+      "input": {
+        "operation": "UnifySameDomain",
+        "oldHash": "sha256:brep-old",
+        "newHash": "sha256:brep-new",
+        "historyPresent": true
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "new_derived_ref",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "geometry_changed_hash_not_updated",
+        "expectedErrorCode": "hash_mismatch",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T16",
+      "title": "kernel_update",
+      "input": {
+        "oldKernel": "k1",
+        "newKernel": "k2",
+        "oldToleranceRef": "profile-a",
+        "newToleranceRef": "profile-b"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "review_required",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "auto_approve_old_qualification",
+        "expectedErrorCode": "version_drift",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T17",
+      "title": "pick_scene_bound",
+      "input": {
+        "sceneRevision": "snapA-meshA",
+        "topologySourceHash": "sha256:brep-a",
+        "pickingIntent": "face"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "preview_only",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "mesh_triangle_written_to_accepted_feature",
+        "expectedErrorCode": "no_authoritative_mapping",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T18",
+      "title": "cross_project_stale_response",
+      "input": {
+        "originProject": "P-A",
+        "activeProject": "P-B",
+        "originScopeEpoch": 3,
+        "activeScopeEpoch": 4
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "discard_ui_update_query_receipt",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "late_response_updates_new_project",
+        "expectedErrorCode": "scope_mismatch",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T19",
+      "title": "downstream_impact",
+      "input": {
+        "oldDesignRevision": "r1",
+        "newDesignRevision": "r2",
+        "frozenPlanRef": "r1-plan"
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "needs_review_or_unaffected_with_evidence",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "auto_replace_frozen_ref_to_latest",
+        "expectedErrorCode": "approval_not_inherited",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    },
+    {
+      "id": "CAP-03-03-T20",
+      "title": "legacy_anchor_without_snapshot",
+      "input": {
+        "legacy": {
+          "partName": "p",
+          "faceIndex": 7
+        },
+        "snapshotHash": null
+      },
+      "positive": {
+        "condition": "按场景输入保持精确来源与权限前提",
+        "expected": "legacy_unresolved_readonly",
+        "persistence": "planned_not_executed"
+      },
+      "negative": {
+        "mutation": "legacy_auto_promoted_to_verified",
+        "expectedErrorCode": "legacy_missing_scope",
+        "mustNotCreateApprovedFact": true
+      },
+      "productTestStatus": "todo_test_entry_not_executed",
+      "provenance": "synthetic_no_customer_data"
+    }
+  ]
+}

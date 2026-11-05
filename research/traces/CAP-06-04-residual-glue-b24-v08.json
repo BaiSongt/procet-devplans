@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "procet-b24-trace-v1",
+  "capabilityId": "CAP-06-04",
+  "date": "2026-10-30",
+  "sourceRegistry": "research/sources/CAP-06-04-residual-glue-b24.json",
+  "workPackages": [
+    "F1-05",
+    "W2-02",
+    "W2-03",
+    "W2-06"
+  ],
+  "rules": [
+    {
+      "id": "B24-R1",
+      "statement": "D01/D04/D07 exact修订/Hash/Frame/Scope闭包",
+      "sourceIds": [
+        "B24-S03",
+        "B24-S04"
+      ],
+      "fields": [
+        "refs.D07.hash",
+        "refs.D04.scope",
+        "audit.previousStockHash"
+      ],
+      "primaryPackage": "F1-05",
+      "capabilityId": "CAP-06-04",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B24-P01",
+        "B24-P02"
+      ],
+      "negativeIds": [
+        "B24-N01",
+        "B24-N02",
+        "B24-N03"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B24-R2",
+      "statement": "保护区不相交与余料账本R=(S\\E)\\P、After=S\\R、Residual=After\\E",
+      "sourceIds": [
+        "B24-S01",
+        "B24-S02",
+        "B24-S04"
+      ],
+      "fields": [
+        "material.stock",
+        "material.envelope",
+        "material.protected",
+        "material.removable",
+        "material.residual"
+      ],
+      "primaryPackage": "W2-03",
+      "capabilityId": "CAP-06-04",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B24-P01",
+        "B24-P02"
+      ],
+      "negativeIds": [
+        "B24-N04",
+        "B24-N05",
+        "B24-N06",
+        "B24-N07"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B24-R3",
+      "statement": "Residual非空必须明确后续Setup与D07候选字节交接、不覆盖D08",
+      "sourceIds": [
+        "B24-S03",
+        "B24-S04"
+      ],
+      "fields": [
+        "deferred.nextSetup",
+        "deferred.nextStockHash",
+        "deferred.nextScope",
+        "deferred.frozenD08Untouched"
+      ],
+      "primaryPackage": "W2-02",
+      "capabilityId": "CAP-06-04",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B24-P01",
+        "B24-P02"
+      ],
+      "negativeIds": [
+        "B24-N08",
+        "B24-N09",
+        "B24-N10",
+        "B24-N11"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B24-R4",
+      "statement": "残余不允许终态PASS，无残余仍需要真实D07独立验收",
+      "sourceIds": [
+        "B24-S04"
+      ],
+      "fields": [
+        "gate.independentD07",
+        "gate.finalConvergence",
+        "gate.productPass"
+      ],
+      "primaryPackage": "W2-06",
+      "capabilityId": "CAP-06-04",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B24-P01",
+        "B24-P02"
+      ],
+      "negativeIds": [
+        "B24-N12",
+        "B24-N13",
+        "B24-N14",
+        "B24-N15"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B24-R5",
+      "statement": "合成规划不得在缺失真实重合证据时开启OCCT Glue，fuzzy/历史/非破坏需受管",
+      "sourceIds": [
+        "B24-S01",
+        "B24-S02"
+      ],
+      "fields": [
+        "operator.glueMode",
+        "operator.nonDestructive",
+        "operator.fuzzy",
+        "operator.actualBRep"
+      ],
+      "primaryPackage": "W2-03",
+      "capabilityId": "CAP-06-04",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B24-P01",
+        "B24-P02"
+      ],
+      "negativeIds": [
+        "B24-N16",
+        "B24-N17",
+        "B24-N18",
+        "B24-N19"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B24-R6",
+      "statement": "GUI/CLI/Agent统一Owner Port，CAS/ACL/ScopeEpoch/取消晚回执重验",
+      "sourceIds": [
+        "B24-S04"
+      ],
+      "fields": [
+        "command.ownerPort",
+        "command.routes",
+        "command.aclEpoch",
+        "command.lateAck"
+      ],
+      "primaryPackage": "W2-02",
+      "capabilityId": "CAP-06-04",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B24-P01",
+        "B24-P02"
+      ],
+      "negativeIds": [
+        "B24-N20",
+        "B24-N21",
+        "B24-N22",
+        "B24-N23",
+        "B24-N24"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    },
+    {
+      "id": "B24-R7",
+      "statement": "单Babylon/左TaskPanel、D04≠D10及UNKNOWN NC阻断下游",
+      "sourceIds": [
+        "B24-S04"
+      ],
+      "fields": [
+        "ui.singleBabylon",
+        "ui.leftTaskPanel",
+        "downstream.executionBindingRef",
+        "downstream.d15"
+      ],
+      "primaryPackage": "W2-06",
+      "capabilityId": "CAP-06-04",
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "positiveIds": [
+        "B24-P01",
+        "B24-P02"
+      ],
+      "negativeIds": [
+        "B24-N25",
+        "B24-N26",
+        "B24-N27",
+        "B24-N28",
+        "B24-N29",
+        "B24-N30"
+      ],
+      "evidenceLevel": "SYNTHETIC_PLANNING_ONLY"
+    }
+  ]
+}

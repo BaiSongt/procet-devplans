@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "procet-planning-fixture-backfill-v2",
+  "workPackageId": "B0-04",
+  "origin": "NEWLY_AUTHORED_FROM_SUBMITTED_RULES_NOT_HISTORICAL_BYTES",
+  "productExecution": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "B004-AT01-POS",
+      "ruleId": "B004-R01",
+      "polarity": "positive",
+      "title": "受管发行：正式发布消费CAM必须使用可核验精确revision的git/包/受控vendor，构建不得读取repo外兄弟目录",
+      "given": "具备dependencySource的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "同一Git组合在无相邻CAM目录仍可解析依赖",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT01-NEG",
+      "ruleId": "B004-R01",
+      "polarity": "negative",
+      "title": "拒绝绕过：正式发布消费CAM必须使用可核验精确revision的git/包/受控vendor，构建不得读取repo外兄弟目录",
+      "given": "dependencySource之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R01的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT02-POS",
+      "ruleId": "B004-R02",
+      "polarity": "positive",
+      "title": "受管发行：研发允许显式局部覆盖但须非发布profile、只读记录override identity与dirty状态；生产profile拒绝覆盖",
+      "given": "具备overrideProfile的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "本地覆盖不得偷偷改变正式消费组合",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT02-NEG",
+      "ruleId": "B004-R02",
+      "polarity": "negative",
+      "title": "拒绝绕过：研发允许显式局部覆盖但须非发布profile、只读记录override identity与dirty状态；生产profile拒绝覆盖",
+      "given": "overrideProfile之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R02的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT03-POS",
+      "ruleId": "B004-R03",
+      "polarity": "positive",
+      "title": "受管发行：源代码、Cargo registry/git依赖、系统工具链与二进制Native/Worker分层记录闭包，不把cargo vendor当全部闭包",
+      "given": "具备dependencyClosure的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "非Cargo运行依赖缺失时阻断releaseReady",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT03-NEG",
+      "ruleId": "B004-R03",
+      "polarity": "negative",
+      "title": "拒绝绕过：源代码、Cargo registry/git依赖、系统工具链与二进制Native/Worker分层记录闭包，不把cargo vendor当全部闭包",
+      "given": "dependencyClosure之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R03的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT04-POS",
+      "ruleId": "B004-R04",
+      "polarity": "positive",
+      "title": "受管发行：GUI根Cargo与Tauri桌面Cargo分别锁定并验证，拒绝单workspace测试冒充双workspace覆盖",
+      "given": "具备workspaceLockRefs的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "两个manifest和两个Cargo.lock独立审计",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT04-NEG",
+      "ruleId": "B004-R04",
+      "polarity": "negative",
+      "title": "拒绝绕过：GUI根Cargo与Tauri桌面Cargo分别锁定并验证，拒绝单workspace测试冒充双workspace覆盖",
+      "given": "workspaceLockRefs之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R04的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT05-POS",
+      "ruleId": "B004-R05",
+      "polarity": "positive",
+      "title": "受管发行：pnpm依赖使用版本化lock、预置store及frozen/offline独立检查；缓存缺失明确失败",
+      "given": "具备frontendClosure的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "不能用lock存在证明离线构建成功",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT05-NEG",
+      "ruleId": "B004-R05",
+      "polarity": "negative",
+      "title": "拒绝绕过：pnpm依赖使用版本化lock、预置store及frozen/offline独立检查；缓存缺失明确失败",
+      "given": "frontendClosure之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R05的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT06-POS",
+      "ruleId": "B004-R06",
+      "polarity": "positive",
+      "title": "受管发行：Native OCCT资产必须绑定target ABI、来源、SHA256和部署位置；SDK目录存在不能代替运行期DLL核验",
+      "given": "具备nativeAssets的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "未知SDK与DLL不授可发布资格",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT06-NEG",
+      "ruleId": "B004-R06",
+      "polarity": "negative",
+      "title": "拒绝绕过：Native OCCT资产必须绑定target ABI、来源、SHA256和部署位置；SDK目录存在不能代替运行期DLL核验",
+      "given": "nativeAssets之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R06的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT07-POS",
+      "ruleId": "B004-R07",
+      "polarity": "positive",
+      "title": "受管发行：Worker/sidecar必须声明协议与target-specific二进制，配置入口和实际installer字节双向审计",
+      "given": "具备workerAssets的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "仅manifest声明或仅externalBin字段不证明installer有效",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT07-NEG",
+      "ruleId": "B004-R07",
+      "polarity": "negative",
+      "title": "拒绝绕过：Worker/sidecar必须声明协议与target-specific二进制，配置入口和实际installer字节双向审计",
+      "given": "workerAssets之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R07的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT08-POS",
+      "ruleId": "B004-R08",
+      "polarity": "positive",
+      "title": "受管发行：源代码锁/发布清单/离线安装实物三层状态不得互相晋升；需要真实clean checkout及目标平台验收",
+      "given": "具备publicationEvidence的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "未知运行包保持NOT_RUN/UNKNOWN",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT08-NEG",
+      "ruleId": "B004-R08",
+      "polarity": "negative",
+      "title": "拒绝绕过：源代码锁/发布清单/离线安装实物三层状态不得互相晋升；需要真实clean checkout及目标平台验收",
+      "given": "publicationEvidence之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R08的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT09-POS",
+      "ruleId": "B004-R09",
+      "polarity": "positive",
+      "title": "受管发行：正式发布回退必须同时回退manifest、原生资产与安装包，并留原方案不可变审计证据",
+      "given": "具备rollbackTarget的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "失败时保留上次已核验组合而非指向latest",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT09-NEG",
+      "ruleId": "B004-R09",
+      "polarity": "negative",
+      "title": "拒绝绕过：正式发布回退必须同时回退manifest、原生资产与安装包，并留原方案不可变审计证据",
+      "given": "rollbackTarget之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R09的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT10-POS",
+      "ruleId": "B004-R10",
+      "polarity": "positive",
+      "title": "受管发行：GUI/CLI/Agent共用受管Host命令；CAS幂等权限与取消晚回执在提交点校验，3D只读投影",
+      "given": "具备commitReceipt的精确来源和离线证据",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "事件Accepted不等于已验证与激活",
+      "expectedDisposition": "CANDIDATE_AFTER_EVIDENCE",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    },
+    {
+      "id": "B004-AT10-NEG",
+      "ruleId": "B004-R10",
+      "polarity": "negative",
+      "title": "拒绝绕过：GUI/CLI/Agent共用受管Host命令；CAS幂等权限与取消晚回执在提交点校验，3D只读投影",
+      "given": "commitReceipt之一缺少实物/哈希/真实运行证明",
+      "when": "在干净目录执行拟议发行审查并采集依赖摘要，产品真实验收待执行",
+      "then": "必须拒绝违反B004-R10的发行并保留原active profile",
+      "expectedDisposition": "REJECT_OR_UNKNOWN",
+      "productStatus": "NOT_RUN",
+      "evidenceRequired": [
+        "clean-room log",
+        "artifact and Native hashes",
+        "approval receipt"
+      ]
+    }
+  ]
+}

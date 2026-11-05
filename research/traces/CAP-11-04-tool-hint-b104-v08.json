@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "procet-b104-trace-v08",
+  "date": "2026-11-02",
+  "capabilityId": "CAP-11-04",
+  "sourceRegistry": "research/sources/CAP-11-04-tool-hint-b104.json",
+  "fixtures": "docs/capabilities/CAP-11-04/tool-hint-b104-fixtures-v08.json",
+  "validator": "tools/check_cap1104_tool_hint_b104_v08.cjs",
+  "originalWorkPackages": [
+    "T5-01",
+    "T5-02"
+  ],
+  "rules": [
+    {
+      "id": "B104-R01",
+      "statement": "readOnlyHint只是未经可信Owner核实的风险提示；WRITE仍须人审",
+      "fields": [
+        "tool.hint",
+        "tool.ownerEffect",
+        "approval.human"
+      ],
+      "sourceIds": [
+        "B104-S01",
+        "B104-S04",
+        "B104-S07"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D05"
+      ],
+      "origin": "PUBLIC_GUIDANCE_WITH_PROCET_DESIGN_DECISION",
+      "positiveIds": [
+        "B104-R01-P",
+        "B104-R01-READ-P"
+      ],
+      "negativeIds": [
+        "B104-R01-N1",
+        "B104-R01-N2",
+        "B104-R01-N3"
+      ]
+    },
+    {
+      "id": "B104-R02",
+      "statement": "tools/list与tools/call的name及schemaDigest严格一致，漂移为STALE",
+      "fields": [
+        "tool.schema",
+        "intent.schema",
+        "tool.name",
+        "intent.name"
+      ],
+      "sourceIds": [
+        "B104-S01",
+        "B104-S07"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D05"
+      ],
+      "origin": "PUBLIC_GUIDANCE_WITH_PROCET_DESIGN_DECISION",
+      "positiveIds": [
+        "B104-R02-P"
+      ],
+      "negativeIds": [
+        "B104-R02-N1",
+        "B104-R02-N2",
+        "B104-R02-N3"
+      ]
+    },
+    {
+      "id": "B104-R03",
+      "statement": "HTTP OAuth目标Audience校验且不得Token Passthrough；STDIO用本地身份",
+      "fields": [
+        "auth.kind",
+        "auth.audience",
+        "auth.expectedAudience",
+        "auth.passthrough",
+        "auth.localIdentity"
+      ],
+      "sourceIds": [
+        "B104-S02",
+        "B104-S03",
+        "B104-S05"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D05"
+      ],
+      "origin": "PUBLIC_GUIDANCE_WITH_PROCET_DESIGN_DECISION",
+      "positiveIds": [
+        "B104-R03-P"
+      ],
+      "negativeIds": [
+        "B104-R03-N1",
+        "B104-R03-N2",
+        "B104-R03-N3",
+        "B104-R03-N4",
+        "B104-R03-STDIO-U"
+      ]
+    },
+    {
+      "id": "B104-R04",
+      "statement": "Owner提交前重验ACL/Project/ScopeEpoch/exact Revision/原字节Hash/Frame",
+      "fields": [
+        "owner.acl",
+        "owner.scopeEpoch",
+        "owner.currentScopeEpoch",
+        "owner.hash",
+        "owner.currentHash",
+        "owner.frame"
+      ],
+      "sourceIds": [
+        "B104-S02",
+        "B104-S07"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D01",
+        "D05",
+        "D10"
+      ],
+      "origin": "PUBLIC_GUIDANCE_WITH_PROCET_DESIGN_DECISION",
+      "positiveIds": [
+        "B104-R04-P"
+      ],
+      "negativeIds": [
+        "B104-R04-N1",
+        "B104-R04-N2",
+        "B104-R04-N3",
+        "B104-R04-N4",
+        "B104-R04-N5"
+      ]
+    },
+    {
+      "id": "B104-R05",
+      "statement": "Tool结果不执行指令、不冒充Owner Receipt，回执锁定Task Generation",
+      "fields": [
+        "result.dataOnly",
+        "result.receiptValid",
+        "result.generation",
+        "result.currentGeneration"
+      ],
+      "sourceIds": [
+        "B104-S03",
+        "B104-S07"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D05",
+        "D17"
+      ],
+      "origin": "PUBLIC_GUIDANCE_WITH_PROCET_DESIGN_DECISION",
+      "positiveIds": [
+        "B104-R05-P"
+      ],
+      "negativeIds": [
+        "B104-R05-N1",
+        "B104-R05-N2",
+        "B104-R05-N3"
+      ]
+    },
+    {
+      "id": "B104-R06",
+      "statement": "真实WRITE需要独立人类同一ActionDigest确认以及业务Owner CAS",
+      "fields": [
+        "approval.human",
+        "approval.digest",
+        "intent.digest",
+        "owner.cas"
+      ],
+      "sourceIds": [
+        "B104-S01",
+        "B104-S04",
+        "B104-S07"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D05",
+        "D08"
+      ],
+      "origin": "PUBLIC_GUIDANCE_WITH_PROCET_DESIGN_DECISION",
+      "positiveIds": [
+        "B104-R06-P"
+      ],
+      "negativeIds": [
+        "B104-R06-N1",
+        "B104-R06-N2",
+        "B104-R06-N3"
+      ]
+    },
+    {
+      "id": "B104-R07",
+      "statement": "取消晚回执不可新写；取消前真实已提交必须RECONCILE，重试同Digest",
+      "fields": [
+        "commit.cancelled",
+        "commit.committedBeforeCancel",
+        "commit.cancelEpoch",
+        "intent.replayDigest"
+      ],
+      "sourceIds": [
+        "B104-S03",
+        "B104-S07"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D05",
+        "D17"
+      ],
+      "origin": "PUBLIC_GUIDANCE_WITH_PROCET_DESIGN_DECISION",
+      "positiveIds": [
+        "B104-R07-P"
+      ],
+      "negativeIds": [
+        "B104-R07-N1",
+        "B104-R07-N2",
+        "B104-R07-N3",
+        "B104-R07-RECONCILE"
+      ]
+    },
+    {
+      "id": "B104-R08",
+      "statement": "GUI/CLI/Agent共用Port；单Babylon和左TaskPanel；D04不等于D10；D13未知阻D16；旧读回退",
+      "fields": [
+        "ux.commonPort",
+        "ux.babylonWorlds",
+        "ux.leftPanel",
+        "nc.d04D10Separated",
+        "nc.d13Known",
+        "nc.d15Real",
+        "migration.rollbackRef"
+      ],
+      "sourceIds": [
+        "B104-S07"
+      ],
+      "capabilityId": "CAP-11-04",
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "origin": "INTERNAL_PROCET_DESIGN_RULE",
+      "positiveIds": [
+        "B104-R08-P"
+      ],
+      "negativeIds": [
+        "B104-R08-N1",
+        "B104-R08-N2",
+        "B104-R08-N3",
+        "B104-R08-N4",
+        "B104-R08-N5",
+        "B104-R08-N6",
+        "B104-R08-N7"
+      ]
+    }
+  ]
+}

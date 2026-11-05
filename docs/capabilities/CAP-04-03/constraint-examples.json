@@ -1,0 +1,296 @@
+{
+  "schemaVersion": "procet-fixture-linear-contact-example-v1",
+  "model": "small displacement, unilateral contact linearization; not force/stability/collision simulation",
+  "frame": "right-handed Setup S, mm, radians; row=[n,(r×n)]",
+  "contacts321": [
+    {
+      "id": "P1",
+      "point_mm": [
+        0,
+        0,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "row": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "P2",
+      "point_mm": [
+        100,
+        0,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "row": [
+        0,
+        0,
+        1,
+        0,
+        -100,
+        0
+      ]
+    },
+    {
+      "id": "P3",
+      "point_mm": [
+        0,
+        100,
+        0
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "row": [
+        0,
+        0,
+        1,
+        100,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "S1",
+      "point_mm": [
+        0,
+        0,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "row": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "S2",
+      "point_mm": [
+        100,
+        0,
+        0
+      ],
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "row": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        100
+      ]
+    },
+    {
+      "id": "T1",
+      "point_mm": [
+        0,
+        0,
+        0
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "row": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "expectations": [
+    {
+      "case": "nominal_321",
+      "rows": [
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          100,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          100
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "rank": 6,
+      "physicalStability": "unknown",
+      "explanation": "六个独立线性局部约束不证明静摩擦、夹紧载荷与真实几何均合格"
+    },
+    {
+      "case": "missing_tertiary",
+      "rows": [
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          100,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          100
+        ]
+      ],
+      "rank": 5,
+      "physicalStability": "unknown",
+      "explanation": "缺主法向第三轴向约束，欠定"
+    },
+    {
+      "case": "duplicate_secondary",
+      "rows": [
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          100,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "rank": 5,
+      "physicalStability": "unknown",
+      "explanation": "重复定位面不能凭接触数量假定6DOF"
+    }
+  ],
+  "disclaimer": "合成数学例：不含公差、接触非线性、夹紧力、摩擦、机床NC时序；产品执行NOT_RUN"
+}

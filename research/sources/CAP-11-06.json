@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "procet-research-register-v1",
+  "capabilityId": "CAP-11-06",
+  "researchTopic": "R-DURABLE-AI-TASKS-001",
+  "accessedOn": "2026-10-27",
+  "registeredRecords": 10,
+  "provenance": "NEWLY_AUTHORED_OFFICIAL_PUBLIC_ONLY",
+  "sources": [
+    {
+      "id": "C1106-S01",
+      "title": "MCP Tasks 2025-11-25（实验性）",
+      "authors": [
+        "Model Context Protocol Maintainers"
+      ],
+      "edition": "2025-11-25 specification",
+      "published": "2025-11-25",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开规范§Definitions/Task Status Lifecycle/Task Cancellation/Task Isolation与Access Control",
+      "locator": "公开规范§Definitions/Task Status Lifecycle/Task Cancellation/Task Isolation与Access Control",
+      "supports": "2025-11-25 task ID与poll/取消机制仅针对协商后实验版本；不假设所有工具支持",
+      "limits": "非稳定产品能力；与后续Extension不保证线级兼容",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S02",
+      "title": "MCP Cancellation 2025-11-25",
+      "authors": [
+        "Model Context Protocol Maintainers"
+      ],
+      "edition": "2025-11-25 specification",
+      "published": "2025-11-25",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/cancellation",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开规范§Cancellation Flow/Behavior Requirements/Timing Considerations",
+      "locator": "公开规范§Cancellation Flow/Behavior Requirements/Timing Considerations",
+      "supports": "取消通知可忽略或迟到；MCP task cancellation另用tasks/cancel",
+      "limits": "取消通知不能撤销已提交的业务副作用；Owner CAS为工程设计",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S03",
+      "title": "MCP SEP-2663 Tasks Extension",
+      "authors": [
+        "Model Context Protocol maintainers / SEP contributors"
+      ],
+      "edition": "SEP-2663，2026 Extension proposal（incubating）",
+      "published": "2026",
+      "url": "https://tasks.extensions.modelcontextprotocol.io/seps/2663-tasks-extension",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开SEP§Motivation/Backward Compatibility/Version negotiation",
+      "locator": "公开SEP§Motivation/Backward Compatibility/Version negotiation",
+      "supports": "2025-11-25实验tasks与2026-06-30 extension线级不兼容，必须版本协商",
+      "limits": "SEP为演化提案，不是Procet已接入、稳定实现证明；SDK具体兼容需另验",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S04",
+      "title": "Temporal Workflow Execution overview",
+      "authors": [
+        "Temporal Technologies"
+      ],
+      "edition": "公开在线文档，访问2026-10-27",
+      "published": "undated",
+      "url": "https://docs.temporal.io/workflow-execution",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开§Workflow Execution/Replay/Status/State Transition",
+      "locator": "公开§Workflow Execution/Replay/Status/State Transition",
+      "supports": "长时状态、恢复与重放的架构案例，启发任务历史及checkpoint",
+      "limits": "厂商实现模式不是Procet已使用Temporal或自动获得exactly-once业务副作用",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S05",
+      "title": "Temporal Design Patterns",
+      "authors": [
+        "Temporal Technologies"
+      ],
+      "edition": "公开在线文档，访问2026-10-27",
+      "published": "undated",
+      "url": "https://docs.temporal.io/design-patterns",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开§Task orchestration patterns/Workflow messaging patterns",
+      "locator": "公开§Task orchestration patterns/Workflow messaging patterns",
+      "supports": "子工作流、并发及取消的组织参考",
+      "limits": "非产品选型决定，具体分布式一致性需Owner独立设计",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S06",
+      "title": "RFC 9110 HTTP Semantics",
+      "authors": [
+        "R. Fielding; M. Nottingham; J. Reschke"
+      ],
+      "edition": "RFC 9110",
+      "published": "2022-06",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开§9.2.2 Idempotent Methods与§13条件请求（本轮定点9.2.2）",
+      "locator": "公开§9.2.2 Idempotent Methods与§13条件请求（本轮定点9.2.2）",
+      "supports": "只有已知幂等语义才可自动重试非幂等动作；业务idempotencyKey是扩展约束",
+      "limits": "HTTP层规范不保证CAM/NC领域操作幂等；不把POST默认可重试",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S07",
+      "title": "CloudEvents 1.0.2 Specification",
+      "authors": [
+        "CNCF CloudEvents contributors"
+      ],
+      "edition": "CloudEvents v1.0.2",
+      "published": "2022",
+      "url": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开仓库固定v1.0.2规范（事件id/source/time模型）",
+      "locator": "公开仓库固定v1.0.2规范（事件id/source/time模型）",
+      "supports": "事件身份与来源元数据能辅助排重与审计关联",
+      "limits": "CloudEvents身份不等于Owner提交receipt，不保证exactly-once或制造时序",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S08",
+      "title": "W3C PROV-O",
+      "authors": [
+        "T. Lebo et al., W3C Provenance Working Group"
+      ],
+      "edition": "W3C Recommendation 2013-04-30",
+      "published": "2013-04-30",
+      "url": "https://www.w3.org/TR/prov-o/",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开§prov:Activity/Entity/Agent/wasGeneratedBy/startedAtTime/endedAtTime",
+      "locator": "公开§prov:Activity/Entity/Agent/wasGeneratedBy/startedAtTime/endedAtTime",
+      "supports": "任务活动可与产生的不可变实体及责任方关联",
+      "limits": "Provenance关系不直接规定授权/重试/可信Clock，也不代表行为已实际执行",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S09",
+      "title": "NIST SP 800-53 Rev.5, Release 5.2.0",
+      "authors": [
+        "Joint Task Force / NIST"
+      ],
+      "edition": "Rev.5，官方目录记载2025-08-27 Release 5.2.0",
+      "published": "2020;updated 2025-08-27",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "仅官方出版目录、发布说明与摘要；未读完整控制条款",
+      "locator": "仅官方出版目录、发布说明与摘要；未读完整控制条款",
+      "supports": "为ACL、审计、状态保护提供风险控制背景",
+      "limits": "不引用未读AU/AC正文条款，不声称产品已符合NIST",
+      "productTests": "NOT_RUN"
+    },
+    {
+      "id": "C1106-S10",
+      "title": "OpenTelemetry Context Propagation",
+      "authors": [
+        "OpenTelemetry community / CNCF"
+      ],
+      "edition": "在线开发文档，访问2026-10-27",
+      "published": "undated",
+      "url": "https://opentelemetry.io/docs/concepts/context-propagation/",
+      "accessedOn": "2026-10-27",
+      "accessDepth": "公开§Context Propagation/Baggage（本轮读公开检索片段）",
+      "locator": "公开§Context Propagation/Baggage（本轮读公开检索片段）",
+      "supports": "trace上下文利于诊断跨服务迟到回执",
+      "limits": "Span/trace并非业务Owner审计证据；敏感数据不得随Baggage传播",
+      "productTests": "NOT_RUN"
+    }
+  ]
+}

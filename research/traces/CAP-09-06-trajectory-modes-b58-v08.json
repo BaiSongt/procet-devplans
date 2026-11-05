@@ -1,0 +1,372 @@
+{
+  "schemaVersion": "procet-b58-trace-v08",
+  "sourceRegistry": "research/sources/CAP-09-06-trajectory-modes-b58.json",
+  "fixture": "docs/capabilities/CAP-09-06/trajectory-modes-b58-fixtures-v08.json",
+  "checker": "tools/check_cap0906_trajectory_modes_b58_v08.cjs",
+  "researchTopic": "R-NC-TRAJECTORY-MODES-001",
+  "capability": "CAP-09-06",
+  "rules": [
+    {
+      "id": "B58-R01",
+      "summary": "最终NC字节与D13模态前后快照均需同源精确锁定",
+      "sourceIds": [
+        "B58-S01",
+        "B58-S05"
+      ],
+      "fields": [
+        "v.finalNcHashExact",
+        "v.controllerProfileExact",
+        "v.d13BlockByteSpan",
+        "v.modalBeforeAfter",
+        "v.d13OnlyExecutionEvents",
+        "v.interpreterInitializationKnown"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B58-R01-P"
+      ],
+      "negative": [
+        "B58-R01-N1",
+        "B58-R01-N2",
+        "B58-R01-N3",
+        "B58-R01-N4",
+        "B58-R01-N5"
+      ],
+      "unknown": [
+        "B58-R01-U1"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B58-R02",
+      "summary": "G61按编程路径访问角点而G61.1逐段停，不能同义化",
+      "sourceIds": [
+        "B58-S01",
+        "B58-S02"
+      ],
+      "fields": [
+        "v.g61VisitsPoint",
+        "v.g611StopsPerBlock",
+        "v.collinearG61MayContinue",
+        "v.g61G611Distinct",
+        "v.modalStateRecorded",
+        "v.controllerExactProfileKnown"
+      ],
+      "assets": [
+        "D13",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B58-R02-P"
+      ],
+      "negative": [
+        "B58-R02-N1",
+        "B58-R02-N2",
+        "B58-R02-N3",
+        "B58-R02-N4",
+        "B58-R02-N5"
+      ],
+      "unknown": [
+        "B58-R02-U1"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B58-R03",
+      "summary": "G64不带P及P0均不构成有限偏差证据，Q含Naive CAM独立语义",
+      "sourceIds": [
+        "B58-S01",
+        "B58-S02"
+      ],
+      "fields": [
+        "v.noPNotFiniteBound",
+        "v.p0NotFiniteBound",
+        "v.pPositiveRequiredForFiniteMode",
+        "v.qZeroDisablesNaiveCam",
+        "v.qNotSameAsP",
+        "v.g64DialectQualified"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B58-R03-P"
+      ],
+      "negative": [
+        "B58-R03-N1",
+        "B58-R03-N2",
+        "B58-R03-N3",
+        "B58-R03-N4",
+        "B58-R03-N5"
+      ],
+      "unknown": [
+        "B58-R03-U1"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B58-R04",
+      "summary": "G20/G21切换下P/Q单位逐块解析并记录，不能裸数当mm",
+      "sourceIds": [
+        "B58-S01",
+        "B58-S05"
+      ],
+      "fields": [
+        "v.activeUnitsPinned",
+        "v.g20InchesConverted",
+        "v.g21MillimetersRetained",
+        "v.pqBlockUnitRecorded",
+        "v.noUnitlessTolerance",
+        "v.precedingUnitModeKnown"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B58-R04-P"
+      ],
+      "negative": [
+        "B58-R04-N1",
+        "B58-R04-N2",
+        "B58-R04-N3",
+        "B58-R04-N4",
+        "B58-R04-N5"
+      ],
+      "unknown": [
+        "B58-R04-U1"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B58-R05",
+      "summary": "TRAJ前瞻与物理速度/加速度、D10实装绑定独立版本化",
+      "sourceIds": [
+        "B58-S03",
+        "B58-S04",
+        "B58-S05"
+      ],
+      "fields": [
+        "v.trajIniHashPinned",
+        "v.velocityAccelPinned",
+        "v.physicalJointLimitsPinned",
+        "v.lookaheadConfigurationPinned",
+        "v.d04NotD10",
+        "v.oemMachineProfileVerified"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positive": [
+        "B58-R05-P"
+      ],
+      "negative": [
+        "B58-R05-N1",
+        "B58-R05-N2",
+        "B58-R05-N3",
+        "B58-R05-N4",
+        "B58-R05-N5"
+      ],
+      "unknown": [
+        "B58-R05-U1"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B58-R06",
+      "summary": "D14从D13语义产生Joint时序，不能匀速连接NC顶点伪造实机动态",
+      "sourceIds": [
+        "B58-S02",
+        "B58-S03",
+        "B58-S04",
+        "B58-S05"
+      ],
+      "fields": [
+        "v.d14ConsumesD13",
+        "v.jointTimeNotVertexLinear",
+        "v.physicalJointIdsPinned",
+        "v.plannerGapUnknown",
+        "v.clPlaybackNotD14",
+        "v.timingSolverValidated"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D13",
+        "D14"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "positive": [
+        "B58-R06-P"
+      ],
+      "negative": [
+        "B58-R06-N1",
+        "B58-R06-N2",
+        "B58-R06-N3",
+        "B58-R06-N4",
+        "B58-R06-N5"
+      ],
+      "unknown": [
+        "B58-R06-U1"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B58-R07",
+      "summary": "名义净空必须扣除独立认证的路径误差与几何预算，证据缺失UNKNOWN",
+      "sourceIds": [
+        "B58-S01",
+        "B58-S02",
+        "B58-S05"
+      ],
+      "fields": [
+        "v.pNotPhysicalProof",
+        "v.d15Independent",
+        "v.endpointsNotContinuousProof",
+        "v.noMaterialSweptClaim",
+        "v.fullToolHolderGeometry",
+        "v.independentDeviationBoundCertified",
+        "v.clearanceMm",
+        "v.deviationUpperMm",
+        "v.geomUpperMm",
+        "v.continuousCoverageCertified"
+      ],
+      "assets": [
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "positive": [
+        "B58-R07-P"
+      ],
+      "negative": [
+        "B58-R07-N1",
+        "B58-R07-N2",
+        "B58-R07-N3",
+        "B58-R07-N4",
+        "B58-R07-N5",
+        "B58-R07-N6"
+      ],
+      "unknown": [
+        "B58-R07-U1",
+        "B58-R07-U2"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B58-R08",
+      "summary": "单Babylon/左TaskPanel与GUI CLI Agent同Owner、CAS取消及D16独立验收",
+      "sourceIds": [
+        "B58-S05"
+      ],
+      "fields": [
+        "v.singleBabylonWorld",
+        "v.leftTaskPanel",
+        "v.guiCliAgentSameOwner",
+        "v.aclCasCommitRechecked",
+        "v.cancelLateAckRejected",
+        "v.frozenD08Untouched",
+        "v.d16UnknownBlocksRelease",
+        "v.migrationRollback",
+        "v.independentConsumerReceipt"
+      ],
+      "assets": [
+        "D08",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "positive": [
+        "B58-R08-P"
+      ],
+      "negative": [
+        "B58-R08-N1",
+        "B58-R08-N2",
+        "B58-R08-N3",
+        "B58-R08-N4",
+        "B58-R08-N5",
+        "B58-R08-N6",
+        "B58-R08-N7",
+        "B58-R08-N8"
+      ],
+      "unknown": [
+        "B58-R08-U1"
+      ],
+      "designApproval": "PENDING_HUMAN",
+      "consumerAcceptance": "NOT_RUN"
+    }
+  ]
+}

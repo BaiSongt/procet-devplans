@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "procet-capability-acceptance-v1",
+  "capabilityId": "CAP-03-06",
+  "status": "specifications_not_executed",
+  "cases": [
+    {
+      "id": "CAP-03-06-T01",
+      "ruleId": "FEDIT-R01",
+      "polarity": "positive",
+      "title": "双实例CAD相同定义但OccurrencePath不同",
+      "given": "同零件A/B实例分别含相同定位面，Frame各异",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "生成两个明确作用域的草案，持有不同occurrencePath，不共用同一特征确认事实",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T02",
+      "ruleId": "FEDIT-R01",
+      "polarity": "negative",
+      "title": "仅使用face:3在换版STEP上重绑",
+      "given": "旧快照face:3在新快照变为侧面，未提供历史关系",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "拒绝确认并报TOPOLOGY_UNRESOLVED，不以面号直接复用旧D02",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T03",
+      "ruleId": "FEDIT-R02",
+      "polarity": "positive",
+      "title": "完全人工建立有证据孔意图",
+      "given": "合法BRep圆柱面和入口/轴框架已明确，没有Solver Run",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "允许manual_draft并携带face角色与证据；未审批时不产生production qualified",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T04",
+      "ruleId": "FEDIT-R02",
+      "polarity": "negative",
+      "title": "只有mesh却直接点击确认",
+      "given": "可见三角网格/截图，既无可信BRep也无稳定TopoRef",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "允许unresolved_intent可恢复，拒绝confirmed与几何测量自称verified",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T05",
+      "ruleId": "FEDIT-R03",
+      "polarity": "positive",
+      "title": "拾取与悬停仅本地选择",
+      "given": "用户在Babylon单世界多次选壁面、取消后回到原列表",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "D02 revision/hash保持不变，selectionProjection生效后清除",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T06",
+      "ruleId": "FEDIT-R03",
+      "polarity": "negative",
+      "title": "拖拽高亮诱发写数据库",
+      "given": "模拟overlay onPick收到选中面，未触发任何领域提交命令",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "检查设计断言：不得发出写命令或变更D02修订，违规即失败",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T07",
+      "ruleId": "FEDIT-R04",
+      "polarity": "positive",
+      "title": "手工孔径与只读测量并列",
+      "given": "用户声明diameterMm=8.0，已量测7.95mm，并带单位与测量来源",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "显示差异并标需复核，不用用户值替换只读几何测量",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T08",
+      "ruleId": "FEDIT-R04",
+      "polarity": "negative",
+      "title": "无来源矢量及单位仍确认深度",
+      "given": "depth数值=25，未提供unitRef/axisFrameRef，测量不可得",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "拒绝verified参数和特征确认，显示MISSING_UNIT_OR_FRAME",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T09",
+      "ruleId": "FEDIT-R05",
+      "polarity": "positive",
+      "title": "一条旧型腔分裂两项人工特征",
+      "given": "新快照证明旧特征边界分裂为两个不同加工域",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "创建两个新FeatureRef，derivedFrom都指向旧修订，旧实体superseded",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T10",
+      "ruleId": "FEDIT-R05",
+      "polarity": "negative",
+      "title": "两个特征合并时覆盖原ID",
+      "given": "将两个既有已确认特征直接改成同一旧ID且删历史",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "拒绝覆盖，要求多对一谱系与新immutable revision",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T11",
+      "ruleId": "FEDIT-R06",
+      "polarity": "positive",
+      "title": "冻结PMI的孔定位引用受控链接",
+      "given": "人工特征指向exact已批准PMI，审查人仅添加requirementLink",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "D01/PMI source hash不变，D02新revision保留链接与审查人",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T12",
+      "ruleId": "FEDIT-R06",
+      "polarity": "negative",
+      "title": "编辑制造特征试图偷偷修改GD&T",
+      "given": "人工把位置度设计要求改成加工工艺余量且未有独立批准",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "拒绝PMI源修改；特征编辑只可追加关联及争议记录",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T13",
+      "ruleId": "FEDIT-R07",
+      "polarity": "positive",
+      "title": "确认D02特征但工艺依然待计划",
+      "given": "源输入正确、03域FeatureRevision被确认，新D02 revision已提交",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "D05/D08仍旧修订且标待重审，不自动更新冻结Plan/NC",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T14",
+      "ruleId": "FEDIT-R07",
+      "polarity": "negative",
+      "title": "把识别成功/人工确认直接当D16许可",
+      "given": "Run Solved或Feature approved后请求生成已批准NC发布包",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "拒绝越域发布，要求独立D08/D12/D15/D16证据闭包",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T15",
+      "ruleId": "FEDIT-R08",
+      "polarity": "positive",
+      "title": "双人并发旧revision CAS",
+      "given": "A对r3提交，B仍以expected r3提交，不同payload",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "A提交成r4并获receipt；B得CONFLICT与差异，旧r3可查",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T16",
+      "ruleId": "FEDIT-R08",
+      "polarity": "negative",
+      "title": "相同requestId不同payload重放",
+      "given": "首次requestId已COMMITTED，重试改写featureKind或sourceHash",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "拒绝IDEMPOTENCY_PAYLOAD_MISMATCH；不可产生第二个写入",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T17",
+      "ruleId": "FEDIT-R09",
+      "polarity": "positive",
+      "title": "网络超时后查原requestId",
+      "given": "服务端已提交r8，但GUI断线只拿到UNKNOWN_AFTER_TIMEOUT",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "恢复时查询同一requestId得到COMMITTED/r8，绝不新建重复事务",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T18",
+      "ruleId": "FEDIT-R09",
+      "polarity": "negative",
+      "title": "切Project后旧异步回执污染屏幕",
+      "given": "源A中的Worker在用户切换至工程B后才返回",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "旧回执记录在A的历史，仅B当前选中态/数据revision不变",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T19",
+      "ruleId": "FEDIT-R10",
+      "polarity": "positive",
+      "title": "CAD新修订重审且保护冻结计划",
+      "given": "旧D02引用的面在新STEP中一对多，已存在冻结D08",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "新D02提议标stale/rebind needed；冻结D08保持原样并给消费侧重审事件",
+      "expectedStatus": "ACCEPT_OR_REVIEW",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    },
+    {
+      "id": "CAP-03-06-T20",
+      "ruleId": "FEDIT-R10",
+      "polarity": "negative",
+      "title": "旧面索引无历史迁移后覆盖已冻结结果",
+      "given": "迁移Reader仅有legacy faceIndices，尝试让新D02直接取代Frozen D08",
+      "when": "在统一Host命令/查询入口执行相关范围的操作并捕获事件及持久化差分；本文件只定义未来验收动作。",
+      "then": "拒绝静默迁移及冻结覆盖，保留旧只读快照和未解歧义报告",
+      "expectedStatus": "REJECT_OR_FAIL_CLOSED",
+      "execution": "NOT_RUN_PRODUCT",
+      "evidenceRequired": [
+        "exact D01/D02 revisions and hashes",
+        "domain command/receipt or explicit absence",
+        "3D selection projection when relevant",
+        "test suite and binary SHA"
+      ]
+    }
+  ]
+}

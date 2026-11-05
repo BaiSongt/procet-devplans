@@ -1,0 +1,513 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-10-04",
+  "researchTopic": "R-DNC-TRANSFER-001",
+  "sourceRegistry": "research/sources/CAP-10-04.json",
+  "specification": "docs/capabilities/CAP-10-04/README.md",
+  "ui": "docs/capabilities/CAP-10-04/UI.md",
+  "fixtures": "docs/capabilities/CAP-10-04/fixtures.json",
+  "validator": "tools/check_cap1004_planning_2026_10_27.cjs",
+  "status": "compiled_pending_human_review",
+  "rules": [
+    {
+      "id": "CAP-10-04-R01",
+      "capabilityId": "CAP-10-04",
+      "summary": "冻结D16签发对象与目标锚定",
+      "engineeringRule": "仅使用已签发D16的原NC指纹，目标机器与控制器Profile须精确锁定",
+      "fields": [
+        "identity.signedD16EnvelopeExact",
+        "identity.targetMachineExact",
+        "identity.controllerProfileExact",
+        "identity.d10BindingExact"
+      ],
+      "sourceIds": [
+        "C1004-S02",
+        "C1004-S04",
+        "C1004-S10"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "identity.signedD16EnvelopeExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.targetMachineExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.controllerProfileExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "identity.d10BindingExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R02",
+      "capabilityId": "CAP-10-04",
+      "summary": "能力发现与可选传输适配",
+      "engineeringRule": "需读取真实目标的受支持文件端口/写权限；OPC与厂商私有驱动按Profile显式分支",
+      "fields": [
+        "capability.controllerWritePortVerified",
+        "capability.transferModeSupported",
+        "capability.profileRevisionPinned",
+        "capability.unknownFeatureFailClosed"
+      ],
+      "sourceIds": [
+        "C1004-S01",
+        "C1004-S02",
+        "C1004-S03"
+      ],
+      "assets": [
+        "D03",
+        "D13",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "capability.controllerWritePortVerified",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "capability.transferModeSupported",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "capability.profileRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "capability.unknownFeatureFailClosed",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R03",
+      "capabilityId": "CAP-10-04",
+      "summary": "连接主体与请求意图隔离",
+      "engineeringRule": "发送端/收方身份、scope和工单意图必须精确一致；传输权不等于机床启动权",
+      "fields": [
+        "auth.senderPrincipalBound",
+        "auth.receiverIdentityBound",
+        "auth.scopeAclRechecked",
+        "auth.noExecutionPrivilegeEscalation"
+      ],
+      "sourceIds": [
+        "C1004-S04",
+        "C1004-S07",
+        "C1004-S09"
+      ],
+      "assets": [
+        "D01",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "auth.senderPrincipalBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.receiverIdentityBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.scopeAclRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.noExecutionPrivilegeEscalation",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R04",
+      "capabilityId": "CAP-10-04",
+      "summary": "原NC字节及子程序闭包",
+      "engineeringRule": "只能传输D16指纹所述的全部原始字节，不能自动规范化NC、替换文件或漏子程序",
+      "fields": [
+        "content.finalNcRawHashExact",
+        "content.subprogramClosureExact",
+        "content.noLineEndingTranscode",
+        "content.manifestDigestExact"
+      ],
+      "sourceIds": [
+        "C1004-S01",
+        "C1004-S08",
+        "C1004-S09"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "content.finalNcRawHashExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "content.subprogramClosureExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "content.noLineEndingTranscode",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "content.manifestDigestExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R05",
+      "capabilityId": "CAP-10-04",
+      "summary": "预备区接收后独立重算",
+      "engineeringRule": "收端staging独立重算每个文件原始字节哈希、清单、目标库位置后才能记录接收",
+      "fields": [
+        "staging.receiverRehashIndependent",
+        "staging.temporaryPathIsolated",
+        "staging.noActiveProgramOverwrite",
+        "staging.postTransferReadbackExact"
+      ],
+      "sourceIds": [
+        "C1004-S01",
+        "C1004-S02",
+        "C1004-S08"
+      ],
+      "assets": [
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "staging.receiverRehashIndependent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "staging.temporaryPathIsolated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "staging.noActiveProgramOverwrite",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "staging.postTransferReadbackExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R06",
+      "capabilityId": "CAP-10-04",
+      "summary": "传输事务与原子阶段门禁",
+      "engineeringRule": "分块/掉线/断电后恢复须用sessionNonce、完整性及原子提交标识；不得误报成功",
+      "fields": [
+        "transaction.sessionNonceBound",
+        "transaction.chunkCoverageComplete",
+        "transaction.atomicCommitConfirmed",
+        "transaction.reconnectRevalidatesHash"
+      ],
+      "sourceIds": [
+        "C1004-S02",
+        "C1004-S07",
+        "C1004-S08"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "transaction.sessionNonceBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.chunkCoverageComplete",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.atomicCommitConfirmed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.reconnectRevalidatesHash",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R07",
+      "capabilityId": "CAP-10-04",
+      "summary": "下载与执行命令物理隔离",
+      "engineeringRule": "DNC可交换文件或队列草稿，禁止上传成功自动触发NC选择、CycleStart、M代码或加工",
+      "fields": [
+        "operation.stageOnly",
+        "operation.noCycleStart",
+        "operation.noProgramActivate",
+        "operation.humanMachineAuthorizationSeparate"
+      ],
+      "sourceIds": [
+        "C1004-S01",
+        "C1004-S03",
+        "C1004-S05"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "operation.stageOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "operation.noCycleStart",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "operation.noProgramActivate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "operation.humanMachineAuthorizationSeparate",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R08",
+      "capabilityId": "CAP-10-04",
+      "summary": "回执因果顺序、取消与幂等",
+      "engineeringRule": "late ACK、duplicate ACK、取消和切工程后不能改写原已冻结发布事实或产生重复收货",
+      "fields": [
+        "ack.transferRevisionBound",
+        "ack.idempotencyKeyPinned",
+        "ack.cancelEpochChecked",
+        "ack.lateAckRejected"
+      ],
+      "sourceIds": [
+        "C1004-S07",
+        "C1004-S09",
+        "C1004-S10"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "ack.transferRevisionBound",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ack.idempotencyKeyPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ack.cancelEpochChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ack.lateAckRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R09",
+      "capabilityId": "CAP-10-04",
+      "summary": "双向回读与独立消费证据",
+      "engineeringRule": "上传与反向下载均记录设备侧观察、传输侧证据及独立收方判据；不可自证接收成功",
+      "fields": [
+        "audit.deviceReadbackSeparate",
+        "audit.producerClaimNotOracle",
+        "audit.d17AppendOnly",
+        "audit.unknownReadbackNotPass"
+      ],
+      "sourceIds": [
+        "C1004-S01",
+        "C1004-S06",
+        "C1004-S09"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "audit.deviceReadbackSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.producerClaimNotOracle",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.d17AppendOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "audit.unknownReadbackNotPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-04-R10",
+      "capabilityId": "CAP-10-04",
+      "summary": "统一Port、单3D与迁移回退",
+      "engineeringRule": "GUI/CLI/Agent同10域Port、单Babylon与左TaskPanel；旧DNC读模式保留影子回读和无损回退",
+      "fields": [
+        "ui.singleDomainPort",
+        "ui.singleBabylonWorld",
+        "ui.leftUnifiedTaskPanel",
+        "ui.shadowReaderRollback"
+      ],
+      "sourceIds": [
+        "C1004-S01",
+        "C1004-S03",
+        "C1004-S10"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "criteria": [
+        {
+          "path": "ui.singleDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.singleBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftUnifiedTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.shadowReaderRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "每字段必须有只改变该字段的独立负例；逻辑检查不等于DNC物理控制器或接收端证明",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

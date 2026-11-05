@@ -1,0 +1,949 @@
+{
+  "schemaVersion": "procet-b57-continuous-link-v08",
+  "syntheticOnly": true,
+  "passMeans": "synthetic planning rule only, never D15 product certification",
+  "fixedNumericVector": {
+    "c0": 2,
+    "c1": 2,
+    "L": 1,
+    "R": 20,
+    "thetaRad": 0.02,
+    "errorUpper": 0.1,
+    "margin": 0.1,
+    "movementHalfUpper": 0.7,
+    "clearanceLower": 1.2
+  },
+  "cases": [
+    {
+      "id": "B57-R01-P",
+      "kind": "positive",
+      "ruleId": "B57-R01",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R01",
+        "v": {
+          "exactD03": true,
+          "exactD04": true,
+          "exactD07": true,
+          "exactD08": true,
+          "frameRight": true,
+          "fullToolHolder": true,
+          "fixtureStock": true
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R01-N1",
+      "kind": "negative",
+      "ruleId": "B57-R01",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R01",
+        "v": {
+          "exactD03": false,
+          "exactD04": true,
+          "exactD07": true,
+          "exactD08": true,
+          "frameRight": true,
+          "fullToolHolder": true,
+          "fixtureStock": true
+        }
+      },
+      "mutatedField": "v.exactD03"
+    },
+    {
+      "id": "B57-R01-N2",
+      "kind": "negative",
+      "ruleId": "B57-R01",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R01",
+        "v": {
+          "exactD03": true,
+          "exactD04": true,
+          "exactD07": false,
+          "exactD08": true,
+          "frameRight": true,
+          "fullToolHolder": true,
+          "fixtureStock": true
+        }
+      },
+      "mutatedField": "v.exactD07"
+    },
+    {
+      "id": "B57-R01-U3",
+      "kind": "unknown",
+      "ruleId": "B57-R01",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R01",
+        "v": {
+          "exactD03": true,
+          "exactD04": true,
+          "exactD07": true,
+          "exactD08": true,
+          "frameRight": true,
+          "fullToolHolder": false,
+          "fixtureStock": true
+        }
+      },
+      "mutatedField": "v.fullToolHolder"
+    },
+    {
+      "id": "B57-R01-U4",
+      "kind": "unknown",
+      "ruleId": "B57-R01",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R01",
+        "v": {
+          "exactD03": true,
+          "exactD04": true,
+          "exactD07": true,
+          "exactD08": true,
+          "frameRight": true,
+          "fullToolHolder": true,
+          "fixtureStock": false
+        }
+      },
+      "mutatedField": "v.fixtureStock"
+    },
+    {
+      "id": "B57-R02-P",
+      "kind": "positive",
+      "ruleId": "B57-R02",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R02",
+        "v": {
+          "unit": "mm",
+          "lengthMm": 1,
+          "radiusMm": 20,
+          "thetaRad": 0.02,
+          "distance0Mm": 2,
+          "distance1Mm": 2,
+          "errorUpperMm": 0.1,
+          "marginMm": 0.1,
+          "motionBoundCertified": true,
+          "distanceLowerBoundCertified": true
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R02-N1",
+      "kind": "negative",
+      "ruleId": "B57-R02",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R02",
+        "v": {
+          "unit": "inch",
+          "lengthMm": 1,
+          "radiusMm": 20,
+          "thetaRad": 0.02,
+          "distance0Mm": 2,
+          "distance1Mm": 2,
+          "errorUpperMm": 0.1,
+          "marginMm": 0.1,
+          "motionBoundCertified": true,
+          "distanceLowerBoundCertified": true
+        }
+      },
+      "mutatedField": "v.unit"
+    },
+    {
+      "id": "B57-R02-N2",
+      "kind": "negative",
+      "ruleId": "B57-R02",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R02",
+        "v": {
+          "unit": "mm",
+          "lengthMm": -1,
+          "radiusMm": 20,
+          "thetaRad": 0.02,
+          "distance0Mm": 2,
+          "distance1Mm": 2,
+          "errorUpperMm": 0.1,
+          "marginMm": 0.1,
+          "motionBoundCertified": true,
+          "distanceLowerBoundCertified": true
+        }
+      },
+      "mutatedField": "v.lengthMm"
+    },
+    {
+      "id": "B57-R02-U3",
+      "kind": "unknown",
+      "ruleId": "B57-R02",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R02",
+        "v": {
+          "unit": "mm",
+          "lengthMm": 10,
+          "radiusMm": 20,
+          "thetaRad": 0.02,
+          "distance0Mm": 2,
+          "distance1Mm": 2,
+          "errorUpperMm": 0.1,
+          "marginMm": 0.1,
+          "motionBoundCertified": true,
+          "distanceLowerBoundCertified": true
+        }
+      },
+      "mutatedField": "v.lengthMm"
+    },
+    {
+      "id": "B57-R02-U4",
+      "kind": "unknown",
+      "ruleId": "B57-R02",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R02",
+        "v": {
+          "unit": "mm",
+          "lengthMm": 1,
+          "radiusMm": 500,
+          "thetaRad": 0.02,
+          "distance0Mm": 2,
+          "distance1Mm": 2,
+          "errorUpperMm": 0.1,
+          "marginMm": 0.1,
+          "motionBoundCertified": true,
+          "distanceLowerBoundCertified": true
+        }
+      },
+      "mutatedField": "v.radiusMm"
+    },
+    {
+      "id": "B57-R02-U5",
+      "kind": "unknown",
+      "ruleId": "B57-R02",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R02",
+        "v": {
+          "unit": "mm",
+          "lengthMm": 1,
+          "radiusMm": 20,
+          "thetaRad": 0.02,
+          "distance0Mm": 2,
+          "distance1Mm": 2,
+          "errorUpperMm": 0.1,
+          "marginMm": 0.1,
+          "motionBoundCertified": false,
+          "distanceLowerBoundCertified": true
+        }
+      },
+      "mutatedField": "v.motionBoundCertified"
+    },
+    {
+      "id": "B57-R02-U6",
+      "kind": "unknown",
+      "ruleId": "B57-R02",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R02",
+        "v": {
+          "unit": "mm",
+          "lengthMm": 1,
+          "radiusMm": 20,
+          "thetaRad": 0.02,
+          "distance0Mm": 2,
+          "distance1Mm": 2,
+          "errorUpperMm": 0.1,
+          "marginMm": 0.1,
+          "motionBoundCertified": true,
+          "distanceLowerBoundCertified": false
+        }
+      },
+      "mutatedField": "v.distanceLowerBoundCertified"
+    },
+    {
+      "id": "B57-R03-P",
+      "kind": "positive",
+      "ruleId": "B57-R03",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R03",
+        "v": {
+          "api": "BRepExtrema_DistShapeShape",
+          "isDone": true,
+          "innerSolution": false,
+          "isSweptClaim": false,
+          "isDoneEqualsPrecisionProof": false,
+          "errorBoundCertified": true
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R03-N1",
+      "kind": "negative",
+      "ruleId": "B57-R03",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R03",
+        "v": {
+          "api": "PointPoint",
+          "isDone": true,
+          "innerSolution": false,
+          "isSweptClaim": false,
+          "isDoneEqualsPrecisionProof": false,
+          "errorBoundCertified": true
+        }
+      },
+      "mutatedField": "v.api"
+    },
+    {
+      "id": "B57-R03-N2",
+      "kind": "negative",
+      "ruleId": "B57-R03",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R03",
+        "v": {
+          "api": "BRepExtrema_DistShapeShape",
+          "isDone": true,
+          "innerSolution": false,
+          "isSweptClaim": true,
+          "isDoneEqualsPrecisionProof": false,
+          "errorBoundCertified": true
+        }
+      },
+      "mutatedField": "v.isSweptClaim"
+    },
+    {
+      "id": "B57-R03-N3",
+      "kind": "negative",
+      "ruleId": "B57-R03",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R03",
+        "v": {
+          "api": "BRepExtrema_DistShapeShape",
+          "isDone": true,
+          "innerSolution": false,
+          "isSweptClaim": false,
+          "isDoneEqualsPrecisionProof": true,
+          "errorBoundCertified": true
+        }
+      },
+      "mutatedField": "v.isDoneEqualsPrecisionProof"
+    },
+    {
+      "id": "B57-R03-N4",
+      "kind": "negative",
+      "ruleId": "B57-R03",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R03",
+        "v": {
+          "api": "BRepExtrema_DistShapeShape",
+          "isDone": true,
+          "innerSolution": true,
+          "isSweptClaim": false,
+          "isDoneEqualsPrecisionProof": false,
+          "errorBoundCertified": true
+        }
+      },
+      "mutatedField": "v.innerSolution"
+    },
+    {
+      "id": "B57-R03-U5",
+      "kind": "unknown",
+      "ruleId": "B57-R03",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R03",
+        "v": {
+          "api": "BRepExtrema_DistShapeShape",
+          "isDone": false,
+          "innerSolution": false,
+          "isSweptClaim": false,
+          "isDoneEqualsPrecisionProof": false,
+          "errorBoundCertified": true
+        }
+      },
+      "mutatedField": "v.isDone"
+    },
+    {
+      "id": "B57-R03-U6",
+      "kind": "unknown",
+      "ruleId": "B57-R03",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R03",
+        "v": {
+          "api": "BRepExtrema_DistShapeShape",
+          "isDone": true,
+          "innerSolution": false,
+          "isSweptClaim": false,
+          "isDoneEqualsPrecisionProof": false,
+          "errorBoundCertified": false
+        }
+      },
+      "mutatedField": "v.errorBoundCertified"
+    },
+    {
+      "id": "B57-R04-P",
+      "kind": "positive",
+      "ruleId": "B57-R04",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R04",
+        "v": {
+          "samplesProveContinuity": false,
+          "endpointCollision": false,
+          "allIntervalsCovered": true,
+          "budgetExhausted": false
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R04-N1",
+      "kind": "negative",
+      "ruleId": "B57-R04",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R04",
+        "v": {
+          "samplesProveContinuity": true,
+          "endpointCollision": false,
+          "allIntervalsCovered": true,
+          "budgetExhausted": false
+        }
+      },
+      "mutatedField": "v.samplesProveContinuity"
+    },
+    {
+      "id": "B57-R04-N2",
+      "kind": "negative",
+      "ruleId": "B57-R04",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R04",
+        "v": {
+          "samplesProveContinuity": false,
+          "endpointCollision": true,
+          "allIntervalsCovered": true,
+          "budgetExhausted": false
+        }
+      },
+      "mutatedField": "v.endpointCollision"
+    },
+    {
+      "id": "B57-R04-U3",
+      "kind": "unknown",
+      "ruleId": "B57-R04",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R04",
+        "v": {
+          "samplesProveContinuity": false,
+          "endpointCollision": false,
+          "allIntervalsCovered": false,
+          "budgetExhausted": false
+        }
+      },
+      "mutatedField": "v.allIntervalsCovered"
+    },
+    {
+      "id": "B57-R04-U4",
+      "kind": "unknown",
+      "ruleId": "B57-R04",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R04",
+        "v": {
+          "samplesProveContinuity": false,
+          "endpointCollision": false,
+          "allIntervalsCovered": true,
+          "budgetExhausted": true
+        }
+      },
+      "mutatedField": "v.budgetExhausted"
+    },
+    {
+      "id": "B57-R05-P",
+      "kind": "positive",
+      "ruleId": "B57-R05",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R05",
+        "v": {
+          "setupD04Exact": true,
+          "executionD10Separated": true,
+          "d08Frozen": true,
+          "d07OrderedState": true,
+          "d03ToolHashExact": true,
+          "fixtureEnvelopeKnown": true
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R05-N1",
+      "kind": "negative",
+      "ruleId": "B57-R05",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R05",
+        "v": {
+          "setupD04Exact": true,
+          "executionD10Separated": false,
+          "d08Frozen": true,
+          "d07OrderedState": true,
+          "d03ToolHashExact": true,
+          "fixtureEnvelopeKnown": true
+        }
+      },
+      "mutatedField": "v.executionD10Separated"
+    },
+    {
+      "id": "B57-R05-N2",
+      "kind": "negative",
+      "ruleId": "B57-R05",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R05",
+        "v": {
+          "setupD04Exact": true,
+          "executionD10Separated": true,
+          "d08Frozen": false,
+          "d07OrderedState": true,
+          "d03ToolHashExact": true,
+          "fixtureEnvelopeKnown": true
+        }
+      },
+      "mutatedField": "v.d08Frozen"
+    },
+    {
+      "id": "B57-R05-N3",
+      "kind": "negative",
+      "ruleId": "B57-R05",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R05",
+        "v": {
+          "setupD04Exact": true,
+          "executionD10Separated": true,
+          "d08Frozen": true,
+          "d07OrderedState": false,
+          "d03ToolHashExact": true,
+          "fixtureEnvelopeKnown": true
+        }
+      },
+      "mutatedField": "v.d07OrderedState"
+    },
+    {
+      "id": "B57-R05-U4",
+      "kind": "unknown",
+      "ruleId": "B57-R05",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R05",
+        "v": {
+          "setupD04Exact": true,
+          "executionD10Separated": true,
+          "d08Frozen": true,
+          "d07OrderedState": true,
+          "d03ToolHashExact": true,
+          "fixtureEnvelopeKnown": false
+        }
+      },
+      "mutatedField": "v.fixtureEnvelopeKnown"
+    },
+    {
+      "id": "B57-R06-P",
+      "kind": "positive",
+      "ruleId": "B57-R06",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R06",
+        "v": {
+          "aclAtCommit": true,
+          "casAtCommit": true,
+          "hashFrameScopeExact": true,
+          "taskGenerationExact": true,
+          "cancelled": false,
+          "ignoreLateAck": true,
+          "immutableRollback": true,
+          "ackStateKnown": true
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R06-N1",
+      "kind": "negative",
+      "ruleId": "B57-R06",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R06",
+        "v": {
+          "aclAtCommit": false,
+          "casAtCommit": true,
+          "hashFrameScopeExact": true,
+          "taskGenerationExact": true,
+          "cancelled": false,
+          "ignoreLateAck": true,
+          "immutableRollback": true,
+          "ackStateKnown": true
+        }
+      },
+      "mutatedField": "v.aclAtCommit"
+    },
+    {
+      "id": "B57-R06-N2",
+      "kind": "negative",
+      "ruleId": "B57-R06",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R06",
+        "v": {
+          "aclAtCommit": true,
+          "casAtCommit": false,
+          "hashFrameScopeExact": true,
+          "taskGenerationExact": true,
+          "cancelled": false,
+          "ignoreLateAck": true,
+          "immutableRollback": true,
+          "ackStateKnown": true
+        }
+      },
+      "mutatedField": "v.casAtCommit"
+    },
+    {
+      "id": "B57-R06-N3",
+      "kind": "negative",
+      "ruleId": "B57-R06",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R06",
+        "v": {
+          "aclAtCommit": true,
+          "casAtCommit": true,
+          "hashFrameScopeExact": true,
+          "taskGenerationExact": false,
+          "cancelled": false,
+          "ignoreLateAck": true,
+          "immutableRollback": true,
+          "ackStateKnown": true
+        }
+      },
+      "mutatedField": "v.taskGenerationExact"
+    },
+    {
+      "id": "B57-R06-N4",
+      "kind": "negative",
+      "ruleId": "B57-R06",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R06",
+        "v": {
+          "aclAtCommit": true,
+          "casAtCommit": true,
+          "hashFrameScopeExact": true,
+          "taskGenerationExact": true,
+          "cancelled": true,
+          "ignoreLateAck": true,
+          "immutableRollback": true,
+          "ackStateKnown": true
+        }
+      },
+      "mutatedField": "v.cancelled"
+    },
+    {
+      "id": "B57-R06-N5",
+      "kind": "negative",
+      "ruleId": "B57-R06",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R06",
+        "v": {
+          "aclAtCommit": true,
+          "casAtCommit": true,
+          "hashFrameScopeExact": true,
+          "taskGenerationExact": true,
+          "cancelled": false,
+          "ignoreLateAck": false,
+          "immutableRollback": true,
+          "ackStateKnown": true
+        }
+      },
+      "mutatedField": "v.ignoreLateAck"
+    },
+    {
+      "id": "B57-R06-U6",
+      "kind": "unknown",
+      "ruleId": "B57-R06",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R06",
+        "v": {
+          "aclAtCommit": true,
+          "casAtCommit": true,
+          "hashFrameScopeExact": true,
+          "taskGenerationExact": true,
+          "cancelled": false,
+          "ignoreLateAck": true,
+          "immutableRollback": true,
+          "ackStateKnown": false
+        }
+      },
+      "mutatedField": "v.ackStateKnown"
+    },
+    {
+      "id": "B57-R07-P",
+      "kind": "positive",
+      "ruleId": "B57-R07",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R07",
+        "v": {
+          "clPreviewCountsAsD15": false,
+          "d14FromClOnly": false,
+          "d16BlockedOnUnknown": true,
+          "consumerProofPlanned": true
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R07-N1",
+      "kind": "negative",
+      "ruleId": "B57-R07",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R07",
+        "v": {
+          "clPreviewCountsAsD15": true,
+          "d14FromClOnly": false,
+          "d16BlockedOnUnknown": true,
+          "consumerProofPlanned": true
+        }
+      },
+      "mutatedField": "v.clPreviewCountsAsD15"
+    },
+    {
+      "id": "B57-R07-N2",
+      "kind": "negative",
+      "ruleId": "B57-R07",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R07",
+        "v": {
+          "clPreviewCountsAsD15": false,
+          "d14FromClOnly": true,
+          "d16BlockedOnUnknown": true,
+          "consumerProofPlanned": true
+        }
+      },
+      "mutatedField": "v.d14FromClOnly"
+    },
+    {
+      "id": "B57-R07-N3",
+      "kind": "negative",
+      "ruleId": "B57-R07",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R07",
+        "v": {
+          "clPreviewCountsAsD15": false,
+          "d14FromClOnly": false,
+          "d16BlockedOnUnknown": false,
+          "consumerProofPlanned": true
+        }
+      },
+      "mutatedField": "v.d16BlockedOnUnknown"
+    },
+    {
+      "id": "B57-R07-U4",
+      "kind": "unknown",
+      "ruleId": "B57-R07",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R07",
+        "v": {
+          "clPreviewCountsAsD15": false,
+          "d14FromClOnly": false,
+          "d16BlockedOnUnknown": true,
+          "consumerProofPlanned": false
+        }
+      },
+      "mutatedField": "v.consumerProofPlanned"
+    },
+    {
+      "id": "B57-R08-P",
+      "kind": "positive",
+      "ruleId": "B57-R08",
+      "expected": "PASS",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": true,
+          "singleScene": true,
+          "singleCanvas": true,
+          "leftTaskPanel": true,
+          "sameGuiCliAgentPort": true,
+          "maxFontPx": 12,
+          "previewOnly": true,
+          "consumerProof": "PLANNED"
+        }
+      },
+      "note": "仅规划合成输入，非真实几何、NC或产品证据"
+    },
+    {
+      "id": "B57-R08-N1",
+      "kind": "negative",
+      "ruleId": "B57-R08",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": false,
+          "singleScene": true,
+          "singleCanvas": true,
+          "leftTaskPanel": true,
+          "sameGuiCliAgentPort": true,
+          "maxFontPx": 12,
+          "previewOnly": true,
+          "consumerProof": "PLANNED"
+        }
+      },
+      "mutatedField": "v.singleBabylonEngine"
+    },
+    {
+      "id": "B57-R08-N2",
+      "kind": "negative",
+      "ruleId": "B57-R08",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": true,
+          "singleScene": false,
+          "singleCanvas": true,
+          "leftTaskPanel": true,
+          "sameGuiCliAgentPort": true,
+          "maxFontPx": 12,
+          "previewOnly": true,
+          "consumerProof": "PLANNED"
+        }
+      },
+      "mutatedField": "v.singleScene"
+    },
+    {
+      "id": "B57-R08-N3",
+      "kind": "negative",
+      "ruleId": "B57-R08",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": true,
+          "singleScene": true,
+          "singleCanvas": false,
+          "leftTaskPanel": true,
+          "sameGuiCliAgentPort": true,
+          "maxFontPx": 12,
+          "previewOnly": true,
+          "consumerProof": "PLANNED"
+        }
+      },
+      "mutatedField": "v.singleCanvas"
+    },
+    {
+      "id": "B57-R08-N4",
+      "kind": "negative",
+      "ruleId": "B57-R08",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": true,
+          "singleScene": true,
+          "singleCanvas": true,
+          "leftTaskPanel": false,
+          "sameGuiCliAgentPort": true,
+          "maxFontPx": 12,
+          "previewOnly": true,
+          "consumerProof": "PLANNED"
+        }
+      },
+      "mutatedField": "v.leftTaskPanel"
+    },
+    {
+      "id": "B57-R08-N5",
+      "kind": "negative",
+      "ruleId": "B57-R08",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": true,
+          "singleScene": true,
+          "singleCanvas": true,
+          "leftTaskPanel": true,
+          "sameGuiCliAgentPort": false,
+          "maxFontPx": 12,
+          "previewOnly": true,
+          "consumerProof": "PLANNED"
+        }
+      },
+      "mutatedField": "v.sameGuiCliAgentPort"
+    },
+    {
+      "id": "B57-R08-N6",
+      "kind": "negative",
+      "ruleId": "B57-R08",
+      "expected": "REJECT",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": true,
+          "singleScene": true,
+          "singleCanvas": true,
+          "leftTaskPanel": true,
+          "sameGuiCliAgentPort": true,
+          "maxFontPx": 14,
+          "previewOnly": true,
+          "consumerProof": "PLANNED"
+        }
+      },
+      "mutatedField": "v.maxFontPx"
+    },
+    {
+      "id": "B57-R08-U7",
+      "kind": "unknown",
+      "ruleId": "B57-R08",
+      "expected": "UNKNOWN",
+      "input": {
+        "rule": "B57-R08",
+        "v": {
+          "singleBabylonEngine": true,
+          "singleScene": true,
+          "singleCanvas": true,
+          "leftTaskPanel": true,
+          "sameGuiCliAgentPort": true,
+          "maxFontPx": 12,
+          "previewOnly": true,
+          "consumerProof": "UNKNOWN"
+        }
+      },
+      "mutatedField": "v.consumerProof"
+    }
+  ],
+  "summary": {
+    "positive": 8,
+    "negative": 27,
+    "unknown": 14,
+    "total": 49
+  }
+}

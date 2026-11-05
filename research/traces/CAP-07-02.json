@@ -1,0 +1,594 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-07-02",
+  "researchTopic": "R-3AXIS-SURFACE-001",
+  "sourceRegistry": "research/sources/CAP-07-02.json",
+  "specification": "docs/capabilities/CAP-07-02/README.md",
+  "ui": "docs/capabilities/CAP-07-02/UI.md",
+  "fixtures": "docs/capabilities/CAP-07-02/fixtures.json",
+  "validator": "tools/check_cap0702_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "C0702-R01",
+      "capabilityId": "CAP-07-02",
+      "title": "曲面加工精确输入与Frame/冻结来源",
+      "summary": "D01/D02/D03/D04/D07/D08的exact revision/hash/frame绑定，不可借用相似名字资产；冻结D08只读",
+      "fields": [
+        "revision",
+        "designHash",
+        "frameHash",
+        "stockHash",
+        "toolHash",
+        "frozenBytesPreserved"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S01",
+        "SRC-C0702-S08",
+        "SRC-C0702-S10"
+      ],
+      "criteria": [
+        {
+          "path": "revision",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "designHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frameHash",
+          "op": "sha256"
+        },
+        {
+          "path": "stockHash",
+          "op": "sha256"
+        },
+        {
+          "path": "toolHash",
+          "op": "sha256"
+        },
+        {
+          "path": "frozenBytesPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T01",
+      "negativeTestId": "CAP-07-02-T02",
+      "mutationTestId": "CAP-07-02-M01",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R02",
+      "capabilityId": "CAP-07-02",
+      "title": "UV投影和修剪Face有效域",
+      "summary": "一个Geom_Surface投影点不能冒充合法修剪Face刀触点，多个极值候选需处理",
+      "fields": [
+        "projectionSolutions",
+        "pointInsideTrim",
+        "projectionResidualMm",
+        "surfaceToleranceMm",
+        "uvBoundaryClass"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S02",
+        "SRC-C0702-S03"
+      ],
+      "criteria": [
+        {
+          "path": "projectionSolutions",
+          "op": "gte",
+          "value": 1
+        },
+        {
+          "path": "pointInsideTrim",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "projectionResidualMm",
+          "op": "lteField",
+          "other": "surfaceToleranceMm"
+        },
+        {
+          "path": "uvBoundaryClass",
+          "op": "eq",
+          "value": "IN_FACE"
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T03",
+      "negativeTestId": "CAP-07-02-T04",
+      "mutationTestId": "CAP-07-02-M02",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R03",
+      "capabilityId": "CAP-07-02",
+      "title": "陡缓分区与策略重叠交界",
+      "summary": "陡区等高与缓区平行/Scallop分区必须覆盖交界，避免重复/漏加工",
+      "fields": [
+        "steepMethod",
+        "shallowMethod",
+        "partitionThresholdDeg",
+        "overlapBoundaryCovered",
+        "regionClassified"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S04",
+        "SRC-C0702-S05"
+      ],
+      "criteria": [
+        {
+          "path": "steepMethod",
+          "op": "eq",
+          "value": "CONSTANT_Z"
+        },
+        {
+          "path": "shallowMethod",
+          "op": "eq",
+          "value": "PARALLEL_OR_SCALLOP"
+        },
+        {
+          "path": "partitionThresholdDeg",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "partitionThresholdDeg",
+          "op": "lt",
+          "value": 90
+        },
+        {
+          "path": "overlapBoundaryCovered",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "regionClassified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T05",
+      "negativeTestId": "CAP-07-02-T06",
+      "mutationTestId": "CAP-07-02-M03",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R04",
+      "capabilityId": "CAP-07-02",
+      "title": "球头局部残高估计边界",
+      "summary": "平面小步距球头关系h=R−sqrt(R²−(s/2)²)只能作局部近似与初值，最终曲面残高须独立复算",
+      "fields": [
+        "ballRadiusMm",
+        "stepoverMm",
+        "estimatedScallopMm",
+        "maxRequestedScallopMm",
+        "approximationScope",
+        "surfaceResultCertified",
+        "ballDiameterMm"
+      ],
+      "assets": [
+        "D03",
+        "D09",
+        "D11"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S05",
+        "SRC-C0702-S07"
+      ],
+      "criteria": [
+        {
+          "path": "ballRadiusMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "stepoverMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "stepoverMm",
+          "op": "ltField",
+          "other": "ballDiameterMm"
+        },
+        {
+          "path": "estimatedScallopMm",
+          "op": "lteField",
+          "other": "maxRequestedScallopMm"
+        },
+        {
+          "path": "approximationScope",
+          "op": "eq",
+          "value": "LOCAL_PLANAR_ESTIMATE"
+        },
+        {
+          "path": "surfaceResultCertified",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T07",
+      "negativeTestId": "CAP-07-02-T08",
+      "mutationTestId": "CAP-07-02-M04",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R05",
+      "capabilityId": "CAP-07-02",
+      "title": "曲面刀心补偿与防过切独立Oracle",
+      "summary": "刀位几何证据必须单独标记刀具包络/保护区与未认证区；距离API不等于连续干涉安全",
+      "fields": [
+        "toolCenterMethod",
+        "gougeCount",
+        "protectedHits",
+        "geometryOracleStatus",
+        "clearanceResultScope"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D11"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S02",
+        "SRC-C0702-S03"
+      ],
+      "criteria": [
+        {
+          "path": "toolCenterMethod",
+          "op": "eq",
+          "value": "SURFACE_NORMAL_WITH_TRIM_CHECK"
+        },
+        {
+          "path": "gougeCount",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "protectedHits",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "path": "geometryOracleStatus",
+          "op": "eq",
+          "value": "INDEPENDENT_GEOMETRY_VERIFIED"
+        },
+        {
+          "path": "clearanceResultScope",
+          "op": "eq",
+          "value": "LOCAL_CL_GEOMETRY_ONLY"
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T09",
+      "negativeTestId": "CAP-07-02-T10",
+      "mutationTestId": "CAP-07-02-M05",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R06",
+      "capabilityId": "CAP-07-02",
+      "title": "残料必须来自有序D07状态",
+      "summary": "前序Stock/Setup变换和刀具版本变化必须使残料候选失效；空残料返回NO_REST_REGION，不造虚刀路",
+      "fields": [
+        "stockStateHash",
+        "restSource",
+        "orderedPriorState",
+        "setupFrameMatched",
+        "restStatus"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S06",
+        "SRC-C0702-S08"
+      ],
+      "criteria": [
+        {
+          "path": "stockStateHash",
+          "op": "sha256"
+        },
+        {
+          "path": "restSource",
+          "op": "eq",
+          "value": "ORDERED_D07_STOCK"
+        },
+        {
+          "path": "orderedPriorState",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "setupFrameMatched",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "restStatus",
+          "op": "eq",
+          "value": "NONEMPTY_VERIFIED"
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T11",
+      "negativeTestId": "CAP-07-02-T12",
+      "mutationTestId": "CAP-07-02-M06",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R07",
+      "capabilityId": "CAP-07-02",
+      "title": "曲面采样、公差及拼缝",
+      "summary": "弦高、法向变化、跨曲面接缝连续性逐段计量，不凭固定步长全域安全",
+      "fields": [
+        "chordToleranceMm",
+        "observedChordErrorMm",
+        "normalJumpDeg",
+        "maxNormalJumpDeg",
+        "seamContinuityVerified"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D09"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S02",
+        "SRC-C0702-S04",
+        "SRC-C0702-S07"
+      ],
+      "criteria": [
+        {
+          "path": "chordToleranceMm",
+          "op": "gt",
+          "value": 0
+        },
+        {
+          "path": "observedChordErrorMm",
+          "op": "lteField",
+          "other": "chordToleranceMm"
+        },
+        {
+          "path": "normalJumpDeg",
+          "op": "lteField",
+          "other": "maxNormalJumpDeg"
+        },
+        {
+          "path": "seamContinuityVerified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T13",
+      "negativeTestId": "CAP-07-02-T14",
+      "mutationTestId": "CAP-07-02-M07",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R08",
+      "capabilityId": "CAP-07-02",
+      "title": "固定三轴可达性、刀柄及转接",
+      "summary": "3轴不旋转刀轴；欠切/倒扣/夹具与链接不明返回UNKNOWN，不跳入伪五轴控制",
+      "fields": [
+        "axisMode",
+        "undercutDetected",
+        "toolHolderPrecheck",
+        "entryLinkPrecheck",
+        "noKinematicPassClaim"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D15"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S03",
+        "SRC-C0702-S04",
+        "SRC-C0702-S05"
+      ],
+      "criteria": [
+        {
+          "path": "axisMode",
+          "op": "eq",
+          "value": "THREE_AXIS_FIXED"
+        },
+        {
+          "path": "undercutDetected",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "toolHolderPrecheck",
+          "op": "eq",
+          "value": "CANDIDATE_CHECKED"
+        },
+        {
+          "path": "entryLinkPrecheck",
+          "op": "eq",
+          "value": "CANDIDATE_CHECKED"
+        },
+        {
+          "path": "noKinematicPassClaim",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T15",
+      "negativeTestId": "CAP-07-02-T16",
+      "mutationTestId": "CAP-07-02-M08",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R09",
+      "capabilityId": "CAP-07-02",
+      "title": "中立D09与NC验证/发布严格隔离",
+      "summary": "仅07域生成中立CL，D12后处理/D13语义/D14运动/D15验证/D16发布不可跳过",
+      "fields": [
+        "clOwner",
+        "controllerId",
+        "d12Status",
+        "d13Status",
+        "d15Status",
+        "releaseEligible",
+        "materialSweepSimulated"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S01",
+        "SRC-C0702-S08",
+        "SRC-C0702-S10"
+      ],
+      "criteria": [
+        {
+          "path": "clOwner",
+          "op": "eq",
+          "value": "07_CAM"
+        },
+        {
+          "path": "controllerId",
+          "op": "isNull"
+        },
+        {
+          "path": "d12Status",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "d13Status",
+          "op": "eq",
+          "value": "UNKNOWN"
+        },
+        {
+          "path": "d15Status",
+          "op": "eq",
+          "value": "NOT_RUN"
+        },
+        {
+          "path": "releaseEligible",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "materialSweepSimulated",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T17",
+      "negativeTestId": "CAP-07-02-T18",
+      "mutationTestId": "CAP-07-02-M09",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "C0702-R10",
+      "capabilityId": "CAP-07-02",
+      "title": "Owner CAS/ACL/取消晚回执与无损回退",
+      "summary": "GUI/CLI/Agent共07域命令，提交时重验expected HEAD、ACL、任务generation和取消状态；历史结果只读保留",
+      "fields": [
+        "expectedHead",
+        "actualHead",
+        "aclAllowed",
+        "taskGeneration",
+        "receiptGeneration",
+        "cancelled",
+        "lateReceiptDiscarded",
+        "nonDestructiveRollback"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D09",
+        "D17"
+      ],
+      "sourceIds": [
+        "SRC-C0702-S08",
+        "SRC-C0702-S09",
+        "SRC-C0702-S10"
+      ],
+      "criteria": [
+        {
+          "path": "expectedHead",
+          "op": "eqField",
+          "other": "actualHead"
+        },
+        {
+          "path": "aclAllowed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "taskGeneration",
+          "op": "eqField",
+          "other": "receiptGeneration"
+        },
+        {
+          "path": "cancelled",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "lateReceiptDiscarded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nonDestructiveRollback",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "positiveTestId": "CAP-07-02-T19",
+      "negativeTestId": "CAP-07-02-T20",
+      "mutationTestId": "CAP-07-02-M10",
+      "designApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "approval": "PENDING_HUMAN",
+  "note": "criteria为规划合成的有限字段关系，不能替代几何Oracle/NC独立工程验收"
+}

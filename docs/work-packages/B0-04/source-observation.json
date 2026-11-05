@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "procet-b004-source-observation-v2",
+  "observedOn": "2026-10-19",
+  "repository": "BaiSongt/procet-gui",
+  "exactSourceRevision": "4e8eec12a212fc9dc86f2d728762c852832eebdb",
+  "restoration": "NEW_OBSERVATION_RECONSTRUCTED_FROM_READONLY_GITHUB_NOT_ORIGINAL_LOST_JSON",
+  "scope": "Fixed revision file content only, no product mutation or real build",
+  "observations": [
+    {
+      "id": "B004-E01",
+      "path": "apps/desktop/src-tauri/Cargo.toml",
+      "blobSha": "5e72d397c6e2d1ffec494c5b2466df2fadf0e74f",
+      "observation": "desktop cargo has procet-cam path ../../../../procet-cam and separate [workspace]",
+      "evidenceLimit": "Declares sibling working directory, no clean-room build executed",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    },
+    {
+      "id": "B004-E02",
+      "path": "apps/desktop/src-tauri/tauri.conf.json",
+      "blobSha": "468af330334eb818c8e327a791a8a2699b91842a",
+      "observation": "bundle.active=true; bundle.targets=all; no explicit resources/externalBin fields in inspected config",
+      "evidenceLimit": "Other packaging steps and real installed files not audited",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    },
+    {
+      "id": "B004-E03",
+      "path": "Cargo.toml",
+      "blobSha": "33dc200acf542d1375fa3ac1c8e320b1fbe71890",
+      "observation": "root Cargo workspace lists procet-project/host/bundle crates",
+      "evidenceLimit": "Desktop separate Cargo not covered by root build tests",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    },
+    {
+      "id": "B004-E04",
+      "path": "Cargo.lock",
+      "blobSha": "6068efa576de9e9393d85127b9b73604715df45c",
+      "observation": "root workspace Cargo.lock is independent file",
+      "evidenceLimit": "Actual dependency resolution/locked build NOT_RUN",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    },
+    {
+      "id": "B004-E05",
+      "path": "apps/desktop/src-tauri/Cargo.lock",
+      "blobSha": "c5edacec1dc04024b3442f3d0fe55d86ddb68728",
+      "observation": "Tauri workspace has its own Cargo.lock",
+      "evidenceLimit": "Toolchain and isolated compile NOT_RUN",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    },
+    {
+      "id": "B004-E06",
+      "path": "apps/desktop/src-tauri/build.rs",
+      "blobSha": "a0429cfd61509b6f0e292dbfa36a6171cf24bdef",
+      "observation": "native C++ bridge built only when PROCET_OCCT_ROOT environment variable is provided",
+      "evidenceLimit": "Build configuration not proof that runtime DLL exists",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    },
+    {
+      "id": "B004-E07",
+      "path": "integration-lock.json",
+      "blobSha": "cb2c96019e4053437d668e230fa0e651f7d8d762",
+      "observation": "declares CAM path+../procet-cam and pinned external module revisions",
+      "evidenceLimit": "Declared workspaceDigest was not independently recalculated, runtime unresolved",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    },
+    {
+      "id": "B004-E08",
+      "path": "pnpm-workspace.yaml",
+      "blobSha": "9a7d4837a1ac56e2516c5100bc37723c24e7d78b",
+      "observation": "packages/* and apps/* belong to pnpm workspace",
+      "evidenceLimit": "pnpm lock/store and offline install not executed",
+      "verification": "FIXED_SHA_GITHUB_SOURCE_READ_ONLY"
+    }
+  ],
+  "assessments": {
+    "developmentSource": "relative sibling path observed",
+    "integrationLock": "declared_only",
+    "rustWorkspaces": "two independent Cargo manifests and lock files",
+    "nativeRuntime": "UNKNOWN",
+    "workerRuntime": "UNKNOWN",
+    "cleanRoomBuild": "NOT_RUN",
+    "offlineInstall": "NOT_RUN",
+    "productAcceptance": "NOT_RUN"
+  },
+  "noUnverifiedPositiveClaims": true
+}

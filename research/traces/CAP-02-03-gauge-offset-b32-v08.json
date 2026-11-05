@@ -1,0 +1,357 @@
+{
+  "schemaVersion": "procet-b32-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-02-03",
+  "topic": "R-TA-001",
+  "sourcesPath": "research/sources/CAP-02-03-gauge-offset-b32.json",
+  "fixturePath": "docs/capabilities/CAP-02-03/gauge-offset-b32-fixtures-v08.json",
+  "checker": "tools/check_cap0203_gauge_offset_b32_v08.cjs",
+  "rules": [
+    {
+      "id": "B32-R1",
+      "title": "子件精确修订和内容Hash，不从latest回填",
+      "sourceIds": [
+        "B32-S01",
+        "B32-S06"
+      ],
+      "fields": [
+        "assembly.id",
+        "assembly.revision",
+        "assembly.hash",
+        "assembly.exactChildren",
+        "assembly.noLatestFallback",
+        "assembly.changeIsNewRevision",
+        "holder.ref",
+        "holder.hash",
+        "cutter.ref",
+        "cutter.hash"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "F1-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATES"
+    },
+    {
+      "id": "B32-R2",
+      "title": "连接界面、夹持长度与证据单独约束",
+      "sourceIds": [
+        "B32-S02",
+        "B32-S03",
+        "B32-S06"
+      ],
+      "fields": [
+        "holder.mountInterface",
+        "fit.parentPort",
+        "fit.childPort",
+        "fit.compatible",
+        "fit.evidenceRef",
+        "fit.engagementMm",
+        "fit.engagementSource",
+        "cutter.clampedShankMinMm"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N11",
+        "N12"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATES"
+    },
+    {
+      "id": "B32-R3",
+      "title": "名义量规、伸出与TCP控制点的同轴范围及Frame",
+      "sourceIds": [
+        "B32-S03",
+        "B32-S06"
+      ],
+      "fields": [
+        "length.unit",
+        "length.frameFrom",
+        "length.frameTo",
+        "length.rightHanded",
+        "length.coaxial",
+        "length.holderDatumMm",
+        "length.stickoutMm",
+        "length.nominalGaugeMm",
+        "length.calibrationDistinct",
+        "length.displayGeometryIsOracle"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N13",
+        "N14",
+        "N15",
+        "N16",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATES"
+    },
+    {
+      "id": "B32-R4",
+      "title": "D10实测偏置及D13 G43语义按控制器/版本限定",
+      "sourceIds": [
+        "B32-S04",
+        "B32-S05",
+        "B32-S06"
+      ],
+      "fields": [
+        "execution.controller",
+        "execution.software",
+        "execution.semanticSource",
+        "execution.mode",
+        "execution.hNumber",
+        "execution.offsetSource",
+        "execution.offsetEvidence",
+        "execution.offsetTableHash",
+        "execution.activeTloMm",
+        "execution.clAlreadyCompensated",
+        "execution.compensatedExactlyOnce"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34",
+        "N35"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATES"
+    },
+    {
+      "id": "B32-R5",
+      "title": "D03资源、D04工艺Setup、D10实际绑定与D13→D15隔离",
+      "sourceIds": [
+        "B32-S04",
+        "B32-S05",
+        "B32-S06"
+      ],
+      "fields": [
+        "setup.d04AssemblyRevision",
+        "setup.d04Frame",
+        "setup.d10BindingRef",
+        "setup.d10MachineRevision",
+        "setup.d10MountFrame",
+        "execution.d13NcHash",
+        "execution.d13InterpreterRevision",
+        "execution.verifiedByD15",
+        "handoff.d04NotD10"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "F1-04",
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N22",
+        "N23",
+        "N24",
+        "N25",
+        "N36",
+        "N51"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "EXTERNAL_SCOPE_PLUS_INTERNAL_GATES"
+    },
+    {
+      "id": "B32-R6",
+      "title": "GUI/CLI/Agent使用同Owner Port，单Babylon世界和左TaskPanel",
+      "sourceIds": [
+        "B32-S06"
+      ],
+      "fields": [
+        "ui.channels",
+        "ui.ownerPort",
+        "ui.worlds",
+        "ui.sceneKind",
+        "ui.panel",
+        "ui.maxFontPx",
+        "ui.previewPersists"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "INTERNAL_DESIGN"
+    },
+    {
+      "id": "B32-R7",
+      "title": "ACL/Scope/CAS/取消晚回执按exact修订重验",
+      "sourceIds": [
+        "B32-S06"
+      ],
+      "fields": [
+        "write.expectedRevision",
+        "write.actualRevision",
+        "write.observedHash",
+        "write.aclEpoch",
+        "write.aclObserved",
+        "write.scopeEpoch",
+        "write.scopeObserved",
+        "write.cancelGeneration",
+        "write.ackGeneration",
+        "write.cancelled",
+        "write.lateAck",
+        "write.cas",
+        "write.authorized"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "W2-04",
+        "F1-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N42",
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48",
+        "N49"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "INTERNAL_DESIGN"
+    },
+    {
+      "id": "B32-R8",
+      "title": "冻结无覆盖、依赖失效/迁移回退及真实消费者等级",
+      "sourceIds": [
+        "B32-S06"
+      ],
+      "fields": [
+        "handoff.beforeFrozenHash",
+        "handoff.afterFrozenHash",
+        "handoff.d14",
+        "handoff.d15",
+        "handoff.d16",
+        "handoff.consumer",
+        "handoff.rollback",
+        "handoff.dependencyInvalidation"
+      ],
+      "capabilityIds": [
+        "CAP-02-03"
+      ],
+      "workPackageIds": [
+        "W2-02",
+        "W2-03",
+        "E3-05",
+        "E3-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "negativeIds": [
+        "N50",
+        "N52",
+        "N53",
+        "N54",
+        "N55",
+        "N56"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "ruleOrigin": "INTERNAL_DESIGN"
+    }
+  ],
+  "allAcceptance": "SYNTHETIC_ONLY",
+  "independentConsumer": "NOT_RUN"
+}

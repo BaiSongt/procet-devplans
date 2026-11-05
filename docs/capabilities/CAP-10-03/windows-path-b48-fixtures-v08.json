@@ -1,0 +1,576 @@
+{
+  "schemaVersion": "procet-b48-fixtures-v1",
+  "date": "2026-10-31",
+  "scope": "SYNTHETIC_ARCHIVE_METADATA_ONLY_WINDOWS_FS_NOT_RUN",
+  "positiveCount": 1,
+  "negativeCount": 37,
+  "unknownCount": 5,
+  "base": {
+    "identity": {
+      "d12Hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d16Hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "manifestHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "d04Revision": "D04-r5",
+      "d10Revision": "D10-r8",
+      "d10Frame": "MACHINE:WORK",
+      "scopeEpoch": 7
+    },
+    "profile": {
+      "fileSystem": "NTFS",
+      "hostVerified": true,
+      "reparseAuditAvailable": true,
+      "archiveFormat": "ZIP",
+      "policy": "ASCII_PORTABLE_V1"
+    },
+    "archive": {
+      "entries": [
+        {
+          "name": "NC/main.nc",
+          "kind": "regular",
+          "size": 88,
+          "rawHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "name": "NC/tool.tbl",
+          "kind": "regular",
+          "size": 40,
+          "rawHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      ]
+    },
+    "manifest": {
+      "entries": [
+        {
+          "name": "NC/main.nc",
+          "kind": "regular",
+          "size": 88,
+          "rawHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        {
+          "name": "NC/tool.tbl",
+          "kind": "regular",
+          "size": 40,
+          "rawHash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      ]
+    },
+    "budget": {
+      "maxEntries": 3,
+      "maxTotalBytes": 256,
+      "maxEntryBytes": 128
+    },
+    "receiver": {
+      "d12Hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d16Hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "manifestHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "stagingIsolated": true,
+      "signatureEvidence": "SYNTHETIC_ONLY"
+    },
+    "owner": {
+      "d10Revision": "D10-r8",
+      "d10Frame": "MACHINE:WORK",
+      "aclGranted": true,
+      "casMatched": true,
+      "expectedRevision": "D17-r3",
+      "actualRevision": "D17-r3",
+      "scopeEpoch": 7,
+      "cancelGeneration": 4,
+      "ackGeneration": 4,
+      "cancelled": false,
+      "lateAck": false,
+      "freezeBefore": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "freezeAfter": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "pairedReaderRollback": true,
+      "d17AppendOnly": true
+    },
+    "ui": {
+      "entries": "GUI|CLI|Agent",
+      "ownerPort": "10.OfflineTransferPort",
+      "babylonWorlds": 1,
+      "leftTaskPanel": true,
+      "maxFontPx": 12,
+      "previewWrites": false
+    },
+    "gate": {
+      "d13": "NOT_RUN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED",
+      "clPromotedToD15": false,
+      "receipt": "D17_APPEND_ONLY"
+    }
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "ruleId": "ALL",
+      "expected": {
+        "status": "PLANNING_CANDIDATE",
+        "code": "SYNTHETIC_ONLY"
+      }
+    },
+    {
+      "id": "N01",
+      "kind": "negative",
+      "ruleId": "R1",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "/NC/main.nc",
+      "expected": {
+        "status": "REJECTED",
+        "code": "ABSOLUTE"
+      }
+    },
+    {
+      "id": "N02",
+      "kind": "negative",
+      "ruleId": "R1",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "../NC/main.nc",
+      "expected": {
+        "status": "REJECTED",
+        "code": "TRAVERSAL"
+      }
+    },
+    {
+      "id": "N03",
+      "kind": "negative",
+      "ruleId": "R1",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC\\main.nc",
+      "expected": {
+        "status": "REJECTED",
+        "code": "BACKSLASH"
+      }
+    },
+    {
+      "id": "N04",
+      "kind": "negative",
+      "ruleId": "R1",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC//main.nc",
+      "expected": {
+        "status": "REJECTED",
+        "code": "TRAVERSAL"
+      }
+    },
+    {
+      "id": "N05",
+      "kind": "negative",
+      "ruleId": "R1",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "C:/NC/main.nc",
+      "expected": {
+        "status": "REJECTED",
+        "code": "ABSOLUTE"
+      }
+    },
+    {
+      "id": "N06",
+      "kind": "negative",
+      "ruleId": "R2",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NUL.txt",
+      "expected": {
+        "status": "REJECTED",
+        "code": "DEVICE"
+      }
+    },
+    {
+      "id": "N07",
+      "kind": "negative",
+      "ruleId": "R2",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC/LPT².txt",
+      "expected": {
+        "status": "REJECTED",
+        "code": "DEVICE"
+      }
+    },
+    {
+      "id": "N08",
+      "kind": "negative",
+      "ruleId": "R2",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC/MAIN.NC:payload",
+      "expected": {
+        "status": "REJECTED",
+        "code": "STREAM"
+      }
+    },
+    {
+      "id": "N09",
+      "kind": "negative",
+      "ruleId": "R2",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC/main.nc.",
+      "expected": {
+        "status": "REJECTED",
+        "code": "TRAILING"
+      }
+    },
+    {
+      "id": "N10",
+      "kind": "negative",
+      "ruleId": "R2",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC/m?in.nc",
+      "expected": {
+        "status": "REJECTED",
+        "code": "INVALID_CHAR"
+      }
+    },
+    {
+      "id": "N11",
+      "kind": "negative",
+      "ruleId": "R2",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC/main\u0001.nc",
+      "expected": {
+        "status": "REJECTED",
+        "code": "CONTROL"
+      }
+    },
+    {
+      "id": "N12",
+      "kind": "negative",
+      "ruleId": "R3",
+      "mutatedField": "archive.entries.1.name",
+      "mutatedValue": "NC/MAIN.NC",
+      "expected": {
+        "status": "REJECTED",
+        "code": "ALIAS_COLLISION"
+      }
+    },
+    {
+      "id": "N13",
+      "kind": "negative",
+      "ruleId": "R3",
+      "mutatedField": "archive.entries.1.name",
+      "mutatedValue": "NC",
+      "expected": {
+        "status": "REJECTED",
+        "code": "FILE_PARENT"
+      }
+    },
+    {
+      "id": "N14",
+      "kind": "negative",
+      "ruleId": "R4",
+      "mutatedField": "archive.entries.0.kind",
+      "mutatedValue": "symlink",
+      "expected": {
+        "status": "REJECTED",
+        "code": "LINK_TYPE"
+      }
+    },
+    {
+      "id": "N15",
+      "kind": "negative",
+      "ruleId": "R4",
+      "mutatedField": "archive.entries.0.kind",
+      "mutatedValue": "junction",
+      "expected": {
+        "status": "REJECTED",
+        "code": "LINK_TYPE"
+      }
+    },
+    {
+      "id": "N16",
+      "kind": "negative",
+      "ruleId": "R4",
+      "mutatedField": "archive.entries.0.kind",
+      "mutatedValue": "hardlink",
+      "expected": {
+        "status": "REJECTED",
+        "code": "LINK_TYPE"
+      }
+    },
+    {
+      "id": "N17",
+      "kind": "negative",
+      "ruleId": "R4",
+      "mutatedField": "archive.entries.0.kind",
+      "mutatedValue": "reparse",
+      "expected": {
+        "status": "REJECTED",
+        "code": "LINK_TYPE"
+      }
+    },
+    {
+      "id": "N18",
+      "kind": "negative",
+      "ruleId": "R5",
+      "mutatedField": "budget.maxEntries",
+      "mutatedValue": 1,
+      "expected": {
+        "status": "REJECTED",
+        "code": "BUDGET"
+      }
+    },
+    {
+      "id": "N19",
+      "kind": "negative",
+      "ruleId": "R5",
+      "mutatedField": "budget.maxTotalBytes",
+      "mutatedValue": 100,
+      "expected": {
+        "status": "REJECTED",
+        "code": "BUDGET"
+      }
+    },
+    {
+      "id": "N20",
+      "kind": "negative",
+      "ruleId": "R5",
+      "mutatedField": "budget.maxEntryBytes",
+      "mutatedValue": 64,
+      "expected": {
+        "status": "REJECTED",
+        "code": "BUDGET"
+      }
+    },
+    {
+      "id": "N21",
+      "kind": "negative",
+      "ruleId": "R5",
+      "mutatedField": "manifest.entries.0.rawHash",
+      "mutatedValue": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "expected": {
+        "status": "REJECTED",
+        "code": "MANIFEST_MISMATCH"
+      }
+    },
+    {
+      "id": "N22",
+      "kind": "negative",
+      "ruleId": "R5",
+      "mutatedField": "archive.entries.0.rawHash",
+      "mutatedValue": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "expected": {
+        "status": "REJECTED",
+        "code": "MANIFEST_MISMATCH"
+      }
+    },
+    {
+      "id": "N23",
+      "kind": "negative",
+      "ruleId": "R6",
+      "mutatedField": "receiver.d12Hash",
+      "mutatedValue": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "expected": {
+        "status": "REJECTED",
+        "code": "RAW_BYTES"
+      }
+    },
+    {
+      "id": "N24",
+      "kind": "negative",
+      "ruleId": "R6",
+      "mutatedField": "receiver.d16Hash",
+      "mutatedValue": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "expected": {
+        "status": "REJECTED",
+        "code": "RELEASE_ID"
+      }
+    },
+    {
+      "id": "N25",
+      "kind": "negative",
+      "ruleId": "R6",
+      "mutatedField": "owner.d10Frame",
+      "mutatedValue": "MACHINE:UNKNOWN",
+      "expected": {
+        "status": "REJECTED",
+        "code": "FRAME"
+      }
+    },
+    {
+      "id": "N26",
+      "kind": "negative",
+      "ruleId": "R6",
+      "mutatedField": "owner.d10Revision",
+      "mutatedValue": "D10-r2",
+      "expected": {
+        "status": "REJECTED",
+        "code": "REVISION"
+      }
+    },
+    {
+      "id": "N27",
+      "kind": "negative",
+      "ruleId": "R7",
+      "mutatedField": "owner.aclGranted",
+      "mutatedValue": false,
+      "expected": {
+        "status": "REJECTED",
+        "code": "ACL"
+      }
+    },
+    {
+      "id": "N28",
+      "kind": "negative",
+      "ruleId": "R7",
+      "mutatedField": "owner.casMatched",
+      "mutatedValue": false,
+      "expected": {
+        "status": "REJECTED",
+        "code": "CAS"
+      }
+    },
+    {
+      "id": "N29",
+      "kind": "negative",
+      "ruleId": "R7",
+      "mutatedField": "owner.scopeEpoch",
+      "mutatedValue": 6,
+      "expected": {
+        "status": "REJECTED",
+        "code": "EPOCH"
+      }
+    },
+    {
+      "id": "N30",
+      "kind": "negative",
+      "ruleId": "R7",
+      "mutatedField": "owner.cancelled",
+      "mutatedValue": true,
+      "expected": {
+        "status": "REJECTED",
+        "code": "CANCEL"
+      }
+    },
+    {
+      "id": "N31",
+      "kind": "negative",
+      "ruleId": "R7",
+      "mutatedField": "owner.lateAck",
+      "mutatedValue": true,
+      "expected": {
+        "status": "REJECTED",
+        "code": "LATE_ACK"
+      }
+    },
+    {
+      "id": "N32",
+      "kind": "negative",
+      "ruleId": "R7",
+      "mutatedField": "owner.freezeAfter",
+      "mutatedValue": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "expected": {
+        "status": "REJECTED",
+        "code": "FREEZE"
+      }
+    },
+    {
+      "id": "N33",
+      "kind": "negative",
+      "ruleId": "R7",
+      "mutatedField": "owner.pairedReaderRollback",
+      "mutatedValue": false,
+      "expected": {
+        "status": "REJECTED",
+        "code": "ROLLBACK"
+      }
+    },
+    {
+      "id": "N34",
+      "kind": "negative",
+      "ruleId": "R8",
+      "mutatedField": "ui.babylonWorlds",
+      "mutatedValue": 2,
+      "expected": {
+        "status": "REJECTED",
+        "code": "UI"
+      }
+    },
+    {
+      "id": "N35",
+      "kind": "negative",
+      "ruleId": "R8",
+      "mutatedField": "ui.entries",
+      "mutatedValue": "GUI|CLI",
+      "expected": {
+        "status": "REJECTED",
+        "code": "UI"
+      }
+    },
+    {
+      "id": "N36",
+      "kind": "negative",
+      "ruleId": "R8",
+      "mutatedField": "gate.d15",
+      "mutatedValue": "PASS",
+      "expected": {
+        "status": "REJECTED",
+        "code": "GATE"
+      }
+    },
+    {
+      "id": "N37",
+      "kind": "negative",
+      "ruleId": "R8",
+      "mutatedField": "gate.d16",
+      "mutatedValue": "READY",
+      "expected": {
+        "status": "REJECTED",
+        "code": "GATE"
+      }
+    },
+    {
+      "id": "U01",
+      "kind": "unknown",
+      "ruleId": "R3",
+      "mutatedField": "archive.entries.0.name",
+      "mutatedValue": "NC/mäin.nc",
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "UNICODE_POLICY"
+      }
+    },
+    {
+      "id": "U02",
+      "kind": "unknown",
+      "ruleId": "R4",
+      "mutatedField": "archive.entries.0.kind",
+      "mutatedValue": "unknown",
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "ENTRY_TYPE"
+      }
+    },
+    {
+      "id": "U03",
+      "kind": "unknown",
+      "ruleId": "R4",
+      "mutatedField": "profile.hostVerified",
+      "mutatedValue": false,
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "HOST"
+      }
+    },
+    {
+      "id": "U04",
+      "kind": "unknown",
+      "ruleId": "R4",
+      "mutatedField": "profile.reparseAuditAvailable",
+      "mutatedValue": false,
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "HOST"
+      }
+    },
+    {
+      "id": "U05",
+      "kind": "unknown",
+      "ruleId": "R6",
+      "mutatedField": "receiver.signatureEvidence",
+      "mutatedValue": "UNKNOWN",
+      "expected": {
+        "status": "UNKNOWN",
+        "code": "SIGNATURE"
+      }
+    }
+  ]
+}

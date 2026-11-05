@@ -1,0 +1,629 @@
+{
+  "schemaVersion": "procet-b25-fixtures-v1",
+  "capabilityId": "CAP-06-05",
+  "syntheticOnly": true,
+  "notRealOcct": true,
+  "goldenHashVerifiedWith": "Python hashlib, synthetic bytes only",
+  "base": {
+    "rawBrep": {
+      "bytesBase64": "U1lOVEhFVElDX0JSRVBfTk9UX09DQ1RfQllURVNfMQ==",
+      "byteLength": 31,
+      "sha256": "92605e3c7488c0d76b8ae139d83811ba728ec0fb312e5afd3ca6520728ceeff7",
+      "hashKind": "SHA256_RAW_V1",
+      "syntheticOnly": true
+    },
+    "serializer": {
+      "api": "BRepTools::Write_explicit",
+      "occtVersion": "8.0.1",
+      "buildHash": "UNVERIFIED",
+      "format": "VERSION_1",
+      "withTriangles": true,
+      "withNormals": false,
+      "execution": "NOT_RUN"
+    },
+    "metadata": {
+      "json": "{\"assetId\":\"D07\",\"branch\":\"A\",\"frame\":\"S1\",\"hashKind\":\"SHA256_DOMAIN_V1\",\"parentHash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"rawBrepSha256\":\"92605e3c7488c0d76b8ae139d83811ba728ec0fb312e5afd3ca6520728ceeff7\",\"removedBrepSha256\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"revision\":\"r8\",\"scope\":\"SYN/A/S1\",\"serializerBuild\":\"OCCT_8.0.1_BUILD_UNVERIFIED\",\"serializerFormat\":\"VERSION_1\",\"serializerNormals\":false,\"serializerTriangles\":true,\"setup\":\"S1\",\"setupRefHash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"stateUid\":\"STOCK-03\",\"targetHash\":\"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\",\"unit\":\"mm\"}",
+      "stateSha256": "7278c4177ef0711fa6e19f2996d21766b0be77f1e075764332ef47b359b3fba2",
+      "domain": "procet:d07:state:v1\n",
+      "scheme": "JCS_IJSON_RESTRICTED_FIXTURE"
+    },
+    "refs": {
+      "D01": {
+        "assetId": "D01",
+        "revision": "r1",
+        "hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "frame": "PART",
+        "scope": "SYN/A/S1"
+      },
+      "D04": {
+        "assetId": "D04",
+        "revision": "r2",
+        "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frame": "S1",
+        "scope": "SYN/A/S1"
+      },
+      "parentD07": {
+        "assetId": "D07",
+        "revision": "r7",
+        "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frame": "S1",
+        "scope": "SYN/A/S1"
+      },
+      "D10": {
+        "assetId": "D10",
+        "revision": "r3",
+        "hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "frame": "MACHINE",
+        "scope": "SYN/A/S1"
+      }
+    },
+    "commit": {
+      "expectedHead": "head7",
+      "currentHead": "head7",
+      "aclEpoch": 3,
+      "authorizedAclEpoch": 3,
+      "scopeEpoch": 5,
+      "authorizedScopeEpoch": 5,
+      "taskGeneration": 8,
+      "currentGeneration": 8,
+      "cancelled": false,
+      "lateAck": false,
+      "stageSealed": true,
+      "manifestVerified": true,
+      "recovery": "UNKNOWN_NOT_CLAIMED",
+      "ownerReceipt": null,
+      "productCommit": false,
+      "idempotencyKey": "B25-SYN-01"
+    },
+    "qualification": {
+      "independentD07": "NOT_RUN",
+      "productPass": false,
+      "d08FrozenUntouched": true,
+      "d09Eligible": false,
+      "d13": "UNKNOWN",
+      "d14": "BLOCKED",
+      "d15": "BLOCKED",
+      "d16": "BLOCKED",
+      "materialSweep": false
+    },
+    "ui": {
+      "ownerPort": "ManufacturingStatePort",
+      "routes": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "singleBabylon": true,
+      "leftTaskPanel": true,
+      "maxFontPx": 12
+    }
+  },
+  "cases": [
+    {
+      "id": "B25-P01",
+      "ruleId": "ALL",
+      "expected": "PASS",
+      "mutations": []
+    },
+    {
+      "id": "B25-N01",
+      "ruleId": "B25-R1",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "rawBrep.bytesBase64",
+          "value": "AA=="
+        }
+      ]
+    },
+    {
+      "id": "B25-N02",
+      "ruleId": "B25-R1",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "rawBrep.byteLength",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "id": "B25-N03",
+      "ruleId": "B25-R1",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "rawBrep.sha256",
+          "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      ]
+    },
+    {
+      "id": "B25-N04",
+      "ruleId": "B25-R1",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "rawBrep.hashKind",
+          "value": "SHA256_SEMANTIC"
+        }
+      ]
+    },
+    {
+      "id": "B25-N05",
+      "ruleId": "B25-R1",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "rawBrep.syntheticOnly",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B25-N06",
+      "ruleId": "B25-R2",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "serializer.api",
+          "value": "BRepTools::Write_default"
+        }
+      ]
+    },
+    {
+      "id": "B25-N07",
+      "ruleId": "B25-R2",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "serializer.occtVersion",
+          "value": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "B25-N08",
+      "ruleId": "B25-R2",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "serializer.format",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B25-N09",
+      "ruleId": "B25-R2",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "serializer.withTriangles",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B25-N10",
+      "ruleId": "B25-R2",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "serializer.withNormals",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B25-N11",
+      "ruleId": "B25-R2",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "serializer.execution",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "B25-N12",
+      "ruleId": "B25-R3",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.scheme",
+          "value": "JCS_FULL_CERTIFIED"
+        }
+      ]
+    },
+    {
+      "id": "B25-N13",
+      "ruleId": "B25-R3",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.json",
+          "value": "{\"branch\":\"A\",\"assetId\":\"D07\",\"frame\":\"S1\",\"hashKind\":\"SHA256_DOMAIN_V1\",\"parentHash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"rawBrepSha256\":\"92605e3c7488c0d76b8ae139d83811ba728ec0fb312e5afd3ca6520728ceeff7\",\"removedBrepSha256\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"revision\":\"r8\",\"scope\":\"SYN/A/S1\",\"serializerBuild\":\"OCCT_8.0.1_BUILD_UNVERIFIED\",\"serializerFormat\":\"VERSION_1\",\"serializerNormals\":false,\"serializerTriangles\":true,\"setup\":\"S1\",\"setupRefHash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"stateUid\":\"STOCK-03\",\"targetHash\":\"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\",\"unit\":\"mm\"}"
+        }
+      ]
+    },
+    {
+      "id": "B25-N14",
+      "ruleId": "B25-R3",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.json",
+          "value": "{\"assetId\":\"D07\",\"branch\":\"A\",\"frame\":\"S1\",\"hashKind\":\"SHA256_DOMAIN_V1\",\"parentHash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"rawBrepSha256\":\"92605e3c7488c0d76b8ae139d83811ba728ec0fb312e5afd3ca6520728ceeff7\",\"removedBrepSha256\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"revision\":\"r8\",\"scope\":\"SYN/A/S1\",\"serializerBuild\":\"OCCT_8.0.1_BUILD_UNVERIFIED\",\"serializerFormat\":\"VERSION_1\",\"serializerNormals\":false,\"serializerTriangles\":true,\"setup\":\"S1\",\"setupRefHash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"stateUid\":\"STOCK-03\",\"targetHash\":\"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\",\"unit\":\"mm\",\"unit\":\"mm\"}"
+        }
+      ]
+    },
+    {
+      "id": "B25-N15",
+      "ruleId": "B25-R3",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.json",
+          "value": "{\"assetId\":NaN,\"branch\":\"A\",\"frame\":\"S1\",\"hashKind\":\"SHA256_DOMAIN_V1\",\"parentHash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"rawBrepSha256\":\"92605e3c7488c0d76b8ae139d83811ba728ec0fb312e5afd3ca6520728ceeff7\",\"removedBrepSha256\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"revision\":\"r8\",\"scope\":\"SYN/A/S1\",\"serializerBuild\":\"OCCT_8.0.1_BUILD_UNVERIFIED\",\"serializerFormat\":\"VERSION_1\",\"serializerNormals\":false,\"serializerTriangles\":true,\"setup\":\"S1\",\"setupRefHash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"stateUid\":\"STOCK-03\",\"targetHash\":\"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\",\"unit\":\"mm\"}"
+        }
+      ]
+    },
+    {
+      "id": "B25-N16",
+      "ruleId": "B25-R3",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.json",
+          "value": "{"
+        }
+      ]
+    },
+    {
+      "id": "B25-N17",
+      "ruleId": "B25-R4",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.stateSha256",
+          "value": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "id": "B25-N18",
+      "ruleId": "B25-R4",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.domain",
+          "value": "procet:d07:brep:v1\n"
+        }
+      ]
+    },
+    {
+      "id": "B25-N19",
+      "ruleId": "B25-R4",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "refs.D04.hash",
+          "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      ]
+    },
+    {
+      "id": "B25-N20",
+      "ruleId": "B25-R4",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "refs.D01.hash",
+          "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      ]
+    },
+    {
+      "id": "B25-N21",
+      "ruleId": "B25-R4",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "refs.parentD07.hash",
+          "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        }
+      ]
+    },
+    {
+      "id": "B25-N22",
+      "ruleId": "B25-R4",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "metadata.stateSha256",
+          "value": "92605e3c7488c0d76b8ae139d83811ba728ec0fb312e5afd3ca6520728ceeff7"
+        }
+      ]
+    },
+    {
+      "id": "B25-N23",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.currentHead",
+          "value": "head8"
+        }
+      ]
+    },
+    {
+      "id": "B25-N24",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.authorizedAclEpoch",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "B25-N25",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.authorizedScopeEpoch",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "id": "B25-N26",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.currentGeneration",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "id": "B25-N27",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B25-N28",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.lateAck",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B25-N29",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.stageSealed",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B25-N30",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.manifestVerified",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B25-N31",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.productCommit",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B25-N32",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.recovery",
+          "value": "COMMITTED"
+        }
+      ]
+    },
+    {
+      "id": "B25-N33",
+      "ruleId": "B25-R5",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "commit.ownerReceipt",
+          "value": "FAKE_PASS"
+        }
+      ]
+    },
+    {
+      "id": "B25-N34",
+      "ruleId": "B25-R6",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "qualification.independentD07",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "B25-N35",
+      "ruleId": "B25-R6",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "qualification.productPass",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B25-N36",
+      "ruleId": "B25-R6",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "qualification.d08FrozenUntouched",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B25-N37",
+      "ruleId": "B25-R6",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "qualification.d09Eligible",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B25-N38",
+      "ruleId": "B25-R6",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "qualification.d13",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "B25-N39",
+      "ruleId": "B25-R6",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "qualification.d15",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "B25-N40",
+      "ruleId": "B25-R6",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "qualification.materialSweep",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B25-N41",
+      "ruleId": "B25-R7",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "ui.ownerPort",
+          "value": "OtherPort"
+        }
+      ]
+    },
+    {
+      "id": "B25-N42",
+      "ruleId": "B25-R7",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "ui.routes",
+          "value": [
+            "GUI",
+            "Agent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B25-N43",
+      "ruleId": "B25-R7",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "ui.singleBabylon",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B25-N44",
+      "ruleId": "B25-R7",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "ui.leftTaskPanel",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B25-N45",
+      "ruleId": "B25-R7",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "ui.maxFontPx",
+          "value": 14
+        }
+      ]
+    },
+    {
+      "id": "B25-N46",
+      "ruleId": "B25-R7",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "refs.D10.hash",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ]
+    },
+    {
+      "id": "B25-N47",
+      "ruleId": "B25-R7",
+      "expected": "REJECT",
+      "mutations": [
+        {
+          "path": "refs.D10.frame",
+          "value": "S1"
+        }
+      ]
+    }
+  ]
+}

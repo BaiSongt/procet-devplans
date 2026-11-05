@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "procet-b133-trace-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-02-05",
+  "researchTopic": "R-MS-001",
+  "sourceRegistry": "research/sources/CAP-02-05-heat-lot-b133.json",
+  "capabilityDocument": "docs/capabilities/CAP-02-05/HEAT-LOT-HARDNESS-B133-2026-11-03.md",
+  "fixturePath": "docs/capabilities/CAP-02-05/heat-lot-b133-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0205_heat_lot_b133_v08.cjs",
+  "workPackages": [
+    "F1-02",
+    "F1-06",
+    "E3-04",
+    "W2-05",
+    "T5-02",
+    "T5-03"
+  ],
+  "rules": [
+    {
+      "id": "B133-R01",
+      "description": "炉批来源不能由目录牌号替代",
+      "fields": [
+        "lot.heatId",
+        "lot.receiptId",
+        "lot.documentSha",
+        "lot.matchedStock"
+      ],
+      "sourceIds": [
+        "B133-S01",
+        "B133-S07"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R01-P",
+        "B133-R01-N1",
+        "B133-R01-N2",
+        "B133-R01-N3",
+        "B133-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R02",
+      "description": "交货检验文件的产品和采购范围须显式匹配",
+      "fields": [
+        "document.standard",
+        "document.productKind",
+        "document.orderScopeMatched",
+        "document.issuerAccountable"
+      ],
+      "sourceIds": [
+        "B133-S01",
+        "B133-S07"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R02-P",
+        "B133-R02-N1",
+        "B133-R02-N2",
+        "B133-R02-N3",
+        "B133-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R03",
+      "description": "D03/D04精确修订及Frame不得使用floating latest",
+      "fields": [
+        "identity.materialRevision",
+        "identity.materialHash",
+        "identity.setupRevision",
+        "identity.frame"
+      ],
+      "sourceIds": [
+        "B133-S07",
+        "B133-S08"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R03-P",
+        "B133-R03-N1",
+        "B133-R03-N2",
+        "B133-R03-N3",
+        "B133-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R04",
+      "description": "实测硬度保留方法量表条件，不以混标数据代入",
+      "fields": [
+        "test.method",
+        "test.scale",
+        "test.value",
+        "test.condition"
+      ],
+      "sourceIds": [
+        "B133-S03",
+        "B133-S04",
+        "B133-S07"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R04-P",
+        "B133-R04-N1",
+        "B133-R04-N2",
+        "B133-R04-N3",
+        "B133-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R05",
+      "description": "硬度换算不得自动升级为真实测量、验收或切削许可",
+      "fields": [
+        "conversion.automaticCrossScale",
+        "conversion.replacesMeasuredValue",
+        "conversion.tensileCertifiedFromConversion",
+        "conversion.cuttingApprovedByConversion"
+      ],
+      "sourceIds": [
+        "B133-S02",
+        "B133-S04",
+        "B133-S05"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R05-P",
+        "B133-R05-N1",
+        "B133-R05-N2",
+        "B133-R05-N3",
+        "B133-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R06",
+      "description": "证据责任主体、原始摘要与来源谱系可追溯",
+      "fields": [
+        "provenance.issuer",
+        "provenance.documentDigest",
+        "provenance.locator",
+        "provenance.lineageRef"
+      ],
+      "sourceIds": [
+        "B133-S04",
+        "B133-S05",
+        "B133-S06"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R06-P",
+        "B133-R06-N1",
+        "B133-R06-N2",
+        "B133-R06-N3",
+        "B133-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R07",
+      "description": "D03目录、D04名义Setup、D17来料批次和D10实装分离",
+      "fields": [
+        "owner.materialPort",
+        "owner.d04Pinned",
+        "owner.d17Separate",
+        "owner.d10Separate"
+      ],
+      "sourceIds": [
+        "B133-S07",
+        "B133-S08"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R07-P",
+        "B133-R07-N1",
+        "B133-R07-N2",
+        "B133-R07-N3",
+        "B133-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R08",
+      "description": "写提交瞬时权限CAS与取消Fence重检",
+      "fields": [
+        "transaction.acl",
+        "transaction.cas",
+        "transaction.cancelled",
+        "transaction.lateAckMutation"
+      ],
+      "sourceIds": [
+        "B133-S07",
+        "B133-S06"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R08-P",
+        "B133-R08-N1",
+        "B133-R08-N2",
+        "B133-R08-N3",
+        "B133-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B133-R09",
+      "description": "单Babylon世界、左TaskPanel、同Owner的三种入口",
+      "fields": [
+        "ui.worlds",
+        "ui.panel",
+        "ui.entry",
+        "ui.previewWrites"
+      ],
+      "sourceIds": [
+        "B133-S07"
+      ],
+      "capabilityId": "CAP-02-05",
+      "workPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "W2-05",
+        "T5-02",
+        "T5-03"
+      ],
+      "tests": [
+        "B133-R09-P",
+        "B133-R09-N1",
+        "B133-R09-N2",
+        "B133-R09-N3",
+        "B133-R09-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "status": "PLANNED_ONLY",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

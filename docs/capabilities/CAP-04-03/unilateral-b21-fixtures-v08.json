@@ -1,0 +1,701 @@
+{
+  "schemaVersion": "procet-cap0403-b21-unilateral-synthetic-v08",
+  "classification": "NEWLY_AUTHORED_SYNTHETIC",
+  "baseline": {
+    "cadExactRef": "D01.CAD@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "fixtureExactRef": "D03.Fixture@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "datumExactRef": "D01.Datum@sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "contactFrame": "D04.Setup@rev12",
+    "normalPolarity": "gap_nonnegative",
+    "normalsQualified": true,
+    "contactRows": [
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        100
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "rankDeclared": 6,
+    "escapeTwist": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "escapeStatus": "found",
+    "formClosureStatus": "not_proven",
+    "clampEvidenceState": "not_assessed",
+    "physicalStability": "unknown",
+    "forceClosureStatus": "unknown",
+    "engineCount": 1,
+    "sceneCount": 1,
+    "canvasCount": 1,
+    "leftTaskPanelCount": 1,
+    "previewOnly": true,
+    "entryOwnerPorts": [
+      "D04.OwnerPort",
+      "D04.OwnerPort",
+      "D04.OwnerPort"
+    ],
+    "scopeEpoch": 12,
+    "responseScopeEpoch": 12,
+    "expectedRevision": "D04@rev12",
+    "currentRevision": "D04@rev12",
+    "permissionEpoch": 7,
+    "responsePermissionEpoch": 7,
+    "permissionCurrent": true,
+    "cancelled": false,
+    "lateAckApplied": false,
+    "d10BindingChanged": false,
+    "clAnimationUsedAsNcEvidence": false,
+    "ncExecutionSemantics": "unknown",
+    "d16Release": "blocked",
+    "frozenBaselineOverwritten": false
+  },
+  "cases": [
+    {
+      "id": "B21-P01",
+      "ruleId": "ALL",
+      "patches": [],
+      "expectedCodes": [],
+      "why": "rank6且存在x方向单侧分离twist，不声称形闭合与物理稳定"
+    },
+    {
+      "id": "B21-P02",
+      "ruleId": "ALL",
+      "patches": [
+        {
+          "field": "escapeTwist",
+          "value": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expectedCodes": [],
+      "why": "z方向可脱离主定位面的另一独立见证"
+    },
+    {
+      "id": "B21-N01",
+      "ruleId": "B21-R01_EXACT_NORMAL",
+      "patches": [
+        {
+          "field": "cadExactRef",
+          "value": "D01.CAD@rev11"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R01_EXACT_NORMAL"
+      ],
+      "why": "CAD失去hash"
+    },
+    {
+      "id": "B21-N02",
+      "ruleId": "B21-R01_EXACT_NORMAL",
+      "patches": [
+        {
+          "field": "fixtureExactRef",
+          "value": "D03.Fixture@rev7"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R01_EXACT_NORMAL"
+      ],
+      "why": "资源定义失去hash"
+    },
+    {
+      "id": "B21-N03",
+      "ruleId": "B21-R01_EXACT_NORMAL",
+      "patches": [
+        {
+          "field": "contactFrame",
+          "value": "D10.Machine@rev12"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R01_EXACT_NORMAL"
+      ],
+      "why": "将装夹接触误映到执行Frame"
+    },
+    {
+      "id": "B21-N04",
+      "ruleId": "B21-R01_EXACT_NORMAL",
+      "patches": [
+        {
+          "field": "normalsQualified",
+          "value": false
+        }
+      ],
+      "expectedCodes": [
+        "B21-R01_EXACT_NORMAL"
+      ],
+      "why": "渲染法线无B-Rep证据"
+    },
+    {
+      "id": "B21-N05",
+      "ruleId": "B21-R02_RANK",
+      "patches": [
+        {
+          "field": "rankDeclared",
+          "value": 5
+        }
+      ],
+      "expectedCodes": [
+        "B21-R02_RANK"
+      ],
+      "why": "声称秩与矩阵计算不一致"
+    },
+    {
+      "id": "B21-N06",
+      "ruleId": "B21-R02_RANK",
+      "patches": [
+        {
+          "field": "contactRows",
+          "value": [
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              -100,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              100,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              100
+            ]
+          ]
+        }
+      ],
+      "expectedCodes": [
+        "B21-R02_RANK"
+      ],
+      "why": "仅有五条独立接触"
+    },
+    {
+      "id": "B21-N07",
+      "ruleId": "B21-R02_RANK",
+      "patches": [
+        {
+          "field": "contactRows",
+          "value": [
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              -100,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              100,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              100
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              100
+            ]
+          ]
+        }
+      ],
+      "expectedCodes": [
+        "B21-R02_RANK"
+      ],
+      "why": "重复侧定位使矩阵秩降为5"
+    },
+    {
+      "id": "B21-N08",
+      "ruleId": "B21-R02_RANK",
+      "patches": [
+        {
+          "field": "contactRows",
+          "value": [
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              -100,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              100,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              100
+            ],
+            [
+              null,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ],
+      "expectedCodes": [
+        "B21-R02_RANK"
+      ],
+      "why": "NaN/null不可替代接触几何"
+    },
+    {
+      "id": "B21-N09",
+      "ruleId": "B21-R03_UNILATERAL",
+      "patches": [
+        {
+          "field": "escapeTwist",
+          "value": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expectedCodes": [
+        "B21-R03_UNILATERAL"
+      ],
+      "why": "零Twist不是可脱离见证"
+    },
+    {
+      "id": "B21-N10",
+      "ruleId": "B21-R03_UNILATERAL",
+      "patches": [
+        {
+          "field": "escapeTwist",
+          "value": [
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "expectedCodes": [
+        "B21-R03_UNILATERAL"
+      ],
+      "why": "违反T1单侧不穿透约束"
+    },
+    {
+      "id": "B21-N11",
+      "ruleId": "B21-R03_UNILATERAL",
+      "patches": [
+        {
+          "field": "escapeStatus",
+          "value": "none"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R03_UNILATERAL"
+      ],
+      "why": "已存在见证却错误宣称无见证"
+    },
+    {
+      "id": "B21-N12",
+      "ruleId": "B21-R03_UNILATERAL",
+      "patches": [
+        {
+          "field": "formClosureStatus",
+          "value": "verified"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R03_UNILATERAL"
+      ],
+      "why": "rank满误升格形闭合"
+    },
+    {
+      "id": "B21-N13",
+      "ruleId": "B21-R04_FORCE_UNKNOWN",
+      "patches": [
+        {
+          "field": "clampEvidenceState",
+          "value": "verified"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R04_FORCE_UNKNOWN"
+      ],
+      "why": "未核夹紧力不得自认证"
+    },
+    {
+      "id": "B21-N14",
+      "ruleId": "B21-R04_FORCE_UNKNOWN",
+      "patches": [
+        {
+          "field": "physicalStability",
+          "value": "verified"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R04_FORCE_UNKNOWN"
+      ],
+      "why": "rank满不能冒充稳定"
+    },
+    {
+      "id": "B21-N15",
+      "ruleId": "B21-R04_FORCE_UNKNOWN",
+      "patches": [
+        {
+          "field": "forceClosureStatus",
+          "value": "certified"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R04_FORCE_UNKNOWN"
+      ],
+      "why": "未核摩擦锥与载荷不得认证force closure"
+    },
+    {
+      "id": "B21-N16",
+      "ruleId": "B21-R05_ONE_PORT",
+      "patches": [
+        {
+          "field": "engineCount",
+          "value": 2
+        }
+      ],
+      "expectedCodes": [
+        "B21-R05_ONE_PORT"
+      ],
+      "why": "禁止双Babylon Engine"
+    },
+    {
+      "id": "B21-N17",
+      "ruleId": "B21-R05_ONE_PORT",
+      "patches": [
+        {
+          "field": "leftTaskPanelCount",
+          "value": 2
+        }
+      ],
+      "expectedCodes": [
+        "B21-R05_ONE_PORT"
+      ],
+      "why": "统一左侧TaskPanel不重复"
+    },
+    {
+      "id": "B21-N18",
+      "ruleId": "B21-R05_ONE_PORT",
+      "patches": [
+        {
+          "field": "entryOwnerPorts",
+          "value": [
+            "D04.OwnerPort",
+            "DirectDB",
+            "D04.OwnerPort"
+          ]
+        }
+      ],
+      "expectedCodes": [
+        "B21-R05_ONE_PORT"
+      ],
+      "why": "CLI绕过Owner端口"
+    },
+    {
+      "id": "B21-N19",
+      "ruleId": "B21-R05_ONE_PORT",
+      "patches": [
+        {
+          "field": "previewOnly",
+          "value": false
+        }
+      ],
+      "expectedCodes": [
+        "B21-R05_ONE_PORT"
+      ],
+      "why": "ghost预览不得写业务"
+    },
+    {
+      "id": "B21-N20",
+      "ruleId": "B21-R06_CAS_ACK",
+      "patches": [
+        {
+          "field": "responseScopeEpoch",
+          "value": 11
+        }
+      ],
+      "expectedCodes": [
+        "B21-R06_CAS_ACK"
+      ],
+      "why": "跨Scope旧回执"
+    },
+    {
+      "id": "B21-N21",
+      "ruleId": "B21-R06_CAS_ACK",
+      "patches": [
+        {
+          "field": "currentRevision",
+          "value": "D04@rev13"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R06_CAS_ACK"
+      ],
+      "why": "CAS已变化"
+    },
+    {
+      "id": "B21-N22",
+      "ruleId": "B21-R06_CAS_ACK",
+      "patches": [
+        {
+          "field": "permissionCurrent",
+          "value": false
+        }
+      ],
+      "expectedCodes": [
+        "B21-R06_CAS_ACK"
+      ],
+      "why": "提交前权限已撤销"
+    },
+    {
+      "id": "B21-N23",
+      "ruleId": "B21-R06_CAS_ACK",
+      "patches": [
+        {
+          "field": "cancelled",
+          "value": true
+        }
+      ],
+      "expectedCodes": [
+        "B21-R06_CAS_ACK"
+      ],
+      "why": "取消动作后不得应用回执"
+    },
+    {
+      "id": "B21-N24",
+      "ruleId": "B21-R06_CAS_ACK",
+      "patches": [
+        {
+          "field": "lateAckApplied",
+          "value": true
+        }
+      ],
+      "expectedCodes": [
+        "B21-R06_CAS_ACK"
+      ],
+      "why": "取消晚回执不能生效"
+    },
+    {
+      "id": "B21-N25",
+      "ruleId": "B21-R07_EXECUTION",
+      "patches": [
+        {
+          "field": "d10BindingChanged",
+          "value": true
+        }
+      ],
+      "expectedCodes": [
+        "B21-R07_EXECUTION"
+      ],
+      "why": "D04更新不得自动更改D10"
+    },
+    {
+      "id": "B21-N26",
+      "ruleId": "B21-R07_EXECUTION",
+      "patches": [
+        {
+          "field": "clAnimationUsedAsNcEvidence",
+          "value": true
+        }
+      ],
+      "expectedCodes": [
+        "B21-R07_EXECUTION"
+      ],
+      "why": "CL动画不等于NC校验"
+    },
+    {
+      "id": "B21-N27",
+      "ruleId": "B21-R07_EXECUTION",
+      "patches": [
+        {
+          "field": "ncExecutionSemantics",
+          "value": "verified"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R07_EXECUTION"
+      ],
+      "why": "控制器未解析语义不得冒充通过"
+    },
+    {
+      "id": "B21-N28",
+      "ruleId": "B21-R07_EXECUTION",
+      "patches": [
+        {
+          "field": "d16Release",
+          "value": "pass"
+        }
+      ],
+      "expectedCodes": [
+        "B21-R07_EXECUTION"
+      ],
+      "why": "D15未完成不得发布"
+    },
+    {
+      "id": "B21-N29",
+      "ruleId": "B21-R07_EXECUTION",
+      "patches": [
+        {
+          "field": "frozenBaselineOverwritten",
+          "value": true
+        }
+      ],
+      "expectedCodes": [
+        "B21-R07_EXECUTION"
+      ],
+      "why": "A/B不覆盖冻结基线"
+    }
+  ],
+  "coordinatePolicy": {
+    "frame": "D04.Setup@rev12",
+    "units": "mm_and_radian",
+    "linearization": "gap_derivative_row_dot_twist_nonnegative",
+    "tolerance": "1e-9 synthetic only, not industrial tolerance"
+  },
+  "limitations": [
+    "仅验证明确提供的Twist见证；不求解通用LP或认证形闭合",
+    "不模拟材料去除、夹紧力、真实OCCT或NC/机床安全"
+  ]
+}

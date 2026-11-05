@@ -1,0 +1,673 @@
+{
+  "schemaVersion": "procet-b122-fixtures-v08",
+  "scope": "NEWLY_AUTHORED_PLANNING_SYNTHETIC_NOT_PRODUCT",
+  "cases": [
+    {
+      "id": "B122-P01",
+      "rule": "B122-R01",
+      "input": {
+        "family": "HAAS_NGC",
+        "machineClass": "LATHE",
+        "firmwarePinned": true,
+        "profilePinned": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N01-1",
+      "rule": "B122-R01",
+      "mutatedField": "profilePinned",
+      "input": {
+        "family": "HAAS_NGC",
+        "machineClass": "LATHE",
+        "firmwarePinned": true,
+        "profilePinned": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N01-2",
+      "rule": "B122-R01",
+      "mutatedField": "firmwarePinned",
+      "input": {
+        "family": "HAAS_NGC",
+        "machineClass": "LATHE",
+        "firmwarePinned": false,
+        "profilePinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N01-3",
+      "rule": "B122-R01",
+      "mutatedField": "machineClass",
+      "input": {
+        "family": "HAAS_NGC",
+        "machineClass": "MILL",
+        "firmwarePinned": true,
+        "profilePinned": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-N01-4",
+      "rule": "B122-R01",
+      "mutatedField": "family",
+      "input": {
+        "family": "UNKNOWN",
+        "machineClass": "LATHE",
+        "firmwarePinned": true,
+        "profilePinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-P02",
+      "rule": "B122-R02",
+      "input": {
+        "family": "HAAS_NGC",
+        "limitSyntax": "G50_S",
+        "maxRpm": 2500,
+        "capProfileKnown": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N02-1",
+      "rule": "B122-R02",
+      "mutatedField": "capProfileKnown",
+      "input": {
+        "family": "HAAS_NGC",
+        "limitSyntax": "G50_S",
+        "maxRpm": 2500,
+        "capProfileKnown": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N02-2",
+      "rule": "B122-R02",
+      "mutatedField": "maxRpm",
+      "input": {
+        "family": "HAAS_NGC",
+        "limitSyntax": "G50_S",
+        "maxRpm": null,
+        "capProfileKnown": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N02-3",
+      "rule": "B122-R02",
+      "mutatedField": "limitSyntax",
+      "input": {
+        "family": "HAAS_NGC",
+        "limitSyntax": "G96_D",
+        "maxRpm": 2500,
+        "capProfileKnown": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-N02-4",
+      "rule": "B122-R02",
+      "mutatedField": "family",
+      "input": {
+        "family": "UNKNOWN",
+        "limitSyntax": "G50_S",
+        "maxRpm": 2500,
+        "capProfileKnown": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-P03",
+      "rule": "B122-R03",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 80,
+        "units": "METRIC_M_PER_MIN",
+        "centerlinePinned": true,
+        "sourceAxisFramePinned": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N03-1",
+      "rule": "B122-R03",
+      "mutatedField": "sourceAxisFramePinned",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 80,
+        "units": "METRIC_M_PER_MIN",
+        "centerlinePinned": true,
+        "sourceAxisFramePinned": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N03-2",
+      "rule": "B122-R03",
+      "mutatedField": "units",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 80,
+        "units": "UNSPECIFIED",
+        "centerlinePinned": true,
+        "sourceAxisFramePinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N03-3",
+      "rule": "B122-R03",
+      "mutatedField": "diameterMm",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 0,
+        "units": "METRIC_M_PER_MIN",
+        "centerlinePinned": true,
+        "sourceAxisFramePinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N03-4",
+      "rule": "B122-R03",
+      "mutatedField": "surfaceSpeedMMin",
+      "input": {
+        "surfaceSpeedMMin": -1,
+        "diameterMm": 80,
+        "units": "METRIC_M_PER_MIN",
+        "centerlinePinned": true,
+        "sourceAxisFramePinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-P04",
+      "rule": "B122-R04",
+      "input": {
+        "rawRpm": 4000,
+        "caps": {
+          "spindle": 4500,
+          "chuck": 3000,
+          "fixture": 2500,
+          "workpiece": 2600
+        },
+        "approvedCapRpm": 2500,
+        "approvalRevPinned": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N04-1",
+      "rule": "B122-R04",
+      "mutatedField": "approvalRevPinned",
+      "input": {
+        "rawRpm": 4000,
+        "caps": {
+          "spindle": 4500,
+          "chuck": 3000,
+          "fixture": 2500,
+          "workpiece": 2600
+        },
+        "approvedCapRpm": 2500,
+        "approvalRevPinned": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N04-2",
+      "rule": "B122-R04",
+      "mutatedField": "caps",
+      "input": {
+        "rawRpm": 4000,
+        "caps": {
+          "spindle": 4500,
+          "chuck": null,
+          "fixture": 2500,
+          "workpiece": 2600
+        },
+        "approvedCapRpm": 2500,
+        "approvalRevPinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N04-3",
+      "rule": "B122-R04",
+      "mutatedField": "approvedCapRpm",
+      "input": {
+        "rawRpm": 4000,
+        "caps": {
+          "spindle": 4500,
+          "chuck": 3000,
+          "fixture": 2500,
+          "workpiece": 2600
+        },
+        "approvedCapRpm": 3500,
+        "approvalRevPinned": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-N04-4",
+      "rule": "B122-R04",
+      "mutatedField": "rawRpm",
+      "input": {
+        "rawRpm": null,
+        "caps": {
+          "spindle": 4500,
+          "chuck": 3000,
+          "fixture": 2500,
+          "workpiece": 2600
+        },
+        "approvedCapRpm": 2500,
+        "approvalRevPinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-P05",
+      "rule": "B122-R05",
+      "input": {
+        "family": "LINUXCNC_2_9",
+        "axisMode": "G7",
+        "xWordMm": 30,
+        "axisCenterPinned": true,
+        "actualDiameterMm": 30
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N05-1",
+      "rule": "B122-R05",
+      "mutatedField": "family",
+      "input": {
+        "family": "HAAS_NGC",
+        "axisMode": "G7",
+        "xWordMm": 30,
+        "axisCenterPinned": true,
+        "actualDiameterMm": 30
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N05-2",
+      "rule": "B122-R05",
+      "mutatedField": "axisCenterPinned",
+      "input": {
+        "family": "LINUXCNC_2_9",
+        "axisMode": "G7",
+        "xWordMm": 30,
+        "axisCenterPinned": false,
+        "actualDiameterMm": 30
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N05-3",
+      "rule": "B122-R05",
+      "mutatedField": "axisMode",
+      "input": {
+        "family": "LINUXCNC_2_9",
+        "axisMode": "G99",
+        "xWordMm": 30,
+        "axisCenterPinned": true,
+        "actualDiameterMm": 30
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N05-4",
+      "rule": "B122-R05",
+      "mutatedField": "actualDiameterMm",
+      "input": {
+        "family": "LINUXCNC_2_9",
+        "axisMode": "G7",
+        "xWordMm": 30,
+        "axisCenterPinned": true,
+        "actualDiameterMm": 60
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-P06",
+      "rule": "B122-R06",
+      "input": {
+        "family": "HAAS_NGC",
+        "feedCode": "G99",
+        "fValue": 0.2,
+        "rpm": 1000,
+        "unitPolicyPinned": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N06-1",
+      "rule": "B122-R06",
+      "mutatedField": "unitPolicyPinned",
+      "input": {
+        "family": "HAAS_NGC",
+        "feedCode": "G99",
+        "fValue": 0.2,
+        "rpm": 1000,
+        "unitPolicyPinned": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N06-2",
+      "rule": "B122-R06",
+      "mutatedField": "feedCode",
+      "input": {
+        "family": "HAAS_NGC",
+        "feedCode": "G95",
+        "fValue": 0.2,
+        "rpm": 1000,
+        "unitPolicyPinned": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-N06-3",
+      "rule": "B122-R06",
+      "mutatedField": "rpm",
+      "input": {
+        "family": "HAAS_NGC",
+        "feedCode": "G99",
+        "fValue": 0.2,
+        "rpm": null,
+        "unitPolicyPinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N06-4",
+      "rule": "B122-R06",
+      "mutatedField": "family",
+      "input": {
+        "family": "UNSPECIFIED",
+        "feedCode": "G99",
+        "fValue": 0.2,
+        "rpm": 1000,
+        "unitPolicyPinned": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-P07",
+      "rule": "B122-R07",
+      "input": {
+        "commandState": "G96",
+        "physicalAckPresent": true,
+        "ackProvenanceExact": true,
+        "d14TimingIndependent": true,
+        "revisionStillCurrent": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N07-1",
+      "rule": "B122-R07",
+      "mutatedField": "revisionStillCurrent",
+      "input": {
+        "commandState": "G96",
+        "physicalAckPresent": true,
+        "ackProvenanceExact": true,
+        "d14TimingIndependent": true,
+        "revisionStillCurrent": false
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N07-2",
+      "rule": "B122-R07",
+      "mutatedField": "commandState",
+      "input": {
+        "commandState": "CUSTOM",
+        "physicalAckPresent": true,
+        "ackProvenanceExact": true,
+        "d14TimingIndependent": true,
+        "revisionStillCurrent": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N07-3",
+      "rule": "B122-R07",
+      "mutatedField": "physicalAckPresent",
+      "input": {
+        "commandState": "G96",
+        "physicalAckPresent": false,
+        "ackProvenanceExact": true,
+        "d14TimingIndependent": true,
+        "revisionStillCurrent": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N07-4",
+      "rule": "B122-R07",
+      "mutatedField": "ackProvenanceExact",
+      "input": {
+        "commandState": "G96",
+        "physicalAckPresent": true,
+        "ackProvenanceExact": false,
+        "d14TimingIndependent": true,
+        "revisionStillCurrent": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-N07-5",
+      "rule": "B122-R07",
+      "mutatedField": "d14TimingIndependent",
+      "input": {
+        "commandState": "G96",
+        "physicalAckPresent": true,
+        "ackProvenanceExact": true,
+        "d14TimingIndependent": false,
+        "revisionStillCurrent": true
+      },
+      "expect": "UNKNOWN"
+    },
+    {
+      "id": "B122-P08",
+      "rule": "B122-R08",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "clNeutral": true,
+        "finalNcExact": true,
+        "sameOwnerPort": true,
+        "oneSceneLeftPanel": true,
+        "acl": true,
+        "cas": true,
+        "cancelFence": true,
+        "d15Independent": true,
+        "d16Requested": true
+      },
+      "expect": "CANDIDATE"
+    },
+    {
+      "id": "B122-N08-1",
+      "rule": "B122-R08",
+      "mutatedField": "d04Exact",
+      "input": {
+        "d04Exact": false,
+        "d10Exact": true,
+        "clNeutral": true,
+        "finalNcExact": true,
+        "sameOwnerPort": true,
+        "oneSceneLeftPanel": true,
+        "acl": true,
+        "cas": true,
+        "cancelFence": true,
+        "d15Independent": true,
+        "d16Requested": true
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N08-2",
+      "rule": "B122-R08",
+      "mutatedField": "cancelFence",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "clNeutral": true,
+        "finalNcExact": true,
+        "sameOwnerPort": true,
+        "oneSceneLeftPanel": true,
+        "acl": true,
+        "cas": true,
+        "cancelFence": false,
+        "d15Independent": true,
+        "d16Requested": true
+      },
+      "expect": "STALE"
+    },
+    {
+      "id": "B122-N08-3",
+      "rule": "B122-R08",
+      "mutatedField": "sameOwnerPort",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "clNeutral": true,
+        "finalNcExact": true,
+        "sameOwnerPort": false,
+        "oneSceneLeftPanel": true,
+        "acl": true,
+        "cas": true,
+        "cancelFence": true,
+        "d15Independent": true,
+        "d16Requested": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-N08-4",
+      "rule": "B122-R08",
+      "mutatedField": "acl",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "clNeutral": true,
+        "finalNcExact": true,
+        "sameOwnerPort": true,
+        "oneSceneLeftPanel": true,
+        "acl": false,
+        "cas": true,
+        "cancelFence": true,
+        "d15Independent": true,
+        "d16Requested": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-N08-5",
+      "rule": "B122-R08",
+      "mutatedField": "d15Independent",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "clNeutral": true,
+        "finalNcExact": true,
+        "sameOwnerPort": true,
+        "oneSceneLeftPanel": true,
+        "acl": true,
+        "cas": true,
+        "cancelFence": true,
+        "d15Independent": false,
+        "d16Requested": true
+      },
+      "expect": "REJECT"
+    },
+    {
+      "id": "B122-N08-6",
+      "rule": "B122-R08",
+      "mutatedField": "oneSceneLeftPanel",
+      "input": {
+        "d04Exact": true,
+        "d10Exact": true,
+        "clNeutral": true,
+        "finalNcExact": true,
+        "sameOwnerPort": true,
+        "oneSceneLeftPanel": false,
+        "acl": true,
+        "cas": true,
+        "cancelFence": true,
+        "d15Independent": true,
+        "d16Requested": true
+      },
+      "expect": "REJECT"
+    }
+  ],
+  "goldens": [
+    {
+      "id": "B122-G01",
+      "formula": "CSS_METRIC",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 80
+      },
+      "expect": 716.1972439135291
+    },
+    {
+      "id": "B122-G02",
+      "formula": "CSS_METRIC",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 40
+      },
+      "expect": 1432.3944878270581
+    },
+    {
+      "id": "B122-G03",
+      "formula": "CSS_METRIC",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 20
+      },
+      "expect": 2864.7889756541163
+    },
+    {
+      "id": "B122-G04",
+      "formula": "CSS_METRIC",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "diameterMm": 10
+      },
+      "expect": 5729.5779513082325
+    },
+    {
+      "id": "B122-G05",
+      "formula": "CLAMP_METRIC",
+      "input": {
+        "rpm": 5729.5779513082325,
+        "cap": 2500
+      },
+      "expect": 2500
+    },
+    {
+      "id": "B122-G06",
+      "formula": "LIMIT_DIAMETER_METRIC",
+      "input": {
+        "surfaceSpeedMMin": 180,
+        "cap": 2500
+      },
+      "expect": 22.91831180523293
+    },
+    {
+      "id": "B122-G07",
+      "formula": "LINUX_G8_RADIUS",
+      "input": {
+        "xWordMm": 30
+      },
+      "expect": 60
+    }
+  ]
+}

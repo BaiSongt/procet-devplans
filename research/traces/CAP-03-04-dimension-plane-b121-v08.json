@@ -1,0 +1,357 @@
+{
+  "schemaVersion": "procet-b121-trace-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-03-04",
+  "topicId": "R-PMI-001",
+  "originalWorkPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "relatedCapabilities": [
+    "CAP-01-07",
+    "CAP-03-03"
+  ],
+  "sourceRegistry": "research/sources/CAP-03-04-dimension-plane-b121.json",
+  "fixtures": "docs/capabilities/CAP-03-04/dimension-plane-b121-fixtures-v08.json",
+  "checker": "tools/check_cap0304_dimension_plane_b121_v08.cjs",
+  "fieldSemantics": "Booleans represent observed internal evidence-gate output only; never trust user-supplied true without validating typed original data",
+  "rules": [
+    {
+      "id": "B121-R01",
+      "statement": "确切D01/PMI源与目标拓扑验证，渲染长度不能反推尺寸真值",
+      "fields": [
+        "sourceRevisionHashPinned",
+        "occurrenceTopologyExact",
+        "dimensionSemanticKindKnown",
+        "screenPixelsNotAuthority"
+      ],
+      "negativeStatuses": [
+        "STALE",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B121-S01",
+        "B121-S06",
+        "B121-S09"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "positive": [
+        "B121-P01"
+      ],
+      "negative": [
+        "B121-N01-1",
+        "B121-N01-2",
+        "B121-N01-3",
+        "B121-N01-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B121-R02",
+      "statement": "平面Face尺寸的Plane垂直性及其他引用由具体Reader/Creo Profile分别约束",
+      "fields": [
+        "planarNormalInExactFrame",
+        "planePerpendicularToFace",
+        "otherDimensionReferenceQualified",
+        "vendorProfileRevisionPinned"
+      ],
+      "negativeStatuses": [
+        "UNKNOWN",
+        "REJECT",
+        "UNKNOWN",
+        "STALE"
+      ],
+      "sourceIds": [
+        "B121-S01",
+        "B121-S04",
+        "B121-S09"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "positive": [
+        "B121-P02"
+      ],
+      "negative": [
+        "B121-N02-1",
+        "B121-N02-2",
+        "B121-N02-3",
+        "B121-N02-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B121-R03",
+      "statement": "圆柱轴与Plane相对朝向、半径/直径/线性直径语义及手势分离",
+      "fields": [
+        "cylinderAxisFrameExact",
+        "planeAxisRelationKnown",
+        "dimensionKindProfileSupported",
+        "clickGestureNotManufacturingFact"
+      ],
+      "negativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B121-S01",
+        "B121-S07",
+        "B121-S09"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "F1-03",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "positive": [
+        "B121-P03"
+      ],
+      "negative": [
+        "B121-N03-1",
+        "B121-N03-2",
+        "B121-N03-3",
+        "B121-N03-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B121-R04",
+      "statement": "圆锥轴约束与球面其他参考分开检查，未知适配器显式UNKNOWN",
+      "fields": [
+        "surfaceKindAndAxisExact",
+        "conicPlaneConstraintKnown",
+        "sphereOtherReferencesChecked",
+        "unsupportedAdapterFailClosed"
+      ],
+      "negativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B121-S01",
+        "B121-S09"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "B0-02",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "positive": [
+        "B121-P04"
+      ],
+      "negative": [
+        "B121-N04-1",
+        "B121-N04-2",
+        "B121-N04-3",
+        "B121-N04-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B121-R05",
+      "statement": "Ordinate组共享Baseline Plane与exact Revision，基线更改必须传播STALE",
+      "fields": [
+        "baselineIdentityExact",
+        "membersShareBaselinePlane",
+        "baselineRevisionHashExact",
+        "descendantInvalidationTracked"
+      ],
+      "negativeStatuses": [
+        "UNKNOWN",
+        "REJECT",
+        "STALE",
+        "STALE"
+      ],
+      "sourceIds": [
+        "B121-S02",
+        "B121-S03",
+        "B121-S09"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-04"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D08"
+      ],
+      "positive": [
+        "B121-P05"
+      ],
+      "negative": [
+        "B121-N05-1",
+        "B121-N05-2",
+        "B121-N05-3",
+        "B121-N05-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B121-R06",
+      "statement": "方向Plane、第一附件与实际平行放置位置、Frozen/Driven来源分别保存",
+      "fields": [
+        "planeFrameAndRevisionExact",
+        "firstAttachmentExact",
+        "placementOffsetSeparated",
+        "frozenDrivenOriginQualified"
+      ],
+      "negativeStatuses": [
+        "STALE",
+        "UNKNOWN",
+        "REJECT",
+        "STALE"
+      ],
+      "sourceIds": [
+        "B121-S03",
+        "B121-S04",
+        "B121-S05",
+        "B121-S07"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "F1-03",
+        "F1-04"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "positive": [
+        "B121-P06"
+      ],
+      "negative": [
+        "B121-N06-1",
+        "B121-N06-2",
+        "B121-N06-3",
+        "B121-N06-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B121-R07",
+      "statement": "GUI/CLI/Agent同03域Owner Port，单Babylon世界/左TaskPanel，屏幕避让零语义写",
+      "fields": [
+        "sameOwnerPortForAllEntries",
+        "oneBabylonEngineSceneCanvas",
+        "leftUnifiedTaskPanelOnly",
+        "layoutNeverWritesD02"
+      ],
+      "negativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B121-S06",
+        "B121-S09"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "F1-04",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "positive": [
+        "B121-P07"
+      ],
+      "negative": [
+        "B121-N07-1",
+        "B121-N07-2",
+        "B121-N07-3",
+        "B121-N07-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B121-R08",
+      "statement": "CAS/ACL权限与取消晚回执重验，D08冻结及NC D15验证不得由PMI预览覆盖",
+      "fields": [
+        "ownerCasAclRevalidated",
+        "cancelScopeEpochAndLateAckFenced",
+        "frozenD08NotOverwritten",
+        "clPreviewNotNcVerification"
+      ],
+      "negativeStatuses": [
+        "REJECT",
+        "STALE",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B121-S09"
+      ],
+      "capabilityId": "CAP-03-04",
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-04",
+        "T5-02"
+      ],
+      "assets": [
+        "D02",
+        "D04",
+        "D08",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B121-P08"
+      ],
+      "negative": [
+        "B121-N08-1",
+        "B121-N08-2",
+        "B121-N08-3",
+        "B121-N08-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "ownerSignatureCount": 0,
+  "realIndependentConsumerPassCount": 0,
+  "designApproval": "PENDING_HUMAN"
+}

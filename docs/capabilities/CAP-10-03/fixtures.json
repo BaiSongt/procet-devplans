@@ -1,0 +1,1650 @@
+{
+  "schemaVersion": "procet-cap1003-fixtures-v1",
+  "capabilityId": "CAP-10-03",
+  "syntheticOnly": true,
+  "caseMeaning": "10正+40单字段独立负例+25离线信任/内容/事务门禁，共75规划合成；未真的签名、未复制U盘和未执行产品测试",
+  "cases": [
+    {
+      "id": "1003-P01",
+      "ruleId": "CAP-10-03-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "identity": {
+          "mediaOwnerKnown": true,
+          "mediaSerialBound": true,
+          "receiverRoleAuthenticated": true,
+          "transferIntentPinned": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N01-1",
+      "ruleId": "CAP-10-03-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.mediaOwnerKnown",
+      "input": {
+        "identity": {
+          "mediaOwnerKnown": false,
+          "mediaSerialBound": true,
+          "receiverRoleAuthenticated": true,
+          "transferIntentPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N01-2",
+      "ruleId": "CAP-10-03-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.mediaSerialBound",
+      "input": {
+        "identity": {
+          "mediaOwnerKnown": true,
+          "mediaSerialBound": false,
+          "receiverRoleAuthenticated": true,
+          "transferIntentPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N01-3",
+      "ruleId": "CAP-10-03-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.receiverRoleAuthenticated",
+      "input": {
+        "identity": {
+          "mediaOwnerKnown": true,
+          "mediaSerialBound": true,
+          "receiverRoleAuthenticated": false,
+          "transferIntentPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N01-4",
+      "ruleId": "CAP-10-03-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "identity.transferIntentPinned",
+      "input": {
+        "identity": {
+          "mediaOwnerKnown": true,
+          "mediaSerialBound": true,
+          "receiverRoleAuthenticated": true,
+          "transferIntentPinned": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P02",
+      "ruleId": "CAP-10-03-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "integrity": {
+          "finalNcBytesRehashed": true,
+          "subprogramClosureChecked": true,
+          "manifestJcsDigestMatched": true,
+          "fileListExact": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N02-1",
+      "ruleId": "CAP-10-03-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "integrity.finalNcBytesRehashed",
+      "input": {
+        "integrity": {
+          "finalNcBytesRehashed": false,
+          "subprogramClosureChecked": true,
+          "manifestJcsDigestMatched": true,
+          "fileListExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N02-2",
+      "ruleId": "CAP-10-03-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "integrity.subprogramClosureChecked",
+      "input": {
+        "integrity": {
+          "finalNcBytesRehashed": true,
+          "subprogramClosureChecked": false,
+          "manifestJcsDigestMatched": true,
+          "fileListExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N02-3",
+      "ruleId": "CAP-10-03-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "integrity.manifestJcsDigestMatched",
+      "input": {
+        "integrity": {
+          "finalNcBytesRehashed": true,
+          "subprogramClosureChecked": true,
+          "manifestJcsDigestMatched": false,
+          "fileListExact": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N02-4",
+      "ruleId": "CAP-10-03-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "integrity.fileListExact",
+      "input": {
+        "integrity": {
+          "finalNcBytesRehashed": true,
+          "subprogramClosureChecked": true,
+          "manifestJcsDigestMatched": true,
+          "fileListExact": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P03",
+      "ruleId": "CAP-10-03-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "trust": {
+          "trustedRootPreinstalled": true,
+          "signatureCheckedOnReceiver": true,
+          "signerPolicyPinned": true,
+          "keyRotationPolicyChecked": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N03-1",
+      "ruleId": "CAP-10-03-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "trust.trustedRootPreinstalled",
+      "input": {
+        "trust": {
+          "trustedRootPreinstalled": false,
+          "signatureCheckedOnReceiver": true,
+          "signerPolicyPinned": true,
+          "keyRotationPolicyChecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N03-2",
+      "ruleId": "CAP-10-03-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "trust.signatureCheckedOnReceiver",
+      "input": {
+        "trust": {
+          "trustedRootPreinstalled": true,
+          "signatureCheckedOnReceiver": false,
+          "signerPolicyPinned": true,
+          "keyRotationPolicyChecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N03-3",
+      "ruleId": "CAP-10-03-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "trust.signerPolicyPinned",
+      "input": {
+        "trust": {
+          "trustedRootPreinstalled": true,
+          "signatureCheckedOnReceiver": true,
+          "signerPolicyPinned": false,
+          "keyRotationPolicyChecked": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N03-4",
+      "ruleId": "CAP-10-03-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "trust.keyRotationPolicyChecked",
+      "input": {
+        "trust": {
+          "trustedRootPreinstalled": true,
+          "signatureCheckedOnReceiver": true,
+          "signerPolicyPinned": true,
+          "keyRotationPolicyChecked": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P04",
+      "ruleId": "CAP-10-03-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "freshness": {
+          "trustedTimeEvidenceAvailable": true,
+          "revocationSnapshotCurrent": true,
+          "noRollbackRootMetadata": true,
+          "offlineUnknownFailsClosed": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N04-1",
+      "ruleId": "CAP-10-03-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "freshness.trustedTimeEvidenceAvailable",
+      "input": {
+        "freshness": {
+          "trustedTimeEvidenceAvailable": false,
+          "revocationSnapshotCurrent": true,
+          "noRollbackRootMetadata": true,
+          "offlineUnknownFailsClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N04-2",
+      "ruleId": "CAP-10-03-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "freshness.revocationSnapshotCurrent",
+      "input": {
+        "freshness": {
+          "trustedTimeEvidenceAvailable": true,
+          "revocationSnapshotCurrent": false,
+          "noRollbackRootMetadata": true,
+          "offlineUnknownFailsClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N04-3",
+      "ruleId": "CAP-10-03-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "freshness.noRollbackRootMetadata",
+      "input": {
+        "freshness": {
+          "trustedTimeEvidenceAvailable": true,
+          "revocationSnapshotCurrent": true,
+          "noRollbackRootMetadata": false,
+          "offlineUnknownFailsClosed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N04-4",
+      "ruleId": "CAP-10-03-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "freshness.offlineUnknownFailsClosed",
+      "input": {
+        "freshness": {
+          "trustedTimeEvidenceAvailable": true,
+          "revocationSnapshotCurrent": true,
+          "noRollbackRootMetadata": true,
+          "offlineUnknownFailsClosed": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P05",
+      "ruleId": "CAP-10-03-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "paths": {
+          "relativeOnly": true,
+          "noSymlink": true,
+          "caseFoldUnique": true,
+          "noTraversalOrAltStreams": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N05-1",
+      "ruleId": "CAP-10-03-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "paths.relativeOnly",
+      "input": {
+        "paths": {
+          "relativeOnly": false,
+          "noSymlink": true,
+          "caseFoldUnique": true,
+          "noTraversalOrAltStreams": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N05-2",
+      "ruleId": "CAP-10-03-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "paths.noSymlink",
+      "input": {
+        "paths": {
+          "relativeOnly": true,
+          "noSymlink": false,
+          "caseFoldUnique": true,
+          "noTraversalOrAltStreams": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N05-3",
+      "ruleId": "CAP-10-03-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "paths.caseFoldUnique",
+      "input": {
+        "paths": {
+          "relativeOnly": true,
+          "noSymlink": true,
+          "caseFoldUnique": false,
+          "noTraversalOrAltStreams": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N05-4",
+      "ruleId": "CAP-10-03-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "paths.noTraversalOrAltStreams",
+      "input": {
+        "paths": {
+          "relativeOnly": true,
+          "noSymlink": true,
+          "caseFoldUnique": true,
+          "noTraversalOrAltStreams": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P06",
+      "ruleId": "CAP-10-03-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "target": {
+          "machineIdentityExact": true,
+          "controllerProfileExact": true,
+          "d10ExecutionBindingExact": true,
+          "d04NominalDistinctFromD10": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N06-1",
+      "ruleId": "CAP-10-03-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "target.machineIdentityExact",
+      "input": {
+        "target": {
+          "machineIdentityExact": false,
+          "controllerProfileExact": true,
+          "d10ExecutionBindingExact": true,
+          "d04NominalDistinctFromD10": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N06-2",
+      "ruleId": "CAP-10-03-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "target.controllerProfileExact",
+      "input": {
+        "target": {
+          "machineIdentityExact": true,
+          "controllerProfileExact": false,
+          "d10ExecutionBindingExact": true,
+          "d04NominalDistinctFromD10": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N06-3",
+      "ruleId": "CAP-10-03-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "target.d10ExecutionBindingExact",
+      "input": {
+        "target": {
+          "machineIdentityExact": true,
+          "controllerProfileExact": true,
+          "d10ExecutionBindingExact": false,
+          "d04NominalDistinctFromD10": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N06-4",
+      "ruleId": "CAP-10-03-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "target.d04NominalDistinctFromD10",
+      "input": {
+        "target": {
+          "machineIdentityExact": true,
+          "controllerProfileExact": true,
+          "d10ExecutionBindingExact": true,
+          "d04NominalDistinctFromD10": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P07",
+      "ruleId": "CAP-10-03-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "validation": {
+          "independentD15Exact": true,
+          "d12D13D14ClosureExact": true,
+          "noClOnlyPass": true,
+          "unknownRejects": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N07-1",
+      "ruleId": "CAP-10-03-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "validation.independentD15Exact",
+      "input": {
+        "validation": {
+          "independentD15Exact": false,
+          "d12D13D14ClosureExact": true,
+          "noClOnlyPass": true,
+          "unknownRejects": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N07-2",
+      "ruleId": "CAP-10-03-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "validation.d12D13D14ClosureExact",
+      "input": {
+        "validation": {
+          "independentD15Exact": true,
+          "d12D13D14ClosureExact": false,
+          "noClOnlyPass": true,
+          "unknownRejects": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N07-3",
+      "ruleId": "CAP-10-03-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "validation.noClOnlyPass",
+      "input": {
+        "validation": {
+          "independentD15Exact": true,
+          "d12D13D14ClosureExact": true,
+          "noClOnlyPass": false,
+          "unknownRejects": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N07-4",
+      "ruleId": "CAP-10-03-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "validation.unknownRejects",
+      "input": {
+        "validation": {
+          "independentD15Exact": true,
+          "d12D13D14ClosureExact": true,
+          "noClOnlyPass": true,
+          "unknownRejects": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P08",
+      "ruleId": "CAP-10-03-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "receipt": {
+          "receiverHashRecorded": true,
+          "verifiedWithoutNetwork": true,
+          "noAutoMachineImport": true,
+          "receiptAppendOnly": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N08-1",
+      "ruleId": "CAP-10-03-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "receipt.receiverHashRecorded",
+      "input": {
+        "receipt": {
+          "receiverHashRecorded": false,
+          "verifiedWithoutNetwork": true,
+          "noAutoMachineImport": true,
+          "receiptAppendOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N08-2",
+      "ruleId": "CAP-10-03-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "receipt.verifiedWithoutNetwork",
+      "input": {
+        "receipt": {
+          "receiverHashRecorded": true,
+          "verifiedWithoutNetwork": false,
+          "noAutoMachineImport": true,
+          "receiptAppendOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N08-3",
+      "ruleId": "CAP-10-03-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "receipt.noAutoMachineImport",
+      "input": {
+        "receipt": {
+          "receiverHashRecorded": true,
+          "verifiedWithoutNetwork": true,
+          "noAutoMachineImport": false,
+          "receiptAppendOnly": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N08-4",
+      "ruleId": "CAP-10-03-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "receipt.receiptAppendOnly",
+      "input": {
+        "receipt": {
+          "receiverHashRecorded": true,
+          "verifiedWithoutNetwork": true,
+          "noAutoMachineImport": true,
+          "receiptAppendOnly": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P09",
+      "ruleId": "CAP-10-03-R09",
+      "scenario": "POSITIVE",
+      "input": {
+        "transaction": {
+          "precommitAclRechecked": true,
+          "expectedRevisionHashFrameCAS": true,
+          "scopeEpochCancelChecked": true,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N09-1",
+      "ruleId": "CAP-10-03-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.precommitAclRechecked",
+      "input": {
+        "transaction": {
+          "precommitAclRechecked": false,
+          "expectedRevisionHashFrameCAS": true,
+          "scopeEpochCancelChecked": true,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N09-2",
+      "ruleId": "CAP-10-03-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.expectedRevisionHashFrameCAS",
+      "input": {
+        "transaction": {
+          "precommitAclRechecked": true,
+          "expectedRevisionHashFrameCAS": false,
+          "scopeEpochCancelChecked": true,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N09-3",
+      "ruleId": "CAP-10-03-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.scopeEpochCancelChecked",
+      "input": {
+        "transaction": {
+          "precommitAclRechecked": true,
+          "expectedRevisionHashFrameCAS": true,
+          "scopeEpochCancelChecked": false,
+          "lateAckRejected": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N09-4",
+      "ruleId": "CAP-10-03-R09",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "transaction.lateAckRejected",
+      "input": {
+        "transaction": {
+          "precommitAclRechecked": true,
+          "expectedRevisionHashFrameCAS": true,
+          "scopeEpochCancelChecked": true,
+          "lateAckRejected": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-P10",
+      "ruleId": "CAP-10-03-R10",
+      "scenario": "POSITIVE",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "oneBabylonWorld": true,
+          "leftTaskPanel": true,
+          "rollbackDualReader": true
+        }
+      },
+      "expected": "PASS",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N10-1",
+      "ruleId": "CAP-10-03-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.singleDomainPort",
+      "input": {
+        "ui": {
+          "singleDomainPort": false,
+          "oneBabylonWorld": true,
+          "leftTaskPanel": true,
+          "rollbackDualReader": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N10-2",
+      "ruleId": "CAP-10-03-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.oneBabylonWorld",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "oneBabylonWorld": false,
+          "leftTaskPanel": true,
+          "rollbackDualReader": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N10-3",
+      "ruleId": "CAP-10-03-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.leftTaskPanel",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "oneBabylonWorld": true,
+          "leftTaskPanel": false,
+          "rollbackDualReader": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-N10-4",
+      "ruleId": "CAP-10-03-R10",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_NEGATIVE",
+      "mutatedField": "ui.rollbackDualReader",
+      "input": {
+        "ui": {
+          "singleDomainPort": true,
+          "oneBabylonWorld": true,
+          "leftTaskPanel": true,
+          "rollbackDualReader": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    }
+  ],
+  "offlineGateCases": [
+    {
+      "id": "1003-G01",
+      "scenario": "正常离线接收（仍待人工上机核对）",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "READY_FOR_MANUAL_MACHINE_REVIEW_SYNTHETIC_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G02",
+      "scenario": "无主介质",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": false,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_POLICY",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G03",
+      "scenario": "未认证接收人",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": false,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_POLICY",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G04",
+      "scenario": "试图自动载入机床",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": true,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_POLICY",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G05",
+      "scenario": "尚未复制",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": false,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "AWAIT_MEDIA_COPY",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G06",
+      "scenario": "压缩包路径逃逸",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": false,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_CONTENT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G07",
+      "scenario": "NC原字节遭更改",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": false,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_CONTENT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G08",
+      "scenario": "Manifest哈希不符",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": false,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_CONTENT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G09",
+      "scenario": "调用子程序缺失",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": false,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_CONTENT",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G10",
+      "scenario": "验签失败",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": false,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_SIGNATURE",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G11",
+      "scenario": "可信根未知",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": false,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G12",
+      "scenario": "可信根元数据回滚",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": false,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_TRUST",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G13",
+      "scenario": "离线可信时钟不可得",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": false,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G14",
+      "scenario": "撤销状态过期",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": false,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G15",
+      "scenario": "目标机床不符",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": false,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G16",
+      "scenario": "控制器Profile不符",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": false,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G17",
+      "scenario": "D10装配与坐标不符",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": false,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G18",
+      "scenario": "未有独立D15",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": false,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G19",
+      "scenario": "仅CL预演",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": true,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G20",
+      "scenario": "未知NC控制器语义",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": true,
+        "synthetic": true
+      },
+      "expected": "BLOCKED_UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G21",
+      "scenario": "撤权",
+      "input": {
+        "acl": false,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_TRANSACTION",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G22",
+      "scenario": "并发CAS冲突",
+      "input": {
+        "acl": true,
+        "cas": false,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_TRANSACTION",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G23",
+      "scenario": "撤销操作",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": true,
+        "lateAck": false,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_TRANSACTION",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G24",
+      "scenario": "晚到ACK",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": true,
+        "receiptReplay": false,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_TRANSACTION",
+      "synthetic": true
+    },
+    {
+      "id": "1003-G25",
+      "scenario": "重复签收重放",
+      "input": {
+        "acl": true,
+        "cas": true,
+        "scopeEpoch": true,
+        "cancelled": false,
+        "lateAck": false,
+        "receiptReplay": true,
+        "mediaOwner": true,
+        "receiverAuthenticated": true,
+        "requestedAutoMachineImport": false,
+        "copyCompleted": true,
+        "pathsSafe": true,
+        "fileHashesMatch": true,
+        "manifestDigestExact": true,
+        "subprogramClosure": true,
+        "signatureValid": true,
+        "rootVersionMonotonic": true,
+        "trustedRoot": true,
+        "revocationFresh": true,
+        "clockTrusted": true,
+        "exactMachine": true,
+        "exactController": true,
+        "exactD10": true,
+        "finalNcD15Independent": true,
+        "clOnly": false,
+        "unknown": false,
+        "synthetic": true
+      },
+      "expected": "REJECT_TRANSACTION",
+      "synthetic": true
+    }
+  ]
+}

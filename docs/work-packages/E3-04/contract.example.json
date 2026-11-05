@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "procet-d14-axis-expansion-port-candidate-v0",
+  "kind": "SYNTHETIC_PROPOSED_NOT_PRODUCT_CONTRACT",
+  "owner": "09 机床运动与工程验证 · D14",
+  "port": "MachineMotionExpansionPort.expand",
+  "input": {
+    "d13Ref": {
+      "asset": "D13",
+      "revision": "SYNTHETIC-REV-1",
+      "sha256": "SHA256_OF_REAL_EVENT_STREAM_REQUIRED",
+      "frame": "SYNTHETIC-D10-MACHINE",
+      "status": "READY_FOR_D14",
+      "unknownFeatures": []
+    },
+    "d10Ref": {
+      "asset": "D10",
+      "revision": "SYNTHETIC-REV-1",
+      "hash": "SYNTHETIC_NOT_ACTUAL_CONFIG",
+      "frame": "SYNTHETIC-D10-MACHINE",
+      "toolLengthApplicationStage": "D14_APPLIED_ONCE"
+    },
+    "d03ModelRef": {
+      "asset": "D03",
+      "revision": "SYNTHETIC-REV-1",
+      "kinematicHash": "SYNTHETIC_NOT_ACTUAL_B5",
+      "axisTreeState": "DECLARED_SYNTHETIC"
+    },
+    "motionCommandSpace": "AXIS_ADDRESSES | TCP_POSE",
+    "expectedRevision": 1,
+    "requesterScope": "RESOLVED_BY_HOST",
+    "cancellationToken": "RESOLVED_BY_HOST"
+  },
+  "output": {
+    "asset": "D14",
+    "status": "CANDIDATE_FOR_D15_ONLY | UNKNOWN | REJECTED | STALE | CANCELLED",
+    "samples": [
+      {
+        "sourceEventId": "D13-EVT-1",
+        "sourceLine": 5,
+        "mode": "AXIS_ADDRESSES",
+        "jointPositions": [
+          {
+            "name": "X",
+            "value": 10,
+            "unit": "mm"
+          },
+          {
+            "name": "A",
+            "value": 0,
+            "unit": "rad"
+          }
+        ],
+        "timestampModel": "ESTIMATE_ONLY",
+        "modalHash": "SHA256_REQUIRED"
+      }
+    ],
+    "residual": {
+      "positionMm": null,
+      "orientationRad": null
+    },
+    "coverage": "DEFINED_SUBSET_ONLY",
+    "qualification": [
+      "D14_EXPANDED_ONLY"
+    ],
+    "prohibitedClaims": [
+      "D15_PASS",
+      "D16_RELEASE_PASS",
+      "REAL_B5_CERTIFIED"
+    ],
+    "independentConsumer": "D15_NOT_RUN"
+  },
+  "risks": [
+    "NO_REAL_B5_CHAIN_DIMENSIONS",
+    "NO_REAL_CONTROLLER_PROFILE",
+    "NO_REAL_TIME_CALIBRATION"
+  ]
+}

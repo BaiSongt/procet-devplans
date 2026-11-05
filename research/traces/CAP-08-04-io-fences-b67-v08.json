@@ -1,0 +1,261 @@
+{
+  "schemaVersion": "procet-b67-trace-v1",
+  "capabilityId": "CAP-08-04",
+  "researchTopic": "R-AUX-MCODE-001",
+  "sourceRegistry": "research/sources/CAP-08-04-io-fences-b67.json",
+  "originalWorkPackages": [
+    "E3-02",
+    "E3-03",
+    "U4-04"
+  ],
+  "ruleCount": 8,
+  "rules": [
+    {
+      "id": "B67-R01",
+      "rule": "固定D04/D10/NC/profile/frame并真实重读最终NC",
+      "fields": [
+        "source.d04Expected/d04Current",
+        "source.d10Expected/d10Current",
+        "source.ncExpected/ncCurrent",
+        "source.profileExpected/profileCurrent",
+        "source.frameExpected/frameCurrent",
+        "program.reparsedFinalNc",
+        "binding.dialect"
+      ],
+      "sourceIds": [
+        "B67-S05",
+        "B67-S06",
+        "B67-S07"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R01-P",
+        "B67-R01-NO-REPARSE",
+        "B67-R01-SETUP-AS-BIND",
+        "B67-R01-DIALECT",
+        "B67-R01-D04-STALE",
+        "B67-R01-D10-STALE",
+        "B67-R01-NC-STALE",
+        "B67-R01-PROFILE-STALE",
+        "B67-R01-FRAME-STALE"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B67-R02",
+      "rule": "M62/M63延迟到下一运动、同通道后写覆盖、无后续运动UNKNOWN",
+      "fields": [
+        "program.blocks[].op/P/motionId",
+        "program.expectedEvents[].anchor",
+        "binding.digitalOutCount"
+      ],
+      "sourceIds": [
+        "B67-S01",
+        "B67-S07"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R02-P",
+        "B67-R02-CHANNEL",
+        "B67-R02-MISSING-ID",
+        "B67-R02-WRONG-ANCHOR",
+        "B67-R02-WRONG-OVERWRITE",
+        "B67-R02-NO-MOTION",
+        "B67-R02-MOTION-NO-ID"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B67-R03",
+      "rule": "M64/M65立即生效且打断blending，不当同步输出",
+      "fields": [
+        "program.blocks[].op/P",
+        "program.expectedEvents[].type"
+      ],
+      "sourceIds": [
+        "B67-S01",
+        "B67-S07"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R03-P",
+        "B67-R03-IMMEDIATE-AS-QUEUED",
+        "B67-R03-M64-CHANNEL"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B67-R04",
+      "rule": "M67/M68模拟输出同步/即时分开且Q有限",
+      "fields": [
+        "program.blocks[].op/E/Q",
+        "binding.analogOutCount",
+        "program.expectedEvents"
+      ],
+      "sourceIds": [
+        "B67-S03",
+        "B67-S07"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R04-P",
+        "B67-R04-ANALOG-NAN",
+        "B67-R04-ANALOG-CHANNEL",
+        "B67-R04-M68-AS-MOTION",
+        "B67-R04-UNKNOWN-M"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B67-R05",
+      "rule": "M66 P/E互斥、L/Q合法、#5399超时与HAL实际输入分级",
+      "fields": [
+        "program.blocks[].P/E/L/Q",
+        "evidence.ioSample.source/d10Exact/timestamp",
+        "binding.digitalInCount/analogInCount"
+      ],
+      "sourceIds": [
+        "B67-S02",
+        "B67-S04",
+        "B67-S07"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R05-P",
+        "B67-R05-P-E-BOTH",
+        "B67-R05-ANALOG-WAIT",
+        "B67-R05-ZERO-Q",
+        "B67-R05-BAD-L",
+        "B67-R05-BAD-P",
+        "B67-R05-NO-SAMPLE",
+        "B67-R05-TIMEOUT",
+        "B67-R05-NO-PROVENANCE"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B67-R06",
+      "rule": "D13解释事件不虚构设备完工ACK，源行和HAL证据分离",
+      "fields": [
+        "evidence.claimDeviceComplete/sourceLineMap",
+        "binding.halWiringVerified",
+        "program.legacyUnmapped"
+      ],
+      "sourceIds": [
+        "B67-S04",
+        "B67-S05",
+        "B67-S07"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R06-P",
+        "B67-R06-FAKE-ACK",
+        "B67-R06-SRC-UNMAPPED",
+        "B67-R06-NO-HAL"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B67-R07",
+      "rule": "D13 Owner CAS/ACL/generation/取消及D15到D16发布隔离",
+      "fields": [
+        "owner.port/aclEpoch/scopeEpoch/generation/cancelled",
+        "source.*Current",
+        "evidence.rollbackPreserved/exactInvalidation/requestPublish"
+      ],
+      "sourceIds": [
+        "B67-S07",
+        "B67-S08"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R07-P",
+        "B67-R07-PUBLISH",
+        "B67-R07-FROZEN",
+        "B67-R07-NO-ROLLBACK",
+        "B67-R07-ACL-STALE",
+        "B67-R07-SCOPE-STALE",
+        "B67-R07-CANCEL",
+        "B67-R07-LATE-ACK"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B67-R08",
+      "rule": "GUI/CLI/Agent共用08域D13入口、单Babylon左TaskPanel只读显示",
+      "fields": [
+        "ui.entry/sharedPort/singleBabylon/leftTaskPanel",
+        "owner.port",
+        "program.mode"
+      ],
+      "sourceIds": [
+        "B67-S07",
+        "B67-S08"
+      ],
+      "workPackageIds": [
+        "U4-04"
+      ],
+      "capabilityId": "CAP-08-04",
+      "businessOwner": "D13",
+      "caseIds": [
+        "B67-R08-P",
+        "B67-R08-CLI",
+        "B67-R08-RIGHT-PANEL",
+        "B67-R08-AGENT-OTHER-PORT",
+        "B67-R08-SECOND-ENGINE",
+        "B67-R08-LEGACY",
+        "B67-R08-DISPLAY",
+        "B67-R08-PREVIEW"
+      ],
+      "approval": "L3_PENDING_HUMAN",
+      "realIndependentConsumer": "NOT_RUN"
+    }
+  ],
+  "fixtures": "docs/capabilities/CAP-08-04/io-fences-b67-fixtures-v08.json",
+  "validator": "tools/check_cap0804_io_fences_b67_v08.cjs",
+  "sourceClassification": "外部控制器2.9/ISO公开目录/NIST摘要与Procet内生设计严格分开",
+  "planningOnly": true
+}

@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "procet-b170-trace-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-05",
+  "topic": "R-UI3D-WEBGPU-BACKEND-001",
+  "sourcePath": "research/sources/CAP-01-07-webgpu-backend-b170.json",
+  "fixturePath": "docs/capabilities/CAP-01-07/webgpu-backend-b170-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0107_webgpu_backend_b170_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-01-07/WEBGPU-BACKEND-QUALIFICATION-B170-2026-11-05.md",
+  "verificationPath": "tracking/cap0107-webgpu-backend-b170-verification-2026-11-05.json",
+  "humanReview": "PENDING_L3",
+  "rules": [
+    {
+      "id": "B170-R01",
+      "title": "安全上下文及Adapter/必要特性都有效",
+      "fields": [
+        "adapter.secureContext",
+        "adapter.apiPresent",
+        "adapter.available",
+        "adapter.featuresOK"
+      ],
+      "sourceIds": [
+        "B170-S01",
+        "B170-S05"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R01-P",
+        "B170-R01-N1",
+        "B170-R01-N2",
+        "B170-R01-N3",
+        "B170-R01-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    },
+    {
+      "id": "B170-R02",
+      "title": "异步init完成才建立唯一Scene、TaskPanel",
+      "fields": [
+        "boot.initResolved",
+        "boot.sceneAfterInit",
+        "boot.engineCount",
+        "boot.leftTaskPanelCount"
+      ],
+      "sourceIds": [
+        "B170-S02",
+        "B170-S03",
+        "B170-S07"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R02-P",
+        "B170-R02-N1",
+        "B170-R02-N2",
+        "B170-R02-N3",
+        "B170-R02-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    },
+    {
+      "id": "B170-R03",
+      "title": "device lost冻结旧读回与PreviewLease、提升epoch",
+      "fields": [
+        "lost.epochBumped",
+        "lost.pickInvalidated",
+        "lost.readOnly",
+        "lost.oldResourcesInvalidated"
+      ],
+      "sourceIds": [
+        "B170-S01",
+        "B170-S04",
+        "B170-S06"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R03-P",
+        "B170-R03-N1",
+        "B170-R03-N2",
+        "B170-R03-N3",
+        "B170-R03-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    },
+    {
+      "id": "B170-R04",
+      "title": "WebGL回退全量重建、不可原位Scene热换、冻结保留",
+      "fields": [
+        "fallback.engineRebuilt",
+        "fallback.sceneReprojected",
+        "fallback.noHotSwap",
+        "fallback.freezeRetained"
+      ],
+      "sourceIds": [
+        "B170-S02",
+        "B170-S03",
+        "B170-S06"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R04-P",
+        "B170-R04-N1",
+        "B170-R04-N2",
+        "B170-R04-N3",
+        "B170-R04-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    },
+    {
+      "id": "B170-R05",
+      "title": "异步拾取回执重验epoch、Exact hash、Frame、Scope",
+      "fields": [
+        "pick.epochCurrent",
+        "pick.sourceHashCurrent",
+        "pick.frameCurrent",
+        "pick.scopeCurrent"
+      ],
+      "sourceIds": [
+        "B170-S03",
+        "B170-S06",
+        "B170-S07"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R05-P",
+        "B170-R05-N1",
+        "B170-R05-N2",
+        "B170-R05-N3",
+        "B170-R05-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    },
+    {
+      "id": "B170-R06",
+      "title": "GUI CLI Agent共用Owner Port且重验CAS/ACL/取消",
+      "fields": [
+        "owner.sharedPort",
+        "owner.casCurrent",
+        "owner.aclRechecked",
+        "owner.cancelFenceCurrent"
+      ],
+      "sourceIds": [
+        "B170-S06",
+        "B170-S07"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R06-P",
+        "B170-R06-N1",
+        "B170-R06-N2",
+        "B170-R06-N3",
+        "B170-R06-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    },
+    {
+      "id": "B170-R07",
+      "title": "WebGPU/WebGL同负载对照、硬件和回归门禁，不虚构性能PASS",
+      "fields": [
+        "perf.hardwareRecorded",
+        "perf.sameWorkload",
+        "perf.uncertified",
+        "perf.regressionGate"
+      ],
+      "sourceIds": [
+        "B170-S02",
+        "B170-S03",
+        "B170-S07"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R07-P",
+        "B170-R07-N1",
+        "B170-R07-N2",
+        "B170-R07-N3",
+        "B170-R07-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    },
+    {
+      "id": "B170-R08",
+      "title": "D04/D10分离，CL不等于NC，unknown阻断发布且不扫掠",
+      "fields": [
+        "nc.d04D10Distinct",
+        "nc.clPreviewOnly",
+        "nc.unknownBlocks",
+        "nc.noMaterialSweep"
+      ],
+      "sourceIds": [
+        "B170-S06",
+        "B170-S07"
+      ],
+      "capabilityIds": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-03",
+        "U4-05",
+        "U4-06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B170-R08-P",
+        "B170-R08-N1",
+        "B170-R08-N2",
+        "B170-R08-N3",
+        "B170-R08-N4"
+      ],
+      "independentConsumers": "真实Renderer/Host/D04/D10/D13/D15待验"
+    }
+  ]
+}

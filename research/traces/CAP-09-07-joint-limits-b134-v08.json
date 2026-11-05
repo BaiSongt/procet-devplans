@@ -1,0 +1,350 @@
+{
+  "schemaVersion": "procet-b134-trace-v08",
+  "date": "2026-11-03",
+  "capabilityId": "CAP-09-07",
+  "researchTopic": "R-LIMIT-COLLISION-001",
+  "sourceRegistry": "research/sources/CAP-09-07-joint-limits-b134.json",
+  "capabilityDocument": "docs/capabilities/CAP-09-07/AXIS-JOINT-LIMIT-B134-2026-11-03.md",
+  "fixturePath": "docs/capabilities/CAP-09-07/joint-limits-b134-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0907_joint_limits_b134_v08.cjs",
+  "workPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "rules": [
+    {
+      "id": "B134-R01",
+      "capabilityId": "CAP-09-07",
+      "description": "D03/D10精确修订、D04名义Setup及Frame隔离",
+      "sourceIds": [
+        "B134-S06",
+        "B134-S07"
+      ],
+      "fields": [
+        "refs.d03Revision",
+        "refs.d10Revision",
+        "refs.d04NominalOnly",
+        "refs.frameHashExact"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R01-P",
+        "B134-R01-N1",
+        "B134-R01-N2",
+        "B134-R01-N3",
+        "B134-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B134-R02",
+      "capabilityId": "CAP-09-07",
+      "description": "运动学模式/解释器运动同步/偏置重校",
+      "sourceIds": [
+        "B134-S02",
+        "B134-S03",
+        "B134-S06"
+      ],
+      "fields": [
+        "mode.kinTypeKnown",
+        "mode.modeRevisionExact",
+        "mode.interpreterMotionSynced",
+        "mode.offsetsRequalified"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R02-P",
+        "B134-R02-N1",
+        "B134-R02-N2",
+        "B134-R02-N3",
+        "B134-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B134-R03",
+      "capabilityId": "CAP-09-07",
+      "description": "笛卡尔Axis包络和来自最终NC的独立证据",
+      "sourceIds": [
+        "B134-S01",
+        "B134-S04",
+        "B134-S06"
+      ],
+      "fields": [
+        "axis.axisEnvelopePinned",
+        "axis.axisWithinBounds",
+        "axis.frameExact",
+        "axis.finalNcSource"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R03-P",
+        "B134-R03-N1",
+        "B134-R03-N2",
+        "B134-R03-N3",
+        "B134-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B134-R04",
+      "capabilityId": "CAP-09-07",
+      "description": "物理Joint限位/归零/整周与笛卡尔Axis分开",
+      "sourceIds": [
+        "B134-S01",
+        "B134-S02",
+        "B134-S07"
+      ],
+      "fields": [
+        "joint.physicalLimitsPinned",
+        "joint.homingEvidence",
+        "joint.physicalJointsWithinBounds",
+        "joint.noOneToOneAssumption"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R04-P",
+        "B134-R04-N1",
+        "B134-R04-N2",
+        "B134-R04-N3",
+        "B134-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B134-R05",
+      "capabilityId": "CAP-09-07",
+      "description": "D14实际关节完整时间区间/分支/动态证明",
+      "sourceIds": [
+        "B134-S01",
+        "B134-S03",
+        "B134-S07"
+      ],
+      "fields": [
+        "interval.timeCoverage",
+        "interval.branchContinuity",
+        "interval.turnCountExact",
+        "interval.speedAccelerationQualified"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R05-P",
+        "B134-R05-N1",
+        "B134-R05-N2",
+        "B134-R05-N3",
+        "B134-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B134-R06",
+      "capabilityId": "CAP-09-07",
+      "description": "最终D12字节→D13语义→D14轴时序→D15独立Oracle",
+      "sourceIds": [
+        "B134-S03",
+        "B134-S06",
+        "B134-S07"
+      ],
+      "fields": [
+        "nc.finalD12Hash",
+        "nc.d13IndependentInterpret",
+        "nc.d14PhysicalTimeline",
+        "nc.d15IndependentOracle"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R06-P",
+        "B134-R06-N1",
+        "B134-R06-N2",
+        "B134-R06-N3",
+        "B134-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B134-R07",
+      "capabilityId": "CAP-09-07",
+      "description": "GUI/CLI/Agent同Port、单Babylon与左TaskPanel",
+      "sourceIds": [
+        "B134-S06"
+      ],
+      "fields": [
+        "ui.oneBabylonWorld",
+        "ui.leftTaskPanel",
+        "ui.sameDomainPort",
+        "ui.previewReadOnly"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R07-P",
+        "B134-R07-N1",
+        "B134-R07-N2",
+        "B134-R07-N3",
+        "B134-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B134-R08",
+      "capabilityId": "CAP-09-07",
+      "description": "写点ACL/CAS/取消Fence及冻结历史/旧Reader回退",
+      "sourceIds": [
+        "B134-S06",
+        "B134-S07"
+      ],
+      "fields": [
+        "commit.aclRechecked",
+        "commit.casExactChecked",
+        "commit.cancelLateAckFenced",
+        "commit.migrationRollbackFrozen"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "tests": [
+        "B134-R08-P",
+        "B134-R08-N1",
+        "B134-R08-N2",
+        "B134-R08-N3",
+        "B134-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

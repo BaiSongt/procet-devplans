@@ -1,0 +1,353 @@
+{
+  "schemaVersion": "procet-b72-trace-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-08-03",
+  "topic": "R-WCS-MOTION-001",
+  "sourcesPath": "research/sources/CAP-08-03-lathe-css-b72.json",
+  "fixturePath": "docs/capabilities/CAP-08-03/lathe-css-b72-fixtures-v08.json",
+  "checker": "tools/check_cap0803_lathe_css_b72_v08.cjs",
+  "rules": [
+    {
+      "id": "B72-R1",
+      "title": "NC原字节与Setup/执行绑定Profile exact来源",
+      "sourceIds": [
+        "B72-S08",
+        "B72-S06"
+      ],
+      "fields": [
+        "identity.ncHash",
+        "identity.expectedNcHash",
+        "identity.d04Rev",
+        "identity.d10Rev",
+        "identity.profileHash",
+        "identity.scopeEpoch",
+        "identity.frameFrom",
+        "identity.frameTo"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [],
+        "negative": [],
+        "stale": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05"
+        ],
+        "unknown": [],
+        "display": []
+      }
+    },
+    {
+      "id": "B72-R2",
+      "title": "Haas车床G95与LinuxCNC G95碰撞，Haas每转须G99",
+      "sourceIds": [
+        "B72-S02",
+        "B72-S03"
+      ],
+      "fields": [
+        "program.dialect",
+        "program.profileVerified",
+        "program.feedMode"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "origin": "DIALECT_SCOPED_AND_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [
+          "P03"
+        ],
+        "negative": [
+          "N01",
+          "N02",
+          "N03"
+        ],
+        "stale": [],
+        "unknown": [
+          "U01",
+          "U02"
+        ],
+        "display": []
+      }
+    },
+    {
+      "id": "B72-R3",
+      "title": "LinuxCNC G7直径/G8半径转换与Haas Profile身份",
+      "sourceIds": [
+        "B72-S01",
+        "B72-S08"
+      ],
+      "fields": [
+        "program.xMode",
+        "program.xModeKnown",
+        "program.xWord",
+        "program.expectedDiameterMm"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "F1-02",
+        "E3-04"
+      ],
+      "origin": "DIALECT_SCOPED_AND_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [
+          "P01",
+          "P02"
+        ],
+        "negative": [
+          "N04",
+          "N05"
+        ],
+        "stale": [],
+        "unknown": [
+          "U03"
+        ],
+        "display": []
+      }
+    },
+    {
+      "id": "B72-R4",
+      "title": "CSS表速与每转进给量纲反算",
+      "sourceIds": [
+        "B72-S02",
+        "B72-S04",
+        "B72-S08"
+      ],
+      "fields": [
+        "program.cssS",
+        "program.units",
+        "program.expectedRpm",
+        "program.expectedFeedMmMin"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "E3-04"
+      ],
+      "origin": "DIALECT_SCOPED_AND_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [],
+        "negative": [
+          "N06",
+          "N07",
+          "N08"
+        ],
+        "stale": [],
+        "unknown": [
+          "U10"
+        ],
+        "display": []
+      }
+    },
+    {
+      "id": "B72-R5",
+      "title": "LinuxCNC G96 D与Haas G50 S转速限幅隔离",
+      "sourceIds": [
+        "B72-S02",
+        "B72-S03",
+        "B72-S04"
+      ],
+      "fields": [
+        "program.limitCode",
+        "program.limitRpm",
+        "program.machineLimitRpm",
+        "program.machineLimitKnown"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "E3-05"
+      ],
+      "origin": "DIALECT_SCOPED_AND_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [],
+        "negative": [
+          "N09",
+          "N10",
+          "N11"
+        ],
+        "stale": [],
+        "unknown": [
+          "U04"
+        ],
+        "display": []
+      }
+    },
+    {
+      "id": "B72-R6",
+      "title": "主轴选定及反馈不可由名义进给替代",
+      "sourceIds": [
+        "B72-S02",
+        "B72-S03",
+        "B72-S06"
+      ],
+      "fields": [
+        "program.spindleSelected",
+        "program.spindleFeedbackKnown",
+        "program.feedPerRev"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "origin": "DIALECT_SCOPED_AND_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [],
+        "negative": [
+          "N12"
+        ],
+        "stale": [],
+        "unknown": [
+          "U05",
+          "U06"
+        ],
+        "display": []
+      }
+    },
+    {
+      "id": "B72-R7",
+      "title": "中心线及无法识别宏保守UNKNOWN",
+      "sourceIds": [
+        "B72-S02",
+        "B72-S05",
+        "B72-S08"
+      ],
+      "fields": [
+        "program.centerFrameKnown",
+        "program.centerAligned",
+        "program.unsupportedMacro",
+        "program.xWord"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "origin": "DIALECT_SCOPED_AND_INTERNAL_POLICY",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [],
+        "negative": [
+          "N13",
+          "N14"
+        ],
+        "stale": [],
+        "unknown": [
+          "U07",
+          "U08",
+          "U09"
+        ],
+        "display": []
+      }
+    },
+    {
+      "id": "B72-R8",
+      "title": "同一业务Owner与GUI/CLI/Agent状态、CAS及取消回退",
+      "sourceIds": [
+        "B72-S08"
+      ],
+      "fields": [
+        "gate.ownerPort",
+        "gate.acl",
+        "gate.cas",
+        "gate.cancelled",
+        "gate.lateAck",
+        "gate.generation",
+        "gate.ackGeneration",
+        "gate.sceneCount",
+        "gate.leftPanel",
+        "gate.channels",
+        "gate.previewWrites",
+        "gate.previewOnly",
+        "gate.freezePreserved",
+        "gate.rollbackReader"
+      ],
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04",
+        "E3-05"
+      ],
+      "origin": "INTERNAL",
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN",
+      "casesByKind": {
+        "positive": [],
+        "negative": [
+          "N15",
+          "N16",
+          "N17",
+          "N18",
+          "N19",
+          "N20",
+          "N21",
+          "N22",
+          "N23",
+          "N24",
+          "N25"
+        ],
+        "stale": [
+          "S06"
+        ],
+        "unknown": [],
+        "display": [
+          "D01",
+          "D02"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "E3-02",
+  "researchTopic": "R-D12-POST-001",
+  "sourceRegistry": "research/sources/E3-02.json",
+  "implementation": "docs/work-packages/E3-02.md",
+  "ui": "docs/work-packages/E3-02/UI.md",
+  "fixtures": "docs/work-packages/E3-02/fixtures.json",
+  "validator": "tools/check_e302_planning_2026_10_25.py",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "E302-R01",
+      "workPackageId": "E3-02",
+      "summary": "D08/D09 exact hash/revision/frame/units与D10分开",
+      "fixtureGate": "exactRef",
+      "failureCode": "NC_INPUT_MISMATCH",
+      "sourceIds": [
+        "SRC-E302-001",
+        "SRC-E302-006",
+        "SRC-E302-008"
+      ],
+      "fields": [
+        "d12.exactRef",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D10",
+        "D12"
+      ],
+      "positiveTestId": "E3-02-T01",
+      "negativeTestId": "E3-02-T02",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R02",
+      "workPackageId": "E3-02",
+      "summary": "后处理包、配置、许可证与控制器profile固定双SHA",
+      "fixtureGate": "postProfile",
+      "failureCode": "POST_PROFILE_UNKNOWN",
+      "sourceIds": [
+        "SRC-E302-001",
+        "SRC-E302-004",
+        "SRC-E302-005"
+      ],
+      "fields": [
+        "d12.postProfile",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D12"
+      ],
+      "positiveTestId": "E3-02-T03",
+      "negativeTestId": "E3-02-T04",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R03",
+      "workPackageId": "E3-02",
+      "summary": "3轴/B5仅声明实际验证的线/弧/螺旋/TCP子集",
+      "fixtureGate": "dialectSubset",
+      "failureCode": "DIALECT_UNSUPPORTED",
+      "sourceIds": [
+        "SRC-E302-001",
+        "SRC-E302-002",
+        "SRC-E302-003"
+      ],
+      "fields": [
+        "d12.dialectSubset",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positiveTestId": "E3-02-T05",
+      "negativeTestId": "E3-02-T06",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R04",
+      "workPackageId": "E3-02",
+      "summary": "显式单位、平面、距离模式、刀补、WCS初态与结尾",
+      "fixtureGate": "modal",
+      "failureCode": "MODAL_AMBIGUOUS",
+      "sourceIds": [
+        "SRC-E302-002",
+        "SRC-E302-003",
+        "SRC-E302-007"
+      ],
+      "fields": [
+        "d12.modal",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positiveTestId": "E3-02-T07",
+      "negativeTestId": "E3-02-T08",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R05",
+      "workPackageId": "E3-02",
+      "summary": "圆弧/螺旋保留方向平面公差，不兼容需拒绝或新修订降级",
+      "fixtureGate": "arcHelix",
+      "failureCode": "ARC_HELIX_UNSUPPORTED",
+      "sourceIds": [
+        "SRC-E302-002",
+        "SRC-E302-003"
+      ],
+      "fields": [
+        "d12.arcHelix",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D09",
+        "D12"
+      ],
+      "positiveTestId": "E3-02-T09",
+      "negativeTestId": "E3-02-T10",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R06",
+      "workPackageId": "E3-02",
+      "summary": "NC字节哈希及逐物理行CL来源或SYNTHETIC原因闭合",
+      "fixtureGate": "lineage",
+      "failureCode": "NC_LINEAGE_BROKEN",
+      "sourceIds": [
+        "SRC-E302-006",
+        "SRC-E302-008",
+        "SRC-E302-009"
+      ],
+      "fields": [
+        "d12.lineage",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "positiveTestId": "E3-02-T11",
+      "negativeTestId": "E3-02-T12",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R07",
+      "workPackageId": "E3-02",
+      "summary": "人工NC编辑fork新revision且来源复核，不覆盖冻结版",
+      "fixtureGate": "immutable",
+      "failureCode": "NC_IMMUTABILITY_BROKEN",
+      "sourceIds": [
+        "SRC-E302-005",
+        "SRC-E302-008",
+        "SRC-E302-009"
+      ],
+      "fields": [
+        "d12.immutable",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "positiveTestId": "E3-02-T13",
+      "negativeTestId": "E3-02-T14",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R08",
+      "workPackageId": "E3-02",
+      "summary": "GUI/CLI/Agent共域Port，提交当刻重验CAS与ACL",
+      "fixtureGate": "casAcl",
+      "failureCode": "CAS_ACL_REVALIDATION_FAILED",
+      "sourceIds": [
+        "SRC-E302-008",
+        "SRC-E302-009"
+      ],
+      "fields": [
+        "d12.casAcl",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D05",
+        "D12"
+      ],
+      "positiveTestId": "E3-02-T15",
+      "negativeTestId": "E3-02-T16",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R09",
+      "workPackageId": "E3-02",
+      "summary": "取消晚回执隔离，精确失效传播至D13-D16",
+      "fixtureGate": "cancel",
+      "failureCode": "LATE_RECEIPT_ADOPTED",
+      "sourceIds": [
+        "SRC-E302-007",
+        "SRC-E302-009"
+      ],
+      "fields": [
+        "d12.cancel",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-02-T17",
+      "negativeTestId": "E3-02-T18",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E302-R10",
+      "workPackageId": "E3-02",
+      "summary": "D13独立从最终NC字节解释，CL动画不可冒充D15工程PASS",
+      "fixtureGate": "consumer",
+      "failureCode": "FALSE_NC_VERIFICATION",
+      "sourceIds": [
+        "SRC-E302-002",
+        "SRC-E302-006",
+        "SRC-E302-009"
+      ],
+      "fields": [
+        "d12.consumer",
+        "d12.exactRevisionHashFrame"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-02-T19",
+      "negativeTestId": "E3-02-T20",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D13_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

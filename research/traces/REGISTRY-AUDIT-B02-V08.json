@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "procet-registry-audit-trace-v08",
+  "audit": "research/audits/REGISTRY-AUDIT-B02-2026-10-28.json",
+  "fixtures": "docs/architecture/v0.8/registry-audit-b02-fixtures-v08.json",
+  "rules": [
+    {
+      "id": "RA2-R01",
+      "sourceId": "SRC-WFLOW-001",
+      "registryPath": "research/sources/CAP-01-05.json",
+      "registryBlobSha": "026aaf2be3cbded34f086fd71cf09b05df8ed3a6",
+      "sourceUrl": "https://www.sqlite.org/isolation.html",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-01-05",
+      "originalWorkPackageId": "F1-06",
+      "fieldPaths": [
+        "workflow.frozenRevisionHash",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "不同连接仅可见已提交事务，A/B接管要校验exact hash且不可从晚回执复权",
+      "limitation": "SQLite单库隔离并非跨服务CAS/ACL批准，更不等于产品实测",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P01"
+    },
+    {
+      "id": "RA2-R02",
+      "sourceId": "SRC-PROJ-002",
+      "registryPath": "research/sources/CAP-01-01.json",
+      "registryBlobSha": "f0da50d1ba4fd963378abd330b71510e435b6b5f",
+      "sourceUrl": "https://www.w3.org/TR/prov-dm/",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-01-01",
+      "originalWorkPackageId": "B0-01",
+      "fieldPaths": [
+        "project.revisionProvenanceRef",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "项目修订保留Entity/Activity/Derivation关系与来源修订",
+      "limitation": "PROV-DM不提供Procet事务及Owner审批程序",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P02"
+    },
+    {
+      "id": "RA2-R03",
+      "sourceId": "SRC-OBJ-001",
+      "registryPath": "research/sources/CAP-01-02.json",
+      "registryBlobSha": "d485da137254b47d78c5ecab45087828d6a51c78",
+      "sourceUrl": "https://www.w3.org/TR/annotation-model/",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-01-02",
+      "originalWorkPackageId": "F1-01",
+      "fieldPaths": [
+        "annotation.targetExactRevisionRef",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "工程文档批注target必须关联exact对象修订与selector，视图销毁不删对象",
+      "limitation": "Web Annotation不解决CAD跨版TopoID稳定性",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P03"
+    },
+    {
+      "id": "RA2-R04",
+      "sourceId": "SRC-REV-002",
+      "registryPath": "research/sources/CAP-01-03.json",
+      "registryBlobSha": "a0b06d396e3b38cee20ca746f627129700b814d3",
+      "sourceUrl": "https://www.sqlite.org/wal.html",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-01-03",
+      "originalWorkPackageId": "F1-06",
+      "fieldPaths": [
+        "revision.checkpointRecoveryProof",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "恢复后重校验domain revision/hash、冻结分支血缘和快照读一致性",
+      "limitation": "WAL不能保证跨附加数据库整体原子或业务回滚正确",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P04"
+    },
+    {
+      "id": "RA2-R05",
+      "sourceId": "SRC-SOL-001",
+      "registryPath": "research/sources/F1-05.json",
+      "registryBlobSha": "d6341aeb21281a6bc2e8124bf57aecdc7c836757",
+      "sourceUrl": "https://doc.rust-lang.org/cargo/reference/features.html",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-01-05",
+      "originalWorkPackageId": "F1-05",
+      "fieldPaths": [
+        "solver.buildFeatureFingerprint",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "Solver可选编译特性必须连同构建fingerprint固定用于独立消费者重演",
+      "limitation": "Cargo features不能证明算法有效、机床可执行或Owner批准",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P05"
+    },
+    {
+      "id": "RA2-R06",
+      "sourceId": "SRC-FEDIT-002",
+      "registryPath": "research/sources/CAP-03-06.json",
+      "registryBlobSha": "65a8596106ac29551111678d845607701c2e81f7",
+      "sourceUrl": "https://occt3d.com/dev/doc/refman/html/class_b_rep_tools___history.html",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-03-06",
+      "originalWorkPackageId": "F1-03",
+      "fieldPaths": [
+        "feature.editHistoryRelation",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "几何编辑保留generated/modified/removed及来源拓扑证据",
+      "limitation": "API不保证所有跨修订TopoID稳定，不能替代Native测试",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P06"
+    },
+    {
+      "id": "RA2-R07",
+      "sourceId": "SRC-SEM-001",
+      "registryPath": "research/sources/CAP-03-08.json",
+      "registryBlobSha": "0ab320995b8526f5f79703081c5a6e8e2a991cea",
+      "sourceUrl": "https://www.w3.org/TR/prov-o/",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-03-08",
+      "originalWorkPackageId": "F1-03",
+      "fieldPaths": [
+        "feature.semanticDerivationChain",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "语义特征保留派生来源并隔离冻结的A/B结果",
+      "limitation": "PROV血缘存在不推出几何可加工或唯一加工顺序",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P07"
+    },
+    {
+      "id": "RA2-R08",
+      "sourceId": "SRC-SET-003",
+      "registryPath": "research/sources/CAP-04-01.json",
+      "registryBlobSha": "4c2ecf31d667ab99417888354c50f1f13da43023",
+      "sourceUrl": "https://dev.opencascade.org/doc/refman/html/classgp___trsf.html",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-04-01",
+      "originalWorkPackageId": "F1-02",
+      "fieldPaths": [
+        "setup.designFrameTransformRef",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "Frame连乘顺序与局部坐标身份明确，D04不自动构成D10实际绑定",
+      "limitation": "gp_Trsf不定义实机零点、装夹与轴碰撞安全",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P08"
+    },
+    {
+      "id": "RA2-R09",
+      "sourceId": "SRC-B001-005",
+      "registryPath": "research/sources/B0-01.json",
+      "registryBlobSha": "394889f161cfa0938a62d4686c96731bf4c1374d",
+      "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "readDepth": "catalog_abstract",
+      "capabilityId": "CAP-01-01",
+      "originalWorkPackageId": "B0-01",
+      "fieldPaths": [
+        "release.securityEvidenceStatus",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "规划交接记录安全开发证据及NOT_RUN，不将设计文档当独立安全验收",
+      "limitation": "仅摘要，未读SP800-218 PDF正文，不声明具体SSDF条款符合",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P09"
+    },
+    {
+      "id": "RA2-R10",
+      "sourceId": "SRC-B002-001",
+      "registryPath": "research/sources/B0-02.json",
+      "registryBlobSha": "700c4eecc612412da0c367bb3bd8b0c5c01714c7",
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+      "readDepth": "section_text",
+      "capabilityId": "CAP-03-01",
+      "originalWorkPackageId": "B0-02",
+      "fieldPaths": [
+        "architecture.boundaryOwnerPort",
+        "evidence.sourceId",
+        "evidence.blobSha",
+        "evidence.readDepth",
+        "evidence.limits",
+        "acceptance.independentConsumerStatus"
+      ],
+      "statement": "业务Owner独立Port，GUI/CLI/Agent同业务命令而非复用跨域写权限",
+      "limitation": "厂商方法指南不等于Procet特定领域划分已获Owner正式签署",
+      "authorization": "NOT_OWNER_WRITE",
+      "positiveId": "RA2-P10"
+    }
+  ],
+  "domainConstraints": {
+    "L1L2": "UNCHANGED",
+    "L3": "PENDING_HUMAN",
+    "C0": "MINIMAL_COMMON",
+    "guiCliAgentSameOwnerPort": true,
+    "oneBabylonWorld": true,
+    "leftUnifiedTaskPanel": true,
+    "exactRevisionHashFrameRequired": true,
+    "casAclScopeCancelAtCommit": true,
+    "lateAckRestoresAuthority": false,
+    "abFrozenProtected": true,
+    "d04EqualsD10": false,
+    "pipeline": [
+      "NEUTRAL_CL",
+      "D12_POST_NC",
+      "D13_EXEC_SEMANTICS",
+      "D14_AXIS_TIMELINE",
+      "D15_INDEPENDENT_VALIDATE",
+      "D16_RELEASE"
+    ],
+    "clAnimationCountsAsNcAcceptance": false,
+    "unknownSemanticCanRelease": false,
+    "materialSweepRequired": false,
+    "product": "NOT_RUN"
+  }
+}

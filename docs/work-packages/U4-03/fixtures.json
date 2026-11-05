@@ -1,0 +1,495 @@
+{
+  "schemaVersion": "procet-u403-synthetic-fixtures-v1",
+  "purpose": "仅验证规划规则JSON逻辑；不得冒充真实Babylon、GPU、Owner或NC产品测试",
+  "cases": [
+    {
+      "id": "U4-03-T01",
+      "ruleId": "U4-03-R01",
+      "input": {
+        "pick": {
+          "ref": {
+            "assetId": "D01",
+            "objectId": "face-17",
+            "revision": "r8",
+            "hash": "sha256:geo8",
+            "frameHash": "sha256:frame8"
+          }
+        },
+        "owner": {
+          "hash": "sha256:geo8",
+          "frameHash": "sha256:frame8",
+          "revision": "r8"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T02",
+      "ruleId": "U4-03-R01",
+      "input": {
+        "pick": {
+          "ref": {
+            "assetId": "D01",
+            "objectId": "face-17",
+            "revision": "r8",
+            "hash": "sha256:stale",
+            "frameHash": "sha256:frame8"
+          }
+        },
+        "owner": {
+          "hash": "sha256:geo8",
+          "frameHash": "sha256:frame8",
+          "revision": "r8"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T03",
+      "ruleId": "U4-03-R02",
+      "input": {
+        "selection": {
+          "listRefHash": "sha256:face17",
+          "worldRefHash": "sha256:face17",
+          "focusWrites": 0,
+          "domainWrites": 0,
+          "focusVisible": true
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T04",
+      "ruleId": "U4-03-R02",
+      "input": {
+        "selection": {
+          "listRefHash": "sha256:face17",
+          "worldRefHash": "sha256:face16",
+          "focusWrites": 0,
+          "domainWrites": 0,
+          "focusVisible": true
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T05",
+      "ruleId": "U4-03-R03",
+      "input": {
+        "render": {
+          "sceneCount": 1,
+          "worldId": "main-world",
+          "activeScopeKey": "P1/DOC1/S1"
+        },
+        "lease": {
+          "scopeKey": "P1/DOC1/S1",
+          "status": "ACTIVE",
+          "leaseId": "lease-004"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T06",
+      "ruleId": "U4-03-R03",
+      "input": {
+        "render": {
+          "sceneCount": 2,
+          "worldId": "main-world",
+          "activeScopeKey": "P1/DOC1/S1"
+        },
+        "lease": {
+          "scopeKey": "P1/DOC1/S1",
+          "status": "ACTIVE",
+          "leaseId": "lease-004"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T07",
+      "ruleId": "U4-03-R04",
+      "input": {
+        "expected": {
+          "scopeEpoch": 9,
+          "generation": 6,
+          "geometryHash": "sha256:g17"
+        },
+        "receipt": {
+          "scopeEpoch": 9,
+          "generation": 6,
+          "geometryHash": "sha256:g17",
+          "cancelled": false,
+          "visibility": "APPLIED"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T08",
+      "ruleId": "U4-03-R04",
+      "input": {
+        "expected": {
+          "scopeEpoch": 9,
+          "generation": 6,
+          "geometryHash": "sha256:g17"
+        },
+        "receipt": {
+          "scopeEpoch": 9,
+          "generation": 5,
+          "geometryHash": "sha256:g17",
+          "cancelled": false,
+          "visibility": "APPLIED"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T09",
+      "ruleId": "U4-03-R05",
+      "input": {
+        "cleanup": {
+          "observerCount": 0,
+          "gizmoCount": 0,
+          "overlayCount": 0,
+          "mappingCount": 0,
+          "ownerObjectDeleted": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T10",
+      "ruleId": "U4-03-R05",
+      "input": {
+        "cleanup": {
+          "observerCount": 1,
+          "gizmoCount": 0,
+          "overlayCount": 0,
+          "mappingCount": 0,
+          "ownerObjectDeleted": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T11",
+      "ruleId": "U4-03-R06",
+      "input": {
+        "proxy": {
+          "type": "VISUAL_ONLY",
+          "collisionCertified": false,
+          "d15Passed": false,
+          "unknownAsPass": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T12",
+      "ruleId": "U4-03-R06",
+      "input": {
+        "proxy": {
+          "type": "VISUAL_ONLY",
+          "collisionCertified": true,
+          "d15Passed": false,
+          "unknownAsPass": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T13",
+      "ruleId": "U4-03-R07",
+      "input": {
+        "cancel": {
+          "event": "pointercancel",
+          "leaseStatus": "RELEASED",
+          "ownerWrites": 0,
+          "draftDiscarded": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T14",
+      "ruleId": "U4-03-R07",
+      "input": {
+        "cancel": {
+          "event": "pointercancel",
+          "leaseStatus": "ACTIVE",
+          "ownerWrites": 0,
+          "draftDiscarded": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T15",
+      "ruleId": "U4-03-R08",
+      "input": {
+        "display": {
+          "frameHash": "sha256:f9",
+          "bakedIntoOwner": false,
+          "modifiesExecutionBinding": false,
+          "unit": "mm"
+        },
+        "owner": {
+          "frameHash": "sha256:f9"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T16",
+      "ruleId": "U4-03-R08",
+      "input": {
+        "display": {
+          "frameHash": "sha256:bad",
+          "bakedIntoOwner": false,
+          "modifiesExecutionBinding": false,
+          "unit": "mm"
+        },
+        "owner": {
+          "frameHash": "sha256:f9"
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T17",
+      "ruleId": "U4-03-R09",
+      "input": {
+        "commit": {
+          "ownerPort": "D04",
+          "expectedHead": "head77",
+          "currentHead": "head77",
+          "aclEpoch": 3,
+          "currentAclEpoch": 3,
+          "generation": 8,
+          "currentGeneration": 8,
+          "cancelled": false,
+          "previewAutoCommitted": false
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T18",
+      "ruleId": "U4-03-R09",
+      "input": {
+        "commit": {
+          "ownerPort": "D04",
+          "expectedHead": "head77",
+          "currentHead": "head78",
+          "aclEpoch": 3,
+          "currentAclEpoch": 3,
+          "generation": 8,
+          "currentGeneration": 8,
+          "cancelled": false,
+          "previewAutoCommitted": false
+        }
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "U4-03-T19",
+      "ruleId": "U4-03-R10",
+      "input": {
+        "migration": {
+          "oldReaderCompatible": true,
+          "singleScene": true,
+          "rollbackAvailable": true,
+          "ownerRevisionModified": false,
+          "stage": "EXPAND"
+        }
+      },
+      "expected": "PASS"
+    },
+    {
+      "id": "U4-03-T20",
+      "ruleId": "U4-03-R10",
+      "input": {
+        "migration": {
+          "oldReaderCompatible": true,
+          "singleScene": true,
+          "rollbackAvailable": true,
+          "ownerRevisionModified": true,
+          "stage": "EXPAND"
+        }
+      },
+      "expected": "REJECT"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "U4-03-M01",
+      "ruleId": "U4-03-R01",
+      "input": {
+        "pick": {
+          "ref": {
+            "assetId": "D01",
+            "objectId": "face-17",
+            "revision": "r8",
+            "hash": "sha256:geo8",
+            "frameHash": "sha256:wrongframe"
+          }
+        },
+        "owner": {
+          "hash": "sha256:geo8",
+          "frameHash": "sha256:frame8",
+          "revision": "r8"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M02",
+      "ruleId": "U4-03-R02",
+      "input": {
+        "selection": {
+          "listRefHash": "sha256:face17",
+          "worldRefHash": "sha256:face17",
+          "focusWrites": 1,
+          "domainWrites": 0,
+          "focusVisible": true
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M03",
+      "ruleId": "U4-03-R03",
+      "input": {
+        "render": {
+          "sceneCount": 1,
+          "worldId": "main-world",
+          "activeScopeKey": "P1/DOC1/S1"
+        },
+        "lease": {
+          "scopeKey": "P1/DOC2/S2",
+          "status": "ACTIVE",
+          "leaseId": "lease-004"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M04",
+      "ruleId": "U4-03-R04",
+      "input": {
+        "expected": {
+          "scopeEpoch": 9,
+          "generation": 6,
+          "geometryHash": "sha256:g17"
+        },
+        "receipt": {
+          "scopeEpoch": 9,
+          "generation": 6,
+          "geometryHash": "sha256:g17",
+          "cancelled": true,
+          "visibility": "APPLIED"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M05",
+      "ruleId": "U4-03-R05",
+      "input": {
+        "cleanup": {
+          "observerCount": 0,
+          "gizmoCount": 1,
+          "overlayCount": 0,
+          "mappingCount": 0,
+          "ownerObjectDeleted": false
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M06",
+      "ruleId": "U4-03-R06",
+      "input": {
+        "proxy": {
+          "type": "VISUAL_ONLY",
+          "collisionCertified": false,
+          "d15Passed": true,
+          "unknownAsPass": false
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M07",
+      "ruleId": "U4-03-R07",
+      "input": {
+        "cancel": {
+          "event": "pointercancel",
+          "leaseStatus": "RELEASED",
+          "ownerWrites": 1,
+          "draftDiscarded": false
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M08",
+      "ruleId": "U4-03-R08",
+      "input": {
+        "display": {
+          "frameHash": "sha256:f9",
+          "bakedIntoOwner": false,
+          "modifiesExecutionBinding": true,
+          "unit": "mm"
+        },
+        "owner": {
+          "frameHash": "sha256:f9"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M09",
+      "ruleId": "U4-03-R09",
+      "input": {
+        "commit": {
+          "ownerPort": "D04",
+          "expectedHead": "head77",
+          "currentHead": "head77",
+          "aclEpoch": 3,
+          "currentAclEpoch": 4,
+          "generation": 8,
+          "currentGeneration": 8,
+          "cancelled": false,
+          "previewAutoCommitted": false
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    },
+    {
+      "id": "U4-03-M10",
+      "ruleId": "U4-03-R10",
+      "input": {
+        "migration": {
+          "oldReaderCompatible": false,
+          "singleScene": true,
+          "rollbackAvailable": true,
+          "ownerRevisionModified": false,
+          "stage": "EXPAND"
+        }
+      },
+      "expected": "REJECT",
+      "differentFieldFromPairedNegative": true
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "schemaVersion": "procet-b34-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-07-04",
+  "originalPackages": [
+    "F1-03",
+    "E3-01",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "sourceRegistry": "research/sources/CAP-07-04-orientation-ik-b34.json",
+  "fixtures": "docs/capabilities/CAP-07-04/orientation-ik-b34-fixtures-v08.json",
+  "validator": "tools/check_cap0704_orientation_ik_b34_v08.cjs",
+  "rules": [
+    {
+      "id": "B34-R01",
+      "title": "固定Hash/Frame、D04名义Setup及D08冻结",
+      "sourceIds": [
+        "B34-S05"
+      ],
+      "fields": [
+        "source.d01",
+        "source.d03",
+        "source.d04",
+        "source.d08",
+        "source.frame",
+        "source.clFrame",
+        "source.d04NominalOnly",
+        "source.d08Frozen"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "E3-01"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06"
+      ],
+      "origin": "INTERNAL_DESIGN",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B34-R02",
+      "title": "q与-q同旋转和四元数范数/Frame",
+      "sourceIds": [
+        "B34-S03",
+        "B34-S04",
+        "B34-S05"
+      ],
+      "fields": [
+        "orientation.q0",
+        "orientation.q1",
+        "orientation.signInvariant",
+        "orientation.frame"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "E3-01"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [],
+      "negativeIds": [
+        "N07",
+        "N08",
+        "N09",
+        "N10"
+      ],
+      "origin": "EXTERNAL_AND_INTERNAL_BOUNDARY",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B34-R03",
+      "title": "刀轴单位性与姿态几何跳变限度",
+      "sourceIds": [
+        "B34-S03",
+        "B34-S05"
+      ],
+      "fields": [
+        "orientation.axis",
+        "orientation.stepLimitDeg"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "E3-01",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [],
+      "negativeIds": [
+        "N11",
+        "N12",
+        "N13"
+      ],
+      "origin": "EXTERNAL_AND_INTERNAL_BOUNDARY",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B34-R04",
+      "title": "真实CC/TCP和修剪面的差异资格",
+      "sourceIds": [
+        "B34-S02",
+        "B34-S05"
+      ],
+      "fields": [
+        "orientation.contactQualified",
+        "orientation.ccTcpDistinct",
+        "orientation.trimmedSurface"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "E3-01"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [],
+      "negativeIds": [
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "origin": "EXTERNAL_AND_INTERNAL_BOUNDARY",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B34-R05",
+      "title": "5DOF任务Jacobian奇异值和D03标定先决条件",
+      "sourceIds": [
+        "B34-S01",
+        "B34-S02",
+        "B34-S05"
+      ],
+      "fields": [
+        "kinematics.taskDoF",
+        "kinematics.jacobianRank",
+        "kinematics.sigmaMin",
+        "kinematics.sigmaPolicyMin",
+        "kinematics.modelHash",
+        "kinematics.calibrated"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "E3-01",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "negativeIds": [
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N21"
+      ],
+      "origin": "EXTERNAL_AND_INTERNAL_BOUNDARY",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B34-R06",
+      "title": "359°邻近的模360显示不等于实机Joint解缠/进给",
+      "sourceIds": [
+        "B34-S02",
+        "B34-S05"
+      ],
+      "fields": [
+        "kinematics.jointAngleExample",
+        "kinematics.displayDeltaDeg",
+        "kinematics.physicalUnwrap",
+        "kinematics.jointRateCertified",
+        "kinematics.jointWordsInCl"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "E3-01",
+        "E3-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [],
+      "negativeIds": [
+        "N22",
+        "N23",
+        "N24",
+        "N25"
+      ],
+      "origin": "EXTERNAL_AND_INTERNAL_BOUNDARY",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B34-R07",
+      "title": "GUI/CLI/Agent同Owner Port及唯一3D/左TaskPanel、CAS取消",
+      "sourceIds": [
+        "B34-S05"
+      ],
+      "fields": [
+        "guard.owner",
+        "guard.channels",
+        "guard.singleBabylon",
+        "guard.leftPanel",
+        "guard.expected",
+        "guard.actual",
+        "guard.aclEpoch",
+        "guard.scopeEpoch",
+        "guard.generation",
+        "guard.cancelled"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "F1-03",
+        "U4-04"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [],
+      "negativeIds": [
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33",
+        "N34"
+      ],
+      "origin": "INTERNAL_DESIGN",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    },
+    {
+      "id": "B34-R08",
+      "title": "D09中立CL至D12/D13/D14/D15/D16安全分层",
+      "sourceIds": [
+        "B34-S02",
+        "B34-S05"
+      ],
+      "fields": [
+        "chain.clNeutral",
+        "chain.d12",
+        "chain.d13",
+        "chain.d14",
+        "chain.d15",
+        "chain.d16",
+        "chain.materialSweep",
+        "chain.clPreviewCertifies"
+      ],
+      "capabilityIds": [
+        "CAP-07-04"
+      ],
+      "workPackageIds": [
+        "E3-01",
+        "E3-04",
+        "E3-05"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02"
+      ],
+      "unknownIds": [],
+      "negativeIds": [
+        "N35",
+        "N36",
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41"
+      ],
+      "origin": "EXTERNAL_AND_INTERNAL_BOUNDARY",
+      "consumer": "NOT_RUN",
+      "designApproval": "L3_PENDING_HUMAN"
+    }
+  ]
+}

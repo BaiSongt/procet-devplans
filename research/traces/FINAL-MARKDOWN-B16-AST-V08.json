@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "procet-final-md-b16-ast-trace-v08",
+  "recordedOn": "2026-10-29",
+  "sourceExactHead": "1690ea1343a7c9a24be89497eef3ca0ae10bd767",
+  "sourceTreeSha": "e4bd54cc01da29365533812571d9da5c2330271f",
+  "sourceTreeTruncated": false,
+  "sourceMarkdownCount": 543,
+  "scope": "NEWLY_AUTHORED_AST_SUBSET_TOOL_AND_SYNTHETIC_ONLY_PENDING_L3",
+  "sources": [
+    {
+      "id": "B16-S01",
+      "author": "GitHub / CommonMark社区；基础规范John MacFarlane",
+      "title": "GitHub Flavored Markdown Spec",
+      "version": "0.29-gfm",
+      "published": "2019-04-06",
+      "accessed": "2026-10-29",
+      "url": "https://github.github.io/gfm/",
+      "readingDepth": "§4.7参考式定义、§4.10表格、§6.6链接、§6.10原生HTML、§6.11受限HTML；公开HTML可见正文",
+      "limits": "GFM规范不规定GitHub.com后处理生成标题slug的完整可复现实现"
+    },
+    {
+      "id": "B16-S02",
+      "author": "GitHub Docs",
+      "title": "Basic writing and formatting syntax",
+      "version": "在线现行文档（页面未给固定修订号）",
+      "published": "页面未标注",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax",
+      "readingDepth": "Section links、Relative links（/开头相对仓库根）、Custom anchors（a name）、Footnotes；公开HTML对应段落",
+      "limits": "描述平台语义，不构成对当前工具完整渲染等价性的证明"
+    },
+    {
+      "id": "B16-S03",
+      "author": "Executable Books / markdown-it-py维护者",
+      "title": "Using markdown_it",
+      "version": "本地实际import markdown-it-py 4.2.0；网站在线文档版本未锁定",
+      "published": "网页未标注",
+      "accessed": "2026-10-29",
+      "url": "https://markdown-it-py.readthedocs.io/en/latest/using.html",
+      "readingDepth": "Parser预设、CommonMark/GFM-like边界、Token Stream与插件章节；本地执行Python语法和合成fixture",
+      "limits": "使用commonmark+table+strikethrough；缺linkify-it-py及GFM footnotes扩展，不是github.com的完整GFM AST"
+    },
+    {
+      "id": "B16-S04",
+      "author": "T. Berners-Lee / R. Fielding / L. Masinter",
+      "title": "RFC 3986 URI Generic Syntax",
+      "version": "RFC 3986 / STD 66",
+      "published": "2005-01",
+      "accessed": "2026-10-29",
+      "url": "https://www.rfc-editor.org/rfc/rfc3986.html",
+      "readingDepth": "§2.1 percent-encoding、§3.5 fragment、§5.2 relative resolution及dot segments；合法公开全文定点阅读",
+      "limits": "通用URI规范不能代替GitHub特定的路径及渲染后处理约定"
+    },
+    {
+      "id": "B16-S05",
+      "author": "Flet / github-slugger贡献者",
+      "title": "github-slugger repository README",
+      "version": "README标注2.0.0（2022-10-27 Release）",
+      "published": "2022-10-27（版本发布）",
+      "accessed": "2026-10-29",
+      "url": "https://github.com/Flet/github-slugger",
+      "readingDepth": "README的重复slug、Unicode标题与输入需先抽纯文本限制；未核阅完整源码或运行该包",
+      "limits": "因此本轮对Unicode/复杂标题明确UNKNOWN，不伪称与GitHub slug完全一致"
+    },
+    {
+      "id": "B16-S06",
+      "author": "BaiSongt/procet-devplans 原GitHub连接器",
+      "title": "PR #1及固定commit/git tree现场对象",
+      "version": "commit 1690ea1343a7c9a24be89497eef3ca0ae10bd767; tree e4bd54cc01da29365533812571d9da5c2330271f",
+      "published": "Git历史提交（本轮不另推断时间）",
+      "accessed": "2026-10-29",
+      "url": "https://github.com/BaiSongt/procet-devplans/commit/1690ea1343a7c9a24be89497eef3ca0ae10bd767",
+      "readingDepth": "仓库public、PR Draft/Open、树条目1629、Markdown 543、truncated=false；读取AGENTS/README/progress/automation/source-index",
+      "limits": "只保证此来源快照及元数据；没有在本地把该树全部checkout/用AST解析"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B16-R01",
+      "summary": "Markdown行内与参考式链接必须由解析token提取；代码围栏和行内代码伪链接不能作为断链",
+      "sourceIds": [
+        "B16-S01",
+        "B16-S03"
+      ],
+      "fields": [
+        "token.type",
+        "link_open.href",
+        "referenceDefinition",
+        "codeBlock"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "P02"
+      ]
+    },
+    {
+      "id": "B16-R02",
+      "summary": "相对路径和仓根/路径按GitHub约定一次百分号解码、解析并拒绝越根，异常编码保守UNKNOWN",
+      "sourceIds": [
+        "B16-S02",
+        "B16-S04"
+      ],
+      "fields": [
+        "path",
+        "href",
+        "decodedPath",
+        "repoRoot",
+        "treeSha"
+      ],
+      "caps": [
+        "CAP-01-03"
+      ],
+      "workPackages": [
+        "B0-05"
+      ],
+      "acceptanceIds": [
+        "P03",
+        "P08",
+        "N01",
+        "N03",
+        "U01",
+        "U02",
+        "U04"
+      ]
+    },
+    {
+      "id": "B16-R03",
+      "summary": "标题锚点须从标题Token、重复标题次序与目标文档得出；Unicode/复杂slug不假定GitHub等价",
+      "sourceIds": [
+        "B16-S02",
+        "B16-S05"
+      ],
+      "fields": [
+        "headingText",
+        "slugCandidate",
+        "duplicateOrdinal",
+        "targetFragment"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03"
+      ],
+      "acceptanceIds": [
+        "P04",
+        "P07",
+        "N02",
+        "U03"
+      ]
+    },
+    {
+      "id": "B16-R04",
+      "summary": "原生HTML的a href和id/name必须独立解析，链接与自定义锚点双向核对",
+      "sourceIds": [
+        "B16-S01",
+        "B16-S02"
+      ],
+      "fields": [
+        "htmlToken",
+        "a.href",
+        "a.name",
+        "html.id",
+        "targetAnchor"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03"
+      ],
+      "acceptanceIds": [
+        "P05",
+        "P06",
+        "P09"
+      ]
+    },
+    {
+      "id": "B16-R05",
+      "summary": "外链、查询参数、未读目标及renderer专有行为不得升级为本地链接PASS；保留显式UNKNOWN",
+      "sourceIds": [
+        "B16-S02",
+        "B16-S04"
+      ],
+      "fields": [
+        "externalHref",
+        "query",
+        "unresolvedReason",
+        "status"
+      ],
+      "caps": [
+        "CAP-01-08"
+      ],
+      "workPackages": [
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "U05",
+        "U06",
+        "U03"
+      ]
+    },
+    {
+      "id": "B16-R06",
+      "summary": "固定exact HEAD对象身份与本地parser自测/全仓执行/真实消费者/正式Owner/L3/产品等级分离，未运行不能报告PASS",
+      "sourceIds": [
+        "B16-S03",
+        "B16-S06"
+      ],
+      "fields": [
+        "exactHead",
+        "gitTreeSha",
+        "fixture.gates",
+        "report.statuses",
+        "ownerSigned",
+        "consumerRealPass"
+      ],
+      "caps": [
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "T5-06"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N01"
+      ]
+    }
+  ],
+  "fixturePath": "docs/architecture/v0.8/final-markdown-b16-ast-fixtures-v08.json",
+  "checkerPath": "tools/check_final_md_b16_ast_v08.py",
+  "execution": {
+    "python": "3.x本地运行",
+    "parser": "markdown-it-py 4.2.0",
+    "syntheticPositive": 9,
+    "syntheticReject": 3,
+    "syntheticUnknownOrExternal": 6,
+    "inertCode": 2,
+    "syntheticResult": "PASS_18_CASES_AND_2_INERT",
+    "fullRepository": "NOT_RUN_DNS_UNAVAILABLE",
+    "githubRenderParity": "NOT_RUN",
+    "product": "NOT_RUN"
+  },
+  "gates": {
+    "ownerFormalSigned": "0/17",
+    "realIndependentConsumer": "0/17",
+    "l3": "PENDING_HUMAN",
+    "histOriginalBytes": "NOT_RECOVERED"
+  }
+}

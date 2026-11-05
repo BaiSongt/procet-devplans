@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "procet-b107-probe-qualification-trace-v08",
+  "capabilityId": "CAP-02-06",
+  "sourceRegistry": "research/sources/CAP-02-06-probe-qualification-b107.json",
+  "fixtures": "docs/capabilities/CAP-02-06/probe-qualification-b107-fixtures-v08.json",
+  "checker": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+  "rules": [
+    {
+      "id": "B107-R01",
+      "summary": "型号/用途/模式强类型隔离，CMM数据不自动复用为NC测头",
+      "sourceIds": [
+        "B107-S01",
+        "B107-S04",
+        "B107-S06"
+      ],
+      "fields": [
+        "resource.kind",
+        "request.machineRole",
+        "request.mode"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-N01",
+        "B107-N02",
+        "B107-N03",
+        "B107-N04"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B107-R02",
+      "summary": "ISO公开目录只能设测试范围候选，不能授予全文标准合格",
+      "sourceIds": [
+        "B107-S01",
+        "B107-S06"
+      ],
+      "fields": [
+        "request.isoScopeClaim",
+        "evidence.actualMethodBasis",
+        "evidence.actualIndependentSystemTest"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-N05",
+        "B107-U01"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B107-R03",
+      "summary": "2σ厂商台架规格不能外推整机或本件不确定度",
+      "sourceIds": [
+        "B107-S02",
+        "B107-S03",
+        "B107-S04"
+      ],
+      "fields": [
+        "evidence.metricConditions",
+        "evidence.vendorRigMetricIsSystemUncertainty",
+        "evidence.vendorRepeatabilityUsedAsPieceBudget"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-N06",
+        "B107-N07",
+        "B107-U05"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B107-R04",
+      "summary": "测针exact配置及校准证书/资格绑定",
+      "sourceIds": [
+        "B107-S05",
+        "B107-S06"
+      ],
+      "fields": [
+        "request.stylusConfigExact",
+        "calibration.stylusConfigExact",
+        "calibration.certificateHash",
+        "calibration.status"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-SL01",
+        "B107-SL02",
+        "B107-U04",
+        "B107-U06"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B107-R05",
+      "summary": "D03资源与D10执行安装必须锁定exact hash/revision/frame",
+      "sourceIds": [
+        "B107-S06"
+      ],
+      "fields": [
+        "resource.sha256",
+        "resource.exactRevision",
+        "request.machineExact",
+        "request.frameRef",
+        "tx.expectedRevision",
+        "tx.currentRevision",
+        "calibration.appliedRevision"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-SL03",
+        "B107-SL06",
+        "B107-U02",
+        "B107-U03"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B107-R06",
+      "summary": "提交处重验ACL/CAS/ScopeEpoch，取消后的ACK无写权",
+      "sourceIds": [
+        "B107-S06"
+      ],
+      "fields": [
+        "tx.aclAllowed",
+        "tx.casAllowed",
+        "tx.scopeEpoch",
+        "tx.receiptEpoch",
+        "tx.cancelled",
+        "tx.lateAck"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-N12",
+        "B107-N13",
+        "B107-SL04",
+        "B107-SL05"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B107-R07",
+      "summary": "GUI/CLI/Agent受管同Port；唯一Babylon+左UnifiedTaskPanel",
+      "sourceIds": [
+        "B107-S06"
+      ],
+      "fields": [
+        "tx.ownerPort",
+        "ui.guiPort",
+        "ui.cliPort",
+        "ui.agentPort",
+        "ui.babylonWorldCount",
+        "ui.taskPanel"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-N14",
+        "B107-N15",
+        "B107-N16",
+        "B107-N17",
+        "B107-N18"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B107-R08",
+      "summary": "D03不代D17，CL不能代NC工程验证，冻结A/B和未知语义必须守住",
+      "sourceIds": [
+        "B107-S06",
+        "B107-S02"
+      ],
+      "fields": [
+        "chain.d03WritesD17",
+        "chain.clPreviewAsD15",
+        "chain.unknownD13PermitsD16",
+        "chain.rewriteFrozenAB"
+      ],
+      "caps": [
+        "CAP-02-06",
+        "CAP-04-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-06",
+        "E3-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B107-P01",
+        "B107-P02",
+        "B107-P03",
+        "B107-P04"
+      ],
+      "negative": [
+        "B107-N08",
+        "B107-N09",
+        "B107-N10",
+        "B107-N11"
+      ],
+      "testEntry": "tools/check_cap0206_probe_qualification_b107_v08.cjs",
+      "engineeringAcceptance": "SYNTHETIC_ONLY",
+      "realIndependentConsumer": "NOT_RUN"
+    }
+  ]
+}

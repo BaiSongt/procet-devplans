@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "W2-04",
+  "researchTopic": "R-ACK-RECOVERY-001",
+  "sourceRegistry": "research/sources/W2-04.json",
+  "implementation": "docs/work-packages/W2-04.md",
+  "ui": "docs/work-packages/W2-04/UI.md",
+  "fixtures": "docs/work-packages/W2-04/fixtures.json",
+  "validator": "tools/check_w204_planning_2026_10_25.mjs",
+  "rules": [
+    {
+      "id": "W204-R01",
+      "workPackageId": "W2-04",
+      "summary": "EXACT_SOURCE",
+      "sourceIds": [
+        "SRC-W204-S07",
+        "SRC-W204-S01"
+      ],
+      "fields": [
+        "sourceRef.revision",
+        "sourceRef.hash",
+        "sourceRef.frame",
+        "sourceRef.unit"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "W2-04-T01",
+      "negativeTestId": "W2-04-T02",
+      "negativeReason": "REJECT_SOURCE_REF",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R02",
+      "workPackageId": "W2-04",
+      "summary": "SEALED_STAGE",
+      "sourceIds": [
+        "SRC-W204-S03",
+        "SRC-W204-S04"
+      ],
+      "fields": [
+        "stage.sealed",
+        "stage.digestOk",
+        "stage.filesComplete"
+      ],
+      "assets": [
+        "D07",
+        "D12"
+      ],
+      "positiveTestId": "W2-04-T03",
+      "negativeTestId": "W2-04-T04",
+      "negativeReason": "REJECT_STAGING",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R03",
+      "workPackageId": "W2-04",
+      "summary": "HEAD_CAS",
+      "sourceIds": [
+        "SRC-W204-S01",
+        "SRC-W204-S02"
+      ],
+      "fields": [
+        "guard.expectedHead",
+        "guard.currentHead"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-04-T05",
+      "negativeTestId": "W2-04-T06",
+      "negativeReason": "REJECT_STALE_HEAD",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R04",
+      "workPackageId": "W2-04",
+      "summary": "ACL_RECHECK",
+      "sourceIds": [
+        "SRC-W204-S01",
+        "SRC-W204-S07"
+      ],
+      "fields": [
+        "guard.acl",
+        "guard.epoch",
+        "guard.liveEpoch"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-04-T07",
+      "negativeTestId": "W2-04-T08",
+      "negativeReason": "REJECT_REVOKED_ACCESS",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R05",
+      "workPackageId": "W2-04",
+      "summary": "CANCEL_LATE",
+      "sourceIds": [
+        "SRC-W204-S06",
+        "SRC-W204-S01"
+      ],
+      "fields": [
+        "guard.generation",
+        "guard.liveGeneration",
+        "guard.lateReceipt"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "positiveTestId": "W2-04-T09",
+      "negativeTestId": "W2-04-T10",
+      "negativeReason": "REJECT_LATE_RECEIPT",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R06",
+      "workPackageId": "W2-04",
+      "summary": "SINGLE_TERMINAL",
+      "sourceIds": [
+        "SRC-W204-S02",
+        "SRC-W204-S06"
+      ],
+      "fields": [
+        "arbitration.winners",
+        "arbitration.casWon"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-04-T11",
+      "negativeTestId": "W2-04-T12",
+      "negativeReason": "REJECT_TERMINAL_RACE",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R07",
+      "workPackageId": "W2-04",
+      "summary": "CRASH_RECOVERY",
+      "sourceIds": [
+        "SRC-W204-S03",
+        "SRC-W204-S04",
+        "SRC-W204-S05"
+      ],
+      "fields": [
+        "recovery.commitMarker",
+        "recovery.hashOk",
+        "recovery.headOk"
+      ],
+      "assets": [
+        "D04",
+        "D12"
+      ],
+      "positiveTestId": "W2-04-T13",
+      "negativeTestId": "W2-04-T14",
+      "negativeReason": "UNKNOWN_RECOVERY",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R08",
+      "workPackageId": "W2-04",
+      "summary": "IDEMPOTENT_RETRY",
+      "sourceIds": [
+        "SRC-W204-S01",
+        "SRC-W204-S07"
+      ],
+      "fields": [
+        "replay.sameKey",
+        "replay.samePayload",
+        "replay.extraRevision"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-04-T15",
+      "negativeTestId": "W2-04-T16",
+      "negativeReason": "REJECT_IDEMPOTENCY_CONFLICT",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R09",
+      "workPackageId": "W2-04",
+      "summary": "SCOPE_ISOLATION",
+      "sourceIds": [
+        "SRC-W204-S02",
+        "SRC-W204-S07"
+      ],
+      "fields": [
+        "scope.expectedSetup",
+        "scope.actualSetup",
+        "scope.expectedBranch",
+        "scope.actualBranch"
+      ],
+      "assets": [
+        "D04",
+        "D10"
+      ],
+      "positiveTestId": "W2-04-T17",
+      "negativeTestId": "W2-04-T18",
+      "negativeReason": "REJECT_CROSS_SCOPE",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W204-R10",
+      "workPackageId": "W2-04",
+      "summary": "NO_FAKE_NC_PASS",
+      "sourceIds": [
+        "SRC-W204-S08",
+        "SRC-W204-S07"
+      ],
+      "fields": [
+        "qualification.d13",
+        "qualification.d15",
+        "qualification.product"
+      ],
+      "assets": [
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-04-T19",
+      "negativeTestId": "W2-04-T20",
+      "negativeReason": "REJECT_FALSE_PASS",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN"
+}

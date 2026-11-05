@@ -1,0 +1,439 @@
+{
+  "schemaVersion": "procet-b137-trace-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-03",
+  "topic": "R-INCREMENTAL-FREEZE-001",
+  "capabilityId": "CAP-06-08",
+  "sourceRegistry": "research/sources/CAP-06-08-negative-reads-b137.json",
+  "specification": "docs/capabilities/CAP-06-08/NEGATIVE-DEPENDENCIES-B137-2026-11-03.md",
+  "rules": [
+    {
+      "id": "B137-R01",
+      "capabilityId": "CAP-06-08",
+      "description": "精确Owner/Frame/Revision等效身份，禁止按名称复用",
+      "sourceIds": [
+        "B137-S07",
+        "B137-S04"
+      ],
+      "fields": [
+        "refs.ownerExact",
+        "refs.revisionHashFrameExact",
+        "refs.scopeInstanceExact",
+        "refs.frozenSourceUnchanged"
+      ],
+      "failureStatuses": [
+        "STALE_REF",
+        "STALE_REF",
+        "REJECT_SCOPE",
+        "REJECT_FREEZE"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R01-P",
+        "B137-R01-N1",
+        "B137-R01-N2",
+        "B137-R01-N3",
+        "B137-R01-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B137-R02",
+      "capabilityId": "CAP-06-08",
+      "description": "读取值与读取不存在都必须登记，范围谓词版本化",
+      "sourceIds": [
+        "B137-S01",
+        "B137-S02",
+        "B137-S07"
+      ],
+      "fields": [
+        "observe.exactReadEdges",
+        "observe.absenceReadToken",
+        "observe.rangeSelectorVersioned",
+        "observe.snapshotComplete"
+      ],
+      "failureStatuses": [
+        "UNKNOWN_SCOPE",
+        "UNKNOWN_SCOPE",
+        "UNKNOWN_SCOPE",
+        "UNKNOWN_SCOPE"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R02-P",
+        "B137-R02-N1",
+        "B137-R02-N2",
+        "B137-R02-N3",
+        "B137-R02-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B137-R03",
+      "capabilityId": "CAP-06-08",
+      "description": "精确变更归一化后按反向消费闭包失效",
+      "sourceIds": [
+        "B137-S01",
+        "B137-S03",
+        "B137-S07"
+      ],
+      "fields": [
+        "closure.changedEventNormalized",
+        "closure.negativeExistenceTriggered",
+        "closure.reverseReachabilityExact",
+        "closure.unrelatedSetupStable"
+      ],
+      "failureStatuses": [
+        "UNKNOWN_EVENT",
+        "UNKNOWN_SCOPE",
+        "UNKNOWN_SCOPE",
+        "REJECT_ISOLATION"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R03-P",
+        "B137-R03-N1",
+        "B137-R03-N2",
+        "B137-R03-N3",
+        "B137-R03-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B137-R04",
+      "capabilityId": "CAP-06-08",
+      "description": "分支动态改依赖时原子替换观察集，不得保留伪最小闭包",
+      "sourceIds": [
+        "B137-S01",
+        "B137-S02",
+        "B137-S04"
+      ],
+      "fields": [
+        "graph.oldReadSetPreservedForAudit",
+        "graph.requeryOnBranchChange",
+        "graph.newEdgesAtomicallyCommitted",
+        "graph.instanceDagAcyclic"
+      ],
+      "failureStatuses": [
+        "REJECT_AUDIT",
+        "UNKNOWN_SCOPE",
+        "REJECT_ATOMICITY",
+        "UNKNOWN_GRAPH"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R04-P",
+        "B137-R04-N1",
+        "B137-R04-N2",
+        "B137-R04-N3",
+        "B137-R04-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B137-R05",
+      "capabilityId": "CAP-06-08",
+      "description": "检查点只能在Stock/算法/容差指纹完全一致时复用",
+      "sourceIds": [
+        "B137-S03",
+        "B137-S07",
+        "B137-S05"
+      ],
+      "fields": [
+        "checkpoint.parentD07StockExact",
+        "checkpoint.solverAndCostModelExact",
+        "checkpoint.frameToleranceOptionsExact",
+        "checkpoint.unknownRejectsReuse"
+      ],
+      "failureStatuses": [
+        "STALE_STOCK",
+        "STALE_SOLVER",
+        "STALE_FRAME",
+        "UNKNOWN_CHECKPOINT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R05-P",
+        "B137-R05-N1",
+        "B137-R05-N2",
+        "B137-R05-N3",
+        "B137-R05-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B137-R06",
+      "capabilityId": "CAP-06-08",
+      "description": "冻结冲突报告而非自动解冻/覆盖旧资产",
+      "sourceIds": [
+        "B137-S04",
+        "B137-S07"
+      ],
+      "fields": [
+        "freeze.d08FrozenBytePreserved",
+        "freeze.conflictUidExplained",
+        "freeze.newCandidateOnly",
+        "freeze.noSilentThaw"
+      ],
+      "failureStatuses": [
+        "REJECT_FREEZE",
+        "CONFLICT_REQUIRES_HUMAN",
+        "REJECT_FREEZE",
+        "REJECT_FREEZE"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R06-P",
+        "B137-R06-N1",
+        "B137-R06-N2",
+        "B137-R06-N3",
+        "B137-R06-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B137-R07",
+      "capabilityId": "CAP-06-08",
+      "description": "Owner写入CAS/ACL/取消代次的事务内重验",
+      "sourceIds": [
+        "B137-S07",
+        "B137-S05"
+      ],
+      "fields": [
+        "commit.exactCasAtWrite",
+        "commit.aclRecheck",
+        "commit.scopeEpochAndTaskGeneration",
+        "commit.cancelledLateReceiptIgnored"
+      ],
+      "failureStatuses": [
+        "STALE_HEAD",
+        "REJECT_ACL",
+        "IGNORED_STALE",
+        "IGNORED_LATE_RECEIPT"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R07-P",
+        "B137-R07-N1",
+        "B137-R07-N2",
+        "B137-R07-N3",
+        "B137-R07-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B137-R08",
+      "capabilityId": "CAP-06-08",
+      "description": "07/06消费及GUI/CLI/Agent一致、单世界且NC独立",
+      "sourceIds": [
+        "B137-S07",
+        "B137-S06"
+      ],
+      "fields": [
+        "handoff.guiCliAgentSameOwnerPort",
+        "handoff.singleBabylonAndLeftTaskPanel",
+        "handoff.d04SetupSeparateD10",
+        "handoff.d13UnknownBlocksD16"
+      ],
+      "failureStatuses": [
+        "REJECT_PORT",
+        "REJECT_UI",
+        "REJECT_BOUNDARY",
+        "UNKNOWN_NC"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "tests": [
+        "B137-R08-P",
+        "B137-R08-N1",
+        "B137-R08-N2",
+        "B137-R08-N3",
+        "B137-R08-N4"
+      ],
+      "L3": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

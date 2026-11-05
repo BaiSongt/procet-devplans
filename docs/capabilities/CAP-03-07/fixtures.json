@@ -1,0 +1,434 @@
+{
+  "schemaVersion": "procet-cap-acceptance-v1",
+  "capabilityId": "CAP-03-07",
+  "status": "SPEC_ONLY_NOT_RUN",
+  "count": 20,
+  "cases": [
+    {
+      "id": "CAP-03-07-T01",
+      "ruleId": "FREL-R01",
+      "polarity": "positive",
+      "scenario": "双实例同定义但有不同occurrencePath；关系严格绑定实例",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "sameExactScope": true
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "跨实例只允许显示跨域比较，不允许03域隐式同一关系提交",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T02",
+      "ruleId": "FREL-R01",
+      "polarity": "negative",
+      "scenario": "同一modelDefinition的不同occurrence被错误合并到一张关系图",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "sameExactScope": false
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "跨实例只允许显示跨域比较，不允许03域隐式同一关系提交",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T03",
+      "ruleId": "FREL-R02",
+      "polarity": "positive",
+      "scenario": "同一BRep快照共享拓扑边的面形成邻接候选",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "sharedTopoEdge": true,
+        "vertexOnly": false
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "展示实际edgeRef，并对non-manifold允许多面祖先、显式unknown",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T04",
+      "ruleId": "FREL-R02",
+      "polarity": "negative",
+      "scenario": "两个面只共享顶点但UI强制识别为共享边",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "sharedTopoEdge": false,
+        "vertexOnly": true
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "展示实际edgeRef，并对non-manifold允许多面祖先、显式unknown",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T05",
+      "ruleId": "FREL-R03",
+      "polarity": "positive",
+      "scenario": "精确几何交叠证据存在且BBox仅作粗筛",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "exactIntersection": true,
+        "bboxOnly": false
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "最短距离和容差不能替代独立布尔实测",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T06",
+      "ruleId": "FREL-R03",
+      "polarity": "negative",
+      "scenario": "包围盒相交却实体间有间隙就标Intersects",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "exactIntersection": false,
+        "bboxOnly": true
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "最短距离和容差不能替代独立布尔实测",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T07",
+      "ruleId": "FREL-R04",
+      "polarity": "positive",
+      "scenario": "环岛保留结构以ContainsPreserve编码、无去料子级",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "materialRole": "preserve",
+        "relationKind": "ContainsPreserve"
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "被包围≠要加工去除；保留材料需保留",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T08",
+      "ruleId": "FREL-R04",
+      "polarity": "negative",
+      "scenario": "boss作为去料子特征被自动放入粗加工去料序",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "materialRole": "preserve",
+        "relationKind": "ContainsRemoval"
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "被包围≠要加工去除；保留材料需保留",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T09",
+      "ruleId": "FREL-R05",
+      "polarity": "positive",
+      "scenario": "有向父子图无环，Intersects独立辅助关系保留",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "treeCycle": false,
+        "auxiliaryAllowed": true
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "交叉分组与工艺优先关系分层核验",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T10",
+      "ruleId": "FREL-R05",
+      "polarity": "negative",
+      "scenario": "提交A包含B、B包含C、C包含A的父子环",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "treeCycle": true,
+        "auxiliaryAllowed": true
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "交叉分组与工艺优先关系分层核验",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T11",
+      "ruleId": "FREL-R06",
+      "polarity": "positive",
+      "scenario": "双父竞争保持ambiguous且committable=false供人工裁决",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "ambiguous": true,
+        "committable": false
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "决胜可作为只读排序提案不能替代审查",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T12",
+      "ruleId": "FREL-R06",
+      "polarity": "negative",
+      "scenario": "多个同证据父候选直接按字典序选择并批准",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "ambiguous": true,
+        "committable": true
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "决胜可作为只读排序提案不能替代审查",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T13",
+      "ruleId": "FREL-R07",
+      "polarity": "positive",
+      "scenario": "几何父子关系图中未生成工艺DependsOn，规划另行决议",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "approvedProcessDependency": false,
+        "hasPlanEvidence": false
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "几何包含不必然确定工艺顺序",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T14",
+      "ruleId": "FREL-R07",
+      "polarity": "negative",
+      "scenario": "D02拓扑级ContainsRemoval直接成为已批准D08工序优先",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "approvedProcessDependency": true,
+        "hasPlanEvidence": false
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "几何包含不必然确定工艺顺序",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T15",
+      "ruleId": "FREL-R08",
+      "polarity": "positive",
+      "scenario": "关系证据包含完整kernel profile、tolerance(mm)、exactGeometryHash",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "hasEvidenceProfile": true,
+        "unit": "mm",
+        "geometryHashKnown": true
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "官方API在线8.0.1只供设计，不可代替生产版本锁",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T16",
+      "ruleId": "FREL-R08",
+      "polarity": "negative",
+      "scenario": "缺失运行配置与容差仍宣称跨Native7.9.3已验",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "hasEvidenceProfile": false,
+        "unit": null,
+        "geometryHashKnown": false
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "官方API在线8.0.1只供设计，不可代替生产版本锁",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T17",
+      "ruleId": "FREL-R09",
+      "polarity": "positive",
+      "scenario": "同requestId和payload在授权/expectedRevision一致时仅得到一份commitReceipt",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "authorized": true,
+        "casMatch": true,
+        "sameRequestPayload": true,
+        "sameViewScope": true
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "提交点重验exact revision、actor、scopeEpoch；未知回执查旧requestId",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T18",
+      "ruleId": "FREL-R09",
+      "polarity": "negative",
+      "scenario": "用户已经换Project且旧revision提交、迟到回执却写进新工程",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "authorized": true,
+        "casMatch": false,
+        "sameRequestPayload": true,
+        "sameViewScope": false
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "提交点重验exact revision、actor、scopeEpoch；未知回执查旧requestId",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T19",
+      "ruleId": "FREL-R10",
+      "polarity": "positive",
+      "scenario": "新D02 revision派生影响清单但冻结D08/D16保持immutable",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "preservedFrozen": true,
+        "hasImpact": true,
+        "receiptKnown": true
+      },
+      "expected": "ACCEPT_SPEC",
+      "oracleExplanation": "允许追加需复审标志，不允许修改已批准事实",
+      "productExecution": "NOT_RUN"
+    },
+    {
+      "id": "CAP-03-07-T20",
+      "ruleId": "FREL-R10",
+      "polarity": "negative",
+      "scenario": "关系变更静默覆写冻结工艺或旧NC发布结果",
+      "context": {
+        "projectId": "P-demo",
+        "d01Revision": "d01-r5",
+        "d01Hash": "sha256:synthetic-fixture",
+        "d02Revision": "d02-r3",
+        "frameRef": "part:rev5",
+        "modelType": "synthetic_public_only"
+      },
+      "facts": {
+        "preservedFrozen": false,
+        "hasImpact": false,
+        "receiptKnown": true
+      },
+      "expected": "REJECT_OR_UNKNOWN_SPEC",
+      "oracleExplanation": "允许追加需复审标志，不允许修改已批准事实",
+      "productExecution": "NOT_RUN"
+    }
+  ]
+}

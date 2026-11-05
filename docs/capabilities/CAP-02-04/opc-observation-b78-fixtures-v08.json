@@ -1,0 +1,439 @@
+{
+  "schemaVersion": "procet-b78-fixtures-v1",
+  "date": "2026-11-01",
+  "baseExactHead": "89f29fd3ff87ec63e7a69b1bd8a3a1e143176527",
+  "clock": "SYNTHETIC_FIXED_UTC",
+  "total": 32,
+  "counts": {
+    "positive": 8,
+    "negative": 10,
+    "unknown": 8,
+    "stale": 5,
+    "display": 1
+  },
+  "base": {
+    "resource": {
+      "id": "fx1",
+      "revision": "D03-r5",
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "published": true,
+      "ratedSource": "qualified-datasheet"
+    },
+    "setup": {
+      "revision": "D04-r8",
+      "resourceRevision": "D03-r5",
+      "frame": "WF-r8",
+      "plannedOpeningMm": 40
+    },
+    "execution": {
+      "bindingResourceHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "machineId": "M1",
+      "fixtureId": "fx1",
+      "actualInstalled": true,
+      "profile": "OEM-explicit"
+    },
+    "sensor": {
+      "sourceSystem": "OPC_UA",
+      "signalKind": "PHYSICAL_FEEDBACK",
+      "machineId": "M1",
+      "fixtureId": "fx1",
+      "nodeId": "ns=2;s=clampClosed",
+      "polarity": "CLOSED_TRUE",
+      "provenanceHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "serviceResult": "GOOD",
+      "operationResult": "GOOD",
+      "dataValueStatus": "GOOD",
+      "value": "CLOSED",
+      "sourceTimestamp": "2026-11-01T06:25:00Z",
+      "serverTimestamp": "2026-11-01T06:25:01Z",
+      "observedAt": "2026-11-01T06:25:02Z",
+      "maxAgeMs": 10000,
+      "clockUncertaintyMs": 500
+    },
+    "gate": {
+      "port": "02.WorkholdingPort",
+      "acl": true,
+      "cas": true,
+      "expectedRevision": "D03-r5",
+      "currentRevision": "D03-r5",
+      "expectedScope": 7,
+      "currentScope": 7,
+      "taskGen": 3,
+      "receiptGen": 3,
+      "cancelled": false,
+      "lateAck": false
+    },
+    "assessment": {
+      "safetyClaim": false,
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED"
+    },
+    "ui": {
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "sceneCount": 1,
+      "panel": "UnifiedTaskPanel",
+      "fontMaxPx": 12,
+      "previewPersists": false,
+      "displayOnly": false
+    },
+    "migration": {
+      "oldReader": true,
+      "newReader": true,
+      "rollbackSafe": true,
+      "freezeUnchanged": true,
+      "abOverwrite": false
+    }
+  },
+  "cases": [
+    {
+      "id": "B78-001",
+      "ruleId": "B78-R1",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-002",
+      "ruleId": "B78-R1",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "resource.published",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B78-003",
+      "ruleId": "B78-R1",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "resource.ratedSource",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B78-004",
+      "ruleId": "B78-R1",
+      "kind": "stale",
+      "expected": "STALE",
+      "delta": [
+        {
+          "path": "gate.expectedRevision",
+          "value": "D03-r6"
+        }
+      ]
+    },
+    {
+      "id": "B78-005",
+      "ruleId": "B78-R2",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-006",
+      "ruleId": "B78-R2",
+      "kind": "stale",
+      "expected": "STALE",
+      "delta": [
+        {
+          "path": "setup.resourceRevision",
+          "value": "D03-r4"
+        }
+      ]
+    },
+    {
+      "id": "B78-007",
+      "ruleId": "B78-R2",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "execution.machineId",
+          "value": "M2"
+        }
+      ]
+    },
+    {
+      "id": "B78-008",
+      "ruleId": "B78-R2",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "execution.actualInstalled",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B78-009",
+      "ruleId": "B78-R3",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-010",
+      "ruleId": "B78-R3",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "sensor.serviceResult",
+          "value": "BAD"
+        }
+      ]
+    },
+    {
+      "id": "B78-011",
+      "ruleId": "B78-R3",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "sensor.operationResult",
+          "value": "UNCERTAIN"
+        }
+      ]
+    },
+    {
+      "id": "B78-012",
+      "ruleId": "B78-R3",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "sensor.dataValueStatus",
+          "value": "BAD"
+        }
+      ]
+    },
+    {
+      "id": "B78-013",
+      "ruleId": "B78-R4",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-014",
+      "ruleId": "B78-R4",
+      "kind": "stale",
+      "expected": "STALE",
+      "delta": [
+        {
+          "path": "sensor.sourceTimestamp",
+          "value": "2026-11-01T06:24:00Z"
+        }
+      ]
+    },
+    {
+      "id": "B78-015",
+      "ruleId": "B78-R4",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "sensor.sourceTimestamp",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B78-016",
+      "ruleId": "B78-R4",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "sensor.clockUncertaintyMs",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B78-017",
+      "ruleId": "B78-R5",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-018",
+      "ruleId": "B78-R5",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "sensor.machineId",
+          "value": "M2"
+        }
+      ]
+    },
+    {
+      "id": "B78-019",
+      "ruleId": "B78-R5",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "sensor.fixtureId",
+          "value": "fx2"
+        }
+      ]
+    },
+    {
+      "id": "B78-020",
+      "ruleId": "B78-R5",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "sensor.nodeId",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "B78-021",
+      "ruleId": "B78-R6",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-022",
+      "ruleId": "B78-R6",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "assessment.safetyClaim",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B78-023",
+      "ruleId": "B78-R6",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "assessment.d15",
+          "value": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "B78-024",
+      "ruleId": "B78-R6",
+      "kind": "unknown",
+      "expected": "UNKNOWN",
+      "delta": [
+        {
+          "path": "sensor.value",
+          "value": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "B78-025",
+      "ruleId": "B78-R7",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-026",
+      "ruleId": "B78-R7",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "gate.acl",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B78-027",
+      "ruleId": "B78-R7",
+      "kind": "stale",
+      "expected": "STALE",
+      "delta": [
+        {
+          "path": "gate.cancelled",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "B78-028",
+      "ruleId": "B78-R7",
+      "kind": "stale",
+      "expected": "STALE",
+      "delta": [
+        {
+          "path": "gate.receiptGen",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "B78-029",
+      "ruleId": "B78-R8",
+      "kind": "positive",
+      "expected": "OBSERVATION_CANDIDATE",
+      "delta": []
+    },
+    {
+      "id": "B78-030",
+      "ruleId": "B78-R8",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "ui.sceneCount",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "B78-031",
+      "ruleId": "B78-R8",
+      "kind": "negative",
+      "expected": "REJECT",
+      "delta": [
+        {
+          "path": "migration.rollbackSafe",
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "B78-032",
+      "ruleId": "B78-R8",
+      "kind": "display",
+      "expected": "DISPLAY_ONLY",
+      "delta": [
+        {
+          "path": "ui.displayOnly",
+          "value": true
+        }
+      ]
+    }
+  ]
+}

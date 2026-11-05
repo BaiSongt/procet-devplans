@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "procet-b97-ast-fixtures-v08",
+  "syntheticOnly": true,
+  "productPass": false,
+  "sourceRegistry": "research/sources/FINAL-MD-B97-AST-V08.json",
+  "ruleTrace": "research/traces/FINAL-MD-B97-AST-V08.json",
+  "contractFields": [
+    "scan.exactCommit",
+    "scan.gitTreeMode",
+    "scan.markdownParser",
+    "scan.headingCandidate",
+    "link.href",
+    "link.referenceLabel",
+    "link.targetPath",
+    "link.fragment",
+    "link.scheme",
+    "link.gitParentMode",
+    "scan.auditLevel",
+    "workflow.ownerExactRef",
+    "workflow.gateStatus"
+  ],
+  "objectModes": {
+    "a/x.md": "100644",
+    "a/y.md": "100644",
+    "b/f.md": "100644",
+    "a/sub": "040000",
+    "a/sym": "120000",
+    "a/foreign": "160000"
+  },
+  "knownAnchors": {
+    "a/y.md": [
+      "abc"
+    ]
+  },
+  "pathCases": [
+    {
+      "id": "A01",
+      "source": "a/x.md",
+      "href": "y.md",
+      "expected": "PASS_AST_CANDIDATE"
+    },
+    {
+      "id": "A02",
+      "source": "a/x.md",
+      "href": "y.md#abc",
+      "expected": "PASS_AST_CANDIDATE"
+    },
+    {
+      "id": "A03",
+      "source": "a/x.md",
+      "href": "y.md#missing",
+      "expected": "UNKNOWN_ANCHOR_PARITY"
+    },
+    {
+      "id": "A04",
+      "source": "a/x.md",
+      "href": "absent.md",
+      "expected": "REJECT_MISSING_TARGET"
+    },
+    {
+      "id": "A05",
+      "source": "a/x.md",
+      "href": "../../oops.md",
+      "expected": "REJECT_OUTSIDE_REPOSITORY"
+    },
+    {
+      "id": "A06",
+      "source": "a/x.md",
+      "href": "sym/file.md",
+      "expected": "UNKNOWN_GIT_SYMLINK"
+    },
+    {
+      "id": "A07",
+      "source": "a/x.md",
+      "href": "foreign/README.md",
+      "expected": "UNKNOWN_GITLINK"
+    },
+    {
+      "id": "A08",
+      "source": "a/x.md",
+      "href": "sub",
+      "expected": "UNKNOWN_DIRECTORY_RENDER"
+    },
+    {
+      "id": "A09",
+      "source": "a/x.md",
+      "href": "/owner/repo",
+      "expected": "UNKNOWN_SITE_ABSOLUTE"
+    },
+    {
+      "id": "A10",
+      "source": "a/x.md",
+      "href": "https://example.org",
+      "expected": "EXTERNAL_NOT_CHECKED"
+    },
+    {
+      "id": "A11",
+      "source": "a/x.md",
+      "href": "javascript:alert(1)",
+      "expected": "REJECT_UNSAFE_URI"
+    },
+    {
+      "id": "A12",
+      "source": "a/x.md",
+      "href": "y.md?q=1#abc",
+      "expected": "PASS_AST_CANDIDATE"
+    }
+  ],
+  "markdownFixture": "# 章节\n## Repeat\n## Repeat\n[normal](y.md) [defined][ref]\n\n[ref]: y.md#abc\n\n`[not a link](missing.md)`\n~~~md\n[also not a link](missing.md)\n~~~\n|Name|Link|\n|---|---|\n|one|[table](y.md)|\n",
+  "expectedParsedLinks": [
+    "y.md",
+    "y.md#abc",
+    "y.md"
+  ],
+  "expectedHeadingCandidates": [
+    "章节",
+    "repeat",
+    "repeat-1"
+  ],
+  "astAssertions": [
+    {
+      "id": "T01",
+      "focus": "reference-style link parsed into href",
+      "expected": true
+    },
+    {
+      "id": "T02",
+      "focus": "fence and inline code ignored",
+      "expected": true
+    },
+    {
+      "id": "T03",
+      "focus": "duplicate headings candidate suffix",
+      "expected": true
+    }
+  ],
+  "syntheticGitRepoExpected": {
+    "PASS_AST_CANDIDATE": 1,
+    "REJECT_MISSING_TARGET": 1,
+    "UNKNOWN_GIT_SYMLINK": 1,
+    "UNKNOWN_DIRECTORY_RENDER": 1
+  }
+}

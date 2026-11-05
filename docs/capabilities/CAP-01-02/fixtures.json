@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "procet-capability-fixtures-v1",
+  "capabilityId": "CAP-01-02",
+  "origin": "NEW_DOCUMENT_NOT_HISTORICAL_MATERIAL",
+  "productExecution": "NOT_RUN",
+  "cases": [
+    {
+      "id": "CAP-01-02-AT-01",
+      "ruleId": "OBJ-R01",
+      "polarity": "positive",
+      "title": "同对象多视图",
+      "given": "同一设计ExactRef",
+      "when": "先打开3D再打开属性视图",
+      "then": "两视图引用同一领域对象，关视图不删对象",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-02",
+      "ruleId": "OBJ-R02",
+      "polarity": "negative",
+      "title": "导入失败",
+      "given": "给定受损或无效SourceHandle",
+      "when": "发起导入并查询有效工程对象列表",
+      "then": "拒绝且有效对象数不增加，包含阶段诊断",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-03",
+      "ruleId": "OBJ-R03",
+      "polarity": "negative",
+      "title": "导入晚回执",
+      "given": "P1导入中切换P2",
+      "when": "P1异步完成并晚回执",
+      "then": "不会污染P2；成果归P1或待采纳",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-04",
+      "ruleId": "OBJ-R04",
+      "polarity": "positive",
+      "title": "关联直达",
+      "given": "设计对象绑定了精确工序/NC关系",
+      "when": "从对象目录跳转至目标工序",
+      "then": "按精确引用导航，不要求先进入特征页",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-05",
+      "ruleId": "OBJ-R05",
+      "polarity": "negative",
+      "title": "冻结删除保护",
+      "given": "模型被发布包精确引用",
+      "when": "尝试解除关联并删除文件",
+      "then": "拒绝破坏冻结关系，显示影响和归档策略",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-06",
+      "ruleId": "OBJ-R06",
+      "polarity": "positive",
+      "title": "可选外链离线",
+      "given": "仅可选附件断网不可达",
+      "when": "离线打开工程",
+      "then": "缺项标可选不可达，必需业务仍可工作",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-07",
+      "ruleId": "OBJ-R07",
+      "polarity": "negative",
+      "title": "mesh-only制造拾取",
+      "given": "模型只持显示三角网格",
+      "when": "尝试确认制造面",
+      "then": "只读显示允许；制造确认明确拒绝",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-08",
+      "ruleId": "OBJ-R08",
+      "polarity": "positive",
+      "title": "未知类型兼容",
+      "given": "缺少已知类型provider",
+      "when": "加载工程对象目录",
+      "then": "未知引用保留为只读记录和原因",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-09",
+      "ruleId": "OBJ-R01",
+      "polarity": "negative",
+      "title": "视图身份冒充领域身份",
+      "given": "两视图共享ExactRef",
+      "when": "将viewInstanceId作为业务ObjectId保存",
+      "then": "拒绝，业务对象数量不增加",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-10",
+      "ruleId": "OBJ-R02",
+      "polarity": "positive",
+      "title": "受控导入成功",
+      "given": "已授权的合法STEP源和受管导入器就绪",
+      "when": "校验源字节/类型并经Project提交",
+      "then": "得到来源hash与ImportReceipt，不静默赋予制造资格",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-11",
+      "ruleId": "OBJ-R03",
+      "polarity": "positive",
+      "title": "作用域一致的幂等完成",
+      "given": "同Project同revision/相同requestId",
+      "when": "重复提交并查询receipt",
+      "then": "只产生一次持久变更，返同一最终receipt",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-12",
+      "ruleId": "OBJ-R04",
+      "polarity": "negative",
+      "title": "关系边指向错误修订",
+      "given": "导航边仅含latest或失效目标",
+      "when": "从3D点击关系",
+      "then": "拒绝错误跳转，显示当前关系失效",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-13",
+      "ruleId": "OBJ-R05",
+      "polarity": "positive",
+      "title": "受控解绑未冻结草稿",
+      "given": "对象无冻结消费者且impactHash匹配",
+      "when": "经Owner执行unlink",
+      "then": "仅取消关联，内容CAS保留直到清理条件满足",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-14",
+      "ruleId": "OBJ-R06",
+      "polarity": "negative",
+      "title": "缺离线必需内容",
+      "given": "某required附件仅外链且断网",
+      "when": "激活离线工程",
+      "then": "制造就绪必须阻断，给出可恢复来源",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-15",
+      "ruleId": "OBJ-R07",
+      "polarity": "positive",
+      "title": "B-Rep拾取有效",
+      "given": "精确D01 B-Rep与topology证明存在",
+      "when": "单Babylon世界选择并预览后确认",
+      "then": "领域命令收到exact拓扑引用，显示不直接写数据",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-16",
+      "ruleId": "OBJ-R08",
+      "polarity": "negative",
+      "title": "未知类型静默丢失",
+      "given": "旧工程含未知typeDescriptor",
+      "when": "加载或保存迁移后重开",
+      "then": "不能吞掉原始引用，必要业务标UNKNOWN",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-17",
+      "ruleId": "OBJ-R09",
+      "polarity": "positive",
+      "title": "正确提交所有权",
+      "given": "Project索引与CAD域事实均有独立Owner",
+      "when": "通过Host相应领域命令、CAS及许可",
+      "then": "生成可对拍写入回执，GUI/CLI/Agent共享同一权限门",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-18",
+      "ruleId": "OBJ-R09",
+      "polarity": "negative",
+      "title": "Agent绕过Owner",
+      "given": "Agent携伪造actor及旧expectedRevision",
+      "when": "请求持久改写Project关系",
+      "then": "提交点拒绝越权或修订冲突，不写D01",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-19",
+      "ruleId": "OBJ-R10",
+      "polarity": "positive",
+      "title": "注释精确绑定",
+      "given": "存在精确CAD版本与授权注释",
+      "when": "用户选择拓扑预览、保存注释",
+      "then": "保留annotationTarget/源修订，批准状态仍保持未批准",
+      "expected": "ACCEPT_OR_REVIEW",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    },
+    {
+      "id": "CAP-01-02-AT-20",
+      "ruleId": "OBJ-R10",
+      "polarity": "negative",
+      "title": "注释误作PMI批准",
+      "given": "仅图形注释或源已更新",
+      "when": "将注释消费为冻结PMI",
+      "then": "拒绝，需正式D01/PMI语义与Owner审批",
+      "expected": "REJECT_OR_FAIL_CLOSED",
+      "productStatus": "NOT_RUN",
+      "testEntry": "TO_BE_CREATED",
+      "evidenceRequired": [
+        "projectExactRef",
+        "owner authorization",
+        "typed receipt",
+        "before/after snapshot"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "schemaVersion": "procet-b172-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-09-07",
+  "originalWorkPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "sourceRegistry": "research/sources/CAP-09-07-servo-envelope-b172.json",
+  "fixtures": "docs/capabilities/CAP-09-07/servo-envelope-b172-fixtures-v08.json",
+  "checker": "tools/check_cap0907_servo_envelope_b172_v08.cjs",
+  "report": "docs/capabilities/CAP-09-07/SERVO-ENVELOPE-B172-2026-11-05.md",
+  "rules": [
+    {
+      "id": "B172-R01",
+      "title": "D12最终NC与D13/D14/D10真实绑定必须 exact",
+      "fields": [
+        "input.ncSha",
+        "input.d13Sha",
+        "input.d14Sha",
+        "input.d10FrameHash"
+      ],
+      "sourceIds": [
+        "B172-S07",
+        "B172-S08"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R01-P",
+        "B172-R01-N1",
+        "B172-R01-N2",
+        "B172-R01-N3",
+        "B172-R01-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B172-R02",
+      "title": "物理Joint归零、行程与运动学版本独立于Axis",
+      "fields": [
+        "machine.jointId",
+        "machine.jointEnvelopeSha",
+        "machine.homingKnown",
+        "machine.kinematicsRevision"
+      ],
+      "sourceIds": [
+        "B172-S01",
+        "B172-S02",
+        "B172-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R02-P",
+        "B172-R02-N1",
+        "B172-R02-N2",
+        "B172-R02-N3",
+        "B172-R02-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B172-R03",
+      "title": "端点不能覆盖连续轨迹，时间与插值需明示",
+      "fields": [
+        "motion.t0",
+        "motion.t1",
+        "motion.interpolantKind",
+        "motion.fullSegmentCoverage"
+      ],
+      "sourceIds": [
+        "B172-S02",
+        "B172-S07"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R03-P",
+        "B172-R03-N1",
+        "B172-R03-N2",
+        "B172-R03-N3",
+        "B172-R03-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B172-R04",
+      "title": "物理Joint位置/速度/加速度与单位分别核验",
+      "fields": [
+        "limits.positionMax",
+        "limits.velocityMax",
+        "limits.accelerationMax",
+        "limits.unit"
+      ],
+      "sourceIds": [
+        "B172-S01",
+        "B172-S02",
+        "B172-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R04-P",
+        "B172-R04-N1",
+        "B172-R04-N2",
+        "B172-R04-N3",
+        "B172-R04-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B172-R05",
+      "title": "FERROR限值不等于实际pos-fb；缺失真实反馈不得提升",
+      "fields": [
+        "feedback.ferrorSettingKnown",
+        "feedback.actualSampleCoverage",
+        "feedback.thresholdIsNotObservedError",
+        "feedback.notPromoted"
+      ],
+      "sourceIds": [
+        "B172-S02",
+        "B172-S03",
+        "B172-S07"
+      ],
+      "assets": [
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R05-P",
+        "B172-R05-N1",
+        "B172-R05-N2",
+        "B172-R05-N3",
+        "B172-R05-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B172-R06",
+      "title": "合成结果与真实D15/D16之间必须隔离",
+      "fields": [
+        "decision.endpointOnlyCannotPass",
+        "decision.unknownIfNoFeedback",
+        "decision.noSyntheticRelease",
+        "decision.independentD15Required"
+      ],
+      "sourceIds": [
+        "B172-S04",
+        "B172-S05",
+        "B172-S07",
+        "B172-S08"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R06-P",
+        "B172-R06-N1",
+        "B172-R06-N2",
+        "B172-R06-N3",
+        "B172-R06-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B172-R07",
+      "title": "GUI/CLI/Agent同一安全Owner Port、单场景、左TaskPanel",
+      "fields": [
+        "ui.sameDomainPort",
+        "ui.sceneCount",
+        "ui.leftTaskPanelCount",
+        "ui.showUncertainty"
+      ],
+      "sourceIds": [
+        "B172-S07",
+        "B172-S08"
+      ],
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R07-P",
+        "B172-R07-N1",
+        "B172-R07-N2",
+        "B172-R07-N3",
+        "B172-R07-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B172-R08",
+      "title": "CAS/ACL/取消Fence重验、晚回执只读和失效回退",
+      "fields": [
+        "tx.aclRecheck",
+        "tx.casExact",
+        "tx.cancelFenceCurrent",
+        "tx.lateAckReadOnly"
+      ],
+      "sourceIds": [
+        "B172-S05",
+        "B172-S06",
+        "B172-S07"
+      ],
+      "assets": [
+        "D08",
+        "D10",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "testIds": [
+        "B172-R08-P",
+        "B172-R08-N1",
+        "B172-R08-N2",
+        "B172-R08-N3",
+        "B172-R08-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

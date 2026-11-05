@@ -1,0 +1,533 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-10-06",
+  "researchTopic": "R-WORKORDER-EXECUTION-001",
+  "sourceRegistry": "research/sources/CAP-10-06.json",
+  "specification": "docs/capabilities/CAP-10-06/README.md",
+  "ui": "docs/capabilities/CAP-10-06/UI.md",
+  "fixtures": "docs/capabilities/CAP-10-06/fixtures.json",
+  "validator": "tools/check_cap1006_planning_2026_10_27.cjs",
+  "status": "compiled_pending_human_review",
+  "rules": [
+    {
+      "id": "CAP-10-06-R01",
+      "capabilityId": "CAP-10-06",
+      "summary": "工单身份与MES来源",
+      "engineeringRule": "原ERP/MES工单ID与修订/机床分派独立核对，名称相似不可自动关联",
+      "fields": [
+        "workOrder.jobIdExact",
+        "workOrder.erpRevisionPinned",
+        "workOrder.assignmentMachineExact",
+        "workOrder.noDisplayNameOnlyJoin"
+      ],
+      "sourceIds": [
+        "C1006-S01",
+        "C1006-S02",
+        "C1006-S07"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "workOrder.jobIdExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "workOrder.erpRevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "workOrder.assignmentMachineExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "workOrder.noDisplayNameOnlyJoin",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R02",
+      "capabilityId": "CAP-10-06",
+      "summary": "作业指导冻结与离线交付",
+      "engineeringRule": "作业指导与已签发NC/工具/工装引用版本和字节哈希冻结，离线收方重新校验，不因新指导覆盖A/B冻结",
+      "fields": [
+        "instruction.revisionHashPinned",
+        "instruction.d16ApprovedPackageExact",
+        "instruction.offlineDigestRechecked",
+        "instruction.planAndAsBuiltSeparate"
+      ],
+      "sourceIds": [
+        "C1006-S01",
+        "C1006-S03",
+        "C1006-S07"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "instruction.revisionHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "instruction.d16ApprovedPackageExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "instruction.offlineDigestRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "instruction.planAndAsBuiltSeparate",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R03",
+      "capabilityId": "CAP-10-06",
+      "summary": "实际Setup与工装核验",
+      "engineeringRule": "D04名义设置不冒充D10执行绑定；机床、夹具、刀具及Frame缺失必须UNKNOWN",
+      "fields": [
+        "execution.d04NominalOnly",
+        "execution.d10ActualFrameExact",
+        "execution.toolFixtureMachineRevision",
+        "execution.unknownBlocksRelease"
+      ],
+      "sourceIds": [
+        "C1006-S02",
+        "C1006-S05",
+        "C1006-S07"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D06",
+        "D10",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "execution.d04NominalOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.d10ActualFrameExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.toolFixtureMachineRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "execution.unknownBlocksRelease",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R04",
+      "capabilityId": "CAP-10-06",
+      "summary": "工单生命周期事件",
+      "engineeringRule": "Queued/Ready/Running/Paused/Aborted/Completed等须有可核状态转移证据，不从排产状态触发机床动作",
+      "fields": [
+        "lifecycle.stateGraphExplicit",
+        "lifecycle.transitionEvidenceRef",
+        "lifecycle.abortResumeDistinct",
+        "lifecycle.noImplicitMachineStart"
+      ],
+      "sourceIds": [
+        "C1006-S01",
+        "C1006-S02",
+        "C1006-S03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "lifecycle.stateGraphExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.transitionEvidenceRef",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.abortResumeDistinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "lifecycle.noImplicitMachineStart",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R05",
+      "capabilityId": "CAP-10-06",
+      "summary": "上机授权与验证隔离",
+      "engineeringRule": "D15独立NC工程验证、人类D16签发、现场操作者授权彼此不能替代，计划单无CycleStart权",
+      "fields": [
+        "authorization.d15IndependentAccepted",
+        "authorization.d16HumanSigned",
+        "authorization.localOperatorAuthority",
+        "authorization.noPlanAsCycleStart"
+      ],
+      "sourceIds": [
+        "C1006-S01",
+        "C1006-S02",
+        "C1006-S06"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "authorization.d15IndependentAccepted",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "authorization.d16HumanSigned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "authorization.localOperatorAuthority",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "authorization.noPlanAsCycleStart",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R06",
+      "capabilityId": "CAP-10-06",
+      "summary": "产量、质量与返工边界",
+      "engineeringRule": "设备运行完成、产出件数、合格/报废/返工不能混同，质量依赖独立检验",
+      "fields": [
+        "quantity.unitAndDimensionExplicit",
+        "quantity.goodScrapReworkSeparate",
+        "quantity.completionNotQualityPass",
+        "quantity.independentInspectionLinked"
+      ],
+      "sourceIds": [
+        "C1006-S01",
+        "C1006-S04",
+        "C1006-S05"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "quantity.unitAndDimensionExplicit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quantity.goodScrapReworkSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quantity.completionNotQualityPass",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "quantity.independentInspectionLinked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R07",
+      "capabilityId": "CAP-10-06",
+      "summary": "事件时钟、数据质量与来源",
+      "engineeringRule": "D17事件追加记录时区/Source/Server/Ingest、质量与原始摘要，断网与迟到证据不伪造",
+      "fields": [
+        "evidence.sourceTimeAndIngestSeparate",
+        "evidence.d17AppendOnly",
+        "evidence.unavailableGapVisible",
+        "evidence.deviceRevisionPinned"
+      ],
+      "sourceIds": [
+        "C1006-S03",
+        "C1006-S07",
+        "C1006-S08"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "evidence.sourceTimeAndIngestSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.d17AppendOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.unavailableGapVisible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "evidence.deviceRevisionPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R08",
+      "capabilityId": "CAP-10-06",
+      "summary": "工单与最终NC执行关联",
+      "engineeringRule": "最终NC原始字节与工单关联需要控制器/独立证据，MDC运行灯不得宣称程序已执行",
+      "fields": [
+        "link.finalNcRawDigestExact",
+        "link.jobToProgramEvidence",
+        "link.d13d14d15ReadOnly",
+        "link.telemetryNotProof"
+      ],
+      "sourceIds": [
+        "C1006-S01",
+        "C1006-S03",
+        "C1006-S05"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "link.finalNcRawDigestExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "link.jobToProgramEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "link.d13d14d15ReadOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "link.telemetryNotProof",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R09",
+      "capabilityId": "CAP-10-06",
+      "summary": "CAS、权限与取消晚回执",
+      "engineeringRule": "所有现场记录提交前重新核权限、scope、CAS exact修订/hash，撤权/取消/晚ACK拒绝写入",
+      "fields": [
+        "auth.scopeEpochRechecked",
+        "auth.aclEpochRechecked",
+        "auth.revisionHashCAS",
+        "auth.cancelLateAckRejected"
+      ],
+      "sourceIds": [
+        "C1006-S02",
+        "C1006-S06",
+        "C1006-S07"
+      ],
+      "assets": [
+        "D01",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "auth.scopeEpochRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.aclEpochRechecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.revisionHashCAS",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "auth.cancelLateAckRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-10-06-R10",
+      "capabilityId": "CAP-10-06",
+      "summary": "同域Port、唯一3D与无损回退",
+      "engineeringRule": "GUI/CLI/Agent经同一10域Port，唯一Babylon和左TaskPanel，旧Reader双读与回退不覆盖历史",
+      "fields": [
+        "ui.singleDomainPort",
+        "ui.singleBabylonWorld",
+        "ui.leftTaskPanel",
+        "ui.shadowRollbackPreservesHistory"
+      ],
+      "sourceIds": [
+        "C1006-S06",
+        "C1006-S07",
+        "C1006-S08"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "ui.singleDomainPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.singleBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.leftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "ui.shadowRollbackPreservesHistory",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "1项正例及4项互不耦合单字段负例；不等于外部消费者工程验收",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

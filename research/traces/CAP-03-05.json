@@ -1,0 +1,391 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-03-05",
+  "topic": "R-MFR-001",
+  "status": "local_drafted_pending_review",
+  "productAcceptance": "not_run",
+  "paths": {
+    "capability": "docs/capabilities/CAP-03-05/README.md",
+    "ui": "docs/capabilities/CAP-03-05/UI.md",
+    "topic": "research/topics/R-MFR-001.md",
+    "fixtures": "docs/capabilities/CAP-03-05/fixtures.json"
+  },
+  "registeredSources": [
+    "SRC-FEAT-001",
+    "SRC-FEAT-002",
+    "SRC-FEAT-003",
+    "SRC-FEAT-004",
+    "SRC-FEAT-005",
+    "SRC-FEAT-006",
+    "SRC-FEAT-007",
+    "SRC-FEAT-008"
+  ],
+  "assets": [
+    {
+      "id": "D01",
+      "role": "exact设计几何输入"
+    },
+    {
+      "id": "D02",
+      "role": "03域确认制造特征权威输出"
+    },
+    {
+      "id": "D04",
+      "role": "可选工艺Setup场景，非识别全局门"
+    },
+    {
+      "id": "D05",
+      "role": "05域规划消费，不属于识别输出"
+    },
+    {
+      "id": "D06",
+      "role": "06域算法求解候选，不可越权写D02"
+    },
+    {
+      "id": "D08",
+      "role": "冻结状态引用、需精确失效传播"
+    },
+    {
+      "id": "D09",
+      "role": "下游中立CL产物，不由识别直接生成"
+    }
+  ],
+  "codeEvidence": [
+    {
+      "id": "E-FEAT-01",
+      "kind": "source_code_observation_not_test",
+      "repository": "BaiSongt/procet-solver",
+      "sha": "44172bc046bfd65c2a4fe36212536c70226be48f",
+      "path": "crates/solver-feature/src/recognition/mod.rs",
+      "finding": "RecognizedFeature id/face_indices/confidence and ordered detectors; isolated face index is not stable cross CAD revisions."
+    },
+    {
+      "id": "E-FEAT-02",
+      "kind": "source_code_observation_not_test",
+      "repository": "BaiSongt/procet-solver",
+      "sha": "44172bc046bfd65c2a4fe36212536c70226be48f",
+      "path": "crates/solver-feature/src/stage.rs",
+      "finding": "Missing topology/gate failed -> Blocked; feature-specific skip diagnostics in artifact may leave Run status Solved."
+    },
+    {
+      "id": "E-FEAT-03",
+      "kind": "source_code_observation_not_test",
+      "repository": "BaiSongt/procet-solver",
+      "sha": "44172bc046bfd65c2a4fe36212536c70226be48f",
+      "path": "crates/solver-feature/src/artifact.rs",
+      "finding": "manufacturing-features-v1 typed artifact includes refs, parameters, confidence, evidence and diagnostics."
+    },
+    {
+      "id": "E-FEAT-04",
+      "kind": "source_code_observation_not_test",
+      "repository": "BaiSongt/procet-solver",
+      "sha": "44172bc046bfd65c2a4fe36212536c70226be48f",
+      "path": "crates/solver-feature/src/mapping/mod.rs",
+      "finding": "World-frame subset and openSides missing can be skipped with CAM-3301; mapping wordlists have bounded coverage."
+    }
+  ],
+  "rules": [
+    {
+      "id": "MFR-R01",
+      "description": "输入资格：只对有exact B-Rep快照和有效范围的D01提出可制造候选；仅mesh可浏览不可自动授几何认定",
+      "sourceIds": [
+        "SRC-FEAT-005",
+        "SRC-FEAT-007"
+      ],
+      "fields": [
+        "sourceBrepRef",
+        "sourceHash",
+        "geometryValidation.status",
+        "geometryCapability"
+      ],
+      "tests": [
+        "CAP-03-05-T01",
+        "CAP-03-05-T02"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R02",
+      "description": "由面型、拓扑邻接、方向、局部位置、材料侧和边环结构共同构建证据，不能单凭平面或圆柱名称判定",
+      "sourceIds": [
+        "SRC-FEAT-003",
+        "SRC-FEAT-004",
+        "SRC-FEAT-008"
+      ],
+      "fields": [
+        "topologyFaceRefs",
+        "edgeAdjacency",
+        "surfaceKind",
+        "orientation",
+        "materialSide"
+      ],
+      "tests": [
+        "CAP-03-05-T03",
+        "CAP-03-05-T04"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R03",
+      "description": "每个实例和多Solid单独保留Frame与单位，识别对刚体变换和拓扑枚举重排应稳定；局部索引不跨revision作为身份",
+      "sourceIds": [
+        "SRC-FEAT-003",
+        "SRC-FEAT-004"
+      ],
+      "fields": [
+        "occurrencePath",
+        "frameRef",
+        "unitRef",
+        "sourceRevision",
+        "featureCandidateRef"
+      ],
+      "tests": [
+        "CAP-03-05-T05",
+        "CAP-03-05-T06"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R04",
+      "description": "孔/盲孔/复合孔与材料凸台/环槽需基于圆柱内外侧、封底、环带与连通证据区分，未知时保持多假设待审",
+      "sourceIds": [
+        "SRC-FEAT-004",
+        "SRC-FEAT-008"
+      ],
+      "fields": [
+        "holeSegments",
+        "capEvidence",
+        "ringEvidence",
+        "hypotheses",
+        "confidence"
+      ],
+      "tests": [
+        "CAP-03-05-T07",
+        "CAP-03-05-T08"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R05",
+      "description": "腔槽台阶端面区分开放/封闭、floor/wall/rim、多区域及弧岛保护，不得仅以面数或高度猜切削体积",
+      "sourceIds": [
+        "SRC-FEAT-003",
+        "SRC-FEAT-008",
+        "SRC-FEAT-001"
+      ],
+      "fields": [
+        "floorRefs",
+        "wallRefs",
+        "openSides",
+        "islandPreserveRefs",
+        "removalIntent"
+      ],
+      "tests": [
+        "CAP-03-05-T09",
+        "CAP-03-05-T10"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R06",
+      "description": "重叠组合特征与preserve结构明确拥有成员面和候选关系图，冲突留多重假设，不把重叠面私自删除或直接形成工序",
+      "sourceIds": [
+        "SRC-FEAT-003",
+        "SRC-FEAT-006"
+      ],
+      "fields": [
+        "faceClaims",
+        "relationCandidates",
+        "preserveKind",
+        "conflictRefs",
+        "featureGroupRef"
+      ],
+      "tests": [
+        "CAP-03-05-T11",
+        "CAP-03-05-T12"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R07",
+      "description": "算法候选、人工确认的D02正式特征与PMI要求是不同状态；Solver只出候选，03域Owner批准后才形成可消费的D02修订",
+      "sourceIds": [
+        "SRC-FEAT-001",
+        "SRC-FEAT-002",
+        "SRC-FEAT-007"
+      ],
+      "fields": [
+        "candidateStatus",
+        "adoptionDecisionRef",
+        "frozenPmiRef",
+        "d02Revision",
+        "ownerDomain"
+      ],
+      "tests": [
+        "CAP-03-05-T13",
+        "CAP-03-05-T14"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R08",
+      "description": "识别返回值必须携带algorithmProfile、证据质量、诊断、未知与跳过计数；置信度是启发式评分，不是经过校准的制造正确率",
+      "sourceIds": [
+        "SRC-FEAT-005",
+        "SRC-FEAT-007"
+      ],
+      "fields": [
+        "algorithmProfileHash",
+        "candidateEvidence",
+        "diagnosticCodes",
+        "skippedCandidateCount",
+        "validationScope"
+      ],
+      "tests": [
+        "CAP-03-05-T15",
+        "CAP-03-05-T16"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R09",
+      "description": "GUI/CLI/Agent共用Host查询与命令；3D只读投影，提交点重验授权与expectedRevision，取消/迟到/同requestId重试保证幂等",
+      "sourceIds": [
+        "SRC-FEAT-003"
+      ],
+      "fields": [
+        "requestId",
+        "scopeEpoch",
+        "expectedRevision",
+        "approvalRef",
+        "commandReceipt"
+      ],
+      "tests": [
+        "CAP-03-05-T17",
+        "CAP-03-05-T18"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    },
+    {
+      "id": "MFR-R10",
+      "description": "CAD拓扑变化、方案版本变化或Setup切换触发精细失效；历史候选和已批准冻结不可静默覆盖，需兼容Reader和可逆迁移",
+      "sourceIds": [
+        "SRC-FEAT-006"
+      ],
+      "fields": [
+        "topologyHistoryRef",
+        "derivedFromRevision",
+        "invalidationReasons",
+        "schemaVersion",
+        "rollbackRef"
+      ],
+      "tests": [
+        "CAP-03-05-T19",
+        "CAP-03-05-T20"
+      ],
+      "capabilityId": "CAP-03-05",
+      "workPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "evidenceType": "external_reference_plus_internal_design_with_code_observation",
+      "implementationStatus": "proposal_only"
+    }
+  ],
+  "acceptanceTests": [
+    "CAP-03-05-T01",
+    "CAP-03-05-T02",
+    "CAP-03-05-T03",
+    "CAP-03-05-T04",
+    "CAP-03-05-T05",
+    "CAP-03-05-T06",
+    "CAP-03-05-T07",
+    "CAP-03-05-T08",
+    "CAP-03-05-T09",
+    "CAP-03-05-T10",
+    "CAP-03-05-T11",
+    "CAP-03-05-T12",
+    "CAP-03-05-T13",
+    "CAP-03-05-T14",
+    "CAP-03-05-T15",
+    "CAP-03-05-T16",
+    "CAP-03-05-T17",
+    "CAP-03-05-T18",
+    "CAP-03-05-T19",
+    "CAP-03-05-T20"
+  ]
+}

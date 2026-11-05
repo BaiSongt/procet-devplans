@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "procet-b126-trace-v08",
+  "topic": "R-FINAL-OWNER-ATTESTATION-B126",
+  "baseExactHead": "cd983657183406b1ed39b80ef136a8ad4b1022bf",
+  "sourceRegistry": "research/sources/FINAL-OWNER-ATTESTATION-B126.json",
+  "fixturePath": "docs/architecture/v0.8/final-owner-attestation-b126-fixtures-v08.json",
+  "checkerPath": "tools/check_final_owner_attestation_b126_v08.cjs",
+  "ledgerPath": "tracking/owner-attestation-readiness-b126.json",
+  "rules": [
+    {
+      "id": "B126-R01",
+      "summary": "不可用候选Owner冒充正式具名签署，必须绑定资产/领域Port/身份/摘要",
+      "fields": [
+        "sign.asset",
+        "sign.ownerPort",
+        "sign.ownerActor",
+        "sign.ownerDigest"
+      ],
+      "sourceIds": [
+        "B126-S01",
+        "B126-S05",
+        "B126-S06"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "B0-06",
+        "T5-06"
+      ],
+      "positive": [
+        "B126-P01"
+      ],
+      "negative": [
+        "B126-N01-1",
+        "B126-N01-2",
+        "B126-N01-3",
+        "B126-N01-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B126-R02",
+      "summary": "实际独立消费者不能由Owner自证，需真实读取完全相同的内容Hash",
+      "fields": [
+        "consumer.actor",
+        "consumer.independent",
+        "consumer.actualRead",
+        "consumer.readDigest"
+      ],
+      "sourceIds": [
+        "B126-S01",
+        "B126-S05"
+      ],
+      "caps": [
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "B0-06",
+        "T5-06"
+      ],
+      "positive": [
+        "B126-P02"
+      ],
+      "negative": [
+        "B126-N02-1",
+        "B126-N02-2",
+        "B126-N02-3",
+        "B126-N02-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B126-R03",
+      "summary": "每个交接签署包含同一修订、Hash、Frame、Scope，不得latest漂移",
+      "fields": [
+        "exact.revision",
+        "exact.hash",
+        "exact.frame",
+        "exact.scope"
+      ],
+      "sourceIds": [
+        "B126-S02",
+        "B126-S03",
+        "B126-S06"
+      ],
+      "caps": [
+        "CAP-01-03"
+      ],
+      "originalWorkPackages": [
+        "F1-01",
+        "B0-06"
+      ],
+      "positive": [
+        "B126-P03"
+      ],
+      "negative": [
+        "B126-N03-1",
+        "B126-N03-2",
+        "B126-N03-3",
+        "B126-N03-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B126-R04",
+      "summary": "GUI/CLI/Agent共用领域唯一Owner读Exact入口，不可独立改写审批",
+      "fields": [
+        "entry.gui",
+        "entry.cli",
+        "entry.agent",
+        "entry.sameOwner"
+      ],
+      "sourceIds": [
+        "B126-S03",
+        "B126-S05"
+      ],
+      "caps": [
+        "CAP-01-08"
+      ],
+      "originalWorkPackages": [
+        "W2-04",
+        "B0-06"
+      ],
+      "positive": [
+        "B126-P04"
+      ],
+      "negative": [
+        "B126-N04-1",
+        "B126-N04-2",
+        "B126-N04-3",
+        "B126-N04-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B126-R05",
+      "summary": "写点进行Head CAS+实时ACL+ScopeEpoch重验，旧授权不得延续",
+      "fields": [
+        "write.expectedHead",
+        "write.currentHead",
+        "write.aclLive",
+        "write.scopeCurrent"
+      ],
+      "sourceIds": [
+        "B126-S02",
+        "B126-S04"
+      ],
+      "caps": [
+        "CAP-01-04"
+      ],
+      "originalWorkPackages": [
+        "W2-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B126-P05"
+      ],
+      "negative": [
+        "B126-N05-1",
+        "B126-N05-2",
+        "B126-N05-3",
+        "B126-N05-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B126-R06",
+      "summary": "取消、晚回执、重复请求必须对账原事务，不赋予第二次写入权",
+      "fields": [
+        "receipt.cancelled",
+        "receipt.lateAck",
+        "receipt.duplicateCommit",
+        "receipt.originalReceiptKnown"
+      ],
+      "sourceIds": [
+        "B126-S02",
+        "B126-S05"
+      ],
+      "caps": [
+        "CAP-01-06"
+      ],
+      "originalWorkPackages": [
+        "W2-04",
+        "T5-05"
+      ],
+      "positive": [
+        "B126-P06"
+      ],
+      "negative": [
+        "B126-N06-1",
+        "B126-N06-2",
+        "B126-N06-3",
+        "B126-N06-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B126-R07",
+      "summary": "最终D12 NC→D13已知语义→D14轴时序→按最终NC的D15→D16闭包，不准CL预览冒充",
+      "fields": [
+        "execution.finalNcHash",
+        "execution.d13Known",
+        "execution.d15FromFinalHash",
+        "execution.d16ExactBind"
+      ],
+      "sourceIds": [
+        "B126-S01",
+        "B126-S06"
+      ],
+      "caps": [
+        "CAP-10-08"
+      ],
+      "originalWorkPackages": [
+        "E3-05",
+        "T5-06"
+      ],
+      "positive": [
+        "B126-P07"
+      ],
+      "negative": [
+        "B126-N07-1",
+        "B126-N07-2",
+        "B126-N07-3",
+        "B126-N07-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    },
+    {
+      "id": "B126-R08",
+      "summary": "旧Reader、历史原始字节、回退引用与A/B冻结事实必须保留，缺失则不宣称迁移PASS",
+      "fields": [
+        "migration.oldReader",
+        "migration.originalBytesVerified",
+        "migration.rollbackRef",
+        "migration.frozenUnchanged"
+      ],
+      "sourceIds": [
+        "B126-S01",
+        "B126-S06"
+      ],
+      "caps": [
+        "CAP-01-03"
+      ],
+      "originalWorkPackages": [
+        "F1-01",
+        "T5-06"
+      ],
+      "positive": [
+        "B126-P08"
+      ],
+      "negative": [
+        "B126-N08-1",
+        "B126-N08-2",
+        "B126-N08-3",
+        "B126-N08-4"
+      ],
+      "ownerSignature": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_QUALIFICATION_NOT_EXTERNAL_NORMATIVE"
+    }
+  ],
+  "realOwnerSignatures": "0/17",
+  "realIndependentConsumer": "0/17",
+  "approval": "PENDING_HUMAN"
+}

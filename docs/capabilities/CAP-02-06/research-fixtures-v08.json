@@ -1,0 +1,793 @@
+{
+  "schemaVersion": "procet-cap0206-research-fixtures-v08",
+  "capabilityId": "CAP-02-06",
+  "sourceTrace": "research/traces/CAP-02-06-v08-supplement.json",
+  "syntheticOnly": true,
+  "fixtureHashesNotRealEvidence": true,
+  "positives": [
+    {
+      "id": "MET06-V08-R01-POS",
+      "ruleId": "MET06-V08-R01",
+      "expected": "ACCEPT",
+      "input": {
+        "resource": {
+          "kind": "SPINDLE_TOUCH_PROBE",
+          "purpose": "WORKPIECE_LOCATION",
+          "interfaceRevision": "interface@r1",
+          "lifecycle": "RELEASED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R02-POS",
+      "ruleId": "MET06-V08-R02",
+      "expected": "ACCEPT",
+      "input": {
+        "performance": {
+          "metric": "REPEATABILITY",
+          "unit": "um",
+          "statistic": "2SIGMA",
+          "conditionsRef": "conditions@r1"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R03-POS",
+      "ruleId": "MET06-V08-R03",
+      "expected": "ACCEPT",
+      "input": {
+        "calibration": {
+          "certificateHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "componentRevision": "stylus@r2",
+          "chainRef": "chain@r3",
+          "applicability": "MATCHED_FOR_INTENT"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R04-POS",
+      "ruleId": "MET06-V08-R04",
+      "expected": "ACCEPT",
+      "input": {
+        "decision": {
+          "characteristicRef": "pmi@r2",
+          "uncertaintyRef": "UNKNOWN",
+          "decisionRuleRef": "UNRESOLVED",
+          "outcome": "INDETERMINATE"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R05-POS",
+      "ruleId": "MET06-V08-R05",
+      "expected": "ACCEPT",
+      "input": {
+        "ownership": {
+          "resourceOwner": "D03",
+          "planOwner": "D17",
+          "resultOwner": "D17",
+          "implicitOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R06-POS",
+      "ruleId": "MET06-V08-R06",
+      "expected": "ACCEPT",
+      "input": {
+        "eligibility": {
+          "assessedAt": "2026-10-28T00:00:00Z",
+          "calibrationStatus": "VALID_FOR_INTENT",
+          "controllerExactRef": "controller@r1",
+          "releaseEqualsQualified": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R07-POS",
+      "ruleId": "MET06-V08-R07",
+      "expected": "ACCEPT",
+      "input": {
+        "frame": {
+          "chain": "spindle>probe>stylus>tip",
+          "unit": "mm",
+          "radiusEvidenceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frameRevision": "mount@r3"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R08-POS",
+      "ruleId": "MET06-V08-R08",
+      "expected": "ACCEPT",
+      "input": {
+        "nc": {
+          "finalNcHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13Semantic": "UNKNOWN",
+          "d14Timeline": "NOT_GENERATED",
+          "d16Gate": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R09-POS",
+      "ruleId": "MET06-V08-R09",
+      "expected": "ACCEPT",
+      "input": {
+        "transaction": {
+          "expectedRevision": 17,
+          "scopeEpoch": 3,
+          "cancelGeneration": 2,
+          "commitGate": "ACL_SCOPE_CAS_CANCEL_RECHECK"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R10-POS",
+      "ruleId": "MET06-V08-R10",
+      "expected": "ACCEPT",
+      "input": {
+        "ui": {
+          "canvasCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "sharedOwnerPort": true,
+          "previewCommit": false
+        }
+      }
+    }
+  ],
+  "negatives": [
+    {
+      "id": "MET06-V08-R01-NEG1",
+      "ruleId": "MET06-V08-R01",
+      "mutatedField": "resource.kind",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "kind": "INVALID",
+          "purpose": "WORKPIECE_LOCATION",
+          "interfaceRevision": "interface@r1",
+          "lifecycle": "RELEASED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R01-NEG2",
+      "ruleId": "MET06-V08-R01",
+      "mutatedField": "resource.purpose",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "kind": "SPINDLE_TOUCH_PROBE",
+          "purpose": "INVALID",
+          "interfaceRevision": "interface@r1",
+          "lifecycle": "RELEASED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R01-NEG3",
+      "ruleId": "MET06-V08-R01",
+      "mutatedField": "resource.interfaceRevision",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "kind": "SPINDLE_TOUCH_PROBE",
+          "purpose": "WORKPIECE_LOCATION",
+          "interfaceRevision": "INVALID",
+          "lifecycle": "RELEASED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R01-NEG4",
+      "ruleId": "MET06-V08-R01",
+      "mutatedField": "resource.lifecycle",
+      "expected": "REJECT",
+      "input": {
+        "resource": {
+          "kind": "SPINDLE_TOUCH_PROBE",
+          "purpose": "WORKPIECE_LOCATION",
+          "interfaceRevision": "interface@r1",
+          "lifecycle": "INVALID"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R02-NEG1",
+      "ruleId": "MET06-V08-R02",
+      "mutatedField": "performance.metric",
+      "expected": "REJECT",
+      "input": {
+        "performance": {
+          "metric": "INVALID",
+          "unit": "um",
+          "statistic": "2SIGMA",
+          "conditionsRef": "conditions@r1"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R02-NEG2",
+      "ruleId": "MET06-V08-R02",
+      "mutatedField": "performance.unit",
+      "expected": "REJECT",
+      "input": {
+        "performance": {
+          "metric": "REPEATABILITY",
+          "unit": "INVALID",
+          "statistic": "2SIGMA",
+          "conditionsRef": "conditions@r1"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R02-NEG3",
+      "ruleId": "MET06-V08-R02",
+      "mutatedField": "performance.statistic",
+      "expected": "REJECT",
+      "input": {
+        "performance": {
+          "metric": "REPEATABILITY",
+          "unit": "um",
+          "statistic": "INVALID",
+          "conditionsRef": "conditions@r1"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R02-NEG4",
+      "ruleId": "MET06-V08-R02",
+      "mutatedField": "performance.conditionsRef",
+      "expected": "REJECT",
+      "input": {
+        "performance": {
+          "metric": "REPEATABILITY",
+          "unit": "um",
+          "statistic": "2SIGMA",
+          "conditionsRef": "INVALID"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R03-NEG1",
+      "ruleId": "MET06-V08-R03",
+      "mutatedField": "calibration.certificateHash",
+      "expected": "REJECT",
+      "input": {
+        "calibration": {
+          "certificateHash": "INVALID",
+          "componentRevision": "stylus@r2",
+          "chainRef": "chain@r3",
+          "applicability": "MATCHED_FOR_INTENT"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R03-NEG2",
+      "ruleId": "MET06-V08-R03",
+      "mutatedField": "calibration.componentRevision",
+      "expected": "REJECT",
+      "input": {
+        "calibration": {
+          "certificateHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "componentRevision": "INVALID",
+          "chainRef": "chain@r3",
+          "applicability": "MATCHED_FOR_INTENT"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R03-NEG3",
+      "ruleId": "MET06-V08-R03",
+      "mutatedField": "calibration.chainRef",
+      "expected": "REJECT",
+      "input": {
+        "calibration": {
+          "certificateHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "componentRevision": "stylus@r2",
+          "chainRef": "INVALID",
+          "applicability": "MATCHED_FOR_INTENT"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R03-NEG4",
+      "ruleId": "MET06-V08-R03",
+      "mutatedField": "calibration.applicability",
+      "expected": "REJECT",
+      "input": {
+        "calibration": {
+          "certificateHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "componentRevision": "stylus@r2",
+          "chainRef": "chain@r3",
+          "applicability": "INVALID"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R04-NEG1",
+      "ruleId": "MET06-V08-R04",
+      "mutatedField": "decision.characteristicRef",
+      "expected": "REJECT",
+      "input": {
+        "decision": {
+          "characteristicRef": "INVALID",
+          "uncertaintyRef": "UNKNOWN",
+          "decisionRuleRef": "UNRESOLVED",
+          "outcome": "INDETERMINATE"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R04-NEG2",
+      "ruleId": "MET06-V08-R04",
+      "mutatedField": "decision.uncertaintyRef",
+      "expected": "REJECT",
+      "input": {
+        "decision": {
+          "characteristicRef": "pmi@r2",
+          "uncertaintyRef": "INVALID",
+          "decisionRuleRef": "UNRESOLVED",
+          "outcome": "INDETERMINATE"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R04-NEG3",
+      "ruleId": "MET06-V08-R04",
+      "mutatedField": "decision.decisionRuleRef",
+      "expected": "REJECT",
+      "input": {
+        "decision": {
+          "characteristicRef": "pmi@r2",
+          "uncertaintyRef": "UNKNOWN",
+          "decisionRuleRef": "INVALID",
+          "outcome": "INDETERMINATE"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R04-NEG4",
+      "ruleId": "MET06-V08-R04",
+      "mutatedField": "decision.outcome",
+      "expected": "REJECT",
+      "input": {
+        "decision": {
+          "characteristicRef": "pmi@r2",
+          "uncertaintyRef": "UNKNOWN",
+          "decisionRuleRef": "UNRESOLVED",
+          "outcome": "INVALID"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R05-NEG1",
+      "ruleId": "MET06-V08-R05",
+      "mutatedField": "ownership.resourceOwner",
+      "expected": "REJECT",
+      "input": {
+        "ownership": {
+          "resourceOwner": "INVALID",
+          "planOwner": "D17",
+          "resultOwner": "D17",
+          "implicitOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R05-NEG2",
+      "ruleId": "MET06-V08-R05",
+      "mutatedField": "ownership.planOwner",
+      "expected": "REJECT",
+      "input": {
+        "ownership": {
+          "resourceOwner": "D03",
+          "planOwner": "INVALID",
+          "resultOwner": "D17",
+          "implicitOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R05-NEG3",
+      "ruleId": "MET06-V08-R05",
+      "mutatedField": "ownership.resultOwner",
+      "expected": "REJECT",
+      "input": {
+        "ownership": {
+          "resourceOwner": "D03",
+          "planOwner": "D17",
+          "resultOwner": "INVALID",
+          "implicitOverwrite": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R05-NEG4",
+      "ruleId": "MET06-V08-R05",
+      "mutatedField": "ownership.implicitOverwrite",
+      "expected": "REJECT",
+      "input": {
+        "ownership": {
+          "resourceOwner": "D03",
+          "planOwner": "D17",
+          "resultOwner": "D17",
+          "implicitOverwrite": true
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R06-NEG1",
+      "ruleId": "MET06-V08-R06",
+      "mutatedField": "eligibility.assessedAt",
+      "expected": "REJECT",
+      "input": {
+        "eligibility": {
+          "assessedAt": "INVALID",
+          "calibrationStatus": "VALID_FOR_INTENT",
+          "controllerExactRef": "controller@r1",
+          "releaseEqualsQualified": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R06-NEG2",
+      "ruleId": "MET06-V08-R06",
+      "mutatedField": "eligibility.calibrationStatus",
+      "expected": "REJECT",
+      "input": {
+        "eligibility": {
+          "assessedAt": "2026-10-28T00:00:00Z",
+          "calibrationStatus": "INVALID",
+          "controllerExactRef": "controller@r1",
+          "releaseEqualsQualified": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R06-NEG3",
+      "ruleId": "MET06-V08-R06",
+      "mutatedField": "eligibility.controllerExactRef",
+      "expected": "REJECT",
+      "input": {
+        "eligibility": {
+          "assessedAt": "2026-10-28T00:00:00Z",
+          "calibrationStatus": "VALID_FOR_INTENT",
+          "controllerExactRef": "INVALID",
+          "releaseEqualsQualified": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R06-NEG4",
+      "ruleId": "MET06-V08-R06",
+      "mutatedField": "eligibility.releaseEqualsQualified",
+      "expected": "REJECT",
+      "input": {
+        "eligibility": {
+          "assessedAt": "2026-10-28T00:00:00Z",
+          "calibrationStatus": "VALID_FOR_INTENT",
+          "controllerExactRef": "controller@r1",
+          "releaseEqualsQualified": true
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R07-NEG1",
+      "ruleId": "MET06-V08-R07",
+      "mutatedField": "frame.chain",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "chain": "INVALID",
+          "unit": "mm",
+          "radiusEvidenceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frameRevision": "mount@r3"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R07-NEG2",
+      "ruleId": "MET06-V08-R07",
+      "mutatedField": "frame.unit",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "chain": "spindle>probe>stylus>tip",
+          "unit": "INVALID",
+          "radiusEvidenceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frameRevision": "mount@r3"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R07-NEG3",
+      "ruleId": "MET06-V08-R07",
+      "mutatedField": "frame.radiusEvidenceHash",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "chain": "spindle>probe>stylus>tip",
+          "unit": "mm",
+          "radiusEvidenceHash": "INVALID",
+          "frameRevision": "mount@r3"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R07-NEG4",
+      "ruleId": "MET06-V08-R07",
+      "mutatedField": "frame.frameRevision",
+      "expected": "REJECT",
+      "input": {
+        "frame": {
+          "chain": "spindle>probe>stylus>tip",
+          "unit": "mm",
+          "radiusEvidenceHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "frameRevision": "INVALID"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R08-NEG1",
+      "ruleId": "MET06-V08-R08",
+      "mutatedField": "nc.finalNcHash",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalNcHash": "INVALID",
+          "d13Semantic": "UNKNOWN",
+          "d14Timeline": "NOT_GENERATED",
+          "d16Gate": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R08-NEG2",
+      "ruleId": "MET06-V08-R08",
+      "mutatedField": "nc.d13Semantic",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalNcHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13Semantic": "INVALID",
+          "d14Timeline": "NOT_GENERATED",
+          "d16Gate": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R08-NEG3",
+      "ruleId": "MET06-V08-R08",
+      "mutatedField": "nc.d14Timeline",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalNcHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13Semantic": "UNKNOWN",
+          "d14Timeline": "INVALID",
+          "d16Gate": "BLOCKED"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R08-NEG4",
+      "ruleId": "MET06-V08-R08",
+      "mutatedField": "nc.d16Gate",
+      "expected": "REJECT",
+      "input": {
+        "nc": {
+          "finalNcHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "d13Semantic": "UNKNOWN",
+          "d14Timeline": "NOT_GENERATED",
+          "d16Gate": "INVALID"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R09-NEG1",
+      "ruleId": "MET06-V08-R09",
+      "mutatedField": "transaction.expectedRevision",
+      "expected": "REJECT",
+      "input": {
+        "transaction": {
+          "expectedRevision": 18,
+          "scopeEpoch": 3,
+          "cancelGeneration": 2,
+          "commitGate": "ACL_SCOPE_CAS_CANCEL_RECHECK"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R09-NEG2",
+      "ruleId": "MET06-V08-R09",
+      "mutatedField": "transaction.scopeEpoch",
+      "expected": "REJECT",
+      "input": {
+        "transaction": {
+          "expectedRevision": 17,
+          "scopeEpoch": 4,
+          "cancelGeneration": 2,
+          "commitGate": "ACL_SCOPE_CAS_CANCEL_RECHECK"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R09-NEG3",
+      "ruleId": "MET06-V08-R09",
+      "mutatedField": "transaction.cancelGeneration",
+      "expected": "REJECT",
+      "input": {
+        "transaction": {
+          "expectedRevision": 17,
+          "scopeEpoch": 3,
+          "cancelGeneration": 3,
+          "commitGate": "ACL_SCOPE_CAS_CANCEL_RECHECK"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R09-NEG4",
+      "ruleId": "MET06-V08-R09",
+      "mutatedField": "transaction.commitGate",
+      "expected": "REJECT",
+      "input": {
+        "transaction": {
+          "expectedRevision": 17,
+          "scopeEpoch": 3,
+          "cancelGeneration": 2,
+          "commitGate": "INVALID"
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R10-NEG1",
+      "ruleId": "MET06-V08-R10",
+      "mutatedField": "ui.canvasCount",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "canvasCount": 2,
+          "taskPanel": "UNIFIED_LEFT",
+          "sharedOwnerPort": true,
+          "previewCommit": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R10-NEG2",
+      "ruleId": "MET06-V08-R10",
+      "mutatedField": "ui.taskPanel",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "canvasCount": 1,
+          "taskPanel": "INVALID",
+          "sharedOwnerPort": true,
+          "previewCommit": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R10-NEG3",
+      "ruleId": "MET06-V08-R10",
+      "mutatedField": "ui.sharedOwnerPort",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "canvasCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "sharedOwnerPort": false,
+          "previewCommit": false
+        }
+      }
+    },
+    {
+      "id": "MET06-V08-R10-NEG4",
+      "ruleId": "MET06-V08-R10",
+      "mutatedField": "ui.previewCommit",
+      "expected": "REJECT",
+      "input": {
+        "ui": {
+          "canvasCount": 1,
+          "taskPanel": "UNIFIED_LEFT",
+          "sharedOwnerPort": true,
+          "previewCommit": true
+        }
+      }
+    }
+  ],
+  "mathCases": [
+    {
+      "id": "MET06-M1",
+      "kind": "UM_TO_MM",
+      "input": {
+        "um": 1
+      },
+      "expected": {
+        "mm": 0.001
+      }
+    },
+    {
+      "id": "MET06-M2",
+      "kind": "STANDARD_UC",
+      "input": {
+        "u1": 0.01,
+        "u2": 0.02,
+        "cov": 0
+      },
+      "expected": {
+        "uc": 0.022360679774997897
+      }
+    },
+    {
+      "id": "MET06-M3",
+      "kind": "STANDARD_UC",
+      "input": {
+        "u1": 0.01,
+        "u2": 0.02,
+        "cov": 0.0001
+      },
+      "expected": {
+        "uc": 0.026457513110645904
+      }
+    },
+    {
+      "id": "MET06-M4",
+      "kind": "UNCERTAIN_LIMIT",
+      "input": {
+        "measured": 10,
+        "upper": 10,
+        "uncertainty": null,
+        "decisionRule": null
+      },
+      "expected": {
+        "outcome": "INDETERMINATE"
+      }
+    }
+  ],
+  "statusScenarios": [
+    {
+      "scenario": "CALIBRATION_MISSING",
+      "expected": "UNKNOWN",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "CALIBRATION_EXPIRED",
+      "expected": "BLOCKED",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "CONTROLLER_PROBING_UNKNOWN",
+      "expected": "UNSUPPORTED",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "LATE_ACK_AFTER_CANCEL",
+      "expected": "REJECTED",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "D04_SETUP_CHANGED",
+      "expected": "STALE",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "D10_BINDING_CHANGED",
+      "expected": "STALE",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "FROZEN_AB_NOT_OVERWRITTEN",
+      "expected": "PRESERVED",
+      "execution": "NOT_RUN"
+    },
+    {
+      "scenario": "CL_ONLY_PREVIEW",
+      "expected": "CL_ONLY",
+      "execution": "NOT_RUN"
+    }
+  ],
+  "productAcceptance": "NOT_RUN"
+}

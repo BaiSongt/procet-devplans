@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "procet-b153-trace-v08",
+  "date": "2026-11-04",
+  "origin": "NEWLY_AUTHORED",
+  "humanReview": "PENDING_L3",
+  "planningPassNotProductPass": true,
+  "topic": "R-HAAS-G83-SETTING-001",
+  "sourcePath": "research/sources/CAP-08-05-haas-g83-b153.json",
+  "fixturePath": "docs/capabilities/CAP-08-05/haas-g83-b153-fixtures-v08.json",
+  "checkerPath": "tools/check_cap0805_haas_g83_b153_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-08-05/HAAS-G83-SETTINGS-B153-2026-11-04.md",
+  "capabilityIds": [
+    "CAP-08-05"
+  ],
+  "originalWorkPackages": [
+    "E3-02",
+    "E3-03",
+    "U4-04"
+  ],
+  "rules": [
+    {
+      "id": "B153-R01",
+      "title": "D12最终NC/D10控制器实际绑定/Profile 三方逐修订固定",
+      "fields": [
+        "ncHash",
+        "d10Hash",
+        "profileHash",
+        "sourceKind"
+      ],
+      "sourceIds": [
+        "B153-S06"
+      ],
+      "failure": "NC_PROFILE_OR_BINDING_UNPINNED",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "testIds": [
+        "B153-R01-P",
+        "B153-R01-N1",
+        "B153-R01-N2",
+        "B153-R01-N3",
+        "B153-R01-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B153-R02",
+      "title": "Haas IJK递减啄深正值与剩余量截断",
+      "fields": [
+        "firstPeck",
+        "decrement",
+        "minPeck",
+        "holeDepth"
+      ],
+      "sourceIds": [
+        "B153-S01"
+      ],
+      "failure": "PECK_DEPTH_INVALID",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "testIds": [
+        "B153-R02-P",
+        "B153-R02-N1",
+        "B153-R02-N2",
+        "B153-R02-N3",
+        "B153-R02-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B153-R03",
+      "title": "Haas Mill G83 IJK与Q两模式互斥且需精确方言",
+      "fields": [
+        "dialect",
+        "peckMode",
+        "hasQ",
+        "profileAllowsMode"
+      ],
+      "sourceIds": [
+        "B153-S01",
+        "B153-S05"
+      ],
+      "failure": "PECK_DIALECT_MODE_CONFLICT",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "testIds": [
+        "B153-R03-P",
+        "B153-R03-N1",
+        "B153-R03-N2",
+        "B153-R03-N3",
+        "B153-R03-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B153-R04",
+      "title": "Haas G83 P末孔底停顿与无P继承旧P必须保留前态",
+      "fields": [
+        "currentP",
+        "priorP",
+        "effectiveP",
+        "inherited"
+      ],
+      "sourceIds": [
+        "B153-S01"
+      ],
+      "failure": "DWELL_MODAL_UNRESOLVED",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D12",
+        "D13"
+      ],
+      "testIds": [
+        "B153-R04-P",
+        "B153-R04-N1",
+        "B153-R04-N2",
+        "B153-R04-N3",
+        "B153-R04-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B153-R05",
+      "title": "Haas Setting 52改变G83 R上方清屑退让，参数量纲/来源独立记录",
+      "fields": [
+        "setting52",
+        "unit",
+        "settingSource",
+        "retractQualification"
+      ],
+      "sourceIds": [
+        "B153-S02",
+        "B153-S01"
+      ],
+      "failure": "RETRACT_SETTING_UNKNOWN",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D10",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B153-R05-P",
+        "B153-R05-N1",
+        "B153-R05-N2",
+        "B153-R05-N3",
+        "B153-R05-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B153-R06",
+      "title": "Haas Setting 22官方描述针对G73，不能自动施加到G83",
+      "fields": [
+        "setting22Role",
+        "g83UsesS22",
+        "setting22Evidence",
+        "dialectScope"
+      ],
+      "sourceIds": [
+        "B153-S03",
+        "B153-S01"
+      ],
+      "failure": "SETTING_ROLE_CONFLATION",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D10",
+        "D13"
+      ],
+      "testIds": [
+        "B153-R06-P",
+        "B153-R06-N1",
+        "B153-R06-N2",
+        "B153-R06-N3",
+        "B153-R06-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B153-R07",
+      "title": "Haas Setting 57影响循环起始XY精停，未核状态不能给安全保证",
+      "fields": [
+        "setting57",
+        "xyStartSemantics",
+        "startEventRecorded",
+        "safetyClaim"
+      ],
+      "sourceIds": [
+        "B153-S04"
+      ],
+      "failure": "XY_EXACT_STOP_UNQUALIFIED",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D10",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "testIds": [
+        "B153-R07-P",
+        "B153-R07-N1",
+        "B153-R07-N2",
+        "B153-R07-N3",
+        "B153-R07-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "B153-R08",
+      "title": "实际Owner提交时CAS/ACL重验、晚回执Fence与D13–D16分离",
+      "fields": [
+        "commitAuth",
+        "cancelFence",
+        "verificationChain",
+        "releaseGate"
+      ],
+      "sourceIds": [
+        "B153-S06"
+      ],
+      "failure": "OWNER_COMMIT_OR_RELEASE_UNQUALIFIED",
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "businessAssetIds": [
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B153-R08-P",
+        "B153-R08-N1",
+        "B153-R08-N2",
+        "B153-R08-N3",
+        "B153-R08-N4"
+      ],
+      "acceptance": "PLANNING_SYNTHETIC_ONLY"
+    }
+  ]
+}

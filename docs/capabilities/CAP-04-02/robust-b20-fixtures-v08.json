@@ -1,0 +1,773 @@
+{
+  "schemaVersion": "procet-cap0402-b20-synthetic-fixtures-v08",
+  "classification": "NEWLY_AUTHORED_SYNTHETIC",
+  "description": "4个正例+单字段独立反例；工具仅校验提供的候选矩阵及对应点，不运行Umeyama/ICP/OCCT，所有数值阈值仅属于本合成数据",
+  "numericalPolicy": {
+    "name": "SYNTHETIC_MM_V1_NOT_INDUSTRIAL",
+    "minimumCrossNormSquared": 1e-16,
+    "rigidMatrixTolerance": 1e-10,
+    "pointResidualMm": 1e-8
+  },
+  "baseline": {
+    "targetCadExactRef": "D01@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "stockExactRef": "D04.Stock@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "cadOccurrencePath": [
+      "assembly-1",
+      "solid-1"
+    ],
+    "topologyQualified": true,
+    "correspondenceHash": "SYNTH-POINTSET@rev1",
+    "currentCorrespondenceHash": "SYNTH-POINTSET@rev1",
+    "sourceUnit": "mm",
+    "targetUnit": "mm",
+    "expectedFrame": "D04.Setup@rev8",
+    "outputFrame": "D04.Setup@rev8",
+    "sourcePts": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "targetPts": [
+      [
+        10,
+        20,
+        30
+      ],
+      [
+        11,
+        20,
+        30
+      ],
+      [
+        10,
+        21,
+        30
+      ],
+      [
+        10,
+        20,
+        31
+      ]
+    ],
+    "rotation": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "translation": [
+      10,
+      20,
+      30
+    ],
+    "withScaling": false,
+    "algorithm": "UMEYAMA_RIGID",
+    "solverProfileRef": "SYNTHETIC_RIGID_V1",
+    "solutionStatus": "candidate",
+    "metrologyQualified": false,
+    "datumApproved": false,
+    "engineeringVerified": false,
+    "engineCount": 1,
+    "sceneCount": 1,
+    "canvasCount": 1,
+    "leftTaskPanelCount": 1,
+    "previewOnly": true,
+    "consumerOwnerPorts": [
+      "D04.OwnerPort",
+      "D04.OwnerPort",
+      "D04.OwnerPort"
+    ],
+    "expectedRevision": "D04:rev8",
+    "currentRevision": "D04:rev8",
+    "scopeEpoch": 8,
+    "responseScopeEpoch": 8,
+    "permissionEpoch": 3,
+    "responsePermissionEpoch": 3,
+    "permissionCurrent": true,
+    "cancelled": false,
+    "lateAckApplied": false,
+    "executionBindingUpdated": false,
+    "ncValidation": "unknown",
+    "releaseStatus": "blocked"
+  },
+  "cases": [
+    {
+      "id": "B20-P01",
+      "ruleId": "ALL",
+      "patches": [],
+      "expectedCodes": [],
+      "why": "四组非退化点，纯平移且双源锁定"
+    },
+    {
+      "id": "B20-P02",
+      "ruleId": "ALL",
+      "patches": [
+        {
+          "field": "rotation",
+          "value": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "field": "targetPts",
+          "value": [
+            [
+              10,
+              20,
+              30
+            ],
+            [
+              10,
+              21,
+              30
+            ],
+            [
+              9,
+              20,
+              30
+            ],
+            [
+              10,
+              20,
+              31
+            ]
+          ]
+        }
+      ],
+      "expectedCodes": [],
+      "why": "四组点，绕Z轴90度旋转+平移，检验非平凡刚体"
+    },
+    {
+      "id": "B20-P03",
+      "ruleId": "ALL",
+      "patches": [
+        {
+          "field": "sourcePts",
+          "value": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "field": "targetPts",
+          "value": [
+            [
+              10,
+              20,
+              30
+            ],
+            [
+              11,
+              20,
+              30
+            ],
+            [
+              10,
+              21,
+              30
+            ]
+          ]
+        }
+      ],
+      "expectedCodes": [],
+      "why": "三个非共线标记点，候选刚体可验证但无实测认证"
+    },
+    {
+      "id": "B20-P04",
+      "ruleId": "ALL",
+      "patches": [
+        {
+          "field": "translation",
+          "value": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "field": "targetPts",
+          "value": [
+            [
+              2,
+              3,
+              4
+            ],
+            [
+              3,
+              3,
+              4
+            ],
+            [
+              2,
+              4,
+              4
+            ],
+            [
+              2,
+              3,
+              5
+            ]
+          ]
+        }
+      ],
+      "expectedCodes": [],
+      "why": "不同绝对位姿，不叠加上一轮GUI变换"
+    },
+    {
+      "id": "B20-N01",
+      "ruleId": "R01_SOURCE_ID",
+      "field": "targetCadExactRef",
+      "value": "",
+      "expectedCodes": [
+        "R01_SOURCE_ID"
+      ],
+      "why": "CAD无exact hash"
+    },
+    {
+      "id": "B20-N02",
+      "ruleId": "R01_SOURCE_ID",
+      "field": "stockExactRef",
+      "value": "D04.Stock@rev8",
+      "expectedCodes": [
+        "R01_SOURCE_ID"
+      ],
+      "why": "stock无exact hash"
+    },
+    {
+      "id": "B20-N03",
+      "ruleId": "R01_SOURCE_ID",
+      "field": "cadOccurrencePath",
+      "value": [],
+      "expectedCodes": [
+        "R01_SOURCE_ID"
+      ],
+      "why": "缺少CAD装配实例路径"
+    },
+    {
+      "id": "B20-N04",
+      "ruleId": "R01_SOURCE_ID",
+      "field": "topologyQualified",
+      "value": false,
+      "expectedCodes": [
+        "R01_SOURCE_ID"
+      ],
+      "why": "只拿渲染面片冒充CAD拓扑"
+    },
+    {
+      "id": "B20-N05",
+      "ruleId": "R01_SOURCE_ID",
+      "field": "currentCorrespondenceHash",
+      "value": "SYNTH-POINTSET@rev2",
+      "expectedCodes": [
+        "R01_SOURCE_ID"
+      ],
+      "why": "关联对已变更"
+    },
+    {
+      "id": "B20-N06",
+      "ruleId": "R02_UNIT_FRAME",
+      "field": "sourceUnit",
+      "value": "inch",
+      "expectedCodes": [
+        "R02_UNIT_FRAME"
+      ],
+      "why": "源与目标未统一物理单位"
+    },
+    {
+      "id": "B20-N07",
+      "ruleId": "R02_UNIT_FRAME",
+      "field": "targetUnit",
+      "value": "cm",
+      "expectedCodes": [
+        "R02_UNIT_FRAME"
+      ],
+      "why": "目标源单位不一致"
+    },
+    {
+      "id": "B20-N08",
+      "ruleId": "R02_UNIT_FRAME",
+      "field": "outputFrame",
+      "value": "D10.Machine@rev8",
+      "expectedCodes": [
+        "R02_UNIT_FRAME"
+      ],
+      "why": "D04配准结果被误写到执行Frame"
+    },
+    {
+      "id": "B20-N09",
+      "ruleId": "R03_OBSERVABILITY",
+      "field": "sourcePts",
+      "value": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "expectedCodes": [
+        "R03_OBSERVABILITY"
+      ],
+      "why": "只有两点，绕基线转动欠定"
+    },
+    {
+      "id": "B20-N10",
+      "ruleId": "R03_OBSERVABILITY",
+      "field": "sourcePts",
+      "value": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0
+        ]
+      ],
+      "expectedCodes": [
+        "R03_OBSERVABILITY"
+      ],
+      "why": "四点共线"
+    },
+    {
+      "id": "B20-N11",
+      "ruleId": "R03_OBSERVABILITY",
+      "field": "targetPts",
+      "value": [
+        [
+          10,
+          20,
+          30
+        ],
+        [
+          11,
+          20,
+          30
+        ],
+        [
+          12,
+          20,
+          30
+        ],
+        [
+          13,
+          20,
+          30
+        ]
+      ],
+      "expectedCodes": [
+        "R03_OBSERVABILITY"
+      ],
+      "why": "目标点共线"
+    },
+    {
+      "id": "B20-N12",
+      "ruleId": "R03_OBSERVABILITY",
+      "field": "sourcePts",
+      "value": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          null,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "expectedCodes": [
+        "R03_OBSERVABILITY"
+      ],
+      "why": "不允许空值伪0"
+    },
+    {
+      "id": "B20-N13",
+      "ruleId": "R04_RIGID",
+      "field": "rotation",
+      "value": [
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "expectedCodes": [
+        "R04_RIGID"
+      ],
+      "why": "det=-1镜像不属于刚体定位"
+    },
+    {
+      "id": "B20-N14",
+      "ruleId": "R04_RIGID",
+      "field": "rotation",
+      "value": [
+        [
+          1,
+          0.01,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "expectedCodes": [
+        "R04_RIGID"
+      ],
+      "why": "剪切不可借OCCT正交化悄然修复"
+    },
+    {
+      "id": "B20-N15",
+      "ruleId": "R04_RIGID",
+      "field": "rotation",
+      "value": [
+        [
+          1.1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "expectedCodes": [
+        "R04_RIGID"
+      ],
+      "why": "不均匀缩放"
+    },
+    {
+      "id": "B20-N16",
+      "ruleId": "R04_RIGID",
+      "field": "withScaling",
+      "value": true,
+      "expectedCodes": [
+        "R04_RIGID"
+      ],
+      "why": "Eigen Umeyama默认with_scaling=true须显式禁止"
+    },
+    {
+      "id": "B20-N17",
+      "ruleId": "R04_RIGID",
+      "field": "translation",
+      "value": [
+        10,
+        20,
+        "NaN"
+      ],
+      "expectedCodes": [
+        "R04_RIGID"
+      ],
+      "why": "非法平移分量"
+    },
+    {
+      "id": "B20-N18",
+      "ruleId": "R05_RESIDUAL",
+      "field": "targetPts",
+      "value": [
+        [
+          10,
+          20,
+          30
+        ],
+        [
+          11,
+          20,
+          30
+        ],
+        [
+          10,
+          21,
+          30
+        ],
+        [
+          10,
+          20,
+          31.5
+        ]
+      ],
+      "expectedCodes": [
+        "R05_RESIDUAL"
+      ],
+      "why": "有对应点偏差超出合成阈值"
+    },
+    {
+      "id": "B20-N19",
+      "ruleId": "R06_QUALIFICATION",
+      "field": "algorithm",
+      "value": "ICP_CONVERGED_AS_CERTIFIED",
+      "expectedCodes": [
+        "R06_QUALIFICATION"
+      ],
+      "why": "ICP收敛不等于datum或装夹认证"
+    },
+    {
+      "id": "B20-N20",
+      "ruleId": "R06_QUALIFICATION",
+      "field": "solverProfileRef",
+      "value": "UNKNOWN_PROFILE",
+      "expectedCodes": [
+        "R06_QUALIFICATION"
+      ],
+      "why": "算法版本未锁定"
+    },
+    {
+      "id": "B20-N21",
+      "ruleId": "R06_QUALIFICATION",
+      "field": "metrologyQualified",
+      "value": true,
+      "expectedCodes": [
+        "R06_QUALIFICATION"
+      ],
+      "why": "无测量证据不得升级为实测"
+    },
+    {
+      "id": "B20-N22",
+      "ruleId": "R06_QUALIFICATION",
+      "field": "datumApproved",
+      "value": true,
+      "expectedCodes": [
+        "R06_QUALIFICATION"
+      ],
+      "why": "候选不得冒充批准基准"
+    },
+    {
+      "id": "B20-N23",
+      "ruleId": "R06_QUALIFICATION",
+      "field": "engineeringVerified",
+      "value": true,
+      "expectedCodes": [
+        "R06_QUALIFICATION"
+      ],
+      "why": "规划合成不能冒充产品工程PASS"
+    },
+    {
+      "id": "B20-N24",
+      "ruleId": "R07_UI_OWNER",
+      "field": "engineCount",
+      "value": 2,
+      "expectedCodes": [
+        "R07_UI_OWNER"
+      ],
+      "why": "同一世界出现双Engine"
+    },
+    {
+      "id": "B20-N25",
+      "ruleId": "R07_UI_OWNER",
+      "field": "leftTaskPanelCount",
+      "value": 2,
+      "expectedCodes": [
+        "R07_UI_OWNER"
+      ],
+      "why": "重复任务容器"
+    },
+    {
+      "id": "B20-N26",
+      "ruleId": "R07_UI_OWNER",
+      "field": "previewOnly",
+      "value": false,
+      "expectedCodes": [
+        "R07_UI_OWNER"
+      ],
+      "why": "3D ghost拖动越权写入"
+    },
+    {
+      "id": "B20-N27",
+      "ruleId": "R07_UI_OWNER",
+      "field": "consumerOwnerPorts",
+      "value": [
+        "D04.OwnerPort",
+        "D10.OwnerPort",
+        "D04.OwnerPort"
+      ],
+      "expectedCodes": [
+        "R07_UI_OWNER"
+      ],
+      "why": "CLI绕过统一D04写入Owner"
+    },
+    {
+      "id": "B20-N28",
+      "ruleId": "R08_CAS_ACK",
+      "field": "currentRevision",
+      "value": "D04:rev9",
+      "expectedCodes": [
+        "R08_CAS_ACK"
+      ],
+      "why": "CAS拒绝旧revision"
+    },
+    {
+      "id": "B20-N29",
+      "ruleId": "R08_CAS_ACK",
+      "field": "responseScopeEpoch",
+      "value": 7,
+      "expectedCodes": [
+        "R08_CAS_ACK"
+      ],
+      "why": "晚响应来自前一scope"
+    },
+    {
+      "id": "B20-N30",
+      "ruleId": "R08_CAS_ACK",
+      "field": "permissionCurrent",
+      "value": false,
+      "expectedCodes": [
+        "R08_CAS_ACK"
+      ],
+      "why": "提交时权限已经撤销"
+    },
+    {
+      "id": "B20-N31",
+      "ruleId": "R08_CAS_ACK",
+      "field": "cancelled",
+      "value": true,
+      "expectedCodes": [
+        "R08_CAS_ACK"
+      ],
+      "why": "取消后禁止应用"
+    },
+    {
+      "id": "B20-N32",
+      "ruleId": "R08_CAS_ACK",
+      "field": "lateAckApplied",
+      "value": true,
+      "expectedCodes": [
+        "R08_CAS_ACK"
+      ],
+      "why": "晚回执不能改变业务事实"
+    },
+    {
+      "id": "B20-N33",
+      "ruleId": "R09_D04_D10",
+      "field": "executionBindingUpdated",
+      "value": true,
+      "expectedCodes": [
+        "R09_D04_D10"
+      ],
+      "why": "D04配准不可直接改D10执行绑定"
+    },
+    {
+      "id": "B20-N34",
+      "ruleId": "R09_D04_D10",
+      "field": "ncValidation",
+      "value": "pass",
+      "expectedCodes": [
+        "R09_D04_D10"
+      ],
+      "why": "未解释NC不得自动标验证通过"
+    },
+    {
+      "id": "B20-N35",
+      "ruleId": "R09_D04_D10",
+      "field": "releaseStatus",
+      "value": "released",
+      "expectedCodes": [
+        "R09_D04_D10"
+      ],
+      "why": "候选/unknown不能放行D16"
+    }
+  ]
+}

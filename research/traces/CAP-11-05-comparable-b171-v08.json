@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "procet-b171-trace-v08",
+  "origin": "NEWLY_AUTHORED",
+  "date": "2026-11-05",
+  "topic": "R-RECOMMENDATION-COMPARABLE-001",
+  "sourcePath": "research/sources/CAP-11-05-comparable-b171.json",
+  "fixturePath": "docs/capabilities/CAP-11-05/comparable-b171-fixtures-v08.json",
+  "checkerPath": "tools/check_cap1105_comparable_b171_v08.cjs",
+  "reportPath": "docs/capabilities/CAP-11-05/COMPARABLE-RECOMMENDATION-B171-2026-11-05.md",
+  "verificationPath": "tracking/cap1105-comparable-b171-verification-2026-11-05.json",
+  "humanReview": "PENDING_L3",
+  "rules": [
+    {
+      "id": "B171-R01",
+      "title": "设计/材料SHA、Frame、精确Revision必须不漂移",
+      "fields": [
+        "context.designHash",
+        "context.materialHash",
+        "context.frame",
+        "context.revision"
+      ],
+      "sourceIds": [
+        "B171-S07",
+        "B171-S08"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07"
+      ],
+      "testIds": [
+        "B171-R01-P",
+        "B171-R01-N1",
+        "B171-R01-N2",
+        "B171-R01-N3",
+        "B171-R01-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    },
+    {
+      "id": "B171-R02",
+      "title": "引用需要受控定位、版本、可见范围及advisory身份",
+      "fields": [
+        "evidence.locator",
+        "evidence.sourceRevision",
+        "evidence.scopeAllowed",
+        "evidence.classification"
+      ],
+      "sourceIds": [
+        "B171-S01",
+        "B171-S03",
+        "B171-S06",
+        "B171-S07"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "testIds": [
+        "B171-R02-P",
+        "B171-R02-N1",
+        "B171-R02-N2",
+        "B171-R02-N3",
+        "B171-R02-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    },
+    {
+      "id": "B171-R03",
+      "title": "知识、工艺、刀具和材料适用性独立判断",
+      "fields": [
+        "fit.materialMatched",
+        "fit.operationMatched",
+        "fit.toolMatched",
+        "fit.versionCurrent"
+      ],
+      "sourceIds": [
+        "B171-S04",
+        "B171-S05",
+        "B171-S07"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D05"
+      ],
+      "testIds": [
+        "B171-R03-P",
+        "B171-R03-N1",
+        "B171-R03-N2",
+        "B171-R03-N3",
+        "B171-R03-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    },
+    {
+      "id": "B171-R04",
+      "title": "对同口径估计采用确定性排序，不混用真实节拍",
+      "fields": [
+        "compare.objective",
+        "compare.candidates",
+        "compare.tiePolicy",
+        "compare.selectedId"
+      ],
+      "sourceIds": [
+        "B171-S02",
+        "B171-S07",
+        "B171-S08"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "testIds": [
+        "B171-R04-P",
+        "B171-R04-N1",
+        "B171-R04-N2",
+        "B171-R04-N3",
+        "B171-R04-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    },
+    {
+      "id": "B171-R05",
+      "title": "转速和进给边界必须同时显式满足",
+      "fields": [
+        "limits.rpm",
+        "limits.rpmMax",
+        "limits.feed",
+        "limits.feedMax"
+      ],
+      "sourceIds": [
+        "B171-S04",
+        "B171-S05",
+        "B171-S07"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "testIds": [
+        "B171-R05-P",
+        "B171-R05-N1",
+        "B171-R05-N2",
+        "B171-R05-N3",
+        "B171-R05-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    },
+    {
+      "id": "B171-R06",
+      "title": "保留备选、同分母和未知功率风险，禁默默采纳",
+      "fields": [
+        "alternative.alternativeId",
+        "alternative.sameDenominator",
+        "alternative.riskDisclosure",
+        "alternative.silentAutoApply"
+      ],
+      "sourceIds": [
+        "B171-S01",
+        "B171-S03",
+        "B171-S06",
+        "B171-S07"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D05",
+        "D08",
+        "D17"
+      ],
+      "testIds": [
+        "B171-R06-P",
+        "B171-R06-N1",
+        "B171-R06-N2",
+        "B171-R06-N3",
+        "B171-R06-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    },
+    {
+      "id": "B171-R07",
+      "title": "05域Owner在提交点做CAS、撤权与取消重验",
+      "fields": [
+        "owner.expectedRevision",
+        "owner.observedRevision",
+        "owner.aclCurrent",
+        "owner.cancelFenceCurrent"
+      ],
+      "sourceIds": [
+        "B171-S07",
+        "B171-S08"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "testIds": [
+        "B171-R07-P",
+        "B171-R07-N1",
+        "B171-R07-N2",
+        "B171-R07-N3",
+        "B171-R07-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    },
+    {
+      "id": "B171-R08",
+      "title": "同一领域入口、单Babylon、左TaskPanel及NC unknown阻断",
+      "fields": [
+        "workflow.sharedDomainPort",
+        "workflow.sceneCount",
+        "workflow.leftTaskPanelCount",
+        "workflow.ncUnknownBlocks"
+      ],
+      "sourceIds": [
+        "B171-S07",
+        "B171-S08"
+      ],
+      "capabilityIds": [
+        "CAP-11-05"
+      ],
+      "originalWorkPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "assets": [
+        "D09",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B171-R08-P",
+        "B171-R08-N1",
+        "B171-R08-N2",
+        "B171-R08-N3",
+        "B171-R08-N4"
+      ],
+      "independentConsumers": "真实D03/D10、D05 Owner、D16消费者NOT_RUN"
+    }
+  ]
+}

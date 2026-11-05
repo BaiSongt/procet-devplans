@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "B0-02",
+  "topic": "R-GOV-001",
+  "updatedOn": "2026-10-19",
+  "status": "drafted_pending_human_review",
+  "productAcceptance": "not_run",
+  "baselineVersion": "V0.8",
+  "sourceIds": [
+    "SRC-B002-001",
+    "SRC-B002-002",
+    "SRC-B002-003",
+    "SRC-B002-004"
+  ],
+  "paths": {
+    "plan": "docs/work-packages/B0-02.md",
+    "assetOwner": "docs/work-packages/B0-02/asset-owner-17-first-batch.json",
+    "capabilityMap": "docs/work-packages/B0-02/capability-88-first-batch.json",
+    "research": "research/topics/R-GOV-001.md",
+    "sourceRegister": "research/sources/B0-02.json",
+    "sourceIndex": "research/source-index.json",
+    "acceptance": "docs/work-packages/B0-02/fixtures.json"
+  },
+  "rules": [
+    {
+      "id": "B002-R01",
+      "text": "11域/88 CAP原始编号不可暗改；新需求进入提案空间",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-002"
+      ],
+      "fields": [
+        "domainId",
+        "capabilityId",
+        "baselineId",
+        "proposalId"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S01",
+        "B0-02-S02"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT01",
+        "B0-02-AT02"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R02",
+      "text": "17个D类资产与唯一写入Owner逐项可核对",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-001"
+      ],
+      "fields": [
+        "assetId",
+        "ownerDomain",
+        "authorityState"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S03"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT03",
+        "B0-02-AT04"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R03",
+      "text": "C0只统一精确引用与协议，C1字段由各域持有",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-002"
+      ],
+      "fields": [
+        "domainRef",
+        "schemaVersion",
+        "artifactDescriptor"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S04"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT05",
+        "B0-02-AT06"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R04",
+      "text": "版本化来源DAG不可环，业务反馈经新修订/明确变更事件",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-001",
+        "SRC-B002-004"
+      ],
+      "fields": [
+        "sourceRefs",
+        "generationId",
+        "changeRequestRef"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S05"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT07",
+        "B0-02-AT08"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R05",
+      "text": "Producer与Consumer双方评审接口；未评审不可标冻结",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-002"
+      ],
+      "fields": [
+        "producerRole",
+        "consumerReviewRoles",
+        "reviewStatus"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S06"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT09",
+        "B0-02-AT10"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R06",
+      "text": "每次写入提交点复核actor/范围/exact revision+hash，不因能力登记授权",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-003"
+      ],
+      "fields": [
+        "expectedRevision",
+        "expectedHash",
+        "actor",
+        "policyRef"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S07"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT11",
+        "B0-02-AT12"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R07",
+      "text": "D04 ProcessSetup与D10 MachineExecutionBinding独立建模",
+      "kind": "internal_architecture_decision",
+      "sourceIds": [],
+      "fields": [
+        "processSetupRef",
+        "machineBindingRef"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S08"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT13",
+        "B0-02-AT14"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R08",
+      "text": "D09中立CL不等于D12最终NC，更不等于D13→D14→D15实际程序验证",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-003"
+      ],
+      "fields": [
+        "neutralClRef",
+        "ncBytesHash",
+        "ncExecutionSemanticsRef",
+        "axisTraceRef",
+        "ncVerificationRef"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S08"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT15",
+        "B0-02-AT16"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R09",
+      "text": "跨域采纳不可回写冻结成果；派生与批准角色分开",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-001"
+      ],
+      "fields": [
+        "candidateRef",
+        "freezeRevisionRef",
+        "approvalRef",
+        "sourceRefs"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S09"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT17",
+        "B0-02-AT18"
+      ],
+      "status": "proposal_pending_review"
+    },
+    {
+      "id": "B002-R10",
+      "text": "旧版兼容/未知语义/撤销回退与来源保全需记录风险",
+      "kind": "source_and_internal_design",
+      "sourceIds": [
+        "SRC-B002-004"
+      ],
+      "fields": [
+        "migrationPlanRef",
+        "unknownSemantics",
+        "rollbackPlanRef"
+      ],
+      "workPackageId": "B0-02",
+      "subtaskIds": [
+        "B0-02-S10"
+      ],
+      "acceptanceIds": [
+        "B0-02-AT19",
+        "B0-02-AT20"
+      ],
+      "status": "proposal_pending_review"
+    }
+  ],
+  "acceptanceTests": [
+    "B0-02-AT01",
+    "B0-02-AT02",
+    "B0-02-AT03",
+    "B0-02-AT04",
+    "B0-02-AT05",
+    "B0-02-AT06",
+    "B0-02-AT07",
+    "B0-02-AT08",
+    "B0-02-AT09",
+    "B0-02-AT10",
+    "B0-02-AT11",
+    "B0-02-AT12",
+    "B0-02-AT13",
+    "B0-02-AT14",
+    "B0-02-AT15",
+    "B0-02-AT16",
+    "B0-02-AT17",
+    "B0-02-AT18",
+    "B0-02-AT19",
+    "B0-02-AT20"
+  ],
+  "subtasks": [
+    "B0-02-S01",
+    "B0-02-S02",
+    "B0-02-S03",
+    "B0-02-S04",
+    "B0-02-S05",
+    "B0-02-S06",
+    "B0-02-S07",
+    "B0-02-S08",
+    "B0-02-S09",
+    "B0-02-S10"
+  ],
+  "evidenceCategories": [
+    "external_research",
+    "remote_baseline_read",
+    "internal_design_proposal",
+    "actual_static_validation"
+  ],
+  "codeObservationOnly": false
+}

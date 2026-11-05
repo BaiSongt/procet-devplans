@@ -1,0 +1,367 @@
+{
+  "schemaVersion": "procet-b54-trace-v1",
+  "capabilityId": "CAP-11-08",
+  "researchTopic": "R-HUMAN-AUTH-001",
+  "workPackages": [
+    "T5-01",
+    "T5-02"
+  ],
+  "sourceRegistry": "research/sources/CAP-11-08-tool-approval-b54.json",
+  "fixtures": "docs/capabilities/CAP-11-08/tool-approval-b54-fixtures-v08.json",
+  "validator": "tools/check_cap1108_tool_approval_b54_v08.cjs",
+  "approval": "PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "B54-R01",
+      "summary": "协议代次与逐请求工具目录资格",
+      "fields": [
+        "protocol.version",
+        "protocol.catalogScope",
+        "protocol.catalogKnown"
+      ],
+      "sourceIds": [
+        "B54-S01",
+        "B54-S04",
+        "B54-S07"
+      ],
+      "assets": [
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N01",
+        "N02",
+        "N03",
+        "N04"
+      ],
+      "unknownCases": [
+        "U01"
+      ]
+    },
+    {
+      "id": "B54-R02",
+      "summary": "跨Server工具ID、精确工具名、Schema与目录代次",
+      "fields": [
+        "tool.server",
+        "tool.name",
+        "tool.schemaHash",
+        "tool.catalogEpoch"
+      ],
+      "sourceIds": [
+        "B54-S01",
+        "B54-S04",
+        "B54-S07"
+      ],
+      "assets": [
+        "D05",
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N05",
+        "N06",
+        "N07",
+        "N08"
+      ],
+      "unknownCases": [
+        "U02"
+      ]
+    },
+    {
+      "id": "B54-R03",
+      "summary": "工具参数、批准摘要、Nonce和不可信文本隔离",
+      "fields": [
+        "tool.argsHash",
+        "approval.intentHash",
+        "approval.nonce",
+        "tool.untrustedTextIsCommand"
+      ],
+      "sourceIds": [
+        "B54-S01",
+        "B54-S07",
+        "B54-S08"
+      ],
+      "assets": [
+        "D05",
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N09",
+        "N10",
+        "N11",
+        "N12"
+      ],
+      "unknownCases": [
+        "U03"
+      ]
+    },
+    {
+      "id": "B54-R04",
+      "summary": "独立人类审批与意图有效期",
+      "fields": [
+        "approval.signer",
+        "approval.principal",
+        "approval.evidence",
+        "approval.expiry"
+      ],
+      "sourceIds": [
+        "B54-S06",
+        "B54-S07",
+        "B54-S08"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N13",
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "unknownCases": [
+        "U04"
+      ]
+    },
+    {
+      "id": "B54-R05",
+      "summary": "OAuth受众、Issuer和跨资源令牌禁止透传",
+      "fields": [
+        "oauth.resource",
+        "oauth.audience",
+        "oauth.issuer",
+        "oauth.tokenPassThrough"
+      ],
+      "sourceIds": [
+        "B54-S02",
+        "B54-S03",
+        "B54-S04"
+      ],
+      "assets": [
+        "D05",
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N17",
+        "N18",
+        "N19"
+      ],
+      "unknownCases": [
+        "U05"
+      ]
+    },
+    {
+      "id": "B54-R06",
+      "summary": "D05 Owner提交前ACL/CAS/Revision/Hash/Frame/Scope重验",
+      "fields": [
+        "owner.revision",
+        "owner.hash",
+        "owner.frame",
+        "owner.scope",
+        "owner.aclEpoch",
+        "owner.casAtomic"
+      ],
+      "sourceIds": [
+        "B54-S05",
+        "B54-S07",
+        "B54-S08"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N20",
+        "N21",
+        "N22",
+        "N23",
+        "N24",
+        "N25",
+        "N26",
+        "N27"
+      ],
+      "unknownCases": [
+        "U06"
+      ]
+    },
+    {
+      "id": "B54-R07",
+      "summary": "取消代次、晚回执、幂等重放和模型伪成功",
+      "fields": [
+        "ack.generation",
+        "ack.cancelled",
+        "ack.late",
+        "ack.nonceConflict",
+        "ack.ownerReceipt"
+      ],
+      "sourceIds": [
+        "B54-S07",
+        "B54-S08"
+      ],
+      "assets": [
+        "D05",
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32",
+        "N33"
+      ],
+      "unknownCases": [
+        "U07"
+      ]
+    },
+    {
+      "id": "B54-R08",
+      "summary": "冻结与D04/D10分离及单Babylon/左TaskPanel",
+      "fields": [
+        "context.freezePreserved",
+        "context.d04",
+        "context.d10",
+        "ui.entries",
+        "ui.babylonWorlds",
+        "ui.taskPanel"
+      ],
+      "sourceIds": [
+        "B54-S07",
+        "B54-S08"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D10",
+        "D11"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N34",
+        "N35",
+        "N36",
+        "N37",
+        "N38",
+        "N39",
+        "N40",
+        "N41",
+        "N42"
+      ],
+      "unknownCases": [
+        "U08"
+      ]
+    },
+    {
+      "id": "B54-R09",
+      "summary": "中立CL→最终NC→解释→轴时序→验证→发布资格",
+      "fields": [
+        "nc.d13",
+        "nc.d14",
+        "nc.d15",
+        "nc.d16",
+        "nc.clIsProof"
+      ],
+      "sourceIds": [
+        "B54-S07",
+        "B54-S08"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "T5-01",
+        "T5-02"
+      ],
+      "positiveCases": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "negativeCases": [
+        "N43",
+        "N44",
+        "N45",
+        "N46",
+        "N47",
+        "N48"
+      ],
+      "unknownCases": [
+        "U09"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "procet-w2-03-domain-contract-proposal-v1",
+  "status": "NOT_IMPLEMENTED_NOT_APPROVED",
+  "interfaces": {
+    "query": "DependencyImpactPort.preview|explain|graphRevision|rebuildProjection",
+    "commit": "DomainOwnerPort.commitRevisionAndInvalidation",
+    "channels": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "guard": "PERMISSION_CAS_TASK_GENERATION_RECHECK_AT_COMMIT"
+  },
+  "graphRevision": {
+    "id": "dependency-graph-demo",
+    "revision": "g-3",
+    "hash": "sha256:synthetic-graph",
+    "sourceRevisionHash": "sha256:synthetic-source",
+    "ruleSetId": "impact-v0.8-draft",
+    "scope": "project/demo/branch/B/Setup-A",
+    "topology": "REVISION_INSTANCE_DAG",
+    "frame": "SETUP-A",
+    "unit": "mm"
+  },
+  "changeEvent": {
+    "type": "NC_BYTES_EDIT",
+    "oldAssetRef": {
+      "id": "D12:A:r1",
+      "revision": "r1",
+      "hash": "sha256:synthetic-d12-a-v1",
+      "frame": "SETUP-A",
+      "unit": "mm"
+    },
+    "newRevisionId": "D12:A:r2",
+    "revisionRelation": "NEW_VERSION_NOT_IN_PLACE",
+    "status": "STAGED"
+  },
+  "preview": {
+    "changedId": "D12:A:r1",
+    "impactedAssetTypes": [
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "untouchedTypes": [
+      "D04",
+      "D07",
+      "D08",
+      "D09",
+      "D11"
+    ],
+    "reasonPath": [
+      "D12:A:r1",
+      "D13:A:r1",
+      "D14:A:r1",
+      "D15:A:r1",
+      "D16:A:r1"
+    ],
+    "eligibility": "REVALIDATION_REQUIRED",
+    "engineeringVerification": "NOT_RUN"
+  },
+  "commit": {
+    "expectedPlanHead": "plan-h7",
+    "expectedGraphVersion": "g-3",
+    "expectedAssetSHA": "sha256:synthetic-d12-a-v1",
+    "permission": "RECHECK",
+    "taskGeneration": 9,
+    "cancelled": false,
+    "lateReceiptRejected": true
+  },
+  "result": {
+    "status": "PLANNING_ONLY",
+    "materialRemovalSimulation": "OUT_OF_SCOPE",
+    "NCValidation": "NOT_RUN",
+    "releaseAuthority": "NOT_GRANTED"
+  }
+}

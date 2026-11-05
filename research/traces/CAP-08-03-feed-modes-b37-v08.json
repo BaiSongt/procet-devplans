@@ -1,0 +1,343 @@
+{
+  "schemaVersion": "procet-b37-trace-v1",
+  "date": "2026-10-30",
+  "capability": "CAP-08-03",
+  "topic": "R-WCS-MOTION-001",
+  "sourcesPath": "research/sources/CAP-08-03-feed-modes-b37.json",
+  "fixturePath": "docs/capabilities/CAP-08-03/feed-modes-b37-fixtures-v08.json",
+  "checker": "tools/check_cap0803_feed_modes_b37_v08.cjs",
+  "rules": [
+    {
+      "id": "B37-R1",
+      "title": "最终NC与D10实际绑定、Frame/方言固定",
+      "sourceIds": [
+        "B37-S05"
+      ],
+      "fields": [
+        "identity.d12Hash",
+        "identity.d12Revision",
+        "identity.d10Revision",
+        "identity.d04Revision",
+        "identity.d10FrameFrom",
+        "identity.d10FrameTo",
+        "identity.controllerProfileHash"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N01",
+        "N02",
+        "N03",
+        "N04"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B37-R2",
+      "title": "G93逐进给运动F及G0豁免",
+      "sourceIds": [
+        "B37-S01"
+      ],
+      "fields": [
+        "feed.mode",
+        "feed.motion",
+        "feed.blockHasF",
+        "feed.value",
+        "feed.nominalSeconds"
+      ],
+      "workPackageIds": [
+        "E3-03"
+      ],
+      "origin": "LINUXCNC_2_9",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N05",
+        "N06",
+        "N07",
+        "N08"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B37-R3",
+      "title": "G94模式切换重给F、单位与名义时长",
+      "sourceIds": [
+        "B37-S01",
+        "B37-S02"
+      ],
+      "fields": [
+        "feed.newAfterSwitch",
+        "feed.units",
+        "feed.lengthMm",
+        "feed.nominalSeconds"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "origin": "LINUXCNC_2_9_PLUS_MATH",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N09",
+        "N10",
+        "N11",
+        "N12"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B37-R4",
+      "title": "G95主轴速度输入/索引和单位每转资格",
+      "sourceIds": [
+        "B37-S01"
+      ],
+      "fields": [
+        "spindle.selected",
+        "spindle.speedInWired",
+        "spindle.observedRpm",
+        "feed.value",
+        "spindle.measurement"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "origin": "LINUXCNC_2_9_PLUS_SYNTHETIC",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N13",
+        "N14",
+        "N15",
+        "N16"
+      ],
+      "unknownIds": [
+        "U01"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B37-R5",
+      "title": "模态前后快照与NC字节行定位",
+      "sourceIds": [
+        "B37-S02",
+        "B37-S03",
+        "B37-S05"
+      ],
+      "fields": [
+        "modal.before",
+        "modal.after",
+        "modal.snapshotLogged",
+        "modal.byteSpan"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "NIST_ABSTRACT_AND_INTERNAL",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N17",
+        "N18",
+        "N19",
+        "N20"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B37-R6",
+      "title": "D13名义时长不替代D14/D15/D16",
+      "sourceIds": [
+        "B37-S03",
+        "B37-S05"
+      ],
+      "fields": [
+        "gate.d13",
+        "gate.d14",
+        "gate.d15",
+        "gate.d16",
+        "gate.clOnlyEligible"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04",
+        "E3-05"
+      ],
+      "origin": "INTERNAL",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N21",
+        "N22",
+        "N23",
+        "N24",
+        "N25"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B37-R7",
+      "title": "Owner写入CAS/ACL/ScopeEpoch/取消Fence",
+      "sourceIds": [
+        "B37-S04",
+        "B37-S05"
+      ],
+      "fields": [
+        "owner.expectedRevision",
+        "owner.actualRevision",
+        "owner.expectedHash",
+        "owner.actualHash",
+        "owner.aclEpoch",
+        "owner.aclActual",
+        "owner.scopeEpoch",
+        "owner.scopeActual",
+        "owner.cancelGen",
+        "owner.ackGen",
+        "owner.cancelled",
+        "owner.lateAck",
+        "owner.cas"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL_CAS_RFC_ANALOGY_ONLY",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N32"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B37-R8",
+      "title": "GUI/CLI/Agent单Owner、单Babylon与冻结回退",
+      "sourceIds": [
+        "B37-S05"
+      ],
+      "fields": [
+        "ui.channels",
+        "ui.ownerPort",
+        "ui.babylonWorlds",
+        "ui.leftPanel",
+        "ui.fontMaxPx",
+        "ui.previewWrites",
+        "handoff.freezeBefore",
+        "handoff.freezeAfter",
+        "handoff.readerRollback",
+        "handoff.consumer"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL",
+      "capabilityIds": [
+        "CAP-08-03",
+        "CAP-09-06"
+      ],
+      "positiveIds": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "negativeIds": [
+        "N33",
+        "N34",
+        "N35",
+        "N36",
+        "N37",
+        "N38",
+        "N39"
+      ],
+      "unknownIds": [],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ]
+}

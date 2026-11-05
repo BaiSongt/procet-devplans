@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "procet-cap1005-opcua-subscription-b64-trace-v1",
+  "capabilityId": "CAP-10-05",
+  "researchTopic": "R-MDC-OBSERVABILITY-001",
+  "sourceRegistry": "research/sources/CAP-10-05-opcua-subscription-b64.json",
+  "specification": "docs/capabilities/CAP-10-05/OPCUA-SUBSCRIPTION-GAP-B64-2026-10-31.md",
+  "fixtures": "docs/capabilities/CAP-10-05/opcua-subscription-b64-fixtures-v08.json",
+  "validator": "tools/check_cap1005_opcua_subscription_b64_v08.cjs",
+  "baselineHead": "623e0252f40a74eca750f83f2fc12e6c223851e8",
+  "ownerDomain": "10",
+  "ownerPort": "MdcObservationPort.appendCAS",
+  "status": "PENDING_HUMAN_SYNTHETIC_ONLY",
+  "rules": [
+    {
+      "id": "B64-R01",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "D03原生点位/Session/Scope身份发现，不跨机床Profile复用",
+      "sourceIds": [
+        "B64-S01",
+        "B64-S05",
+        "B64-S06"
+      ],
+      "fields": [
+        "identity.machineExact",
+        "identity.profileRevisionExact",
+        "identity.namespaceMapExact",
+        "identity.readOnlyScope",
+        "identity.sessionEpochExact",
+        "identity.scopeEpochExact",
+        "identity.capabilityDiscovered"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R01-P"
+      ],
+      "negativeTestIds": [
+        "B64-R01-M01",
+        "B64-R01-M02",
+        "B64-R01-M03",
+        "B64-R01-M04",
+        "B64-R01-M05"
+      ],
+      "unknownTestIds": [
+        "B64-R01-M06"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B64-R02",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "keep-alive仅为心跳，不生成D17样本也不ACK为Observation",
+      "sourceIds": [
+        "B64-S01",
+        "B64-S06"
+      ],
+      "fields": [
+        "message.kind",
+        "message.sequence",
+        "message.expectedNext",
+        "message.notificationCount",
+        "message.ackSent",
+        "message.d17AppendAttempted"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R02-P"
+      ],
+      "negativeTestIds": [
+        "B64-R02-M01",
+        "B64-R02-M02",
+        "B64-R02-M03",
+        "B64-R02-M04",
+        "B64-R02-M05"
+      ],
+      "unknownTestIds": [
+        "B64-R02-M06"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B64-R03",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "32位Notification序列0不可用，最大值回卷1；无证据缺号置GAP",
+      "sourceIds": [
+        "B64-S01",
+        "B64-S06"
+      ],
+      "fields": [
+        "notification.kind",
+        "notification.previousSequence",
+        "notification.sequence",
+        "notification.count",
+        "notification.payloadHashPinned"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R03-P"
+      ],
+      "negativeTestIds": [
+        "B64-R03-M01",
+        "B64-R03-M02",
+        "B64-R03-M03",
+        "B64-R03-M04",
+        "B64-R03-M05",
+        "B64-BND-WRAP-NEAR"
+      ],
+      "unknownTestIds": [
+        "B64-R03-M06"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B64-R04",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "OPC ACK前先完成D17去重不可变提交；网络ACK不是持久化证据",
+      "sourceIds": [
+        "B64-S01",
+        "B64-S06"
+      ],
+      "fields": [
+        "ack.queueSupport",
+        "ack.notificationIdentityPinned",
+        "ack.d17Committed",
+        "ack.rawDigestPinned",
+        "ack.dedupKeyPinned",
+        "ack.ackAfterCommit",
+        "ack.ackSent"
+      ],
+      "assets": [
+        "D01",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R04-P"
+      ],
+      "negativeTestIds": [
+        "B64-R04-M01",
+        "B64-R04-M02",
+        "B64-R04-M03",
+        "B64-R04-M04",
+        "B64-R04-M05",
+        "B64-R04-M07",
+        "B64-BND-ACK-NOCOMMIT",
+        "B64-BND-ACK-AFTER-REPLAY"
+      ],
+      "unknownTestIds": [
+        "B64-R04-M06"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B64-R05",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "缺口Republish并记录Bad_MessageNotAvailable，快照恢复不补造历史",
+      "sourceIds": [
+        "B64-S02",
+        "B64-S06"
+      ],
+      "fields": [
+        "recovery.gapDetected",
+        "recovery.republishResult",
+        "recovery.nextExpectedPinned",
+        "recovery.recoveredDigestPinned",
+        "recovery.noOlderOverwrite",
+        "recovery.currentSnapshotNotHistory"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R05-P"
+      ],
+      "negativeTestIds": [
+        "B64-R05-M01",
+        "B64-R05-M02",
+        "B64-R05-M04",
+        "B64-R05-M05",
+        "B64-R05-M06",
+        "B64-R05-M07",
+        "B64-BND-UNRECOVERABLE-GAP"
+      ],
+      "unknownTestIds": [
+        "B64-R05-M03"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B64-R06",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "availableSequenceNumbers为空表示无重传队列支持，不能发送ACK或宣称无损",
+      "sourceIds": [
+        "B64-S01",
+        "B64-S02",
+        "B64-S06"
+      ],
+      "fields": [
+        "queue.availableSequenceNumbers",
+        "queue.ackSent",
+        "queue.fallbackRecorded",
+        "queue.losslessClaim",
+        "queue.d17Committed"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R06-P"
+      ],
+      "negativeTestIds": [
+        "B64-R06-M01",
+        "B64-R06-M03",
+        "B64-R06-M05",
+        "B64-BND-QUEUE-NOLOSS"
+      ],
+      "unknownTestIds": [
+        "B64-R06-M02",
+        "B64-R06-M04"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B64-R07",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "新Session转移须服务器确认且旧Epoch的晚回执拒绝",
+      "sourceIds": [
+        "B64-S03",
+        "B64-S06"
+      ],
+      "fields": [
+        "transfer.result",
+        "transfer.userAuthorized",
+        "transfer.serverConfirmed",
+        "transfer.aclCASRechecked",
+        "transfer.newSessionEpochPinned",
+        "transfer.oldEpochWriteAccepted"
+      ],
+      "assets": [
+        "D03",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R07-P"
+      ],
+      "negativeTestIds": [
+        "B64-R07-M01",
+        "B64-R07-M02",
+        "B64-R07-M03",
+        "B64-R07-M04",
+        "B64-R07-M05",
+        "B64-R07-M06"
+      ],
+      "unknownTestIds": [
+        "B64-R07-M07"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B64-R08",
+      "capabilityId": "CAP-10-05",
+      "engineeringRule": "GUI/CLI/Agent共享Owner Port、单Babylon及左TaskPanel，不冒充NC安全或真实消费者",
+      "sourceIds": [
+        "B64-S04",
+        "B64-S05",
+        "B64-S06"
+      ],
+      "fields": [
+        "boundary.protocolKnown",
+        "boundary.sameDomainPort",
+        "boundary.singleBabylonWorld",
+        "boundary.leftUnifiedTaskPanel",
+        "boundary.noCycleStart",
+        "boundary.noD15PassClaim",
+        "boundary.noConsumerPassClaim",
+        "boundary.rollbackPreserved",
+        "boundary.aclRechecked",
+        "boundary.ownerRevisionExact",
+        "boundary.ownerHashExact",
+        "boundary.ownerFrameExact",
+        "boundary.scopeEpochExact",
+        "boundary.cancelFenceCurrent"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "positiveTestIds": [
+        "B64-R08-P"
+      ],
+      "negativeTestIds": [
+        "B64-R08-M01",
+        "B64-R08-M02",
+        "B64-R08-M03",
+        "B64-R08-M04",
+        "B64-R08-M05",
+        "B64-R08-M06",
+        "B64-R08-M07",
+        "B64-R08-M08",
+        "B64-R08-M09",
+        "B64-R08-M10"
+      ],
+      "unknownTestIds": [
+        "B64-R08-M11"
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

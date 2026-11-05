@@ -1,0 +1,444 @@
+{
+  "schemaVersion": "procet-cap0706-synthetic-fixtures-v1",
+  "capabilityId": "CAP-07-06",
+  "syntheticOnly": true,
+  "notActualOcct": true,
+  "notActualMachine": true,
+  "notContinuousCollisionProof": true,
+  "cases": [
+    {
+      "id": "CAP-07-06-T01",
+      "ruleId": "C0706-R01",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frameHandedness": "RIGHT",
+        "frozenUnchanged": true
+      },
+      "scenario": "精确版本、右手Frame与D08冻结：正例"
+    },
+    {
+      "id": "CAP-07-06-T02",
+      "ruleId": "C0706-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frameHash",
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "obsolete",
+        "frameHandedness": "RIGHT",
+        "frozenUnchanged": true
+      },
+      "scenario": "精确版本、右手Frame与D08冻结：反例"
+    },
+    {
+      "id": "CAP-07-06-M01",
+      "ruleId": "C0706-R01",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "frozenUnchanged",
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frameHandedness": "RIGHT",
+        "frozenUnchanged": false
+      },
+      "scenario": "精确版本、右手Frame与D08冻结：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T03",
+      "ruleId": "C0706-R02",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "clearanceMode": "SETUP_LOCAL_VECTOR",
+        "safePlaneApproved": true,
+        "clearanceMm": 5,
+        "worldZHardcoded": false
+      },
+      "scenario": "安全退让必须相对于Setup方向：正例"
+    },
+    {
+      "id": "CAP-07-06-T04",
+      "ruleId": "C0706-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "safePlaneApproved",
+      "input": {
+        "clearanceMode": "SETUP_LOCAL_VECTOR",
+        "safePlaneApproved": false,
+        "clearanceMm": 5,
+        "worldZHardcoded": false
+      },
+      "scenario": "安全退让必须相对于Setup方向：反例"
+    },
+    {
+      "id": "CAP-07-06-M02",
+      "ruleId": "C0706-R02",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "worldZHardcoded",
+      "input": {
+        "clearanceMode": "SETUP_LOCAL_VECTOR",
+        "safePlaneApproved": true,
+        "clearanceMm": 5,
+        "worldZHardcoded": true
+      },
+      "scenario": "安全退让必须相对于Setup方向：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T05",
+      "ruleId": "C0706-R03",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "entryMode": "RAMP_OR_HELIX",
+        "entryRadiusMm": 3,
+        "toolEnvelopeKnown": true,
+        "entryGeometryCertified": true
+      },
+      "scenario": "进刀几何与刀具包络保守检查：正例"
+    },
+    {
+      "id": "CAP-07-06-T06",
+      "ruleId": "C0706-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "entryGeometryCertified",
+      "input": {
+        "entryMode": "RAMP_OR_HELIX",
+        "entryRadiusMm": 3,
+        "toolEnvelopeKnown": true,
+        "entryGeometryCertified": false
+      },
+      "scenario": "进刀几何与刀具包络保守检查：反例"
+    },
+    {
+      "id": "CAP-07-06-M03",
+      "ruleId": "C0706-R03",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "toolEnvelopeKnown",
+      "input": {
+        "entryMode": "RAMP_OR_HELIX",
+        "entryRadiusMm": 3,
+        "toolEnvelopeKnown": false,
+        "entryGeometryCertified": true
+      },
+      "scenario": "进刀几何与刀具包络保守检查：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T07",
+      "ruleId": "C0706-R04",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "exitContinuity": "C1_LOCAL",
+        "exitLocalGougeCheck": "PASS_LOCAL",
+        "exitFeedIntentSpecified": true,
+        "previewCertification": false
+      },
+      "scenario": "退刀切线连续与局部过切证据：正例"
+    },
+    {
+      "id": "CAP-07-06-T08",
+      "ruleId": "C0706-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "exitLocalGougeCheck",
+      "input": {
+        "exitContinuity": "C1_LOCAL",
+        "exitLocalGougeCheck": "UNKNOWN",
+        "exitFeedIntentSpecified": true,
+        "previewCertification": false
+      },
+      "scenario": "退刀切线连续与局部过切证据：反例"
+    },
+    {
+      "id": "CAP-07-06-M04",
+      "ruleId": "C0706-R04",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "exitFeedIntentSpecified",
+      "input": {
+        "exitContinuity": "C1_LOCAL",
+        "exitLocalGougeCheck": "PASS_LOCAL",
+        "exitFeedIntentSpecified": false,
+        "previewCertification": false
+      },
+      "scenario": "退刀切线连续与局部过切证据：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T09",
+      "ruleId": "C0706-R05",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "stayDownRequested": true,
+        "certifiedLinkCorridor": true,
+        "fixtureEnvelopeIncluded": true,
+        "rapidAcrossStock": false
+      },
+      "scenario": "端面可保持下刀但须有已认证连接通道：正例"
+    },
+    {
+      "id": "CAP-07-06-T10",
+      "ruleId": "C0706-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "certifiedLinkCorridor",
+      "input": {
+        "stayDownRequested": true,
+        "certifiedLinkCorridor": false,
+        "fixtureEnvelopeIncluded": true,
+        "rapidAcrossStock": false
+      },
+      "scenario": "端面可保持下刀但须有已认证连接通道：反例"
+    },
+    {
+      "id": "CAP-07-06-M05",
+      "ruleId": "C0706-R05",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "fixtureEnvelopeIncluded",
+      "input": {
+        "stayDownRequested": true,
+        "certifiedLinkCorridor": true,
+        "fixtureEnvelopeIncluded": false,
+        "rapidAcrossStock": false
+      },
+      "scenario": "端面可保持下刀但须有已认证连接通道：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T11",
+      "ruleId": "C0706-R06",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "toolHolderHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "fixtureHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "stockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "obstacleSetCurrent": true,
+        "machineEnvelopeAssumed": false
+      },
+      "scenario": "刀柄夹具材料障碍需精确来源：正例"
+    },
+    {
+      "id": "CAP-07-06-T12",
+      "ruleId": "C0706-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "fixtureHash",
+      "input": {
+        "toolHolderHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "fixtureHash": "missing",
+        "stockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "obstacleSetCurrent": true,
+        "machineEnvelopeAssumed": false
+      },
+      "scenario": "刀柄夹具材料障碍需精确来源：反例"
+    },
+    {
+      "id": "CAP-07-06-M06",
+      "ruleId": "C0706-R06",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "obstacleSetCurrent",
+      "input": {
+        "toolHolderHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "fixtureHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "stockHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "obstacleSetCurrent": false,
+        "machineEnvelopeAssumed": false
+      },
+      "scenario": "刀柄夹具材料障碍需精确来源：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T13",
+      "ruleId": "C0706-R07",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "setupRevision": 8,
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "orientationRevalidated": true,
+        "crossSetupReuse": false
+      },
+      "scenario": "换Setup/3+2姿态重新认证链接：正例"
+    },
+    {
+      "id": "CAP-07-06-T14",
+      "ruleId": "C0706-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "orientationRevalidated",
+      "input": {
+        "setupRevision": 8,
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "orientationRevalidated": false,
+        "crossSetupReuse": false
+      },
+      "scenario": "换Setup/3+2姿态重新认证链接：反例"
+    },
+    {
+      "id": "CAP-07-06-M07",
+      "ruleId": "C0706-R07",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "crossSetupReuse",
+      "input": {
+        "setupRevision": 8,
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "orientationRevalidated": true,
+        "crossSetupReuse": true
+      },
+      "scenario": "换Setup/3+2姿态重新认证链接：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T15",
+      "ruleId": "C0706-R08",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "clNeutral": true,
+        "segmentTyped": true,
+        "hasControllerWords": false,
+        "controllerAxesEncoded": false,
+        "d10BindingSeparate": true
+      },
+      "scenario": "中立CL运动意图与执行绑定分离：正例"
+    },
+    {
+      "id": "CAP-07-06-T16",
+      "ruleId": "C0706-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "segmentTyped",
+      "input": {
+        "clNeutral": true,
+        "segmentTyped": false,
+        "hasControllerWords": false,
+        "controllerAxesEncoded": false,
+        "d10BindingSeparate": true
+      },
+      "scenario": "中立CL运动意图与执行绑定分离：反例"
+    },
+    {
+      "id": "CAP-07-06-M08",
+      "ruleId": "C0706-R08",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "d10BindingSeparate",
+      "input": {
+        "clNeutral": true,
+        "segmentTyped": true,
+        "hasControllerWords": false,
+        "controllerAxesEncoded": false,
+        "d10BindingSeparate": false
+      },
+      "scenario": "中立CL运动意图与执行绑定分离：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T17",
+      "ruleId": "C0706-R09",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "d12PostStatus": "NOT_RUN",
+        "d13SemanticStatus": "UNKNOWN",
+        "d14TimingStatus": "NOT_RUN",
+        "d15VerificationStatus": "NOT_RUN",
+        "d16Release": "BLOCKED",
+        "clPreviewIsVerification": false
+      },
+      "scenario": "D12至D15未验或语义UNKNOWN时D16阻断：正例"
+    },
+    {
+      "id": "CAP-07-06-T18",
+      "ruleId": "C0706-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "d16Release",
+      "input": {
+        "d12PostStatus": "NOT_RUN",
+        "d13SemanticStatus": "UNKNOWN",
+        "d14TimingStatus": "NOT_RUN",
+        "d15VerificationStatus": "NOT_RUN",
+        "d16Release": "APPROVED",
+        "clPreviewIsVerification": false
+      },
+      "scenario": "D12至D15未验或语义UNKNOWN时D16阻断：反例"
+    },
+    {
+      "id": "CAP-07-06-M09",
+      "ruleId": "C0706-R09",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "clPreviewIsVerification",
+      "input": {
+        "d12PostStatus": "NOT_RUN",
+        "d13SemanticStatus": "UNKNOWN",
+        "d14TimingStatus": "NOT_RUN",
+        "d15VerificationStatus": "NOT_RUN",
+        "d16Release": "BLOCKED",
+        "clPreviewIsVerification": true
+      },
+      "scenario": "D12至D15未验或语义UNKNOWN时D16阻断：不同字段变异"
+    },
+    {
+      "id": "CAP-07-06-T19",
+      "ruleId": "C0706-R10",
+      "expected": "PASS",
+      "synthetic": true,
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": false,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS/ACL/晚回执/回退保护：正例"
+    },
+    {
+      "id": "CAP-07-06-T20",
+      "ruleId": "C0706-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "expectedHead",
+      "input": {
+        "expectedHead": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": false,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS/ACL/晚回执/回退保护：反例"
+    },
+    {
+      "id": "CAP-07-06-M10",
+      "ruleId": "C0706-R10",
+      "expected": "REJECT",
+      "synthetic": true,
+      "mutatedField": "cancelled",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 5,
+        "receiptGeneration": 5,
+        "cancelled": true,
+        "rollbackMode": "NON_DESTRUCTIVE"
+      },
+      "scenario": "Owner CAS/ACL/晚回执/回退保护：不同字段变异"
+    }
+  ]
+}

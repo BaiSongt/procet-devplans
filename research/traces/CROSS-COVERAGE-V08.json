@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "researchTopic": "R-CROSS-COVERAGE-001",
+  "sourceRegistry": "research/sources/CROSS-COVERAGE-V08.json",
+  "workPackageIds": [
+    "B0-01",
+    "B0-03",
+    "B0-05",
+    "F1-02",
+    "F1-06",
+    "T5-05",
+    "E3-05",
+    "B0-02",
+    "T5-06"
+  ],
+  "rules": [
+    {
+      "id": "COV-R01",
+      "summary": "CAP→包映射只取原始88表直接关系",
+      "engineeringRule": "CAP→包映射只取原始88表直接关系",
+      "fields": [
+        "capabilities[].originalWorkPackages"
+      ],
+      "sourceIds": [
+        "COV-S01",
+        "COV-S03"
+      ],
+      "capabilities": [
+        "CAP-01-01"
+      ],
+      "workPackages": [
+        "B0-01"
+      ],
+      "assets": [
+        "D01"
+      ],
+      "positiveAcceptance": "POS-01",
+      "negativeAcceptance": "NEG-01",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "COV-R02",
+      "summary": "横向包零关联必须显式呈现而非伪填或标未详编",
+      "engineeringRule": "横向包零关联必须显式呈现而非伪填或标未详编",
+      "fields": [
+        "workPackages[].originalMapping"
+      ],
+      "sourceIds": [
+        "COV-S03"
+      ],
+      "capabilities": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "B0-03",
+        "B0-05"
+      ],
+      "assets": [],
+      "positiveAcceptance": "POS-02",
+      "negativeAcceptance": "NEG-02",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "COV-R03",
+      "summary": "17资产候选Port生产关系不代表同域其他CAP获得写权",
+      "engineeringRule": "17资产候选Port生产关系不代表同域其他CAP获得写权",
+      "fields": [
+        "assets[].explicitProducerCapabilities"
+      ],
+      "sourceIds": [
+        "COV-S01"
+      ],
+      "capabilities": [
+        "CAP-04-06"
+      ],
+      "workPackages": [
+        "F1-02"
+      ],
+      "assets": [
+        "D04",
+        "D10"
+      ],
+      "positiveAcceptance": "POS-03",
+      "negativeAcceptance": "NEG-03",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "COV-R04",
+      "summary": "同名来源路径缺失不等于历史专题与中央来源不存在",
+      "engineeringRule": "同名来源路径缺失不等于历史专题与中央来源不存在",
+      "fields": [
+        "gaps.capsWithoutSameNameIndexedRegistry"
+      ],
+      "sourceIds": [
+        "COV-S01",
+        "COV-S02"
+      ],
+      "capabilities": [
+        "CAP-02-03"
+      ],
+      "workPackages": [
+        "F1-06"
+      ],
+      "assets": [
+        "D03"
+      ],
+      "positiveAcceptance": "POS-04",
+      "negativeAcceptance": "NEG-04",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "COV-R05",
+      "summary": "候选Owner、正式签署和实际消费者结果为独立状态",
+      "engineeringRule": "候选Owner、正式签署和实际消费者结果为独立状态",
+      "fields": [
+        "assets[].humanSignoff"
+      ],
+      "sourceIds": [
+        "COV-S04"
+      ],
+      "capabilities": [
+        "CAP-11-08"
+      ],
+      "workPackages": [
+        "T5-05"
+      ],
+      "assets": [
+        "D16"
+      ],
+      "positiveAcceptance": "POS-05",
+      "negativeAcceptance": "NEG-05",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "COV-R06",
+      "summary": "D04/D10分离，D09中立CL到D16须经过控制器执行和NC独立验证",
+      "engineeringRule": "D04/D10分离，D09中立CL到D16须经过控制器执行和NC独立验证",
+      "fields": [
+        "safeguards.ncChain"
+      ],
+      "sourceIds": [
+        "COV-S01",
+        "COV-S03"
+      ],
+      "capabilities": [
+        "CAP-09-06"
+      ],
+      "workPackages": [
+        "E3-05"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveAcceptance": "POS-06",
+      "negativeAcceptance": "NEG-06",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "COV-R07",
+      "summary": "对伪造CAP关联、签署和假产品PASS必须有机器反例",
+      "engineeringRule": "对伪造CAP关联、签署和假产品PASS必须有机器反例",
+      "fields": [
+        "gaps.packagesWithoutOriginalCapEdge"
+      ],
+      "sourceIds": [
+        "COV-S04"
+      ],
+      "capabilities": [
+        "CAP-01-08"
+      ],
+      "workPackages": [
+        "B0-02"
+      ],
+      "assets": [
+        "D01"
+      ],
+      "positiveAcceptance": "POS-07",
+      "negativeAcceptance": "NEG-07",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "COV-R08",
+      "summary": "来源背景与规划合成不能替代NC实机或跨域真实验收",
+      "engineeringRule": "来源背景与规划合成不能替代NC实机或跨域真实验收",
+      "fields": [
+        "gaps.fullRepoLinksChecked"
+      ],
+      "sourceIds": [
+        "COV-S03",
+        "COV-S04"
+      ],
+      "capabilities": [
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "T5-06"
+      ],
+      "assets": [
+        "D17"
+      ],
+      "positiveAcceptance": "POS-08",
+      "negativeAcceptance": "NEG-08",
+      "derivationClass": "PROCET_INTERNAL_RULE_WITH_PUBLIC_BACKGROUND_NOT_NORMATIVE_REQUIREMENT",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

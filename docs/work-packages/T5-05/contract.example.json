@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "procet-t505-example-v1",
+  "warning": "SYNTHETIC_EXAMPLE_NOT_PRODUCT",
+  "slices": [
+    {
+      "id": "A",
+      "producerRepo": "procet-agent",
+      "consumerOwner": "D01/D02",
+      "inputRevision": "SYNTHETIC_REV_A",
+      "inputHash": "SYNTHETIC_HASH_A",
+      "frameRef": "SYNTHETIC_FRAME_A",
+      "steps": [
+        "2D/Docs",
+        "OCR_CANDIDATE",
+        "HUMAN_CONFIRM",
+        "D01_D02_OWNER_CAS",
+        "D04_SETUP",
+        "D05_D06_READ"
+      ]
+    },
+    {
+      "id": "B",
+      "producerRepo": "procet-cam",
+      "consumerOwners": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "inputRevision": "SYNTHETIC_REV_B",
+      "inputHash": "SYNTHETIC_HASH_B",
+      "frameRef": "SYNTHETIC_FRAME_B",
+      "steps": [
+        "D09_NEUTRAL_CL",
+        "D12_GCODE",
+        "D13_SEMANTICS",
+        "D14_AXES",
+        "D15_NC_VERIFY",
+        "D16_RELEASE"
+      ],
+      "d04SetupSeparateD10MachineBinding": true,
+      "unknownSemantic": "UNKNOWN_BLOCK",
+      "materialSweptSimulation": false
+    }
+  ],
+  "gui": {
+    "singleBabylon": true,
+    "unifiedLeftTaskPanel": true,
+    "entrypoints": [
+      "GUI",
+      "CLI",
+      "Agent"
+    ],
+    "maxFontPx": 12
+  },
+  "guards": [
+    "revision",
+    "hash",
+    "FrameRef",
+    "aclEpoch",
+    "scopeEpoch",
+    "CAS",
+    "taskGeneration",
+    "cancelToken"
+  ],
+  "product": "NOT_RUN",
+  "consumer": "NOT_RUN",
+  "approval": "PENDING_HUMAN"
+}

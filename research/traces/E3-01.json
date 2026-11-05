@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "E3-01",
+  "researchTopic": "R-CLLINK-001",
+  "status": "PLANNING_SYNTHETIC_NOT_PRODUCT_RUN",
+  "sourceRegistry": "research/sources/E3-01.json",
+  "implementation": "docs/work-packages/E3-01.md",
+  "ui": "docs/work-packages/E3-01/UI.md",
+  "fixtures": "docs/work-packages/E3-01/fixtures.json",
+  "vectors": "docs/work-packages/E3-01/geometry-vectors.json",
+  "validator": "tools/check_e301_planning_2026_10_25.py",
+  "assetOwner": "docs/work-packages/E3-01/asset-owner-consumer-matrix.json",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "E301-R01",
+      "workPackageId": "E3-01",
+      "summary": "CL必须绑定D04名义Frame、单位与exact revision/hash，不混同D10实际执行偏置",
+      "fixtureGate": "exactFrameUnits",
+      "failureCode": "CL_FRAME_UNIT_REV_MISMATCH",
+      "sourceIds": [
+        "SRC-E301-001",
+        "SRC-E301-002",
+        "SRC-E301-008"
+      ],
+      "fields": [
+        "cl.frameId",
+        "cl.unit",
+        "cl.setupExactRef"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10"
+      ],
+      "positiveTestId": "E3-01-T01",
+      "negativeTestId": "E3-01-T02",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R02",
+      "workPackageId": "E3-01",
+      "summary": "稳定段ID逐段追溯工序、特征、策略与生成器修订，不以列表索引代表身份",
+      "fixtureGate": "segmentLineage",
+      "failureCode": "CL_SEGMENT_SOURCE_UNTRACEABLE",
+      "sourceIds": [
+        "SRC-E301-001",
+        "SRC-E301-002",
+        "SRC-E301-008"
+      ],
+      "fields": [
+        "cl.segmentId",
+        "cl.operationRef",
+        "cl.strategyVersion"
+      ],
+      "assets": [
+        "D02",
+        "D05",
+        "D09"
+      ],
+      "positiveTestId": "E3-01-T03",
+      "negativeTestId": "E3-01-T04",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R03",
+      "workPackageId": "E3-01",
+      "summary": "中立CL不得携带CNC方言、实际机器轴命令、D10执行配置或D15验证资格",
+      "fixtureGate": "neutralBoundary",
+      "failureCode": "MACHINE_BINDING_LEAKED_INTO_CL",
+      "sourceIds": [
+        "SRC-E301-001",
+        "SRC-E301-002",
+        "SRC-E301-003"
+      ],
+      "fields": [
+        "cl.machineNeutral",
+        "cl.toolAxis",
+        "cl.ncQualification"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D12"
+      ],
+      "positiveTestId": "E3-01-T05",
+      "negativeTestId": "E3-01-T06",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R04",
+      "workPackageId": "E3-01",
+      "summary": "CUT/APPROACH/RETRACT/LINK/TRAVERSE显式表达；未声明进退刀/清障不能默认为安全快移",
+      "fixtureGate": "motionIntent",
+      "failureCode": "MOTION_KIND_OR_RETRACT_UNSPECIFIED",
+      "sourceIds": [
+        "SRC-E301-002",
+        "SRC-E301-003",
+        "SRC-E301-006"
+      ],
+      "fields": [
+        "cl.kind",
+        "cl.transitionIntent",
+        "cl.clearanceRef"
+      ],
+      "assets": [
+        "D05",
+        "D09",
+        "D11"
+      ],
+      "positiveTestId": "E3-01-T07",
+      "negativeTestId": "E3-01-T08",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R05",
+      "workPackageId": "E3-01",
+      "summary": "圆弧/螺旋须保留中心/扫角/平面/轴向变化/公差，不能以直线冒称弧",
+      "fixtureGate": "arcHelixGeometry",
+      "failureCode": "ARC_OR_HELIX_GEOMETRY_INVALID",
+      "sourceIds": [
+        "SRC-E301-003",
+        "SRC-E301-004",
+        "SRC-E301-005"
+      ],
+      "fields": [
+        "cl.arc.center",
+        "cl.arc.sweepRad",
+        "cl.arc.plane"
+      ],
+      "assets": [
+        "D09",
+        "D12"
+      ],
+      "positiveTestId": "E3-01-T09",
+      "negativeTestId": "E3-01-T10",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R06",
+      "workPackageId": "E3-01",
+      "summary": "端面多道连续连刀可选但需余隙/装夹/保护区证据，不能强制每道提刀或无证据不提刀",
+      "fixtureGate": "linkContinuity",
+      "failureCode": "LINK_OR_LEAD_SCOPE_UNSAFE",
+      "sourceIds": [
+        "SRC-E301-003",
+        "SRC-E301-004",
+        "SRC-E301-005"
+      ],
+      "fields": [
+        "cl.link.clearanceEvidence",
+        "cl.link.parentStep",
+        "cl.link.mode"
+      ],
+      "assets": [
+        "D04",
+        "D07",
+        "D09"
+      ],
+      "positiveTestId": "E3-01-T11",
+      "negativeTestId": "E3-01-T12",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R07",
+      "workPackageId": "E3-01",
+      "summary": "D11预览/局部诊断与D15最终NC独立验证互不替代，UNKNOWN不授PASS",
+      "fixtureGate": "diagnosticQualification",
+      "failureCode": "CL_PREVIEW_CLAIMED_NC_PASS",
+      "sourceIds": [
+        "SRC-E301-003",
+        "SRC-E301-006",
+        "SRC-E301-008"
+      ],
+      "fields": [
+        "cl.previewStatus",
+        "cl.unknownReasons",
+        "nc.d15RunHash"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-01-T13",
+      "negativeTestId": "E3-01-T14",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R08",
+      "workPackageId": "E3-01",
+      "summary": "进给的量纲/模式和几何公差明确，不从LinuxCNC G64推断真实机床节拍",
+      "fixtureGate": "feedUnitPolicy",
+      "failureCode": "CL_FEED_AND_TOLERANCE_INVALID",
+      "sourceIds": [
+        "SRC-E301-003",
+        "SRC-E301-005",
+        "SRC-E301-007"
+      ],
+      "fields": [
+        "cl.feed.value",
+        "cl.feed.unit",
+        "cl.toleranceUnit"
+      ],
+      "assets": [
+        "D03",
+        "D09",
+        "D12"
+      ],
+      "positiveTestId": "E3-01-T15",
+      "negativeTestId": "E3-01-T16",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R09",
+      "workPackageId": "E3-01",
+      "summary": "GUI/CLI/Agent统一领域Port，CAS/ACL提交时重验，取消晚回执不可覆盖更新事实",
+      "fixtureGate": "revisionCAS",
+      "failureCode": "STALE_OR_CANCELLED_CL_COMMIT",
+      "sourceIds": [
+        "SRC-E301-007",
+        "SRC-E301-008"
+      ],
+      "fields": [
+        "cl.sourceExactRefs",
+        "command.expectedRevision",
+        "command.cancelToken"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08",
+        "D09"
+      ],
+      "positiveTestId": "E3-01-T17",
+      "negativeTestId": "E3-01-T18",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E301-R10",
+      "workPackageId": "E3-01",
+      "summary": "D12必须独立检查LINE/ARC/HELIX/姿态支持及NC行段映射；不支持则拒绝或显式新版本降级",
+      "fixtureGate": "postConsumerCoverage",
+      "failureCode": "D12_POST_CAPABILITY_UNVERIFIED",
+      "sourceIds": [
+        "SRC-E301-002",
+        "SRC-E301-003",
+        "SRC-E301-006"
+      ],
+      "fields": [
+        "cl.postRequirements",
+        "cl.ncLineMapping",
+        "cl.consumerStatus"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-01-T19",
+      "negativeTestId": "E3-01-T20",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D12_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

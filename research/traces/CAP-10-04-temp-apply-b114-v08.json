@@ -1,0 +1,321 @@
+{
+  "schemaVersion": "procet-b114-trace-v08",
+  "date": "2026-11-02",
+  "sourceRegistry": "research/sources/CAP-10-04-temp-apply-b114.json",
+  "fixtures": "docs/capabilities/CAP-10-04/temp-apply-b114-fixtures-v08.json",
+  "checker": "tools/check_cap1004_temp_apply_b114_v08.cjs",
+  "rules": [
+    {
+      "id": "B114-R01",
+      "summary": "目标Profile与可选临时文件端口显式确认；无自动激活",
+      "sourceIds": [
+        "B114-S01",
+        "B114-S04",
+        "B114-S07"
+      ],
+      "fields": [
+        "profilePinned",
+        "methodDiscovered",
+        "tempTypeSupported",
+        "autoActivation"
+      ],
+      "caps": [
+        "CAP-10-04",
+        "CAP-02-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P01"
+      ],
+      "negative": [
+        "B114-N01-1",
+        "B114-N01-2",
+        "B114-N01-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B114-R02",
+      "summary": "不可浏览临时NodeId/FileHandle局限同Session及代次；旧回执失效",
+      "sourceIds": [
+        "B114-S01",
+        "B114-S07"
+      ],
+      "fields": [
+        "activeSession",
+        "handleSession",
+        "currentEpoch",
+        "handleEpoch",
+        "handleValid",
+        "lateAck"
+      ],
+      "caps": [
+        "CAP-10-04"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P02"
+      ],
+      "negative": [
+        "B114-N02-1",
+        "B114-N02-2",
+        "B114-N02-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B114-R03",
+      "summary": "CloseAndCommit异步应用需到Idle并核对同一事务；不等于NC批准",
+      "sourceIds": [
+        "B114-S02",
+        "B114-S07"
+      ],
+      "fields": [
+        "completionToken",
+        "observedState",
+        "serverApplied",
+        "transactionExact"
+      ],
+      "caps": [
+        "CAP-10-04"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P03",
+        "B114-P03-SYNC"
+      ],
+      "negative": [
+        "B114-N03-1",
+        "B114-N03-2",
+        "B114-N03-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B114-R04",
+      "summary": "MoveOrCopy后NewNodeId重定位与Stage保护；不声称通用原子重命名",
+      "sourceIds": [
+        "B114-S03",
+        "B114-S07"
+      ],
+      "fields": [
+        "pathScoped",
+        "activeOverwrite",
+        "newNodeIdResolved",
+        "claimsAtomic"
+      ],
+      "caps": [
+        "CAP-10-04"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P04"
+      ],
+      "negative": [
+        "B114-N04-1",
+        "B114-N04-2",
+        "B114-N04-3",
+        "B114-N04-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B114-R05",
+      "summary": "HTTP传输Digest不替代应用原字节独立回读",
+      "sourceIds": [
+        "B114-S05",
+        "B114-S07",
+        "B114-S08"
+      ],
+      "fields": [
+        "receiverReadback",
+        "sourceHash",
+        "receiverHash",
+        "applicationShaVerified"
+      ],
+      "caps": [
+        "CAP-10-04",
+        "CAP-10-03"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P05"
+      ],
+      "negative": [
+        "B114-N05-1",
+        "B114-N05-2",
+        "B114-N05-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B114-R06",
+      "summary": "全部子程序闭包和签发Manifest比对，Stage不触发激活",
+      "sourceIds": [
+        "B114-S07",
+        "B114-S08"
+      ],
+      "fields": [
+        "allFilesPresent",
+        "closureHashMatches",
+        "manifestSignedExact",
+        "activated"
+      ],
+      "caps": [
+        "CAP-10-04",
+        "CAP-10-03"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P06"
+      ],
+      "negative": [
+        "B114-N06-1",
+        "B114-N06-2",
+        "B114-N06-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B114-R07",
+      "summary": "Owner exact D16/D10 Frame及权限CAS/取消Fence提交瞬间重验",
+      "sourceIds": [
+        "B114-S06",
+        "B114-S07",
+        "B114-S08"
+      ],
+      "fields": [
+        "d16Exact",
+        "d10Exact",
+        "frameExact",
+        "aclCurrent",
+        "scopeEpochMatches",
+        "casMatches",
+        "cancelled"
+      ],
+      "caps": [
+        "CAP-10-04",
+        "CAP-11-08"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P07"
+      ],
+      "negative": [
+        "B114-N07-1",
+        "B114-N07-2",
+        "B114-N07-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B114-R08",
+      "summary": "D17真实独立收方与统一入口；单Babylon/左Panel且禁止自动CycleStart",
+      "sourceIds": [
+        "B114-S06",
+        "B114-S07",
+        "B114-S08"
+      ],
+      "fields": [
+        "samePort",
+        "singleBabylon",
+        "leftPanel",
+        "receiverIndependent",
+        "autoSelect",
+        "cycleStart",
+        "claimD15"
+      ],
+      "caps": [
+        "CAP-10-04",
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "assets": [
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positive": [
+        "B114-P08"
+      ],
+      "negative": [
+        "B114-N08-1",
+        "B114-N08-2",
+        "B114-N08-3"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "scope": "L3待审；人工预期与同一判定函数34个合成结果；非真实DNC/Owner/消费者/产品验收"
+}

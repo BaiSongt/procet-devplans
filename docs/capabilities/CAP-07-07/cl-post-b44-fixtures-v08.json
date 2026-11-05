@@ -1,0 +1,624 @@
+{
+  "schemaVersion": "procet-b44-fixtures-v1",
+  "date": "2026-10-30",
+  "syntheticOnly": true,
+  "baseline": {
+    "frame.R": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "axis.vector": [
+      0,
+      0,
+      1
+    ],
+    "segment.axes": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "feed.nominalSeconds": 5,
+    "source.exact": true,
+    "source.d08Frozen": true,
+    "source.revHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "frame.fromTo": "D04_TO_D09",
+    "frame.unit": "MM",
+    "frame.hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "axis.convention": "TIP_TO_HOLDER",
+    "axis.symmetry": "AXISYMMETRIC",
+    "axis.rollEvidence": "NOT_REQUIRED",
+    "tool.tcp": "TOOL_TIP",
+    "tool.cc": "CUTTER_CONTACT",
+    "tool.gaugeOwner": "D03",
+    "tool.gaugeHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "segment.mode": "INDEXED_3_PLUS_2",
+    "segment.ids": "s1,s2",
+    "segment.gapMM": 0,
+    "feed.intent": "CUT_FEED",
+    "feed.unit": "MM_MIN",
+    "feed.rate": 120,
+    "feed.distance": 10,
+    "cl.controllerWords": "NONE",
+    "cl.machineJoints": "NONE",
+    "cl.d10Binding": "NONE",
+    "d11": "PREVIEW_ONLY",
+    "d13": "UNKNOWN",
+    "d15": "NOT_RUN",
+    "d16": "BLOCKED",
+    "gui.port": "07.CAMDomainPort",
+    "gui.channels": "GUI|CLI|Agent",
+    "gui.worlds": 1,
+    "gui.leftPanel": true,
+    "gui.maxFontPx": 12,
+    "owner.expectedRev": 3,
+    "owner.currentRev": 3,
+    "owner.aclExpected": 8,
+    "owner.aclCurrent": 8,
+    "owner.generation": 5,
+    "owner.ackGeneration": 5,
+    "owner.cancelled": false,
+    "owner.lateAckAdopted": false,
+    "owner.d08Untouched": true,
+    "migration": "EXPAND_KEEP_READERS",
+    "rollback": "NON_DESTRUCTIVE"
+  },
+  "positiveCount": 1,
+  "negativeCount": 44,
+  "unknownCount": 4,
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "positive",
+      "ruleId": "ALL",
+      "patch": {},
+      "expected": "PLANNING_ONLY"
+    },
+    {
+      "id": "M01",
+      "kind": "negative",
+      "ruleId": "B44-R1",
+      "changedField": "source.exact",
+      "patch": {
+        "source.exact": false
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M02",
+      "kind": "negative",
+      "ruleId": "B44-R1",
+      "changedField": "source.d08Frozen",
+      "patch": {
+        "source.d08Frozen": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M03",
+      "kind": "negative",
+      "ruleId": "B44-R1",
+      "changedField": "source.revHash",
+      "patch": {
+        "source.revHash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M04",
+      "kind": "negative",
+      "ruleId": "B44-R2",
+      "changedField": "frame.fromTo",
+      "patch": {
+        "frame.fromTo": "D10_TO_D09"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M05",
+      "kind": "negative",
+      "ruleId": "B44-R2",
+      "changedField": "frame.unit",
+      "patch": {
+        "frame.unit": "INCH"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M06",
+      "kind": "negative",
+      "ruleId": "B44-R2",
+      "changedField": "frame.hash",
+      "patch": {
+        "frame.hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M07",
+      "kind": "negative",
+      "ruleId": "B44-R3",
+      "changedField": "axis.convention",
+      "patch": {
+        "axis.convention": "HOLDER_TO_TIP"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M08",
+      "kind": "unknown",
+      "ruleId": "B44-R3",
+      "changedField": "axis.symmetry",
+      "patch": {
+        "axis.symmetry": "NON_AXISYMMETRIC"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M09",
+      "kind": "negative",
+      "ruleId": "B44-R3",
+      "changedField": "axis.rollEvidence",
+      "patch": {
+        "axis.rollEvidence": "INFER_ZERO"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M10",
+      "kind": "negative",
+      "ruleId": "B44-R4",
+      "changedField": "tool.tcp",
+      "patch": {
+        "tool.tcp": "SPINDLE_NOSE"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M11",
+      "kind": "negative",
+      "ruleId": "B44-R4",
+      "changedField": "tool.cc",
+      "patch": {
+        "tool.cc": "TOOL_TIP"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M12",
+      "kind": "negative",
+      "ruleId": "B44-R4",
+      "changedField": "tool.gaugeOwner",
+      "patch": {
+        "tool.gaugeOwner": "D10"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M13",
+      "kind": "negative",
+      "ruleId": "B44-R4",
+      "changedField": "tool.gaugeHash",
+      "patch": {
+        "tool.gaugeHash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M14",
+      "kind": "unknown",
+      "ruleId": "B44-R5",
+      "changedField": "segment.mode",
+      "patch": {
+        "segment.mode": "CONTINUOUS_5AXIS"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M15",
+      "kind": "negative",
+      "ruleId": "B44-R5",
+      "changedField": "segment.ids",
+      "patch": {
+        "segment.ids": "s1,s1"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M16",
+      "kind": "negative",
+      "ruleId": "B44-R5",
+      "changedField": "segment.gapMM",
+      "patch": {
+        "segment.gapMM": 0.02
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M17",
+      "kind": "unknown",
+      "ruleId": "B44-R6",
+      "changedField": "feed.intent",
+      "patch": {
+        "feed.intent": "G94"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M18",
+      "kind": "unknown",
+      "ruleId": "B44-R6",
+      "changedField": "feed.unit",
+      "patch": {
+        "feed.unit": "MM_SEC"
+      },
+      "expected": "UNKNOWN"
+    },
+    {
+      "id": "M19",
+      "kind": "negative",
+      "ruleId": "B44-R6",
+      "changedField": "feed.rate",
+      "patch": {
+        "feed.rate": 0
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M20",
+      "kind": "negative",
+      "ruleId": "B44-R6",
+      "changedField": "feed.distance",
+      "patch": {
+        "feed.distance": -1
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M21",
+      "kind": "negative",
+      "ruleId": "B44-R7",
+      "changedField": "cl.controllerWords",
+      "patch": {
+        "cl.controllerWords": "G43"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M22",
+      "kind": "negative",
+      "ruleId": "B44-R7",
+      "changedField": "cl.machineJoints",
+      "patch": {
+        "cl.machineJoints": "B30"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M23",
+      "kind": "negative",
+      "ruleId": "B44-R7",
+      "changedField": "cl.d10Binding",
+      "patch": {
+        "cl.d10Binding": "D10-r9"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M24",
+      "kind": "negative",
+      "ruleId": "B44-R7",
+      "changedField": "d11",
+      "patch": {
+        "d11": "NC_CERTIFIED"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M25",
+      "kind": "negative",
+      "ruleId": "B44-R7",
+      "changedField": "d13",
+      "patch": {
+        "d13": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M26",
+      "kind": "negative",
+      "ruleId": "B44-R7",
+      "changedField": "d15",
+      "patch": {
+        "d15": "PASS"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M27",
+      "kind": "negative",
+      "ruleId": "B44-R7",
+      "changedField": "d16",
+      "patch": {
+        "d16": "PUBLISHED"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M28",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "gui.port",
+      "patch": {
+        "gui.port": "GUI_LOCAL"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M29",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "gui.channels",
+      "patch": {
+        "gui.channels": "GUI_ONLY"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M30",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "gui.worlds",
+      "patch": {
+        "gui.worlds": 2
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M31",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "gui.leftPanel",
+      "patch": {
+        "gui.leftPanel": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M32",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "gui.maxFontPx",
+      "patch": {
+        "gui.maxFontPx": 14
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M33",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.expectedRev",
+      "patch": {
+        "owner.expectedRev": 4
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M34",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.currentRev",
+      "patch": {
+        "owner.currentRev": 5
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M35",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.aclExpected",
+      "patch": {
+        "owner.aclExpected": 9
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M36",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.aclCurrent",
+      "patch": {
+        "owner.aclCurrent": 7
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M37",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.generation",
+      "patch": {
+        "owner.generation": 6
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M38",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.ackGeneration",
+      "patch": {
+        "owner.ackGeneration": 4
+      },
+      "expected": "STALE"
+    },
+    {
+      "id": "M39",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.cancelled",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "expected": "CANCELLED"
+    },
+    {
+      "id": "M40",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.lateAckAdopted",
+      "patch": {
+        "owner.lateAckAdopted": true
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M41",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "owner.d08Untouched",
+      "patch": {
+        "owner.d08Untouched": false
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M42",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "migration",
+      "patch": {
+        "migration": "DELETE_OLD"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M43",
+      "kind": "negative",
+      "ruleId": "B44-R8",
+      "changedField": "rollback",
+      "patch": {
+        "rollback": "DELETE_DATA"
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M44",
+      "kind": "negative",
+      "ruleId": "B44-R2",
+      "changedField": "frame.R",
+      "patch": {
+        "frame.R": [
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M45",
+      "kind": "negative",
+      "ruleId": "B44-R2",
+      "changedField": "frame.R",
+      "patch": {
+        "frame.R": [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M46",
+      "kind": "negative",
+      "ruleId": "B44-R3",
+      "changedField": "axis.vector",
+      "patch": {
+        "axis.vector": [
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M47",
+      "kind": "negative",
+      "ruleId": "B44-R5",
+      "changedField": "segment.axes",
+      "patch": {
+        "segment.axes": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "expected": "REJECT"
+    },
+    {
+      "id": "M48",
+      "kind": "negative",
+      "ruleId": "B44-R6",
+      "changedField": "feed.nominalSeconds",
+      "patch": {
+        "feed.nominalSeconds": 6
+      },
+      "expected": "REJECT"
+    }
+  ]
+}

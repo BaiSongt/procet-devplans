@@ -1,0 +1,495 @@
+{
+  "schemaVersion": "procet-cap0704-synthetic-fixtures-v1",
+  "capabilityId": "CAP-07-04",
+  "syntheticOnly": true,
+  "notRealOcct": true,
+  "notActualMachine": true,
+  "cases": [
+    {
+      "id": "CAP-07-04-T01",
+      "ruleId": "C0704-R01",
+      "expected": "PASS",
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frozenUnchanged": true
+      },
+      "synthetic": true,
+      "scenario": "精确几何/毛坯/Frame与冻结只读 正例"
+    },
+    {
+      "id": "CAP-07-04-T02",
+      "ruleId": "C0704-R01",
+      "expected": "REJECT",
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "stale",
+        "frozenUnchanged": true
+      },
+      "synthetic": true,
+      "mutatedField": "frameHash",
+      "rejectionReason": "REJECT_C0704-R01",
+      "scenario": "精确几何/毛坯/Frame与冻结只读 反例"
+    },
+    {
+      "id": "CAP-07-04-T03",
+      "ruleId": "C0704-R02",
+      "expected": "PASS",
+      "input": {
+        "contactPointLocated": true,
+        "contactToleranceMm": 0.01,
+        "contactDeviationMm": 0.005,
+        "toolAxisConvention": "TCP_TOOL_AXIS_WORKPIECE"
+      },
+      "synthetic": true,
+      "scenario": "真实刀触点、修剪域与TCP误差 正例"
+    },
+    {
+      "id": "CAP-07-04-T04",
+      "ruleId": "C0704-R02",
+      "expected": "REJECT",
+      "input": {
+        "contactPointLocated": true,
+        "contactToleranceMm": 0.01,
+        "contactDeviationMm": 0.2,
+        "toolAxisConvention": "TCP_TOOL_AXIS_WORKPIECE"
+      },
+      "synthetic": true,
+      "mutatedField": "contactDeviationMm",
+      "rejectionReason": "REJECT_C0704-R02",
+      "scenario": "真实刀触点、修剪域与TCP误差 反例"
+    },
+    {
+      "id": "CAP-07-04-T05",
+      "ruleId": "C0704-R03",
+      "expected": "PASS",
+      "input": {
+        "surfaceNormal": [
+          0,
+          0,
+          1
+        ],
+        "toolAxis": [
+          0,
+          0,
+          1
+        ],
+        "frameHandedness": "RIGHT",
+        "normalAvailable": true
+      },
+      "synthetic": true,
+      "scenario": "曲面法向有效性、单位刀轴与右手坐标 正例"
+    },
+    {
+      "id": "CAP-07-04-T06",
+      "ruleId": "C0704-R03",
+      "expected": "REJECT",
+      "input": {
+        "surfaceNormal": [
+          0,
+          0,
+          0
+        ],
+        "toolAxis": [
+          0,
+          0,
+          1
+        ],
+        "frameHandedness": "RIGHT",
+        "normalAvailable": true
+      },
+      "synthetic": true,
+      "mutatedField": "surfaceNormal",
+      "rejectionReason": "REJECT_C0704-R03",
+      "scenario": "曲面法向有效性、单位刀轴与右手坐标 反例"
+    },
+    {
+      "id": "CAP-07-04-T07",
+      "ruleId": "C0704-R04",
+      "expected": "PASS",
+      "input": {
+        "toolOrientationQ": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "angularJumpDeg": 1.1,
+        "maxAllowedJumpDeg": 2,
+        "continuousCut": true,
+        "quaternionSignHandled": true
+      },
+      "synthetic": true,
+      "scenario": "姿态四元数连续性与局部角步进 正例"
+    },
+    {
+      "id": "CAP-07-04-T08",
+      "ruleId": "C0704-R04",
+      "expected": "REJECT",
+      "input": {
+        "toolOrientationQ": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "angularJumpDeg": 1.1,
+        "maxAllowedJumpDeg": 2,
+        "continuousCut": true,
+        "quaternionSignHandled": true
+      },
+      "synthetic": true,
+      "mutatedField": "toolOrientationQ",
+      "rejectionReason": "REJECT_C0704-R04",
+      "scenario": "姿态四元数连续性与局部角步进 反例"
+    },
+    {
+      "id": "CAP-07-04-T09",
+      "ruleId": "C0704-R05",
+      "expected": "PASS",
+      "input": {
+        "gougeCheck": "PASS_LOCAL_BREP",
+        "holderClearance": "PASS_LOCAL_ONLY",
+        "protectedZoneUnchanged": true,
+        "screenProxyIsEvidence": false
+      },
+      "synthetic": true,
+      "scenario": "刀具过切、刀柄夹具局部检查与保护区 正例"
+    },
+    {
+      "id": "CAP-07-04-T10",
+      "ruleId": "C0704-R05",
+      "expected": "REJECT",
+      "input": {
+        "gougeCheck": "UNKNOWN",
+        "holderClearance": "PASS_LOCAL_ONLY",
+        "protectedZoneUnchanged": true,
+        "screenProxyIsEvidence": false
+      },
+      "synthetic": true,
+      "mutatedField": "gougeCheck",
+      "rejectionReason": "REJECT_C0704-R05",
+      "scenario": "刀具过切、刀柄夹具局部检查与保护区 反例"
+    },
+    {
+      "id": "CAP-07-04-T11",
+      "ruleId": "C0704-R06",
+      "expected": "PASS",
+      "input": {
+        "clMode": "CONTINUOUS_5AXIS_NEUTRAL",
+        "hasMachineJointWords": false,
+        "poseAndAxisRecords": true,
+        "clFrameHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "synthetic": true,
+      "scenario": "连续五轴中立CL含TCP/刀轴但无机床轴指令 正例"
+    },
+    {
+      "id": "CAP-07-04-T12",
+      "ruleId": "C0704-R06",
+      "expected": "REJECT",
+      "input": {
+        "clMode": "INDEXED_3_PLUS_2",
+        "hasMachineJointWords": false,
+        "poseAndAxisRecords": true,
+        "clFrameHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "synthetic": true,
+      "mutatedField": "clMode",
+      "rejectionReason": "REJECT_C0704-R06",
+      "scenario": "连续五轴中立CL含TCP/刀轴但无机床轴指令 反例"
+    },
+    {
+      "id": "CAP-07-04-T13",
+      "ruleId": "C0704-R07",
+      "expected": "PASS",
+      "input": {
+        "kinematicsEvidence": "D14_REQUIRED",
+        "ikBranchPolicy": "BRANCH_CANDIDATE_WITH_PROVENANCE",
+        "singularityHandling": "UNKNOWN_UNTIL_D14",
+        "machineVerifiedAtCam": false
+      },
+      "synthetic": true,
+      "scenario": "逆运动学分支与近奇异位形不自动认证 正例"
+    },
+    {
+      "id": "CAP-07-04-T14",
+      "ruleId": "C0704-R07",
+      "expected": "REJECT",
+      "input": {
+        "kinematicsEvidence": "D14_REQUIRED",
+        "ikBranchPolicy": "BRANCH_CANDIDATE_WITH_PROVENANCE",
+        "singularityHandling": "ASSUMED_SAFE",
+        "machineVerifiedAtCam": false
+      },
+      "synthetic": true,
+      "mutatedField": "singularityHandling",
+      "rejectionReason": "REJECT_C0704-R07",
+      "scenario": "逆运动学分支与近奇异位形不自动认证 反例"
+    },
+    {
+      "id": "CAP-07-04-T15",
+      "ruleId": "C0704-R08",
+      "expected": "PASS",
+      "input": {
+        "feedIntentRecorded": true,
+        "d14TimingEvidence": "REQUIRED_NOT_PROVIDED",
+        "clPreviewCertifiesFeed": false,
+        "rotaryRateActualKnown": false
+      },
+      "synthetic": true,
+      "scenario": "进给意图与实际轴速度/加速度时序隔离 正例"
+    },
+    {
+      "id": "CAP-07-04-T16",
+      "ruleId": "C0704-R08",
+      "expected": "REJECT",
+      "input": {
+        "feedIntentRecorded": true,
+        "d14TimingEvidence": "REQUIRED_NOT_PROVIDED",
+        "clPreviewCertifiesFeed": true,
+        "rotaryRateActualKnown": false
+      },
+      "synthetic": true,
+      "mutatedField": "clPreviewCertifiesFeed",
+      "rejectionReason": "REJECT_C0704-R08",
+      "scenario": "进给意图与实际轴速度/加速度时序隔离 反例"
+    },
+    {
+      "id": "CAP-07-04-T17",
+      "ruleId": "C0704-R09",
+      "expected": "PASS",
+      "input": {
+        "d12PostProcessed": false,
+        "d13ExecutionSemantics": "UNKNOWN",
+        "d15Result": "NOT_RUN",
+        "d16ReleaseEligible": false,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "scenario": "最终NC后处理、未知控制器语义和发布门禁 正例"
+    },
+    {
+      "id": "CAP-07-04-T18",
+      "ruleId": "C0704-R09",
+      "expected": "REJECT",
+      "input": {
+        "d12PostProcessed": false,
+        "d13ExecutionSemantics": "UNKNOWN",
+        "d15Result": "NOT_RUN",
+        "d16ReleaseEligible": true,
+        "materialSweepSimulated": false
+      },
+      "synthetic": true,
+      "mutatedField": "d16ReleaseEligible",
+      "rejectionReason": "REJECT_C0704-R09",
+      "scenario": "最终NC后处理、未知控制器语义和发布门禁 反例"
+    },
+    {
+      "id": "CAP-07-04-T19",
+      "ruleId": "C0704-R10",
+      "expected": "PASS",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": false,
+        "nonDestructiveRollback": true
+      },
+      "synthetic": true,
+      "scenario": "07域Owner条件提交与取消晚回执回退 正例"
+    },
+    {
+      "id": "CAP-07-04-T20",
+      "ruleId": "C0704-R10",
+      "expected": "REJECT",
+      "input": {
+        "expectedHead": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": false,
+        "nonDestructiveRollback": true
+      },
+      "synthetic": true,
+      "mutatedField": "expectedHead",
+      "rejectionReason": "REJECT_C0704-R10",
+      "scenario": "07域Owner条件提交与取消晚回执回退 反例"
+    }
+  ],
+  "mutationCases": [
+    {
+      "id": "CAP-07-04-M01",
+      "ruleId": "C0704-R01",
+      "expected": "REJECT",
+      "input": {
+        "sourceRevision": 8,
+        "geometryHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "frameHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "frozenUnchanged": false
+      },
+      "synthetic": true,
+      "mutatedField": "frozenUnchanged",
+      "distinctFromNegativeField": true,
+      "scenario": "精确几何/毛坯/Frame与冻结只读 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M02",
+      "ruleId": "C0704-R02",
+      "expected": "REJECT",
+      "input": {
+        "contactPointLocated": false,
+        "contactToleranceMm": 0.01,
+        "contactDeviationMm": 0.005,
+        "toolAxisConvention": "TCP_TOOL_AXIS_WORKPIECE"
+      },
+      "synthetic": true,
+      "mutatedField": "contactPointLocated",
+      "distinctFromNegativeField": true,
+      "scenario": "真实刀触点、修剪域与TCP误差 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M03",
+      "ruleId": "C0704-R03",
+      "expected": "REJECT",
+      "input": {
+        "surfaceNormal": [
+          0,
+          0,
+          1
+        ],
+        "toolAxis": [
+          0,
+          0,
+          1
+        ],
+        "frameHandedness": "LEFT",
+        "normalAvailable": true
+      },
+      "synthetic": true,
+      "mutatedField": "frameHandedness",
+      "distinctFromNegativeField": true,
+      "scenario": "曲面法向有效性、单位刀轴与右手坐标 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M04",
+      "ruleId": "C0704-R04",
+      "expected": "REJECT",
+      "input": {
+        "toolOrientationQ": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "angularJumpDeg": 12,
+        "maxAllowedJumpDeg": 2,
+        "continuousCut": true,
+        "quaternionSignHandled": true
+      },
+      "synthetic": true,
+      "mutatedField": "angularJumpDeg",
+      "distinctFromNegativeField": true,
+      "scenario": "姿态四元数连续性与局部角步进 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M05",
+      "ruleId": "C0704-R05",
+      "expected": "REJECT",
+      "input": {
+        "gougeCheck": "PASS_LOCAL_BREP",
+        "holderClearance": "PASS_LOCAL_ONLY",
+        "protectedZoneUnchanged": false,
+        "screenProxyIsEvidence": false
+      },
+      "synthetic": true,
+      "mutatedField": "protectedZoneUnchanged",
+      "distinctFromNegativeField": true,
+      "scenario": "刀具过切、刀柄夹具局部检查与保护区 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M06",
+      "ruleId": "C0704-R06",
+      "expected": "REJECT",
+      "input": {
+        "clMode": "CONTINUOUS_5AXIS_NEUTRAL",
+        "hasMachineJointWords": true,
+        "poseAndAxisRecords": true,
+        "clFrameHash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "synthetic": true,
+      "mutatedField": "hasMachineJointWords",
+      "distinctFromNegativeField": true,
+      "scenario": "连续五轴中立CL含TCP/刀轴但无机床轴指令 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M07",
+      "ruleId": "C0704-R07",
+      "expected": "REJECT",
+      "input": {
+        "kinematicsEvidence": "TRIVIAL_B5_ASSUMED",
+        "ikBranchPolicy": "BRANCH_CANDIDATE_WITH_PROVENANCE",
+        "singularityHandling": "UNKNOWN_UNTIL_D14",
+        "machineVerifiedAtCam": false
+      },
+      "synthetic": true,
+      "mutatedField": "kinematicsEvidence",
+      "distinctFromNegativeField": true,
+      "scenario": "逆运动学分支与近奇异位形不自动认证 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M08",
+      "ruleId": "C0704-R08",
+      "expected": "REJECT",
+      "input": {
+        "feedIntentRecorded": true,
+        "d14TimingEvidence": "REQUIRED_NOT_PROVIDED",
+        "clPreviewCertifiesFeed": false,
+        "rotaryRateActualKnown": true
+      },
+      "synthetic": true,
+      "mutatedField": "rotaryRateActualKnown",
+      "distinctFromNegativeField": true,
+      "scenario": "进给意图与实际轴速度/加速度时序隔离 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M09",
+      "ruleId": "C0704-R09",
+      "expected": "REJECT",
+      "input": {
+        "d12PostProcessed": false,
+        "d13ExecutionSemantics": "UNKNOWN",
+        "d15Result": "NOT_RUN",
+        "d16ReleaseEligible": false,
+        "materialSweepSimulated": true
+      },
+      "synthetic": true,
+      "mutatedField": "materialSweepSimulated",
+      "distinctFromNegativeField": true,
+      "scenario": "最终NC后处理、未知控制器语义和发布门禁 独立字段错误变异"
+    },
+    {
+      "id": "CAP-07-04-M10",
+      "ruleId": "C0704-R10",
+      "expected": "REJECT",
+      "input": {
+        "expectedHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "actualHead": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "aclAllowed": true,
+        "taskGeneration": 7,
+        "receiptGeneration": 7,
+        "cancelled": true,
+        "nonDestructiveRollback": true
+      },
+      "synthetic": true,
+      "mutatedField": "cancelled",
+      "distinctFromNegativeField": true,
+      "scenario": "07域Owner条件提交与取消晚回执回退 独立字段错误变异"
+    }
+  ]
+}

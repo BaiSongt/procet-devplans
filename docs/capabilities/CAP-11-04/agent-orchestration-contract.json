@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "procet-agent-orchestration-contract-v0.8-draft",
+  "capabilityId": "CAP-11-04",
+  "planningOnly": true,
+  "ownerSignoff": "PENDING_HUMAN",
+  "request": {
+    "requestId": "example-agent-request-001",
+    "principal": "example-user",
+    "projectId": "example-project",
+    "scopeEpoch": 4,
+    "ownerPortId": "ExampleProcessPlanningOwnerPort",
+    "operation": "proposePlanRevision",
+    "sideEffectClass": "REQUIRES_HUMAN",
+    "asset": {
+      "kind": "D08",
+      "id": "example-frozen-plan",
+      "exactRevision": "rev-example-0004",
+      "contentSha256": "sha256:EXAMPLE_NOT_REAL_HASH",
+      "frameId": null,
+      "frameNotApplicable": true,
+      "unit": "mm"
+    },
+    "guard": {
+      "expectedRevision": "rev-example-0004",
+      "actionDigest": "sha256:EXAMPLE_ACTION_DIGEST",
+      "idempotencyKey": "request-001-step-01",
+      "cancelEpoch": 1,
+      "approvalReceiptId": "example-approval-not-authorized"
+    },
+    "tool": {
+      "namespaceVersion": "procet.tool.v0.8",
+      "inputSchemaDigest": "sha256:EXAMPLE_TOOL_SCHEMA_DIGEST",
+      "allowedOperations": [
+        "proposePlanRevision"
+      ]
+    }
+  },
+  "result": {
+    "status": "DRAFT_ADVISORY_ONLY",
+    "ownerReceipt": null,
+    "traceId": "example-trace-001",
+    "deferredEffects": [],
+    "unknownHandling": "FAIL_CLOSED"
+  },
+  "boundaries": {
+    "writeOwner": "business-domain-owner-not-agent",
+    "sameTruthAB": "DO_NOT_OVERWRITE_FROZEN",
+    "d04SetupNotD10": "separate",
+    "ncEvidenceChain": [
+      "D12_FINAL_NC",
+      "D13_EXECUTION_SEMANTICS",
+      "D14_MACHINE_AXIS_SEQUENCE",
+      "D15_INDEPENDENT_VALIDATION",
+      "D16_CONTROLLED_RELEASE"
+    ],
+    "clOnly": "NOT_ENGINEERING_VERIFICATION",
+    "materialSweep": "OUT_OF_SCOPE"
+  }
+}

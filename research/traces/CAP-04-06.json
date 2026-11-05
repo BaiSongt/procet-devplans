@@ -1,0 +1,716 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "capabilityId": "CAP-04-06",
+  "researchTopic": "R-MACHINE-BIND-001",
+  "sourceRegistry": "research/sources/CAP-04-06.json",
+  "workPackageIds": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "rules": [
+    {
+      "id": "CAP-04-06-R01",
+      "capabilityId": "CAP-04-06",
+      "summary": "机器实例和控制器exact绑定",
+      "engineeringRule": "D03机器、台面、控制器必须固定实例与revision/hash/Frame，名字或B5模板无效",
+      "fields": [
+        "machine.instance",
+        "machine.resourceExact",
+        "machine.controllerExact",
+        "machine.scopeCurrent"
+      ],
+      "sourceIds": [
+        "C0406-S01",
+        "C0406-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T01",
+      "criteria": [
+        {
+          "path": "machine.instance",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.resourceExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.controllerExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "machine.scopeCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R02",
+      "capabilityId": "CAP-04-06",
+      "summary": "工艺与执行双资产",
+      "engineeringRule": "D04名义工艺Setup不写实际偏置，D10单独修订并仅04域Owner提交",
+      "fields": [
+        "boundary.d04Distinct",
+        "boundary.d10NewRevision",
+        "boundary.ownerPortOnly",
+        "boundary.noMachineWrite"
+      ],
+      "sourceIds": [
+        "C0406-S04",
+        "C0406-S05"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T02",
+      "criteria": [
+        {
+          "path": "boundary.d04Distinct",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "boundary.d10NewRevision",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "boundary.ownerPortOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "boundary.noMachineWrite",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R03",
+      "capabilityId": "CAP-04-06",
+      "summary": "父子载体运动链",
+      "engineeringRule": "MachineBase→Table(q)→Fixture→Part须具名parent-local和home FK",
+      "fields": [
+        "carrier.parentFrames",
+        "carrier.homeFK",
+        "carrier.jointState",
+        "carrier.tableInstance"
+      ],
+      "sourceIds": [
+        "C0406-S03",
+        "C0406-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T03",
+      "criteria": [
+        {
+          "path": "carrier.parentFrames",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "carrier.homeFK",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "carrier.jointState",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "carrier.tableInstance",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R04",
+      "capabilityId": "CAP-04-06",
+      "summary": "右手刚体与矩阵乘序",
+      "engineeringRule": "列向量左乘、明确from/to、右手det+1、mm/rad；禁止scale/mirror",
+      "fields": [
+        "transform.direction",
+        "transform.rightHanded",
+        "transform.scaleOne",
+        "transform.unitKnown"
+      ],
+      "sourceIds": [
+        "C0406-S01",
+        "C0406-S03"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T04",
+      "criteria": [
+        {
+          "path": "transform.direction",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transform.rightHanded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transform.scaleOne",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transform.unitKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R05",
+      "capabilityId": "CAP-04-06",
+      "summary": "控制器偏置适配",
+      "engineeringRule": "G54/G10只能作指定方言示例，实机偏置及home不明则UNKNOWN",
+      "fields": [
+        "offset.dialectExact",
+        "offset.homeEvidence",
+        "offset.mappingKnown",
+        "offset.unknownBlocked"
+      ],
+      "sourceIds": [
+        "C0406-S04",
+        "C0406-S05"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T05",
+      "criteria": [
+        {
+          "path": "offset.dialectExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offset.homeEvidence",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offset.mappingKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "offset.unknownBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R06",
+      "capabilityId": "CAP-04-06",
+      "summary": "安装点与非平凡运动学",
+      "engineeringRule": "刀具装配exact依赖另见CAP-04-07，五轴头/转台需真实FK/IK证据",
+      "fields": [
+        "kinematic.toolAssemblyExact",
+        "kinematic.rotaryChain",
+        "kinematic.fkIkKnown",
+        "kinematic.noRendererShortcut"
+      ],
+      "sourceIds": [
+        "C0406-S03",
+        "C0406-S06"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T06",
+      "criteria": [
+        {
+          "path": "kinematic.toolAssemblyExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematic.rotaryChain",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematic.fkIkKnown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematic.noRendererShortcut",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R07",
+      "capabilityId": "CAP-04-06",
+      "summary": "单Babylon和领域共用Port",
+      "engineeringRule": "GUI/CLI/Agent同受管端口，左侧唯一TaskPanel，预览不写业务数据",
+      "fields": [
+        "interface.singleWorld",
+        "interface.leftTaskPanel",
+        "interface.sharedOwnerPort",
+        "interface.previewReadOnly"
+      ],
+      "sourceIds": [
+        "C0406-S03",
+        "C0406-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T07",
+      "criteria": [
+        {
+          "path": "interface.singleWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.leftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.sharedOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "interface.previewReadOnly",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R08",
+      "capabilityId": "CAP-04-06",
+      "summary": "CAS权限与取消回执",
+      "engineeringRule": "每次提交重验权限ScopeEpoch/expected revision/hash/CAS/取消；晚ACK不能复活",
+      "fields": [
+        "commit.aclCurrent",
+        "commit.scopeCurrent",
+        "commit.casCurrent",
+        "commit.cancelGenerationCurrent"
+      ],
+      "sourceIds": [
+        "C0406-S07",
+        "C0406-S08"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T08",
+      "criteria": [
+        {
+          "path": "commit.aclCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.scopeCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.casCurrent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "commit.cancelGenerationCurrent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R09",
+      "capabilityId": "CAP-04-06",
+      "summary": "失效回退与冻结保护",
+      "engineeringRule": "D10改变时按exact边失效D11-D16，不覆盖已冻结D08或历史发布D16",
+      "fields": [
+        "impact.edgesExact",
+        "impact.d08FrozenPreserved",
+        "impact.d16HistoricalPreserved",
+        "impact.rollbackAvailable"
+      ],
+      "sourceIds": [
+        "C0406-S08",
+        "C0406-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T09",
+      "criteria": [
+        {
+          "path": "impact.edgesExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.d08FrozenPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.d16HistoricalPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "impact.rollbackAvailable",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-04-06-R10",
+      "capabilityId": "CAP-04-06",
+      "summary": "最终NC而非CL动画",
+      "engineeringRule": "D12 NC→D13控制器语义→D14轴时序→D15独立验证→D16批准，未知不得通过",
+      "fields": [
+        "verification.ncExact",
+        "verification.d13Known",
+        "verification.d14Axes",
+        "verification.d15Independent"
+      ],
+      "sourceIds": [
+        "C0406-S05",
+        "C0406-S06",
+        "C0406-S09"
+      ],
+      "relatedDomains": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "task": "T10",
+      "criteria": [
+        {
+          "path": "verification.ncExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "verification.d13Known",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "verification.d14Axes",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "verification.d15Independent",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "一完整正例和四独立单字段反例",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

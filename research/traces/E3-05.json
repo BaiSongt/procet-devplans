@@ -1,0 +1,315 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "E3-05",
+  "researchTopic": "R-NCVERIFY-001",
+  "status": "PLANNING_COMPILED_PENDING_HUMAN_REVIEW",
+  "baseline": {
+    "head": "aad5ee22ac2ef7fed7487a70ede7ca4423f0156a",
+    "original36": "docs/architecture/v0.8/04_开发工作包_36项.md",
+    "businessAssets": "docs/architecture/v0.8/business-assets.json"
+  },
+  "sourceRegistry": "research/sources/E3-05.json",
+  "implementation": "docs/work-packages/E3-05.md",
+  "fixtures": "docs/work-packages/E3-05/fixtures.json",
+  "validator": "tools/check_e305_planning_2026_10_24.mjs",
+  "assetOwner": "09 机床运动与工程验证 · 程序验证（候选，待签）",
+  "designApproval": "PENDING_HUMAN",
+  "productAcceptance": "NOT_RUN",
+  "rules": [
+    {
+      "id": "E305-R01",
+      "workPackageId": "E3-05",
+      "summary": "最终D12 NC原文SHA、D13解释器/方言及D10执行绑定必须exact匹配",
+      "fixtureGate": "exactNCAndBindings",
+      "failureCode": "FINAL_NC_REVISION_MISMATCH",
+      "sourceIds": [
+        "SRC-D15EV-001",
+        "SRC-D15EV-002",
+        "SRC-D15EV-008",
+        "SRC-D15EV-009"
+      ],
+      "fields": [
+        "source.ncBytesSha256",
+        "source.ncRevision",
+        "source.d13InterpreterHash",
+        "source.d10ExecutionHash",
+        "source.frameId"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D10",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T01",
+      "negativeTestId": "E3-05-T02",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R02",
+      "workPackageId": "E3-05",
+      "summary": "D13完整覆盖需要验证的最终NC指令；UNKNOWN宏/循环不得默认为PASS",
+      "fixtureGate": "semanticClosure",
+      "failureCode": "D13_SEMANTICS_UNKNOWN",
+      "sourceIds": [
+        "SRC-D15EV-002",
+        "SRC-D15EV-003",
+        "SRC-D15EV-004"
+      ],
+      "fields": [
+        "semantics.unknownCount",
+        "semantics.dialectCoverage",
+        "semantics.modalHash"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T03",
+      "negativeTestId": "E3-05-T04",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R03",
+      "workPackageId": "E3-05",
+      "summary": "D03轴树/刀具安装及D14求解分支校准，超范围UNKNOWN",
+      "fixtureGate": "modelAndAxisProvenance",
+      "failureCode": "MACHINE_MODEL_UNCALIBRATED",
+      "sourceIds": [
+        "SRC-D15EV-003",
+        "SRC-D15EV-005",
+        "SRC-D15EV-006"
+      ],
+      "fields": [
+        "machine.kinematicHash",
+        "machine.calibrationRef",
+        "motion.axisSequenceHash"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T05",
+      "negativeTestId": "E3-05-T06",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R04",
+      "workPackageId": "E3-05",
+      "summary": "D04名义Setup与D10实际控制器偏置独立关联，机床Frame/WCS/G53不可混淆",
+      "fixtureGate": "frameAndOffsets",
+      "failureCode": "OFFSET_FRAME_UNRESOLVED",
+      "sourceIds": [
+        "SRC-D15EV-003",
+        "SRC-D15EV-004",
+        "SRC-D15EV-008"
+      ],
+      "fields": [
+        "setup.processFrame",
+        "execution.machineFrame",
+        "execution.workOffsetRevision"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T07",
+      "negativeTestId": "E3-05-T08",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R05",
+      "workPackageId": "E3-05",
+      "summary": "D14完整轴时序按相同校准模型核查软限/行程/姿态奇异及不可达",
+      "fixtureGate": "travelAndKinematics",
+      "failureCode": "AXIS_LIMIT_OR_SINGULARITY",
+      "sourceIds": [
+        "SRC-D15EV-003",
+        "SRC-D15EV-006"
+      ],
+      "fields": [
+        "verification.axisLimits",
+        "verification.singularityPolicy",
+        "verification.trajectoryCoverage"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T09",
+      "negativeTestId": "E3-05-T10",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R06",
+      "workPackageId": "E3-05",
+      "summary": "刀具/刀柄/工件/夹具真B-Rep和装配Frame可信，显示代理不能用作精确干涉体",
+      "fixtureGate": "geometryValidity",
+      "failureCode": "TOOL_FIXTURE_GEOMETRY_INVALID",
+      "sourceIds": [
+        "SRC-D15EV-005",
+        "SRC-D15EV-006",
+        "SRC-D15EV-007"
+      ],
+      "fields": [
+        "geometry.shapeRevisions",
+        "geometry.validityStatus",
+        "geometry.gaugeLength"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04",
+        "D10",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T11",
+      "negativeTestId": "E3-05-T12",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R07",
+      "workPackageId": "E3-05",
+      "summary": "报告必须区分静态相交/有限离散采样/连续性结论，采样通过不授全程安全",
+      "fixtureGate": "collisionScope",
+      "failureCode": "INTERFERENCE_EVIDENCE_INSUFFICIENT",
+      "sourceIds": [
+        "SRC-D15EV-005",
+        "SRC-D15EV-006",
+        "SRC-D15EV-007"
+      ],
+      "fields": [
+        "verification.sampleLocations",
+        "verification.clearanceTolerance",
+        "verification.continuousProofStatus"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T13",
+      "negativeTestId": "E3-05-T14",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R08",
+      "workPackageId": "E3-05",
+      "summary": "每项验证维度记录覆盖、假设、UNKNOWN/NOT_RUN，不得以播放动画代替真实验证",
+      "fixtureGate": "coverageAndUnknown",
+      "failureCode": "COVERAGE_OR_UNKNOWN_UNDECLARED",
+      "sourceIds": [
+        "SRC-D15EV-002",
+        "SRC-D15EV-003",
+        "SRC-D15EV-008"
+      ],
+      "fields": [
+        "verification.dimensions",
+        "verification.coverage",
+        "verification.unknownReasons"
+      ],
+      "assets": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-05-T15",
+      "negativeTestId": "E3-05-T16",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R09",
+      "workPackageId": "E3-05",
+      "summary": "验证证据append-only并绑定D08冻结/NC/配置exact revision，变化仅使依赖资格失效",
+      "fixtureGate": "provenanceAndFreeze",
+      "failureCode": "PROVENANCE_OR_FREEZE_CONFLICT",
+      "sourceIds": [
+        "SRC-D15EV-008",
+        "SRC-D15EV-009"
+      ],
+      "fields": [
+        "audit.inputHashes",
+        "audit.freezeRevision",
+        "audit.verificationRevision",
+        "audit.invalidateDependents"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-05-T17",
+      "negativeTestId": "E3-05-T18",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "E305-R10",
+      "workPackageId": "E3-05",
+      "summary": "Host CAS/权限重验与取消仲裁；D16独立消费方只读审查不得因本规划门禁通过自动发布",
+      "fixtureGate": "guardAndIndependentConsumer",
+      "failureCode": "AUTH_CANCEL_OR_REVIEW_FAILED",
+      "sourceIds": [
+        "SRC-D15EV-008",
+        "SRC-D15EV-009"
+      ],
+      "fields": [
+        "commit.expectedRevision",
+        "commit.permissions",
+        "commit.cancelToken",
+        "consumer.reviewStatus"
+      ],
+      "assets": [
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "positiveTestId": "E3-05-T19",
+      "negativeTestId": "E3-05-T20",
+      "negativeStatus": "PLANNING_BLOCKED_OR_UNKNOWN",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "D16/QAVerifier_NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

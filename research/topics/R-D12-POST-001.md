@@ -1,0 +1,3 @@
+# R-D12-POST-001｜D12后处理版本与NC溯源
+2026-10-25核对[9项官方资料](../sources/E3-02.json)，对应[10规则/20合成正反](../traces/E3-02.json)与[原E3-02](../../docs/work-packages/E3-02.md)。ISO 6983-1:2009仅阅官方摘要（2009第二版，2025确认），未看付费条款；LinuxCNC 2.9 §11/13 G-code模态及INI §2.4启动配置为公开正文，只适用于LinuxCNC，不能自动推至B5/任意FANUC/SINUMERIK。Autodesk官方Post Library和NC Program帮助仅说明post版本/属性实践，不等于Procet享有其商用源码复用许可。NISTIR 6556仅读出版页，保留官网Elena Messna拼写。RFC8785仅用于结构化JSON指纹，不应用于NC原始字节；PROV-O用于Entity/Activity/Agent来源参考，非行段或机床安全标准。
+**Procet内部工程选择**：中立D09+D10实际绑定+精确post二进制/配置SHA→D12不可变NC原文/逐行谱系→D13独立解释→D14/D15/D16独立门禁。缺真实OEM手册/post许可证、B5参数和产品源码exact-HEAD对照，真实测试NOT_RUN；本专题不冒称控制器认证。

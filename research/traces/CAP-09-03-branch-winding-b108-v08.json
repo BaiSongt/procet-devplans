@@ -1,0 +1,425 @@
+{
+  "schemaVersion": "procet-b108-branch-winding-trace-v08",
+  "date": "2026-11-02",
+  "sourceRegistry": "research/sources/CAP-09-03-branch-winding-b108.json",
+  "fixtures": "docs/capabilities/CAP-09-03/branch-winding-b108-fixtures-v08.json",
+  "checker": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+  "capabilityId": "CAP-09-03",
+  "relatedCapabilities": [
+    "CAP-09-01",
+    "CAP-09-02",
+    "CAP-09-06",
+    "CAP-09-07"
+  ],
+  "originalWorkPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "ruleCount": 8,
+  "sourceCount": 7,
+  "approval": "L3_PENDING_HUMAN",
+  "ownerSignatures": "0/17",
+  "realIndependentConsumers": "0/17",
+  "rules": [
+    {
+      "id": "B108-R01",
+      "summary": "D03/D04/D10 exact修订/Hash/Frame和控制器profile不可互换；业务内生审计",
+      "sourceIds": [
+        "B108-S07"
+      ],
+      "fields": [
+        "refs.d03.hash",
+        "refs.d03.expectedHash",
+        "refs.d04.frame",
+        "refs.d10.hash",
+        "refs.d10.expectedHash",
+        "refs.frameProof",
+        "refs.controllerProfileHash"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "F1-02",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [],
+      "unknown": [
+        "B108-U01"
+      ],
+      "stale": [
+        "B108-S01",
+        "B108-S02"
+      ],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B108-R02",
+      "summary": "WRAPPED_ROTARY或控制器旋转策略不明时，不从显示角度推断物理周数",
+      "sourceIds": [
+        "B108-S01",
+        "B108-S02",
+        "B108-S07"
+      ],
+      "fields": [
+        "axis.mode",
+        "refs.controllerProfileHash",
+        "limits.profileKnown"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D10",
+        "D14"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [],
+      "unknown": [
+        "B108-U02",
+        "B108-U03",
+        "B108-U04"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B108-R03",
+      "summary": "显示角、完整旋转周数及物理Joint角是不同字段，需一致性验证",
+      "sourceIds": [
+        "B108-S01",
+        "B108-S03",
+        "B108-S07"
+      ],
+      "fields": [
+        "axis.nextDisplayDeg",
+        "axis.nextTurnIndex",
+        "axis.nextPhysicalDeg",
+        "axis.poseOnlyDedup"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D10",
+        "D14"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-05",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [
+        "B108-N01",
+        "B108-N02"
+      ],
+      "unknown": [
+        "B108-U05"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B108-R04",
+      "summary": "IK同TCP多支链不能去重或无证据跳支；保留实际Branch谱系",
+      "sourceIds": [
+        "B108-S03",
+        "B108-S04",
+        "B108-S07"
+      ],
+      "fields": [
+        "axis.previousBranchId",
+        "axis.nextBranchId",
+        "axis.approvedBranchTransition",
+        "axis.independentFkEvidence",
+        "axis.poseOnlyDedup"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [
+        "B108-N03",
+        "B108-N04"
+      ],
+      "unknown": [
+        "B108-U06"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B108-R05",
+      "summary": "对真实物理Joint位置应用精确上下限，Cartesian/显示角资格不可替代",
+      "sourceIds": [
+        "B108-S01",
+        "B108-S02",
+        "B108-S07"
+      ],
+      "fields": [
+        "limits.minPhysicalDeg",
+        "limits.maxPhysicalDeg",
+        "limits.profileKnown",
+        "axis.previousPhysicalDeg",
+        "axis.nextPhysicalDeg"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D14"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "F1-02",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [
+        "B108-N05",
+        "B108-N06"
+      ],
+      "unknown": [
+        "B108-U07"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B108-R06",
+      "summary": "运动采样时间、关节速度与加速度分离检验；名义数值不认证实际伺服",
+      "sourceIds": [
+        "B108-S01",
+        "B108-S05",
+        "B108-S07"
+      ],
+      "fields": [
+        "timing.dtSec",
+        "timing.previousRateDegPerSec",
+        "limits.maxRateDegPerSec",
+        "limits.maxAccelerationDegPerSec2"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D14",
+        "D15"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-04",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [
+        "B108-N07",
+        "B108-N08",
+        "B108-N09",
+        "B108-N10"
+      ],
+      "unknown": [],
+      "stale": [],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B108-R07",
+      "summary": "轴时序须从最终NC的D13已知语义产生，CL预览及自称VERIFIED不得晋级",
+      "sourceIds": [
+        "B108-S02",
+        "B108-S06",
+        "B108-S07"
+      ],
+      "fields": [
+        "source.provenance",
+        "source.d13Status",
+        "verification.d15",
+        "verification.d16"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "E3-05",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [
+        "B108-N11",
+        "B108-N12"
+      ],
+      "unknown": [
+        "B108-U08",
+        "B108-U09"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B108-R08",
+      "summary": "统一Owner端口与单Babylon/左TaskPanel；提交处ACL/CAS/ScopeEpoch重验、取消晚回执拒绝",
+      "sourceIds": [
+        "B108-S07"
+      ],
+      "fields": [
+        "workflow.acl",
+        "workflow.cas",
+        "workflow.scopeEpoch",
+        "workflow.ackScopeEpoch",
+        "workflow.cancelled",
+        "workflow.lateAck",
+        "workflow.sameDomainPort",
+        "workflow.sceneCount",
+        "workflow.leftTaskPanel",
+        "workflow.agentMayBypassOwner"
+      ],
+      "caps": [
+        "CAP-09-03",
+        "CAP-09-06"
+      ],
+      "assets": [
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "primaryPackage": "U4-04",
+      "positive": [
+        "B108-P01",
+        "B108-P02",
+        "B108-P03",
+        "B108-P04",
+        "B108-P05"
+      ],
+      "negative": [
+        "B108-N13",
+        "B108-N14",
+        "B108-N15"
+      ],
+      "unknown": [],
+      "stale": [
+        "B108-S03",
+        "B108-S04",
+        "B108-S05"
+      ],
+      "testEntry": "tools/check_cap0903_branch_winding_b108_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

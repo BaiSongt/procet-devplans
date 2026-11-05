@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "procet-v08-research-trace-v1",
+  "researchTopic": "R-FINAL-HISTORY-LINK-B04",
+  "auditPath": "research/audits/FINAL-HISTORY-LINK-B04-2026-10-29.json",
+  "rules": [
+    {
+      "id": "B04-R01",
+      "rule": "Git树路径与逐文件Blob SHA必须在同一exact HEAD下冻结；历史审计只给索引、缺失路径/SHA清单时不得无条件累计为当前全仓覆盖。",
+      "sourceRefs": [
+        "B04-GH",
+        "B04-PROV"
+      ],
+      "fields": [
+        "observedExactHead",
+        "observedGitTreeSha",
+        "fileManifest[].path",
+        "fileManifest[].gitBlobSha",
+        "markdownSnapshot.historicalB03"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B04-P01",
+        "B04-N01",
+        "B04-N02",
+        "B04-N03"
+      ]
+    },
+    {
+      "id": "B04-R02",
+      "rule": "正则识别的本地路径存在性仅属PARTIAL，不等于CommonMark/GFM全部内链、HTML、锚点及跨行参考链接通过；禁用误报全仓PASS。",
+      "sourceRefs": [
+        "B04-CM",
+        "B04-GH"
+      ],
+      "fields": [
+        "markdownSnapshot.parserMode",
+        "markdownSnapshot.commonMarkAstChecked",
+        "markdownSnapshot.anchorsChecked",
+        "markdownSnapshot.fullRepoMarkdownScan"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "U4-02",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B04-P02",
+        "B04-N04",
+        "B04-N05",
+        "B04-N06",
+        "B04-N07"
+      ]
+    },
+    {
+      "id": "B04-R03",
+      "rule": "本批96文件和290条可识别相对目标必须逐项确认SHA、唯一索引、无越根、无已识别断链；任何单字段破坏立即否决本批证据。",
+      "sourceRefs": [
+        "B04-GH",
+        "B04-CM"
+      ],
+      "fields": [
+        "fileManifest[].index",
+        "fileManifest[].relativeDestinationsHeuristic",
+        "markdownSnapshot.newFullBlobReads",
+        "markdownSnapshot.blobShaMatched",
+        "markdownSnapshot.missingDestinationsObserved",
+        "markdownSnapshot.repoRootEscapesObserved"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-01-07"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-05"
+      ],
+      "acceptance": [
+        "B04-P01",
+        "B04-N08",
+        "B04-N09",
+        "B04-N10",
+        "B04-N11"
+      ]
+    },
+    {
+      "id": "B04-R04",
+      "rule": "三旧JSON、CAP-01-02旧补证和旧脚本未取得原字节，不得伪造恢复哈希或把NEWLY_AUTHORED冒称RECOVERED_ORIGINAL。",
+      "sourceRefs": [
+        "B04-PROV",
+        "B04-NIST"
+      ],
+      "fields": [
+        "historicalOriginals.bytesRecovery",
+        "historicalOriginals.humanDisposition",
+        "historicalOriginals.newlyAuthoredIsNotRecovered"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-01-04"
+      ],
+      "packages": [
+        "B0-05",
+        "T5-03"
+      ],
+      "acceptance": [
+        "B04-P01",
+        "B04-N12",
+        "B04-N13"
+      ]
+    },
+    {
+      "id": "B04-R05",
+      "rule": "此轮静态规划链接校验不能授予L3、Owner签署、独立消费者、D15最终NC验证或D16发布权限。",
+      "sourceRefs": [
+        "B04-NIST",
+        "B04-PROV"
+      ],
+      "fields": [
+        "gates.l3",
+        "gates.ownerSignatures",
+        "gates.independentConsumerProof",
+        "gates.productPass"
+      ],
+      "caps": [
+        "CAP-10-08",
+        "CAP-11-03"
+      ],
+      "packages": [
+        "T5-05",
+        "T5-06"
+      ],
+      "acceptance": [
+        "B04-P01",
+        "B04-N14",
+        "B04-N15",
+        "B04-N16"
+      ]
+    }
+  ]
+}

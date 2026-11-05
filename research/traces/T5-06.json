@@ -1,0 +1,574 @@
+{
+  "schemaVersion": "procet-t506-trace-v1",
+  "workPackageId": "T5-06",
+  "researchTopic": "R-QUALITY-BASELINE-001",
+  "sourceRegistry": "research/sources/T5-06.json",
+  "specification": "docs/work-packages/T5-06.md",
+  "ui": "docs/work-packages/T5-06/UI.md",
+  "fixtures": "docs/work-packages/T5-06/fixtures.json",
+  "validator": "tools/check_t506_planning_2026_10_26.cjs",
+  "rules": [
+    {
+      "id": "T5-06-R01",
+      "workPackageId": "T5-06",
+      "summary": "真实Golden与精确环境锁",
+      "sourceIds": [
+        "SRC-T506-NIST",
+        "SRC-T506-SLSA",
+        "SRC-T506-PROV"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D07",
+        "D09"
+      ],
+      "criteria": [
+        {
+          "path": "baseline.revision",
+          "op": "same",
+          "otherPath": "baseline.consumerRevision"
+        },
+        {
+          "path": "baseline.hash",
+          "op": "same",
+          "otherPath": "baseline.consumerHash"
+        },
+        {
+          "path": "baseline.framePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "baseline.environmentPinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "baseline.revision",
+        "baseline.consumerRevision",
+        "baseline.hash",
+        "baseline.consumerHash",
+        "baseline.framePinned",
+        "baseline.environmentPinned"
+      ],
+      "positiveTestId": "T5-06-T01",
+      "negativeTestId": "T5-06-T02",
+      "mutationTestId": "T5-06-M01"
+    },
+    {
+      "id": "T5-06-R02",
+      "workPackageId": "T5-06",
+      "summary": "独立Oracle与正反样例",
+      "sourceIds": [
+        "SRC-T506-OCCT",
+        "SRC-T506-NIST",
+        "SRC-T506-PROV"
+      ],
+      "assets": [
+        "D01",
+        "D07",
+        "D08",
+        "D15"
+      ],
+      "criteria": [
+        {
+          "path": "oracle.independentProcess",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.positiveNegativePaired",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.goldenImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.occtValidIsNCProof",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "oracle.independentProcess",
+        "oracle.positiveNegativePaired",
+        "oracle.goldenImmutable",
+        "oracle.occtValidIsNCProof"
+      ],
+      "positiveTestId": "T5-06-T03",
+      "negativeTestId": "T5-06-T04",
+      "mutationTestId": "T5-06-M02"
+    },
+    {
+      "id": "T5-06-R03",
+      "workPackageId": "T5-06",
+      "summary": "故障注入和UNKNOWN隔离",
+      "sourceIds": [
+        "SRC-T506-NIST",
+        "SRC-T506-RFC",
+        "SRC-T506-PROV"
+      ],
+      "assets": [
+        "D08",
+        "D13",
+        "D15",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "fault.injected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fault.unknownStaysUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "fault.lateCancelledReceiptAdopted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "fault.falsePass",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "fault.injected",
+        "fault.unknownStaysUnknown",
+        "fault.lateCancelledReceiptAdopted",
+        "fault.falsePass"
+      ],
+      "positiveTestId": "T5-06-T05",
+      "negativeTestId": "T5-06-T06",
+      "mutationTestId": "T5-06-M03"
+    },
+    {
+      "id": "T5-06-R04",
+      "workPackageId": "T5-06",
+      "summary": "备份恢复不伤历史数据",
+      "sourceIds": [
+        "SRC-T506-SQLITE",
+        "SRC-T506-NIST",
+        "SRC-T506-SLSA"
+      ],
+      "assets": [
+        "D01",
+        "D08",
+        "D16",
+        "D17"
+      ],
+      "criteria": [
+        {
+          "path": "restore.backupHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "restore.restoredHashMatched",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "restore.userDatabaseDeleted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "restore.legacyReaderRetained",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "restore.backupHashPinned",
+        "restore.restoredHashMatched",
+        "restore.userDatabaseDeleted",
+        "restore.legacyReaderRetained"
+      ],
+      "positiveTestId": "T5-06-T07",
+      "negativeTestId": "T5-06-T08",
+      "mutationTestId": "T5-06-M04"
+    },
+    {
+      "id": "T5-06-R05",
+      "workPackageId": "T5-06",
+      "summary": "环境可比性能与案例阈值",
+      "sourceIds": [
+        "SRC-T506-OTEL",
+        "SRC-T506-ISO",
+        "SRC-T506-SLSA"
+      ],
+      "assets": [
+        "D07",
+        "D09",
+        "D14"
+      ],
+      "criteria": [
+        {
+          "path": "perf.candidateEnvHash",
+          "op": "same",
+          "otherPath": "perf.baselineEnvHash"
+        },
+        {
+          "path": "perf.candidateInputHash",
+          "op": "same",
+          "otherPath": "perf.baselineInputHash"
+        },
+        {
+          "path": "perf.metricUnitPresent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "perf.caseThresholdHumanApproved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "perf.testCountIsSafetyCertificate",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "perf.candidateEnvHash",
+        "perf.baselineEnvHash",
+        "perf.candidateInputHash",
+        "perf.baselineInputHash",
+        "perf.metricUnitPresent",
+        "perf.caseThresholdHumanApproved",
+        "perf.testCountIsSafetyCertificate"
+      ],
+      "positiveTestId": "T5-06-T09",
+      "negativeTestId": "T5-06-T10",
+      "mutationTestId": "T5-06-M05"
+    },
+    {
+      "id": "T5-06-R06",
+      "workPackageId": "T5-06",
+      "summary": "架构违规、C0与Owner写边界",
+      "sourceIds": [
+        "SRC-T506-NIST",
+        "SRC-T506-ISO",
+        "SRC-T506-PROV"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D09",
+        "D12"
+      ],
+      "criteria": [
+        {
+          "path": "arch.uniqueOwner",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "arch.giantCommonObject",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "arch.directCrossOwnerWrite",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "arch.portsVersioned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "arch.uniqueOwner",
+        "arch.giantCommonObject",
+        "arch.directCrossOwnerWrite",
+        "arch.portsVersioned"
+      ],
+      "positiveTestId": "T5-06-T11",
+      "negativeTestId": "T5-06-T12",
+      "mutationTestId": "T5-06-M06"
+    },
+    {
+      "id": "T5-06-R07",
+      "workPackageId": "T5-06",
+      "summary": "D09中立CL到D16独立验证链",
+      "sourceIds": [
+        "SRC-T506-LINUXCNC",
+        "SRC-T506-OCCT",
+        "SRC-T506-PROV"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "criteria": [
+        {
+          "path": "nc.d04SeparateD10",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d09Neutral",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d12FinalNC",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d13Known",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d14FromD13",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d15Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d16ExactRelease",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.clAnimationAsD15",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "nc.materialSweepSimulationClaimed",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "nc.d04SeparateD10",
+        "nc.d09Neutral",
+        "nc.d12FinalNC",
+        "nc.d13Known",
+        "nc.d14FromD13",
+        "nc.d15Independent",
+        "nc.d16ExactRelease",
+        "nc.clAnimationAsD15",
+        "nc.materialSweepSimulationClaimed"
+      ],
+      "positiveTestId": "T5-06-T13",
+      "negativeTestId": "T5-06-T14",
+      "mutationTestId": "T5-06-M07"
+    },
+    {
+      "id": "T5-06-R08",
+      "workPackageId": "T5-06",
+      "summary": "同领域三入口和单Babylon世界",
+      "sourceIds": [
+        "SRC-T506-RFC",
+        "SRC-T506-OTEL",
+        "SRC-T506-PROV"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D09",
+        "D11"
+      ],
+      "criteria": [
+        {
+          "path": "gui.singleBabylonWorld",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gui.unifiedLeftTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gui.guiCliAgentSamePort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gui.previewOwnerWrite",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "gui.cancelLateAckCommitted",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "gui.ownerRechecksCAS_ACL_Frame",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "gui.singleBabylonWorld",
+        "gui.unifiedLeftTaskPanel",
+        "gui.guiCliAgentSamePort",
+        "gui.previewOwnerWrite",
+        "gui.cancelLateAckCommitted",
+        "gui.ownerRechecksCAS_ACL_Frame"
+      ],
+      "positiveTestId": "T5-06-T15",
+      "negativeTestId": "T5-06-T16",
+      "mutationTestId": "T5-06-M08"
+    },
+    {
+      "id": "T5-06-R09",
+      "workPackageId": "T5-06",
+      "summary": "新机型/策略不得继承已有PASS",
+      "sourceIds": [
+        "SRC-T506-ISO",
+        "SRC-T506-LINUXCNC",
+        "SRC-T506-OCCT"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D09",
+        "D10",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "criteria": [
+        {
+          "path": "newCapability.profileHashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "newCapability.controllerSemanticsCovered",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "newCapability.independentConsumerPassed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "newCapability.inheritsPreviousMachinePass",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "path": "newCapability.unknownSemanticsPublished",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "newCapability.profileHashPinned",
+        "newCapability.controllerSemanticsCovered",
+        "newCapability.independentConsumerPassed",
+        "newCapability.inheritsPreviousMachinePass",
+        "newCapability.unknownSemanticsPublished"
+      ],
+      "positiveTestId": "T5-06-T17",
+      "negativeTestId": "T5-06-T18",
+      "mutationTestId": "T5-06-M09"
+    },
+    {
+      "id": "T5-06-R10",
+      "workPackageId": "T5-06",
+      "summary": "版本锁、退化回滚和签署",
+      "sourceIds": [
+        "SRC-T506-SLSA",
+        "SRC-T506-SQLITE",
+        "SRC-T506-NIST"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D12",
+        "D16",
+        "D17"
+      ],
+      "criteria": [
+        {
+          "path": "gate.baselineImmutable",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.rollbackVersionsPaired",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.frozenHistoryRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.humanApprovalRequired",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.productNotRunClaimedPass",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "fields": [
+        "gate.baselineImmutable",
+        "gate.rollbackVersionsPaired",
+        "gate.frozenHistoryRetained",
+        "gate.humanApprovalRequired",
+        "gate.productNotRunClaimedPass"
+      ],
+      "positiveTestId": "T5-06-T19",
+      "negativeTestId": "T5-06-T20",
+      "mutationTestId": "T5-06-M10"
+    }
+  ]
+}

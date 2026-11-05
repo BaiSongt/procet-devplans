@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "procet-b75-fixtures-v1",
+  "date": "2026-11-01",
+  "base": {
+    "sources": {
+      "cadRev": "cad-r8",
+      "cadHash": "sha256:cad8",
+      "stockRev": "stock-r3",
+      "stockHash": "sha256:stock3",
+      "setupRev": "d04-r12",
+      "setupHash": "sha256:d04",
+      "setupFrame": "SETUP-A",
+      "occurrence": "asm/part-01",
+      "stockFrame": "STOCK-A",
+      "unit": "mm"
+    },
+    "execution": {
+      "owner": "D10",
+      "rev": "d10-r4",
+      "hash": "sha256:d10",
+      "frame": "MACHINE",
+      "dialect": "LinuxCNC",
+      "version": "2.9",
+      "wcsSelected": "G54",
+      "wcsEntry": "G54",
+      "g10P": 1,
+      "g10WritesButDoesNotSelect": true,
+      "g52": [
+        3,
+        0
+      ],
+      "g92": null,
+      "offsetRegistersKnown": true,
+      "persistenceKnown": true,
+      "offsetAppliedAfterRotation": true,
+      "g53OnlyCurrentBlock": true,
+      "toolMeasureEvidence": "measurement:m4"
+    },
+    "math": {
+      "point": [
+        2,
+        1
+      ],
+      "machineOrigin": [
+        100,
+        20
+      ],
+      "rotationDeg": 90,
+      "reported": [
+        102,
+        22
+      ]
+    },
+    "gate": {
+      "expectedSetupRev": "d04-r12",
+      "expectedExecRev": "d10-r4",
+      "expectedCadHash": "sha256:cad8",
+      "expectedStockHash": "sha256:stock3",
+      "scope": "project-A/setup-A",
+      "expectedScope": "project-A/setup-A",
+      "scopeEpoch": 3,
+      "receiptEpoch": 3,
+      "permissionEpoch": 7,
+      "receiptPermissionEpoch": 7,
+      "cancelled": false,
+      "acl": true,
+      "cas": true
+    },
+    "chain": {
+      "d04WroteControllerOffset": false,
+      "d10BindingOwner": "D10",
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "d16": "BLOCKED",
+      "clPlaybackPass": false
+    },
+    "ui": {
+      "channels": [
+        "GUI",
+        "CLI",
+        "Agent"
+      ],
+      "engines": 1,
+      "scenes": 1,
+      "canvases": 1,
+      "panel": "UnifiedTaskPanel",
+      "previewOnly": true
+    },
+    "migration": {
+      "oldReader": true,
+      "newReader": true,
+      "freezeUnchanged": true,
+      "rollbackRef": "d04-r11",
+      "legacyUnknown": false
+    }
+  },
+  "transformConvention": "列向量左乘；本合成数学后加偏移演示非实际控制器输出测量或生产NC",
+  "total": 24,
+  "cases": [
+    {
+      "id": "B75-001",
+      "ruleId": "B75-R1",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-002",
+      "ruleId": "B75-R1",
+      "patch": {
+        "sources.cadHash": "sha256:cad9"
+      },
+      "expected": "STALE",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-003",
+      "ruleId": "B75-R1",
+      "patch": {
+        "sources.unit": null
+      },
+      "expected": "UNKNOWN",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-004",
+      "ruleId": "B75-R2",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-005",
+      "ruleId": "B75-R2",
+      "patch": {
+        "execution.g10WritesButDoesNotSelect": false
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-006",
+      "ruleId": "B75-R2",
+      "patch": {
+        "execution.wcsSelected": "G55"
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-007",
+      "ruleId": "B75-R3",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-008",
+      "ruleId": "B75-R3",
+      "patch": {
+        "execution.g92": [
+          0,
+          5
+        ]
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-009",
+      "ruleId": "B75-R3",
+      "patch": {
+        "execution.persistenceKnown": null
+      },
+      "expected": "UNKNOWN",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-010",
+      "ruleId": "B75-R4",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-011",
+      "ruleId": "B75-R4",
+      "patch": {
+        "chain.d04WroteControllerOffset": true
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-012",
+      "ruleId": "B75-R4",
+      "patch": {
+        "chain.d10BindingOwner": null
+      },
+      "expected": "UNKNOWN",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-013",
+      "ruleId": "B75-R5",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-014",
+      "ruleId": "B75-R5",
+      "patch": {
+        "execution.version": "unknown"
+      },
+      "expected": "UNKNOWN",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-015",
+      "ruleId": "B75-R5",
+      "patch": {
+        "chain.d13": "PASS"
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-016",
+      "ruleId": "B75-R6",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-017",
+      "ruleId": "B75-R6",
+      "patch": {
+        "execution.hash": null
+      },
+      "expected": "UNKNOWN",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-018",
+      "ruleId": "B75-R6",
+      "patch": {
+        "gate.expectedExecRev": "d10-r5"
+      },
+      "expected": "STALE",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-019",
+      "ruleId": "B75-R7",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-020",
+      "ruleId": "B75-R7",
+      "patch": {
+        "gate.acl": false
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-021",
+      "ruleId": "B75-R7",
+      "patch": {
+        "gate.receiptEpoch": 4
+      },
+      "expected": "STALE",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-022",
+      "ruleId": "B75-R8",
+      "patch": {},
+      "expected": "CANDIDATE_ONLY",
+      "meaning": "合成候选，不代表NC安全或实测合格"
+    },
+    {
+      "id": "B75-023",
+      "ruleId": "B75-R8",
+      "patch": {
+        "ui.engines": 2
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    },
+    {
+      "id": "B75-024",
+      "ruleId": "B75-R8",
+      "patch": {
+        "migration.newReader": false
+      },
+      "expected": "REJECT",
+      "meaning": "单字段扰动的独立预期反例"
+    }
+  ]
+}

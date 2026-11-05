@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "E3-03",
+  "researchTopic": "R-NCEXEC-001",
+  "status": "PLANNING_COMPILED_PENDING_HUMAN_REVIEW",
+  "assetBaseline": {
+    "path": "docs/architecture/v0.8/business-assets.json",
+    "blobSha": "dad461aec34aefa773a9a22b07b6b742be60e052",
+    "examinedAtHead": "8f02a22e3a8d716e9bbe350927db89296a08e8e9"
+  },
+  "sourceRegistry": "research/sources/E3-03.json",
+  "implementation": "docs/work-packages/E3-03.md",
+  "fixtures": "docs/work-packages/E3-03/fixtures.json",
+  "validator": "tools/check_e303_planning_2026_10_24.py",
+  "rules": [
+    {
+      "id": "E303-R01",
+      "workPackageId": "E3-03",
+      "summary": "D12原始NC字节哈希与D10引用版本、Frame绑定一致；D13只读原文",
+      "sourceIds": [
+        "SRC-NCEXEC-001",
+        "SRC-NCEXEC-008",
+        "SRC-NCEXEC-009"
+      ],
+      "fields": [
+        "sourceRef.contentHash",
+        "sourceRef.revision",
+        "sourceRef.frame",
+        "d10Binding.revision"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "positiveTestId": "E3-03-T01",
+      "negativeTestId": "E3-03-T02",
+      "failureCode": "NC_SOURCE_MISMATCH",
+      "negativeStatus": "REJECTED",
+      "fixtureGate": "sourceHashMatches",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R02",
+      "workPackageId": "E3-03",
+      "summary": "控制器方言profile必须有确切版本、哈希和明确覆盖子集",
+      "sourceIds": [
+        "SRC-NCEXEC-001",
+        "SRC-NCEXEC-002",
+        "SRC-NCEXEC-006"
+      ],
+      "fields": [
+        "controllerProfile.id",
+        "controllerProfile.version",
+        "controllerProfile.contentHash"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveTestId": "E3-03-T03",
+      "negativeTestId": "E3-03-T04",
+      "failureCode": "DIALECT_PROFILE_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "fixtureGate": "profileKnown",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R03",
+      "workPackageId": "E3-03",
+      "summary": "模态需要跟随NC块状态演化，要求显式运动首态；单位/绝对增量不猜测",
+      "sourceIds": [
+        "SRC-NCEXEC-003"
+      ],
+      "fields": [
+        "modal.motion",
+        "modal.units",
+        "modal.distance"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "positiveTestId": "E3-03-T05",
+      "negativeTestId": "E3-03-T06",
+      "failureCode": "MOTION_MODE_UNSET",
+      "negativeStatus": "UNKNOWN",
+      "fixtureGate": "modalInitialKnown",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R04",
+      "workPackageId": "E3-03",
+      "summary": "G54等坐标选择必须在D10精确偏置表解析，D04不得被直接改写",
+      "sourceIds": [
+        "SRC-NCEXEC-004"
+      ],
+      "fields": [
+        "modal.wcs",
+        "d10Binding.availableWorkOffsets"
+      ],
+      "assets": [
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "positiveTestId": "E3-03-T07",
+      "negativeTestId": "E3-03-T08",
+      "failureCode": "WORK_OFFSET_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "fixtureGate": "wcsResolved",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R05",
+      "workPackageId": "E3-03",
+      "summary": "刀具长度/直径补偿、M代码辅助行为缺少配置必须保持UNKNOWN",
+      "sourceIds": [
+        "SRC-NCEXEC-004",
+        "SRC-NCEXEC-007"
+      ],
+      "fields": [
+        "modal.toolLength",
+        "d10Binding.toolTable",
+        "events.auxiliary"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "positiveTestId": "E3-03-T09",
+      "negativeTestId": "E3-03-T10",
+      "failureCode": "TOOL_OFFSET_UNKNOWN",
+      "negativeStatus": "UNKNOWN",
+      "fixtureGate": "toolOffsetResolved",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R06",
+      "workPackageId": "E3-03",
+      "summary": "未建模宏、循环、子程序或remap必须保留显式UNKNOWN，不可静默略过",
+      "sourceIds": [
+        "SRC-NCEXEC-005",
+        "SRC-NCEXEC-006"
+      ],
+      "fields": [
+        "unsupportedFeatures",
+        "events.semanticCoverage"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "positiveTestId": "E3-03-T11",
+      "negativeTestId": "E3-03-T12",
+      "failureCode": "UNSUPPORTED_CONTROLLER_SEMANTICS",
+      "negativeStatus": "UNKNOWN",
+      "fixtureGate": "noUnsupportedSemantics",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R07",
+      "workPackageId": "E3-03",
+      "summary": "NC块到解释事件的行号、顺序、状态哈希必须完整，不得输出D14轴时序",
+      "sourceIds": [
+        "SRC-NCEXEC-002",
+        "SRC-NCEXEC-007",
+        "SRC-NCEXEC-008"
+      ],
+      "fields": [
+        "lineMap",
+        "events.sourceLine",
+        "events.ordinal",
+        "modal.stateHash"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "positiveTestId": "E3-03-T13",
+      "negativeTestId": "E3-03-T14",
+      "failureCode": "SOURCE_MAP_MISMATCH",
+      "negativeStatus": "REJECTED",
+      "fixtureGate": "sourceMapAccurate",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R08",
+      "workPackageId": "E3-03",
+      "summary": "同NC块重复冲突模态组或非法词，Fail Closed，不得丢弃",
+      "sourceIds": [
+        "SRC-NCEXEC-003"
+      ],
+      "fields": [
+        "program.blocks",
+        "diagnostics.code"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "positiveTestId": "E3-03-T15",
+      "negativeTestId": "E3-03-T16",
+      "failureCode": "MODAL_GROUP_CONFLICT",
+      "negativeStatus": "REJECTED",
+      "fixtureGate": "modalGroupsValid",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R09",
+      "workPackageId": "E3-03",
+      "summary": "提交时重新CAS/授权与取消判断；晚回执只能审计不可采纳",
+      "sourceIds": [
+        "SRC-NCEXEC-009"
+      ],
+      "fields": [
+        "write.expectedRevision",
+        "write.currentRevision",
+        "write.authorized",
+        "write.cancelled"
+      ],
+      "assets": [
+        "D08",
+        "D12",
+        "D13",
+        "D16"
+      ],
+      "positiveTestId": "E3-03-T17",
+      "negativeTestId": "E3-03-T18",
+      "failureCode": "LATE_RECEIPT_DISCARDED",
+      "negativeStatus": "CANCELLED",
+      "fixtureGate": "commitStillValid",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    },
+    {
+      "id": "E303-R10",
+      "workPackageId": "E3-03",
+      "summary": "D13解释覆盖不能提升为D14、D15或D16通过资格；D11仅CL预验证",
+      "sourceIds": [
+        "SRC-NCEXEC-002",
+        "SRC-NCEXEC-008"
+      ],
+      "fields": [
+        "result.claims",
+        "result.unknownCount",
+        "result.qualification"
+      ],
+      "assets": [
+        "D11",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "E3-03-T19",
+      "negativeTestId": "E3-03-T20",
+      "failureCode": "CONCLUSION_ESCALATION",
+      "negativeStatus": "REJECTED",
+      "fixtureGate": "claimsOnlyD13",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumers": [
+        "09域D14解释事件消费者",
+        "09域D15验证消费者",
+        "10域D16发布消费者"
+      ],
+      "productAcceptance": "NOT_RUN",
+      "evidenceKind": "PROJECT_DESIGN_WITH_EXTERNAL_REFERENCE"
+    }
+  ],
+  "productAcceptance": "NOT_RUN",
+  "independentConsumerAcceptance": "NOT_RUN"
+}

@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "procet-e306-offline-portable-b13-v08",
+  "status": "NEWLY_AUTHORED_PLANNING_PENDING_L3",
+  "date": "2026-10-29",
+  "baselineHead": "e5be411e73cf858c2ad55ac7e2d3ceea0105e51c",
+  "parentWorkPackage": "E3-06",
+  "workPackages": [
+    "E3-06",
+    "T5-03"
+  ],
+  "externalSourcesAreDirectlyVisitedNotCountedInHistoric127Registries": true,
+  "sources": [
+    {
+      "id": "E306-B13-S01",
+      "issuer": "Microsoft Learn / Microsoft",
+      "title": "Naming Files, Paths, and Namespaces",
+      "version": "Win32 reference; last updated 2024-08-28",
+      "publishedOrUpdated": "2024-08-28",
+      "accessed": "2026-10-29",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file",
+      "readingDepth": "HTML正文 File and Directory Names / Naming Conventions / 设备保留名、大小写与末尾点",
+      "limits": "不证明用户现场U盘、SMB、具体OEM机床文件解析方式"
+    },
+    {
+      "id": "E306-B13-S02",
+      "issuer": "Python Software Foundation",
+      "title": "zipfile — Work with ZIP archives",
+      "version": "Python 3.13.18 documentation",
+      "publishedOrUpdated": "页面未单列发布日期",
+      "accessed": "2026-10-29",
+      "url": "https://docs.python.org/3.13/library/zipfile.html",
+      "readingDepth": "HTML正文ZipFile.extract/extractall、Path的安全警告",
+      "limits": "Python库文档不是所有解压器行为或真实zip payload安全证明"
+    },
+    {
+      "id": "E306-B13-S03",
+      "issuer": "CNCF The Update Framework; editors Justin Cappos, Trishank Karthik Kuppusamy, Joshua Lock, Marina Moore, Lukas Pühringer",
+      "title": "The Update Framework Specification",
+      "version": "1.0.36",
+      "publishedOrUpdated": "2026-08-05",
+      "accessed": "2026-10-29",
+      "url": "https://theupdateframework.github.io/specification/v1.0.36/",
+      "readingDepth": "HTML正文§3.1.1及§5.7唯一寻址、长度/Hash",
+      "limits": "仅借鉴目标身份，不宣称实现TUF或产品签名验证"
+    },
+    {
+      "id": "E306-B13-S04",
+      "issuer": "A. Rundgren, B. Jordan, S. Erdtman / RFC Editor",
+      "title": "RFC 8785 JSON Canonicalization Scheme",
+      "version": "RFC8785 Informational",
+      "publishedOrUpdated": "2020-06",
+      "accessed": "2026-10-29",
+      "url": "https://www.rfc-editor.org/info/rfc8785/",
+      "readingDepth": "官方摘要和HTML正文§3.1/§3.2",
+      "limits": "JCS只规定JSON规范化，不验证文件实际字节/签名身份；本轮无JCS实现"
+    }
+  ],
+  "rules": [
+    {
+      "id": "E306-B13-R01",
+      "summary": "路径保守ASCII存储名，禁止Windows设备名、路径穿越、盘符、非法段",
+      "sourceIds": [
+        "E306-B13-S01",
+        "E306-B13-S02"
+      ],
+      "fields": [
+        "policy.profile",
+        "archive.entries[].path",
+        "manifest.paths[]"
+      ],
+      "capabilities": [
+        "CAP-10-01",
+        "CAP-10-03"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N01",
+        "N02",
+        "N03"
+      ],
+      "independentConsumer": "D17_NOT_RUN",
+      "owner": "10域候选Owner；正式签署待审",
+      "status": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E306-B13-R02",
+      "summary": "ZIP成员与清单一一对应，拒绝大小写别名及文件/目录前缀冲突",
+      "sourceIds": [
+        "E306-B13-S01",
+        "E306-B13-S02"
+      ],
+      "fields": [
+        "archive.entries[].path",
+        "archive.declaredEntryCount",
+        "manifest.paths[]"
+      ],
+      "capabilities": [
+        "CAP-10-01",
+        "CAP-10-03"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "acceptanceIds": [
+        "P02",
+        "N04",
+        "N05",
+        "N06"
+      ],
+      "independentConsumer": "D17_NOT_RUN",
+      "owner": "10域候选Owner；正式签署待审",
+      "status": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E306-B13-R03",
+      "summary": "仅普通文件候选，接收方重新读取ZIP索引",
+      "sourceIds": [
+        "E306-B13-S01",
+        "E306-B13-S02"
+      ],
+      "fields": [
+        "archive.entries[].kind",
+        "archive.entries[].isLink",
+        "receiver.archiveIndexReopened"
+      ],
+      "capabilities": [
+        "CAP-10-03"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "acceptanceIds": [
+        "P03",
+        "N07",
+        "N08",
+        "N09"
+      ],
+      "independentConsumer": "D17_NOT_RUN",
+      "owner": "10域候选Owner；正式签署待审",
+      "status": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E306-B13-R04",
+      "summary": "逐项/总量/扩张比例政策上界，非工业统一公差",
+      "sourceIds": [
+        "E306-B13-S02",
+        "E306-B13-S03"
+      ],
+      "fields": [
+        "policy.maxEntryBytes",
+        "policy.maxTotalBytes",
+        "policy.maxExpansionRatio",
+        "archive.entries[].uncompressedBytes",
+        "archive.entries[].compressedBytes"
+      ],
+      "capabilities": [
+        "CAP-10-01",
+        "CAP-10-03"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "acceptanceIds": [
+        "P04",
+        "N10",
+        "N11",
+        "N12"
+      ],
+      "independentConsumer": "D17_NOT_RUN",
+      "owner": "10域候选Owner；正式签署待审",
+      "status": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E306-B13-R05",
+      "summary": "D12原NC与D15来源逐项摘要及精确闭包，JCS仅是候选",
+      "sourceIds": [
+        "E306-B13-S03",
+        "E306-B13-S04"
+      ],
+      "fields": [
+        "archive.entries[].expectedSha256",
+        "archive.entries[].observedSha256",
+        "manifest.d12FinalNcSha256",
+        "manifest.d15IndependentEvidenceSha256",
+        "closure.d15ExactQualified"
+      ],
+      "capabilities": [
+        "CAP-10-01",
+        "CAP-10-02"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "acceptanceIds": [
+        "P05",
+        "N13",
+        "N14",
+        "N15"
+      ],
+      "independentConsumer": "D17_NOT_RUN",
+      "owner": "10域候选Owner；正式签署待审",
+      "status": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E306-B13-R06",
+      "summary": "最终提交点CAS/角色权限Epoch及取消晚回执重新核验",
+      "sourceIds": [
+        "E306-B13-S03"
+      ],
+      "fields": [
+        "policy.expectedRevision",
+        "policy.currentRevision",
+        "policy.roleAllowed",
+        "policy.requestPermissionEpoch",
+        "policy.livePermissionEpoch",
+        "policy.cancelled",
+        "policy.lateReceipt"
+      ],
+      "capabilities": [
+        "CAP-10-02",
+        "CAP-10-03"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "acceptanceIds": [
+        "P06",
+        "N16",
+        "N17",
+        "N18",
+        "N19"
+      ],
+      "independentConsumer": "D17_NOT_RUN",
+      "owner": "10域候选Owner；正式签署待审",
+      "status": "PLANNING_SYNTHETIC_ONLY"
+    },
+    {
+      "id": "E306-B13-R07",
+      "summary": "预置信任根与撤销新鲜度、D17接收/机床运行分离",
+      "sourceIds": [
+        "E306-B13-S03",
+        "E306-B13-S04"
+      ],
+      "fields": [
+        "receiver.pinnedTrustRootConfigured",
+        "receiver.revocationFreshness",
+        "receiver.reportKind",
+        "receiver.independentConsumer",
+        "receiver.machineExecution"
+      ],
+      "capabilities": [
+        "CAP-10-02",
+        "CAP-10-03",
+        "CAP-10-06"
+      ],
+      "workPackages": [
+        "E3-06",
+        "T5-03"
+      ],
+      "acceptanceIds": [
+        "P07",
+        "N20",
+        "N21",
+        "N22",
+        "N23"
+      ],
+      "independentConsumer": "D17_NOT_RUN",
+      "owner": "10域候选Owner；正式签署待审",
+      "status": "PLANNING_SYNTHETIC_ONLY"
+    }
+  ],
+  "productAcceptance": "NOT_RUN",
+  "humanOwnerSignoff": "PENDING",
+  "L3": "PENDING_HUMAN",
+  "outOfScope": [
+    "真实zip解包/句柄与symlink竞态",
+    "实际文件流式SHA256",
+    "RFC8785/JCS与真实验签",
+    "真实NC/机床与D17独立消费者验收"
+  ]
+}

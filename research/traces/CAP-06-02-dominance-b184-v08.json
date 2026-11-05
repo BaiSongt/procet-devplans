@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "procet-b184-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-06-02",
+  "originalWorkPackages": [
+    "F1-05",
+    "W2-02",
+    "W2-03",
+    "W2-06"
+  ],
+  "sourceRegistry": "research/sources/CAP-06-02-dominance-b184.json",
+  "fixtures": "docs/capabilities/CAP-06-02/dominance-b184-fixtures-v08.json",
+  "checker": "tools/check_cap0602_dominance_b184_v08.cjs",
+  "report": "docs/capabilities/CAP-06-02/DOMINANCE-CERTIFICATE-B184-2026-11-05.md",
+  "rules": [
+    {
+      "id": "B184-R01",
+      "title": "同一材料状态与Frame才可比较",
+      "fields": [
+        "state.lhsStockHash",
+        "state.rhsStockHash",
+        "state.lhsFrame",
+        "state.rhsFrame"
+      ],
+      "sourceIds": [
+        "B184-S02",
+        "B184-S06"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R01-P",
+        "B184-R01-N1",
+        "B184-R01-N2",
+        "B184-R01-N3",
+        "B184-R01-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B184-R02",
+      "title": "剩余工序与完整保护/余量/冻结条件同指纹",
+      "fields": [
+        "guards.lhsRemaining",
+        "guards.rhsRemaining",
+        "guards.lhsGuardHash",
+        "guards.rhsGuardHash"
+      ],
+      "sourceIds": [
+        "B184-S03",
+        "B184-S06"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R02-P",
+        "B184-R02-N1",
+        "B184-R02-N2",
+        "B184-R02-N3",
+        "B184-R02-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B184-R03",
+      "title": "同目标单位下Pareto弱优且至少一严格优",
+      "fields": [
+        "pareto.lhsCost",
+        "pareto.rhsCost",
+        "pareto.units",
+        "pareto.objectiveCertified"
+      ],
+      "sourceIds": [
+        "B184-S03",
+        "B184-S05",
+        "B184-S06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R03-P",
+        "B184-R03-N1",
+        "B184-R03-N2",
+        "B184-R03-N3",
+        "B184-R03-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B184-R04",
+      "title": "只有同目标可采纳下界与真实上界才证明裁剪",
+      "fields": [
+        "bound.lowerBound",
+        "bound.incumbentCost",
+        "bound.admissible",
+        "bound.objectiveSame"
+      ],
+      "sourceIds": [
+        "B184-S01",
+        "B184-S05",
+        "B184-S06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R04-P",
+        "B184-R04-N1",
+        "B184-R04-N2",
+        "B184-R04-N3",
+        "B184-R04-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B184-R05",
+      "title": "Beam截断不冒充全空间无解",
+      "fields": [
+        "beam.truncated",
+        "beam.status",
+        "beam.assertsInfeasible",
+        "beam.omittedCount"
+      ],
+      "sourceIds": [
+        "B184-S01",
+        "B184-S06"
+      ],
+      "assets": [
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R05-P",
+        "B184-R05-N1",
+        "B184-R05-N2",
+        "B184-R05-N3",
+        "B184-R05-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B184-R06",
+      "title": "OCCT Cut完成≠独立BRep与保护区验证",
+      "fields": [
+        "geometry.booleanDone",
+        "geometry.exactBrepSha",
+        "geometry.checkerStatus",
+        "geometry.protectedClear"
+      ],
+      "sourceIds": [
+        "B184-S02",
+        "B184-S06"
+      ],
+      "assets": [
+        "D06",
+        "D07"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R06-P",
+        "B184-R06-N1",
+        "B184-R06-N2",
+        "B184-R06-N3",
+        "B184-R06-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B184-R07",
+      "title": "06域不写D05且冻结与A/B保持独立",
+      "fields": [
+        "adoption.solverOnlyD06",
+        "adoption.viaD05Owner",
+        "adoption.freezePreserved",
+        "adoption.branchScoped"
+      ],
+      "sourceIds": [
+        "B184-S06",
+        "B184-S07"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R07-P",
+        "B184-R07-N1",
+        "B184-R07-N2",
+        "B184-R07-N3",
+        "B184-R07-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B184-R08",
+      "title": "三入口同Port及CAS/ACL重验，NC验收另做",
+      "fields": [
+        "commit.singleManagedPort",
+        "commit.casAclRechecked",
+        "commit.lateAckRejected",
+        "commit.independentNcD15"
+      ],
+      "sourceIds": [
+        "B184-S06",
+        "B184-S07"
+      ],
+      "assets": [
+        "D04",
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-06-02"
+      ],
+      "originalWorkPackages": [
+        "F1-05",
+        "W2-02",
+        "W2-03",
+        "W2-06"
+      ],
+      "testIds": [
+        "B184-R08-P",
+        "B184-R08-N1",
+        "B184-R08-N2",
+        "B184-R08-N3",
+        "B184-R08-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

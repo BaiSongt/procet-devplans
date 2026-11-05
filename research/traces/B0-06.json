@@ -1,0 +1,393 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "workPackageId": "B0-06",
+  "researchTopic": "R-TEAM-GOV-001",
+  "status": "PLANNING_COMPILED_PENDING_HUMAN_REVIEW",
+  "referenceAssetRegistry": {
+    "path": "docs/architecture/v0.8/business-assets.json",
+    "exactPlanningCommit": "3418dfc20588e8ccd4c6af4edb026998f6507e14",
+    "blobSha": "dad461aec34aefa773a9a22b07b6b742be60e052"
+  },
+  "implementation": "docs/work-packages/B0-06.md",
+  "sources": "research/sources/B0-06.json",
+  "fixtures": "docs/work-packages/B0-06/fixtures.json",
+  "rules": [
+    {
+      "id": "GOV6-R01",
+      "workPackageId": "B0-06",
+      "summary": "17资产候选Owner与V0.8权威清单逐项严格匹配，GitHub CODEOWNERS不能代替业务审批",
+      "sourceIds": [
+        "B006-20261024-S01",
+        "B006-20261024-S02",
+        "B006-20261024-S03"
+      ],
+      "fields": [
+        "ownerMap",
+        "assetBlobSha",
+        "githubCodeOwner"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D13",
+        "D16"
+      ],
+      "positiveTestId": "B0-06-T01",
+      "negativeTestId": "B0-06-T02",
+      "failureCode": "ASSET_OWNER_MISMATCH",
+      "subtaskId": "B0-06-S01",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R02",
+      "workPackageId": "B0-06",
+      "summary": "职能角色可待指派，但不得产生虚构账号、签名或已批准状态",
+      "sourceIds": [
+        "B006-20261024-S02",
+        "B006-20261024-S03"
+      ],
+      "fields": [
+        "assigneeStatus",
+        "account",
+        "signatures",
+        "claimedApproved"
+      ],
+      "assets": [
+        "D01",
+        "D08",
+        "D16"
+      ],
+      "positiveTestId": "B0-06-T03",
+      "negativeTestId": "B0-06-T04",
+      "failureCode": "FAKE_APPROVAL",
+      "subtaskId": "B0-06-S02",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R03",
+      "workPackageId": "B0-06",
+      "summary": "作者自测与独立消费者/QA证据分离，未执行不标产品PASS",
+      "sourceIds": [
+        "B006-20261024-S02",
+        "B006-20261024-S06"
+      ],
+      "fields": [
+        "author",
+        "consumerReviewer",
+        "qaReviewer",
+        "reviewEvidence"
+      ],
+      "assets": [
+        "D06",
+        "D09",
+        "D15"
+      ],
+      "positiveTestId": "B0-06-T05",
+      "negativeTestId": "B0-06-T06",
+      "failureCode": "INDEPENDENCE_MISSING",
+      "subtaskId": "B0-06-S03",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R04",
+      "workPackageId": "B0-06",
+      "summary": "ADR至少具备状态、上下文、备选、决策、后果；旧决策只能通过新修订取代",
+      "sourceIds": [
+        "B006-20261024-S01",
+        "B006-20261024-S05",
+        "B006-20261024-S09"
+      ],
+      "fields": [
+        "adrId",
+        "status",
+        "context",
+        "alternatives",
+        "decision",
+        "consequences",
+        "previousImmutable"
+      ],
+      "assets": [
+        "D01",
+        "D08"
+      ],
+      "positiveTestId": "B0-06-T07",
+      "negativeTestId": "B0-06-T08",
+      "failureCode": "ADR_HISTORY_MUTATED",
+      "subtaskId": "B0-06-S04",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R05",
+      "workPackageId": "B0-06",
+      "summary": "任务绑定原CAP/包、exact来源、负例、消费者及回退，不接受浮动latest",
+      "sourceIds": [
+        "B006-20261024-S02",
+        "B006-20261024-S06"
+      ],
+      "fields": [
+        "workPackageId",
+        "inputRevision",
+        "inputHash",
+        "frameId",
+        "negativeCaseIds",
+        "rollbackPlan"
+      ],
+      "assets": [
+        "D04",
+        "D09"
+      ],
+      "positiveTestId": "B0-06-T09",
+      "negativeTestId": "B0-06-T10",
+      "failureCode": "TASK_PROVENANCE_INCOMPLETE",
+      "subtaskId": "B0-06-S05",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R06",
+      "workPackageId": "B0-06",
+      "summary": "PR草稿与CODEOWNERS审批、业务Owner签署相互独立，保护规则UNKNOWN不得声称已批准",
+      "sourceIds": [
+        "B006-20261024-S03",
+        "B006-20261024-S04",
+        "B006-20261024-S08"
+      ],
+      "fields": [
+        "isDraft",
+        "reviewApproved",
+        "businessSigned",
+        "protectionObserved"
+      ],
+      "assets": [
+        "D08",
+        "D16"
+      ],
+      "positiveTestId": "B0-06-T11",
+      "negativeTestId": "B0-06-T12",
+      "failureCode": "PR_REVIEW_MISREPRESENTED",
+      "subtaskId": "B0-06-S06",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R07",
+      "workPackageId": "B0-06",
+      "summary": "本地验收须固定输入Hash、源SHA、环境、测试命令与原始输出Hash；模拟样例不得授产品PASS",
+      "sourceIds": [
+        "B006-20261024-S02",
+        "B006-20261024-S06",
+        "B006-20261024-S07"
+      ],
+      "fields": [
+        "commitSha",
+        "sourceHash",
+        "binaryHash",
+        "frameId",
+        "testCommand",
+        "productAcceptance"
+      ],
+      "assets": [
+        "D09",
+        "D13",
+        "D15"
+      ],
+      "positiveTestId": "B0-06-T13",
+      "negativeTestId": "B0-06-T14",
+      "failureCode": "ACCEPTANCE_PROVENANCE_INVALID",
+      "subtaskId": "B0-06-S07",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R08",
+      "workPackageId": "B0-06",
+      "summary": "受管Owner提交时CAS、ACL、Scope复查与取消迟回执仲裁，失败不能改冻结修订",
+      "sourceIds": [
+        "B006-20261024-S02",
+        "B006-20261024-S06"
+      ],
+      "fields": [
+        "expectedRevision",
+        "actualRevision",
+        "authorizedAtCommit",
+        "scopeEpoch",
+        "receiptScopeEpoch",
+        "frozenUnchanged"
+      ],
+      "assets": [
+        "D04",
+        "D08"
+      ],
+      "positiveTestId": "B0-06-T15",
+      "negativeTestId": "B0-06-T16",
+      "failureCode": "CAS_OR_SCOPE_REJECTED",
+      "subtaskId": "B0-06-S08",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R09",
+      "workPackageId": "B0-06",
+      "summary": "GUI/CLI/Agent走同一领域端口；唯一Babylon世界及左TaskPanel；预览零业务写入",
+      "sourceIds": [
+        "B006-20261024-S03",
+        "B006-20261024-S04"
+      ],
+      "fields": [
+        "entrypoints",
+        "domainPort",
+        "babylonWorldCount",
+        "leftTaskPanelCount",
+        "previewWrites"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "positiveTestId": "B0-06-T17",
+      "negativeTestId": "B0-06-T18",
+      "failureCode": "ENTRYPOINT_OR_SCENE_SPLIT",
+      "subtaskId": "B0-06-S09",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    },
+    {
+      "id": "GOV6-R10",
+      "workPackageId": "B0-06",
+      "summary": "中立CL不是NC验证，D13未知必须阻断D16，材料扫掠仿真未实现不能伪称PASS",
+      "sourceIds": [
+        "B006-20261024-S01",
+        "B006-20261024-S02",
+        "B006-20261024-S06"
+      ],
+      "fields": [
+        "clStatus",
+        "d13Status",
+        "d14Status",
+        "d15Status",
+        "d16Status",
+        "materialSweepClaim"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "B0-06-T19",
+      "negativeTestId": "B0-06-T20",
+      "failureCode": "NC_RELEASE_GATE_BYPASSED",
+      "subtaskId": "B0-06-S10",
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN",
+      "ruleOrigin": "PROJECT_DERIVED_WITH_PUBLIC_REFERENCES"
+    }
+  ],
+  "subtasks": [
+    {
+      "id": "B0-06-S01",
+      "title": "17资产候选Owner与V0.8权威清单逐项严格匹配，GitHub CODEOWNERS不能代替业务审批",
+      "ownerRole": "D01",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T01",
+      "minimumNegative": "B0-06-T02",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S02",
+      "title": "职能角色可待指派，但不得产生虚构账号、签名或已批准状态",
+      "ownerRole": "D01",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T03",
+      "minimumNegative": "B0-06-T04",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S03",
+      "title": "作者自测与独立消费者/QA证据分离，未执行不标产品PASS",
+      "ownerRole": "D06",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T05",
+      "minimumNegative": "B0-06-T06",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S04",
+      "title": "ADR至少具备状态、上下文、备选、决策、后果；旧决策只能通过新修订取代",
+      "ownerRole": "D01",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T07",
+      "minimumNegative": "B0-06-T08",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S05",
+      "title": "任务绑定原CAP/包、exact来源、负例、消费者及回退，不接受浮动latest",
+      "ownerRole": "D04",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T09",
+      "minimumNegative": "B0-06-T10",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S06",
+      "title": "PR草稿与CODEOWNERS审批、业务Owner签署相互独立，保护规则UNKNOWN不得声称已批准",
+      "ownerRole": "D08",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T11",
+      "minimumNegative": "B0-06-T12",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S07",
+      "title": "本地验收须固定输入Hash、源SHA、环境、测试命令与原始输出Hash；模拟样例不得授产品PASS",
+      "ownerRole": "D09",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T13",
+      "minimumNegative": "B0-06-T14",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S08",
+      "title": "受管Owner提交时CAS、ACL、Scope复查与取消迟回执仲裁，失败不能改冻结修订",
+      "ownerRole": "D04",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T15",
+      "minimumNegative": "B0-06-T16",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S09",
+      "title": "GUI/CLI/Agent走同一领域端口；唯一Babylon世界及左TaskPanel；预览零业务写入",
+      "ownerRole": "D04",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T17",
+      "minimumNegative": "B0-06-T18",
+      "productStatus": "NOT_RUN"
+    },
+    {
+      "id": "B0-06-S10",
+      "title": "中立CL不是NC验证，D13未知必须阻断D16，材料扫掠仿真未实现不能伪称PASS",
+      "ownerRole": "D09",
+      "consumerRole": "独立领域消费者/QA（待指定）",
+      "minimumPositive": "B0-06-T19",
+      "minimumNegative": "B0-06-T20",
+      "productStatus": "NOT_RUN"
+    }
+  ]
+}

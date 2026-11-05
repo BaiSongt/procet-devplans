@@ -1,0 +1,487 @@
+{
+  "schemaVersion": "procet-b93-fixtures-v08",
+  "syntheticOnly": true,
+  "sourceRegistry": "research/sources/CAP-07-08-edit-dag-b93.json",
+  "ruleTrace": "research/traces/CAP-07-08-edit-dag-b93-v08.json",
+  "baseline": {
+    "refs": {
+      "revision": "D09-r12",
+      "actualHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "expectedHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "actualFrame": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "expectedFrame": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "scopeEpoch": 4,
+      "expectedScopeEpoch": 4,
+      "d08Frozen": true
+    },
+    "graph": {
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "E",
+          "F"
+        ]
+      ],
+      "seeds": [
+        "B"
+      ],
+      "affected": [
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "complete": true
+    },
+    "lineage": {
+      "B": [
+        "B-v2a",
+        "B-v2b"
+      ],
+      "C": [
+        "C-v2"
+      ],
+      "D": [
+        "D-v2"
+      ],
+      "E": [
+        "E-v2"
+      ],
+      "F": [
+        "F-v2"
+      ]
+    },
+    "unaffected": {
+      "id": "A",
+      "oldHash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "newHash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "otherSourceChanged": false
+    },
+    "nc": {
+      "invalidate": [
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "d13": "UNKNOWN",
+      "d14": "NOT_RUN",
+      "d15": "NOT_RUN",
+      "publish": false,
+      "clAsNc": false,
+      "materialSweep": false
+    },
+    "owner": {
+      "domain": "07",
+      "asset": "D09",
+      "expectedHead": "D09-r12",
+      "actualHead": "D09-r12",
+      "acl": true,
+      "scopeEpoch": 4,
+      "expectedScopeEpoch": 4,
+      "generation": 9,
+      "receiptGeneration": 9,
+      "cancelled": false,
+      "lateDiscarded": true,
+      "guiCliAgentSamePort": true,
+      "singleBabylon": true,
+      "leftPanel": true
+    },
+    "policy": {
+      "sameFactAB": true,
+      "d04D10Separate": true,
+      "c0Minimal": true,
+      "migration": "EXPAND_MIGRATE_CONTRACT_PENDING",
+      "oldReader": true,
+      "rollback": true,
+      "l3": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "B93-P1",
+      "ruleId": "B93-R1",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "exact D09 revision/hash/Frame与冻结／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N1a",
+      "ruleId": "B93-R1",
+      "expect": "STALE",
+      "patch": {
+        "refs.actualHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "note": "exact D09 revision/hash/Frame与冻结／STALE"
+    },
+    {
+      "id": "B93-N1b",
+      "ruleId": "B93-R1",
+      "expect": "STALE",
+      "patch": {
+        "refs.d08Frozen": false
+      },
+      "note": "exact D09 revision/hash/Frame与冻结／STALE"
+    },
+    {
+      "id": "B93-U1",
+      "ruleId": "B93-R1",
+      "expect": "UNKNOWN",
+      "patch": {
+        "refs.actualHash": null
+      },
+      "note": "exact D09 revision/hash/Frame与冻结／UNKNOWN"
+    },
+    {
+      "id": "B93-P2",
+      "ruleId": "B93-R2",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "拓扑DAG无环与完整／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N2a",
+      "ruleId": "B93-R2",
+      "expect": "REJECT",
+      "patch": {
+        "graph.edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ],
+          [
+            "B",
+            "E"
+          ],
+          [
+            "E",
+            "F"
+          ],
+          [
+            "D",
+            "B"
+          ]
+        ]
+      },
+      "note": "拓扑DAG无环与完整／REJECT"
+    },
+    {
+      "id": "B93-N2b",
+      "ruleId": "B93-R2",
+      "expect": "REJECT",
+      "patch": {
+        "graph.nodes": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "A"
+        ]
+      },
+      "note": "拓扑DAG无环与完整／REJECT"
+    },
+    {
+      "id": "B93-U2",
+      "ruleId": "B93-R2",
+      "expect": "UNKNOWN",
+      "patch": {
+        "graph.complete": false
+      },
+      "note": "拓扑DAG无环与完整／UNKNOWN"
+    },
+    {
+      "id": "B93-P3",
+      "ruleId": "B93-R3",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "种子到后继的精确dirty闭包／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N3a",
+      "ruleId": "B93-R3",
+      "expect": "REJECT",
+      "patch": {
+        "graph.affected": [
+          "B",
+          "C",
+          "E",
+          "F"
+        ]
+      },
+      "note": "种子到后继的精确dirty闭包／REJECT"
+    },
+    {
+      "id": "B93-N3b",
+      "ruleId": "B93-R3",
+      "expect": "REJECT",
+      "patch": {
+        "graph.affected": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "note": "种子到后继的精确dirty闭包／REJECT"
+    },
+    {
+      "id": "B93-U3",
+      "ruleId": "B93-R3",
+      "expect": "UNKNOWN",
+      "patch": {
+        "graph.seeds": []
+      },
+      "note": "种子到后继的精确dirty闭包／UNKNOWN"
+    },
+    {
+      "id": "B93-P4",
+      "ruleId": "B93-R4",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "一对多old→new稳定血缘／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N4a",
+      "ruleId": "B93-R4",
+      "expect": "REJECT",
+      "patch": {
+        "lineage.B": [
+          "B-v2a",
+          "B-v2a"
+        ]
+      },
+      "note": "一对多old→new稳定血缘／REJECT"
+    },
+    {
+      "id": "B93-N4b",
+      "ruleId": "B93-R4",
+      "expect": "REJECT",
+      "patch": {
+        "lineage": {
+          "B": [
+            "B-v2a",
+            "B-v2b"
+          ]
+        }
+      },
+      "note": "一对多old→new稳定血缘／REJECT"
+    },
+    {
+      "id": "B93-U4",
+      "ruleId": "B93-R4",
+      "expect": "UNKNOWN",
+      "patch": {
+        "lineage": null
+      },
+      "note": "一对多old→new稳定血缘／UNKNOWN"
+    },
+    {
+      "id": "B93-P5",
+      "ruleId": "B93-R5",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "保护未影响段A字节身份／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N5a",
+      "ruleId": "B93-R5",
+      "expect": "REJECT",
+      "patch": {
+        "unaffected.newHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "note": "保护未影响段A字节身份／REJECT"
+    },
+    {
+      "id": "B93-N5b",
+      "ruleId": "B93-R5",
+      "expect": "STALE",
+      "patch": {
+        "unaffected.otherSourceChanged": true
+      },
+      "note": "保护未影响段A字节身份／STALE"
+    },
+    {
+      "id": "B93-U5",
+      "ruleId": "B93-R5",
+      "expect": "UNKNOWN",
+      "patch": {
+        "unaffected": null
+      },
+      "note": "保护未影响段A字节身份／UNKNOWN"
+    },
+    {
+      "id": "B93-P6",
+      "ruleId": "B93-R6",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "D11–D16旧NC证据失效／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N6a",
+      "ruleId": "B93-R6",
+      "expect": "REJECT",
+      "patch": {
+        "nc.invalidate": [
+          "D11",
+          "D12",
+          "D13",
+          "D14",
+          "D16"
+        ]
+      },
+      "note": "D11–D16旧NC证据失效／REJECT"
+    },
+    {
+      "id": "B93-N6b",
+      "ruleId": "B93-R6",
+      "expect": "REJECT",
+      "patch": {
+        "nc.publish": true
+      },
+      "note": "D11–D16旧NC证据失效／REJECT"
+    },
+    {
+      "id": "B93-U6",
+      "ruleId": "B93-R6",
+      "expect": "UNKNOWN",
+      "patch": {
+        "nc.d13": null
+      },
+      "note": "D11–D16旧NC证据失效／UNKNOWN"
+    },
+    {
+      "id": "B93-P7",
+      "ruleId": "B93-R7",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "Owner CAS ACL与任务代次／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N7a",
+      "ruleId": "B93-R7",
+      "expect": "REJECT",
+      "patch": {
+        "owner.acl": false
+      },
+      "note": "Owner CAS ACL与任务代次／REJECT"
+    },
+    {
+      "id": "B93-N7b",
+      "ruleId": "B93-R7",
+      "expect": "STALE",
+      "patch": {
+        "owner.cancelled": true
+      },
+      "note": "Owner CAS ACL与任务代次／STALE"
+    },
+    {
+      "id": "B93-U7",
+      "ruleId": "B93-R7",
+      "expect": "UNKNOWN",
+      "patch": {
+        "owner.acl": null
+      },
+      "note": "Owner CAS ACL与任务代次／UNKNOWN"
+    },
+    {
+      "id": "B93-P8",
+      "ruleId": "B93-R8",
+      "expect": "PASS_PLANNING_ONLY",
+      "patch": {},
+      "note": "A/B事实与D04/D10分离迁移回退／PASS_PLANNING_ONLY"
+    },
+    {
+      "id": "B93-N8a",
+      "ruleId": "B93-R8",
+      "expect": "REJECT",
+      "patch": {
+        "policy.sameFactAB": false
+      },
+      "note": "A/B事实与D04/D10分离迁移回退／REJECT"
+    },
+    {
+      "id": "B93-N8b",
+      "ruleId": "B93-R8",
+      "expect": "REJECT",
+      "patch": {
+        "policy.d04D10Separate": false
+      },
+      "note": "A/B事实与D04/D10分离迁移回退／REJECT"
+    },
+    {
+      "id": "B93-U8",
+      "ruleId": "B93-R8",
+      "expect": "UNKNOWN",
+      "patch": {
+        "policy.migration": null
+      },
+      "note": "A/B事实与D04/D10分离迁移回退／UNKNOWN"
+    }
+  ],
+  "graphGoldens": [
+    {
+      "seed": "B",
+      "expected": [
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ]
+    },
+    {
+      "seed": "C",
+      "expected": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "seed": "A",
+      "expected": [
+        "A",
+        "C",
+        "D"
+      ]
+    }
+  ]
+}

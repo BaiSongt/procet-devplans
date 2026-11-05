@@ -1,0 +1,774 @@
+{
+  "schemaVersion": "procet-b70-rotary-winding-fixtures-v1",
+  "syntheticOnly": true,
+  "capabilityId": "CAP-09-08",
+  "base": {
+    "run": {
+      "sourceKind": "D12_FINAL_NC",
+      "d12Hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d13Hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "d14Hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "d10Hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "d03Hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "d12BytesExact": true,
+      "d13RevisionExact": true,
+      "d14RevisionExact": true,
+      "d10BindingExact": true,
+      "d03MachineExact": true,
+      "controllerProfileKnown": true,
+      "machineAxisTopologyKnown": true,
+      "frameProofExact": true,
+      "d04SeparateFromD10": true,
+      "angularUnit": "deg"
+    },
+    "joints": {
+      "jointId": "A-joint3",
+      "mode": "UNWRAPPED_JOINT",
+      "timebase": "D14_MONOTONIC_SECONDS",
+      "intervalCoverage": "FULL",
+      "interpolationAuthority": "D14_EXACT",
+      "expectedAccumulatedDeltaDeg": 360,
+      "samples": [
+        {
+          "t": 0,
+          "unwrappedDeg": 0
+        },
+        {
+          "t": 2,
+          "unwrappedDeg": 180
+        },
+        {
+          "t": 4,
+          "unwrappedDeg": 360
+        }
+      ]
+    },
+    "ui": {
+      "sceneCount": 1,
+      "panel": "LEFT_UNIFIED",
+      "port": "PlaybackEvidencePort",
+      "endpointQuaternionSlerp": false,
+      "inferShortestPath": false,
+      "allowGapFill": false,
+      "writesD14": false,
+      "writesD15": false
+    },
+    "evidence": {
+      "d15Status": "NOT_RUN",
+      "claimsPassFromPlayback": false,
+      "syntheticAsProduct": false,
+      "d16ReleaseApproved": false,
+      "frozenHistoryPreserved": true,
+      "independentConsumerResult": "NOT_RUN"
+    },
+    "tx": {
+      "actorAuthorized": true,
+      "casExact": true,
+      "epochExact": true,
+      "generationExact": true,
+      "cancelled": false,
+      "lateAck": false,
+      "rollbackReadersPaired": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B70-P01",
+      "ruleId": "B70-R01",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P02",
+      "ruleId": "B70-R02",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P03",
+      "ruleId": "B70-R03",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P04",
+      "ruleId": "B70-R04",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P05",
+      "ruleId": "B70-R05",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P06",
+      "ruleId": "B70-R06",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P07",
+      "ruleId": "B70-R07",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P08",
+      "ruleId": "B70-R08",
+      "scenario": "POSITIVE",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [],
+      "synthetic": true
+    },
+    {
+      "id": "B70-P09",
+      "ruleId": "B70-R02",
+      "scenario": "POSITIVE_UNWRAPPED",
+      "expected": "CANDIDATE_ONLY",
+      "patches": [
+        {
+          "path": "joints.expectedAccumulatedDeltaDeg",
+          "value": 20
+        },
+        {
+          "path": "joints.samples",
+          "value": [
+            {
+              "t": 0,
+              "unwrappedDeg": 350
+            },
+            {
+              "t": 2,
+              "unwrappedDeg": 360
+            },
+            {
+              "t": 4,
+              "unwrappedDeg": 370
+            }
+          ]
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N01",
+      "ruleId": "B70-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "run.sourceKind",
+          "value": "POSE_ONLY"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N02",
+      "ruleId": "B70-R04",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "run.frameProofExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N03",
+      "ruleId": "B70-R04",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "run.d04SeparateFromD10",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N04",
+      "ruleId": "B70-R04",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "run.angularUnit",
+          "value": "rad"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N05",
+      "ruleId": "B70-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "joints.interpolationAuthority",
+          "value": "BROWSER_FPS"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N06",
+      "ruleId": "B70-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "joints.mode",
+          "value": "QUATERNION_ENDPOINT"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N07",
+      "ruleId": "B70-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "joints.expectedAccumulatedDeltaDeg",
+          "value": 0
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N08",
+      "ruleId": "B70-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "joints.samples.2.unwrappedDeg",
+          "value": 0
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N09",
+      "ruleId": "B70-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "joints.samples.1.t",
+          "value": 6
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N10",
+      "ruleId": "B70-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.endpointQuaternionSlerp",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N11",
+      "ruleId": "B70-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.inferShortestPath",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N12",
+      "ruleId": "B70-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.allowGapFill",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N13",
+      "ruleId": "B70-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.sceneCount",
+          "value": 2
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N14",
+      "ruleId": "B70-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.panel",
+          "value": "RIGHT_DRAWER"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N15",
+      "ruleId": "B70-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.port",
+          "value": "BYPASS_DB"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N16",
+      "ruleId": "B70-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.writesD14",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N17",
+      "ruleId": "B70-R05",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "ui.writesD15",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N18",
+      "ruleId": "B70-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.claimsPassFromPlayback",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N19",
+      "ruleId": "B70-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.d16ReleaseApproved",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N20",
+      "ruleId": "B70-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.syntheticAsProduct",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N21",
+      "ruleId": "B70-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.frozenHistoryPreserved",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N22",
+      "ruleId": "B70-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "tx.actorAuthorized",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N23",
+      "ruleId": "B70-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "tx.casExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-N24",
+      "ruleId": "B70-R08",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "REJECT",
+      "patches": [
+        {
+          "path": "evidence.independentConsumerResult",
+          "value": "FAKE_PASS"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S01",
+      "ruleId": "B70-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "run.d12BytesExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S02",
+      "ruleId": "B70-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "run.d13RevisionExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S03",
+      "ruleId": "B70-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "run.d14RevisionExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S04",
+      "ruleId": "B70-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "run.d10BindingExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S05",
+      "ruleId": "B70-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "run.d03MachineExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S06",
+      "ruleId": "B70-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.epochExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S07",
+      "ruleId": "B70-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.generationExact",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S08",
+      "ruleId": "B70-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.cancelled",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-S09",
+      "ruleId": "B70-R07",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "STALE",
+      "patches": [
+        {
+          "path": "tx.lateAck",
+          "value": true
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U01",
+      "ruleId": "B70-R04",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "run.controllerProfileKnown",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U02",
+      "ruleId": "B70-R04",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "run.frameProofExact",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U03",
+      "ruleId": "B70-R01",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "run.d14Hash",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U04",
+      "ruleId": "B70-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "joints.samples",
+          "value": []
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U05",
+      "ruleId": "B70-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "joints.samples.1.unwrappedDeg",
+          "value": null
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U06",
+      "ruleId": "B70-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "joints.timebase",
+          "value": "UNKNOWN"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U07",
+      "ruleId": "B70-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "joints.intervalCoverage",
+          "value": "UNKNOWN"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U08",
+      "ruleId": "B70-R02",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "joints.mode",
+          "value": "UNKNOWN"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U09",
+      "ruleId": "B70-R03",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "joints.interpolationAuthority",
+          "value": "UNKNOWN"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U10",
+      "ruleId": "B70-R06",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "evidence.d15Status",
+          "value": "UNKNOWN"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-U11",
+      "ruleId": "B70-R04",
+      "scenario": "SINGLE_FIELD_MUTATION",
+      "expected": "UNKNOWN",
+      "patches": [
+        {
+          "path": "run.machineAxisTopologyKnown",
+          "value": false
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-D01",
+      "ruleId": "B70-R01",
+      "scenario": "CL_ONLY",
+      "expected": "DISPLAY_ONLY",
+      "patches": [
+        {
+          "path": "run.sourceKind",
+          "value": "D11_CL_ONLY"
+        }
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "B70-D02",
+      "ruleId": "B70-R06",
+      "scenario": "CL_ONLY",
+      "expected": "DISPLAY_ONLY",
+      "patches": [
+        {
+          "path": "run.sourceKind",
+          "value": "D11_CL_ONLY"
+        },
+        {
+          "path": "joints.intervalCoverage",
+          "value": "UNKNOWN"
+        }
+      ],
+      "synthetic": true
+    }
+  ],
+  "casesCount": 55,
+  "limitations": "同函数规划合成≠独立Node完整文件执行≠真实产品/D15/D16/PASS"
+}

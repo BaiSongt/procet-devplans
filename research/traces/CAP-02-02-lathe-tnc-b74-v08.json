@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "procet-b74-trace-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-02-02",
+  "sourcesPath": "research/sources/CAP-02-02-lathe-tnc-b74.json",
+  "fixturePath": "docs/capabilities/CAP-02-02/lathe-tnc-b74-fixtures-v08.json",
+  "checker": "tools/check_cap0202_lathe_tnc_b74_v08.cjs",
+  "rules": [
+    {
+      "id": "B74-R1",
+      "title": "车刀R与铣刀D不混用",
+      "fields": [
+        "cutter.kind",
+        "cutter.noseRadiusMm",
+        "cutter.unit"
+      ],
+      "sourceIds": [
+        "B74-S05",
+        "B74-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "F1-01",
+        "F1-02"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "caseIds": [
+        "B74-001",
+        "B74-002",
+        "B74-003"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B74-R2",
+      "title": "LinuxCNC工具表D=2R、Q取向而G41 Dn是工具号",
+      "fields": [
+        "bind.tableDiameterMm",
+        "bind.tableQ",
+        "cutter.orientationQ"
+      ],
+      "sourceIds": [
+        "B74-S01",
+        "B74-S02"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-03"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "caseIds": [
+        "B74-004",
+        "B74-005",
+        "B74-006"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B74-R3",
+      "title": "Haas Tnnxx偏置非LinuxCNC Q工具号",
+      "fields": [
+        "bind.controller",
+        "bind.haasOffset",
+        "bind.haasTip",
+        "nc.dialect"
+      ],
+      "sourceIds": [
+        "B74-S04",
+        "B74-S06",
+        "B74-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "F1-01",
+        "E3-02",
+        "E3-03"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "caseIds": [
+        "B74-007",
+        "B74-008",
+        "B74-009"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B74-R4",
+      "title": "G7直径与G8半径仅是位置换算",
+      "fields": [
+        "nc.xMode",
+        "nc.xWord",
+        "nc.partDiameterMm"
+      ],
+      "sourceIds": [
+        "B74-S02",
+        "B74-S03"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-03"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "caseIds": [
+        "B74-010",
+        "B74-011",
+        "B74-012"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B74-R5",
+      "title": "G41/G42进入G40退出依OEM语义判定",
+      "fields": [
+        "nc.comp",
+        "nc.entryMm",
+        "nc.exitMm",
+        "nc.exitMotion",
+        "nc.d15"
+      ],
+      "sourceIds": [
+        "B74-S02",
+        "B74-S04"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "caseIds": [
+        "B74-013",
+        "B74-014",
+        "B74-015"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B74-R6",
+      "title": "D03名义刀片与D10实装及实际偏置必须精确",
+      "fields": [
+        "bind.cutterRevision",
+        "bind.cutterHash",
+        "bind.physicalInstall",
+        "bind.offsetEvidence"
+      ],
+      "sourceIds": [
+        "B74-S01",
+        "B74-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "F1-01",
+        "F1-06"
+      ],
+      "origin": "PUBLIC_SOURCE_WITH_INTERNAL_QUALIFICATION",
+      "caseIds": [
+        "B74-016",
+        "B74-017",
+        "B74-018"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B74-R7",
+      "title": "Owner CAS/ACL与迟到回执重新检查",
+      "fields": [
+        "gate.currentRev",
+        "gate.acl",
+        "gate.cas",
+        "gate.scope",
+        "gate.receiptGen"
+      ],
+      "sourceIds": [
+        "B74-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "F1-01",
+        "F1-06",
+        "U4-03"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "caseIds": [
+        "B74-019",
+        "B74-020",
+        "B74-021",
+        "B74-025"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    },
+    {
+      "id": "B74-R8",
+      "title": "同领域三入口、单Babylon左TaskPanel与冻结回退",
+      "fields": [
+        "ui.channels",
+        "ui.sceneCount",
+        "ui.panel",
+        "compat.newReader",
+        "compat.freezeUnchanged"
+      ],
+      "sourceIds": [
+        "B74-S07"
+      ],
+      "capabilityIds": [
+        "CAP-02-02"
+      ],
+      "workPackageIds": [
+        "U4-02",
+        "U4-03",
+        "T5-01"
+      ],
+      "origin": "PROCET_INTERNAL_REQUIREMENT",
+      "caseIds": [
+        "B74-022",
+        "B74-023",
+        "B74-024",
+        "B74-026"
+      ],
+      "approval": "PENDING_HUMAN",
+      "consumer": "NOT_RUN"
+    }
+  ]
+}

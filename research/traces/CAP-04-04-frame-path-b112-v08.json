@@ -1,0 +1,400 @@
+{
+  "schemaVersion": "procet-b112-trace-v08",
+  "sourceRegistry": "research/sources/CAP-04-04-frame-path-b112.json",
+  "fixtures": "docs/capabilities/CAP-04-04/frame-path-b112-fixtures-v08.json",
+  "checker": "tools/check_cap0404_frame_path_b112_v08.cjs",
+  "rules": [
+    {
+      "id": "B112-R01",
+      "summary": "源与Occurrence精确身份",
+      "sourceIds": [
+        "B112-S05",
+        "B112-S04"
+      ],
+      "fields": [
+        "refs.d01Exact",
+        "refs.occurrenceExact",
+        "refs.frameHashExact"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P01"
+      ],
+      "negative": [
+        "B112-N01",
+        "B112-N02"
+      ],
+      "unknownOrStale": [
+        "B112-U01"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B112-R02",
+      "summary": "原矩阵SE3不经隐式修正",
+      "sourceIds": [
+        "B112-S01",
+        "B112-S05"
+      ],
+      "fields": [
+        "matrix.rightHanded",
+        "matrix.scaleOne",
+        "matrix.rawInputChecked"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P02"
+      ],
+      "negative": [
+        "B112-N03",
+        "B112-N04"
+      ],
+      "unknownOrStale": [
+        "B112-U02"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B112-R03",
+      "summary": "列向量变换复合次序/逆",
+      "sourceIds": [
+        "B112-S01",
+        "B112-S02"
+      ],
+      "fields": [
+        "matrix.orderCorrect",
+        "matrix.inverseRoundtrip",
+        "matrix.unitMm"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P03"
+      ],
+      "negative": [
+        "B112-N05",
+        "B112-N06"
+      ],
+      "unknownOrStale": [
+        "B112-U03"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B112-R04",
+      "summary": "双路径SE3残差",
+      "sourceIds": [
+        "B112-S01",
+        "B112-S02"
+      ],
+      "fields": [
+        "paths.pathA",
+        "paths.pathB",
+        "paths.translationThresholdMm",
+        "paths.angleThresholdRad"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P04"
+      ],
+      "negative": [
+        "B112-N07",
+        "B112-N08"
+      ],
+      "unknownOrStale": [
+        "B112-U04"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B112-R05",
+      "summary": "来源完整性与闭环可辨性",
+      "sourceIds": [
+        "B112-S04",
+        "B112-S05"
+      ],
+      "fields": [
+        "paths.allExact",
+        "paths.independentProvenance",
+        "paths.rooted"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P05"
+      ],
+      "negative": [
+        "B112-N09",
+        "B112-N10"
+      ],
+      "unknownOrStale": [
+        "B112-U05"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B112-R06",
+      "summary": "几何一致不等于实测/执行",
+      "sourceIds": [
+        "B112-S03",
+        "B112-S05"
+      ],
+      "fields": [
+        "gate.selfCertifiedMeasured",
+        "gate.d04D10Separated"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P06"
+      ],
+      "negative": [
+        "B112-N11",
+        "B112-N12"
+      ],
+      "unknownOrStale": [
+        "B112-U06"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B112-R07",
+      "summary": "GUI/CLI/Agent受控提交与取消",
+      "sourceIds": [
+        "B112-S05"
+      ],
+      "fields": [
+        "gate.samePort",
+        "gate.casAcl",
+        "gate.cancelFence",
+        "gate.singleBabylon",
+        "gate.leftTaskPanel"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P07"
+      ],
+      "negative": [
+        "B112-N13",
+        "B112-N14"
+      ],
+      "unknownOrStale": [
+        "B112-U07"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B112-R08",
+      "summary": "D08冻结/历史回退与NC资格隔离",
+      "sourceIds": [
+        "B112-S05"
+      ],
+      "fields": [
+        "gate.unchangedFrozen",
+        "gate.d15FromCL",
+        "gate.rollbackNonDestructive"
+      ],
+      "caps": [
+        "CAP-04-04",
+        "CAP-04-02",
+        "CAP-09-02"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B112-P08"
+      ],
+      "negative": [
+        "B112-N15",
+        "B112-N16"
+      ],
+      "unknownOrStale": [
+        "B112-U08"
+      ],
+      "owner": "04域D04 FrameGraph Owner候选",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

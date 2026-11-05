@@ -1,0 +1,1384 @@
+{
+  "schemaVersion": "procet-cap1005-opcua-subscription-b64-fixtures-v1",
+  "capabilityId": "CAP-10-05",
+  "origin": "NEWLY_AUTHORED_SYNTHETIC_ONLY",
+  "baselineHead": "623e0252f40a74eca750f83f2fc12e6c223851e8",
+  "claimedProductValidation": false,
+  "caseCount": 68,
+  "distribution": {
+    "CANDIDATE_ONLY": 9,
+    "REJECT": 31,
+    "STALE": 11,
+    "UNKNOWN": 9,
+    "CONTROL_ONLY": 3,
+    "GAP": 5
+  },
+  "cases": [
+    {
+      "id": "B64-R01-P",
+      "ruleId": "B64-R01",
+      "scenario": "POSITIVE",
+      "input": {
+        "identity": {
+          "machineExact": true,
+          "profileRevisionExact": true,
+          "namespaceMapExact": true,
+          "readOnlyScope": true,
+          "sessionEpochExact": true,
+          "scopeEpochExact": true,
+          "capabilityDiscovered": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R01-M01",
+      "ruleId": "B64-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R01-P",
+      "mutatedField": "identity.machineExact",
+      "input": {
+        "identity": {
+          "machineExact": false,
+          "profileRevisionExact": true,
+          "namespaceMapExact": true,
+          "readOnlyScope": true,
+          "sessionEpochExact": true,
+          "scopeEpochExact": true,
+          "capabilityDiscovered": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R01-M02",
+      "ruleId": "B64-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R01-P",
+      "mutatedField": "identity.profileRevisionExact",
+      "input": {
+        "identity": {
+          "machineExact": true,
+          "profileRevisionExact": false,
+          "namespaceMapExact": true,
+          "readOnlyScope": true,
+          "sessionEpochExact": true,
+          "scopeEpochExact": true,
+          "capabilityDiscovered": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R01-M03",
+      "ruleId": "B64-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R01-P",
+      "mutatedField": "identity.namespaceMapExact",
+      "input": {
+        "identity": {
+          "machineExact": true,
+          "profileRevisionExact": true,
+          "namespaceMapExact": false,
+          "readOnlyScope": true,
+          "sessionEpochExact": true,
+          "scopeEpochExact": true,
+          "capabilityDiscovered": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R01-M04",
+      "ruleId": "B64-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R01-P",
+      "mutatedField": "identity.sessionEpochExact",
+      "input": {
+        "identity": {
+          "machineExact": true,
+          "profileRevisionExact": true,
+          "namespaceMapExact": true,
+          "readOnlyScope": true,
+          "sessionEpochExact": false,
+          "scopeEpochExact": true,
+          "capabilityDiscovered": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R01-M05",
+      "ruleId": "B64-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R01-P",
+      "mutatedField": "identity.scopeEpochExact",
+      "input": {
+        "identity": {
+          "machineExact": true,
+          "profileRevisionExact": true,
+          "namespaceMapExact": true,
+          "readOnlyScope": true,
+          "sessionEpochExact": true,
+          "scopeEpochExact": false,
+          "capabilityDiscovered": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R01-M06",
+      "ruleId": "B64-R01",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R01-P",
+      "mutatedField": "identity.capabilityDiscovered",
+      "input": {
+        "identity": {
+          "machineExact": true,
+          "profileRevisionExact": true,
+          "namespaceMapExact": true,
+          "readOnlyScope": true,
+          "sessionEpochExact": true,
+          "scopeEpochExact": true,
+          "capabilityDiscovered": null
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R02-P",
+      "ruleId": "B64-R02",
+      "scenario": "POSITIVE",
+      "input": {
+        "message": {
+          "kind": "KEEPALIVE",
+          "sequence": 12,
+          "expectedNext": 12,
+          "notificationCount": 0,
+          "ackSent": false,
+          "d17AppendAttempted": false
+        }
+      },
+      "expected": "CONTROL_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R02-M01",
+      "ruleId": "B64-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R02-P",
+      "mutatedField": "message.kind",
+      "input": {
+        "message": {
+          "kind": "NOTIFICATION",
+          "sequence": 12,
+          "expectedNext": 12,
+          "notificationCount": 0,
+          "ackSent": false,
+          "d17AppendAttempted": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R02-M02",
+      "ruleId": "B64-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R02-P",
+      "mutatedField": "message.notificationCount",
+      "input": {
+        "message": {
+          "kind": "KEEPALIVE",
+          "sequence": 12,
+          "expectedNext": 12,
+          "notificationCount": 1,
+          "ackSent": false,
+          "d17AppendAttempted": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R02-M03",
+      "ruleId": "B64-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R02-P",
+      "mutatedField": "message.ackSent",
+      "input": {
+        "message": {
+          "kind": "KEEPALIVE",
+          "sequence": 12,
+          "expectedNext": 12,
+          "notificationCount": 0,
+          "ackSent": true,
+          "d17AppendAttempted": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R02-M04",
+      "ruleId": "B64-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R02-P",
+      "mutatedField": "message.d17AppendAttempted",
+      "input": {
+        "message": {
+          "kind": "KEEPALIVE",
+          "sequence": 12,
+          "expectedNext": 12,
+          "notificationCount": 0,
+          "ackSent": false,
+          "d17AppendAttempted": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R02-M05",
+      "ruleId": "B64-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R02-P",
+      "mutatedField": "message.sequence",
+      "input": {
+        "message": {
+          "kind": "KEEPALIVE",
+          "sequence": 13,
+          "expectedNext": 12,
+          "notificationCount": 0,
+          "ackSent": false,
+          "d17AppendAttempted": false
+        }
+      },
+      "expected": "GAP",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R02-M06",
+      "ruleId": "B64-R02",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R02-P",
+      "mutatedField": "message.expectedNext",
+      "input": {
+        "message": {
+          "kind": "KEEPALIVE",
+          "sequence": 12,
+          "expectedNext": null,
+          "notificationCount": 0,
+          "ackSent": false,
+          "d17AppendAttempted": false
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R03-P",
+      "ruleId": "B64-R03",
+      "scenario": "POSITIVE",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": 4294967295,
+          "sequence": 1,
+          "count": 2,
+          "payloadHashPinned": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R03-M01",
+      "ruleId": "B64-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R03-P",
+      "mutatedField": "notification.sequence",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": 4294967295,
+          "sequence": 0,
+          "count": 2,
+          "payloadHashPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R03-M02",
+      "ruleId": "B64-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R03-P",
+      "mutatedField": "notification.sequence",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": 4294967295,
+          "sequence": 4294967295,
+          "count": 2,
+          "payloadHashPinned": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R03-M03",
+      "ruleId": "B64-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R03-P",
+      "mutatedField": "notification.sequence",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": 4294967295,
+          "sequence": 2,
+          "count": 2,
+          "payloadHashPinned": true
+        }
+      },
+      "expected": "GAP",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R03-M04",
+      "ruleId": "B64-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R03-P",
+      "mutatedField": "notification.count",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": 4294967295,
+          "sequence": 1,
+          "count": 0,
+          "payloadHashPinned": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R03-M05",
+      "ruleId": "B64-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R03-P",
+      "mutatedField": "notification.payloadHashPinned",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": 4294967295,
+          "sequence": 1,
+          "count": 2,
+          "payloadHashPinned": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R03-M06",
+      "ruleId": "B64-R03",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R03-P",
+      "mutatedField": "notification.previousSequence",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": null,
+          "sequence": 1,
+          "count": 2,
+          "payloadHashPinned": true
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-P",
+      "ruleId": "B64-R04",
+      "scenario": "POSITIVE",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-M01",
+      "ruleId": "B64-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R04-P",
+      "mutatedField": "ack.d17Committed",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": false,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-M02",
+      "ruleId": "B64-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R04-P",
+      "mutatedField": "ack.rawDigestPinned",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": false,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-M03",
+      "ruleId": "B64-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R04-P",
+      "mutatedField": "ack.dedupKeyPinned",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": false,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-M04",
+      "ruleId": "B64-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R04-P",
+      "mutatedField": "ack.ackAfterCommit",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": false,
+          "ackSent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-M05",
+      "ruleId": "B64-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R04-P",
+      "mutatedField": "ack.queueSupport",
+      "input": {
+        "ack": {
+          "queueSupport": false,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-M06",
+      "ruleId": "B64-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R04-P",
+      "mutatedField": "ack.queueSupport",
+      "input": {
+        "ack": {
+          "queueSupport": null,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R04-M07",
+      "ruleId": "B64-R04",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R04-P",
+      "mutatedField": "ack.ackSent",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": false
+        }
+      },
+      "expected": "CONTROL_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-P",
+      "ruleId": "B64-R05",
+      "scenario": "POSITIVE",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "RECOVERED",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-M01",
+      "ruleId": "B64-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R05-P",
+      "mutatedField": "recovery.gapDetected",
+      "input": {
+        "recovery": {
+          "gapDetected": false,
+          "republishResult": "RECOVERED",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-M02",
+      "ruleId": "B64-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R05-P",
+      "mutatedField": "recovery.republishResult",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "BAD_MESSAGE_NOT_AVAILABLE",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "GAP",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-M03",
+      "ruleId": "B64-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R05-P",
+      "mutatedField": "recovery.republishResult",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "NOT_ATTEMPTED",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-M04",
+      "ruleId": "B64-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R05-P",
+      "mutatedField": "recovery.nextExpectedPinned",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "RECOVERED",
+          "nextExpectedPinned": false,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-M05",
+      "ruleId": "B64-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R05-P",
+      "mutatedField": "recovery.recoveredDigestPinned",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "RECOVERED",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": false,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-M06",
+      "ruleId": "B64-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R05-P",
+      "mutatedField": "recovery.noOlderOverwrite",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "RECOVERED",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": false,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R05-M07",
+      "ruleId": "B64-R05",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R05-P",
+      "mutatedField": "recovery.currentSnapshotNotHistory",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "RECOVERED",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R06-P",
+      "ruleId": "B64-R06",
+      "scenario": "POSITIVE",
+      "input": {
+        "queue": {
+          "availableSequenceNumbers": [],
+          "ackSent": false,
+          "fallbackRecorded": true,
+          "losslessClaim": false,
+          "d17Committed": true
+        }
+      },
+      "expected": "CONTROL_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R06-M01",
+      "ruleId": "B64-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R06-P",
+      "mutatedField": "queue.ackSent",
+      "input": {
+        "queue": {
+          "availableSequenceNumbers": [],
+          "ackSent": true,
+          "fallbackRecorded": true,
+          "losslessClaim": false,
+          "d17Committed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R06-M02",
+      "ruleId": "B64-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R06-P",
+      "mutatedField": "queue.fallbackRecorded",
+      "input": {
+        "queue": {
+          "availableSequenceNumbers": [],
+          "ackSent": false,
+          "fallbackRecorded": false,
+          "losslessClaim": false,
+          "d17Committed": true
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R06-M03",
+      "ruleId": "B64-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R06-P",
+      "mutatedField": "queue.losslessClaim",
+      "input": {
+        "queue": {
+          "availableSequenceNumbers": [],
+          "ackSent": false,
+          "fallbackRecorded": true,
+          "losslessClaim": true,
+          "d17Committed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R06-M04",
+      "ruleId": "B64-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R06-P",
+      "mutatedField": "queue.availableSequenceNumbers",
+      "input": {
+        "queue": {
+          "availableSequenceNumbers": null,
+          "ackSent": false,
+          "fallbackRecorded": true,
+          "losslessClaim": false,
+          "d17Committed": true
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R06-M05",
+      "ruleId": "B64-R06",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R06-P",
+      "mutatedField": "queue.availableSequenceNumbers",
+      "input": {
+        "queue": {
+          "availableSequenceNumbers": [
+            7
+          ],
+          "ackSent": false,
+          "fallbackRecorded": true,
+          "losslessClaim": false,
+          "d17Committed": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-P",
+      "ruleId": "B64-R07",
+      "scenario": "POSITIVE",
+      "input": {
+        "transfer": {
+          "result": "SUCCESS",
+          "userAuthorized": true,
+          "serverConfirmed": true,
+          "aclCASRechecked": true,
+          "newSessionEpochPinned": true,
+          "oldEpochWriteAccepted": false
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-M01",
+      "ruleId": "B64-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R07-P",
+      "mutatedField": "transfer.result",
+      "input": {
+        "transfer": {
+          "result": "FAILED",
+          "userAuthorized": true,
+          "serverConfirmed": true,
+          "aclCASRechecked": true,
+          "newSessionEpochPinned": true,
+          "oldEpochWriteAccepted": false
+        }
+      },
+      "expected": "GAP",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-M02",
+      "ruleId": "B64-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R07-P",
+      "mutatedField": "transfer.userAuthorized",
+      "input": {
+        "transfer": {
+          "result": "SUCCESS",
+          "userAuthorized": false,
+          "serverConfirmed": true,
+          "aclCASRechecked": true,
+          "newSessionEpochPinned": true,
+          "oldEpochWriteAccepted": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-M03",
+      "ruleId": "B64-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R07-P",
+      "mutatedField": "transfer.serverConfirmed",
+      "input": {
+        "transfer": {
+          "result": "SUCCESS",
+          "userAuthorized": true,
+          "serverConfirmed": false,
+          "aclCASRechecked": true,
+          "newSessionEpochPinned": true,
+          "oldEpochWriteAccepted": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-M04",
+      "ruleId": "B64-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R07-P",
+      "mutatedField": "transfer.aclCASRechecked",
+      "input": {
+        "transfer": {
+          "result": "SUCCESS",
+          "userAuthorized": true,
+          "serverConfirmed": true,
+          "aclCASRechecked": false,
+          "newSessionEpochPinned": true,
+          "oldEpochWriteAccepted": false
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-M05",
+      "ruleId": "B64-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R07-P",
+      "mutatedField": "transfer.newSessionEpochPinned",
+      "input": {
+        "transfer": {
+          "result": "SUCCESS",
+          "userAuthorized": true,
+          "serverConfirmed": true,
+          "aclCASRechecked": true,
+          "newSessionEpochPinned": false,
+          "oldEpochWriteAccepted": false
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-M06",
+      "ruleId": "B64-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R07-P",
+      "mutatedField": "transfer.oldEpochWriteAccepted",
+      "input": {
+        "transfer": {
+          "result": "SUCCESS",
+          "userAuthorized": true,
+          "serverConfirmed": true,
+          "aclCASRechecked": true,
+          "newSessionEpochPinned": true,
+          "oldEpochWriteAccepted": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R07-M07",
+      "ruleId": "B64-R07",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R07-P",
+      "mutatedField": "transfer.result",
+      "input": {
+        "transfer": {
+          "result": null,
+          "userAuthorized": true,
+          "serverConfirmed": true,
+          "aclCASRechecked": true,
+          "newSessionEpochPinned": true,
+          "oldEpochWriteAccepted": false
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-P",
+      "ruleId": "B64-R08",
+      "scenario": "POSITIVE",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M01",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.sameDomainPort",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": false,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M02",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.singleBabylonWorld",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": false,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M03",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.leftUnifiedTaskPanel",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": false,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M04",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.noD15PassClaim",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": false,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M05",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.noConsumerPassClaim",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": false,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M06",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.ownerRevisionExact",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": false,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M07",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.ownerHashExact",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": false,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M08",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.ownerFrameExact",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": false,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M09",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.scopeEpochExact",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": false,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M10",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.cancelFenceCurrent",
+      "input": {
+        "boundary": {
+          "protocolKnown": true,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": false
+        }
+      },
+      "expected": "STALE",
+      "synthetic": true
+    },
+    {
+      "id": "B64-R08-M11",
+      "ruleId": "B64-R08",
+      "scenario": "INDEPENDENT_SINGLE_FIELD_MUTATION",
+      "baselineCaseId": "B64-R08-P",
+      "mutatedField": "boundary.protocolKnown",
+      "input": {
+        "boundary": {
+          "protocolKnown": null,
+          "sameDomainPort": true,
+          "singleBabylonWorld": true,
+          "leftUnifiedTaskPanel": true,
+          "noCycleStart": true,
+          "noD15PassClaim": true,
+          "noConsumerPassClaim": true,
+          "rollbackPreserved": true,
+          "aclRechecked": true,
+          "ownerRevisionExact": true,
+          "ownerHashExact": true,
+          "ownerFrameExact": true,
+          "scopeEpochExact": true,
+          "cancelFenceCurrent": true
+        }
+      },
+      "expected": "UNKNOWN",
+      "synthetic": true
+    },
+    {
+      "id": "B64-BND-ACK-NOCOMMIT",
+      "ruleId": "B64-R04",
+      "scenario": "EXPLICIT_EXTRA",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": false,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-BND-WRAP-NEAR",
+      "ruleId": "B64-R03",
+      "scenario": "EXPLICIT_EXTRA",
+      "input": {
+        "notification": {
+          "kind": "NOTIFICATION",
+          "previousSequence": 4294967294,
+          "sequence": 4294967295,
+          "count": 2,
+          "payloadHashPinned": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-BND-QUEUE-NOLOSS",
+      "ruleId": "B64-R06",
+      "scenario": "EXPLICIT_EXTRA",
+      "input": {
+        "queue": {
+          "availableSequenceNumbers": [],
+          "ackSent": false,
+          "fallbackRecorded": true,
+          "losslessClaim": true,
+          "d17Committed": true
+        }
+      },
+      "expected": "REJECT",
+      "synthetic": true
+    },
+    {
+      "id": "B64-BND-ACK-AFTER-REPLAY",
+      "ruleId": "B64-R04",
+      "scenario": "EXPLICIT_EXTRA",
+      "input": {
+        "ack": {
+          "queueSupport": true,
+          "notificationIdentityPinned": true,
+          "d17Committed": true,
+          "rawDigestPinned": true,
+          "dedupKeyPinned": true,
+          "ackAfterCommit": true,
+          "ackSent": true
+        }
+      },
+      "expected": "CANDIDATE_ONLY",
+      "synthetic": true
+    },
+    {
+      "id": "B64-BND-UNRECOVERABLE-GAP",
+      "ruleId": "B64-R05",
+      "scenario": "EXPLICIT_EXTRA",
+      "input": {
+        "recovery": {
+          "gapDetected": true,
+          "republishResult": "BAD_MESSAGE_NOT_AVAILABLE",
+          "nextExpectedPinned": true,
+          "recoveredDigestPinned": true,
+          "noOlderOverwrite": true,
+          "currentSnapshotNotHistory": true
+        }
+      },
+      "expected": "GAP",
+      "synthetic": true
+    }
+  ]
+}

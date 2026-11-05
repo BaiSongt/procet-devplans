@@ -1,0 +1,373 @@
+{
+  "schemaVersion": "procet-b127-trace-v08",
+  "date": "2026-11-03",
+  "traceId": "CAP-08-04-NGC-TLO-B127",
+  "primaryCapability": "CAP-08-04",
+  "relatedCapabilities": [
+    "CAP-02-03",
+    "CAP-04-07",
+    "CAP-09-06"
+  ],
+  "researchTopic": "R-NC-AUX-001",
+  "sourceRegistry": "research/sources/CAP-08-04-ngc-tlo-b127.json",
+  "fixtures": "docs/capabilities/CAP-08-04/ngc-tlo-b127-fixtures-v08.json",
+  "validator": "tools/check_cap0804_ngc_tlo_b127_v08.cjs",
+  "report": "docs/capabilities/CAP-08-04/NGC-TLO-PERSIST-B127-2026-11-03.md",
+  "rules": [
+    {
+      "id": "B127-R01",
+      "summary": "Haas NGC固件代际/机型不允许通用预设",
+      "fields": [
+        "profile.controllerFamilyExact",
+        "profile.firmwareRevisionPinned",
+        "profile.ngcBehaviorQualified",
+        "profile.noCrossDialectDefault"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B127-S01",
+        "B127-S06"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-02-03"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "B127-P01"
+      ],
+      "negative": [
+        "B127-N01-1",
+        "B127-N01-2",
+        "B127-N01-3",
+        "B127-N01-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    },
+    {
+      "id": "B127-R02",
+      "summary": "NGC指定固件后M6/重启时偏置状态需显式建模",
+      "fields": [
+        "state.toolChangeTransitionCaptured",
+        "state.ngcPostM6OffsetRead",
+        "state.powerCyclePersistenceRead",
+        "state.noAssumeLegacyBehavior"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B127-S01"
+      ],
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-04"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B127-P02"
+      ],
+      "negative": [
+        "B127-N02-1",
+        "B127-N02-2",
+        "B127-N02-3",
+        "B127-N02-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    },
+    {
+      "id": "B127-R03",
+      "summary": "LinuxCNC G43 H及H0取表/换刀类型严格限定",
+      "fields": [
+        "linux.loadedToolExact",
+        "linux.hOffsetSelectionExplicit",
+        "linux.h0ChangerTypeKnown",
+        "linux.toolTableRevisionPinned"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "UNKNOWN",
+        "UNKNOWN",
+        "STALE"
+      ],
+      "sourceIds": [
+        "B127-S02",
+        "B127-S03"
+      ],
+      "assets": [
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "positive": [
+        "B127-P03"
+      ],
+      "negative": [
+        "B127-N03-1",
+        "B127-N03-2",
+        "B127-N03-3",
+        "B127-N03-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    },
+    {
+      "id": "B127-R04",
+      "summary": "LinuxCNC G43.1替换/G43.2叠加/G49取消不能混用",
+      "fields": [
+        "dynamic.g431ReplaceNotAdd",
+        "dynamic.g432AddNotReplace",
+        "dynamic.g49CancelsKnown",
+        "dynamic.noImplicitTableWrite"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B127-S02",
+        "B127-S03"
+      ],
+      "assets": [
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03"
+      ],
+      "positive": [
+        "B127-P04"
+      ],
+      "negative": [
+        "B127-N04-1",
+        "B127-N04-2",
+        "B127-N04-3",
+        "B127-N04-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    },
+    {
+      "id": "B127-R05",
+      "summary": "D03名义Gauge与D10实测偏置/基准非同字段",
+      "fields": [
+        "mount.d03AssemblyExact",
+        "mount.d10InstallRevisionExact",
+        "mount.gaugeDatumFrameExact",
+        "mount.measuredOffsetNotGaugeAlias"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "STALE",
+        "UNKNOWN",
+        "UNKNOWN"
+      ],
+      "sourceIds": [
+        "B127-S04",
+        "B127-S05",
+        "B127-S06"
+      ],
+      "assets": [
+        "D03",
+        "D10"
+      ],
+      "caps": [
+        "CAP-02-03",
+        "CAP-04-07"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "positive": [
+        "B127-P05"
+      ],
+      "negative": [
+        "B127-N05-1",
+        "B127-N05-2",
+        "B127-N05-3",
+        "B127-N05-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    },
+    {
+      "id": "B127-R06",
+      "summary": "D13从最终NC字节重新解释修订化补偿模态",
+      "fields": [
+        "nc.d12FinalBytesHashPinned",
+        "nc.d13ReparseWithProfile",
+        "nc.offsetBeforeAfterSnapshot",
+        "nc.unknownOrUnsupportedFailClosed"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "UNKNOWN",
+        "REJECT",
+        "UNKNOWN"
+      ],
+      "sourceIds": [
+        "B127-S01",
+        "B127-S02",
+        "B127-S07"
+      ],
+      "assets": [
+        "D12",
+        "D13"
+      ],
+      "caps": [
+        "CAP-08-04",
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "positive": [
+        "B127-P06"
+      ],
+      "negative": [
+        "B127-N06-1",
+        "B127-N06-2",
+        "B127-N06-3",
+        "B127-N06-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    },
+    {
+      "id": "B127-R07",
+      "summary": "D14轴时间序列与D15独立验证，不允许CL动画冒充",
+      "fields": [
+        "motion.d14JointTimelineFromD13",
+        "motion.d15IndependentConsumer",
+        "motion.noClOnlyApproval",
+        "motion.d16BlocksUnknown"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B127-S05",
+        "B127-S07"
+      ],
+      "assets": [
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "positive": [
+        "B127-P07"
+      ],
+      "negative": [
+        "B127-N07-1",
+        "B127-N07-2",
+        "B127-N07-3",
+        "B127-N07-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    },
+    {
+      "id": "B127-R08",
+      "summary": "统一三入口与ACL/CAS/撤权晚回执/冻结回退",
+      "fields": [
+        "commit.sameOwnerPortThreeEntries",
+        "commit.aclAndScopeRecheck",
+        "commit.casAndCancelLateAck",
+        "commit.abFrozenRollback"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B127-S05",
+        "B127-S06",
+        "B127-S07"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D13"
+      ],
+      "caps": [
+        "CAP-01-08",
+        "CAP-04-07"
+      ],
+      "originalWorkPackages": [
+        "U4-02",
+        "U4-04"
+      ],
+      "positive": [
+        "B127-P08"
+      ],
+      "negative": [
+        "B127-N08-1",
+        "B127-N08-2",
+        "B127-N08-3",
+        "B127-N08-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "derivation": "PROCET_INTERNAL_RULE_FROM_BOUNDARY_OF_CITED_SOURCES"
+    }
+  ]
+}

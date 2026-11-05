@@ -1,0 +1,356 @@
+{
+  "schemaVersion": "procet-b119-trace-v08",
+  "date": "2026-11-02",
+  "traceId": "CAP-01-07-GPU-IDENTITY-B119",
+  "primaryCapability": "CAP-01-07",
+  "researchTopic": "R-UI3D-001",
+  "sourceRegistry": "research/sources/CAP-01-07-gpu-pick-b119.json",
+  "fixtures": "docs/capabilities/CAP-01-07/gpu-pick-b119-fixtures-v08.json",
+  "validator": "tools/check_cap0107_gpu_pick_b119_v08.cjs",
+  "rules": [
+    {
+      "id": "B119-R01",
+      "summary": "异步Pick任务锁定Scene/Scope双纪元",
+      "fields": [
+        "sceneEpochPinned",
+        "scopeEpochPinned",
+        "requestIdPinned",
+        "lateResultDiscarded"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "STALE",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S01",
+        "B119-S06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04"
+      ],
+      "positive": [
+        "B119-P01"
+      ],
+      "negative": [
+        "B119-N01-1",
+        "B119-N01-2",
+        "B119-N01-3",
+        "B119-N01-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B119-R02",
+      "summary": "ThinInstance索引必须双向映射到稳定Occurrence",
+      "fields": [
+        "thinIndexCaptured",
+        "instanceMapRevisionPinned",
+        "semanticOccurrenceResolved",
+        "renderIndexNotBusinessId"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "STALE",
+        "UNKNOWN",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S01",
+        "B119-S02",
+        "B119-S06"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "F1-06",
+        "U4-01"
+      ],
+      "positive": [
+        "B119-P02"
+      ],
+      "negative": [
+        "B119-N02-1",
+        "B119-N02-2",
+        "B119-N02-3",
+        "B119-N02-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B119-R03",
+      "summary": "PickList更新与根可见性原子排序",
+      "fields": [
+        "pickListRevisionExact",
+        "disabledMeshRemovedFirst",
+        "instanceBufferRefreshDone",
+        "inactiveRootExcluded"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "REJECT",
+        "STALE",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S01",
+        "B119-S02"
+      ],
+      "assets": [
+        "D01",
+        "D03"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-01",
+        "U4-06"
+      ],
+      "positive": [
+        "B119-P03"
+      ],
+      "negative": [
+        "B119-N03-1",
+        "B119-N03-2",
+        "B119-N03-3",
+        "B119-N03-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B119-R04",
+      "summary": "单Babylon世界与Pick路径共用",
+      "fields": [
+        "singleEngineSceneCanvas",
+        "activeRootEpochPinned",
+        "sameRendererPort",
+        "cameraIntentOnly"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "STALE",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S01",
+        "B119-S06"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "B0-01",
+        "U4-01"
+      ],
+      "positive": [
+        "B119-P04"
+      ],
+      "negative": [
+        "B119-N04-1",
+        "B119-N04-2",
+        "B119-N04-3",
+        "B119-N04-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B119-R05",
+      "summary": "PointerCapture取消及晚click不晋级为Commit",
+      "fields": [
+        "pointerCancelFence",
+        "lostCaptureEndsDrag",
+        "lateClickCannotCommit",
+        "previewNoBusinessWrite"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S03",
+        "B119-S06"
+      ],
+      "assets": [
+        "D04",
+        "D05"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "W2-04",
+        "U4-06"
+      ],
+      "positive": [
+        "B119-P05"
+      ],
+      "negative": [
+        "B119-N05-1",
+        "B119-N05-2",
+        "B119-N05-3",
+        "B119-N05-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B119-R06",
+      "summary": "同一领域入口与可替代无拖拽操作",
+      "fields": [
+        "leftUnifiedTaskPanel",
+        "guiCliAgentSameDomainPort",
+        "noDragAlternative",
+        "focusAndTargetPolicy"
+      ],
+      "expectedNegativeStatuses": [
+        "REJECT",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S04",
+        "B119-S06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D05"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "U4-01",
+        "U4-06"
+      ],
+      "positive": [
+        "B119-P06"
+      ],
+      "negative": [
+        "B119-N06-1",
+        "B119-N06-2",
+        "B119-N06-3",
+        "B119-N06-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B119-R07",
+      "summary": "CAS与ACL在真正提交点重验",
+      "fields": [
+        "sourceRevisionHashExact",
+        "actorAclGenerationRechecked",
+        "scopeAndFrameExact",
+        "cancelAndFrozenPreserved"
+      ],
+      "expectedNegativeStatuses": [
+        "STALE",
+        "REJECT",
+        "STALE",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S03",
+        "B119-S06"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D08"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "W2-04",
+        "F1-06"
+      ],
+      "positive": [
+        "B119-P07"
+      ],
+      "negative": [
+        "B119-N07-1",
+        "B119-N07-2",
+        "B119-N07-3",
+        "B119-N07-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B119-R08",
+      "summary": "独立消费者与NC验证资格隔离",
+      "fields": [
+        "geometryConsumerChecksOccurrence",
+        "d15IndependentOfPick",
+        "unknownNcFailClosed",
+        "d16NeverFromClPreview"
+      ],
+      "expectedNegativeStatuses": [
+        "UNKNOWN",
+        "REJECT",
+        "REJECT",
+        "REJECT"
+      ],
+      "sourceIds": [
+        "B119-S06",
+        "B119-S01",
+        "B119-S05"
+      ],
+      "assets": [
+        "D02",
+        "D09",
+        "D15",
+        "D16"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "originalWorkPackages": [
+        "F1-06",
+        "U4-06"
+      ],
+      "positive": [
+        "B119-P08"
+      ],
+      "negative": [
+        "B119-N08-1",
+        "B119-N08-2",
+        "B119-N08-3",
+        "B119-N08-4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

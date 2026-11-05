@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "procet-cap0907-iso10791-scope-supplement-v08",
+  "recordedOn": "2026-10-28",
+  "status": "ADDITIVE_RESEARCH_DO_NOT_REWRITE_ORIGINALS",
+  "sourceRegistry": "research/sources/CAP-09-07.json",
+  "originalRegistryBlobSha": "cadaea394319bee4239209e407d2c5c225fc1955",
+  "originalTrace": "research/traces/CAP-09-07.json",
+  "originalTraceBlobSha": "0f3ba1d9b251bb9df9a188957befd9caf0000272",
+  "originalUnreferencedId": "C0907-S02",
+  "rules": [
+    {
+      "id": "B10-C0907-R01",
+      "summary": "ISO官方摘要适用范围与几何试验、运行安全分离",
+      "sourceIds": [
+        "C0907-S02",
+        "C0907-S01",
+        "C0907-S06"
+      ],
+      "fields": [
+        "source.standardId",
+        "source.machineConfiguration",
+        "source.scopeClaim",
+        "source.accessDepth",
+        "source.noInventedTolerance",
+        "source.accessoryHeadSeparate",
+        "source.geometryNotNcSafety",
+        "source.scopeReviewed"
+      ],
+      "capabilityIds": [
+        "CAP-09-07",
+        "CAP-09-02"
+      ],
+      "assetOwners": [
+        "D03",
+        "D10",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "designRule": "只把ISO10791-1官网摘要用于水平主轴机床几何试验的范围判断；B5竖直龙门、附件主轴头及数控运行安全不得由此认证。未读收费正文不得填写检验限值。",
+      "positiveFixture": "B10-P01",
+      "negativeFixturePrefix": "B10-N",
+      "machineCheck": "tools/check_registry_audit_b10_v08.cjs"
+    },
+    {
+      "id": "B10-C0907-R02",
+      "summary": "实际NC→物理Joint时序→独立D15覆盖",
+      "sourceIds": [
+        "C0907-S02",
+        "C0907-S03",
+        "C0907-S04",
+        "C0907-S05",
+        "C0907-S08"
+      ],
+      "fields": [
+        "closure.finalNcHash",
+        "closure.d13EventsHash",
+        "closure.d14JointTimelineHash",
+        "closure.d10BindingHash",
+        "closure.machineGeometryHash",
+        "closure.frameId",
+        "closure.oracleFrameId",
+        "closure.jointLimitsProvenance",
+        "closure.fullMotionIntervalProof",
+        "closure.staticDistanceIsDone",
+        "closure.independentD15Consumer",
+        "closure.controllerUnknownFailClosed",
+        "closure.noClProof"
+      ],
+      "capabilityIds": [
+        "CAP-09-07",
+        "CAP-09-03",
+        "CAP-09-05"
+      ],
+      "assetOwners": [
+        "D03",
+        "D04",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "designRule": "D04 Setup≠D10执行绑定；D12最终NC→D13语义→D14 Joint时序→D15独立Oracle。静态OCCT距离、端点抽样、CL动画非连续运行安全证明；控制器/时间区间未知=UNKNOWN，不做材料扫掠。",
+      "positiveFixture": "B10-P01",
+      "negativeFixturePrefix": "B10-N",
+      "machineCheck": "tools/check_registry_audit_b10_v08.cjs"
+    },
+    {
+      "id": "B10-C0907-R03",
+      "summary": "CAS/权限/取消与多入口统一及回退",
+      "sourceIds": [
+        "C0907-S09",
+        "C0907-S10",
+        "C0907-S06"
+      ],
+      "fields": [
+        "workflow.casRechecked",
+        "workflow.aclRechecked",
+        "workflow.scopeEpoch",
+        "workflow.currentEpoch",
+        "workflow.cancelled",
+        "workflow.lateReceipt",
+        "workflow.guiOwnerPort",
+        "workflow.cliOwnerPort",
+        "workflow.agentOwnerPort",
+        "workflow.worldCount",
+        "workflow.leftPanelCount",
+        "workflow.fontMaxPx",
+        "workflow.frozenAB",
+        "workflow.pairedReaderRollback",
+        "workflow.humanD16Required",
+        "workflow.noSweepClaim"
+      ],
+      "capabilityIds": [
+        "CAP-09-07",
+        "CAP-10-01"
+      ],
+      "assetOwners": [
+        "D08",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "designRule": "GUI/CLI/Agent同09域SafetyVerificationPort，单Babylon世界和左TaskPanel、字体最大12px；提交重验CAS/ACL/scopeEpoch/取消，丢弃晚回执，冻结A/B与Reader迁移回退不可覆盖；D16只收真实独立验证并人工复核。",
+      "positiveFixture": "B10-P01",
+      "negativeFixturePrefix": "B10-N",
+      "machineCheck": "tools/check_registry_audit_b10_v08.cjs"
+    }
+  ],
+  "limits": [
+    "ISO标准全文未读且不覆盖B5龙门机床认证",
+    "正例仅合成规划合同，不证明真实NC/控制器或机床",
+    "原Registry/Trace/312条直接边保持原字节"
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "schemaVersion": "procet-planning-fixture-v1",
+  "capabilityId": "CAP-05-02",
+  "scope": "synthetic_not_product",
+  "base": {
+    "projectScope": "synthetic:process-planning",
+    "d01": {
+      "id": "cad-1",
+      "revision": "r3",
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "frame": "PART"
+    },
+    "d02": {
+      "id": "feature-1",
+      "revision": "r2",
+      "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "frame": "PART"
+    },
+    "d04": {
+      "id": "setup-1",
+      "revision": "r8",
+      "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "frame": "SETUP_1"
+    },
+    "actor": {
+      "canCommit": true,
+      "role": "process_planner"
+    },
+    "cas": {
+      "expected": 4,
+      "current": 4
+    },
+    "task": {
+      "cancelled": false,
+      "generation": 8,
+      "replyGeneration": 8
+    },
+    "policy": {
+      "id": "policy-1",
+      "revision": "r4",
+      "hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "writeAsset": "D05",
+      "toolRef": {
+        "id": "tool-1",
+        "revision": "r3",
+        "hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "frame": "TOOL"
+      },
+      "materialRef": {
+        "id": "material-1",
+        "revision": "r2",
+        "hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "frame": "PART"
+      },
+      "effectiveTeeth": 4,
+      "stages": [
+        {
+          "phase": "ROUGH",
+          "frame": "PART",
+          "allowance": {
+            "pocket": 1.2,
+            "web": 1.5
+          }
+        },
+        {
+          "phase": "SEMI_FINISH",
+          "frame": "PART",
+          "allowance": {
+            "pocket": 0.3,
+            "web": 0.4
+          }
+        },
+        {
+          "phase": "FINISH",
+          "frame": "PART",
+          "allowance": {
+            "pocket": 0,
+            "web": 0
+          }
+        }
+      ],
+      "params": {
+        "ap": {
+          "value": 2,
+          "unit": "mm"
+        },
+        "ae": {
+          "value": 3,
+          "unit": "mm"
+        },
+        "vc": {
+          "value": 120,
+          "unit": "m/min"
+        },
+        "fz": {
+          "value": 0.08,
+          "unit": "mm/tooth"
+        }
+      },
+      "quality": {
+        "tolerance": {
+          "value": 0.1,
+          "unit": "mm"
+        },
+        "roughness": {
+          "value": 3.2,
+          "unit": "um"
+        },
+        "verified": false
+      },
+      "protection": {
+        "cadRef": {
+          "id": "pmi-1",
+          "revision": "r1",
+          "hash": "1111111111111111111111111111111111111111111111111111111111111111",
+          "frame": "PART"
+        },
+        "releaseAllowed": false,
+        "approvalRef": null
+      },
+      "override": {
+        "writeAsset": "D05",
+        "humanAdopted": true,
+        "provenance": "operator:r4"
+      },
+      "executionBinding": null
+    },
+    "verification": {
+      "D13": "NOT_RUN",
+      "D15": "NOT_RUN",
+      "D16": "NOT_RUN",
+      "independentConsumer": "NOT_RUN"
+    }
+  },
+  "cases": [
+    {
+      "id": "STRAT5-AT01-P",
+      "ruleId": "STRAT5-R01",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：精确projectScope/D01/D02/D04及CAD occurrence/frame/hash",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT01-N",
+      "ruleId": "STRAT5-R01",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：精确projectScope/D01/D02/D04及CAD occurrence/frame/hash",
+      "mutations": [
+        {
+          "path": "d01.hash",
+          "op": "set",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT02-P",
+      "ruleId": "STRAT5-R02",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：粗→半精→精阶段顺序保持原意图，更多阶段组合待L3扩展",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT02-N",
+      "ruleId": "STRAT5-R02",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：粗→半精→精阶段顺序保持原意图，更多阶段组合待L3扩展",
+      "mutations": [
+        {
+          "path": "policy.stages[1].phase",
+          "op": "set",
+          "value": "ROUGH"
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT03-P",
+      "ruleId": "STRAT5-R03",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：ap/ae/vc/fz有明确值及单位，不猜测转换",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT03-N",
+      "ruleId": "STRAT5-R03",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：ap/ae/vc/fz有明确值及单位，不猜测转换",
+      "mutations": [
+        {
+          "path": "policy.params.vc.unit",
+          "op": "set",
+          "value": "mm/s"
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT04-P",
+      "ruleId": "STRAT5-R04",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：D03刀具与材料必须精确引用，公式需要有效齿数",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT04-N",
+      "ruleId": "STRAT5-R04",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：D03刀具与材料必须精确引用，公式需要有效齿数",
+      "mutations": [
+        {
+          "path": "policy.effectiveTeeth",
+          "op": "set",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT05-P",
+      "ruleId": "STRAT5-R05",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：余量按同区域/同Frame逐阶段单调，不用平均",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT05-N",
+      "ruleId": "STRAT5-R05",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：余量按同区域/同Frame逐阶段单调，不用平均",
+      "mutations": [
+        {
+          "path": "policy.stages[1].allowance.web",
+          "op": "set",
+          "value": 2.3
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT06-P",
+      "ruleId": "STRAT5-R06",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：精度/表面质量是目标，未知验证不能声称合格",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT06-N",
+      "ruleId": "STRAT5-R06",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：精度/表面质量是目标，未知验证不能声称合格",
+      "mutations": [
+        {
+          "path": "policy.quality.verified",
+          "op": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT07-P",
+      "ruleId": "STRAT5-R07",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：保护区释放须完整PMI来源和明确审批",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT07-N",
+      "ruleId": "STRAT5-R07",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：保护区释放须完整PMI来源和明确审批",
+      "mutations": [
+        {
+          "path": "policy.protection.releaseAllowed",
+          "op": "set",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT08-P",
+      "ruleId": "STRAT5-R08",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：规则覆盖须来源审计，D05不跨域写D07/D08",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT08-N",
+      "ruleId": "STRAT5-R08",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：规则覆盖须来源审计，D05不跨域写D07/D08",
+      "mutations": [
+        {
+          "path": "policy.override.writeAsset",
+          "op": "set",
+          "value": "D07"
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT09-P",
+      "ruleId": "STRAT5-R09",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：GUI/CLI/Agent采纳时重验权限、CAS、取消及代次",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT09-N",
+      "ruleId": "STRAT5-R09",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：GUI/CLI/Agent采纳时重验权限、CAS、取消及代次",
+      "mutations": [
+        {
+          "path": "cas.current",
+          "op": "set",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "STRAT5-AT10-P",
+      "ruleId": "STRAT5-R10",
+      "kind": "positive",
+      "expected": "ACCEPT",
+      "scenario": "合法：不能把策略采纳当D10绑定、D13执行或D15验证",
+      "mutations": []
+    },
+    {
+      "id": "STRAT5-AT10-N",
+      "ruleId": "STRAT5-R10",
+      "kind": "negative",
+      "expected": "REJECT",
+      "scenario": "非法：不能把策略采纳当D10绑定、D13执行或D15验证",
+      "mutations": [
+        {
+          "path": "verification.D15",
+          "op": "set",
+          "value": "PASS"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "schemaVersion": "procet-b19-source-rule-field-acceptance-v08",
+  "createdAt": "2026-10-29",
+  "classification": "NEWLY_AUTHORED_RESEARCH_SUPPLEMENT",
+  "baselineHead": "649b25154a673a5a4f14a5d1cd14278ddd7b1abe",
+  "capabilityId": "CAP-01-07",
+  "targetWorkPackages": [
+    "U4-03",
+    "U4-05",
+    "U4-06"
+  ],
+  "originalSpecUnchanged": true,
+  "sourceEvidence": [
+    {
+      "id": "B19-S01",
+      "organization": "Khronos Group",
+      "author": "Dean Jackson (editor)",
+      "title": "WebGL Specification",
+      "version": "1.0.3",
+      "publishedAt": "2014-10-27",
+      "url": "https://registry.khronos.org/webgl/specs/1.0.3/",
+      "accessedAt": "2026-10-29",
+      "accessDepth": "公开HTML正文：The Context Lost Event、The Context Restored Event、上下文资源失效",
+      "limit": "WebGL 1.0规范不规定Babylon特定恢复流程，也不定义制造域CAS"
+    },
+    {
+      "id": "B19-S02",
+      "organization": "Khronos WebGL Working Group",
+      "author": "WebGL Working Group; Glenn Maynard (contributor)",
+      "title": "WEBGL_lose_context",
+      "version": "Revision 15",
+      "publishedAt": "2020-02-06 (last modified)",
+      "url": "https://registry.khronos.org/webgl/extensions/WEBGL_lose_context/",
+      "accessedAt": "2026-10-29",
+      "accessDepth": "公开HTML：Version、Overview、New Functions、恢复异步及preventDefault条件",
+      "limit": "可测试扩展并非所有运行环境可用；恢复不是同步事件"
+    },
+    {
+      "id": "B19-S03",
+      "organization": "MDN Web Docs",
+      "author": "MDN contributors",
+      "title": "HTMLCanvasElement: webglcontextrestored event",
+      "version": "在线网页，未取得固定修订",
+      "publishedAt": "undetermined",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event",
+      "accessedAt": "2026-10-29",
+      "accessDepth": "公开HTML：Syntax、资源重建说明",
+      "limit": "二级开发者文档，不代替Khronos规范；无产品浏览器兼容验收"
+    },
+    {
+      "id": "B19-S04",
+      "organization": "BabylonJS",
+      "author": "BabylonJS maintainers",
+      "title": "Babylon.js README",
+      "version": "master, mutable (unfrozen)",
+      "publishedAt": "undetermined",
+      "url": "https://github.com/BabylonJS/Babylon.js",
+      "accessedAt": "2026-10-29",
+      "accessDepth": "仓库README Usage：Engine、Scene、Canvas示例及render loop",
+      "limit": "示例仅说明API用法；未读取具体版本Engine源码，不据此承诺自动恢复所有Mesh/Texture/Worker"
+    }
+  ],
+  "rules": [
+    {
+      "id": "UI3D-B19-R01",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-03",
+        "U4-05"
+      ],
+      "sourceIds": [
+        "B19-S04"
+      ],
+      "fields": [
+        "engineCount",
+        "sceneCount",
+        "canvasCount",
+        "leftTaskPanelCount",
+        "inactiveRootPickable"
+      ],
+      "description": "单Engine/Scene/Canvas及唯一左TaskPanel，不活动Root不可拾取",
+      "derivation": "Procet架构约束；不是Babylon框架强制",
+      "expectedErrorCode": "R01_SINGLE_WORLD",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N01",
+        "B19-N02",
+        "B19-N03",
+        "B19-N04",
+        "B19-N05"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-B19-R02",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-03",
+        "U4-05"
+      ],
+      "sourceIds": [
+        "B19-S01",
+        "B19-S02"
+      ],
+      "fields": [
+        "contextLostEventHandled",
+        "lossDefaultPrevented",
+        "renderSuspendedDuringLoss"
+      ],
+      "description": "WebGL lost进入渲染挂起并可恢复地响应lost事件，不把页面关闭解释为领域取消",
+      "derivation": "Khronos事件生命周期＋产品挂起策略",
+      "expectedErrorCode": "R02_LOSS_SUSPEND",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N06",
+        "B19-N07",
+        "B19-N08"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-B19-R03",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-03",
+        "U4-05"
+      ],
+      "sourceIds": [
+        "B19-S01",
+        "B19-S03"
+      ],
+      "fields": [
+        "restoreEventSeen",
+        "resourcesRecreated",
+        "gpuResourceEpoch",
+        "gpuEpoch"
+      ],
+      "description": "restored事件后重建GPU资源；渲染资源epoch与当前epoch精确相等才恢复pick",
+      "derivation": "资源失效来自规范；epoch是待L3审核设计",
+      "expectedErrorCode": "R03_RESTORE_EPOCH",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N09",
+        "B19-N10",
+        "B19-N11"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-B19-R04",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-03"
+      ],
+      "sourceIds": [
+        "B19-S01"
+      ],
+      "fields": [
+        "pickGpuEpoch",
+        "gpuEpoch",
+        "selectionSceneRevision",
+        "currentSceneRevision",
+        "selectedExactRef",
+        "sourceExactRef"
+      ],
+      "description": "GPU恢复前异步拾取按GPU epoch、scene revision和D01 exactRef三重核对",
+      "derivation": "产品防止旧异步回填，不是WebGL提供的制造语义",
+      "expectedErrorCode": "R04_PICK_STALE",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N12",
+        "B19-N13",
+        "B19-N14"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-B19-R05",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-03",
+        "U4-06"
+      ],
+      "sourceIds": [
+        "B19-S01"
+      ],
+      "fields": [
+        "receiptScopeEpoch",
+        "scopeEpoch",
+        "receiptPermissionEpoch",
+        "permissionEpoch",
+        "currentOwnerRevision",
+        "expectedOwnerRevision"
+      ],
+      "description": "资源选择晚回执须重新检查Scope Epoch、Permission Epoch及D04 CAS revision",
+      "derivation": "完全是Procet跨域业务约束；规范不定义CAS",
+      "expectedErrorCode": "R05_CAS_PERMISSION",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N15",
+        "B19-N16",
+        "B19-N17"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-B19-R06",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-03",
+        "U4-05"
+      ],
+      "sourceIds": [
+        "B19-S02"
+      ],
+      "fields": [
+        "previewGpuEpoch",
+        "gpuEpoch",
+        "previewScopeEpoch",
+        "scopeEpoch",
+        "lateCancelledAckApplied"
+      ],
+      "description": "预览租约与当前GPU/Scope时代相符；取消迟到确认不得更改当前业务",
+      "derivation": "恢复异步来自扩展；lease/cancel是产品策略",
+      "expectedErrorCode": "R06_PREVIEW_CANCEL",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N18",
+        "B19-N19",
+        "B19-N20"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-B19-R07",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-03",
+        "U4-06"
+      ],
+      "sourceIds": [
+        "B19-S04"
+      ],
+      "fields": [
+        "rendererDomainWrite",
+        "businessRevisionBefore",
+        "businessRevisionAfter",
+        "consumerPorts"
+      ],
+      "description": "GPU恢复不能变更任何D04领域修订；GUI/CLI/Agent复用同一个领域Port",
+      "derivation": "产品权限边界，不由Babylon示例赋权",
+      "expectedErrorCode": "R07_DOMAIN_ISOLATION",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N21",
+        "B19-N22",
+        "B19-N23"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "UI3D-B19-R08",
+      "capabilityId": "CAP-01-07",
+      "workPackages": [
+        "U4-05",
+        "U4-06"
+      ],
+      "sourceIds": [
+        "B19-S01"
+      ],
+      "fields": [
+        "ncSemanticStatus",
+        "ncVerificationStatus",
+        "releaseStatus"
+      ],
+      "description": "WebGL渲染恢复不能把D13 unknown或D15 unknown标记为NC发布通过",
+      "derivation": "Procet NC闭包；WebGL标准无数控验证结论",
+      "expectedErrorCode": "R08_NC_FAIL_CLOSED",
+      "positiveTests": [
+        "B19-P01"
+      ],
+      "negativeTests": [
+        "B19-N24",
+        "B19-N25",
+        "B19-N26"
+      ],
+      "status": "planning_candidate_pending_L3",
+      "productAcceptance": "NOT_RUN"
+    }
+  ],
+  "fixture": "docs/capabilities/CAP-01-07/webgl-recovery-b19-fixtures-v08.json",
+  "checker": "tools/check_cap0107_webgl_recovery_b19_v08.cjs",
+  "signOff": {
+    "GUIOwner": "PENDING_HUMAN",
+    "domainOwner": "PENDING_HUMAN",
+    "independentConsumer": "NOT_RUN",
+    "L3": "PENDING_HUMAN"
+  },
+  "productAcceptance": "NOT_RUN"
+}

@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-05-06",
+  "topic": "R-FREEZE-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "FRZ506-S01",
+    "FRZ506-S02",
+    "FRZ506-S03",
+    "FRZ506-S04",
+    "FRZ506-S05",
+    "FRZ506-S06",
+    "FRZ506-S07",
+    "FRZ506-S08"
+  ],
+  "assetOwner": "05域/D05决策及D08不可变快照；17资产Owner正式会签PENDING",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "rules": [
+    {
+      "id": "FRZ506-R01",
+      "capabilityId": "CAP-05-06",
+      "description": "精确来源与Frame/作用域/哈希不完整禁止冻结",
+      "sourceIds": [
+        "FRZ506-S02",
+        "FRZ506-S03",
+        "FRZ506-S04"
+      ],
+      "fields": [
+        "scope",
+        "refs[]"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT01-P",
+        "FRZ506-AT01-N"
+      ],
+      "failureCode": "EXACT_REF_REQUIRED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R02",
+      "capabilityId": "CAP-05-06",
+      "description": "冻结目标必须是已有稳定ID且DAG无环",
+      "sourceIds": [
+        "FRZ506-S01",
+        "FRZ506-S07"
+      ],
+      "fields": [
+        "nodes[]",
+        "edges[]",
+        "target"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT02-P",
+        "FRZ506-AT02-N"
+      ],
+      "failureCode": "INVALID_TARGET",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R03",
+      "capabilityId": "CAP-05-06",
+      "description": "D05决策与D08快照分离，冻结历史不能原地更改",
+      "sourceIds": [
+        "FRZ506-S04",
+        "FRZ506-S05"
+      ],
+      "fields": [
+        "decisionOwner",
+        "snapshotOwner",
+        "d08Overwritten"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT03-P",
+        "FRZ506-AT03-N"
+      ],
+      "failureCode": "IMMUTABLE_SNAPSHOT",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R04",
+      "capabilityId": "CAP-05-06",
+      "description": "base/current/proposed三方比较；语义重叠或依赖交叉不静默合并",
+      "sourceIds": [
+        "FRZ506-S02",
+        "FRZ506-S07"
+      ],
+      "fields": [
+        "base",
+        "current",
+        "proposed",
+        "overlap",
+        "dependencyCross",
+        "approvedResolution"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT04-P",
+        "FRZ506-AT04-N"
+      ],
+      "failureCode": "SEMANTIC_CONFLICT",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R05",
+      "capabilityId": "CAP-05-06",
+      "description": "解冻必须人类审批、理由及新修订，历史D08仍有效",
+      "sourceIds": [
+        "FRZ506-S02",
+        "FRZ506-S04"
+      ],
+      "fields": [
+        "thaw",
+        "approval",
+        "mode",
+        "reason",
+        "historicKept"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT05-P",
+        "FRZ506-AT05-N"
+      ],
+      "failureCode": "THAW_NOT_APPROVED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R06",
+      "capabilityId": "CAP-05-06",
+      "description": "A/B共享精确事实，不可覆盖对方冻结修订",
+      "sourceIds": [
+        "FRZ506-S04",
+        "FRZ506-S05"
+      ],
+      "fields": [
+        "a",
+        "b",
+        "sharedHash",
+        "overwriteA",
+        "overwriteB"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT06-P",
+        "FRZ506-AT06-N"
+      ],
+      "failureCode": "BRANCH_OVERWRITE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R07",
+      "capabilityId": "CAP-05-06",
+      "description": "GUI/CLI/Agent同一领域Port，单世界左TaskPanel，预览只读",
+      "sourceIds": [
+        "FRZ506-S04",
+        "FRZ506-S06"
+      ],
+      "fields": [
+        "entries",
+        "sharedPort",
+        "worldCount",
+        "panel",
+        "previewWrites"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT07-P",
+        "FRZ506-AT07-N"
+      ],
+      "failureCode": "UNMANAGED_UI_WRITE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R08",
+      "capabilityId": "CAP-05-06",
+      "description": "提交时再次验证权限、CAS、scopeEpoch、generation，取消晚回执拒绝",
+      "sourceIds": [
+        "FRZ506-S02",
+        "FRZ506-S03"
+      ],
+      "fields": [
+        "authorized",
+        "rechecked",
+        "expected",
+        "current",
+        "generation",
+        "replyGeneration",
+        "cancelled"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT08-P",
+        "FRZ506-AT08-N"
+      ],
+      "failureCode": "CAS_AUTH_STALE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R09",
+      "capabilityId": "CAP-05-06",
+      "description": "仅受影响闭包失效，D13 UNKNOWN，D15/D16不得通过",
+      "sourceIds": [
+        "FRZ506-S01",
+        "FRZ506-S08"
+      ],
+      "fields": [
+        "affected[]",
+        "stale[]",
+        "statusD13",
+        "statusD15",
+        "clCertified"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT09-P",
+        "FRZ506-AT09-N"
+      ],
+      "failureCode": "BAD_INVALIDATION",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "FRZ506-R10",
+      "capabilityId": "CAP-05-06",
+      "description": "迁移adapter和回退保留数据/审计；规划PASS非产品PASS",
+      "sourceIds": [
+        "FRZ506-S04",
+        "FRZ506-S05"
+      ],
+      "fields": [
+        "adapter",
+        "rollback",
+        "deleteUserData",
+        "productStatus"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "FRZ506-AT10-P",
+        "FRZ506-AT10-N"
+      ],
+      "failureCode": "UNSAFE_ROLLBACK",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

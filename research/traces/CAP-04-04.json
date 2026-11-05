@@ -1,0 +1,375 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-04-04",
+  "topic": "R-FRAME-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "paths": {
+    "capability": "docs/capabilities/CAP-04-04/README.md",
+    "ui": "docs/capabilities/CAP-04-04/UI.md",
+    "fixtures": "docs/capabilities/CAP-04-04/fixtures.json",
+    "sources": "research/sources/CAP-04-04.json"
+  },
+  "assetOwner": "04 装夹与坐标系 / D04",
+  "registeredSources": [
+    "FRAME-S01",
+    "FRAME-S02",
+    "FRAME-S03",
+    "FRAME-S04",
+    "FRAME-S05",
+    "FRAME-S06",
+    "FRAME-S07"
+  ],
+  "workPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "rules": [
+    {
+      "id": "FRAME-R01",
+      "capabilityId": "CAP-04-04",
+      "description": "具名Frame图须有确定身份、方向与D04 Owner",
+      "sourceIds": [
+        "FRAME-S01",
+        "FRAME-S03"
+      ],
+      "fields": [
+        "frameId",
+        "sourceFrame",
+        "targetFrame",
+        "ownerDomain"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T01",
+        "CAP-04-04-T02"
+      ],
+      "failureCode": "FRAME_AMBIGUOUS",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R02",
+      "capabilityId": "CAP-04-04",
+      "description": "所有CAD实例和夹具边保留exact revision/hash/occurrencePath",
+      "sourceIds": [
+        "FRAME-S04"
+      ],
+      "fields": [
+        "cadExactRef",
+        "fixtureExactRef",
+        "occurrencePath",
+        "setupHash"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T03",
+        "CAP-04-04-T04"
+      ],
+      "failureCode": "SOURCE_STALE",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R03",
+      "capabilityId": "CAP-04-04",
+      "description": "D04持久化变换必须是有限、右手、同单位SE(3)刚体",
+      "sourceIds": [
+        "FRAME-S02",
+        "FRAME-S03"
+      ],
+      "fields": [
+        "matrix4x4",
+        "unitSystem",
+        "handedness",
+        "rigidity"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T05",
+        "CAP-04-04-T06"
+      ],
+      "failureCode": "NON_RIGID_MATRIX",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R04",
+      "capabilityId": "CAP-04-04",
+      "description": "矩阵按列向量左乘组合，逆与多路径闭合需独立验证",
+      "sourceIds": [
+        "FRAME-S02",
+        "FRAME-S04"
+      ],
+      "fields": [
+        "T_S_P",
+        "T_P_C",
+        "T_S_C",
+        "roundTripResidual"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T07",
+        "CAP-04-04-T08"
+      ],
+      "failureCode": "FRAME_CYCLE_CONFLICT",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R05",
+      "capabilityId": "CAP-04-04",
+      "description": "落座/对中只能创建幂等候选，名义定位不能冒充测量",
+      "sourceIds": [
+        "FRAME-S06",
+        "FRAME-S07"
+      ],
+      "fields": [
+        "anchorExactRef",
+        "proposalHash",
+        "measurementEvidence"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T09",
+        "CAP-04-04-T10"
+      ],
+      "failureCode": "EVIDENCE_NOT_MEASURED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R06",
+      "capabilityId": "CAP-04-04",
+      "description": "D04工艺坐标与D10执行绑定独立；控制器偏置经D13解释",
+      "sourceIds": [
+        "FRAME-S01",
+        "FRAME-S05"
+      ],
+      "fields": [
+        "setupRevision",
+        "D10BindingRef",
+        "controllerSemanticRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T11",
+        "CAP-04-04-T12"
+      ],
+      "failureCode": "D10_BINDING_REQUIRED",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R07",
+      "capabilityId": "CAP-04-04",
+      "description": "Babylon仅在渲染边界适配手系，不修改B-Rep与业务Frame",
+      "sourceIds": [
+        "FRAME-S03"
+      ],
+      "fields": [
+        "renderTransform",
+        "businessFrameHash",
+        "topologyRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T13",
+        "CAP-04-04-T14"
+      ],
+      "failureCode": "RENDER_FRAME_LEAK",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R08",
+      "capabilityId": "CAP-04-04",
+      "description": "GUI/CLI/Agent共享04域Host接口、ACL与CAS重验、晚回执隔离",
+      "sourceIds": [
+        "FRAME-S07"
+      ],
+      "fields": [
+        "scopeEpoch",
+        "expectedRevision",
+        "expectedHash",
+        "requestId",
+        "approvalRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T15",
+        "CAP-04-04-T16"
+      ],
+      "failureCode": "STALE_SCOPE_OR_CAS",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R09",
+      "capabilityId": "CAP-04-04",
+      "description": "D04新修订发布失效清单，冻结D08/D16永不原位覆盖",
+      "sourceIds": [
+        "FRAME-S06"
+      ],
+      "fields": [
+        "invalidationManifest",
+        "frozenD08Ref",
+        "frozenD16Ref"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T17",
+        "CAP-04-04-T18"
+      ],
+      "failureCode": "FROZEN_REVISION_CONFLICT",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    },
+    {
+      "id": "FRAME-R10",
+      "capabilityId": "CAP-04-04",
+      "description": "中立CL预览非NC工程验收；D13 unknown不能伪装已验证",
+      "sourceIds": [
+        "FRAME-S05"
+      ],
+      "fields": [
+        "neutralCLRef",
+        "ncExactRef",
+        "D13SemanticState",
+        "D14TimelineRef",
+        "D15EvidenceRef"
+      ],
+      "workPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "assets": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "tests": [
+        "CAP-04-04-T19",
+        "CAP-04-04-T20"
+      ],
+      "failureCode": "NC_SEMANTIC_UNKNOWN",
+      "implementationStatus": "planned_only",
+      "humanApproval": "PENDING_L3",
+      "kind": "source_supported_evidence_plus_explicit_project_design"
+    }
+  ]
+}

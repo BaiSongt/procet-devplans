@@ -1,0 +1,351 @@
+{
+  "schemaVersion": "procet-b113-trace-v08",
+  "sourceRegistry": "research/sources/CAP-08-05-return-role-b113.json",
+  "fixtures": "docs/capabilities/CAP-08-05/return-role-b113-fixtures-v08.json",
+  "checker": "tools/check_cap0805_return_role_b113_v08.cjs",
+  "rules": [
+    {
+      "id": "B113-R01",
+      "summary": "控制器机类与角色精确锁",
+      "sourceIds": [
+        "B113-S03",
+        "B113-S04",
+        "B113-S07"
+      ],
+      "fields": [
+        "family",
+        "machineClass",
+        "declaredRole",
+        "firmwarePinned"
+      ],
+      "caps": [
+        "CAP-08-05",
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P01"
+      ],
+      "negative": [
+        "B113-N01",
+        "B113-N02"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B113-R02",
+      "summary": "LinuxCNC G98取max(initialZ,R)、G99取R",
+      "sourceIds": [
+        "B113-S01",
+        "B113-S07"
+      ],
+      "fields": [
+        "command",
+        "initialZ",
+        "rPlane",
+        "derivedReturnZ"
+      ],
+      "caps": [
+        "CAP-08-05",
+        "CAP-08-03"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P02"
+      ],
+      "negative": [
+        "B113-N03",
+        "B113-N04"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B113-R03",
+      "summary": "G80重新采样，G81→G83连续保持初始Z",
+      "sourceIds": [
+        "B113-S06",
+        "B113-S02"
+      ],
+      "fields": [
+        "cycleSwitched",
+        "initialRetained",
+        "afterG80",
+        "recaptured"
+      ],
+      "caps": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P03"
+      ],
+      "negative": [
+        "B113-N05",
+        "B113-N06"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B113-R04",
+      "summary": "G90/G91 R平面基准及入口Z不可丢",
+      "sourceIds": [
+        "B113-S02",
+        "B113-S07"
+      ],
+      "fields": [
+        "distanceMode",
+        "entryZ",
+        "rWord",
+        "rAbsolute"
+      ],
+      "caps": [
+        "CAP-08-05"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P04"
+      ],
+      "negative": [
+        "B113-N07",
+        "B113-N08"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B113-R05",
+      "summary": "Haas铣床G98初始点/G99 R，未读语义UNKNOWN",
+      "sourceIds": [
+        "B113-S03",
+        "B113-S05"
+      ],
+      "fields": [
+        "machineClass",
+        "command",
+        "initialZ",
+        "rPlane"
+      ],
+      "caps": [
+        "CAP-08-05",
+        "CAP-07-06"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "U4-04"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P05"
+      ],
+      "negative": [
+        "B113-N09",
+        "B113-N10"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B113-R06",
+      "summary": "Haas车床G98每分钟/G99每转进给不等于退刀",
+      "sourceIds": [
+        "B113-S04",
+        "B113-S07"
+      ],
+      "fields": [
+        "machineClass",
+        "command",
+        "fValue",
+        "rpm",
+        "feedMode"
+      ],
+      "caps": [
+        "CAP-08-05",
+        "CAP-08-02"
+      ],
+      "originalWorkPackages": [
+        "E3-02",
+        "E3-03"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P06"
+      ],
+      "negative": [
+        "B113-N11",
+        "B113-N12"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B113-R07",
+      "summary": "名义退让与完整刀柄/夹具安全资格分离",
+      "sourceIds": [
+        "B113-S08",
+        "B113-S02"
+      ],
+      "fields": [
+        "retractZ",
+        "requiredClearanceZ",
+        "envelopeCertified"
+      ],
+      "caps": [
+        "CAP-07-06",
+        "CAP-09-07"
+      ],
+      "originalWorkPackages": [
+        "F1-03",
+        "E3-05"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P07"
+      ],
+      "negative": [
+        "B113-N13",
+        "B113-N14"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B113-R08",
+      "summary": "Owner exact/CAS/ACL/取消Fence与NC独立D15",
+      "sourceIds": [
+        "B113-S07",
+        "B113-S08"
+      ],
+      "fields": [
+        "d04Exact",
+        "d10Exact",
+        "frameExact",
+        "acl",
+        "cas",
+        "cancelled",
+        "d15Independent",
+        "releaseRequested"
+      ],
+      "caps": [
+        "CAP-08-05",
+        "CAP-09-06",
+        "CAP-10-02"
+      ],
+      "originalWorkPackages": [
+        "E3-03",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positive": [
+        "B113-P08"
+      ],
+      "negative": [
+        "B113-N15",
+        "B113-N16"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN"
+    }
+  ],
+  "scope": "L3待审；规划合成候选，不是产品/机床验收"
+}

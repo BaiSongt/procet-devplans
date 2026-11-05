@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "procet-planning-trace-v1",
+  "capabilityId": "CAP-05-03",
+  "topic": "R-ROUTEEDIT-001",
+  "status": "compiled_pending_human_review",
+  "productAcceptance": "NOT_RUN",
+  "registeredSources": [
+    "EDIT503-S01",
+    "EDIT503-S02",
+    "EDIT503-S03",
+    "EDIT503-S04",
+    "EDIT503-S05",
+    "EDIT503-S06",
+    "EDIT503-S07",
+    "EDIT503-S08",
+    "EDIT503-S09"
+  ],
+  "assetOwner": "05 工艺规划 / D05",
+  "relatedAssets": [
+    "D01",
+    "D02",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16"
+  ],
+  "workPackages": [
+    "W2-02",
+    "W2-03",
+    "W2-05"
+  ],
+  "rules": [
+    {
+      "id": "EDIT503-R01",
+      "capabilityId": "CAP-05-03",
+      "description": "输入D01/D02/D04/D05精确revision/hash/frame且项目scope不混淆",
+      "sourceIds": [
+        "EDIT503-S05",
+        "EDIT503-S06",
+        "EDIT503-S07"
+      ],
+      "fields": [
+        "scope",
+        "refs",
+        "planRevision"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT01-P",
+        "EDIT503-AT01-N"
+      ],
+      "failureCode": "SOURCE_REVISION_STALE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R02",
+      "capabilityId": "CAP-05-03",
+      "description": "工序有向优先图不得悬空/自环/成环，错误返回见证边",
+      "sourceIds": [
+        "EDIT503-S01",
+        "EDIT503-S03"
+      ],
+      "fields": [
+        "operationIds",
+        "edges"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT02-P",
+        "EDIT503-AT02-N"
+      ],
+      "failureCode": "DAG_CYCLE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R03",
+      "capabilityId": "CAP-05-03",
+      "description": "拖拽显示排序不隐式改写precedenceEdges",
+      "sourceIds": [
+        "EDIT503-S03",
+        "EDIT503-S05"
+      ],
+      "fields": [
+        "displayOrder",
+        "edgesBefore",
+        "edgesAfter"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT03-P",
+        "EDIT503-AT03-N"
+      ],
+      "failureCode": "DISPLAY_IS_NOT_PRECEDENCE",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R04",
+      "capabilityId": "CAP-05-03",
+      "description": "Feature和Operation允许多对多但引用必须可解析、ID稳定",
+      "sourceIds": [
+        "EDIT503-S04",
+        "EDIT503-S09"
+      ],
+      "fields": [
+        "features",
+        "operations",
+        "links"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT04-P",
+        "EDIT503-AT04-N"
+      ],
+      "failureCode": "REFERENCE_DANGLING",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R05",
+      "capabilityId": "CAP-05-03",
+      "description": "跨Setup改序必须绑定D04转序exactRef并核对frame；不写D10",
+      "sourceIds": [
+        "EDIT503-S01",
+        "EDIT503-S04"
+      ],
+      "fields": [
+        "setupA",
+        "setupB",
+        "transferExactRef",
+        "frameChecked"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT05-P",
+        "EDIT503-AT05-N"
+      ],
+      "failureCode": "TRANSFER_FRAME_UNKNOWN",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R06",
+      "capabilityId": "CAP-05-03",
+      "description": "禁止原地修改D08冻结范围；只能创建授权的新D05分支",
+      "sourceIds": [
+        "EDIT503-S05",
+        "EDIT503-S09"
+      ],
+      "fields": [
+        "frozen",
+        "modified",
+        "fork",
+        "overwriteFrozen"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT06-P",
+        "EDIT503-AT06-N"
+      ],
+      "failureCode": "FROZEN_MUTATION",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R07",
+      "capabilityId": "CAP-05-03",
+      "description": "局部采纳D06候选必须run/hash锁定且排除冻结节点并人工授权",
+      "sourceIds": [
+        "EDIT503-S04",
+        "EDIT503-S05"
+      ],
+      "fields": [
+        "solverRun",
+        "selection",
+        "freeze",
+        "approval"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT07-P",
+        "EDIT503-AT07-N"
+      ],
+      "failureCode": "SOLVER_ADOPTION_BLOCKED",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R08",
+      "capabilityId": "CAP-05-03",
+      "description": "提交瞬间权限复验、源哈希与CAS expected/current匹配",
+      "sourceIds": [
+        "EDIT503-S06",
+        "EDIT503-S07"
+      ],
+      "fields": [
+        "aclAtCommit",
+        "expectedRevision",
+        "currentRevision",
+        "sourceHashesCurrent"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT08-P",
+        "EDIT503-AT08-N"
+      ],
+      "failureCode": "CAS_AUTH_CONFLICT",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R09",
+      "capabilityId": "CAP-05-03",
+      "description": "取消、scope变更与晚回执不得写D05、只可审计",
+      "sourceIds": [
+        "EDIT503-S05",
+        "EDIT503-S07"
+      ],
+      "fields": [
+        "cancelled",
+        "scopeEpoch",
+        "ackEpoch",
+        "generation",
+        "ackGeneration"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT09-P",
+        "EDIT503-AT09-N"
+      ],
+      "failureCode": "CANCELLED_LATE_ACK",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "EDIT503-R10",
+      "capabilityId": "CAP-05-03",
+      "description": "只失效受影响D05子图及下游；D15未测不升PASS且D16历史不改写",
+      "sourceIds": [
+        "EDIT503-S03",
+        "EDIT503-S04",
+        "EDIT503-S08"
+      ],
+      "fields": [
+        "changed",
+        "affected",
+        "stale",
+        "unaffected",
+        "d15",
+        "d16"
+      ],
+      "workPackages": [
+        "W2-02",
+        "W2-03",
+        "W2-05"
+      ],
+      "acceptanceIds": [
+        "EDIT503-AT10-P",
+        "EDIT503-AT10-N"
+      ],
+      "failureCode": "INVALIDATION_GAP",
+      "ruleOrigin": "PROJECT_DERIVED_NOT_DIRECT_STANDARD_CLAUSE",
+      "humanReview": "PENDING",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

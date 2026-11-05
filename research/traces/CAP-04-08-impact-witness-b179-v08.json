@@ -1,0 +1,487 @@
+{
+  "schemaVersion": "procet-b179-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-04-08",
+  "originalWorkPackages": [
+    "F1-02",
+    "F1-04",
+    "W2-05",
+    "E3-04",
+    "U4-02"
+  ],
+  "sourceRegistry": "research/sources/CAP-04-08-impact-witness-b179.json",
+  "fixtures": "docs/capabilities/CAP-04-08/impact-witness-b179-fixtures-v08.json",
+  "checker": "tools/check_cap0408_impact_witness_b179_v08.cjs",
+  "report": "docs/capabilities/CAP-04-08/IMPACT-WITNESS-B179-2026-11-05.md",
+  "fieldDefinitions": {
+    "identity.d04Revision": {
+      "kind": "regex",
+      "pattern": "^D04:r[1-9][0-9]*$"
+    },
+    "identity.d04Hash": {
+      "kind": "regex",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "identity.d04Frame": {
+      "kind": "regex",
+      "pattern": "^frame:part@setup-[0-9]+$"
+    },
+    "identity.setupOccurrence": {
+      "kind": "regex",
+      "pattern": "^occ:doc-[a-z0-9]+/fixture-[0-9]+$"
+    },
+    "graph.snapshotHash": {
+      "kind": "regex",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "graph.complete": {
+      "kind": "equals",
+      "value": true
+    },
+    "graph.edgeVersion": {
+      "kind": "regex",
+      "pattern": "^edge-schema:v[1-9][0-9]*$"
+    },
+    "graph.scopeStamp": {
+      "kind": "regex",
+      "pattern": "^scope:project-[a-z]:epoch[0-9]+$"
+    },
+    "proof.unaffectedMode": {
+      "kind": "equals",
+      "value": "CLOSED_WORLD_CONSUMER_ATTESTED"
+    },
+    "proof.negativeWitness": {
+      "kind": "equals",
+      "value": true
+    },
+    "proof.frontierWitness": {
+      "kind": "regex",
+      "pattern": "^cut:scope-[a-z]:v[1-9][0-9]*$"
+    },
+    "proof.scopeChecked": {
+      "kind": "equals",
+      "value": true
+    },
+    "consumer.ownerD05": {
+      "kind": "equals",
+      "value": "D05_REVALIDATES_NEW_REVISION"
+    },
+    "consumer.ownerD10Independent": {
+      "kind": "equals",
+      "value": "D10_BINDING_ONLY_NO_WRITE"
+    },
+    "consumer.ownerD15": {
+      "kind": "equals",
+      "value": "D15_FINAL_NC_INDEPENDENT"
+    },
+    "consumer.nonOverwriteD08D16": {
+      "kind": "equals",
+      "value": true
+    },
+    "change.causesMaterialFact": {
+      "kind": "equals",
+      "value": true
+    },
+    "change.noUiOnlyInvalidation": {
+      "kind": "equals",
+      "value": true
+    },
+    "change.unknownAsUnknown": {
+      "kind": "equals",
+      "value": true
+    },
+    "change.invalidationManifest": {
+      "kind": "regex",
+      "pattern": "^manifest:delta[0-9]+$"
+    },
+    "commit.port": {
+      "kind": "equals",
+      "value": "D04FixtureImpactPort"
+    },
+    "commit.aclFresh": {
+      "kind": "equals",
+      "value": true
+    },
+    "commit.casExpected": {
+      "kind": "equalRef",
+      "ref": "identity.d04Revision"
+    },
+    "commit.cancelFence": {
+      "kind": "equals",
+      "value": "OPEN"
+    },
+    "ui.samePort": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.singleBabylon": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.leftTaskPanel": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.previewReadOnly": {
+      "kind": "equals",
+      "value": true
+    },
+    "nc.finalBytePinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "nc.d13Reparsed": {
+      "kind": "equals",
+      "value": true
+    },
+    "nc.d14D15Independent": {
+      "kind": "equals",
+      "value": true
+    },
+    "nc.d16HumanRelease": {
+      "kind": "equals",
+      "value": true
+    }
+  },
+  "independentConsumerContract": {
+    "owner": "D04",
+    "producers": [
+      "D01",
+      "D03"
+    ],
+    "consumers": [
+      "D05",
+      "D06",
+      "D07",
+      "D08",
+      "D09",
+      "D10",
+      "D12",
+      "D13",
+      "D14",
+      "D15",
+      "D16"
+    ],
+    "freezePreserved": [
+      "D08",
+      "D16"
+    ],
+    "actualOwnerSignatures": "0/17",
+    "actualConsumerPass": "0/17"
+  },
+  "rules": [
+    {
+      "id": "B179-R01",
+      "title": "D04工程实例修订哈希与Frame锁定",
+      "fields": [
+        "identity.d04Revision",
+        "identity.d04Hash",
+        "identity.d04Frame",
+        "identity.setupOccurrence"
+      ],
+      "sourceIds": [
+        "B179-S05",
+        "B179-S06"
+      ],
+      "assets": [
+        "D01",
+        "D04"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R01-P",
+        "B179-R01-N1",
+        "B179-R01-N2",
+        "B179-R01-N3",
+        "B179-R01-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B179-R02",
+      "title": "依赖图闭世界证据与Snapshot固定",
+      "fields": [
+        "graph.snapshotHash",
+        "graph.complete",
+        "graph.edgeVersion",
+        "graph.scopeStamp"
+      ],
+      "sourceIds": [
+        "B179-S01",
+        "B179-S05"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D10"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R02-P",
+        "B179-R02-N1",
+        "B179-R02-N2",
+        "B179-R02-N3",
+        "B179-R02-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B179-R03",
+      "title": "无影响宣称须有完整边清单与阴性见证",
+      "fields": [
+        "proof.unaffectedMode",
+        "proof.negativeWitness",
+        "proof.frontierWitness",
+        "proof.scopeChecked"
+      ],
+      "sourceIds": [
+        "B179-S01",
+        "B179-S02",
+        "B179-S05"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D07",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R03-P",
+        "B179-R03-N1",
+        "B179-R03-N2",
+        "B179-R03-N3",
+        "B179-R03-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B179-R04",
+      "title": "Owner独立声明不改写下游冻结与执行绑定",
+      "fields": [
+        "consumer.ownerD05",
+        "consumer.ownerD10Independent",
+        "consumer.ownerD15",
+        "consumer.nonOverwriteD08D16"
+      ],
+      "sourceIds": [
+        "B179-S05",
+        "B179-S06"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08",
+        "D10",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R04-P",
+        "B179-R04-N1",
+        "B179-R04-N2",
+        "B179-R04-N3",
+        "B179-R04-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B179-R05",
+      "title": "材料事实变更与仅UI变更分流",
+      "fields": [
+        "change.causesMaterialFact",
+        "change.noUiOnlyInvalidation",
+        "change.unknownAsUnknown",
+        "change.invalidationManifest"
+      ],
+      "sourceIds": [
+        "B179-S01",
+        "B179-S04",
+        "B179-S05",
+        "B179-S07"
+      ],
+      "assets": [
+        "D04",
+        "D06",
+        "D07",
+        "D09"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R05-P",
+        "B179-R05-N1",
+        "B179-R05-N2",
+        "B179-R05-N3",
+        "B179-R05-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B179-R06",
+      "title": "同域提交前权限CAS取消Fence重验",
+      "fields": [
+        "commit.port",
+        "commit.aclFresh",
+        "commit.casExpected",
+        "commit.cancelFence"
+      ],
+      "sourceIds": [
+        "B179-S03",
+        "B179-S05"
+      ],
+      "assets": [
+        "D04",
+        "D08",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R06-P",
+        "B179-R06-N1",
+        "B179-R06-N2",
+        "B179-R06-N3",
+        "B179-R06-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B179-R07",
+      "title": "GUI/CLI/Agent单入口与只读3D预览",
+      "fields": [
+        "ui.samePort",
+        "ui.singleBabylon",
+        "ui.leftTaskPanel",
+        "ui.previewReadOnly"
+      ],
+      "sourceIds": [
+        "B179-S05"
+      ],
+      "assets": [
+        "D04",
+        "D11"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R07-P",
+        "B179-R07-N1",
+        "B179-R07-N2",
+        "B179-R07-N3",
+        "B179-R07-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B179-R08",
+      "title": "最终NC链路独立证据不得以CL覆盖",
+      "fields": [
+        "nc.finalBytePinned",
+        "nc.d13Reparsed",
+        "nc.d14D15Independent",
+        "nc.d16HumanRelease"
+      ],
+      "sourceIds": [
+        "B179-S04",
+        "B179-S05",
+        "B179-S06"
+      ],
+      "assets": [
+        "D09",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-04-08"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "F1-04",
+        "W2-05",
+        "E3-04",
+        "U4-02"
+      ],
+      "testIds": [
+        "B179-R08-P",
+        "B179-R08-N1",
+        "B179-R08-N2",
+        "B179-R08-N3",
+        "B179-R08-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "schemaVersion": "procet-cap-06-02-fixtures-v1",
+  "syntheticOnly": true,
+  "basedOnHead": "8a6f3dfd01cab31184e8811795ffb5601b6fe4ea",
+  "cases": [
+    {
+      "id": "CAP-06-02-T01",
+      "ruleId": "C0602-R01",
+      "expected": "PASS",
+      "input": {
+        "refs": [
+          {
+            "id": "D01",
+            "revision": "r4",
+            "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "frame": "PART",
+            "unit": "mm",
+            "scope": "SYNTHETIC",
+            "branch": "A",
+            "schemaVersion": "v0.8"
+          },
+          {
+            "id": "D04",
+            "revision": "r7",
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "frame": "SETUP-A",
+            "unit": "mm",
+            "scope": "SYNTHETIC",
+            "branch": "A",
+            "schemaVersion": "v0.8"
+          }
+        ],
+        "sourceMatchesHead": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T02",
+      "ruleId": "C0602-R01",
+      "expected": "REJECT_EXACT_BASELINE",
+      "input": {
+        "refs": [
+          {
+            "id": "D01",
+            "revision": "r4",
+            "hash": "bad",
+            "frame": "PART",
+            "unit": "mm",
+            "scope": "SYNTHETIC",
+            "branch": "A",
+            "schemaVersion": "v0.8"
+          },
+          {
+            "id": "D04",
+            "revision": "r7",
+            "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "frame": "SETUP-A",
+            "unit": "mm",
+            "scope": "SYNTHETIC",
+            "branch": "A",
+            "schemaVersion": "v0.8"
+          }
+        ],
+        "sourceMatchesHead": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T03",
+      "ruleId": "C0602-R02",
+      "expected": "PASS",
+      "input": {
+        "priorStock": {
+          "kind": "OCCT_BREP",
+          "frame": "SETUP-A"
+        },
+        "materialFingerprint": "valid-digest",
+        "recomputedFingerprint": "valid-digest",
+        "toleranceBudgetKnown": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T04",
+      "ruleId": "C0602-R02",
+      "expected": "REJECT_STOCK_FINGERPRINT",
+      "input": {
+        "priorStock": {
+          "kind": "OCCT_BREP",
+          "frame": "SETUP-A"
+        },
+        "materialFingerprint": "valid-digest",
+        "recomputedFingerprint": "wrong",
+        "toleranceBudgetKnown": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T05",
+      "ruleId": "C0602-R03",
+      "expected": "PASS",
+      "input": {
+        "steps": [
+          "ROUGH",
+          "SEMI",
+          "FINISH"
+        ],
+        "edges": [
+          [
+            "ROUGH",
+            "SEMI"
+          ],
+          [
+            "SEMI",
+            "FINISH"
+          ]
+        ],
+        "freezePrecedenceRespected": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T06",
+      "ruleId": "C0602-R03",
+      "expected": "REJECT_PRECEDENCE_CYCLE",
+      "input": {
+        "steps": [
+          "ROUGH",
+          "SEMI",
+          "FINISH"
+        ],
+        "edges": [
+          [
+            "ROUGH",
+            "SEMI"
+          ],
+          [
+            "SEMI",
+            "FINISH"
+          ],
+          [
+            "FINISH",
+            "ROUGH"
+          ]
+        ],
+        "freezePrecedenceRespected": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T07",
+      "ruleId": "C0602-R04",
+      "expected": "PASS",
+      "input": {
+        "branches": [
+          "A",
+          "B"
+        ],
+        "overwriteFrozen": false,
+        "independentRevisions": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T08",
+      "ruleId": "C0602-R04",
+      "expected": "REJECT_FROZEN_OVERWRITE",
+      "input": {
+        "branches": [
+          "A",
+          "B"
+        ],
+        "overwriteFrozen": true,
+        "independentRevisions": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T09",
+      "ruleId": "C0602-R05",
+      "expected": "PASS",
+      "input": {
+        "prune": true,
+        "sameStock": true,
+        "sameConstraints": true,
+        "sameFrameAndTolerance": true,
+        "certifiedBound": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T10",
+      "ruleId": "C0602-R05",
+      "expected": "REJECT_UNSOUND_PRUNE",
+      "input": {
+        "prune": true,
+        "sameStock": true,
+        "sameConstraints": false,
+        "sameFrameAndTolerance": true,
+        "certifiedBound": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T11",
+      "ruleId": "C0602-R06",
+      "expected": "PASS",
+      "input": {
+        "exhausted": true,
+        "status": "UNKNOWN",
+        "provenInfeasible": false,
+        "budget": {
+          "beam": 8,
+          "maxBoolean": 100,
+          "maxMs": 15000
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T12",
+      "ruleId": "C0602-R06",
+      "expected": "REJECT_FALSE_INFEASIBLE",
+      "input": {
+        "exhausted": true,
+        "status": "INFEASIBLE",
+        "provenInfeasible": false,
+        "budget": {
+          "beam": 8,
+          "maxBoolean": 100,
+          "maxMs": 15000
+        }
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T13",
+      "ruleId": "C0602-R07",
+      "expected": "PASS",
+      "input": {
+        "booleanStatus": "OK",
+        "brepCheck": "VALID",
+        "protectedZoneChecked": true,
+        "fuzzyInBudget": true,
+        "d07Independent": "PENDING"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T14",
+      "ruleId": "C0602-R07",
+      "expected": "REJECT_BOOLEAN_PROOF",
+      "input": {
+        "booleanStatus": "OK",
+        "brepCheck": "INVALID",
+        "protectedZoneChecked": true,
+        "fuzzyInBudget": true,
+        "d07Independent": "PENDING"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T15",
+      "ruleId": "C0602-R08",
+      "expected": "PASS",
+      "input": {
+        "writer": "PLAN_ADOPTION_PORT",
+        "newRevision": true,
+        "frozenUntouched": true,
+        "noSolverApproval": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T16",
+      "ruleId": "C0602-R08",
+      "expected": "REJECT_DIRECT_PLAN_WRITE",
+      "input": {
+        "writer": "SOLVER_DIRECT_WRITE",
+        "newRevision": true,
+        "frozenUntouched": true,
+        "noSolverApproval": true
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T17",
+      "ruleId": "C0602-R09",
+      "expected": "PASS",
+      "input": {
+        "expectedRevision": "r7",
+        "currentRevision": "r7",
+        "acl": true,
+        "generation": 3,
+        "currentGeneration": 3,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T18",
+      "ruleId": "C0602-R09",
+      "expected": "REJECT_STALE_ACK",
+      "input": {
+        "expectedRevision": "r7",
+        "currentRevision": "r7",
+        "acl": true,
+        "generation": 3,
+        "currentGeneration": 4,
+        "cancelled": false,
+        "lateAck": false
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T19",
+      "ruleId": "C0602-R10",
+      "expected": "PASS",
+      "input": {
+        "d07Independent": "PASS",
+        "d08ExactFrozen": true,
+        "d09Gate": "D07_AND_D08",
+        "d15": "NOT_RUN",
+        "d16": "BLOCKED"
+      },
+      "synthetic": true
+    },
+    {
+      "id": "CAP-06-02-T20",
+      "ruleId": "C0602-R10",
+      "expected": "REJECT_D09_PRECONDITION",
+      "input": {
+        "d07Independent": "PASS",
+        "d08ExactFrozen": false,
+        "d09Gate": "D07_AND_D08",
+        "d15": "NOT_RUN",
+        "d16": "BLOCKED"
+      },
+      "synthetic": true
+    }
+  ]
+}

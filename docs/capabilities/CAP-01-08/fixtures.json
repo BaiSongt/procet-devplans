@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-01-08",
+  "status": "not_run_product_tests",
+  "preservesOriginalScenarioIds": "AT-01至AT-08与历史语义",
+  "scenarios": [
+    {
+      "id": "CAP-01-08-AT-01",
+      "kind": "negative",
+      "given": "Worker缺失，UI正常",
+      "when": "打开模块页面",
+      "then": "只显示诊断不允许生产提交",
+      "ruleIds": [
+        "EXT-R02"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-02",
+      "kind": "positive",
+      "given": "同模块并发activate",
+      "when": "等待注册",
+      "then": "只产生一份贡献租约",
+      "ruleIds": [
+        "EXT-R05"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-03",
+      "kind": "negative",
+      "given": "两个模块注册相同命令ID",
+      "when": "触发注册",
+      "then": "冲突拒绝且原Owner不变",
+      "ruleIds": [
+        "EXT-R01"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-04",
+      "kind": "positive",
+      "given": "激活部分成功后抛错",
+      "when": "检查回退",
+      "then": "已注册订阅与Overlay全部回收",
+      "ruleIds": [
+        "EXT-R07"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-05",
+      "kind": "negative",
+      "given": "停用比异步activate先完成",
+      "when": "旧promise回调",
+      "then": "旧generation不可复活",
+      "ruleIds": [
+        "EXT-R05"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-06",
+      "kind": "negative",
+      "given": "CLI/Agent没有当前工程写权限",
+      "when": "请求写入",
+      "then": "Host拒绝且留审计",
+      "ruleIds": [
+        "EXT-R03"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-07",
+      "kind": "negative",
+      "given": "新模块要求未知major C1",
+      "when": "预览升级",
+      "then": "拒绝未知schema的写入",
+      "ruleIds": [
+        "EXT-R06"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-08",
+      "kind": "positive",
+      "given": "组合锁含确切hash",
+      "when": "干净环境构建",
+      "then": "不依赖隐含兄弟目录并列双workspace入口",
+      "ruleIds": [
+        "EXT-R09"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-09",
+      "kind": "positive",
+      "given": "manifest合法且受信",
+      "when": "进行校验",
+      "then": "仅登记候选不自动授权写入",
+      "ruleIds": [
+        "EXT-R01"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-10",
+      "kind": "positive",
+      "given": "Worker真实握手且版本符合锁",
+      "when": "检查backendState",
+      "then": "Host可报告ready证据",
+      "ruleIds": [
+        "EXT-R02"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-11",
+      "kind": "negative",
+      "given": "WebView invoke被许可，但当前用户无领域写权",
+      "when": "提交资产",
+      "then": "Host拒绝伪造Actor",
+      "ruleIds": [
+        "EXT-R03"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-12",
+      "kind": "positive",
+      "given": "exact revision/hash/frame与审批匹配",
+      "when": "提交领域用例",
+      "then": "Owner写出唯一可查询receipt",
+      "ruleIds": [
+        "EXT-R04"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-13",
+      "kind": "negative",
+      "given": "scopeEpoch已变化",
+      "when": "旧结果试图修改新工程",
+      "then": "拒绝采纳，仅保存审计",
+      "ruleIds": [
+        "EXT-R04",
+        "EXT-R08"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-14",
+      "kind": "positive",
+      "given": "GUI/CLI/Agent均有合法相同权限",
+      "when": "执行同域命令",
+      "then": "获得一致的Owner回执与校验",
+      "ruleIds": [
+        "EXT-R03"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-15",
+      "kind": "negative",
+      "given": "插件错误含敏感路径及密钥",
+      "when": "返回前端",
+      "then": "安全错误码与恢复动作，不泄露原字符串",
+      "ruleIds": [
+        "EXT-R07"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-16",
+      "kind": "positive",
+      "given": "升级含旧Reader和逆迁移方案",
+      "when": "用副本预演",
+      "then": "记录独立消费者测试入口，不虚称产品PASS",
+      "ruleIds": [
+        "EXT-R06"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-17",
+      "kind": "positive",
+      "given": "切换资源与主工程的3D",
+      "when": "预览/选择",
+      "then": "唯一Babylon世界与TaskPanel，D04不变",
+      "ruleIds": [
+        "EXT-R09"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-18",
+      "kind": "negative",
+      "given": "任务取消后Worker返回成功",
+      "when": "自动采纳",
+      "then": "拒绝迟到成果，运行事实可记录",
+      "ruleIds": [
+        "EXT-R08"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-19",
+      "kind": "negative",
+      "given": "外部MOM适配缺许可",
+      "when": "导出客户工件",
+      "then": "fail-closed、无泄露并审计",
+      "ruleIds": [
+        "EXT-R10"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-01-08-AT-20",
+      "kind": "positive",
+      "given": "D04与D10独立且NC-D13-D14-D15验证凭据可核",
+      "when": "发布资格审查",
+      "then": "只有真实NC验证可授予D16；否则unknown",
+      "ruleIds": [
+        "EXT-R10"
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "procet-final-md-b14-trace-v08",
+  "date": "2026-10-29",
+  "baselineHead": "e591be97249c74e2a6a8252ca03709be9f3cbbb1",
+  "scope": "NEW_RESEARCH_SUPPLEMENT_PENDING_L3",
+  "sourceReadEvidence": "direct_official_html_sections_not_full_standards",
+  "sources": [
+    {
+      "id": "B14-S01",
+      "issuer": "John MacFarlane",
+      "title": "CommonMark Specification",
+      "version": "0.31.2",
+      "published": "2024-01-28",
+      "accessed": "2026-10-29",
+      "url": "https://spec.commonmark.org/0.31.2/",
+      "readingDepth": "官方HTML目录、§4.7 Link reference definitions、§6.3 Links及解析策略",
+      "limits": "CommonMark不是GitHub后处理或全部GFM插件"
+    },
+    {
+      "id": "B14-S02",
+      "issuer": "GitHub / GFM Spec contributors",
+      "title": "GitHub Flavored Markdown Specification",
+      "version": "0.29-gfm",
+      "published": "2019-04-06",
+      "accessed": "2026-10-29",
+      "url": "https://github.github.com/gfm/",
+      "readingDepth": "官方HTML §1.1、§4.7、§6.6及扩展目录",
+      "limits": "版本为发布spec版次，不证明当前全部GitHub渲染后处理；本轮未运行符合性解析器"
+    },
+    {
+      "id": "B14-S03",
+      "issuer": "GitHub",
+      "title": "REST API endpoints for Git trees",
+      "version": "GitHub REST文档在线版（无固定修订号）",
+      "published": "页面未标注",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/rest/git/trees",
+      "readingDepth": "官方HTML About Git trees、Get a tree中truncated行为及Create a tree的base_tree边界",
+      "limits": "Git Tree SHA证明存储对象身份，不证明链接可点击或文件业务意义"
+    },
+    {
+      "id": "B14-S04",
+      "issuer": "GitHub Docs",
+      "title": "Basic writing and formatting syntax",
+      "version": "GitHub Docs在线版（无固定版号）",
+      "published": "页面未标注",
+      "accessed": "2026-10-29",
+      "url": "https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax",
+      "readingDepth": "官方HTML Links、Section links、Relative links、Custom anchors",
+      "limits": "锚点生成规则不能由本轮启发式简单替代真实GitHub渲染"
+    },
+    {
+      "id": "B14-S05",
+      "issuer": "Procet规划仓AGENTS.md",
+      "title": "规划仓协作约束",
+      "version": "Git Blob ee331883cdcac4c48ae0a5dd73c7c384fed16fe3",
+      "published": "仓内快照2026-10-29",
+      "accessed": "2026-10-29",
+      "url": "https://github.com/BaiSongt/procet-devplans/blob/e591be97249c74e2a6a8252ca03709be9f3cbbb1/AGENTS.md",
+      "readingDepth": "全文六节",
+      "limits": "内部设计约束，不作为外部标准，不能替代人工Owner和产品验收"
+    }
+  ],
+  "rules": [
+    {
+      "id": "B14-R01",
+      "summary": "固定exact HEAD与非截断Git Tree，对全部Markdown建立路径→Git Blob SHA一一对应，分母不可用旧值冒充",
+      "sourceIds": [
+        "B14-S03",
+        "B14-S05"
+      ],
+      "fields": [
+        "sourceExactHead",
+        "gitTreeSha",
+        "markdownManifest[].path",
+        "markdownManifest[].gitBlobSha",
+        "summary.markdownTotal"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-04",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N01",
+        "N02",
+        "N03"
+      ]
+    },
+    {
+      "id": "B14-R02",
+      "summary": "跨HEAD历史证明只在路径SHA保持不变时复用，漂移路径必须精确重新读取",
+      "sourceIds": [
+        "B14-S03"
+      ],
+      "fields": [
+        "markdownManifest[].proof",
+        "summary.priorChangedFilesReRead",
+        "summary.priorStableReadPaths",
+        "summary.newExactReadPaths"
+      ],
+      "caps": [
+        "CAP-01-03",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-04",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N04",
+        "N05",
+        "N06"
+      ]
+    },
+    {
+      "id": "B14-R03",
+      "summary": "正则目录存在检查不得代替GFM完整AST/参考式/HTML、转义及嵌套链接检查",
+      "sourceIds": [
+        "B14-S01",
+        "B14-S02"
+      ],
+      "fields": [
+        "parserGates.gfmAst",
+        "parserGates.completeHtmlHref",
+        "parserGates.referenceStyleLinks",
+        "linkSpotChecks[]"
+      ],
+      "caps": [
+        "CAP-01-07",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "U4-03",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N11"
+      ]
+    },
+    {
+      "id": "B14-R04",
+      "summary": "锚点必须依据实际渲染标题及重名顺序确认，不得凭路径存在声称锚点有效",
+      "sourceIds": [
+        "B14-S04",
+        "B14-S02"
+      ],
+      "fields": [
+        "parserGates.githubHeadingAnchors",
+        "linkSpotChecks[].anchorsNotChecked"
+      ],
+      "caps": [
+        "CAP-01-07"
+      ],
+      "workPackages": [
+        "U4-03"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N11"
+      ]
+    },
+    {
+      "id": "B14-R05",
+      "summary": "缺失旧JSON原字节保留MISSING，补编文件不能冒充原始恢复",
+      "sourceIds": [
+        "B14-S03",
+        "B14-S05"
+      ],
+      "fields": [
+        "historicalOriginalMissing[].path",
+        "historicalOriginalMissing[].recovered"
+      ],
+      "caps": [
+        "CAP-01-02",
+        "CAP-01-03"
+      ],
+      "workPackages": [
+        "B0-05",
+        "T5-04"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N07"
+      ]
+    },
+    {
+      "id": "B14-R06",
+      "summary": "文档/来源审计通过不代表17个Owner已会签、独立消费者运行或L3已批准",
+      "sourceIds": [
+        "B14-S05"
+      ],
+      "fields": [
+        "gates.ownerFormalSigned",
+        "gates.consumerRealPass",
+        "gates.l3"
+      ],
+      "caps": [
+        "CAP-01-04",
+        "CAP-10-08"
+      ],
+      "workPackages": [
+        "B0-04",
+        "T5-06"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N08",
+        "N09",
+        "N10"
+      ]
+    },
+    {
+      "id": "B14-R07",
+      "summary": "D04与D10隔离、D12最终NC→D13→D14→D15→D16证据独立；未知及仅CL动画不得声称产品PASS",
+      "sourceIds": [
+        "B14-S05"
+      ],
+      "fields": [
+        "gates.productNC",
+        "gates.occt",
+        "gates.b5Oem",
+        "gates.independentNodeWholeRepo"
+      ],
+      "caps": [
+        "CAP-09-07",
+        "CAP-10-01"
+      ],
+      "workPackages": [
+        "E3-04",
+        "E3-05",
+        "E3-06"
+      ],
+      "acceptanceIds": [
+        "P01",
+        "N12"
+      ]
+    }
+  ],
+  "fixturesPath": "docs/architecture/v0.8/final-markdown-b14-fixtures-v08.json",
+  "auditPath": "research/audits/FINAL-MARKDOWN-B14-2026-10-29.json",
+  "machineChecker": "tools/check_final_md_b14_v08.cjs",
+  "owner": "候选规划资料Owner，未实际正式签署",
+  "independentConsumer": "NOT_RUN",
+  "status": "规划PASS≠产品PASS"
+}

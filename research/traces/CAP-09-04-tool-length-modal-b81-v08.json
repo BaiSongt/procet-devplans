@@ -1,0 +1,265 @@
+{
+  "schemaVersion": "procet-b81-traces-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-09-04",
+  "sourceRegistry": "research/sources/CAP-09-04-tool-length-modal-b81.json",
+  "originalTrace": "research/traces/CAP-09-04.json",
+  "fixtures": "docs/capabilities/CAP-09-04/tool-length-modal-b81-fixtures-v08.json",
+  "checker": "tools/check_cap0904_tool_length_modal_b81_v08.cjs",
+  "rules": [
+    {
+      "id": "B81-R01",
+      "title": "D03名义与D10实际Gauge/Frame/Owner exact不可混同",
+      "sourceIds": [
+        "B81-S05",
+        "B81-S07"
+      ],
+      "fields": [
+        "evidence.d03Revision",
+        "evidence.d03Hash",
+        "evidence.d10Revision",
+        "evidence.d10Hash",
+        "evidence.gaugeMeasuredZ",
+        "evidence.gaugeFrame",
+        "evidence.expectedD03Hash",
+        "evidence.expectedD10Hash"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P01",
+        "U06",
+        "U07",
+        "S01",
+        "S07",
+        "S08"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    },
+    {
+      "id": "B81-R02",
+      "title": "LinuxCNC G43 Hn/H0区分当前装刀和随机换刀",
+      "sourceIds": [
+        "B81-S01"
+      ],
+      "fields": [
+        "action.h",
+        "evidence.loadedTool",
+        "evidence.changer",
+        "evidence.toolTable"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P01",
+        "P05",
+        "P06",
+        "N04",
+        "U02",
+        "U03",
+        "U08"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    },
+    {
+      "id": "B81-R03",
+      "title": "LinuxCNC G43.1替换补偿且同块运动拒绝",
+      "sourceIds": [
+        "B81-S02"
+      ],
+      "fields": [
+        "action.op",
+        "action.z",
+        "action.sameBlockMotion"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P03",
+        "N01"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    },
+    {
+      "id": "B81-R04",
+      "title": "LinuxCNC G43.2追加而非覆盖、H和轴词不能并用",
+      "sourceIds": [
+        "B81-S02"
+      ],
+      "fields": [
+        "evidence.currentAppliedZ",
+        "action.h",
+        "action.z"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P02",
+        "N02",
+        "N03"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    },
+    {
+      "id": "B81-R05",
+      "title": "G49取消补偿与G43类命令不直接产生运动",
+      "sourceIds": [
+        "B81-S01",
+        "B81-S02"
+      ],
+      "fields": [
+        "action.op",
+        "result.offsetZ",
+        "result.motionEffect"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P04"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    },
+    {
+      "id": "B81-R06",
+      "title": "Haas NGC持久模态需读取实际状态并锁控制器版本",
+      "sourceIds": [
+        "B81-S03",
+        "B81-S04"
+      ],
+      "fields": [
+        "evidence.controllerSoftware",
+        "evidence.interpreterBuild",
+        "evidence.startupOffsetObserved"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P07",
+        "U01",
+        "U04",
+        "U05"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    },
+    {
+      "id": "B81-R07",
+      "title": "事务权限CAS/Frame/ScopeEpoch/取消重验和过期失效",
+      "sourceIds": [
+        "B81-S06",
+        "B81-S07"
+      ],
+      "fields": [
+        "evidence.aclAtCommit",
+        "evidence.scopeEpoch",
+        "evidence.expectedD12Hash",
+        "evidence.cancelEpoch",
+        "evidence.generation"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P08",
+        "N05",
+        "N06",
+        "N07",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    },
+    {
+      "id": "B81-R08",
+      "title": "D13语义及D15独立验收，不允许D16自动发布",
+      "sourceIds": [
+        "B81-S07",
+        "B81-S05"
+      ],
+      "fields": [
+        "evidence.d15Independent",
+        "evidence.d16AutoPublish",
+        "evidence.executionWithoutApproval"
+      ],
+      "capabilityIds": [
+        "CAP-09-04"
+      ],
+      "workPackageIds": [
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "caseIds": [
+        "P01",
+        "N08",
+        "N09",
+        "N10",
+        "U04"
+      ],
+      "origin": "PUBLIC_VENDOR_FACTS_PLUS_INTERNAL_DESIGN_RULES",
+      "independentConsumer": "NOT_RUN",
+      "ownerSignoff": "PENDING_HUMAN"
+    }
+  ]
+}

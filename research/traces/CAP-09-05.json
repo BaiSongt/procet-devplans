@@ -1,0 +1,547 @@
+{
+  "schemaVersion": "procet-cap0905-trace-v1",
+  "capabilityId": "CAP-09-05",
+  "researchTopic": "R-CL-PRECHECK-001",
+  "sourceRegistry": "research/sources/CAP-09-05.json",
+  "specification": "docs/capabilities/CAP-09-05/README.md",
+  "ui": "docs/capabilities/CAP-09-05/UI.md",
+  "fixtures": "docs/capabilities/CAP-09-05/fixtures.json",
+  "validator": "tools/check_cap0905_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-09-05-R01",
+      "capabilityId": "CAP-09-05",
+      "summary": "输入快照与D09来源",
+      "engineeringRule": "CL修订及内容哈希、D08冻结、Frame、单位全部精确引用；没有D09冻结源则不生成D11。",
+      "fields": [
+        "input.d09RevisionPinned",
+        "input.d09HashPinned",
+        "input.d08FreezeReferencePinned",
+        "input.frameAndUnitsDeclared"
+      ],
+      "sourceIds": [
+        "C0905-S01",
+        "C0905-S02",
+        "C0905-S07"
+      ],
+      "assets": [
+        "D08",
+        "D09",
+        "D11"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "input.d09RevisionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.d09HashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.d08FreezeReferencePinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "input.frameAndUnitsDeclared",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R02",
+      "capabilityId": "CAP-09-05",
+      "summary": "D04/D10责任分界",
+      "engineeringRule": "名义Setup只从D04读取；特定机床、装夹实态和控制器配置归D10；D11不可代替执行绑定。",
+      "fields": [
+        "binding.d04NominalOnly",
+        "binding.d10ActualBindingPinned",
+        "binding.machineResourceD03Pinned",
+        "binding.physicalEvidenceUnknownBlocked"
+      ],
+      "sourceIds": [
+        "C0905-S01",
+        "C0905-S03",
+        "C0905-S05"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D11"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "binding.d04NominalOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.d10ActualBindingPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.machineResourceD03Pinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "binding.physicalEvidenceUnknownBlocked",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R03",
+      "capabilityId": "CAP-09-05",
+      "summary": "运动学与逆解候选",
+      "engineeringRule": "09域调用正逆运动学并记录候选分支及连续性；无法唯一确定有效解则UNKNOWN。",
+      "fields": [
+        "kinematics.fkIkVersionPinned",
+        "kinematics.solutionBranchIdentityRecorded",
+        "kinematics.rotaryWrapAndSingularityConsidered",
+        "kinematics.ambiguousSolutionsUnknown"
+      ],
+      "sourceIds": [
+        "C0905-S02",
+        "C0905-S03",
+        "C0905-S05"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D11",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "kinematics.fkIkVersionPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematics.solutionBranchIdentityRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematics.rotaryWrapAndSingularityConsidered",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "kinematics.ambiguousSolutionsUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R04",
+      "capabilityId": "CAP-09-05",
+      "summary": "机床轴限位分层",
+      "engineeringRule": "分别计算笛卡尔/逻辑轴与物理Joint限位，不能以终点在软限位内替代关节轴校核。",
+      "fields": [
+        "limits.jointAndAxisLimitsSeparated",
+        "limits.travelBoundariesPinned",
+        "limits.sampledInteriorChecked",
+        "limits.limitViolationPrecheckReject"
+      ],
+      "sourceIds": [
+        "C0905-S02",
+        "C0905-S03",
+        "C0905-S08"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D11"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "limits.jointAndAxisLimitsSeparated",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.travelBoundariesPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.sampledInteriorChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.limitViolationPrecheckReject",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R05",
+      "capabilityId": "CAP-09-05",
+      "summary": "连续区间覆盖",
+      "engineeringRule": "每个中立CL段需要有界插值区间与取样误差预算；采样遗漏或误差上界缺失只能UNKNOWN。",
+      "fields": [
+        "sampling.segmentParameterIntervalDeclared",
+        "sampling.samplingToleranceVersioned",
+        "sampling.coverageGapUnknown",
+        "sampling.continuousSafetyNotCertified"
+      ],
+      "sourceIds": [
+        "C0905-S02",
+        "C0905-S04",
+        "C0905-S05"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "sampling.segmentParameterIntervalDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sampling.samplingToleranceVersioned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sampling.coverageGapUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "sampling.continuousSafetyNotCertified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R06",
+      "capabilityId": "CAP-09-05",
+      "summary": "几何干涉初筛",
+      "engineeringRule": "刀具/刀柄/机床/夹具在同一Frame执行粗筛；OCCT点到形状最小距离不自动证明连续无碰撞。",
+      "fields": [
+        "clearance.toolHolderFixtureModelsPinned",
+        "clearance.shapeDistanceMethodRecorded",
+        "clearance.uncertaintyAndToleranceIncluded",
+        "clearance.unobservedIntervalUnknown"
+      ],
+      "sourceIds": [
+        "C0905-S04",
+        "C0905-S05",
+        "C0905-S06"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10",
+        "D11"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "clearance.toolHolderFixtureModelsPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clearance.shapeDistanceMethodRecorded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clearance.uncertaintyAndToleranceIncluded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "clearance.unobservedIntervalUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R07",
+      "capabilityId": "CAP-09-05",
+      "summary": "CL与NC工程边界",
+      "engineeringRule": "D11仅输出CL_ONLY/UNKNOWN/REJECT_PRECHECK；不存在D13重读最终NC与D14轴时序时不得写D15验证PASS或D16可发布。",
+      "fields": [
+        "gate.d11ResultPrecheckOnly",
+        "gate.d12D13RequiredForNc",
+        "gate.d14D15Independent",
+        "gate.d16CannotUseClPass"
+      ],
+      "sourceIds": [
+        "C0905-S02",
+        "C0905-S03",
+        "C0905-S07"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "gate.d11ResultPrecheckOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.d12D13RequiredForNc",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.d14D15Independent",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "gate.d16CannotUseClPass",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R08",
+      "capabilityId": "CAP-09-05",
+      "summary": "引用变更与失效",
+      "engineeringRule": "D03/D04/D08/D09/D10或算法/采样策略改变即使D11失效；保留旧证据但不复用其放行资格。",
+      "fields": [
+        "stale.inputDependencyGraphExact",
+        "stale.changedInputMarksD11Stale",
+        "stale.oldFrozenD08Retained",
+        "stale.d16OldHistoryPreserved"
+      ],
+      "sourceIds": [
+        "C0905-S06",
+        "C0905-S07",
+        "C0905-S01"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "stale.inputDependencyGraphExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stale.changedInputMarksD11Stale",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stale.oldFrozenD08Retained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "stale.d16OldHistoryPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R09",
+      "capabilityId": "CAP-09-05",
+      "summary": "三入口事务及统一GUI",
+      "engineeringRule": "GUI、CLI、Agent共用领域Owner Port；单Babylon世界、左TaskPanel，提交时CAS/ACL/作用域代次和取消重验。",
+      "fields": [
+        "transaction.oneBabylonSceneTaskPanel",
+        "transaction.guiCliAgentSameOwnerPort",
+        "transaction.casAclRecheckAtCommit",
+        "transaction.lateAckCancelRejected"
+      ],
+      "sourceIds": [
+        "C0905-S06",
+        "C0905-S07",
+        "C0905-S08"
+      ],
+      "assets": [
+        "D09",
+        "D10",
+        "D11"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "transaction.oneBabylonSceneTaskPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.guiCliAgentSameOwnerPort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.casAclRecheckAtCommit",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "transaction.lateAckCancelRejected",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-05-R10",
+      "capabilityId": "CAP-09-05",
+      "summary": "独立消费者及迁移交接",
+      "engineeringRule": "独立测试读取D11新旧Schema；验证正反样例、失效传播、回退与未知分类；规划通过不替代实机和产品测试。",
+      "fields": [
+        "handoff.independentConsumerContract",
+        "handoff.positiveNegativeOracleSeparate",
+        "handoff.legacyReaderRollbackPlanned",
+        "handoff.productAcceptanceNotRun"
+      ],
+      "sourceIds": [
+        "C0905-S03",
+        "C0905-S06",
+        "C0905-S07"
+      ],
+      "assets": [
+        "D08",
+        "D11",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "handoff.independentConsumerContract",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.positiveNegativeOracleSeparate",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.legacyReaderRollbackPlanned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "handoff.productAcceptanceNotRun",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺Exact revision/hash/Frame、上下游Owner证据或未知控制器行为时REJECT/UNKNOWN，不授予D15/D16工程资格。",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

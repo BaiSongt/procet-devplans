@@ -1,0 +1,520 @@
+{
+  "schemaVersion": "procet-cap0903-trace-v1",
+  "capabilityId": "CAP-09-03",
+  "researchTopic": "R-IK-BRANCH-001",
+  "sourceRegistry": "research/sources/CAP-09-03.json",
+  "specification": "docs/capabilities/CAP-09-03/README.md",
+  "ui": "docs/capabilities/CAP-09-03/UI.md",
+  "fixtures": "docs/capabilities/CAP-09-03/fixtures.json",
+  "validator": "tools/check_cap0903_planning_2026_10_27.cjs",
+  "status": "PLANNING_ONLY_PENDING_HUMAN",
+  "rules": [
+    {
+      "id": "CAP-09-03-R01",
+      "capabilityId": "CAP-09-03",
+      "summary": "精确来源与D04/D10职责",
+      "fields": [
+        "refs.d03Exact",
+        "refs.d04NominalOnly",
+        "refs.d10PhysicalExact",
+        "refs.hashFrameRevisionExact"
+      ],
+      "sourceIds": [
+        "C0903-S01",
+        "C0903-S02",
+        "C0903-S08"
+      ],
+      "assets": [
+        "D03",
+        "D04",
+        "D10"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "refs.d03Exact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "refs.d04NominalOnly",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "refs.d10PhysicalExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "refs.hashFrameRevisionExact",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R02",
+      "capabilityId": "CAP-09-03",
+      "summary": "NC目标与控制器语义",
+      "fields": [
+        "target.rightHandedSE3",
+        "target.frameDirectionDeclared",
+        "target.d13FromFinalNc",
+        "target.rtcpModeKnown"
+      ],
+      "sourceIds": [
+        "C0903-S01",
+        "C0903-S02",
+        "C0903-S06"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "target.rightHandedSE3",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.frameDirectionDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.d13FromFinalNc",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "target.rtcpModeKnown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R03",
+      "capabilityId": "CAP-09-03",
+      "summary": "多初值候选枚举",
+      "fields": [
+        "solver.methodDeclared",
+        "solver.multiseedBounded",
+        "solver.allBranchesRetained",
+        "solver.nonConvergenceUnknown"
+      ],
+      "sourceIds": [
+        "C0903-S02",
+        "C0903-S04",
+        "C0903-S05"
+      ],
+      "assets": [
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "solver.methodDeclared",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "solver.multiseedBounded",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "solver.allBranchesRetained",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "solver.nonConvergenceUnknown",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R04",
+      "capabilityId": "CAP-09-03",
+      "summary": "独立FK回代残差",
+      "fields": [
+        "oracle.independentFK",
+        "oracle.positionResidual",
+        "oracle.orientationResidual",
+        "oracle.unitTolerancePinned"
+      ],
+      "sourceIds": [
+        "C0903-S04",
+        "C0903-S06",
+        "C0903-S07"
+      ],
+      "assets": [
+        "D03",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "oracle.independentFK",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.positionResidual",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.orientationResidual",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "oracle.unitTolerancePinned",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R05",
+      "capabilityId": "CAP-09-03",
+      "summary": "多解ID与旋转周期",
+      "fields": [
+        "branch.stableId",
+        "branch.turnCountPreserved",
+        "branch.periodicWrap",
+        "branch.noImplicitFlip"
+      ],
+      "sourceIds": [
+        "C0903-S02",
+        "C0903-S04",
+        "C0903-S05"
+      ],
+      "assets": [
+        "D10",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "branch.stableId",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "branch.turnCountPreserved",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "branch.periodicWrap",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "branch.noImplicitFlip",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R06",
+      "capabilityId": "CAP-09-03",
+      "summary": "连续性与速加速度",
+      "fields": [
+        "motion.seedExact",
+        "motion.periodicDeltaCorrect",
+        "motion.velocityAccelerationChecked",
+        "motion.noTeleport"
+      ],
+      "sourceIds": [
+        "C0903-S02",
+        "C0903-S03",
+        "C0903-S04"
+      ],
+      "assets": [
+        "D13",
+        "D14"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "motion.seedExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.periodicDeltaCorrect",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.velocityAccelerationChecked",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "motion.noTeleport",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R07",
+      "capabilityId": "CAP-09-03",
+      "summary": "Jacobian奇异判定",
+      "fields": [
+        "singular.rankOrCondition",
+        "singular.thresholdProfileExact",
+        "singular.nearRiskDisplayed",
+        "singular.unknownBlocks"
+      ],
+      "sourceIds": [
+        "C0903-S03",
+        "C0903-S05",
+        "C0903-S07"
+      ],
+      "assets": [
+        "D03",
+        "D14",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "singular.rankOrCondition",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "singular.thresholdProfileExact",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "singular.nearRiskDisplayed",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "singular.unknownBlocks",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R08",
+      "capabilityId": "CAP-09-03",
+      "summary": "限位不可达和碰撞",
+      "fields": [
+        "limits.realEvidenceOrUnknown",
+        "limits.axisJointBoth",
+        "limits.unreachableRejected",
+        "limits.collisionD15Separate"
+      ],
+      "sourceIds": [
+        "C0903-S01",
+        "C0903-S02",
+        "C0903-S07"
+      ],
+      "assets": [
+        "D03",
+        "D10",
+        "D15"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "limits.realEvidenceOrUnknown",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.axisJointBoth",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.unreachableRejected",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "limits.collisionD15Separate",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R09",
+      "capabilityId": "CAP-09-03",
+      "summary": "NC轴时序与验证隔离",
+      "fields": [
+        "nc.finalD12HashPinned",
+        "nc.d13Reinterprets",
+        "nc.d14FromD13Events",
+        "nc.d15RequiredBeforeD16"
+      ],
+      "sourceIds": [
+        "C0903-S02",
+        "C0903-S03",
+        "C0903-S08"
+      ],
+      "assets": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "nc.finalD12HashPinned",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d13Reinterprets",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d14FromD13Events",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "nc.d15RequiredBeforeD16",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "CAP-09-03-R10",
+      "capabilityId": "CAP-09-03",
+      "summary": "事务、GUI、撤权与回退",
+      "fields": [
+        "access.oneWorldLeftPanel",
+        "access.guiCliAgentSamePort",
+        "access.casAclCancelEpochCheck",
+        "access.frozenHistoryPreserved"
+      ],
+      "sourceIds": [
+        "C0903-S08",
+        "C0903-S09"
+      ],
+      "assets": [
+        "D08",
+        "D14",
+        "D16"
+      ],
+      "workPackages": [
+        "F1-02",
+        "E3-04",
+        "E3-05",
+        "U4-04"
+      ],
+      "criteria": [
+        {
+          "path": "access.oneWorldLeftPanel",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "access.guiCliAgentSamePort",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "access.casAclCancelEpochCheck",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "path": "access.frozenHistoryPreserved",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "negativeRequirement": "缺精确输入/受控证据则拒绝或UNKNOWN；冻结记录不覆盖、不能凭CL动画发布",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

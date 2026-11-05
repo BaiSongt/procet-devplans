@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "procet-planning-fixtures-v1",
+  "capabilityId": "CAP-01-01",
+  "status": "planning_specs_only",
+  "baseSpecFile": "docs/capabilities/batch01-v0.9.1/01_功能规格/CAP-01-01_项目与工程空间.md",
+  "historicalSpecBlobSha": "2524bfc220206499f4865363e487cfa2232113a9",
+  "cases": [
+    {
+      "id": "CAP-01-01-AT-01",
+      "polarity": "正向",
+      "given": "断网工程含有效D01/D03/D04 exact闭包",
+      "when": "保存后在离线无原源路径环境重开",
+      "then": "原ProjectId、root hashes、必要读者一致；可查询正确活动Setup",
+      "counterfactualToReject": "若实际缺字节/无权限必须拒绝对应制造操作",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-02",
+      "polarity": "反向",
+      "given": "P1正活动，P2缺必需B-Rep",
+      "when": "请求打开P2",
+      "then": "P2不正常激活，P1保持可操作并显示所缺exact引用",
+      "counterfactualToReject": "若只是mesh可显示不应认定B-Rep满足",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-03",
+      "polarity": "反向",
+      "given": "两写者持同一个expectedGeneration",
+      "when": "分别提交",
+      "then": "最多一项在相同前提下成功；另项显式CONFLICT并保留修改",
+      "counterfactualToReject": "不得静默覆盖已确认head",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-04",
+      "polarity": "反向",
+      "given": "存在已回读正式文件及dirty草稿",
+      "when": "注入磁盘/替换/读回错误",
+      "then": "正式旧文件可验证，savedGeneration不虚增且dirty有恢复路径",
+      "counterfactualToReject": "不能声称workingGeneration也必然不变",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-05",
+      "polarity": "正向",
+      "given": "P1有部分批准工艺",
+      "when": "用户选择明确Fork而非改路径Save As",
+      "then": "P2独立ProjectId、保留来源；批准适用性逐项重新判断",
+      "counterfactualToReject": "不得直接复制Released资格",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-06",
+      "polarity": "反向",
+      "given": "P1与P2都有后台任务",
+      "when": "关闭P1并选择取消指定P1任务",
+      "then": "P1在途作业按决定收束，P2不受影响",
+      "counterfactualToReject": "隐藏面板不能等于取消任务",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-07",
+      "polarity": "正向",
+      "given": "两个Setup有各自已确认候选",
+      "when": "跨Setup切换进入规划",
+      "then": "精确结果按Setup复原，无需重复进入特征分析",
+      "counterfactualToReject": "不得依赖缓存列表索引误绑",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-08",
+      "polarity": "正向",
+      "given": "缺一个仅UI增强用途的optional模块",
+      "when": "打开项目并导航其他完整能力",
+      "then": "必要业务仍可用，缺模块对象只读隔离并标原因",
+      "counterfactualToReject": "不能把unknown required误降optional",
+      "origin": "原规格保持",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-09",
+      "polarity": "反向",
+      "given": "两工程同名而各有不同ProjectId",
+      "when": "按项目名选择或改变保存路径",
+      "then": "没有合并身份；改变路径的Save As仍保持原ProjectId",
+      "counterfactualToReject": "不得以文件名/位置作为主键",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-10",
+      "polarity": "反向",
+      "given": "根引用同owner/id/revision但hash与CAS字节不符",
+      "when": "执行保存闭包确认或恢复",
+      "then": "阻断正常制造激活并保留冲突证据",
+      "counterfactualToReject": "不得使用同名最新资源兜底",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-11",
+      "polarity": "反向",
+      "given": "工作区其他提交已推进generation",
+      "when": "旧编辑发送expectedGeneration保存",
+      "then": "返回CONFLICT及新head；不覆盖，不自动另建代数",
+      "counterfactualToReject": "超时重试先查询requestId",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-12",
+      "polarity": "反向",
+      "given": "独立两个SQLite库以不同generation被备份",
+      "when": "组成一个工程包",
+      "then": "若缺跨库一致来源证明则只诊断，不标可制造",
+      "counterfactualToReject": "SQLite单库一致不等于跨域一致",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-13",
+      "polarity": "反向",
+      "given": "有旧版.pct且保存操作在rename前崩溃",
+      "when": "重启并检查文件与两种generation",
+      "then": "旧版有效可读；保存回执不能报已成功；working generation另审计",
+      "counterfactualToReject": "不凭文档宣布断电安全",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-14",
+      "polarity": "反向",
+      "given": "P1活动，P2 .pct受损/必需模块读者不在场",
+      "when": "请求正常打开P2",
+      "then": "阶段预检失败，P1 scene与业务heads不变",
+      "counterfactualToReject": "P2局部stage不得污染P1",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-15",
+      "polarity": "反向",
+      "given": "P1异步open获得stageToken后切换到P2",
+      "when": "P1取消且旧结果迟到",
+      "then": "旧scopeEpoch事件仅归档，不改变P2场景/工程",
+      "counterfactualToReject": "不把异步完成误认为本次已采纳",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-16",
+      "polarity": "反向",
+      "given": "Manifest声明required模块缺失，UI层有optional模块可用",
+      "when": "强行保存或打开生产模式",
+      "then": "拒绝业务写入或仅诊断只读，原required保真",
+      "counterfactualToReject": "不能用optional模块代满足required域",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-17",
+      "polarity": "反向",
+      "given": "Provider条目required=false但D04引用真实必需子件",
+      "when": "导出后删除该子件再恢复",
+      "then": "由领域required依赖闭包阻止制造激活并报告路径",
+      "counterfactualToReject": "不能将provider标志直接当作完整业务必需性",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-18",
+      "polarity": "反向",
+      "given": "P1存在冻结批准结果",
+      "when": "另存到新文件路径而未选择fork",
+      "then": "原ProjectId保持；若选择fork则新ID但不自动继承批准",
+      "counterfactualToReject": "不得把普通save_as当隐式fork",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-19",
+      "polarity": "反向",
+      "given": "用户仅切换3D选中对象、相机或活动Setup",
+      "when": "关闭面板又重新载入",
+      "then": "没有业务revision增加、无默认写入；晚回执不可串项目",
+      "counterfactualToReject": "视口偏好变化不造成制造失效",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    },
+    {
+      "id": "CAP-01-01-AT-20",
+      "polarity": "反向",
+      "given": "manifest以CBOR字节生成受控摘要，辅助脚本对JSON排序后hash不同",
+      "when": "比较派生JSON哈希与原工件摘要",
+      "then": "保持原字节/编码方案权威，禁止错误覆盖或宣称JCS兼容",
+      "counterfactualToReject": "JCS不等于所有CBOR规范",
+      "origin": "本轮新增反例",
+      "executionStatus": "not_run_product_test",
+      "testEntry": "待产品工程实现/集成测试"
+    }
+  ]
+}

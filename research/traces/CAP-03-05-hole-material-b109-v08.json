@@ -1,0 +1,376 @@
+{
+  "schemaVersion": "procet-b109-hole-material-trace-v08",
+  "date": "2026-11-02",
+  "sourceRegistry": "research/sources/CAP-03-05-hole-material-b109.json",
+  "fixtures": "docs/capabilities/CAP-03-05/hole-material-b109-fixtures-v08.json",
+  "checker": "tools/check_cap0305_hole_material_b109_v08.cjs",
+  "capabilityId": "CAP-03-05",
+  "relatedCapabilities": [
+    "CAP-03-03",
+    "CAP-03-04",
+    "CAP-06-01",
+    "CAP-07-01"
+  ],
+  "originalWorkPackages": [
+    "B0-02",
+    "F1-03",
+    "F1-04",
+    "T5-02"
+  ],
+  "ruleCount": 8,
+  "sourceCount": 7,
+  "approval": "L3_PENDING_HUMAN",
+  "ownerSignatures": "0/17",
+  "realIndependentConsumers": "0/17",
+  "rules": [
+    {
+      "id": "B109-R01",
+      "summary": "固定D01修订、源Hash、Occurrence、Solid及Frame；不同实例不可合并",
+      "sourceIds": [
+        "B109-SRC07"
+      ],
+      "fields": [
+        "refs.d01Revision",
+        "refs.sourceHash",
+        "refs.occurrence",
+        "refs.selectedSolidRef",
+        "refs.frame"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-03",
+      "positive": [
+        "B109-P04"
+      ],
+      "negative": [],
+      "unknown": [
+        "B109-U01",
+        "B109-U02"
+      ],
+      "stale": [
+        "B109-S01",
+        "B109-S02"
+      ],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B109-R02",
+      "summary": "仅对有效的Native BRep和明确检查Profile授予算法候选资格",
+      "sourceIds": [
+        "B109-SRC04",
+        "B109-SRC07"
+      ],
+      "fields": [
+        "geometry.native",
+        "geometry.shapeValid",
+        "geometry.checkProfile"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-04",
+      "positive": [
+        "B109-P01"
+      ],
+      "negative": [
+        "B109-N01",
+        "B109-N02"
+      ],
+      "unknown": [
+        "B109-U03"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B109-R03",
+      "summary": "CYLINDER/半径只是解析曲面证据，不等于孔制造身份",
+      "sourceIds": [
+        "B109-SRC01",
+        "B109-SRC07"
+      ],
+      "fields": [
+        "geometry.surfaceType",
+        "geometry.radiusMm"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "B0-02",
+      "positive": [
+        "B109-P01"
+      ],
+      "negative": [
+        "B109-N03",
+        "B109-N04"
+      ],
+      "unknown": [],
+      "stale": [],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B109-R04",
+      "summary": "轴向面集合必须邻接连通且在单Solid精确作用域内",
+      "sourceIds": [
+        "B109-SRC02",
+        "B109-SRC07"
+      ],
+      "fields": [
+        "geometry.adjacencyComplete",
+        "geometry.wallConnected",
+        "geometry.solidCount"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "T5-02",
+      "positive": [
+        "B109-P02"
+      ],
+      "negative": [],
+      "unknown": [
+        "B109-U04",
+        "B109-U05",
+        "B109-U10"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B109-R05",
+      "summary": "材料侧必须有受控Tol的局部Solid分类，ON/UNKNOWN不能当VOID",
+      "sourceIds": [
+        "B109-SRC03",
+        "B109-SRC07"
+      ],
+      "fields": [
+        "geometry.axisProbe",
+        "geometry.materialProbe",
+        "geometry.classifierToleranceMm",
+        "geometry.materialSide"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-03",
+      "positive": [
+        "B109-P01"
+      ],
+      "negative": [
+        "B109-N05",
+        "B109-N06",
+        "B109-N07"
+      ],
+      "unknown": [
+        "B109-U06",
+        "B109-U07",
+        "B109-U08"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B109-R06",
+      "summary": "穿孔需两端实际连通无底面；盲孔需单端及真实底面；证据不足UNKNOWN",
+      "sourceIds": [
+        "B109-SRC01",
+        "B109-SRC07"
+      ],
+      "fields": [
+        "geometry.claim",
+        "geometry.entranceCount",
+        "geometry.capPresent",
+        "geometry.axialEndEvidence"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "T5-02",
+      "positive": [
+        "B109-P01",
+        "B109-P02"
+      ],
+      "negative": [
+        "B109-N08",
+        "B109-N09",
+        "B109-N10"
+      ],
+      "unknown": [
+        "B109-U09"
+      ],
+      "stale": [],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B109-R07",
+      "summary": "ISO/NIST的制造特征模型不能自动给D02批准或D15/16 NC资格；D04不等于D10",
+      "sourceIds": [
+        "B109-SRC05",
+        "B109-SRC07",
+        "B109-SRC06"
+      ],
+      "fields": [
+        "flow.autoApprove",
+        "flow.hasD10",
+        "geometry.claim"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02",
+        "D04",
+        "D10",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "F1-04",
+      "positive": [
+        "B109-P03"
+      ],
+      "negative": [
+        "B109-N17"
+      ],
+      "unknown": [],
+      "stale": [],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    },
+    {
+      "id": "B109-R08",
+      "summary": "03域D02唯一Owner，GUI/CLI/Agent单入口，左TaskPanel/单Babylon，提交点ACL/CAS/ScopeEpoch及取消晚回执",
+      "sourceIds": [
+        "B109-SRC07"
+      ],
+      "fields": [
+        "flow.acl",
+        "flow.cas",
+        "flow.sameOwnerPort",
+        "flow.sceneCount",
+        "flow.leftTaskPanel",
+        "flow.owner",
+        "flow.scopeEpoch",
+        "flow.ackEpoch",
+        "flow.cancelled",
+        "flow.lateAck"
+      ],
+      "capabilityIds": [
+        "CAP-03-05"
+      ],
+      "assets": [
+        "D01",
+        "D02"
+      ],
+      "originalWorkPackages": [
+        "B0-02",
+        "F1-03",
+        "F1-04",
+        "T5-02"
+      ],
+      "primaryPackage": "B0-02",
+      "positive": [
+        "B109-P04"
+      ],
+      "negative": [
+        "B109-N11",
+        "B109-N12",
+        "B109-N13",
+        "B109-N14",
+        "B109-N15",
+        "B109-N16"
+      ],
+      "unknown": [],
+      "stale": [
+        "B109-S03",
+        "B109-S04",
+        "B109-S05"
+      ],
+      "testEntry": "tools/check_cap0305_hole_material_b109_v08.cjs",
+      "acceptance": "PLANNING_SYNTHETIC_ONLY",
+      "independentConsumer": "NOT_RUN"
+    }
+  ]
+}

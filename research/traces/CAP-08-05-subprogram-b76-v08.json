@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "procet-b76-trace-v1",
+  "date": "2026-11-01",
+  "capability": "CAP-08-05",
+  "topic": "R-CYCLES-MACROS-001",
+  "sourcesPath": "research/sources/CAP-08-05-subprogram-b76.json",
+  "fixturePath": "docs/capabilities/CAP-08-05/subprogram-b76-fixtures-v08.json",
+  "checker": "tools/check_cap0805_subprogram_b76_v08.cjs",
+  "rules": [
+    {
+      "id": "B76-R1",
+      "title": "最终NC/Profile/D04/D10/Frame/Scope精确锁定",
+      "sourceIds": [
+        "B76-S07",
+        "B76-S05"
+      ],
+      "fields": [
+        "identity.ncHash",
+        "identity.profileHash",
+        "identity.d04Revision",
+        "identity.d10Revision",
+        "identity.frame",
+        "identity.scopeEpoch"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-08-03"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03",
+        "U4-04"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_REFERENCE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "U01",
+        "U02",
+        "S01",
+        "S02",
+        "S04",
+        "S06",
+        "S07"
+      ]
+    },
+    {
+      "id": "B76-R2",
+      "title": "LinuxCNC O-call局部与M98全局参数不能混用",
+      "sourceIds": [
+        "B76-S01"
+      ],
+      "fields": [
+        "program.style",
+        "program.paramScope",
+        "program.expectedParamAfter",
+        "program.targetType"
+      ],
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "origin": "DIALECT_SCOPED_OFFICIAL",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "P01",
+        "P02",
+        "N01",
+        "N12"
+      ]
+    },
+    {
+      "id": "B76-R3",
+      "title": "嵌套L循环乘法与软件预算",
+      "sourceIds": [
+        "B76-S01",
+        "B76-S02"
+      ],
+      "fields": [
+        "program.outerRepeat",
+        "program.innerRepeat",
+        "program.expectedEvents",
+        "program.maxEvents"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "origin": "DIALECT_SCOPED_OFFICIAL",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "P05",
+        "N08",
+        "N09",
+        "N22"
+      ]
+    },
+    {
+      "id": "B76-R4",
+      "title": "Haas M97绑定N行，M98绑定外部O程序",
+      "sourceIds": [
+        "B76-S02"
+      ],
+      "fields": [
+        "program.dialect",
+        "program.style",
+        "program.targetType",
+        "program.externalFile"
+      ],
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-03"
+      ],
+      "origin": "DIALECT_SCOPED_OFFICIAL",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "P03",
+        "P04",
+        "N04",
+        "N21"
+      ]
+    },
+    {
+      "id": "B76-R5",
+      "title": "主程序M99与调用风格/编号冲突",
+      "sourceIds": [
+        "B76-S01",
+        "B76-S07"
+      ],
+      "fields": [
+        "program.mainM99",
+        "program.mixedStyles",
+        "program.duplicateNumber"
+      ],
+      "capabilityIds": [
+        "CAP-08-05"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-05"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_REFERENCE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "N02",
+        "N03",
+        "N07"
+      ]
+    },
+    {
+      "id": "B76-R6",
+      "title": "程序闭包Hash/搜索路径资格与外部缺失",
+      "sourceIds": [
+        "B76-S01",
+        "B76-S02",
+        "B76-S03",
+        "B76-S07"
+      ],
+      "fields": [
+        "identity.closureHash",
+        "program.searchRootsPinned",
+        "program.searchPathApproved",
+        "program.externalUnresolved",
+        "program.outsideClosure"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-10-03"
+      ],
+      "workPackageIds": [
+        "E3-02",
+        "E3-06"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_REFERENCE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "N05",
+        "N06",
+        "U04",
+        "S03"
+      ]
+    },
+    {
+      "id": "B76-R7",
+      "title": "调用栈、返回事件、未知宏来源",
+      "sourceIds": [
+        "B76-S03",
+        "B76-S07"
+      ],
+      "fields": [
+        "program.callStackMapped",
+        "program.returnMapped",
+        "program.unknownMacro",
+        "program.targetResolved"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-06"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-04"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_REFERENCE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "N10",
+        "N11",
+        "U03",
+        "U05",
+        "U06"
+      ]
+    },
+    {
+      "id": "B76-R8",
+      "title": "GUI/CLI/Agent共Owner、CAS/ACL/取消与D15放行边界",
+      "sourceIds": [
+        "B76-S04",
+        "B76-S07"
+      ],
+      "fields": [
+        "gate.ownerPort",
+        "gate.acl",
+        "gate.cas",
+        "gate.cancelled",
+        "gate.lateAck",
+        "gate.channels",
+        "gate.freezePreserved",
+        "gate.releaseRequested"
+      ],
+      "capabilityIds": [
+        "CAP-08-05",
+        "CAP-09-08"
+      ],
+      "workPackageIds": [
+        "E3-03",
+        "E3-05",
+        "U4-04"
+      ],
+      "origin": "INTERNAL_WITH_EXTERNAL_REFERENCE",
+      "approval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "caseIds": [
+        "N13",
+        "N14",
+        "N15",
+        "N16",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N23",
+        "N24",
+        "S05",
+        "D01"
+      ]
+    }
+  ]
+}

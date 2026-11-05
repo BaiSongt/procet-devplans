@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "procet-research-trace-v1",
+  "workPackageId": "W2-06",
+  "researchTopic": "R-AB-E2E-001",
+  "sourceRegistry": "research/sources/W2-06.json",
+  "implementation": "docs/work-packages/W2-06.md",
+  "ui": "docs/work-packages/W2-06/UI.md",
+  "fixtures": "docs/work-packages/W2-06/fixtures.json",
+  "validator": "tools/check_w206_planning_2026_10_25.mjs",
+  "rules": [
+    {
+      "id": "W206-R01",
+      "workPackageId": "W2-06",
+      "summary": "REAL_SERVICE_HEADLESS",
+      "sourceIds": [
+        "SRC-W206-S10",
+        "SRC-W206-S09"
+      ],
+      "fields": [
+        "service.realOwnerPorts",
+        "service.uiMock",
+        "service.childProcess",
+        "service.sandboxOnly",
+        "service.noUserDbMutation"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05",
+        "D06"
+      ],
+      "positiveTestId": "W2-06-T01",
+      "negativeTestId": "W2-06-T02",
+      "negativeReason": "REJECT_UI_MOCK_AS_E2E",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R02",
+      "workPackageId": "W2-06",
+      "summary": "EXACT_ASSET_CLOSURE",
+      "sourceIds": [
+        "SRC-W206-S02",
+        "SRC-W206-S04"
+      ],
+      "fields": [
+        "context.projectId",
+        "context.documentId",
+        "context.branchId",
+        "context.setupId",
+        "context.d01.revision",
+        "context.d01.hash",
+        "context.d04.revision",
+        "context.d04.hash",
+        "context.d04.frame",
+        "context.d04.unit"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D06"
+      ],
+      "positiveTestId": "W2-06-T03",
+      "negativeTestId": "W2-06-T04",
+      "negativeReason": "REJECT_MISSING_EXACT_REVISION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R03",
+      "workPackageId": "W2-06",
+      "summary": "A_TO_B_ORDERED_HANDOFF",
+      "sourceIds": [
+        "SRC-W206-S01",
+        "SRC-W206-S07"
+      ],
+      "fields": [
+        "flow.order",
+        "flow.noApprovedD05AtStart",
+        "flow.d06Candidates",
+        "flow.d07Checked",
+        "flow.adoptedViaD05Port",
+        "flow.d08Frozen",
+        "flow.bCompletes"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "W2-06-T05",
+      "negativeTestId": "W2-06-T06",
+      "negativeReason": "REJECT_DIRECT_SOLVER_FREEZE",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R04",
+      "workPackageId": "W2-06",
+      "summary": "B_SCOPED_RETURN_PRESERVE_FREEZE",
+      "sourceIds": [
+        "SRC-W206-S02",
+        "SRC-W206-S03"
+      ],
+      "fields": [
+        "freeze.frozenHashBefore",
+        "freeze.frozenHashAfter",
+        "freeze.unrelatedHashBefore",
+        "freeze.unrelatedHashAfter",
+        "freeze.scopedInvalidation",
+        "freeze.changeDecisionRecorded"
+      ],
+      "assets": [
+        "D05",
+        "D07",
+        "D08"
+      ],
+      "positiveTestId": "W2-06-T07",
+      "negativeTestId": "W2-06-T08",
+      "negativeReason": "REJECT_UNRELATED_INVALIDATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R05",
+      "workPackageId": "W2-06",
+      "summary": "MULTI_SETUP_OWNER_QUERY",
+      "sourceIds": [
+        "SRC-W206-S02",
+        "SRC-W206-S08"
+      ],
+      "fields": [
+        "queries.setupA",
+        "queries.setupB",
+        "queries.setupARevisionHash",
+        "queries.setupBRevisionHash",
+        "queries.fromOwner",
+        "queries.activeGuiStateOnly"
+      ],
+      "assets": [
+        "D02",
+        "D04",
+        "D05",
+        "D07"
+      ],
+      "positiveTestId": "W2-06-T09",
+      "negativeTestId": "W2-06-T10",
+      "negativeReason": "REJECT_GUI_ONLY_QUERY",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R06",
+      "workPackageId": "W2-06",
+      "summary": "CAS_ACL_CANCEL_LATE_RECEIPT",
+      "sourceIds": [
+        "SRC-W206-S03",
+        "SRC-W206-S05"
+      ],
+      "fields": [
+        "guards.aclNow",
+        "guards.expectedHead",
+        "guards.currentHead",
+        "guards.expectedEpoch",
+        "guards.currentEpoch",
+        "guards.generation",
+        "guards.currentGeneration",
+        "guards.cancelled",
+        "guards.lateReceipt"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-06-T11",
+      "negativeTestId": "W2-06-T12",
+      "negativeReason": "REJECT_LATE_RECEIPT",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R07",
+      "workPackageId": "W2-06",
+      "summary": "CRASH_REPLAY_UNIQUE_TERMINAL",
+      "sourceIds": [
+        "SRC-W206-S05",
+        "SRC-W206-S06"
+      ],
+      "fields": [
+        "recovery.stagingSealed",
+        "recovery.manifestDigestMatches",
+        "recovery.uniqueTerminal",
+        "recovery.resumeState",
+        "recovery.crossDbAtomicAssumed"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-06-T13",
+      "negativeTestId": "W2-06-T14",
+      "negativeReason": "UNKNOWN_RECOVERY",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R08",
+      "workPackageId": "W2-06",
+      "summary": "NO_CL_AS_NC_QUALIFICATION",
+      "sourceIds": [
+        "SRC-W206-S01",
+        "SRC-W206-S08"
+      ],
+      "fields": [
+        "semantic.d09",
+        "semantic.d11",
+        "semantic.d12",
+        "semantic.d13",
+        "semantic.d15",
+        "semantic.d16",
+        "semantic.materialSweep"
+      ],
+      "assets": [
+        "D09",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-06-T15",
+      "negativeTestId": "W2-06-T16",
+      "negativeReason": "REJECT_CL_AS_NC_PASS",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R09",
+      "workPackageId": "W2-06",
+      "summary": "LEGACY_SNAPSHOT_NON_DESTRUCTIVE",
+      "sourceIds": [
+        "SRC-W206-S02",
+        "SRC-W206-S06"
+      ],
+      "fields": [
+        "migration.legacyReadable",
+        "migration.newRevisionIndependent",
+        "migration.oldFrozenHashPreserved",
+        "migration.deleteUserDb",
+        "migration.rollbackToOldPort"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D05",
+        "D08"
+      ],
+      "positiveTestId": "W2-06-T17",
+      "negativeTestId": "W2-06-T18",
+      "negativeReason": "REJECT_DESTRUCTIVE_MIGRATION",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "W206-R10",
+      "workPackageId": "W2-06",
+      "summary": "INDEPENDENT_CONSUMER_PROOF_LEVEL",
+      "sourceIds": [
+        "SRC-W206-S09",
+        "SRC-W206-S10"
+      ],
+      "fields": [
+        "evidence.headlessRunRequired",
+        "evidence.exitCodeRequired",
+        "evidence.independentConsumerPlanned",
+        "evidence.realProcessRun",
+        "evidence.consumerResult",
+        "evidence.productResult"
+      ],
+      "assets": [
+        "D06",
+        "D07",
+        "D08",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "positiveTestId": "W2-06-T19",
+      "negativeTestId": "W2-06-T20",
+      "negativeReason": "REJECT_SYNTHETIC_AS_PRODUCT_PASS",
+      "ownerApproval": "PENDING_HUMAN",
+      "independentConsumer": "NOT_RUN",
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}

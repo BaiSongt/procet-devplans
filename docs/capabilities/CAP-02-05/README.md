@@ -107,3 +107,6 @@ UI详见[UI.md](UI.md)；五大功能面的字段、选择/预览/取消/恢复�
 保留原工作包映射F1-02/F1-06/E3-04；额外与F1-01 exact引用、F1-04 Setup拆分、W2-05工艺消费、T5-03回归协同，不增36项。实施切口：I01现场旧字段清点→I02 MaterialRevisionRef与legacy只读适配→I03 StockTemplate/几何闭包→I04显式候选+真实Solid Fit→I05单容器GUI与共享入口→I06失效、离线恢复及迁移回退。Resources/Setup Owner生产，Solver/CAM/GUI消费方和独立几何验证者共同审查；每项记录变更SHA、正反例、未覆盖区、回退证据。
 
 迁移阶段保留旧reader、旧工程数据和原始material_id，先影子对比，再灰度新writer；中途失败不改Approved。不能把`enabled=false`等同全系统统一Obsolete而不评审。待工程审批：材料发布/使用政策、具体材料批次追溯权属、OCCT锁定版本和Fit容差、厂家材料分组来源与历史版本唯一性。
+
+## 2026-11-03 B133研究补证
+[炉批检验文件/硬度换算资格](HEAT-LOT-HARDNESS-B133-2026-11-03.md)增加9规则和45个正反合成测试，ISO标准仅官方目录摘要，不将材料目录当真实炉批，Owner/真实消费者/L3及产品待验。
