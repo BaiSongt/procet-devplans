@@ -1,0 +1,436 @@
+{
+  "schemaVersion": "procet-b178-fixtures-v08",
+  "origin": "NEWLY_AUTHORED_SYNTHETIC_ONLY_NOT_USB_OR_MACHINE_TEST",
+  "date": "2026-11-05",
+  "syntheticOnly": true,
+  "baseline": {
+    "identity": {
+      "d16Revision": "D16:r17",
+      "ncSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "d04Separate": true,
+      "d10Binding": "D10:machine-rev17"
+    },
+    "media": {
+      "ownerRef": "user:operator17",
+      "approvedId": "VID:1234;PID:ABCD;SER:0017",
+      "deviceClass": "MASS_STORAGE_ONLY",
+      "allowlistVersion": "policy:v7"
+    },
+    "endpoint": {
+      "station": "station:isolated-receiver",
+      "usbPolicy": "DENY_HID_AND_COMPOSITE",
+      "autoRunDisabled": true,
+      "quarantineMounted": true
+    },
+    "scan": {
+      "engineVersion": "engine:1.7",
+      "definitionsRevision": "defs:2026-11-05",
+      "scannedPayloadSha": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "result": "CLEAN"
+    },
+    "integrity": {
+      "manifestSignature": "VALID_TRUSTED_ROOT",
+      "rawNcShaEqual": true,
+      "manifestCanonicalized": true,
+      "revocationState": "FRESH_OFFLINE_SNAPSHOT"
+    },
+    "execution": {
+      "d13": "SUPPORTED_FINAL_NC",
+      "d14": "AXIS_TIMELINE_BOUND",
+      "d15": "INDEPENDENT_PASS",
+      "authority": "HUMAN_RELEASED"
+    },
+    "transaction": {
+      "ownerPort": "D16OfflineDeliveryPort",
+      "aclRechecked": true,
+      "casExpected": "D16:r17",
+      "cancelFence": "OPEN"
+    },
+    "receipt": {
+      "consumer": "D17:independent-receiver",
+      "encounterEpoch": "epoch:17",
+      "state": "QUARANTINE_PASSED",
+      "historyAppendOnly": true
+    }
+  },
+  "cases": [
+    {
+      "id": "B178-R01-P",
+      "ruleId": "B178-R01",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R01-N1",
+      "ruleId": "B178-R01",
+      "kind": "single_field_negative",
+      "changedField": "identity.d16Revision",
+      "patchValue": "rev:old",
+      "expected": false
+    },
+    {
+      "id": "B178-R01-N2",
+      "ruleId": "B178-R01",
+      "kind": "single_field_negative",
+      "changedField": "identity.ncSha",
+      "patchValue": "sha256:xyz",
+      "expected": false
+    },
+    {
+      "id": "B178-R01-N3",
+      "ruleId": "B178-R01",
+      "kind": "single_field_negative",
+      "changedField": "identity.d04Separate",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B178-R01-N4",
+      "ruleId": "B178-R01",
+      "kind": "single_field_negative",
+      "changedField": "identity.d10Binding",
+      "patchValue": "D04:setup-only",
+      "expected": false
+    },
+    {
+      "id": "B178-R02-P",
+      "ruleId": "B178-R02",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R02-N1",
+      "ruleId": "B178-R02",
+      "kind": "single_field_negative",
+      "changedField": "media.ownerRef",
+      "patchValue": "",
+      "expected": false
+    },
+    {
+      "id": "B178-R02-N2",
+      "ruleId": "B178-R02",
+      "kind": "single_field_negative",
+      "changedField": "media.approvedId",
+      "patchValue": "VID:????",
+      "expected": false
+    },
+    {
+      "id": "B178-R02-N3",
+      "ruleId": "B178-R02",
+      "kind": "single_field_negative",
+      "changedField": "media.deviceClass",
+      "patchValue": "HID_COMPOSITE",
+      "expected": false
+    },
+    {
+      "id": "B178-R02-N4",
+      "ruleId": "B178-R02",
+      "kind": "single_field_negative",
+      "changedField": "media.allowlistVersion",
+      "patchValue": "unknown",
+      "expected": false
+    },
+    {
+      "id": "B178-R03-P",
+      "ruleId": "B178-R03",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R03-N1",
+      "ruleId": "B178-R03",
+      "kind": "single_field_negative",
+      "changedField": "endpoint.station",
+      "patchValue": "unknown",
+      "expected": false
+    },
+    {
+      "id": "B178-R03-N2",
+      "ruleId": "B178-R03",
+      "kind": "single_field_negative",
+      "changedField": "endpoint.usbPolicy",
+      "patchValue": "ALLOW_HID",
+      "expected": false
+    },
+    {
+      "id": "B178-R03-N3",
+      "ruleId": "B178-R03",
+      "kind": "single_field_negative",
+      "changedField": "endpoint.autoRunDisabled",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B178-R03-N4",
+      "ruleId": "B178-R03",
+      "kind": "single_field_negative",
+      "changedField": "endpoint.quarantineMounted",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B178-R04-P",
+      "ruleId": "B178-R04",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R04-N1",
+      "ruleId": "B178-R04",
+      "kind": "single_field_negative",
+      "changedField": "scan.engineVersion",
+      "patchValue": "unknown",
+      "expected": false
+    },
+    {
+      "id": "B178-R04-N2",
+      "ruleId": "B178-R04",
+      "kind": "single_field_negative",
+      "changedField": "scan.definitionsRevision",
+      "patchValue": "stale",
+      "expected": false
+    },
+    {
+      "id": "B178-R04-N3",
+      "ruleId": "B178-R04",
+      "kind": "single_field_negative",
+      "changedField": "scan.scannedPayloadSha",
+      "patchValue": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "expected": false
+    },
+    {
+      "id": "B178-R04-N4",
+      "ruleId": "B178-R04",
+      "kind": "single_field_negative",
+      "changedField": "scan.result",
+      "patchValue": "UNSCANNED",
+      "expected": false
+    },
+    {
+      "id": "B178-R05-P",
+      "ruleId": "B178-R05",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R05-N1",
+      "ruleId": "B178-R05",
+      "kind": "single_field_negative",
+      "changedField": "integrity.manifestSignature",
+      "patchValue": "UNTRUSTED",
+      "expected": false
+    },
+    {
+      "id": "B178-R05-N2",
+      "ruleId": "B178-R05",
+      "kind": "single_field_negative",
+      "changedField": "integrity.rawNcShaEqual",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B178-R05-N3",
+      "ruleId": "B178-R05",
+      "kind": "single_field_negative",
+      "changedField": "integrity.manifestCanonicalized",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B178-R05-N4",
+      "ruleId": "B178-R05",
+      "kind": "single_field_negative",
+      "changedField": "integrity.revocationState",
+      "patchValue": "STALE",
+      "expected": false
+    },
+    {
+      "id": "B178-R06-P",
+      "ruleId": "B178-R06",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R06-N1",
+      "ruleId": "B178-R06",
+      "kind": "single_field_negative",
+      "changedField": "execution.d13",
+      "patchValue": "UNKNOWN",
+      "expected": false
+    },
+    {
+      "id": "B178-R06-N2",
+      "ruleId": "B178-R06",
+      "kind": "single_field_negative",
+      "changedField": "execution.d14",
+      "patchValue": "CL_ANIMATION_ONLY",
+      "expected": false
+    },
+    {
+      "id": "B178-R06-N3",
+      "ruleId": "B178-R06",
+      "kind": "single_field_negative",
+      "changedField": "execution.d15",
+      "patchValue": "NOT_RUN",
+      "expected": false
+    },
+    {
+      "id": "B178-R06-N4",
+      "ruleId": "B178-R06",
+      "kind": "single_field_negative",
+      "changedField": "execution.authority",
+      "patchValue": "AUTO_APPROVED",
+      "expected": false
+    },
+    {
+      "id": "B178-R07-P",
+      "ruleId": "B178-R07",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R07-N1",
+      "ruleId": "B178-R07",
+      "kind": "single_field_negative",
+      "changedField": "transaction.ownerPort",
+      "patchValue": "AgentWriteBypass",
+      "expected": false
+    },
+    {
+      "id": "B178-R07-N2",
+      "ruleId": "B178-R07",
+      "kind": "single_field_negative",
+      "changedField": "transaction.aclRechecked",
+      "patchValue": false,
+      "expected": false
+    },
+    {
+      "id": "B178-R07-N3",
+      "ruleId": "B178-R07",
+      "kind": "single_field_negative",
+      "changedField": "transaction.casExpected",
+      "patchValue": "D16:r16",
+      "expected": false
+    },
+    {
+      "id": "B178-R07-N4",
+      "ruleId": "B178-R07",
+      "kind": "single_field_negative",
+      "changedField": "transaction.cancelFence",
+      "patchValue": "CANCELLED",
+      "expected": false
+    },
+    {
+      "id": "B178-R08-P",
+      "ruleId": "B178-R08",
+      "kind": "positive",
+      "changedField": null,
+      "expected": true
+    },
+    {
+      "id": "B178-R08-N1",
+      "ruleId": "B178-R08",
+      "kind": "single_field_negative",
+      "changedField": "receipt.consumer",
+      "patchValue": "D16:self-attestation",
+      "expected": false
+    },
+    {
+      "id": "B178-R08-N2",
+      "ruleId": "B178-R08",
+      "kind": "single_field_negative",
+      "changedField": "receipt.encounterEpoch",
+      "patchValue": "epoch:stale",
+      "expected": false
+    },
+    {
+      "id": "B178-R08-N3",
+      "ruleId": "B178-R08",
+      "kind": "single_field_negative",
+      "changedField": "receipt.state",
+      "patchValue": "FILE_COPIED",
+      "expected": false
+    },
+    {
+      "id": "B178-R08-N4",
+      "ruleId": "B178-R08",
+      "kind": "single_field_negative",
+      "changedField": "receipt.historyAppendOnly",
+      "patchValue": false,
+      "expected": false
+    }
+  ],
+  "goldenBaseline": {
+    "device": "APPROVED_STORAGE_ONLY",
+    "host": "ISOLATED",
+    "signature": "TRUSTED",
+    "scan": "CLEAN_FRESH",
+    "rawNc": "EXACT",
+    "d15": "PASS_FINAL_NC",
+    "receipt": "CURRENT",
+    "root": "FRESH"
+  },
+  "goldens": [
+    {
+      "id": "B178-G1",
+      "patch": {},
+      "expected": "ELIGIBLE_FOR_HUMAN_HANDOFF_NOT_MACHINE_PASS"
+    },
+    {
+      "id": "B178-G2",
+      "patch": {
+        "device": "HID_COMPOSITE"
+      },
+      "expected": "BLOCKED_SECURITY_DEVICE"
+    },
+    {
+      "id": "B178-G3",
+      "patch": {
+        "host": "UNTRUSTED"
+      },
+      "expected": "BLOCKED_SECURITY_DEVICE"
+    },
+    {
+      "id": "B178-G4",
+      "patch": {
+        "signature": "UNKNOWN"
+      },
+      "expected": "BLOCKED_SECURITY_TRUST"
+    },
+    {
+      "id": "B178-G5",
+      "patch": {
+        "scan": "STALE_DEFINITIONS"
+      },
+      "expected": "BLOCKED_UNKNOWN"
+    },
+    {
+      "id": "B178-G6",
+      "patch": {
+        "rawNc": "CHANGED_AFTER_SCAN"
+      },
+      "expected": "BLOCKED_INTEGRITY"
+    },
+    {
+      "id": "B178-G7",
+      "patch": {
+        "d15": "CL_ONLY"
+      },
+      "expected": "BLOCKED_ENGINEERING"
+    },
+    {
+      "id": "B178-G8",
+      "patch": {
+        "receipt": "LATE"
+      },
+      "expected": "IGNORE_STALE_ACK"
+    }
+  ]
+}

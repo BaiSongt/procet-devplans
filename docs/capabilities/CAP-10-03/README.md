@@ -1,3 +1,5 @@
+> **B178研究增量（2026-11-05）：** [USB设备类别/隔离主机/扫描证据](USB-QUARANTINE-B178-2026-11-05.md) → [6来源](../../../research/sources/CAP-10-03-usb-quarantine-b178.json) → [8规则32字段](../../../research/traces/CAP-10-03-usb-quarantine-b178-v08.json) → [48合成](usb-quarantine-b178-fixtures-v08.json) → [Node入口](../../../tools/check_cap1003_usb_quarantine_b178_v08.cjs)。HID伪装/扫描阴性与D15工程验收严格分离；真实USB、D17、L3未验。**规划PASS≠产品PASS。**
+
 > **B149研究增量（2026-11-04）**：[介质Flush、安全移除与重插复核](DURABLE-MEDIA-B149-2026-11-04.md) → [5来源](../../../research/sources/CAP-10-03-durable-media-b149.json) → [8规则/32字段](../../../research/traces/CAP-10-03-durable-media-b149-v08.json) → [40规则正反+8状态Golden](durable-media-b149-fixtures-v08.json) → [只读Node](../../../tools/check_cap1003_durable_media_b149_v08.cjs)。48/48仅规划内存合成；实际介质/签名/NC/D17/Owner与L3未验。**规划PASS≠产品PASS。**
 
 > **B100研究增量（2026-11-02）**：[D16→D17独立接收证明和同域自证陷阱](INDEPENDENT-RECEIPT-B100-2026-11-02.md) → [8来源](../../../research/sources/CAP-10-03-independent-receipt-b100.json) → [8规则](../../../research/traces/CAP-10-03-independent-receipt-b100-v08.json) → [37项正反/UNKNOWN/幂等合成](independent-receipt-b100-fixtures-v08.json)。真实独立D17、签名、CNC与L3均NOT_RUN；规划PASS≠产品PASS。

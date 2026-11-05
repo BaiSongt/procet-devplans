@@ -1,3 +1,6 @@
+## 2026-11-05｜B178 U盘介质隔离、扫描证据与发布资格
+[来源](sources/CAP-10-03-usb-quarantine-b178.json) → [规则](traces/CAP-10-03-usb-quarantine-b178-v08.json) → [48合成](../docs/capabilities/CAP-10-03/usb-quarantine-b178-fixtures-v08.json) → [专题](../docs/capabilities/CAP-10-03/USB-QUARANTINE-B178-2026-11-05.md)。CSA官方全文指定段落、NIST800-171目录和搜索摘录（直接正文未加载）、RFC8785正文、NIST800-88仅摘要。Owner/独立D17/真实USB/NC/L3仍NOT_RUN。
+
 ## 2026-11-05｜B177 G61/G64轨迹控制
 [来源](sources/CAP-08-03-path-blending-b177.json) → [规则](traces/CAP-08-03-path-blending-b177-v08.json) → [50合成](../docs/capabilities/CAP-08-03/path-blending-b177-fixtures-v08.json) → [专题](../docs/capabilities/CAP-08-03/PATH-BLENDING-B177-2026-11-05.md)。NIST仅元数据；独立消费者/控制器/L3未验，规划PASS≠产品PASS。
 
