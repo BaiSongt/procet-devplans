@@ -1,3 +1,6 @@
+## 2026-11-05｜B185 CAP-01-05跨域接管原子性边界与恢复
+[5分级来源](sources/CAP-01-05-handoff-recovery-b185.json) → [8规则32字段](traces/CAP-01-05-handoff-recovery-b185-v08.json) → [50合成](../docs/capabilities/CAP-01-05/handoff-recovery-b185-fixtures-v08.json) → [研究](../docs/capabilities/CAP-01-05/HANDOFF-RECOVERY-B185-2026-11-05.md)。RFC9110与SQLite WAL指定官方段落实读，PROV-O仅标题摘要；独立Node整文件/真实跨库断电/Owner/L3未验。规划PASS≠产品PASS。
+
 
 ## 2026-11-05｜B184 CAP-06-02支配证书及Beam裁剪不完整性
 [7分级来源](sources/CAP-06-02-dominance-b184.json) → [8规则32字段](traces/CAP-06-02-dominance-b184-v08.json) → [8正32反8Golden](../docs/capabilities/CAP-06-02/dominance-b184-fixtures-v08.json) → [专项报告](../docs/capabilities/CAP-06-02/DOMINANCE-CERTIFICATE-B184-2026-11-05.md)。OR-Tools/OCCT官方指定HTML已读，NIST仅摘要，1968 A*仅索引摘要；真实OCCT/Node文件/D05与D15独立消费者/17正式Owner/L3均未验。规划PASS≠产品PASS。

@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "procet-b185-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-01-05",
+  "originalWorkPackages": [
+    "W2-01",
+    "W2-04",
+    "W2-06",
+    "F1-04",
+    "U4-01"
+  ],
+  "sourceRegistry": "research/sources/CAP-01-05-handoff-recovery-b185.json",
+  "report": "docs/capabilities/CAP-01-05/HANDOFF-RECOVERY-B185-2026-11-05.md",
+  "fixtures": "docs/capabilities/CAP-01-05/handoff-recovery-b185-fixtures-v08.json",
+  "checker": "tools/check_cap0105_handoff_recovery_b185_v08.cjs",
+  "rules": [
+    {
+      "id": "B185-R01",
+      "title": "同工程精确来源、修订与Frame",
+      "fields": [
+        "identity.projectScope",
+        "identity.revision",
+        "identity.hash",
+        "identity.frame"
+      ],
+      "sourceIds": [
+        "B185-S03",
+        "B185-S04"
+      ],
+      "assets": [
+        "D01",
+        "D04",
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R01-P",
+        "B185-R01-N1",
+        "B185-R01-N2",
+        "B185-R01-N3",
+        "B185-R01-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B185-R02",
+      "title": "Staging密封字节证据",
+      "fields": [
+        "stage.sealed",
+        "stage.manifestHash",
+        "stage.actualHash",
+        "stage.bytesVerified"
+      ],
+      "sourceIds": [
+        "B185-S02",
+        "B185-S05"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R02-P",
+        "B185-R02-N1",
+        "B185-R02-N2",
+        "B185-R02-N3",
+        "B185-R02-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B185-R03",
+      "title": "CAS与ACL代次即时重验",
+      "fields": [
+        "guard.expectedHead",
+        "guard.currentHead",
+        "guard.allowed",
+        "guard.aclEpochCurrent"
+      ],
+      "sourceIds": [
+        "B185-S01",
+        "B185-S05"
+      ],
+      "assets": [
+        "D01",
+        "D05"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R03-P",
+        "B185-R03-N1",
+        "B185-R03-N2",
+        "B185-R03-N3",
+        "B185-R03-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B185-R04",
+      "title": "稳定候选采纳与冻结保护",
+      "fields": [
+        "freeze.candidateRef",
+        "freeze.digest",
+        "freeze.unchanged",
+        "freeze.mappingComplete"
+      ],
+      "sourceIds": [
+        "B185-S03",
+        "B185-S04"
+      ],
+      "assets": [
+        "D05",
+        "D06",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R04-P",
+        "B185-R04-N1",
+        "B185-R04-N2",
+        "B185-R04-N3",
+        "B185-R04-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B185-R05",
+      "title": "取消Fence与代次拒绝晚回执",
+      "fields": [
+        "cancel.generation",
+        "cancel.activeGeneration",
+        "cancel.cancelled",
+        "cancel.authorized"
+      ],
+      "sourceIds": [
+        "B185-S04",
+        "B185-S05"
+      ],
+      "assets": [
+        "D05",
+        "D06"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R05-P",
+        "B185-R05-N1",
+        "B185-R05-N2",
+        "B185-R05-N3",
+        "B185-R05-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B185-R06",
+      "title": "请求幂等不得同键异载荷",
+      "fields": [
+        "idem.key",
+        "idem.payloadHash",
+        "idem.recordedHash",
+        "idem.sameReceipt"
+      ],
+      "sourceIds": [
+        "B185-S01",
+        "B185-S05"
+      ],
+      "assets": [
+        "D05",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R06-P",
+        "B185-R06-N1",
+        "B185-R06-N2",
+        "B185-R06-N3",
+        "B185-R06-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B185-R07",
+      "title": "领域提交标记与Project可见双见证",
+      "fields": [
+        "recovery.domainCommitted",
+        "recovery.planRef",
+        "recovery.projectVisible",
+        "recovery.receiptConsistent"
+      ],
+      "sourceIds": [
+        "B185-S02",
+        "B185-S03",
+        "B185-S05"
+      ],
+      "assets": [
+        "D01",
+        "D05",
+        "D08"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R07-P",
+        "B185-R07-N1",
+        "B185-R07-N2",
+        "B185-R07-N3",
+        "B185-R07-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    },
+    {
+      "id": "B185-R08",
+      "title": "三入口同Port与NC资格独立",
+      "fields": [
+        "boundary.managedPort",
+        "boundary.d04D10Separated",
+        "boundary.guiCliAgentSame",
+        "boundary.ncIndependent"
+      ],
+      "sourceIds": [
+        "B185-S04",
+        "B185-S05"
+      ],
+      "assets": [
+        "D04",
+        "D05",
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "capabilityIds": [
+        "CAP-01-05"
+      ],
+      "originalWorkPackages": [
+        "W2-01",
+        "W2-04",
+        "W2-06"
+      ],
+      "testIds": [
+        "B185-R08-P",
+        "B185-R08-N1",
+        "B185-R08-N2",
+        "B185-R08-N3",
+        "B185-R08-N4"
+      ],
+      "productAcceptance": "NOT_RUN"
+    }
+  ]
+}
