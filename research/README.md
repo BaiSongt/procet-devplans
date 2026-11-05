@@ -1,3 +1,6 @@
+## 2026-11-05｜B181 M48–M53倍率/停机回执
+[来源9条](sources/CAP-09-06-feed-override-b181.json) → [规则32字段](traces/CAP-09-06-feed-override-b181-v08.json) → [54合成](../docs/capabilities/CAP-09-06/feed-override-b181-fixtures-v08.json) → [研究](../docs/capabilities/CAP-09-06/FEED-OVERRIDE-B181-2026-11-05.md)。NIST仅元数据/摘要；独立NC/Owner/L3未验。规划PASS≠产品PASS。
+
 ## 2026-11-05｜B180 G28/G30/G53归零及非模态执行语义
 [8项分级来源](sources/CAP-07-06-reference-return-b180.json) → [8规则32字段](traces/CAP-07-06-reference-return-b180-v08.json) → [50合成](../docs/capabilities/CAP-07-06/reference-return-b180-fixtures-v08.json) → [专项研究](../docs/capabilities/CAP-07-06/REFERENCE-RETURN-B180-2026-11-05.md)。LinuxCNC2.9官方章节和Haas G28/Setting108正文，Haas G53仅搜索摘录、NIST仅摘要；真实NC/Owner/消费者/L3未验，规划PASS≠产品PASS。
 

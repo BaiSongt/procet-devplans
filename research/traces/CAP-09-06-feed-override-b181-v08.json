@@ -1,0 +1,445 @@
+{
+  "schemaVersion": "procet-b181-trace-v08",
+  "date": "2026-11-05",
+  "capabilityId": "CAP-09-06",
+  "originalWorkPackages": [
+    "F1-02",
+    "E3-04",
+    "E3-05",
+    "U4-04"
+  ],
+  "sourceRegistry": "research/sources/CAP-09-06-feed-override-b181.json",
+  "fixtures": "docs/capabilities/CAP-09-06/feed-override-b181-fixtures-v08.json",
+  "checker": "tools/check_cap0906_feed_override_b181_v08.cjs",
+  "report": "docs/capabilities/CAP-09-06/FEED-OVERRIDE-B181-2026-11-05.md",
+  "fieldDefinitions": {
+    "identity.d12Hash": {
+      "kind": "hash",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identity.d10Hash": {
+      "kind": "hash",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identity.frameHash": {
+      "kind": "hash",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identity.scopeEpoch": {
+      "kind": "positive_integer"
+    },
+    "override.m48m49Pinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "override.feedSpindleSeparate": {
+      "kind": "equals",
+      "value": true
+    },
+    "override.m50Pinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "override.m51SpindlePinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "adaptive.m52Pinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "adaptive.halSourcePinned": {
+      "kind": "equals",
+      "value": true
+    },
+    "adaptive.negativeAdaptiveUnknown": {
+      "kind": "equals",
+      "value": true
+    },
+    "adaptive.runtimeSampleNotMeasured": {
+      "kind": "equals",
+      "value": true
+    },
+    "hold.m53GateKnown": {
+      "kind": "equals",
+      "value": true
+    },
+    "hold.halHoldKnown": {
+      "kind": "equals",
+      "value": true
+    },
+    "hold.stopNotProven": {
+      "kind": "equals",
+      "value": true
+    },
+    "hold.resumeRequiresRecheck": {
+      "kind": "equals",
+      "value": true
+    },
+    "pause.m0AlwaysPauses": {
+      "kind": "equals",
+      "value": true
+    },
+    "pause.m1SwitchKnown": {
+      "kind": "equals",
+      "value": true
+    },
+    "pause.resumeNotCertified": {
+      "kind": "equals",
+      "value": true
+    },
+    "pause.m30ResetSeparate": {
+      "kind": "equals",
+      "value": true
+    },
+    "bounds.iniMaxFeedKnown": {
+      "kind": "equals",
+      "value": true
+    },
+    "bounds.notActualVelocity": {
+      "kind": "equals",
+      "value": true
+    },
+    "bounds.jointFeedbackSeparate": {
+      "kind": "equals",
+      "value": true
+    },
+    "bounds.hardwareUnverified": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d04NominalOnly": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d10ActualBinding": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d13ReparseFinalNc": {
+      "kind": "equals",
+      "value": true
+    },
+    "chain.d14D15Independent": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.sameOwnerPort": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.singleBabylonWorld": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.leftUnifiedTaskPanel": {
+      "kind": "equals",
+      "value": true
+    },
+    "ui.casAclCancelFence": {
+      "kind": "equals",
+      "value": true
+    }
+  },
+  "rules": [
+    {
+      "id": "B181-R01",
+      "summary": "最终NC/D10/Frame/Epoch exact identity",
+      "fields": [
+        "identity.d12Hash",
+        "identity.d10Hash",
+        "identity.frameHash",
+        "identity.scopeEpoch"
+      ],
+      "sourceIds": [
+        "B181-S09"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "F1-02",
+        "E3-04"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R01-P",
+        "B181-R01-N1",
+        "B181-R01-N2",
+        "B181-R01-N3",
+        "B181-R01-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B181-R02",
+      "summary": "M48-51独立进给与主轴倍率状态",
+      "fields": [
+        "override.m48m49Pinned",
+        "override.feedSpindleSeparate",
+        "override.m50Pinned",
+        "override.m51SpindlePinned"
+      ],
+      "sourceIds": [
+        "B181-S01",
+        "B181-S02"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R02-P",
+        "B181-R02-N1",
+        "B181-R02-N2",
+        "B181-R02-N3",
+        "B181-R02-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B181-R03",
+      "summary": "M52的HAL输入与反向不确定性",
+      "fields": [
+        "adaptive.m52Pinned",
+        "adaptive.halSourcePinned",
+        "adaptive.negativeAdaptiveUnknown",
+        "adaptive.runtimeSampleNotMeasured"
+      ],
+      "sourceIds": [
+        "B181-S03"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R03-P",
+        "B181-R03-N1",
+        "B181-R03-N2",
+        "B181-R03-N3",
+        "B181-R03-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B181-R04",
+      "summary": "M53允许中断≠反馈已停",
+      "fields": [
+        "hold.m53GateKnown",
+        "hold.halHoldKnown",
+        "hold.stopNotProven",
+        "hold.resumeRequiresRecheck"
+      ],
+      "sourceIds": [
+        "B181-S03"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R04-P",
+        "B181-R04-N1",
+        "B181-R04-N2",
+        "B181-R04-N3",
+        "B181-R04-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B181-R05",
+      "summary": "M0/M1/M30受状态作用域约束",
+      "fields": [
+        "pause.m0AlwaysPauses",
+        "pause.m1SwitchKnown",
+        "pause.resumeNotCertified",
+        "pause.m30ResetSeparate"
+      ],
+      "sourceIds": [
+        "B181-S04"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "U4-04"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R05-P",
+        "B181-R05-N1",
+        "B181-R05-N2",
+        "B181-R05-N3",
+        "B181-R05-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B181-R06",
+      "summary": "INI倍率上限非D14实测时序",
+      "fields": [
+        "bounds.iniMaxFeedKnown",
+        "bounds.notActualVelocity",
+        "bounds.jointFeedbackSeparate",
+        "bounds.hardwareUnverified"
+      ],
+      "sourceIds": [
+        "B181-S05",
+        "B181-S08"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R06-P",
+        "B181-R06-N1",
+        "B181-R06-N2",
+        "B181-R06-N3",
+        "B181-R06-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B181-R07",
+      "summary": "D04/D10分离与最终NC D13-D16",
+      "fields": [
+        "chain.d04NominalOnly",
+        "chain.d10ActualBinding",
+        "chain.d13ReparseFinalNc",
+        "chain.d14D15Independent"
+      ],
+      "sourceIds": [
+        "B181-S06",
+        "B181-S09"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "E3-05"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R07-P",
+        "B181-R07-N1",
+        "B181-R07-N2",
+        "B181-R07-N3",
+        "B181-R07-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    },
+    {
+      "id": "B181-R08",
+      "summary": "GUI/CLI/Agent同Port与权控Fence",
+      "fields": [
+        "ui.sameOwnerPort",
+        "ui.singleBabylonWorld",
+        "ui.leftUnifiedTaskPanel",
+        "ui.casAclCancelFence"
+      ],
+      "sourceIds": [
+        "B181-S07",
+        "B181-S09"
+      ],
+      "caps": [
+        "CAP-09-06"
+      ],
+      "originalWorkPackages": [
+        "E3-04",
+        "U4-04"
+      ],
+      "assets": [
+        "D10",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "testIds": [
+        "B181-R08-P",
+        "B181-R08-N1",
+        "B181-R08-N2",
+        "B181-R08-N3",
+        "B181-R08-N4"
+      ],
+      "ownerApproval": "PENDING_HUMAN",
+      "consumerStatus": "NOT_RUN"
+    }
+  ]
+}
